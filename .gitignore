@@ -25,10 +25,10 @@ __pycache__/
 numerical_output/data/*.csv
 
 # Archived matplotlib figures (superseded by numerical_output/)
-figures/
+/figures/
 
-# Presentation build directory
-presentation/build/
+# Presentation build artifacts
+Rplots.pdf
 
 # IDE / editor
 .vscode/
