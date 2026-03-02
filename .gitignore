@@ -1,0 +1,44 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.toc
+*.xdv
+*.synctex.gz
+*.synctex(busy)
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Generated data (reproducible via `make data`)
+numerical_output/data/*.csv
+
+# Archived matplotlib figures (superseded by numerical_output/)
+figures/
+
+# Presentation build directory
+presentation/build/
+
+# IDE / editor
+.vscode/
+*.swp
+*~
+
+# Claude local state (machine-specific)
+.claude/state/
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db

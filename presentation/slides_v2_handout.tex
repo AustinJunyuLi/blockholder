@@ -1,0 +1,28 @@
+% =============================================================================
+% slides_v2_handout.tex
+% Beamer handout mode driver for slides_v2.tex
+% Suppresses overlays and pauses; prints 2 slides per A4 page
+%
+% Compile: xelatex slides_v2_handout → biber slides_v2_handout → xelatex ×2
+% =============================================================================
+%
+% How it works:
+%   \PassOptionsToClass{handout}{beamer} injects the [handout] option before
+%   \documentclass{beamer} is called inside slides_v2.tex, suppressing all
+%   overlay specifications (\pause, \only<2->, etc.).
+%
+%   The pgfpages layout is configured via \AtEndPreamble to ensure it runs
+%   after all packages in slides_v2.tex have loaded.
+%
+% =============================================================================
+
+\PassOptionsToClass{handout}{beamer}
+
+% Inject pgfpages 2-on-1 layout after the preamble of slides_v2 loads
+\RequirePackage{etoolbox}
+\AtEndPreamble{%
+  \RequirePackage{pgfpages}%
+  \pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]%
+}
+
+\input{slides_v2}

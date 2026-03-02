@@ -1,0 +1,144 @@
+\section{Numerical Illustration}
+\label{sec:numerical}
+%==============================================================================
+
+While the analytical results establish existence of non-monotonicity under sufficient conditions, the calibration shows the mechanism is quantitatively meaningful and the patterns are robust. Table~\ref{tab:params} in Appendix~\ref{app:tables} summarizes the baseline parameterization; Table~\ref{tab:example} in Appendix~\ref{app:tables} reports equilibrium outcomes.
+
+%------------------------------------------------------------------------------
+\subsection{Baseline Equilibrium}
+%------------------------------------------------------------------------------
+
+The baseline parameters satisfy the sufficient condition for Assumption~\textup{(A5)}: $\delta/\sigma_\xi = 0.95/0.40 = 2.375 < 1/\phi(0) \approx 2.507$. Under this parameterization, the Passive Hold region collapses ($k_0=k_1$), so the blockholder's strategy reduces to Exit, Quiet Voice, and Public Voice. Figure~\ref{fig:cutoff-structure} in Appendix~\ref{app:figures} depicts the resulting cutoff structure.
+
+Three features of the equilibrium stand out:
+\begin{itemize}[leftmargin=2em,itemsep=2pt]
+\item \textbf{Disclosed states have maximal activism premium:} $m(X,1) = \tilde{m}$ for all $X \in \{0,1,2\}$, since $D=1$ reveals $a=1$ with certainty.
+\item \textbf{Non-disclosed states show inference:} The posterior $\pi(X,0)$ is highest when order flow is most diagnostic of the quiet-engagement action. With no stake acquisition in $D=0$ states, $X=1$ reveals $q=0$ and hence $\pi(1,0)=\omega_Q/(\omega_H+\omega_Q)$.
+\item \textbf{Disclosure deters bids:} For fixed $X$, $p(X,1) < p(X,0)$ because the bidder knows it must pay the full activism premium when $D=1$.
+\end{itemize}
+
+Figure~\ref{fig:prices} plots equilibrium prices across all $(X,D)$ states. Conditional on disclosure ($D=1$), order flow reflects only noise given Public Voice, so $P(X,1)$ is constant across $X$. The disclosed price level exceeds comparable non-disclosed states because the market knows engagement has occurred rather than inferring it.
+
+%------------------------------------------------------------------------------
+\subsection{Non-Monotonicity in Liquidity}
+%------------------------------------------------------------------------------
+
+Figure~\ref{fig:nonmonotone} displays the central result: a non-monotone relation between liquidity and expected minority takeover gains. As $\kappa$ rises from low levels, $\Delta^{\min}(\kappa)$ initially increases because bid incidence grows. At higher liquidity, activism-related premia contribute less, and $\Delta^{\min}(\kappa)$ declines. The vertical dashed line marks the interior turning point $\kappa^{\dagger}$.
+
+Figure~\ref{fig:decomposition} decomposes these gains into the baseline component $m_0 \cdot \PP(\textup{bid})$ and the activism component $\Delta^{\textup{act}}(\kappa)$. Both components vary smoothly with liquidity, and the hump shape arises from the interaction between bid incidence and the weight placed on activism-related premia.
+
+Figure~\ref{fig:cutoffs-kappa} traces how equilibrium cutoffs shift with liquidity. The ordering $k_1 \le k_0 \le k_D$ is preserved throughout, though regions can collapse (e.g., $k_0=k_1$).
+
+%------------------------------------------------------------------------------
+\subsection{Sensitivity Analysis}
+%------------------------------------------------------------------------------
+
+Figures~\ref{fig:sensitivity-C0} and~\ref{fig:sensitivity-wedge} confirm robustness to key parameters.
+
+\textbf{Engagement cost $C_0$.} Raising $C_0$ shrinks the voice regions and lowers $\Delta^{\textup{act}}$, but it can raise bid incidence by reducing expected resistance. The net effect on $\Delta^{\min}$ is therefore ambiguous, and the turning point in $\kappa$ shifts across cost levels.
+
+\textbf{Premium wedge $(m_1 - m_0)$.} Increasing the wedge raises the takeover premium conditional on bidding but can deter bids. In the calibration, expected minority takeover gains peak at an intermediate wedge.
+
+Figure~\ref{fig:disclosure} isolates the disclosure--inference channel. I fix the blockholder's cutoff strategy at the baseline equilibrium ($\kappa=0.5$) and vary liquidity $\kappa$ only through the noise distribution in order flow, then compare the resulting $\Delta^{\textup{act}}(\kappa)$ under threshold disclosure to a counterfactual without disclosure. Removing disclosure amplifies the role of inference and makes $\Delta^{\textup{act}}(\kappa)$ more sensitive to $\kappa$; threshold disclosure attenuates this sensitivity by shifting probability mass toward states with observed engagement ($D=1$).
+
+%==============================================================================
+\section{Comparative Statics}
+\label{sec:comp-statics}
+%==============================================================================
+
+This section characterizes how the model's primitives map into prices, takeover incentives, and blockholder behavior.
+
+%------------------------------------------------------------------------------
+\subsection{Activism Frictions}
+%------------------------------------------------------------------------------
+
+\paragraph{Sensitivity to engagement frictions.}
+The model's general-equilibrium structure precludes simple closed forms, but analytical results pin down the direction of effects within each regime. Higher engagement costs shrink the voice regions; larger expected engagement benefits and takeover premia expand them. Section~\ref{sec:numerical} reports these patterns numerically.
+
+%------------------------------------------------------------------------------
+\subsection{Liquidity Effects}
+%------------------------------------------------------------------------------
+
+How does liquidity affect the market's inference about activism? Holding the blockholder's strategy fixed, the next result characterizes the within-regime effects.
+
+\begin{proposition}[Within-Regime Liquidity Effects (Holding Cutoffs Fixed)]
+\label{prop:cs-liquidity-within}
+Fix the equilibrium cutoffs $(k_1,k_0,k_D)$ and hence the action probabilities $(\omega_E,\omega_H,\omega_Q,\omega_P)$. For any reached non-disclosed information set $(X,0)$, the posteriors in Proposition~\ref{prop:posteriors} satisfy:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item $\partial \pi(1,0)/\partial \kappa = 0$ and $\partial \pi(-1,0)/\partial \kappa \ge 0$;
+\item $\partial \pi(0,0)/\partial \kappa \le 0$;
+\item $\pi(-2,0)=0$ and $\pi(X,1)=1$ for all feasible $X$.
+\end{enumerate}
+Consequently, the inferred premium wedge $m(X,0)=m_0+(\tilde{m}-m_0)\pi(X,0)$ is increasing in $\kappa$ for $X=-1$, decreasing in $\kappa$ for $X=0$, and invariant for $X=1$, while disclosed states have $m(X,1)=\tilde{m}$.
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-cs-liquidity-within}.
+
+The intuition runs as follows. At $X=1$, the buy order fully reveals that the blockholder did not sell, pinning down the posterior regardless of $\kappa$. At $X=-1$, higher liquidity makes a sell by the noise trader more likely, so the market revises upward the probability that the blockholder engaged quietly rather than exited. At $X=0$, the opposite logic applies: higher liquidity makes the zero-order-flow event more likely under exit, reducing the inferred engagement probability.
+
+\paragraph{Across-equilibrium liquidity effects.}
+Beyond these within-regime inference effects, changing liquidity also shifts the blockholder's incentives through adverse selection and moves equilibrium cutoffs and prices jointly. Because these objects adjust endogenously with $\kappa$, I characterize the full cross-equilibrium patterns numerically in Section~\ref{sec:numerical} (Figure~\ref{fig:cutoffs-kappa}).
+
+In disclosed states ($D=1$), $\pi(X,1)=1$ and $m(X,1)=\tilde{m}$, so liquidity has no inference content conditional on disclosure. In non-disclosed states ($D=0$), $\pi(X,0)$ varies with $\kappa$ through the Bayesian updating formulas in Proposition~\ref{prop:posteriors}, making the $D=0$ component of $\Delta^{\textup{act}}(\kappa)$ liquidity-sensitive. This asymmetry between disclosed and non-disclosed states drives the model's core predictions.
+
+%------------------------------------------------------------------------------
+\subsection{Takeover Environment}
+%------------------------------------------------------------------------------
+
+How do the takeover environment parameters shape bid incidence?
+
+\begin{proposition}[Comparative Statics in Takeover Parameters]
+\label{prop:cs-takeover}
+Fix any reached information set $(X,D)$ and treat the inferred premium wedge $m(X,D)$ as given. The bid probability function $p(X,D)$ defined in~\eqref{eq:bid-prob} satisfies:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item \textbf{(Synergies)} $\partial p(X,D) / \partial \bar{S} > 0$: higher synergies increase bid incidence uniformly.
+\item \textbf{(Entry cost)} $\partial p(X,D) / \partial K < 0$: higher bidding costs reduce bid incidence uniformly.
+\item \textbf{(Moderate feedback via bidder heterogeneity)} For each reached information set $(X,D)$,
+\[
+\frac{\partial p(X,D)}{\partial P(X,D)}=-\frac{1}{\sigma_\xi}\,\phi\!\left(\frac{m(X,D)+K-\bar{S}+P(X,D)}{\sigma_\xi}\right)<0.
+\]
+In particular, the maximal slope satisfies $\sup_{P}\bigl|\partial p/\partial P\bigr|=\phi(0)/\sigma_\xi$, so a larger $\sigma_\xi$ attenuates the price-to-entry feedback and relaxes the regularity condition in Assumption~\textup{(A5)}.
+\end{enumerate}
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-cs-takeover}.
+
+%==============================================================================
+\section{Extensions}
+\label{sec:extensions}
+%==============================================================================
+
+Disclosure requirements for activist investors vary widely across jurisdictions, creating natural laboratories for testing the model's predictions. I consider three benchmarks that span the policy spectrum.
+
+In the United States, Schedule~13D mandates filing within five business days of crossing a 5\% beneficial ownership threshold. The United Kingdom imposes a lower 3\% threshold with a tighter two-trading-day deadline under the FCA's Disclosure and Transparency Rules. The European Union's Transparency Directive sets a 5\% baseline but permits member states to adopt lower thresholds; Germany, for instance, applies 3\% for voting-rights notifications. At one extreme, very low thresholds approach full disclosure of activist intent; at the other, weak enforcement or broad institutional exemptions leave much activism unobserved.
+
+Throughout this section, I hold the blockholder's cutoff strategy fixed---and hence the action probabilities $\omega_E,\omega_H,\omega_Q,\omega_P$---to isolate the effect of the disclosure regime on inference and pricing.
+
+%------------------------------------------------------------------------------
+\subsection{Full Disclosure Benchmark}
+%------------------------------------------------------------------------------
+
+Some jurisdictions have considered or implemented very low disclosure thresholds---such as proposals to reduce the US Schedule~13D threshold from 5\% to 2.5\%---or require disclosure of activist intent regardless of stake size. In the limit, such regimes approach full disclosure.
+
+Under full disclosure, the market observes the blockholder's action $(q,a)$ directly. The engagement posterior is trivial: $\pi=1$ when $a=1$ and $\pi=0$ when $a=0$. The activism premium is deterministic in each state, and the inference channel that links liquidity to premia shuts down completely. Order flow reveals only the noise-trader realization $z$, which is uninformative about fundamentals. This benchmark marks the upper bound on how much disclosure can attenuate the liquidity-sensitivity of the activism premium.
+
+%------------------------------------------------------------------------------
+\subsection{No Disclosure Benchmark}
+%------------------------------------------------------------------------------
+
+At the other extreme, some jurisdictions have high thresholds, weak enforcement, or broad exemptions that leave much activism unobserved. The no-disclosure benchmark captures this limiting case: the market receives no disclosure signal and must infer everything from order flow alone.
+
+Under no disclosure, the market conditions only on aggregate order flow $X\in\{-2,-1,0,1,2\}$. Only the extreme realizations pin down engagement with certainty: $X=-2$ arises only from Exit ($\pi=0$), while $X=2$ arises only from Public Voice ($\pi=1$). At intermediate values of $X$, the market mixes over all four actions with weights that depend on the noise distribution and hence on $\kappa$. Compared to the baseline, this regime makes the activism premium more liquidity-sensitive because inference operates across all states rather than being confined to non-disclosed states. This benchmark marks the lower bound on how much disclosure can attenuate the inference channel.
+
+%------------------------------------------------------------------------------
+\subsection{An Intermediate Regime: Stake Disclosure Plus Noisy Rumors}
+%------------------------------------------------------------------------------
+
+Between the polar benchmarks lies a realistic intermediate case: baseline stake-triggered disclosure augmented by a noisy public signal about quiet engagement. This regime captures settings like the United Kingdom, where a lower 3\% threshold plus active financial media provide partial but imperfect information, or markets where analyst coverage and quarterly 13F filings offer noisy signals about activist positions.
+
+I add a binary ``rumor'' signal $R$ that is informative about engagement in non-disclosed states. The rumor fires with probability $\eta_1$ when engagement has occurred and $\eta_0<\eta_1$ when it has not. In disclosed states, the rumor is irrelevant because engagement is already known.
+
+This regime preserves the paper's core ``disclosed vs.\ inferred'' structure while refining inference within non-disclosed states. When the rumor fires, the market updates toward engagement; when it does not, the market updates away. As the rumor becomes more informative ($\eta_1-\eta_0$ increases), the posterior moves closer to the extremes $\{0,1\}$, and the liquidity-sensitivity of the activism premium diminishes. In the limit $\eta_1\to1,\eta_0\to0$, the regime converges to full disclosure within non-disclosed states; when $\eta_1=\eta_0$, it collapses to the baseline. Appendix~\ref{app:extensions-derivations} provides the posterior formulas for general $(\eta_0,\eta_1)$.
+
+\paragraph{Other disclosure variants.}
+The framework accommodates other disclosure structures. ``Any-trade disclosure'' reveals whether the blockholder traded at all ($q\neq0$), making participation observable without distinguishing exit from engagement. Delayed disclosure reveals the stake-based signal $D$ after trading but before the bidder's entry decision. Each variant generates different posteriors and different liquidity-premia relationships, but the core mechanism persists.
+
+These extensions show that the model's core mechanism---disclosure attenuates inference sensitivity---is robust across information structures, with full disclosure and no disclosure marking the boundaries of the policy space. A numerical illustration comparing these regimes appears in Table~\ref{tab:disclosure-extensions} in Appendix~\ref{app:tables}.

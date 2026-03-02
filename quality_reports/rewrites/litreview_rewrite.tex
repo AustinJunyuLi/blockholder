@@ -1,0 +1,41 @@
+\section{Related Literature}
+\label{sec:lit}
+%==============================================================================
+
+This paper connects three strands of the finance literature---blockholder governance and the exit--voice trade-off, market microstructure and price feedback, and takeovers and corporate control---and shows that their interaction produces effects that no single strand can generate alone.
+
+%------------------------------------------------------------------------------
+\subsection{Exit vs.\ Voice in Corporate Governance}
+%------------------------------------------------------------------------------
+
+The exit--voice distinction originates with \citet{Hirschman1970}. Early work treated the two as substitutes: liquidity lets blockholders flee rather than fight, weakening governance \citep{Coffee1991,Bhide1993}. \citet{Maug1998} reversed this logic, showing that liquidity can \emph{facilitate} voice by easing stake accumulation and mitigating free-rider problems.
+
+\citet{Edmans2009} recast exit itself as a governance mechanism. When a blockholder sells on bad private information, prices fall, punishing managers through equity-linked compensation. \citet{EdmansManso2011} extend this insight to multiple blockholders whose competitive trading strengthens the exit channel, and \citet{EdmansFangZur2013} provide empirical evidence that greater liquidity shifts blockholders toward exit and away from voice. A common feature of these models is continuous trading. This paper departs from that tradition: by adopting discrete order flow, it makes the inference problem facing market makers---and bidders---tractable and transparent.
+
+%------------------------------------------------------------------------------
+\subsection{Market Microstructure and Price Feedback}
+%------------------------------------------------------------------------------
+
+Microstructure models show how prices aggregate private information through trading \citep{Kyle1985,GlostenMilgrom1985}. Most directly relevant is \citet{EdmansGoldsteinJiang2015}, who develop a tractable framework with discrete orders $q \in \{-1,0,+1\}$ and feedback effects in which firm value responds endogenously to the information prices contain.
+
+Prices also shape real decisions beyond the trading floor. \citet{EdmansGoldsteinJiang2012} demonstrate that stock prices affect takeover outcomes: low prices signal weak fundamentals and invite bids; high prices deter them. \citet{BondEdmansGoldstein2012} survey this broader feedback literature, and \citet{DowGoldsteinGuembel2017} provide foundations for endogenous information production in such settings. None of these frameworks, however, allow an informed blockholder to choose between exit and voice before prices form---the channel through which activism disclosure shapes bid incidence in the present paper.
+
+%------------------------------------------------------------------------------
+\subsection{Shareholder Activism and Takeovers}
+%------------------------------------------------------------------------------
+
+\citet{BravJiangPartnoyThomas2008} document foundational stylized facts about hedge fund activism. \citet{BackEtAl2018} embed an activist in a continuous-time Kyle model and show that the liquidity--efficiency relationship can go in either direction. \citet{BravDasguptaMathews2022} formalize wolf pack coordination among multiple activists.
+
+A central empirical regularity motivates this paper's focus on takeovers: \citet{GreenwoodSchor2009} show that a substantial fraction of activist returns traces to takeover outcomes. The canonical \citet{GrossmanHart1980} model establishes the free-rider problem that makes takeover premia the natural welfare object for dispersed minority shareholders. Yet no existing activism model endogenizes both the blockholder's governance choice and the bidder's entry decision through a common price signal---the gap this paper fills.
+
+%------------------------------------------------------------------------------
+\subsection{Relation to This Paper}
+%------------------------------------------------------------------------------
+
+This paper differs from prior work in three key respects.
+
+\emph{First}, it adopts a discrete order-flow specification following \citet{EdmansGoldsteinJiang2015}, which keeps Bayesian inference transparent and delivers closed-form price expressions. Discrete orders make it possible to characterize exactly how market makers update beliefs about hidden engagement---something obscured in continuous-trading settings.
+
+\emph{Second}, it introduces an endogenous governance choice with stake-triggered disclosure. The blockholder decides whether to engage, and engagement becomes publicly observable only when accompanied by stake accumulation that crosses a regulatory threshold. This creates two distinct activism regimes---Quiet Voice and Public Voice---with sharply different informational footprints.
+
+\emph{Third}, it embeds these elements in a takeover environment where the bidder conditions entry on both prices and disclosure status, extending \citet{EdmansGoldsteinJiang2012} to a setting with an active governance channel. No existing framework combines all three features. Their interaction is what generates the non-monotone liquidity effects documented in the numerical analysis: engagement incentives and bid incidence respond to liquidity in opposing directions, producing an interior optimum for minority takeover gains.

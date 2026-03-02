@@ -1,0 +1,1272 @@
+% =============================================================================
+% draft.tex
+% =============================================================================
+% Compilation (keeps the directory clean):
+%   latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error -synctex=0 draft.tex
+%   latexmk -c draft.tex
+%
+% Manual compilation (then delete intermediates):
+%   xelatex  draft
+%   biber    draft
+%   xelatex  draft
+%   xelatex  draft
+% =============================================================================
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=authoryear,natbib=true,maxcitenames=2,maxbibnames=99]{biblatex}
+\addbibresource{bibliography.bib}
+
+\setstretch{1.1}
+
+% --- Theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+
+% --- Commands
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{\textbf{Liquidity, Activism Disclosure, and Takeover Premia:}\\[0.3em]
+\large A Theory of Exit, Voice, and Corporate Control}
+\author{Austin Li\\[0.25em]}
+\date{}
+
+\begin{document}
+\maketitle
+
+%==============================================================================
+\begin{abstract}
+%==============================================================================
+\noindent Secondary-market liquidity shapes corporate control not only by easing trading, but by changing what prices can infer about hidden activism. This paper develops a takeover model in which an informed blockholder chooses among four actions: Exit, Passive Hold, engagement below disclosure thresholds (\emph{Quiet Voice}), or stake-building with disclosure (\emph{Public Voice}). A competitive market maker sets prices from discrete order flow and the disclosure flag, while a potential bidder conditions entry on these market signals.
+
+In equilibrium, the blockholder follows a cutoff strategy and prices contain an ``activism premium'' that is either observed (Public Voice) or inferred (Quiet Voice). Under sufficient boundary conditions (Assumption~\textup{(A8)}, verified in the baseline calibration), liquidity has a \emph{non-monotone} effect on expected minority takeover gains: as $\kappa$ rises, bid incidence and engagement incentives shift in opposing directions, generating an interior maximizer of minority gains. In the baseline calibration, the resulting relation is hump-shaped. Threshold-based disclosure attenuates the inference channel by making some engagement directly observable rather than inferred.
+
+\end{abstract}
+
+\newpage
+
+%==============================================================================
+\section{Introduction}
+%==============================================================================
+
+A large shareholder plays two economic roles that are usually studied separately. As an informed trader, she can profit from private information by adjusting her stake. As a governance actor, she can expend resources to influence corporate decisions and improve firm value. The classic ``exit versus voice'' dilemma \citep{Hirschman1970} is therefore jointly a problem in \emph{market microstructure} and \emph{corporate control}: the same investor who can discipline the firm through engagement can also discipline it through selling, and these two channels interact with the way prices are formed.
+
+Activist investors routinely navigate this trade-off. An activist holding a stake in an underperforming firm can sell and reallocate, monetizing private information before it reaches prices. Alternatively, she can engage---but here a further choice arises. She may engage quietly, staying below disclosure thresholds so that the market must infer her activism from trading patterns and other signals. Or she may accumulate additional shares, crossing a regulatory threshold that makes her presence and intentions publicly known. A potential acquirer, meanwhile, conditions its decision to bid on what it can learn from prices and public filings. The blockholder's choice between exit and voice, and between quiet and public engagement, ultimately affects whether a bid materializes and how much minority shareholders receive if it does.
+
+Market liquidity shapes these choices in opposing ways. Liquidity makes voice more attractive by easing stake accumulation and mitigating free-riding \citep{Maug1998}, but it also makes exit cheaper and can crowd out engagement \citep{Coffee1991,Bhide1993}. Prices also influence real outcomes: when takeover decisions depend on stock prices, trading has real effects through feedback channels \citep{BondEdmansGoldstein2012,EdmansGoldsteinJiang2012}. These forces suggest that liquidity is not merely a trading friction---it can alter the equilibrium allocation of corporate control and the division of surplus in acquisitions.
+
+This paper studies how these forces jointly determine takeover premia. Activism and takeovers are tightly connected empirically: activist campaigns frequently culminate in mergers and acquisitions (M\&A) outcomes, and takeover expectations help rationalize announcement returns \citep{BravJiangPartnoyThomas2008,GreenwoodSchor2009}. Takeover premia are a natural welfare-relevant object for minority shareholders in environments with free-rider incentives \citep{GrossmanHart1980}. Yet existing models typically emphasize either governance and activism without an explicit order-flow inference problem, or microstructure and price-to-real feedback without an endogenous governance choice.
+
+A key institutional feature is that disclosure is stake-dependent, though the stringency of these requirements varies across jurisdictions. In the United States, Schedule 13D requires investors crossing a 5\% ownership threshold to file within five business days. The United Kingdom sets a lower bar at 3\% with a two-trading-day deadline under the Financial Conduct Authority's (FCA) Disclosure and Transparency Rules. Other jurisdictions range from near-complete disclosure requirements to regimes with weak enforcement or broad exemptions. These differences create distinct information environments: lower thresholds shift more activism from hidden to observable, altering the role of inference in price formation. This paper focuses on a stylized stake-triggered disclosure rule, but the extensions consider alternative regimes that span this policy spectrum. Stake-dependent disclosure creates two distinct modes of activism: \emph{Quiet Voice} and \emph{Public Voice}. Quiet Voice---engagement below disclosure thresholds---requires market participants to infer activism from noisy order flow. Public Voice---engagement accompanied by a threshold-crossing stake increase---is directly observable. When activism is quiet, inference from order flow is central, so liquidity matters not merely as a trading friction but as an information environment governing how strongly prices reflect hidden engagement. In a takeover setting where bidders condition entry on market signals, this inference directly shapes bid incidence and premia.
+
+I develop a model in which a blockholder observes a private signal about firm value and chooses among four actions: Exit (sell her stake), Passive Hold (hold without engaging), Quiet Voice (hold and engage below the disclosure threshold), or Public Voice (buy, engage, and trigger disclosure). A competitive market maker sets prices from discrete order flow and the disclosure flag, while a potential bidder conditions entry on these market signals. Liquidity---modeled as the intensity of noise trading---changes what order flow reveals about both fundamentals and quiet engagement. Disclosure creates distinct observability regimes: Public Voice pins down engagement, while Quiet Voice leaves engagement latent and priced through Bayesian inference. Engagement itself changes control outcomes by raising standalone value and strengthening resistance, which increases the premium required for acquisition and affects bidder entry.
+
+In equilibrium, the blockholder follows a monotone cutoff strategy: low signals lead to Exit; intermediate signals induce Passive Hold or Quiet Voice; higher signals trigger Public Voice with disclosure. Prices embed an ``activism premium'' reflecting either observed engagement (when disclosed) or inferred engagement probability (when not disclosed). Under Assumption~\textup{(A8)}, liquidity has a non-monotone effect on expected minority takeover gains: engagement incentives eventually vanish at high liquidity while bid incidence responds differently, implying an interior maximizer of $\Delta^{\min}(\kappa)$. In the baseline calibration, expected minority gains peak at intermediate liquidity. Threshold disclosure attenuates the inference channel by shifting probability mass from inferred to observed engagement, making the activism-driven premium less sensitive to liquidity.
+
+Section~\ref{sec:lit} reviews the related literature. Section~\ref{sec:model} presents the model. Section~\ref{sec:equilibrium} characterizes equilibrium and derives the main results. Section~\ref{sec:numerical} provides numerical illustrations. Section~\ref{sec:comp-statics} presents comparative statics. Section~\ref{sec:extensions} discusses extensions, and Section~\ref{sec:conclusion} concludes.
+
+%==============================================================================
+\section{Related Literature}
+\label{sec:lit}
+%==============================================================================
+
+This paper sits at the intersection of three literatures: blockholder governance and the exit--voice trade-off, market microstructure and price formation, and takeovers and corporate control.
+
+%------------------------------------------------------------------------------
+\subsection{Exit vs.\ Voice in Corporate Governance}
+%------------------------------------------------------------------------------
+
+The exit--voice distinction originates with \citet{Hirschman1970}. Early scholarship viewed exit and voice as substitutes, with liquidity undermining governance \citep{Coffee1991,Bhide1993}. \citet{Maug1998} overturned this by showing liquidity can \emph{facilitate} voice through stake accumulation.
+
+\citet{Edmans2009} introduced exit-as-discipline: blockholders with private information sell upon discovering value destruction, impounding information into prices and punishing managers through equity-linked compensation. Relatedly, \citet{EdmansManso2011} show that multiple blockholders strengthen exit by trading competitively, and \citet{EdmansFangZur2013} provide empirical evidence that greater liquidity is associated with more exit and less voice. Despite this rich literature, existing models predominantly employ continuous trading.
+
+%------------------------------------------------------------------------------
+\subsection{Market Microstructure and Price Feedback}
+%------------------------------------------------------------------------------
+
+In microstructure models, prices aggregate private information through trading \citep{Kyle1985,GlostenMilgrom1985}. Most relevant is \citet{EdmansGoldsteinJiang2015}, who develop a tractable framework with discrete orders $q \in \{-1, 0, +1\}$ and feedback effects where firm value responds endogenously to prices.
+
+\citet{EdmansGoldsteinJiang2012} show that stock prices affect takeover decisions: when prices are low, bidders learn fundamentals are weak and bid; when prices are high, bidders are deterred. \citet{BondEdmansGoldstein2012} survey feedback effects broadly, and \citet{DowGoldsteinGuembel2017} provide foundations for endogenous information production in such settings.
+
+%------------------------------------------------------------------------------
+\subsection{Shareholder Activism and Takeovers}
+%------------------------------------------------------------------------------
+
+\citet{BravJiangPartnoyThomas2008} document foundational stylized facts about hedge fund activism. \citet{BackEtAl2018} develop a continuous-time Kyle framework where an activist trades while affecting firm value, finding that liquidity-efficiency relationships can be positive or negative. \citet{BravDasguptaMathews2022} formalize wolf pack coordination; \citet{GreenwoodSchor2009} document that a substantial fraction of activist returns are attributable to takeover outcomes.
+
+The canonical \citet{GrossmanHart1980} model establishes the free-rider problem in tender offers.
+
+%------------------------------------------------------------------------------
+\subsection{Relation to This Paper}
+%------------------------------------------------------------------------------
+
+This paper differs from prior work in three respects. First, it adopts a discrete order-flow specification following \citet{EdmansGoldsteinJiang2015}, which keeps Bayesian inference transparent and yields closed-form price expressions. Second, it introduces an endogenous governance choice with stake-triggered disclosure: the blockholder decides whether to engage, and engagement becomes publicly observable only when accompanied by stake accumulation. Third, it embeds these elements in a takeover environment where the bidder conditions entry on prices and disclosure status, extending \citet{EdmansGoldsteinJiang2012}. No existing framework combines all three features, and their interaction produces the non-monotone liquidity effects documented in the numerical analysis.
+
+%==============================================================================
+\section{Model}
+\label{sec:model}
+%==============================================================================
+
+%------------------------------------------------------------------------------
+\subsection{Timeline}
+%------------------------------------------------------------------------------
+
+Time is discrete, $t \in \{0, 1, 1.5, 2\}$.
+
+\begin{enumerate}[leftmargin=2em]
+\item[$t=0$:] Nature draws a standalone fundamental $v$. The blockholder observes a private signal $s$ about $v$.
+\item[$t=1$:] The blockholder chooses an action $(q,a)$ from the feasible set $\{(-1,0),(0,0),(0,1),(+1,1)\}$, where $q \in \{-1,0,+1\}$ is the trade and $a \in \{0,1\}$ is engagement. A noise trader submits $z \in \{-1, 0, +1\}$. The market maker observes total order flow $X = q + z$ and disclosure indicator $D$, then sets a competitive price $P(X, D)$.
+\item[$t=1.5$:] A potential bidder observes $(P(X,D), D)$ and a private synergy shock $\xi$, then decides whether to initiate a takeover attempt.
+\item[$t=2$:] Payoffs are realized: either the takeover is consummated at the offered price, or the firm remains standalone with (possibly) improved fundamentals due to engagement.
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+\subsection{Notation Summary}
+%------------------------------------------------------------------------------
+
+Table~\ref{tab:notation} in Appendix~\ref{app:notation} provides a quick reference for notation.
+
+%------------------------------------------------------------------------------
+\subsection{Fundamentals and Information}
+%------------------------------------------------------------------------------
+
+The standalone fundamental is $v \sim \mathcal{N}(\mu, \sigma_v^2)$. The blockholder observes a private signal
+\[
+s = v + \varepsilon, \quad \varepsilon \sim \mathcal{N}(0, \sigma_\varepsilon^2),
+\]
+independent of $v$. Let $\sigma_s^2 \equiv \sigma_v^2 + \sigma_\varepsilon^2$. The blockholder's posterior mean is linear:
+\[
+\hat{v}(s) \equiv \E[v \mid s] = \mu + \beta(s - \mu), \quad \beta \equiv \frac{\sigma_v^2}{\sigma_v^2 + \sigma_\varepsilon^2} \in (0,1).
+\]
+
+The bidder draws an independent synergy shock $\xi \sim \mathcal{N}(0, \sigma_\xi^2)$.
+
+%------------------------------------------------------------------------------
+\subsection{Trading and Liquidity}
+%------------------------------------------------------------------------------
+
+The blockholder has an initial stake of one share (normalization). Her order $q \in \{-1, 0, +1\}$ implies an end-of-$t=1$ holding of $h = 1 + q$ shares.
+
+Noise trading is discrete:
+\[
+z \in \{-1, 0, 1\}, \quad \PP(z = 0) = 1 - \kappa, \quad \PP(z = \pm 1) = \kappa/2,
+\]
+where $\kappa \in (0, 1)$ indexes noise-trading intensity (market liquidity). Higher $\kappa$ means more frequent nonzero noise imbalance and therefore weaker inference from order flow.
+
+Total order flow observed by the market maker is
+\[
+X = q + z \in \{-2, -1, 0, 1, 2\}.
+\]
+
+%------------------------------------------------------------------------------
+\subsection{Disclosure Rule}
+%------------------------------------------------------------------------------
+
+Let $D \in \{0, 1\}$ be a public indicator for whether a stake acquisition crosses a disclosure threshold. Disclosure is \emph{stake-triggered}: in the discrete model we implement threshold disclosure as
+\[
+D = 1 \quad \Longleftrightarrow \quad (q = +1).
+\]
+That is, \textbf{if the blockholder acquires an additional share, a threshold-crossing disclosure occurs}. This captures the institutional logic that crossing an ownership threshold triggers a regulatory filing (e.g., Schedule 13D), independent of whether the filing explicitly reflects intent. Below-threshold engagement remains hidden.
+
+\paragraph{Timing of disclosure.} The disclosure indicator $D$ is determined simultaneously with the blockholder's action $(q, a)$ and is observed by the market maker at the same time as order flow $X$. Specifically, the sequence within $t=1$ is:
+\begin{enumerate}[label=(\roman*),leftmargin=2em,itemsep=0pt]
+\item The blockholder chooses $(q, a)$, which determines $D = \1\{q=+1\}$.
+\item Noise trader submits $z$; total order flow $X = q + z$ is realized.
+\item The market maker observes $(X, D)$ jointly and sets price $P(X, D)$.
+\end{enumerate}
+This timing ensures that disclosure does not reveal additional information beyond what is captured by $(X, D)$ jointly.
+
+%------------------------------------------------------------------------------
+\subsection{Engagement Technology (Voice)}
+\label{sec:engagement}
+%------------------------------------------------------------------------------
+
+If the blockholder chooses engagement $a = 1$, she pays a private, signal-dependent cost $C(s) > 0$ at $t = 1$. This cost is observed by the blockholder when she observes $s$ but not by the market maker or bidder. I parameterize the cost as
+\[
+C(s) = C_0 \exp\!\left(-\chi \frac{s - \mu}{\sigma_s}\right),
+\]
+where $C_0 > 0$ is the cost at the prior mean and $\chi \geq 0$ controls how quickly engagement becomes cheaper as the blockholder's signal improves. This monotone, strictly positive specification generates an interior passive-hold region: low signals imply high expected campaign difficulty (high cost), while high signals imply a stronger, easier-to-implement case.
+
+Engagement succeeds with probability $\rho \in (0,1]$ and affects outcomes in two ways when successful:
+
+\paragraph{Outside option improvement.} If engagement succeeds and no takeover is consummated, the standalone payoff is increased by $\Delta > 0$ at $t=2$. If engagement fails, standalone payoff remains $v$.
+
+\paragraph{Bargaining/resistance premium.} If engagement succeeds and a takeover is consummated, the required premium increases from $m_0$ to $m_1$, where $m_1 > m_0 \geq 0$. The wedge captures bargaining power, defensive tactics, or any friction that raises the price needed to complete the acquisition when an engaged blockholder is present. Failed engagement yields the baseline premium $m_0$.
+We interpret $m_0$ and $m_1$ as \emph{per-share takeover premia} above the market price (so the consummated offer satisfies $b=P+m$); they are distinct from $\hat{v}(s)$, the posterior mean of fundamentals.
+
+\paragraph{Risk-neutral simplification.} Since success is unobserved before $t=2$ and all parties are risk-neutral, define expected engagement effects:
+\[
+\tilde{\Delta} \equiv \rho \Delta, \qquad \tilde{m} \equiv m_0 + \rho(m_1 - m_0).
+\]
+Then engagement ($a=1$) yields expected standalone improvement $\tilde{\Delta}$ and expected premium wedge $\tilde{m}$.
+
+%------------------------------------------------------------------------------
+\subsection{Bidder Entry and Bidding Terms}
+%------------------------------------------------------------------------------
+
+The bidder follows a price-contingent entry rule as in standard takeover models \citep{GrossmanHart1980,Fishman1988,BulowHuangKlemperer1999,EdmansGoldsteinJiang2012}. The bidder observes the public pair $(P(X,D), D)$ and a private synergy shock $\xi$. On the non-disclosed branch $D=0$, Assumption~\textup{(A7)} ensures that the pricing rule is injective in $X$, so the bidder can infer $X$ from $(P,0)$; we therefore use $p(X,0)$ and $m(X,0)$ as shorthand for $p(P(X,0),0)$ and $m(P(X,0),0)$. On the disclosed branch $D=1$, disclosure pins down Public Voice and hence $a=1$, so $X$ reveals only the noise realization and carries no information about fundamentals. Under Assumption~\textup{(A5)}, this implies that equilibrium beliefs and the pricing fixed point are identical across $X\in\{0,1,2\}$ on the disclosed branch, so $P^*(X,1)$ and $p(X,1)$ are constant across $X$ (see Appendix~\ref{app:proof-disclosed-invariance}). We therefore continue to write $p(X,1)$ as shorthand for $p(P^*(X,1),1)$.%
+\footnote{Injectivity on the $D=0$ branch is a standard regularity condition in discrete-order-flow models: different $X$ imply different posteriors about fundamentals and hence different competitive prices. We impose this as Assumption~\textup{(A7)} to avoid a notational distinction between conditioning on $(P,D)$ and conditioning on $(X,D)$.}
+
+Conditional on $(P,D)$, the bidder's net deal surplus is
+\[
+\Pi_B(X,D) = \bar{S} - P(X,D) + \xi - m(X,D) - K,
+\]
+where $\bar{S}$ is baseline synergy, $K > 0$ is a fixed bidding cost, and $m(X,D)$ is the expected premium wedge conditional on $(X,D)$. The market price enters surplus dollar-for-dollar because the bidder must pay the target's market value (plus the premium wedge) to complete the acquisition.
+
+The premium wedge ultimately depends on whether the blockholder has engaged. Define the premium required to complete the acquisition as a function of the \emph{realized} engagement action $a$:
+\[
+m(a) \equiv m_0 + a\cdot(\tilde{m}-m_0), \qquad a\in\{0,1\}.
+\]
+We interpret $m(a)$ as the (ex-ante) premium required at closing, determined by the blockholder's engagement-driven resistance.
+When engagement is not publicly disclosed, the market maker and bidder do not observe $a$ and instead form the posterior $\pi(X,D)=\PP(a=1 \mid X,D)$. The corresponding \emph{expected} premium wedge conditional on $(X,D)$ is therefore
+\[
+m(X,D) \equiv \E[m(a) \mid X,D] = m_0 + (\tilde{m} - m_0)\cdot \pi(X,D), \quad \pi(X,D) \equiv \PP(a = 1 \mid X, D).
+\]
+
+Define $m(P,D)\equiv m(X(P,D),D)$ and the takeover completion probability conditional on observed $(P,D)$ as
+\begin{equation}
+p(P,D) \equiv 1 - \Phi\left(\frac{m(P,D) + K - \bar{S} + P}{\sigma_\xi}\right),
+\label{eq:bid-prob}
+\end{equation}
+and use the shorthand $p(X,D)\equiv p(P(X,D),D)$ in equilibrium. The bidder initiates a takeover attempt if and only if $\Pi_B(X,D) \geq 0$, so $p(P,D)$ is the probability of a consummated transaction.
+Here $\Phi(\cdot)$ is the standard normal cumulative distribution function.
+
+If the takeover is consummated, the \emph{realized} per-share offer is
+\[
+b(X,D,a) = P(X,D) + m(a).
+\]
+
+%------------------------------------------------------------------------------
+\subsection{Terminal Payoff and Price Formation}
+%------------------------------------------------------------------------------
+
+Let $\delta = \exp(-r\tau)$ (approximately $1/(1+r)$ for short horizons) be the discount factor between the pricing/entry date and payoff/settlement at $t=2$, where $\tau$ is the time between these dates \citep{Cochrane2005,Duffie2010}.%
+\footnote{If one measures payoffs in time-$1$ present-value units, $\delta$ can be set to one and later reintroduced by scaling. We keep $\delta$ explicit throughout.}
+
+If no takeover is consummated, per-share terminal payoff is $y^{\text{stand}} = v + a\tilde{\Delta}$. If a takeover is consummated, per-share payoff is $y^{\text{M\&A}} = b(X,D,a) = P(X,D) + m(a)$.
+
+Therefore, the per-share terminal payoff is
+\[
+Y = \1\{\textup{bid}\} \cdot (P(X,D) + m(a)) + (1 - \1\{\textup{bid}\}) \cdot (v + a\tilde{\Delta}),
+\]
+where $\1\{\textup{bid}\}$ denotes a \emph{consummated} takeover rather than a mere offer. Bargaining, board resistance, and regulatory frictions are captured in reduced form by the premium wedge $m(\cdot)$ and the fixed cost $K$. A simple robustness extension would multiply $p(P,D)$ by a completion probability $\alpha(P,D)\in(0,1]$ in the pricing fixed point, without altering the main mechanism.
+
+Conditional on $(X,D)$, $\E[m(a) \mid X,D]=m(X,D)$, so the expected takeover payoff equals $P(X,D)+m(X,D)$; this keeps the pricing fixed-point equations below unchanged.
+
+The market maker is competitive and sets
+\begin{equation}
+P(X,D) = \delta \, \E[Y \mid X, D].
+\label{eq:pricing}
+\end{equation}
+
+Equation~\eqref{eq:pricing} is the key equilibrium discipline: the price reflects the possibility of takeover and the premium wedge, and takeover decisions depend on that same price.
+
+%------------------------------------------------------------------------------
+\subsection{Blockholder Payoff}
+%------------------------------------------------------------------------------
+
+Conditional on signal $s$, the blockholder chooses $(q, a)$ to maximize expected present value. If she submits $q$ and ends with $h = 1 + q$ shares, her $t = 1$ value is
+\[
+U(q, a \mid s) = \E\Big[-q \cdot P(X,D) + \delta \cdot h \cdot Y - a \cdot C(s) \,\Big|\, s, q, a\Big],
+\]
+where $-qP(X,D)$ is the net cash flow from trading at $t = 1$ (selling $q = -1$ yields $+P$; buying $q = +1$ yields $-P$).
+
+%------------------------------------------------------------------------------
+\subsection{Equilibrium Concept}
+%------------------------------------------------------------------------------
+
+\begin{definition}[Perfect Bayesian Equilibrium]
+A \emph{Perfect Bayesian Equilibrium} consists of:
+\begin{enumerate}[label=(\roman{enumi})]
+\item a blockholder strategy mapping $s$ into $(q, a)$,
+\item beliefs $\pi(X,D) = \PP(a = 1 \mid X, D)$ consistent with Bayes' rule,
+\item a bidder entry strategy satisfying~\eqref{eq:bid-prob}, and
+\item a competitive price schedule $P(X,D)$ satisfying~\eqref{eq:pricing}.
+\end{enumerate}
+\end{definition}
+
+Because noise trading $z$ has full support on $\{-1,0,+1\}$, every $(X,D)$ pair that is feasible under an on-path action occurs with positive probability. In particular, when $D=0$, $X\in\{-2,-1,0,1\}$; when $D=1$, only Public Voice is feasible so $X\in\{0,1,2\}$. Consequently, Bayes' rule pins down $\pi(X,D)$ for all reached information sets; off-path beliefs are irrelevant.
+
+%------------------------------------------------------------------------------
+\subsection{Model Assumptions}
+\label{sec:assumptions}
+%------------------------------------------------------------------------------
+
+The analysis maintains several regularity conditions that ensure the model is well-behaved and generates economically meaningful equilibria. These assumptions fall into three categories: conditions on engagement costs, conditions on the takeover environment, and technical conditions for equilibrium existence.
+
+\paragraph{Assumptions on engagement costs.}
+\textit{(A1) Interior cutoffs}: We assume that the engagement cost $C(s)$ varies with the blockholder's signal, and that parameters are such that neither engagement nor passivity is always optimal when the blockholder holds her initial stake. Sufficient conditions include $C(\mu) < \delta(\tilde{\Delta} + (\tilde{m}-m_0))$ (engagement is worthwhile at the prior mean) and $\lim_{s\to-\infty} C(s) > \delta(\tilde{\Delta} + (\tilde{m}-m_0))$ (engagement is dominated for sufficiently low signals), together with the monotonicity of $C(s)$ in~\textup{(A2)}. We also assume that stake-building (Public Voice) is not always dominated when engagement occurs, so that disclosure is triggered for sufficiently high signals. These conditions ensure that the equilibrium admits an interior cutoff structure (allowing for limiting cases in which some regions collapse). If engagement costs are too low (or too high) uniformly, the model reduces to a simpler two-cutoff case, which we accommodate as a limiting special case.
+
+\textit{(A2) Monotone cost heterogeneity}: The engagement cost $C(s)$ is strictly positive and weakly decreasing in the signal $s$. Economically, this reflects the idea that a blockholder with more favorable private information finds it easier to build a compelling case for change---the campaign is less costly when fundamentals are strong. The parameterization $C(s)=C_0\exp(-\chi(s-\mu)/\sigma_s)$ captures this, with $\chi\geq0$ controlling the sensitivity. When $\chi>0$, cost heterogeneity supports an interior Passive Hold region; when $\chi=0$, costs are constant and the equilibrium collapses to the two-cutoff case.
+
+\paragraph{Assumptions on the takeover environment.}
+\textit{(A3) Non-trivial activism premium}: The expected premium wedge under engagement exceeds the baseline premium, $\tilde{m}>m_0$, which requires $\rho(m_1-m_0)>0$. This ensures that engagement has real consequences for takeover outcomes---an engaged blockholder can extract higher premia through improved bargaining position or defensive tactics.
+
+\textit{(A4) Non-degenerate takeover}: Synergies and costs satisfy $\bar{S}-K > m_0-\mu$ and $\bar{S}-K < m_1+(\mu+3\sigma_v)$. These bounds ensure that takeover bids occur with interior probability: the bidder is neither always deterred nor always willing to bid regardless of prices. This keeps the takeover channel economically relevant across equilibrium outcomes.
+
+\paragraph{Technical assumptions.}
+\textit{(A5) Well-behaved pricing}: For each information set $(X,D)$ and each feasible posterior $\pi(X,D)$, the competitive pricing fixed point admits a unique solution $P^*(X,D)$, and this solution depends continuously on the primitives entering the right-hand side of~\eqref{eq:price-fp} (defined below). Moreover, takeover entry is not too sensitive to prices: $\delta\cdot\sup_P|\partial p/\partial P|<1$. This bounds the strength of the price-to-entry feedback loop and ensures that comparative statics are well-defined. Under the Gaussian bidding rule, a sufficient condition is $\delta/\sigma_\xi < 1/\phi(0)$.
+
+\textit{(A6) Equilibrium existence and uniqueness}: On a suitable compact subset of cutoff vectors, the equilibrium mapping is a contraction. This technical condition, verified numerically in the baseline calibration, ensures that a (monotone-cutoff) equilibrium exists and is unique within that class.
+
+\textit{(A7) Injective pricing on the non-disclosed branch}: On the $D=0$ branch, the equilibrium price schedule separates order-flow realizations: $P^*(X,0)\neq P^*(X',0)$ for all distinct $X,X'\in\{-2,-1,0,1\}$. This ensures that conditioning on $(P,0)$ is equivalent to conditioning on $(X,0)$.
+
+\textit{(A8) Boundary conditions for non-monotonicity}: The equilibrium minority-gains function $\kappa\mapsto \Delta^{\min}(\kappa)$ is continuous on $(0,1)$ and satisfies (i) $\lim_{\kappa\downarrow 0}\Delta^{\min}(\kappa)=0$; (ii) there exists $\bar{\kappa}\in(0,1)$ such that for all $\kappa\in[\bar{\kappa},1)$, equilibrium engagement never occurs (i.e., $\omega_Q(\kappa)+\omega_P(\kappa)=0$); and (iii) there exists $\tilde{\kappa}\in(0,\bar{\kappa})$ such that $\Delta^{\min}(\tilde{\kappa})>m_0$.
+Economically, \textup{(A8)} imposes that minority gains are small when order flow is nearly perfectly revealing, that engagement eventually disappears at sufficiently high liquidity, and that at some intermediate liquidity level minority gains exceed the baseline bound $m_0$.
+
+\paragraph{Primitive conditions supporting \textup{(A8)}.}
+Condition~(i) holds whenever low $\kappa$ makes order flow sufficiently informative that the blockholder's private information is largely revealed, reducing both the value of trading and the scope for engagement-driven premia. Condition~(ii) requires that high noise-trading intensity erodes the blockholder's incentive to engage, which obtains when the engagement cost is sufficiently sensitive to the signal ($\chi>0$) and adverse-selection rents vanish as order flow becomes uninformative---a standard feature of discrete microstructure models \citep{EdmansGoldsteinJiang2015}. Condition~(iii) holds when the premium wedge $\tilde{m}-m_0$ is large enough relative to $m_0$ that, at some intermediate $\kappa$, the activism-driven component raises expected minority gains above $m_0$. In the baseline calibration, all three conditions are satisfied with considerable margin.
+
+\paragraph{Standing assumptions.}
+Unless stated otherwise, the analysis maintains $\kappa\in(0,1)$ and Assumptions~\textup{(A1)}--\textup{(A7)}. We refer to these as the \emph{Standing Assumptions}. In summary, the Standing Assumptions ensure interior action regions, non-trivial takeover outcomes, and well-behaved equilibrium existence; Assumption~\textup{(A8)} provides sufficient conditions for non-monotonicity of minority gains in liquidity.
+
+%==============================================================================
+\section{Equilibrium Characterization}
+\label{sec:equilibrium}
+%==============================================================================
+
+%------------------------------------------------------------------------------
+\subsection{Threshold Structure with Three Cutoffs}
+%------------------------------------------------------------------------------
+
+\begin{proposition}[Monotone Cutoff Structure]
+\label{prop:cutoffs}
+Under the Standing Assumptions, there exists a Perfect Bayesian Equilibrium in which the blockholder follows cutoff rules with (weakly) ordered thresholds $k_1 \leq k_0 \leq k_D$:
+\[
+(q, a) = \begin{cases}
+(-1, 0) & s < k_1 \quad \text{(Exit)}, \\
+(0, 0) & k_1 \leq s < k_0 \quad \text{(Passive Hold)}, \\
+(0, 1) & k_0 \leq s < k_D \quad \text{(Quiet Voice)}, \\
+(+1, 1) & s \geq k_D \quad \text{(Public Voice)}.
+\end{cases}
+\]
+The corresponding disclosure outcomes are: $D = 1$ if and only if $q = +1$ (Public Voice), and $D = 0$ otherwise.
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-cutoffs}.
+
+The ordering of actions---Exit, then Passive Hold, then Quiet Voice, then Public Voice---reflects how the blockholder's incentives change with her private signal. For very low signals, the blockholder has unfavorable information about fundamentals and prefers to sell, monetizing her negative information before it becomes reflected in prices. For somewhat better signals, she prefers to remain invested (fundamentals are not bad enough to warrant selling at a discount) but does not find engagement worthwhile given its cost. For intermediate signals, engagement improves expected value enough to justify the campaign cost $C(s)$, but stake-building is not yet attractive---the cost of buying additional shares outweighs the benefit of higher ownership. For the highest signals, buying additional shares allows the blockholder to internalize more of the engagement gains, and the discrete stake increase triggers public disclosure.
+
+When engagement costs are constant (i.e., $\chi=0$), the Passive Hold region may collapse, yielding a simpler two-cutoff structure with $k_0=k_1$. The analysis accommodates this case by allowing weak inequalities among cutoffs.
+
+%------------------------------------------------------------------------------
+\subsection{Action Probabilities}
+%------------------------------------------------------------------------------
+
+Given cutoffs $(k_1, k_0, k_D)$, define standardized cutoffs $\alpha_i \equiv (k_i - \mu)/\sigma_s$ for $i \in \{1, 0, D\}$. The unconditional action probabilities are:
+\begin{align*}
+\omega_E &\equiv \PP(s < k_1) = \Phi(\alpha_1), \\
+\omega_H &\equiv \PP(k_1 \leq s < k_0) = \Phi(\alpha_0) - \Phi(\alpha_1), \\
+\omega_Q &\equiv \PP(k_0 \leq s < k_D) = \Phi(\alpha_D) - \Phi(\alpha_0), \\
+\omega_P &\equiv \PP(s \geq k_D) = 1 - \Phi(\alpha_D),
+\end{align*}
+corresponding to Exit, Passive Hold, Quiet Voice, and Public Voice.
+
+%------------------------------------------------------------------------------
+\subsection{Conditional Means of Fundamentals}
+%------------------------------------------------------------------------------
+
+Let $\lambda_L(\alpha) \equiv \phi(\alpha)/\Phi(\alpha)$ and $\lambda_U(\alpha) \equiv \phi(\alpha)/(1-\Phi(\alpha))$ denote inverse Mills ratios. The conditional means of $v$ in each signal region are:
+\begin{align*}
+\mu_E &\equiv \E[v \mid s < k_1] = \mu - \beta\sigma_s \lambda_L(\alpha_1), \\
+\mu_H &\equiv \E[v \mid k_1 \leq s < k_0] = \mu + \beta\sigma_s \frac{\phi(\alpha_1) - \phi(\alpha_0)}{\Phi(\alpha_0) - \Phi(\alpha_1)}, \\
+\mu_Q &\equiv \E[v \mid k_0 \leq s < k_D] = \mu + \beta\sigma_s \frac{\phi(\alpha_0) - \phi(\alpha_D)}{\Phi(\alpha_D) - \Phi(\alpha_0)}, \\
+\mu_P &\equiv \E[v \mid s \geq k_D] = \mu + \beta\sigma_s \lambda_U(\alpha_D).
+\end{align*}
+
+%------------------------------------------------------------------------------
+\subsection{Bayesian Posteriors}
+%------------------------------------------------------------------------------
+
+\begin{proposition}[Posterior Engagement Probabilities]
+\label{prop:posteriors}
+For any information set $(X,D)$ that is reached with positive probability in equilibrium, the posterior probability of engagement $\pi(X,D) = \PP(a=1 \mid X, D)$ satisfies:
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Disclosed states:} If $D = 1$, then $\pi(X, 1) = 1$ for all compatible $X \in \{0, 1, 2\}$.
+\item \textbf{Non-disclosed states:} If $D = 0$, let $p_0 \equiv 1 - \kappa$ and $p_1 \equiv \kappa/2$. Then:
+\begin{align*}
+\pi(1, 0) &= \frac{\omega_Q}{\omega_H + \omega_Q}, \\
+\pi(-1, 0) &= \frac{\omega_Q \, p_1}{(\omega_H + \omega_Q) \, p_1 + \omega_E \, p_0}, \\
+\pi(0, 0) &= \frac{\omega_Q \, p_0}{(\omega_H + \omega_Q) \, p_0 + \omega_E \, p_1}, \\
+\pi(-2, 0) &= 0.
+\end{align*}
+\end{enumerate}
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-posteriors}.
+
+The proposition highlights the fundamental asymmetry between disclosed and non-disclosed states. When $D=1$, the inference problem collapses entirely: disclosure reveals that the blockholder chose Public Voice, which implies engagement with certainty. The market knows activism has occurred (though the ultimate success of the campaign remains uncertain until $t=2$).
+
+When $D=0$, the market faces a genuine inference problem. It observes only the aggregate order flow $X$ and must form beliefs about whether the blockholder is engaged (Quiet Voice) or not (Exit or Passive Hold). The key insight is that Passive Hold and Quiet Voice both involve $q=0$, so they generate identical order-flow distributions---the market cannot distinguish between them based on order flow alone. Instead, the posterior split between these actions is pinned down by their prior probabilities $(\omega_H,\omega_Q)$, which in turn depend on the equilibrium cutoffs. This is where liquidity enters: higher $\kappa$ changes the noise distribution and thereby affects how order flow $X$ is interpreted.
+
+%------------------------------------------------------------------------------
+\subsection{Conditional Expectation of Fundamentals Given \texorpdfstring{$(X,D)$}{(X,D)}}
+%------------------------------------------------------------------------------
+
+For pricing, we need $\E[v \mid X, D]$. Since $v$ is independent of noise $z$, only the action regions compatible with $(X, D)$ matter.
+
+\paragraph{For $D=1$:} Only Public Voice is possible:
+\[
+\E[v \mid X, D=1] = \mu_P \quad \text{for } X \in \{0, 1, 2\}.
+\]
+
+\paragraph{For $D=0$:} Mix over Exit, Passive Hold, and Quiet Voice with Bayesian weights. Let $p_0 \equiv 1 - \kappa$ and $p_1 \equiv \kappa/2$. Then:
+\begin{align*}
+\E[v \mid -2, 0] &= \mu_E, \\
+\E[v \mid 1, 0] &= \frac{\omega_H \mu_H + \omega_Q \mu_Q}{\omega_H + \omega_Q}, \\
+\E[v \mid -1, 0] &= \frac{(\omega_H \mu_H + \omega_Q \mu_Q) \, p_1 + \omega_E \mu_E \, p_0}{(\omega_H + \omega_Q) \, p_1 + \omega_E \, p_0}, \\
+\E[v \mid 0, 0] &= \frac{(\omega_H \mu_H + \omega_Q \mu_Q) \, p_0 + \omega_E \mu_E \, p_1}{(\omega_H + \omega_Q) \, p_0 + \omega_E \, p_1}.
+\end{align*}
+
+%------------------------------------------------------------------------------
+\subsection{Equilibrium Prices}
+\label{sec:prices}
+%------------------------------------------------------------------------------
+
+The competitive pricing condition~\eqref{eq:pricing} defines $P(X,D)$ implicitly, since the bid probability $p(X,D)$ depends on $P(X,D)$ through~\eqref{eq:bid-prob}. For each information set $(X,D)$ and posterior $\pi(X,D)$, the equilibrium price $P^*(X,D)$ satisfies
+\begin{equation}
+P = \delta\Big((1-p(P,D)) \cdot \hat{V}(X,D) + p(P,D) \cdot (P + m(X,D))\Big),
+\label{eq:price-fp}
+\end{equation}
+where $\hat{V}(X,D) \equiv \E[v \mid X,D] + \tilde{\Delta} \cdot \pi(X,D)$ is the expected standalone value (including engagement effects), and $p(P,D) = 1 - \Phi\big((m(P,D) + K - \bar{S} + P)/\sigma_\xi\big)$ is the bid probability. Under Assumption~\textup{(A5)}, this fixed-point equation admits a unique solution for each $(X,D)$.
+
+The fixed-point structure captures a key economic feedback: the price depends on takeover probability, which in turn depends on price. Higher prices deter bidders (making takeover less likely), which reduces the takeover component of value, which feeds back into the price. Assumption~\textup{(A5)} ensures that this feedback loop does not generate multiplicity. Rearranging~\eqref{eq:price-fp}, any fixed point satisfies
+\[
+P^*(X,D)=\frac{\delta\big((1-p^*)\hat{V}(X,D)+p^*\,m(X,D)\big)}{1-\delta p^*},
+\qquad p^*\equiv p(P^*(X,D),D).
+\]
+When takeover is unlikely ($p^*\approx 0$), this reduces to $P^*(X,D)\approx \delta\,\hat{V}(X,D)$.
+
+%------------------------------------------------------------------------------
+\subsection{Price Decomposition and Activism Premium}
+%------------------------------------------------------------------------------
+
+Building on the pricing fixed point~\eqref{eq:price-fp}, we can decompose the equilibrium price into interpretable components.
+
+\begin{proposition}[Price Decomposition]
+\label{prop:price-decomp}
+The unique equilibrium price $P^*(X,D)$ satisfies
+\[
+P^*(X,D) = \delta\Big((1-p^*) \cdot \E[v \mid X,D] + (1-p^*) \cdot \tilde{\Delta} \cdot \pi(X,D) + p^* \cdot (P^*(X,D) + m(X,D))\Big),
+\]
+where $p^* \equiv p(P^*(X,D),D)$, $\pi(X,D) = \PP(a=1 \mid X,D)$, and $m(X,D) = m_0 + (\tilde{m} - m_0)\pi(X,D)$.
+
+The terms involving $\pi(X,D)$ constitute an ``activism premium'':
+\begin{itemize}[leftmargin=1.5em,itemsep=0pt]
+\item \textbf{Standalone channel:} $(1-p^*)\tilde{\Delta}\pi(X,D)$ reflects expected value improvement from engagement when no takeover occurs.
+\item \textbf{Takeover channel:} $p^* \cdot (\tilde{m}-m_0)\pi(X,D)$ reflects the expected \emph{incremental} takeover premium attributable to engagement (over and above the baseline $m_0$).
+\end{itemize}
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-price-decomp}.
+
+The decomposition reveals that activism affects prices through two distinct channels. First, the \emph{standalone channel}: when no takeover occurs, an engaged blockholder improves firm value by $\tilde{\Delta}$ in expectation, and this improvement is capitalized into prices. Second, the \emph{takeover channel}: when a takeover does occur, the bidder must pay a higher premium to acquire a firm with an engaged blockholder, and this higher premium is also reflected in prices.
+
+Importantly, the way these channels operate differs between disclosed and non-disclosed states. In disclosed states ($D=1$), engagement is known with certainty, so $\pi(X,1)=1$ and the activism premium is fully priced. Liquidity affects how often $D=1$ occurs and can influence prices through feedback, but it does not affect the activism premium \emph{within} disclosed states. In non-disclosed states ($D=0$), the posterior $\pi(X,0)$ depends on $\kappa$ through Bayesian inference, so the activism premium inherits liquidity sensitivity. This asymmetry is central to understanding how disclosure attenuates the liquidity-premia relationship.
+
+%------------------------------------------------------------------------------
+\subsection{Bid Incidence and Premia}
+%------------------------------------------------------------------------------
+
+The bid probability $p(X,D)$ defined in~\eqref{eq:bid-prob} has two key monotonicity properties. First, higher prices deter bids: $\partial p(X,D)/\partial P(X,D)<0$. This is intuitive---a higher market price raises the acquisition cost and makes the deal less attractive to the bidder. Second, when the activism premium is positive ($\tilde{m}>m_0$), higher inferred engagement also reduces bid incidence: $\partial p(X,D)/\partial\pi(X,D)<0$. The bidder anticipates paying a higher premium when facing an engaged blockholder, which makes entry less attractive.
+
+These monotonicity properties have a direct implication for the role of disclosure. When $D=1$, the bidder \emph{knows} activism has occurred, so bid deterrence is maximal---the full activism premium $\tilde{m}$ enters the bidder's calculation. When $D=0$, deterrence is probabilistic and depends on the inferred engagement probability $\pi(X,0)$. Consequently, disclosed activism deters bids more strongly than inferred activism, all else equal. (Proof: see Appendix~\ref{app:proof-bid-monotone}.)
+
+%------------------------------------------------------------------------------
+\subsection{Equilibrium Cutoff Equations}
+%------------------------------------------------------------------------------
+
+The equilibrium cutoffs $(k_1,k_0,k_D)$ are pinned down by indifference conditions at each boundary. Let $U_E$, $U_H(s)$, $U_Q(s)$, and $U_P(s)$ denote the expected payoffs from Exit, Passive Hold, Quiet Voice, and Public Voice, computed by integrating over noise realizations and disclosure outcomes. (The exit payoff $U_E$ does not depend on $s$ because the sell order $q=-1$ fully liquidates the position, so the blockholder's terminal holding is zero.) The three cutoffs satisfy:
+\begin{align}
+U_E &= U_H(k_1), \label{eq:k1} \\
+U_H(k_0) &= U_Q(k_0), \label{eq:k0} \\
+U_Q(k_D) &= U_P(k_D). \label{eq:kD}
+\end{align}
+At the first cutoff $k_1$, the blockholder is indifferent between exiting and holding passively. At the second cutoff $k_0$, she is indifferent between Passive Hold and Quiet Voice. At the third cutoff $k_D$, she is indifferent between Quiet Voice and Public Voice. These indifference conditions, combined with single-crossing of payoffs in the signal $s$, pin down the equilibrium strategy. (Derivation: see Appendix~\ref{app:proof-cutoff-eqns}.)
+
+%------------------------------------------------------------------------------
+\subsection{Equilibrium Existence and Uniqueness}
+%------------------------------------------------------------------------------
+
+The preceding analysis characterizes the equilibrium conditions. Under Assumptions~\textup{(A1)}--\textup{(A5)}, any monotone-cutoff Perfect Bayesian Equilibrium must satisfy Bayes-consistent beliefs and the pricing fixed point~\eqref{eq:price-fp} together with the cutoff indifference conditions~\eqref{eq:k1}--\eqref{eq:kD}.
+
+Assumption~\textup{(A6)} strengthens this by imposing a contraction property on the cutoff mapping. Under Assumptions~\textup{(A1)}--\textup{(A6)}, the cutoff mapping has a unique fixed point, yielding existence and uniqueness of the monotone-cutoff equilibrium. Appendix~\ref{app:proof-cutoffs} constructs the mapping and applies the Banach fixed-point theorem. If the contraction fails (e.g., due to strong feedback effects), multiplicity can arise. (See also Appendix~\ref{app:proof-uniqueness}.) The analysis restricts attention to monotone-cutoff strategies, which are the standard equilibrium class in discrete-order-flow models with single-crossing payoffs \citep{EdmansGoldsteinJiang2015,EdmansGoldsteinJiang2012}. In this setting, single-crossing of the blockholder's payoff differences in $s$ (established in the proof of Proposition~\ref{prop:cutoffs}) implies that any best response to monotone beliefs is itself monotone, making the monotone-cutoff class self-confirming. Non-monotone equilibria, in which the blockholder's action is not ordered by signal, are not ruled out a~priori but would require non-standard beliefs and fall outside the scope of this paper.
+
+%------------------------------------------------------------------------------
+\subsection{Non-Monotonic Minority Takeover Gains}
+%------------------------------------------------------------------------------
+
+We now turn to the paper's central object of interest: expected minority takeover gains. Define
+\begin{equation}
+\Delta^{\min}(\kappa) \equiv \E\big[m(a) \cdot \1\{\textup{bid}\}\big],
+\label{eq:minority}
+\end{equation}
+as the expected takeover premium (per share) earned by a representative minority share. The expectation is taken over $(v,s,z,\xi)$ induced by equilibrium strategies. This quantity captures the unconditional expected takeover premium from the takeover channel, averaged over all states of the world (including states in which no bid occurs).
+
+Expected minority takeover gains decompose naturally into two components:
+\begin{equation}
+\Delta^{\min}(\kappa) = \underbrace{m_0 \cdot \PP(\textup{bid})}_{\text{baseline premium}} + \underbrace{(\tilde{m}-m_0)\cdot \E\big[\pi(X,D)\cdot \1\{\textup{bid}\}\big]}_{\text{activism-driven premium}}.
+\label{eq:decomp}
+\end{equation}
+The first term is the baseline premium weighted by overall bid probability. The second term, which we denote $\Delta^{\textup{act}}(\kappa)$, captures the additional premium attributable to blockholder engagement. To avoid ambiguity, note that $\Delta$ (without superscript) denotes the engagement improvement parameter, while $\Delta^{\min}(\kappa)$ and $\Delta^{\textup{act}}(\kappa)$ are equilibrium objects defined above. This decomposition is useful because it separates the effect of liquidity on \emph{whether} a bid occurs from its effect on the \emph{size} of the premium conditional on bidding. (Derivation: see Appendix~\ref{app:proof-minority-decomp}.)
+
+The decomposition~\eqref{eq:decomp} highlights two opposing channels through which liquidity can affect minority takeover gains. Higher liquidity can raise bid incidence by reducing adverse-selection costs and shifting prices, but it can also change equilibrium engagement incentives and the inference-driven component of premia. While a full closed-form characterization of $\Delta^{\min}(\kappa)$ is generally unavailable because $\kappa$ affects equilibrium cutoffs and prices jointly, the following proposition provides sufficient conditions for a non-monotone liquidity effect.
+
+\begin{proposition}[Non-Monotonic Liquidity Effect]
+\label{prop:nonmonotone}
+Under the Standing Assumptions and \textup{(A8)}, interpret $\Delta^{\min}(0)\equiv 0$ by the limit in \textup{(A8)(i)}. Then there exists an interior maximizer $\kappa^{\dagger}\in(0,\bar{\kappa})$ such that
+\[
+\Delta^{\min}(\kappa^{\dagger})=\max_{\kappa\in[0,\bar{\kappa}]}\Delta^{\min}(\kappa).
+\]
+In particular, $\Delta^{\min}(\kappa)$ is non-monotone on $(0,\bar{\kappa})$. Moreover, for all $\kappa\in[\bar{\kappa},1)$, equilibrium engagement never occurs and hence $\Delta^{\textup{act}}(\kappa)=0$ and $\Delta^{\min}(\kappa)=m_0\PP(\textup{bid})\le m_0$.
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-nonmonotone}.
+
+In the limiting case $\kappa\to 1$, noise trading dominates and order flow becomes nearly uninformative about fundamentals or engagement. In this regime, the inference channel shuts down, engagement incentives vanish (as formalized in \textup{(A8)(ii)}), and minority takeover gains reduce to the baseline component $m_0\PP(\textup{bid})$.
+
+Section~\ref{sec:numerical} complements this theory with numerical analysis. In the baseline calibration, $\Delta^{\min}(\kappa)$ is hump-shaped (Figure~\ref{fig:nonmonotone}) and the activism component varies smoothly with $\kappa$ (Figure~\ref{fig:decomposition}).
+
+From the perspective of minority shareholders, this endogenous shift in engagement incentives is central: when engagement occurs with positive probability, takeover premia include an activism component; when equilibrium engagement disappears, the activism component is zero. In the baseline calibration, the resulting interaction between bid incidence and the activism component produces a hump-shaped $\Delta^{\min}(\kappa)$, with turning point $\kappa^{\dagger}$ shown in Figure~\ref{fig:nonmonotone}.
+
+\paragraph{Disclosure attenuates inference sensitivity.}
+The activism-driven component $\Delta^{\textup{act}}(\kappa)$ can be decomposed by disclosure status. In disclosed states ($D=1$), engagement is known with certainty, so the activism premium $\tilde{m}-m_0$ is constant and there is no inference channel. In non-disclosed states ($D=0$), engagement must be inferred from order flow, making the premium $\kappa$-sensitive through the Bayesian formulas in Proposition~\ref{prop:posteriors}. Consequently, within the voice regime, the liquidity sensitivity of $\Delta^{\textup{act}}(\kappa)$ comes entirely from the $D=0$ component. Shifting probability mass toward disclosed activism (larger $\omega_P$) attenuates this inference-driven sensitivity, as more takeovers occur in states where engagement is observed rather than inferred. The following proposition formalizes this observation.
+
+\begin{proposition}[Disclosure Attenuation (Partial Equilibrium)]
+\label{prop:disclosure-attenuation}
+Hold the blockholder's strategy constant: fix the cutoffs $(k_1,k_0,k_D)$ and hence the action probabilities, and vary $\kappa$ only through its effect on inference and pricing (a partial-equilibrium exercise). Decompose the activism-driven premium as
+\[
+\Delta^{\textup{act}}(\kappa) = \underbrace{(\tilde{m}-m_0)\omega_P \cdot \bar{p}_1}_{\text{disclosed component}} + \underbrace{(\tilde{m}-m_0)\E\big[\pi(X,0)\cdot p(X,0) \mid D=0\big]\PP(D=0)}_{\text{inferred component}},
+\]
+where $\bar{p}_1 \equiv p(P^*(X,1),1)$ is the (constant) bid probability on the disclosed branch. Only the inferred component depends on $\kappa$ through the posteriors $\pi(X,0)$. Consequently, $|\partial \Delta^{\textup{act}}(\kappa)/\partial\kappa|$ is decreasing in $\omega_P$: shifting probability mass toward disclosed engagement attenuates the liquidity sensitivity of the activism-driven premium.
+\end{proposition}
+
+\textit{Proof sketch.} In disclosed states, $\pi(X,1)=1$ and all pricing objects are $\kappa$-invariant (Appendix~\ref{app:proof-disclosed-invariance}), so the disclosed component contributes zero to $\partial\Delta^{\textup{act}}/\partial\kappa$. The inferred component is a convex combination of $\kappa$-sensitive posteriors weighted by $\PP(D=0)=1-\omega_P$. As $\omega_P$ increases, weight shifts from the $\kappa$-sensitive component to the $\kappa$-invariant component, reducing the overall sensitivity. \qed
+
+%==============================================================================
+\section{Numerical Illustration}
+\label{sec:numerical}
+%==============================================================================
+
+This section illustrates the model's predictions through numerical analysis. Table~\ref{tab:params} in Appendix~\ref{app:tables} summarizes the baseline parameterization; Table~\ref{tab:example} in Appendix~\ref{app:tables} reports equilibrium outcomes.
+
+%------------------------------------------------------------------------------
+\subsection{Baseline Equilibrium}
+%------------------------------------------------------------------------------
+
+Under the baseline parameterization, the equilibrium exhibits a cutoff structure with weakly ordered thresholds. The baseline parameters satisfy the sufficient condition for Assumption~\textup{(A5)}: $\delta/\sigma_\xi = 0.95/0.40 = 2.375 < 1/\phi(0) \approx 2.507$. In the baseline calibration reported in Table~\ref{tab:example}, the Passive Hold region collapses ($k_0=k_1$), so the blockholder's strategy reduces to Exit, Quiet Voice, and Public Voice. Figure~\ref{fig:cutoff-structure} in Appendix~\ref{app:figures} depicts the resulting cutoff structure.
+
+Key observations from Table~\ref{tab:example}:
+\begin{itemize}[leftmargin=2em,itemsep=2pt]
+\item \textbf{Disclosed states have maximal activism premium:} $m(X,1) = \tilde{m}$ for all $X \in \{0,1,2\}$, since $D=1$ reveals $a=1$ with certainty.
+\item \textbf{Non-disclosed states show inference:} The posterior $\pi(X,0)$ is highest when order flow is most diagnostic of the quiet-engagement action. With no stake acquisition in $D=0$ states, $X=1$ reveals $q=0$ and hence $\pi(1,0)=\omega_Q/(\omega_H+\omega_Q)$.
+\item \textbf{Disclosure deters bids:} For fixed $X$, $p(X,1) < p(X,0)$ because the bidder knows it must pay the full activism premium when $D=1$.
+\end{itemize}
+
+Figure~\ref{fig:prices} shows equilibrium prices across all $(X,D)$ states. Conditional on disclosure ($D=1$), order flow reflects only noise given Public Voice, so $P(X,1)$ is constant across $X$. The disclosed price level is higher than comparable non-disclosed states because engagement is known rather than inferred.
+
+%------------------------------------------------------------------------------
+\subsection{Non-Monotonicity in Liquidity}
+%------------------------------------------------------------------------------
+
+Figure~\ref{fig:nonmonotone} illustrates the non-monotone relation between liquidity and expected minority takeover gains in the baseline calibration. As $\kappa$ increases from low levels, $\Delta^{\min}(\kappa)$ initially rises because bid incidence increases. At higher liquidity, the contribution of activism-related premia becomes less important, and $\Delta^{\min}(\kappa)$ declines. The vertical dashed line marks the interior turning point $\kappa^{\dagger}$ (the maximizer of $\Delta^{\min}$ on the plotted grid).
+
+Figure~\ref{fig:decomposition} decomposes minority takeover gains into the baseline component $m_0 \cdot \PP(\textup{bid})$ and the activism component $\Delta^{\textup{act}}(\kappa)$. Both components vary smoothly with liquidity in the baseline calibration. The hump shape is driven by changes in bid incidence and in the weight placed on activism-related premia as $\kappa$ changes.
+
+Figure~\ref{fig:cutoffs-kappa} traces how equilibrium cutoffs shift with liquidity. The ordering $k_1 \le k_0 \le k_D$ is preserved, but regions can collapse (e.g., $k_0=k_1$).
+
+%------------------------------------------------------------------------------
+\subsection{Sensitivity Analysis}
+%------------------------------------------------------------------------------
+
+Figures~\ref{fig:sensitivity-C0} and~\ref{fig:sensitivity-wedge} examine robustness to key parameters.
+
+\textbf{Engagement cost $C_0$:} Raising $C_0$ shrinks the voice regions and lowers the activism-driven component $\Delta^{\textup{act}}$, but it can raise bid incidence by reducing expected resistance; hence the net effect on $\Delta^{\min}$ is a priori ambiguous, and the turning point in $\kappa$ shifts across cost levels.
+
+\textbf{Premium wedge $(m_1 - m_0)$:} Increasing the wedge raises the takeover premium conditional on bidding but can deter bids; in the calibration, expected minority takeover gains are maximized at an intermediate wedge.
+
+Finally, Figure~\ref{fig:disclosure} isolates the disclosure--inference channel. We fix the blockholder's cutoff strategy at the baseline calibrated equilibrium ($\kappa=0.5$) and vary liquidity $\kappa$ only through the noise distribution in order flow. We then compare the resulting activism-driven component $\Delta^{\textup{act}}(\kappa)$ under threshold disclosure to a counterfactual in which disclosure is removed and the market conditions only on order flow $X$. In this comparison, removing disclosure increases the role of inference and makes $\Delta^{\textup{act}}(\kappa)$ more sensitive to $\kappa$; threshold disclosure attenuates this liquidity sensitivity by shifting probability mass toward states with observed engagement ($D=1$).
+
+%==============================================================================
+\section{Comparative Statics}
+\label{sec:comp-statics}
+%==============================================================================
+
+This section summarizes how key primitives map into prices, takeover incentives, and the blockholder's behavior.
+
+%------------------------------------------------------------------------------
+\subsection{Activism Frictions}
+%------------------------------------------------------------------------------
+
+\paragraph{Sensitivity to engagement frictions.}
+Closed-form comparative statics for the cutoff vector are generally unavailable because changing engagement parameters shifts both the blockholder's incentives and the equilibrium pricing and bidder-entry objects. Section~\ref{sec:numerical} therefore reports these patterns numerically. The results align with intuition: higher engagement costs shrink the voice regions, while larger expected engagement benefits and takeover premia expand them.
+
+%------------------------------------------------------------------------------
+\subsection{Liquidity Effects}
+%------------------------------------------------------------------------------
+
+\begin{proposition}[Within-Regime Liquidity Effects (Holding Cutoffs Fixed)]
+\label{prop:cs-liquidity-within}
+Fix the equilibrium cutoffs $(k_1,k_0,k_D)$ and hence the action probabilities $(\omega_E,\omega_H,\omega_Q,\omega_P)$. For any reached non-disclosed information set $(X,0)$, the posteriors in Proposition~\ref{prop:posteriors} satisfy:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item $\partial \pi(1,0)/\partial \kappa = 0$ and $\partial \pi(-1,0)/\partial \kappa \ge 0$;
+\item $\partial \pi(0,0)/\partial \kappa \le 0$;
+\item $\pi(-2,0)=0$ and $\pi(X,1)=1$ for all feasible $X$.
+\end{enumerate}
+Consequently, the inferred premium wedge $m(X,0)=m_0+(\tilde{m}-m_0)\pi(X,0)$ is increasing in $\kappa$ for $X=-1$, decreasing in $\kappa$ for $X=0$, and invariant for $X=1$, while disclosed states have $m(X,1)=\tilde{m}$.
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-cs-liquidity-within}.
+
+\paragraph{Across-equilibrium liquidity effects.}
+Beyond the within-regime inference effects captured above, changing liquidity also shifts the blockholder's incentives through adverse selection and changes equilibrium cutoffs and prices jointly. Because these objects move endogenously with $\kappa$, closed-form cross-equilibrium comparative statics are generally unavailable. Section~\ref{sec:numerical} summarizes the overall patterns numerically (Figure~\ref{fig:cutoffs-kappa}).
+
+In disclosed states ($D=1$), $\pi(X,1)=1$ and $m(X,1)=\tilde{m}$, so there is no inference about engagement conditional on disclosure. In non-disclosed states ($D=0$), $\pi(X,0)$ varies with $\kappa$ through the Bayesian updating formulas in Proposition~\ref{prop:posteriors}, making the inferred premium wedge $m(X,0)$ and the $D=0$ component of $\Delta^{\textup{act}}(\kappa)$ liquidity-sensitive.
+
+%------------------------------------------------------------------------------
+\subsection{Takeover Environment}
+%------------------------------------------------------------------------------
+
+\begin{proposition}[Comparative Statics in Takeover Parameters]
+\label{prop:cs-takeover}
+Fix any reached information set $(X,D)$ and treat the inferred premium wedge $m(X,D)$ as given. The bid probability function $p(X,D)$ defined in~\eqref{eq:bid-prob} satisfies:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item \textbf{(Synergies)} $\partial p(X,D) / \partial \bar{S} > 0$: higher synergies increase bid incidence uniformly.
+\item \textbf{(Entry cost)} $\partial p(X,D) / \partial K < 0$: higher bidding costs reduce bid incidence uniformly.
+\item \textbf{(Moderate feedback via bidder heterogeneity)} For each reached information set $(X,D)$,
+\[
+\frac{\partial p(X,D)}{\partial P(X,D)}=-\frac{1}{\sigma_\xi}\,\phi\!\left(\frac{m(X,D)+K-\bar{S}+P(X,D)}{\sigma_\xi}\right)<0.
+\]
+In particular, the maximal slope satisfies $\sup_{P}\bigl|\partial p/\partial P\bigr|=\phi(0)/\sigma_\xi$, so a larger $\sigma_\xi$ attenuates the price-to-entry feedback and relaxes the regularity condition in Assumption~\textup{(A5)}.
+\end{enumerate}
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-cs-takeover}.
+
+%==============================================================================
+\section{Extensions}
+\label{sec:extensions}
+%==============================================================================
+
+Disclosure requirements for activist investors vary widely across jurisdictions. In the United States, Schedule 13D mandates filing within five business days of crossing a 5\% beneficial ownership threshold. The United Kingdom imposes a lower 3\% threshold with a tighter two-trading-day deadline under the FCA's Disclosure and Transparency Rules. The European Union's Transparency Directive sets a 5\% baseline but permits member states to require disclosure at lower thresholds; Germany, for instance, applies a 3\% threshold specifically for voting-rights notifications. Japan mirrors the US approach at 5\%. At one extreme, some jurisdictions have considered or implemented very low thresholds that approach full disclosure of activist intent; at the other, weak enforcement or broad institutional exemptions can leave much activism unobserved.
+
+This cross-country variation provides natural laboratories for testing whether disclosure stringency shapes the liquidity--premia relationship as the model predicts. It also motivates studying how the liquidity-premium relationship changes under alternative information structures. The baseline model assumes stake-triggered disclosure, corresponding roughly to the US regime. The extensions below consider polar benchmarks---full information (all activism observable) and no disclosure (all activism inferred from order flow)---as well as an intermediate regime where a noisy public signal supplements stake-based disclosure. These alternatives correspond to different points on the real-world policy spectrum and clarify how disclosure stringency shapes the inference channel linking liquidity to takeover premia.
+
+Throughout this section, we hold the blockholder's cutoff strategy fixed (and hence the action probabilities $\omega_E,\omega_H,\omega_Q,\omega_P$) to isolate the effect of the disclosure regime on inference and pricing. This partial-equilibrium approach clarifies how different information structures shape the relationship between liquidity and activism premia.
+
+%------------------------------------------------------------------------------
+\subsection{Full Disclosure Benchmark}
+%------------------------------------------------------------------------------
+
+Some jurisdictions have considered or implemented very low disclosure thresholds---such as proposals to reduce the US Schedule 13D threshold from 5\% to 2.5\%---or require disclosure of activist intent regardless of stake size. In the limit, such regimes approach full disclosure. In the full-disclosure regime, the market observes the blockholder's action $(q,a)$ directly, so all activist campaigns are immediately and fully public, regardless of stake changes. Under full disclosure, the engagement posterior is trivial: $\pi=1$ when $a=1$ and $\pi=0$ when $a=0$. The activism premium is therefore deterministic in each state, and the inference channel that links liquidity to premia is shut down completely.
+
+Full disclosure eliminates the liquidity-driven Bayesian mixing that operates through order flow. When the market knows whether engagement has occurred, order flow reveals only the noise-trader realization $z$, which is uninformative about fundamentals. This benchmark illustrates the upper bound on how much disclosure can attenuate the liquidity-sensitivity of the activism premium.
+
+%------------------------------------------------------------------------------
+\subsection{No Disclosure Benchmark}
+%------------------------------------------------------------------------------
+
+At the other end of the spectrum, some jurisdictions have high thresholds, weak enforcement, or broad exemptions for institutional investors that leave much activism unobserved. At the opposite extreme, suppose the market receives no disclosure signal and must infer everything from order flow alone. This corresponds to a world without effective mandatory disclosure requirements, where even large stake acquisitions remain hidden.
+
+Under no disclosure, the market conditions only on aggregate order flow $X\in\{-2,-1,0,1,2\}$. The engagement posterior $\pi(X)$ varies continuously with $X$ and depends on liquidity $\kappa$ at all interior order-flow realizations. Only the extreme realizations pin down engagement with certainty: $X=-2$ can only arise from Exit (so $\pi=0$), while $X=2$ can only arise from Public Voice (so $\pi=1$). At intermediate values of $X$, the market must form beliefs by mixing over all four possible actions, with weights that depend on the noise distribution.
+
+Compared to the baseline, no disclosure makes the activism premium more liquidity-sensitive because inference operates across all states rather than being confined to non-disclosed states. This benchmark illustrates the lower bound on how much the inference channel can be attenuated through disclosure.
+
+%------------------------------------------------------------------------------
+\subsection{An Intermediate Regime: Stake Disclosure Plus Noisy Rumors}
+%------------------------------------------------------------------------------
+
+Between the polar benchmarks lies a realistic intermediate case: the baseline stake-triggered disclosure augmented by a noisy public signal about quiet engagement. This intermediate regime captures settings like the United Kingdom, where a lower 3\% threshold plus active financial media provide partial but imperfect information about activist activity. It also describes markets where analyst coverage or regulatory filings (such as quarterly 13F holdings reports in the US) offer noisy signals about activist positions even when no formal disclosure is triggered.
+
+Consider adding a binary ``rumor'' signal $R$ that is informative about engagement in non-disclosed states. The rumor is more likely to fire when engagement has occurred (hit rate $\eta_1$) than when it has not (false-alarm rate $\eta_0<\eta_1$). In disclosed states, the rumor is irrelevant because engagement is already known.
+
+This intermediate regime preserves the paper's core ``disclosed vs.\ inferred'' structure while adding a refinement within non-disclosed states. When the rumor fires, the market updates toward believing engagement has occurred; when it does not, the market updates away. The key insight is that the rumor signal partially substitutes for the inference channel: as the rumor becomes more informative ($\eta_1-\eta_0$ increases), the posterior engagement probability moves closer to the extremes $\{0,1\}$, and the liquidity-sensitivity of the activism premium diminishes.
+
+In the limit where the rumor is perfectly informative ($\eta_1\to1,\eta_0\to0$), the intermediate regime converges to full disclosure within non-disclosed states: the market knows whether quiet engagement has occurred, eliminating the inference channel entirely. Conversely, when the rumor is uninformative ($\eta_1=\eta_0$), the intermediate regime collapses to the baseline. The detailed posterior formulas for general $(\eta_0,\eta_1)$ are provided in Appendix~\ref{app:extensions-derivations}.
+
+\paragraph{Other disclosure variants.}
+The framework can accommodate other disclosure structures. ``Any-trade disclosure'' would reveal whether the blockholder traded at all ($q\neq0$), making participation observable but not distinguishing between exit and engagement. Delayed disclosure would reveal the stake-based signal $D$ after trading but before the bidder's entry decision, changing the timing of information revelation. Each variant generates different posterior formulas and different liquidity-premia relationships, but the core mechanism---disclosure attenuates inference sensitivity---remains.
+
+A numerical illustration comparing these regimes is provided in Table~\ref{tab:disclosure-extensions} in Appendix~\ref{app:tables}.
+
+%==============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%==============================================================================
+
+This paper develops a model linking secondary-market liquidity to corporate control outcomes when an informed blockholder can choose between Exit, Quiet Voice, and Public Voice---and when stake-triggered disclosure rules determine whether activism is publicly observed. The framework combines elements of market microstructure---discrete order flow, Bayesian inference, competitive pricing---with elements of corporate governance---engagement costs, takeover premia, bidder entry.
+
+The model delivers a non-monotone relationship between liquidity and expected minority takeover gains under sufficient boundary conditions (Assumption~\textup{(A8)}, verified in the baseline calibration). As liquidity increases, bid incidence and engagement incentives shift in opposing directions: higher liquidity reduces adverse-selection costs and changes prices and entry incentives, while engagement eventually disappears, eliminating the activism-driven component of premia. This tension generates an interior maximizer of minority takeover gains. The numerical analysis illustrates the mechanism and produces a hump-shaped relation in the baseline calibration. More generally, the model shows how disclosure shifts probability mass from inference-driven to observably engaged states, attenuating the inference channel that links liquidity to engagement premia. The extensions demonstrate that varying the informativeness and timing of public signals reshapes this inference channel, with full disclosure eliminating it entirely and no disclosure maximizing its scope.
+
+These results speak to several policy questions, and the cross-country variation in disclosure regimes provides natural laboratories for testing the model's predictions. Lowering the ownership threshold for mandatory disclosure---as the United Kingdom has done relative to the United States---increases the share of activism that is directly observable, which attenuates the inference channel and changes how liquidity maps into takeover premia. However, lower thresholds also reduce the returns to quiet engagement, potentially discouraging activism altogether---the optimal threshold therefore involves a trade-off between transparency and incentives that different jurisdictions have resolved differently. Policies affecting liquidity, such as tick sizes, trading halts, and dark pool regulation, have implications beyond price discovery: by changing the noise-trading environment, they alter the informativeness of order flow and hence the way engagement is priced. In markets where activist investors play an important governance role, liquidity policy is implicitly governance policy. Similarly, policies aimed at protecting minority shareholders should account for the general-equilibrium dependence of takeover premia on equilibrium activism.
+
+The model makes several simplifying assumptions that suggest directions for future work. Trading is discrete rather than continuous, which aids tractability but abstracts from intertemporal trading dynamics. The blockholder has a single chance to trade and engage, whereas real activists often build positions gradually. Engagement is binary rather than multidimensional, ignoring the rich variety of activist tactics. Extending the framework to dynamic settings with multiple trading rounds, adding multiple blockholders or wolf-pack coordination, or endogenizing the blockholder's information acquisition would each enrich the analysis while preserving the core insight that liquidity, disclosure, and governance are jointly determined in equilibrium.
+
+%==============================================================================
+\newpage
+\printbibliography
+
+%==============================================================================
+\newpage
+\appendix
+\section{Proofs and Derivations}
+\label{app:proofs}
+
+\subsection{Proof of Proposition~\ref{prop:cutoffs}}
+\label{app:proof-cutoffs}
+
+\begin{proof}
+Write the four feasible actions as
+\[
+E\equiv(-1,0),\quad H\equiv(0,0),\quad Q\equiv(0,1),\quad P\equiv(+1,1),
+\]
+corresponding to Exit, Passive Hold, Quiet Voice, and Public Voice.
+
+\textit{Step 1: Best responses are characterized by (at most) three cutoffs.}
+Fix any candidate pricing rule $P(\cdot,\cdot)$ and bidder-entry probabilities $p(\cdot,\cdot)$ at each information set $(X,D)$. For an action $(q,a)$ with holdings $h=1+q$ and disclosure $D=\1\{q=+1\}$, the blockholder's $t=1$ payoff conditional on signal $s$ is
+\[
+U(q,a \mid s)
+= \E\Big[-q\cdot P(X,D) + \delta h \cdot Y - a\cdot C(s) \,\Big|\, s,q,a\Big],
+\]
+where $X=q+z$ and $Y=\1\{\textup{bid}\}\cdot (P(X,D)+m(a)) + (1-\1\{\textup{bid}\})\cdot (v+a\tilde{\Delta})$.
+Since the bid event depends only on $\xi$ conditional on $(X,D)$, $\E[\1\{\textup{bid}\} \mid X,D]=p(X,D)$, and risk neutrality implies $\E[v \mid s]=\hat v(s)$. Taking expectations over $(v,\xi,z)$ conditional on $s$ yields
+\begin{align*}
+U(q,a \mid s)
+&= \E_z\Big[-q\cdot P(X,D) + \delta h \big(p(X,D)\cdot (P(X,D)+m(a)) \\
+&\qquad\qquad\qquad\qquad\qquad\quad + (1-p(X,D))\cdot(\hat{v}(s)+a\tilde{\Delta})\big)\Big] - a\cdot C(s).
+\end{align*}
+Define
+\[
+B_{q,a}\equiv \delta h\cdot \E_z[1-p(X,D)],\qquad X=q+z,
+\]
+and collect all remaining terms (which do not depend on $s$) into $A_{q,a}$. Then
+\begin{equation}
+U(q,a \mid s)=A_{q,a}+B_{q,a}\,\hat{v}(s)-a\cdot C(s).
+\label{eq:U-affine}
+\end{equation}
+Because $\hat v(s)=\mu+\beta(s-\mu)$ is strictly increasing in $s$, and $C(s)$ is weakly decreasing by Assumption~\textup{(A2)}, the payoff differences that determine the adjacent-action indifference cutoffs are single-crossing in $s$. In particular:
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+\item \textbf{Exit vs.\ Hold.} $U_H(s)-U_E=A_{H}-A_{E}+B_{H}\hat v(s)$ is strictly increasing in $s$ (since $B_H>0$ for $h=1$). Hence there is at most one cutoff $k_1$ solving $U_E=U_H(k_1)$, and whenever it exists it separates Exit from Passive Hold.
+\item \textbf{Hold vs.\ Quiet Voice.} Since $H$ and $Q$ share $(q,D,h)=(0,0,1)$, their $\hat v(s)$ coefficients are the same, and
+\begin{equation}
+U_Q(s)-U_H(s)=\delta\,\E_z\!\Big[p(X,0)\cdot(\tilde m-m_0)+(1-p(X,0))\cdot\tilde\Delta\Big]-C(s),
+\label{eq:UH-UQ}
+\end{equation}
+which is weakly increasing in $s$ (strictly increasing when $\chi>0$). Thus there is at most one cutoff $k_0$ solving $U_H(k_0)=U_Q(k_0)$, and whenever it exists it separates Passive Hold from Quiet Voice.
+\item \textbf{Quiet vs.\ Public Voice.} Since $Q$ and $P$ both have $a=1$, the cost term cancels, and $U_P(s)-U_Q(s)=(A_P-A_Q)+(B_P-B_Q)\hat v(s)$ is affine in $\hat v(s)$ and hence single-crossing. The coefficients $B_Q$ and $B_P$ are generically distinct because $Q$ and $P$ differ in holdings---$h=1$ versus $h=2$---and in disclosure status---$D=0$ versus $D=1$---which enter the expected bid probabilities in $B_{q,a}$. Moreover, $B_P-B_Q>0$: the standalone payoff $v+\tilde{\Delta}$ enters with weight $\delta h(1-p)$, and since $h_P=2>1=h_Q$ while bid probabilities satisfy $p<1$, the coefficient on $\hat v(s)$ is strictly larger for Public Voice, so $U_P-U_Q$ is strictly increasing in $s$. Thus there is at most one cutoff $k_D$ solving $U_Q(k_D)=U_P(k_D)$, and whenever it exists it separates Quiet Voice from Public Voice.
+\end{itemize}
+Under Assumption~\textup{(A1)} (interiority/nondegeneracy of regions), the relevant indifference cutoffs exist and are (weakly) ordered, yielding a best response with thresholds $k_1\le k_0\le k_D$ as stated in Proposition~\ref{prop:cutoffs}.%
+\footnote{The weak inequalities allow for limiting cases in which some regions collapse (e.g., $k_0=k_1$).}
+
+\textit{Step 2: Given cutoffs, beliefs and prices are pinned down.}
+Fix a cutoff vector $(k_1,k_0,k_D)$. This pins down the ex-ante region probabilities $(\omega_E,\omega_H,\omega_Q,\omega_P)$ and hence (by Bayes' rule) the posteriors $\pi(X,D)$ in Proposition~\ref{prop:posteriors}. Given these posteriors and conditional means $\E[v \mid X,D]$, the competitive pricing rule is defined by $P(X,D)=\delta\,\E[Y \mid X,D]$ and is characterized by the fixed point~\eqref{eq:price-fp}. Assumption~\textup{(A5)} ensures that for each reached information set $(X,D)$ this fixed point has a unique solution $P^*(X,D)$.
+
+\textit{Step 3: Fixed point over cutoff vectors.}
+Define the cutoff mapping $T:(k_1,k_0,k_D)\mapsto(k_1',k_0',k_D')$ by: (i) compute $(\omega_E,\omega_H,\omega_Q,\omega_P)$ from $(k_1,k_0,k_D)$; (ii) compute posteriors $\pi(X,D)$; (iii) solve for prices $P^*(X,D)$; and (iv) define $(k_1',k_0',k_D')$ as the (unique) solutions to the indifference conditions~\eqref{eq:k1}--\eqref{eq:kD} induced by these objects (using the single-crossing properties from Step~1). By construction and Assumption~\textup{(A5)}, each step is continuous, so $T$ is continuous.
+
+Assumption~\textup{(A6)} states that $T$ is a contraction on a suitable nonempty compact subset $\Theta\subset\R^3$ (with $k_1\le k_0\le k_D$) under the sup norm. Since $(\Theta,\|\cdot\|_\infty)$ is complete, the Banach fixed-point theorem implies that $T$ has a unique fixed point $(k_1,k_0,k_D)\in\Theta$ and that iterating $T$ converges to it. At this fixed point, the blockholder's cutoff strategy is optimal given the induced prices, beliefs are Bayes-consistent, and the market maker's pricing rule is competitive, which together constitute a Perfect Bayesian Equilibrium. The disclosure outcomes follow from the rule $D=1\iff(q=+1)$.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:posteriors}}
+\label{app:proof-posteriors}
+
+\begin{proof}
+For disclosed states, $D=1$ occurs if and only if $q=+1$ by the disclosure rule. Since the only feasible action with $q=+1$ is Public Voice, $\pi(X,1)=\PP(a=1 \mid X,1)=1$ for all feasible $X\in\{0,1,2\}$.
+
+For non-disclosed states, $D=0$ rules out Public Voice. The remaining actions consistent with $D=0$ are Exit $E\equiv(-1,0)$, Passive Hold $H\equiv(0,0)$, and Quiet Voice $Q\equiv(0,1)$, which occur with ex-ante probabilities $(\omega_E,\omega_H,\omega_Q)$.
+
+Write the noise-trade probabilities as $\PP(z=0)=1-\kappa$ and $\PP(z=\pm1)=\kappa/2$. Conditional on each action, $X=q+z$ has the following support and probabilities:
+\[
+\begin{array}{c|ccc}
+ & X=q-1 & X=q & X=q+1 \\ \hline
+q=-1~(E) & \kappa/2 & 1-\kappa & \kappa/2 \\
+q=0~(H,Q)  & \kappa/2 & 1-\kappa & \kappa/2 \\
+q=+1~(P) & \kappa/2 & 1-\kappa & \kappa/2
+\end{array}
+\]
+Note that Passive Hold $H$ and Quiet Voice $Q$ generate identical order-flow distributions since both have $q=0$. Applying Bayes' rule, for any $X$ with $D=0$,
+\[
+\pi(X,0)=\PP(a=1 \mid X,0)=\PP(Q \mid X,0)=\frac{\omega_Q\,\PP(X \mid Q)}{\omega_E\,\PP(X \mid E)+(\omega_H+\omega_Q)\,\PP(X \mid q\!=\!0)}.
+\]
+If $X=-2$, then $X$ can only be generated by Exit, so $\pi(-2,0)=0$.
+
+If $X=1$, then $X=1$ requires $q=0$ and $z=+1$, so conditioning on $D=0$ implies
+\[
+\pi(1,0)=\frac{\omega_Q}{\omega_H+\omega_Q}.
+\]
+If $X=-1$, then $\PP(X=-1 \mid q\!=\!0)=\PP(z=-1)=\kappa/2$ and $\PP(X=-1 \mid E)=\PP(z=0)=1-\kappa$, giving
+\[
+\pi(-1,0)=\frac{\omega_Q(\kappa/2)}{(\omega_H+\omega_Q)(\kappa/2)+\omega_E(1-\kappa)}.
+\]
+If $X=0$, then $\PP(X=0 \mid q\!=\!0)=\PP(z=0)=1-\kappa$ and $\PP(X=0 \mid E)=\PP(z=1)=\kappa/2$, so
+\[
+\pi(0,0)=\frac{\omega_Q(1-\kappa)}{(\omega_H+\omega_Q)(1-\kappa)+\omega_E(\kappa/2)}.
+\]
+\end{proof}
+
+\subsection{Disclosed-Branch Invariance}
+\label{app:proof-disclosed-invariance}
+
+\begin{proof}
+Consider any equilibrium under the Standing Assumptions and suppose the disclosed branch is reached (i.e., $\PP(D=1)>0$). By the feasible action set and the disclosure rule, $D=1$ occurs if and only if the blockholder chooses Public Voice $P\equiv(+1,1)$, hence $a=1$ almost surely on $\{D=1\}$ and $X=1+z$ with $z\in\{-1,0,1\}$.
+
+Since $z$ is independent of $(v,s,\xi)$, conditioning on $(X,D)=(x,1)$ reveals only the noise realization $z=x-1$ and does not change beliefs about $v$ beyond what is already implied by $D=1$. Formally, for any Borel set $B\subset\R$ and any $x\in\{0,1,2\}$,
+\[
+\PP(v\in B \mid X=x,D=1)=\PP(v\in B \mid D=1).
+\]
+In particular, $\pi(x,1)=\PP(a=1 \mid X=x,D=1)=1$ and $\E[v \mid X=x,D=1]=\E[v \mid D=1]=\mu_P$ for all $x\in\{0,1,2\}$.
+
+Therefore, for each $x\in\{0,1,2\}$ the pricing fixed point~\eqref{eq:price-fp} on the disclosed branch has the same right-hand side: it depends on $(X,D)$ only through $\hat V(X,D)$ and $m(X,D)$, both of which are constant when $D=1$, and through $p(P,1)$, which depends on $(P,D)$ but not on $X$ separately. By Assumption~\textup{(A5)}, this fixed point admits a unique solution, so $P^*(x,1)$ is the same for all $x\in\{0,1,2\}$. The bidder's bid probability satisfies $p(x,1)=p(P^*(x,1),1)$ and is therefore also constant across $x$ on the disclosed branch.
+\end{proof}
+
+\subsection{Derivation of Conditional Means}
+\label{app:deriv-conditional-means}
+
+\begin{lemma}[Truncated normal expectations]
+\label{lem:truncnorm}
+Let $S\sim\mathcal{N}(\mu,\sigma^2)$ and define standardized thresholds $\alpha=(a-\mu)/\sigma$ and $\gamma=(b-\mu)/\sigma$. Then
+\begin{align*}
+\E[S \mid S<a] &= \mu - \sigma\,\frac{\phi(\alpha)}{\Phi(\alpha)}, \\
+\E[S \mid a\le S<b] &= \mu + \sigma\,\frac{\phi(\alpha)-\phi(\gamma)}{\Phi(\gamma)-\Phi(\alpha)}, \\
+\E[S \mid S\ge b] &= \mu + \sigma\,\frac{\phi(\gamma)}{1-\Phi(\gamma)}.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+These are standard formulas for the mean of a truncated normal distribution. For completeness, let $Z\sim\mathcal{N}(0,1)$ and note that $\E[S \mid \cdot]=\mu+\sigma\,\E[Z \mid \cdot]$. For the left tail,
+\[
+\E[Z \mid Z<\alpha]
+=\frac{\int_{-\infty}^{\alpha} z\phi(z)\,dz}{\Phi(\alpha)}
+=\frac{-\phi(\alpha)}{\Phi(\alpha)},
+\]
+where the last equality follows from $\frac{d}{dz}\phi(z)=-z\phi(z)$. The right tail follows similarly. For an interval $[\alpha,\gamma)$,
+\[
+\E[Z \mid \alpha\le Z<\gamma]
+=\frac{\int_{\alpha}^{\gamma} z\phi(z)\,dz}{\Phi(\gamma)-\Phi(\alpha)}
+=\frac{\phi(\alpha)-\phi(\gamma)}{\Phi(\gamma)-\Phi(\alpha)}.
+\]
+\end{proof}
+
+\begin{proof}[Derivation of $\mu_E,\mu_H,\mu_Q,\mu_P$]
+By iterated expectations,
+\[
+\E[v \mid s\in\mathcal{S}]=\E[\E[v \mid s] \mid s\in\mathcal{S}]=\E[\hat{v}(s) \mid s\in\mathcal{S}],
+\]
+for any measurable set $\mathcal{S}$. Since $\hat{v}(s)=\mu+\beta(s-\mu)$,
+\[
+\E[v \mid s\in\mathcal{S}]
+=\mu+\beta\big(\E[s \mid s\in\mathcal{S}]-\mu\big).
+\]
+Applying Lemma~\ref{lem:truncnorm} to $s\sim\mathcal{N}(\mu,\sigma_s^2)$ with the relevant truncation regions $\mathcal{S}$ yields the expressions for $\mu_E,\mu_H,\mu_Q,\mu_P$ in the main text. In particular:
+\begin{itemize}[leftmargin=1.5em,itemsep=0pt]
+\item $\mu_E = \E[v \mid s < k_1]$ uses the left-tail formula with $\alpha = (k_1 - \mu)/\sigma_s$.
+\item $\mu_H = \E[v \mid k_1 \le s < k_0]$ uses the interval formula with $\alpha = (k_1 - \mu)/\sigma_s$ and $\gamma = (k_0 - \mu)/\sigma_s$.
+\item $\mu_Q = \E[v \mid k_0 \le s < k_D]$ uses the interval formula with $\alpha = (k_0 - \mu)/\sigma_s$ and $\gamma = (k_D - \mu)/\sigma_s$.
+\item $\mu_P = \E[v \mid s \ge k_D]$ uses the right-tail formula with $\alpha = (k_D - \mu)/\sigma_s$.
+\end{itemize}
+\end{proof}
+
+\begin{proof}[Derivation of $\E\lbrack v \mid X,D\rbrack$]
+For $D=1$, only Public Voice is feasible, so $\E[v \mid X,1]=\mu_P$ for all compatible $X\in\{0,1,2\}$.
+
+For $D=0$, Exit, Passive Hold, and Quiet Voice are feasible. Since $X=q+z$ with $z$ independent of $(v,s)$, the conditional distribution of $v$ given $(X,D)$ is obtained by mixing the action-specific conditional means using Bayes weights proportional to the ex-ante action probabilities and the likelihoods $\PP(X \mid q)$. Note that Passive Hold ($H$) and Quiet Voice ($Q$) both have $q=0$ and hence generate identical order-flow distributions. Using Bayes' rule and the conditional means $(\mu_E,\mu_H,\mu_Q)$ gives:
+\begin{itemize}[leftmargin=1.5em,itemsep=0pt]
+\item $X=-2$ implies Exit, hence $\E[v \mid -2,0]=\mu_E$.
+\item $X=1$ implies $q=0$ and $z=+1$, so
+\[
+\E[v \mid 1,0] = \frac{\omega_H \mu_H + \omega_Q \mu_Q}{\omega_H + \omega_Q}.
+\]
+\item $X=-1$ mixes Exit ($z=0$), Passive Hold ($z=-1$), and Quiet Voice ($z=-1$). Writing the Bayes weights as
+\[
+w_E=\frac{\omega_E(1-\kappa)}{\mathcal{D}_{-1}},\quad
+w_H=\frac{\omega_H(\kappa/2)}{\mathcal{D}_{-1}},\quad
+w_Q=\frac{\omega_Q(\kappa/2)}{\mathcal{D}_{-1}},
+\]
+with $\mathcal{D}_{-1}=(\omega_H+\omega_Q)(\kappa/2)+\omega_E(1-\kappa)$, yields $\E[v \mid -1,0]=w_E\mu_E+w_H\mu_H+w_Q\mu_Q$.
+\item $X=0$ mixes Quiet Voice/Passive Hold with $z=0$ and Exit with $z=1$. Writing the Bayes weights as
+\[
+w_E=\frac{\omega_E(\kappa/2)}{\mathcal{D}_0},\quad
+w_H=\frac{\omega_H(1-\kappa)}{\mathcal{D}_0},\quad
+w_Q=\frac{\omega_Q(1-\kappa)}{\mathcal{D}_0},
+\]
+with $\mathcal{D}_0=(\omega_H+\omega_Q)(1-\kappa)+\omega_E(\kappa/2)$, yields $\E[v \mid 0,0]=w_E\mu_E+w_H\mu_H+w_Q\mu_Q$.
+\end{itemize}
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:price-decomp}}
+\label{app:proof-price-decomp}
+
+\begin{proof}
+    The market maker sets $P(X,D)=\delta\,\E[Y \mid X,D]$. Conditional on $(X,D)$, the price $P(X,D)$ and the expected premium wedge $m(X,D)$ are constants. The bid indicator $\1\{\textup{bid}\}$ is a measurable function of $(P(X,D),D,\xi)$, and the bidder shock $\xi$ is independent of $(v,a)$ and of $(q,z)$. Hence $\1\{\textup{bid}\}$ is conditionally independent of $(v,a)$ given $(X,D)$, and $\E[\1\{\textup{bid}\} \mid X,D]=p(X,D)$ with $p(X,D)$ understood as $p(P(X,D),D)$.
+
+  In the takeover payoff, the realized premium wedge is $m(a)=m_0+a(\tilde{m}-m_0)$. Using conditional independence,
+\[
+\E[(1-\1\{\textup{bid}\})\cdot v \mid X,D] = (1-p(X,D))\E[v \mid X,D],
+\]
+and
+\[
+\E[(1-\1\{\textup{bid}\})\cdot a \mid X,D] = (1-p(X,D))\E[a \mid X,D] = (1-p(X,D))\pi(X,D).
+\]
+  Taking expectations of $Y$ conditional on $(X,D)$ yields
+  \[
+  \E[Y \mid X,D]
+  =p(X,D)\cdot(P(X,D)+m(X,D))+(1-p(X,D))\cdot\big(\E[v \mid X,D]+\tilde{\Delta}\pi(X,D)\big),
+  \]
+  and multiplying by $\delta$ gives the stated decomposition.
+\end{proof}
+
+\subsection{Proof of Bid Probability Monotonicity}
+\label{app:proof-bid-monotone}
+
+\begin{proof}
+Let
+\[
+T(X,D)\equiv \frac{m(X,D)+K-\bar{S}+P(X,D)}{\sigma_\xi}.
+\]
+Then $p(X,D)=1-\Phi(T(X,D))$.
+
+  For the first claim (higher prices deter bids), holding $(X,D)$ fixed and differentiating with respect to $P(X,D)$ yields
+  \[
+  \frac{\partial p(X,D)}{\partial P(X,D)}=-\frac{1}{\sigma_\xi}\,\phi(T(X,D))<0,
+  \]
+  since $\phi>0$ and $\sigma_\xi>0$.
+  
+  For the second claim (higher inferred engagement deters bids when $\tilde m>m_0$), note that $m(X,D)=m_0+(\tilde{m}-m_0)\pi(X,D)$, so $\partial m/\partial \pi=\tilde{m}-m_0$. Hence
+  \[
+  \frac{\partial p(X,D)}{\partial \pi(X,D)}=-\phi(T(X,D))\cdot \frac{\tilde{m}-m_0}{\sigma_\xi}<0
+  \]
+  whenever $\tilde{m}>m_0$.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:cs-liquidity-within}}
+\label{app:proof-cs-liquidity-within}
+
+\begin{proof}
+Fix $(\omega_E,\omega_H,\omega_Q)$ and write $p_0\equiv 1-\kappa$ and $p_1\equiv \kappa/2$. For any reached non-disclosed information set (so denominators are nonzero), Proposition~\ref{prop:posteriors} gives:
+\[
+\pi(1,0)=\frac{\omega_Q}{\omega_H+\omega_Q},\qquad
+\pi(-1,0)=\frac{\omega_Q p_1}{(\omega_H+\omega_Q)p_1+\omega_E p_0},\qquad
+\pi(0,0)=\frac{\omega_Q p_0}{(\omega_H+\omega_Q)p_0+\omega_E p_1}.
+\]
+The first expression does not involve $\kappa$, hence $\partial \pi(1,0)/\partial\kappa=0$.
+
+For $X=-1$, differentiating with respect to $\kappa$ yields
+\[
+\frac{\partial \pi(-1,0)}{\partial \kappa}
+=\frac{(\omega_Q/2)\omega_E}{\big((\omega_H+\omega_Q)(\kappa/2)+\omega_E(1-\kappa)\big)^2}\ge 0,
+\]
+with strict inequality whenever $\omega_E\omega_Q>0$.
+
+For $X=0$, differentiating yields
+\[
+\frac{\partial \pi(0,0)}{\partial \kappa}
+=-\frac{\omega_Q\omega_E/2}{\big((\omega_H+\omega_Q)(1-\kappa)+\omega_E(\kappa/2)\big)^2}\le 0,
+\]
+again strict whenever $\omega_E\omega_Q>0$.
+
+Finally, $\pi(-2,0)=0$ and $\pi(X,1)=1$ follow from Proposition~\ref{prop:posteriors}. The claims for $m(X,D)=m_0+(\tilde m-m_0)\pi(X,D)$ follow because $m$ is affine in $\pi$ with slope $\tilde m-m_0>0$ under Assumption~\textup{(A3)}.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:cs-takeover}}
+\label{app:proof-cs-takeover}
+
+\begin{proof}
+Recall the bid probability function
+\[
+p(P,D)=1-\Phi\!\left(\frac{m(P,D)+K-\bar S + P}{\sigma_\xi}\right).
+\]
+Holding $(P,D)$ fixed, $\partial p/\partial \bar S>0$ and $\partial p/\partial K<0$ follow immediately from $\Phi'=\phi>0$.
+
+For the price derivative at any reached information set $(X,D)$, set $T(X,D)\equiv (m(X,D)+K-\bar S + P(X,D))/\sigma_\xi$, so $p(X,D)=1-\Phi(T(X,D))$. Differentiating with respect to $P(X,D)$ yields
+\[
+\frac{\partial p(X,D)}{\partial P(X,D)}=-\phi(T(X,D))\cdot\frac{1}{\sigma_\xi}<0.
+\]
+Since $\phi$ is maximized at zero, $\sup_{P}|\partial p/\partial P|=\phi(0)/\sigma_\xi$.
+\end{proof}
+
+\subsection{Proof of Equilibrium Cutoff Equations}
+\label{app:proof-cutoff-eqns}
+
+\begin{proof}
+  Define the action-specific expected payoffs by evaluating $U(q,a \mid s)$ for the four actions in Proposition~\ref{prop:cutoffs}:
+  \begin{align*}
+  U_E &\equiv U(-1,0 \mid s), \quad U_H(s)\equiv U(0,0 \mid s), \quad U_Q(s)\equiv U(0,1 \mid s), \\
+  U_P(s) &\equiv U(+1,1 \mid s).
+  \end{align*}
+In a cutoff strategy equilibrium with thresholds $k_1<k_0<k_D$, the blockholder is indifferent between adjacent actions at the boundary signals where the action switches. The three indifference conditions are:
+\begin{itemize}[leftmargin=1.5em,itemsep=0pt]
+\item At $s = k_1$: Exit vs.\ Passive Hold, i.e., $U_E = U_H$.
+\item At $s = k_0$: Passive Hold vs.\ Quiet Voice, i.e., $U_H = U_Q(k_0)$.
+\item At $s = k_D$: Quiet Voice vs.\ Public Voice, i.e., $U_Q(k_D) = U_P(k_D)$.
+\end{itemize}
+These are exactly the conditions~\eqref{eq:k1}--\eqref{eq:kD}.
+\end{proof}
+
+\subsection{Proof of Minority Takeover Gains Decomposition}
+\label{app:proof-minority-decomp}
+
+\begin{proof}
+  By definition,
+  \[
+  \Delta^{\min}(\kappa)=\E\big[m(a)\cdot \1\{\textup{bid}\}\big].
+  \]
+
+    Conditional on $(X,D)$, the bid indicator $\1\{\textup{bid}\}$ is a measurable function of $(P(X,D),D,\xi)$, and $\xi$ is independent of $(v,a)$. Hence $\1\{\textup{bid}\}$ is conditionally independent of $(v,a)$ given $(X,D)$, so
+    \[
+    \E\big[m(a)\cdot \1\{\textup{bid}\} \mid X,D\big]
+    =\E[m(a) \mid X,D]\cdot \E[\1\{\textup{bid}\} \mid X,D]
+    =m(X,D)\cdot p(X,D).
+    \]
+  Taking expectations over $(X,D)$ yields $\Delta^{\min}(\kappa)=\E[m(X,D)\cdot \1\{\textup{bid}\}]$.
+
+  Using $m(X,D)=m_0+(\tilde{m}-m_0)\pi(X,D)$ and linearity of expectation,
+  \begin{align*}
+  \Delta^{\min}(\kappa)
+  &=\E\big[(m_0+(\tilde{m}-m_0)\pi(X,D))\cdot \1\{\textup{bid}\}\big] \\
+  &=m_0\cdot \E[\1\{\textup{bid}\}] + (\tilde{m}-m_0)\cdot \E\big[\pi(X,D)\cdot \1\{\textup{bid}\}\big],
+  \end{align*}
+  which is the claimed decomposition with $\PP(\textup{bid})=\E[\1\{\textup{bid}\}]$.
+\end{proof}
+
+\subsection{Proof of Equilibrium Uniqueness}
+\label{app:proof-uniqueness}
+
+\begin{proof}
+This follows from the contraction argument in the proof of Proposition~\ref{prop:cutoffs} (Appendix~\ref{app:proof-cutoffs}). Assumption~\textup{(A6)} states that the cutoff mapping $T$ constructed there is a contraction on a suitable compact subset $\Theta$ under the sup norm. By the Banach fixed-point theorem, $T$ has a unique fixed point in $\Theta$. This fixed point corresponds to a unique monotone-cutoff equilibrium satisfying Proposition~\ref{prop:cutoffs}.
+\end{proof}
+
+\subsection{Proof of Proposition~\ref{prop:nonmonotone}}
+\label{app:proof-nonmonotone}
+
+\begin{proof}
+Assume \textup{(A8)}. Define an extension of $\Delta^{\min}$ to the closed interval $[0,\bar{\kappa}]$ by setting
+\[
+\Delta^{\min}(0)\equiv 0,\qquad \Delta^{\min}(\kappa)\equiv \E\big[m(a)\cdot \1\{\textup{bid}\}\big]\ \text{ for }\kappa\in(0,\bar{\kappa}].
+\]
+By \textup{(A8)(i)}, $\lim_{\kappa\downarrow 0}\Delta^{\min}(\kappa)=0$, so the extension is continuous at $\kappa=0$. By \textup{(A8)} the function is continuous on $(0,\bar{\kappa}]$, hence continuous on the compact set $[0,\bar{\kappa}]$. By the Weierstrass theorem, there exists $\kappa^{\dagger}\in[0,\bar{\kappa}]$ attaining the maximum of $\Delta^{\min}$ on $[0,\bar{\kappa}]$.
+
+We now show that any maximizer must be interior. First, $\Delta^{\min}(0)=0$. Second, by \textup{(A8)(ii)}, for all $\kappa\in[\bar{\kappa},1)$ equilibrium engagement never occurs, so $a=0$ almost surely. Hence $m(a)=m_0$ almost surely and therefore $\Delta^{\min}(\bar{\kappa})=\E[m_0\cdot \1\{\textup{bid}\}]=m_0\PP(\textup{bid})\le m_0$. Finally, by \textup{(A8)(iii)} there exists $\tilde{\kappa}\in(0,\bar{\kappa})$ such that $\Delta^{\min}(\tilde{\kappa})>m_0$. Thus the maximum over $[0,\bar{\kappa}]$ strictly exceeds both endpoint values, so $\kappa^{\dagger}\in(0,\bar{\kappa})$.
+
+Since $\Delta^{\min}$ achieves an interior maximum on $(0,\bar{\kappa})$, it cannot be monotone on that interval. The final claim follows from the same argument: for all $\kappa\in[\bar{\kappa},1)$, engagement never occurs, so $\Delta^{\textup{act}}(\kappa)=0$ and $\Delta^{\min}(\kappa)=m_0\PP(\textup{bid})\le m_0$.
+\end{proof}
+
+\subsection{Derivations for Section~\ref{sec:extensions}}
+\label{app:extensions-derivations}
+
+\paragraph{(ND) No disclosure.}
+Under the no-disclosure regime $S_{\textup{ND}}=\emptyset$, the market conditions only on $X=q+z$ with
+$\PP(z=0)=p_0=1-\kappa$ and $\PP(z=\pm1)=p_1=\kappa/2$. Writing $\PP(X \mid q)$ for the order-flow likelihood induced by $z$, Bayes' rule implies
+\[
+\pi_{\textup{ND}}(X)\equiv \PP(a=1 \mid X)
+=\frac{\omega_Q\PP(X \mid q=0)+\omega_P\PP(X \mid q=+1)}
+{\omega_E\PP(X \mid q=-1)+(\omega_H+\omega_Q)\PP(X \mid q=0)+\omega_P\PP(X \mid q=+1)}.
+\]
+Substituting $\PP(X=q)=p_0$ and $\PP(X=q\pm1)=p_1$ (and zero otherwise) yields the closed-form expressions reported in Section~\ref{sec:extensions}.
+
+\paragraph{(NR) Baseline stake disclosure plus a noisy rumor.}
+Under $S_{\textup{NR}}=(D,R)$ with $D=\1\{q=+1\}$, the disclosed branch $D=1$ pins down Public Voice in the baseline action set, so $\pi(X,1,R)=1$ for all feasible $X$.
+When $D=0$, $q\in\{-1,0\}$ and the rumor has hit/false-alarm rates $\PP(R=1 \mid q=0,a=1)=\eta_1$ and $\PP(R=1 \mid q=0,a=0)=\eta_0$, with the convention $\PP(R=1 \mid q=-1)=\eta_0$.
+Bayes' rule gives, for each feasible $(X,R)$,
+\begin{align*}
+\pi(X,0,R)
+&=\PP(Q \mid X,0,R)\\
+&=\frac{\omega_Q\,\PP(X \mid q=0)\PP(R \mid Q)}
+{\omega_E\,\PP(X \mid q=-1)\PP(R \mid E)+\PP(X \mid q=0)\big(\omega_H\,\PP(R \mid H)+\omega_Q\,\PP(R \mid Q)\big)}.
+\end{align*}
+Evaluating $\PP(X \mid q)$ using $X=q+z$ yields the cases in Section~\ref{sec:extensions}: $X=-2$ is degenerate (Exit only); $X=1$ pins down $q=0$ so $\kappa$ drops out; and $X\in\{-1,0\}$ mixes $q=-1$ and $q=0$ with weights proportional to $(p_0,p_1)$, generating the displayed formulas.
+
+%==============================================================================
+\section{Tables}
+\label{app:tables}
+
+% \noindent This appendix collects tables referenced in the main text.
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+
+\begin{table}[H]
+\centering
+\input{numerical_output/table_example.tex}
+\caption{Baseline numerical equilibrium (values rounded to two decimals). Parameters: $\mu=1$, $\sigma_v=0.5$, $\sigma_\varepsilon=0.5$, $\delta=0.95$, $\Delta=0.25$, $C_0=0.12$, $\chi=0.5$, $\kappa=0.5$, $m_0=0.10$, $m_1=0.30$, $\bar{S}=1.44$, $K=0.15$, $\sigma_\xi=0.40$, $\rho=0.9$. Cutoffs: $k_1=k_0\approx0.82$ and $k_D\approx2.26$.}
+\label{tab:example}
+\end{table}
+
+\begin{table}[H]
+\centering
+\input{numerical_output/table_disclosure_extensions.tex}
+\caption{Illustration of posterior engagement probabilities under alternative disclosure signals (Section~\ref{sec:extensions}), evaluated at the baseline calibrated equilibrium cutoffs and $\kappa=0.5$. For NR, the rumor parameters are set to $(\eta_1,\eta_0)=(0.75,0.25)$.}
+\label{tab:disclosure-extensions}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}llrl@{}}
+\toprule
+Parameter & Symbol & Value & Interpretation \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Fundamentals}} \\
+Prior mean & $\mu$ & 1.00 & Normalized baseline value \\
+Fundamental volatility & $\sigma_v$ & 0.50 & Moderate uncertainty \\
+Signal noise & $\sigma_\varepsilon$ & 0.50 & Informative but noisy signal \\[3pt]
+\multicolumn{4}{@{}l}{\textit{Engagement}} \\
+Base engagement cost & $C_0$ & 0.12 & 12\% of baseline value \\
+Cost sensitivity & $\chi$ & 0.50 & Moderate signal-dependence \\
+Success probability & $\rho$ & 0.90 & High success rate \\
+Value improvement & $\Delta$ & 0.25 & 25\% improvement if successful \\[3pt]
+\multicolumn{4}{@{}l}{\textit{Takeover}} \\
+Base premium & $m_0$ & 0.10 & 10\% premium without activism \\
+Activism premium & $m_1$ & 0.30 & 30\% premium with activism \\
+Baseline synergy & $\bar{S}$ & 1.44 & \\
+Bidding cost & $K$ & 0.15 & \\
+Synergy volatility & $\sigma_\xi$ & 0.40 & \\[3pt]
+\multicolumn{4}{@{}l}{\textit{Other}} \\
+Discount factor & $\delta$ & 0.95 & $\delta=\exp(-r\tau)$ between pricing and settlement \\
+Noise intensity & $\kappa$ & 0.50 & Baseline (varies in analysis) \\
+\bottomrule
+\end{tabular}
+\caption{Baseline parameterization for numerical analysis.}
+\label{tab:params}
+\end{table}
+
+%==============================================================================
+\section{Figures}
+\label{app:figures}
+%==============================================================================
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{numerical_output/fig_cutoff_structure.pdf}
+\caption{Equilibrium cutoff structure. The blockholder follows a threshold strategy with weakly ordered cutoffs. In general, the signal space can be partitioned into up to four regions (Exit, Passive Hold, Quiet Voice, Public Voice), with disclosure occurring only under Public Voice. In the baseline numerical example, $k_0=k_1$, so the strategy reduces to Exit, Quiet Voice, and Public Voice.}
+\label{fig:cutoff-structure}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{numerical_output/fig_nonmonotone.pdf}
+\caption{Non-monotonic effect of liquidity on expected minority takeover gains. The vertical dashed line marks the turning point $\kappa^{\dagger}$ (the maximizer of $\Delta^{\min}$ on the plotted grid) in the baseline calibration.}
+\label{fig:nonmonotone}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{numerical_output/fig_decomposition.pdf}
+\caption{Decomposition of minority takeover gains. The base component $m_0 \cdot \PP(\textup{bid})$ and the activism component $\Delta^{\textup{act}}(\kappa)$ vary smoothly with liquidity in the baseline calibration; the dashed line marks $\kappa^{\dagger}$.}
+\label{fig:decomposition}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{numerical_output/fig_prices.pdf}
+\caption{Equilibrium prices by state $(X,D)$ in the baseline numerical example. Left panel: non-disclosed states ($D=0$). Right panel: disclosed states ($D=1$). Bars are shown for on-path states under the calibrated strategy. Numbers above bars indicate the posterior engagement probability $\pi(X,D)$.}
+\label{fig:prices}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{numerical_output/fig_cutoffs_kappa.pdf}
+\caption{Equilibrium cutoffs as functions of liquidity. The ordering $k_1 \le k_0 \le k_D$ is preserved; regions may collapse. The horizontal dashed line marks the prior mean $\mu$.}
+\label{fig:cutoffs-kappa}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{numerical_output/fig_disclosure.pdf}
+\caption{Disclosure attenuation through the inference channel (partial equilibrium in $\kappa$). We fix the blockholder's cutoff strategy at the baseline calibrated equilibrium ($\kappa=0.5$) and vary liquidity $\kappa$ only through the order-flow noise distribution. The blue curve plots $\Delta^{\textup{act}}(\kappa)$ under threshold disclosure with fixed cutoffs. The orange curve plots the counterfactual ``no-disclosure'' benchmark with the same fixed cutoffs, in which the market conditions only on order flow $X$.}
+\label{fig:disclosure}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{numerical_output/fig_sensitivity_C0.pdf}
+\caption{Sensitivity to engagement cost $C_0$. Expected minority takeover gains remain broadly non-monotone in $\kappa$ across cost levels (computed over $\kappa \in [0.25,0.85]$), with the hump flattening at high $C_0$ as voice becomes rare. Higher costs shrink the voice regions and reduce the activism component, but can increase bid incidence; the net effect on $\Delta^{\min}$ is therefore ambiguous in general.}
+\label{fig:sensitivity-C0}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{numerical_output/fig_sensitivity_wedge.pdf}
+\caption{Sensitivity to premium wedge $(m_1 - m_0)$. A larger wedge raises the premium conditional on bidding but can deter bids; expected minority takeover gains can therefore be non-monotone in the wedge (computed over $\kappa \in [0.25,0.85]$).}
+\label{fig:sensitivity-wedge}
+\end{figure}
+
+%==============================================================================
+\section{Notation}
+\label{app:notation}
+%==============================================================================
+
+\begin{table}[H]
+\centering
+\footnotesize
+{\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{@{}>{$}l<{$} p{0.73\linewidth}@{}}
+\toprule
+\text{Symbol} & \text{Meaning} \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Fundamentals and information}} \\
+v & Standalone fundamental at $t=0$, $v \sim \mathcal{N}(\mu,\sigma_v^2)$. \\
+s & Blockholder signal, $s=v+\varepsilon$, $\varepsilon \sim \mathcal{N}(0,\sigma_\varepsilon^2)$. \\
+\mu,\sigma_v^2,\sigma_\varepsilon^2,\sigma_s^2 & Prior mean/variances; $\sigma_s^2 \equiv \sigma_v^2 + \sigma_\varepsilon^2$. \\
+\beta & Posterior weight in $\hat{v}(s)=\E[v \mid s]=\mu+\beta(s-\mu)$; $\beta \equiv \sigma_v^2/(\sigma_v^2+\sigma_\varepsilon^2)$. \\
+\hat{v}(s) & Blockholder posterior mean of $v$ given $s$. \\
+\Phi,\phi & Standard normal CDF and PDF. \\
+\lambda_L(\alpha),\lambda_U(\alpha) & Inverse Mills ratios: $\lambda_L(\alpha)=\phi(\alpha)/\Phi(\alpha)$ and $\lambda_U(\alpha)=\phi(\alpha)/(1-\Phi(\alpha))$. \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Trading, liquidity, disclosure}} \\
+q & Blockholder order at $t=1$, $q \in \{-1,0,+1\}$. \\
+z & Noise-trader order, $z \in \{-1,0,+1\}$ with $\PP(z=0)=1-\kappa$ and $\PP(z=\pm1)=\kappa/2$. \\
+\kappa & Noise-trading intensity (liquidity). \\
+X & Total order flow observed by the market maker, $X=q+z$. \\
+D & Disclosure indicator for threshold-crossing stake acquisition, $D=1 \iff (q=+1)$. \\
+P(X,D) & Competitive price at $t=1$ conditional on $(X,D)$. \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Engagement (voice)}} \\
+a & Engagement choice at $t=1$, $a \in \{0,1\}$. \\
+C(s),C_0,\chi & Engagement cost at $t=1$ (private to the blockholder); $C(s)=C_0\exp\!\left(-\chi \frac{s-\mu}{\sigma_s}\right)$. \\
+\rho & Engagement success probability. \\
+\Delta,\tilde{\Delta} & Standalone improvement if engagement succeeds; $\tilde{\Delta}\equiv\rho\Delta$ is the expected improvement under $a=1$. \\
+m_0,m_1 & Takeover premia above $P$: baseline $m_0$ (no successful engagement) and $m_1>m_0$ (successful engagement). \\
+\tilde{m} & Expected premium under engagement, $\tilde{m}\equiv m_0+\rho(m_1-m_0)$. \\
+\pi(X,D) & Posterior engagement probability, $\pi(X,D)\equiv \PP(a=1 \mid X,D)$. \\
+m(X,D) & Expected premium wedge conditional on $(X,D)$, $m(X,D)=\E[m(a) \mid X,D]=m_0+(\tilde{m}-m_0)\pi(X,D)$. \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Takeover and payoffs}} \\
+\bar{S} & Baseline bidder synergy (incremental value from acquisition). \\
+K & Fixed bidding / entry cost. \\
+\xi,\sigma_\xi^2 & Bidder's private synergy shock, $\xi \sim \mathcal{N}(0,\sigma_\xi^2)$. \\
+\Pi_B(X,D) & Bidder expected net deal surplus conditional on $(P,D)$ (on-path shorthand $(X,D)$). \\
+p(X,D) & Bid probability conditional on $(P,D)$; on-path shorthand for $p(P(X,D),D)$. \\
+m(a) & Realized premium wedge conditional on engagement: $m(a)=m_0+a(\tilde{m}-m_0)$. \\
+  b(X,D,a) & Per-share offer if a bid occurs, $b(X,D,a)=P(X,D)+m(a)$. \\
+  \tau & Time between pricing/entry and settlement in $\delta=\exp(-r\tau)$. \\
+  \delta & Discount factor between pricing/entry and settlement, $\delta=\exp(-r\tau)$ (or $1/(1+r)$). \\
+  Y & Terminal per-share payoff (takeover vs.\ standalone). \\
+U(q,a \mid s) & Blockholder expected utility at $t=1$ conditional on $s$ and action $(q,a)$. \\
+\Delta^{\min}(\kappa) & Expected takeover premium earned by a representative minority share, $\E[m(a)\cdot \1\{\textup{bid}\}]$. \\
+\Delta^{\textup{act}}(\kappa) & Activism-driven component of minority takeover gains, $\E[(m(a)-m_0)\cdot \1\{\textup{bid}\}]$. \\
+\midrule
+\multicolumn{2}{@{}l}{\textbf{Equilibrium thresholds and regions}} \\
+k_1,k_0,k_D & Signal cutoffs for Exit, Passive Hold, Quiet Voice (hidden engagement), and Public Voice (disclosed engagement). \\
+\alpha_i & Standardized cutoffs $\alpha_i \equiv (k_i-\mu)/\sigma_s$ for $i\in\{1,0,D\}$. \\
+\omega_E,\omega_H,\omega_Q,\omega_P & Ex-ante probabilities of Exit / Passive Hold / Quiet Voice / Public Voice regions. \\
+\bottomrule
+\end{tabular}
+}
+\caption{Notation summary (quick reference).}
+\label{tab:notation}
+\end{table}
+
+\end{document}
