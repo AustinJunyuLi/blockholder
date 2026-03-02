@@ -39,7 +39,7 @@ Rscript R/render_all.R --data-dir numerical_output/data --output-dir numerical_o
 xelatex draft_v2.tex && biber draft_v2 && xelatex draft_v2.tex
 
 # Compile presentation
-cd presentation && xelatex slides_v2.tex && biber slides_v2 && xelatex slides_v2.tex
+cd pres && xelatex presentation.tex && biber presentation && xelatex presentation.tex
 ```
 
 ## Architecture
@@ -79,8 +79,8 @@ The 13 CSV files in `numerical_output/data/` are the stable boundary between Pyt
 ### LaTeX
 
 - **`draft_v2.tex`**: Main manuscript (XeLaTeX + biblatex/biber). References figures from `numerical_output/`
-- **`presentation/slides_v2.tex`**: Beamer slides with UCL institutional theme (`beamerthemeucl.sty`)
-- **`bibliography.bib`**: Manuscript bibliography; `presentation/slides.bib`: separate presentation bibliography
+- **`pres/presentation.tex`**: Beamer slides with UCL institutional theme (`beamerthemeucl.sty`)
+- **`bibliography.bib`**: Manuscript bibliography; `pres/slides.bib`: separate presentation bibliography
 
 ## Key Model Concepts
 
