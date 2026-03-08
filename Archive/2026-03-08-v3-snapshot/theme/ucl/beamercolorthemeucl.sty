@@ -1,0 +1,65 @@
+%\mode<presentation>
+\RequirePackage{uclcolors}
+\RequirePackage{etoolbox}
+
+
+% Determines the UCL colour name of the template in the 1st argument, and
+% stores it in the 2nd argument. This is used to determine which banner image
+% should be included
+%
+% Should probably change to raise a \@latex@error if non-UCL colour is used,
+% but currently will just leave black
+\newcommand\uclcolorname[2]{%
+  \extractcolorspec{#1}{\ucl@colorspec@current}%
+  \forcsvlist{\ucl@colorcheck{#2}}{black,white,darkpurple,darkred,darkblue,%
+    darkgreen,darkbrown,richred,midred,navyblue,midgreen,darkgrey,pink,%
+    orange,brightblue,brightgreen,lightgrey,lightpurple,yellow,lightblue,%
+    lightgreen,stone}%
+}
+% a utility function called by \uclcolorname
+\newcommand\ucl@colorcheck[2]{%
+  \extractcolorspec{#2}{\ucl@colorspec@check}%
+  \ifdefequal{\ucl@colorspec@check}{\ucl@colorspec@current}{\gdef#1{#2}}{}%
+}
+
+% this is the main variable to customise
+\setbeamercolor{banner}{bg=white,fg=darkpurple}
+
+% title on title page
+\setbeamercolor{title}{fg=darkpurple,bg=white}
+% used for structural elements
+\setbeamercolor{structure}{fg=darkpurple}
+
+\setbeamercolor{frametitle}{fg=darkpurple}
+
+% used for \alert
+\setbeamercolor{alerted text}{fg=richred}
+% used in the example environment
+\setbeamercolor{example text}{fg=darkgreen}
+
+\setbeamercolor{block title}{bg=darkpurple,fg=white}
+%%% can use the following for a striped
+% \setbeamercolor{block title}{parent=banner stripe}
+\setbeamercolor{block body}{bg=darkpurple!12,fg=black}
+
+\setbeamercolor{block title alerted}{use=alerted text,%
+  bg=alerted text.fg,fg=white}
+\setbeamercolor{block body alerted}{use=block title alerted,%
+  bg=block title alerted.bg!20,fg=black}
+
+\setbeamercolor{block title example}{use=example text,%
+  bg=example text.fg,fg=white}
+\setbeamercolor{block body example}{use=block title example,%
+  bg=block title example.bg!20,fg=black}
+
+% used for section and miniframes headline templates
+\setbeamercolor*{section in head/foot}{fg=darkpurple!70,bg=darkpurple!10}
+\setbeamercolor*{subsection in head/foot}{fg=darkpurple!50,bg=darkpurple!10}
+
+% used for footline template
+\setbeamercolor*{footline}{fg=darkpurple,bg=white}
+\setbeamercolor*{author in head/foot}{parent=footline}
+\setbeamercolor*{title in head/foot}{parent=footline}
+\setbeamercolor*{date in head/foot}{parent=footline}
+
+%\mode<all>

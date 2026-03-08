@@ -1,0 +1,1225 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,tabularx,longtable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\graphicspath{{../numerical_output/}}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{setspace}
+\allowdisplaybreaks
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlist[itemize]{topsep=0.2em,itemsep=0.2em,leftmargin=1.5em}
+\setlist[enumerate]{topsep=0.2em,itemsep=0.2em,leftmargin=1.7em}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{assumption}{Assumption}[section]
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+\newtcolorbox{intuitionbox}{
+  colback=MidnightBlue!4,
+  colframe=MidnightBlue!65,
+  title=\textbf{Intuition},
+  breakable
+}
+
+\newtcolorbox{econbox}{
+  colback=ForestGreen!4,
+  colframe=ForestGreen!60!black,
+  title=\textbf{Economic Interpretation},
+  breakable
+}
+
+\newtcolorbox{warningbox}{
+  colback=BrickRed!4,
+  colframe=BrickRed!70!black,
+  title=\textbf{Warning},
+  breakable
+}
+
+\newtcolorbox{statusbox}{
+  colback=Goldenrod!6,
+  colframe=Goldenrod!65!black,
+  title=\textbf{Theory Status},
+  breakable
+}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\choice}[1]{{\color{MidnightBlue}#1}}
+\newcommand{\obs}[1]{{\color{BrickRed}#1}}
+\newcommand{\outcome}[1]{{\color{ForestGreen!50!black}#1}}
+
+\title{\textbf{Technical Lecture Notes}\\Liquidity, Activism Disclosure, and Takeover Premia}
+\author{Private derivation note for the March 16 seminar}
+\date{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Purpose of This Note}
+
+This document is not a paper draft and not a slide summary. It is a technical companion meant to make the current model easy to reconstruct by hand before the presentation. The objective is to separate:
+\begin{itemize}
+\item what the baseline model \emph{assumes by construction},
+\item what is \emph{proved analytically},
+\item what is currently \emph{numerical},
+\item what is only \emph{heuristic}.
+\end{itemize}
+
+\begin{statusbox}
+\textbf{Current status of the theory.}
+\begin{itemize}
+\item \textbf{Maintained modeling choice:} in the baseline action set, the only threshold-crossing action is Public Voice, so reached states with \obs{$D=1$} are interpreted as public intervention.
+\item \textbf{Analytical:} cutoff representation within the monotone-cutoff class, posterior formulas on reached states, feed-forward pricing, price decomposition, sign of bidder deterrence under Assumption A5, and the partial-equilibrium disclosure attenuation logic.
+\item \textbf{Numerical:} fixed-point selection and the hump in minority takeover gains.
+\item \textbf{Heuristic / preliminary:} general-equilibrium disclosure reform and welfare accounting.
+\end{itemize}
+\end{statusbox}
+
+\begin{warningbox}
+Do not walk into the room saying ``the model proves a hump.'' The honest claim is narrower: the model gives an exact decomposition of minority takeover gains, and the baseline calibration generates a hump-shaped relation in liquidity.
+\end{warningbox}
+
+\section{Model Environment}
+
+\subsection{Fundamentals and Private Information}
+
+The target's standalone fundamental is
+\begin{equation}
+v \sim \mathcal{N}(\mu,\sigma_v^2).
+\label{eq:v-dist}
+\end{equation}
+
+The blockholder receives a private signal
+\begin{equation}
+s = v + \varepsilon,
+\qquad
+\varepsilon \sim \mathcal{N}(0,\sigma_\varepsilon^2),
+\qquad
+\varepsilon \perp v.
+\label{eq:s-def}
+\end{equation}
+
+Define
+\begin{equation}
+\sigma_s^2 \equiv \Var(s) = \sigma_v^2 + \sigma_\varepsilon^2.
+\label{eq:s-var}
+\end{equation}
+
+\subsubsection*{Posterior mean of fundamentals given the signal}
+
+Because $(v,s)$ is jointly Gaussian, the posterior mean is affine:
+\begin{equation}
+\hat v(s) \equiv \E[v \mid s] = \mu + \beta (s-\mu),
+\qquad
+\beta \equiv \frac{\sigma_v^2}{\sigma_v^2+\sigma_\varepsilon^2}.
+\label{eq:posterior-mean}
+\end{equation}
+
+\textbf{Derivation.}
+\begin{align}
+\E[v\mid s]
+&= \mu + \frac{\Cov(v,s)}{\Var(s)}(s-\mu) \nonumber \\
+&= \mu + \frac{\Cov(v,v+\varepsilon)}{\sigma_v^2+\sigma_\varepsilon^2}(s-\mu) \nonumber \\
+&= \mu + \frac{\Var(v)}{\sigma_v^2+\sigma_\varepsilon^2}(s-\mu) \nonumber \\
+&= \mu + \frac{\sigma_v^2}{\sigma_v^2+\sigma_\varepsilon^2}(s-\mu).
+\label{eq:posterior-mean-derivation}
+\end{align}
+
+The posterior variance is
+\begin{equation}
+\Var(v\mid s)
+= \sigma_v^2 - \frac{\sigma_v^4}{\sigma_v^2+\sigma_\varepsilon^2}
+= \frac{\sigma_v^2 \sigma_\varepsilon^2}{\sigma_v^2+\sigma_\varepsilon^2}.
+\label{eq:posterior-var}
+\end{equation}
+
+\begin{intuitionbox}
+The signal is not interpreted literally as ``firm quality.'' In the current paper it is better to think of $s$ as the \emph{quality of the intervention thesis}: high $s$ means the activist sees more value in restructuring, sale pressure, or governance intervention. That interpretation is what makes decreasing engagement costs economically coherent.
+\end{intuitionbox}
+
+\subsection{Action Set}
+
+The blockholder starts with one normalized share and chooses a pair $(q,a)$:
+\begin{itemize}
+\item trade \choice{$q \in \{-1,0,+1\}$},
+\item engagement choice \choice{$a \in \{0,1\}$}.
+\end{itemize}
+
+The baseline feasible actions are shown in Table~\ref{tab:actions}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Action name & $(q,a)$ & Final holdings $h=1+q$ & Disclosure & Interpretation \\
+\midrule
+Exit & $(-1,0)$ & $0$ & $D=0$ & Sell and walk away \\
+Hold & $(0,0)$ & $1$ & $D=0$ & Stay passive \\
+Quiet Voice & $(0,1)$ & $1$ & $D=0$ & Engage below threshold \\
+Public Voice & $(+1,1)$ & $2$ & $D=1$ & Buy more, engage, disclose \\
+\bottomrule
+\end{tabular}
+\caption{Baseline action set.}
+\label{tab:actions}
+\end{table}
+
+\begin{warningbox}
+Quiet Accumulation $(+1,0)$ is \emph{not} part of the baseline action set used in the presentation. The current manuscript keeps a supporting lemma saying Public Voice dominates passive threshold crossing for sufficiently high signals, but the clean presentation line is stronger and simpler: the baseline model is a control-oriented activist model, so threshold crossing is public intervention by construction.
+\end{warningbox}
+
+\subsection{Noise Trading, Order Flow, and Disclosure}
+
+Noise trading is discrete:
+\begin{equation}
+\obs{z} \in \{-1,0,+1\},
+\qquad
+\PP(\obs{z}=0)=1-\frac{2}{3}\kappa,
+\qquad
+\PP(\obs{z}=+1)=\PP(\obs{z}=-1)=\frac{\kappa}{3},
+\label{eq:noise}
+\end{equation}
+with liquidity parameter $\kappa \in (0,1)$.
+
+Total order flow is
+\begin{equation}
+\obs{X} = q + z \in \{-2,-1,0,1,2\}.
+\label{eq:order-flow}
+\end{equation}
+
+Disclosure is threshold-based:
+\begin{equation}
+\obs{D} = \1\{q=+1\}.
+\label{eq:disclosure}
+\end{equation}
+
+\begin{econbox}
+Bounded noise is doing real work. It keeps the public signal space small enough that some order-flow realizations are nearly or exactly identifying. That is why the model can separate nondisclosed states, where activism is inferred from \obs{$X$}, from disclosed states, where the baseline model interprets \obs{$D=1$} as public intervention.
+\end{econbox}
+
+\subsection{Engagement Technology}
+
+If the blockholder engages ($a=1$), she pays a private cost
+\begin{equation}
+\choice{C(s)} = C_0 \exp\!\left(-\chi\frac{s-\mu}{\sigma_s}\right),
+\qquad
+C_0>0,
+\quad
+\chi \ge 0.
+\label{eq:cost}
+\end{equation}
+
+The model interprets higher $s$ as making intervention easier to justify and execute, so $C'(s)\le 0$, with strict inequality when $\chi>0$.
+
+Engagement succeeds with probability $\rho \in (0,1]$ and has two expected effects:
+\begin{align}
+\tilde{\Delta} &\equiv \rho \Delta > 0,
+\label{eq:tilde-delta} \\
+\tilde m &\equiv m_0 + \rho(m_1-m_0),
+\qquad
+\tilde m > m_0.
+\label{eq:tilde-m}
+\end{align}
+
+Interpretation:
+\begin{itemize}
+\item $\tilde{\Delta}$ is the expected standalone value improvement if the firm remains independent.
+\item $\tilde m-m_0$ is the expected extra takeover premium associated with engagement.
+\end{itemize}
+
+\subsection{Bidder Problem}
+
+A bidder arrives with exogenous probability $\lambda_B \in (0,1)$ and observes $(X,D)$ plus a private synergy shock $\xi \sim \Lambda(0,s_\xi)$, where $\Lambda$ is the logistic CDF.
+
+Define the market's expected standalone value:
+\begin{equation}
+\outcome{\hat V}(X,D) \equiv \E[v\mid X,D] + \tilde{\Delta}\,\outcome{\pi}(X,D),
+\label{eq:Vhat}
+\end{equation}
+and expected premium wedge:
+\begin{equation}
+\outcome{\bar m}(X,D) \equiv m_0 + (\tilde m - m_0)\outcome{\pi}(X,D),
+\label{eq:mbar}
+\end{equation}
+where
+\begin{equation}
+\outcome{\pi}(X,D) \equiv \PP(a=1\mid X,D).
+\label{eq:pi-def}
+\end{equation}
+
+The bidder's expected offer is anchored to fundamentals rather than to the market price:
+\begin{equation}
+b(X,D) = \outcome{\hat V}(X,D) + \outcome{\bar m}(X,D).
+\label{eq:bid-offer}
+\end{equation}
+
+Net surplus from bidding is
+\begin{equation}
+\Pi_B(X,D) = (\bar S + \outcome{\pi}(X,D)\Delta_S) + \xi - b(X,D) - K.
+\label{eq:bidder-surplus}
+\end{equation}
+
+Hence conditional bid probability is
+\begin{equation}
+\tilde p(X,D)
+=
+1-\Lambda\!\left(
+\frac{\outcome{\hat V}(X,D)+\outcome{\bar m}(X,D)+K-(\bar S+\outcome{\pi}(X,D)\Delta_S)}{s_\xi}
+\right),
+\label{eq:tilde-p}
+\end{equation}
+and unconditional bid probability is
+\begin{equation}
+\outcome{p}(X,D)=\lambda_B \tilde p(X,D).
+\label{eq:p-def}
+\end{equation}
+
+\begin{assumption}[Net deterrence]
+\label{ass:deterrence}
+\[
+\tilde{\Delta} + (\tilde m-m_0) > \Delta_S.
+\]
+\end{assumption}
+
+\begin{econbox}
+Assumption~\ref{ass:deterrence} says activism raises the target's outside option and required premium more than it raises bidder synergies. That is what makes inferred activism reduce bid incidence in the baseline model.
+\end{econbox}
+
+\section{Payoffs and Prices}
+
+\subsection{Terminal Payoff}
+
+If a bid occurs, the realized per-share payoff is
+\begin{equation}
+\outcome{Y}^{M\&A}
+=
+\outcome{\hat V}(X,D) + m^R(a),
+\qquad
+m^R(a) \equiv m_0 + a(\tilde m-m_0).
+\label{eq:y-ma}
+\end{equation}
+
+If no bid occurs, the realized per-share payoff is
+\begin{equation}
+\outcome{Y}^{stand} = v + a\tilde{\Delta}.
+\label{eq:y-stand}
+\end{equation}
+
+Therefore
+\begin{equation}
+Y
+=
+\1\{\text{bid}\}\big(\outcome{\hat V}(X,D)+m^R(a)\big)
++
+\big(1-\1\{\text{bid}\}\big)\big(v+a\tilde{\Delta}\big).
+\label{eq:y-total}
+\end{equation}
+
+\subsection{Competitive Prices}
+
+The post-disclosure price is the discounted conditional expectation of terminal payoff:
+\begin{equation}
+\outcome{P_{\textup{post}}}(X,D)
+=
+\delta \E[Y\mid X,D].
+\label{eq:ppost-def}
+\end{equation}
+
+Using \eqref{eq:y-total},
+\begin{align}
+\outcome{P_{\textup{post}}}(X,D)
+&=
+\delta \Big(
+\outcome{p}(X,D)\E[\outcome{\hat V}(X,D)+m^R(a)\mid X,D] \nonumber\\
+&\hspace{3.5em}
++ \big(1-\outcome{p}(X,D)\big)\E[v+a\tilde{\Delta}\mid X,D]
+\Big).
+\label{eq:ppost-step1}
+\end{align}
+
+Conditional on $(X,D)$,
+\begin{align}
+\E[\outcome{\hat V}(X,D)+m^R(a)\mid X,D]
+&=
+\outcome{\hat V}(X,D)+\outcome{\bar m}(X,D),
+\label{eq:bid-payoff-exp} \\
+\E[v+a\tilde{\Delta}\mid X,D]
+&=
+\E[v\mid X,D]+\tilde{\Delta}\outcome{\pi}(X,D)
+=
+\outcome{\hat V}(X,D).
+\label{eq:stand-payoff-exp}
+\end{align}
+
+Substituting into \eqref{eq:ppost-step1},
+\begin{align}
+\outcome{P_{\textup{post}}}(X,D)
+&=
+\delta \Big(
+\outcome{p}(X,D)\big(\outcome{\hat V}(X,D)+\outcome{\bar m}(X,D)\big)
++
+\big(1-\outcome{p}(X,D)\big)\outcome{\hat V}(X,D)
+\Big) \nonumber\\
+&=
+\delta \Big(
+\outcome{\hat V}(X,D)+\outcome{p}(X,D)\outcome{\bar m}(X,D)
+\Big).
+\label{eq:ppost-main}
+\end{align}
+
+The anonymous execution price averages over the latent disclosure state:
+\begin{equation}
+\outcome{P_{\textup{trade}}}(X)
+=
+\sum_{d\in\{0,1\}} \PP(D=d\mid X)\,\outcome{P_{\textup{post}}}(X,d).
+\label{eq:ptrade-main}
+\end{equation}
+
+\begin{intuitionbox}
+This is the feed-forward structure you should emphasize in the room. Cutoffs determine action probabilities, those determine beliefs, beliefs determine bid probabilities, and prices are then conditional expectations. Prices do not feed back recursively into the bidder's problem.
+\end{intuitionbox}
+
+\subsection{Blockholder Expected Utility}
+
+If the blockholder chooses $(q,a)$ and ends with $h=1+q$ shares, her expected utility at the trade date is
+\begin{equation}
+U(q,a\mid s)
+=
+\E\!\left[
+-q\outcome{P_{\textup{trade}}}(X) + \delta hY - aC(s)
+\;\middle|\;
+s,q,a
+\right].
+\label{eq:u-general}
+\end{equation}
+
+Conditioning on the chosen action and integrating over noise $z$ gives the four action payoffs.
+
+\subsubsection*{Exit}
+
+Under Exit, $(q,a)=(-1,0)$, so $h=0$ and the blockholder keeps only the sale proceeds:
+\begin{equation}
+U_E \equiv U(-1,0\mid s)
+=
+\E_z\big[\outcome{P_{\textup{trade}}}(-1+z)\big].
+\label{eq:UE}
+\end{equation}
+
+This is independent of $s$.
+
+\subsubsection*{Hold}
+
+Under Hold, $(q,a)=(0,0)$, so $D=0$, $X=z$, and the blockholder retains one share:
+\begin{equation}
+U_H(s)
+=
+\delta \E_z\!\left[
+\outcome{p}(z,0)\big(\outcome{\hat V}(z,0)+m_0\big)
++
+\big(1-\outcome{p}(z,0)\big)\hat v(s)
+\right].
+\label{eq:UH}
+\end{equation}
+
+\subsubsection*{Quiet Voice}
+
+Under Quiet Voice, $(q,a)=(0,1)$, so again $D=0$ and $X=z$, but the no-bid payoff is improved and the expected bid premium is higher:
+\begin{equation}
+U_Q(s)
+=
+\delta \E_z\!\left[
+\outcome{p}(z,0)\big(\outcome{\hat V}(z,0)+\tilde m\big)
++
+\big(1-\outcome{p}(z,0)\big)\big(\hat v(s)+\tilde{\Delta}\big)
+\right]
+- C(s).
+\label{eq:UQ}
+\end{equation}
+
+\subsubsection*{Public Voice}
+
+Under Public Voice, $(q,a)=(+1,1)$, so $D=1$, $X=1+z$, the activist pays for one extra share, and ends with two shares:
+\begin{align}
+U_P(s)
+&=
+\E_z\!\left[
+-\outcome{P_{\textup{trade}}}(1+z)
+\right. \nonumber\\
+&\qquad\left.
++ 2\delta\Big(
+\outcome{p}(1+z,1)\big(\outcome{\hat V}(1+z,1)+\tilde m\big)
++ \big(1-\outcome{p}(1+z,1)\big)\big(\hat v(s)+\tilde{\Delta}\big)
+\Big)
+\right]
+- C(s).
+\label{eq:UP}
+\end{align}
+
+\section{Cutoff Logic}
+
+\subsection{Why a Cutoff Representation Is Natural}
+
+The key technical simplification is that for any fixed action, the execution price depends on public order flow, not on the exact private signal inside that action region. That preserves single-crossing in the private signal.
+
+It is useful to write each payoff as
+\begin{equation}
+U_i(s)=A_i + B_i \hat v(s) - \text{cost term},
+\label{eq:affine-form}
+\end{equation}
+where the constants depend on equilibrium objects but not on the specific signal realization within an action.
+
+\subsection{Adjacent Payoff Differences}
+
+\begin{proposition}[Single-crossing of adjacent differences]
+\label{prop:single-crossing}
+Fix any candidate cutoff vector and the induced belief/pricing system. Then:
+\begin{enumerate}
+\item $U_H(s)-U_E$ is strictly increasing in $s$.
+\item $U_Q(s)-U_H(s)$ is weakly increasing in $s$, and strictly increasing when $\chi>0$.
+\item Under $\lambda_B\le 1/2$, $U_P(s)-U_Q(s)$ is strictly increasing in $s$.
+\end{enumerate}
+\end{proposition}
+
+\textbf{Proof.}
+
+\textbf{Step 1: Exit versus Hold.}
+From \eqref{eq:UE} and \eqref{eq:UH},
+\begin{equation}
+U_H(s)-U_E
+=
+\delta \E_z\!\left[
+\outcome{p}(z,0)\big(\outcome{\hat V}(z,0)+m_0\big)
++
+\big(1-\outcome{p}(z,0)\big)\hat v(s)
+\right]
+- \E_z\big[\outcome{P_{\textup{trade}}}(-1+z)\big].
+\label{eq:diff-EH}
+\end{equation}
+Only $\hat v(s)$ depends on $s$, so
+\begin{equation}
+\frac{\partial}{\partial s}\big(U_H(s)-U_E\big)
+=
+\delta \beta \E_z\big[1-\outcome{p}(z,0)\big] > 0.
+\label{eq:diff-EH-deriv}
+\end{equation}
+
+\textbf{Step 2: Hold versus Quiet Voice.}
+Subtract \eqref{eq:UH} from \eqref{eq:UQ}:
+\begin{align}
+U_Q(s)-U_H(s)
+&=
+\delta \E_z\!\left[
+\outcome{p}(z,0)(\tilde m-m_0)
++
+\big(1-\outcome{p}(z,0)\big)\tilde{\Delta}
+\right]
+- C(s).
+\label{eq:diff-HQ}
+\end{align}
+The first term is constant in $s$, so
+\begin{equation}
+\frac{\partial}{\partial s}\big(U_Q(s)-U_H(s)\big)
+= -C'(s) \ge 0,
+\label{eq:diff-HQ-deriv}
+\end{equation}
+strictly if $\chi>0$.
+
+\textbf{Step 3: Quiet Voice versus Public Voice.}
+Subtract \eqref{eq:UQ} from \eqref{eq:UP}. The cost term cancels because both actions engage:
+\begin{align}
+U_P(s)-U_Q(s)
+&=
+\E_z\!\left[-\outcome{P_{\textup{trade}}}(1+z)\right]
+\nonumber\\
+&\quad
++
+\delta \E_z\!\left[
+2\outcome{p}(1+z,1)\big(\outcome{\hat V}(1+z,1)+\tilde m\big)
+-
+\outcome{p}(z,0)\big(\outcome{\hat V}(z,0)+\tilde m\big)
+\right]
+\nonumber\\
+&\quad
++
+\delta \E_z\!\left[
+\big(2(1-\outcome{p}(1+z,1))-(1-\outcome{p}(z,0))\big)
+\big(\hat v(s)+\tilde{\Delta}\big)
+\right].
+\label{eq:diff-QP}
+\end{align}
+Differentiating with respect to $s$ gives
+\begin{equation}
+\frac{\partial}{\partial s}\big(U_P(s)-U_Q(s)\big)
+=
+\delta \beta \E_z\!\left[
+1 - 2\outcome{p}(1+z,1) + \outcome{p}(z,0)
+\right].
+\label{eq:diff-QP-deriv}
+\end{equation}
+Since $\outcome{p}(z,0)\ge 0$ and $\outcome{p}(1+z,1)\le \lambda_B \le 1/2$,
+\begin{equation}
+1 - 2\outcome{p}(1+z,1) + \outcome{p}(z,0) > 0,
+\label{eq:qp-positive}
+\end{equation}
+so the derivative is strictly positive.
+\hfill$\square$
+
+\begin{corollary}[Cutoff representation within the monotone class]
+\label{cor:cutoffs}
+In any monotone-cutoff equilibrium, there exist weakly ordered thresholds $k_1\le k_0\le k_D$ such that
+\begin{equation}
+(q,a)=
+\begin{cases}
+(-1,0), & s<k_1, \\
+(0,0), & k_1\le s<k_0, \\
+(0,1), & k_0\le s<k_D, \\
+(+1,1), & s\ge k_D.
+\end{cases}
+\label{eq:cutoff-rule}
+\end{equation}
+\end{corollary}
+
+The adjacent indifference equations are
+\begin{align}
+U_E &= U_H(k_1), \label{eq:k1-indiff} \\
+U_H(k_0) &= U_Q(k_0), \label{eq:k0-indiff} \\
+U_Q(k_D) &= U_P(k_D). \label{eq:kD-indiff}
+\end{align}
+
+\begin{warningbox}
+This note deliberately stops short of claiming a full global uniqueness theorem. The paper's existence statement is regularity-based, and fixed-point uniqueness is currently numerical.
+\end{warningbox}
+
+\section{From Cutoffs to Region Probabilities and Conditional Means}
+
+\subsection{Region Probabilities}
+
+Define standardized cutoffs
+\begin{equation}
+\alpha_1=\frac{k_1-\mu}{\sigma_s},
+\qquad
+\alpha_0=\frac{k_0-\mu}{\sigma_s},
+\qquad
+\alpha_D=\frac{k_D-\mu}{\sigma_s}.
+\label{eq:alphas}
+\end{equation}
+
+Then the action-region probabilities are
+\begin{align}
+\omega_E &= \PP(s<k_1)=\Phi(\alpha_1), \label{eq:omegaE} \\
+\omega_H &= \PP(k_1\le s<k_0)=\Phi(\alpha_0)-\Phi(\alpha_1), \label{eq:omegaH} \\
+\omega_Q &= \PP(k_0\le s<k_D)=\Phi(\alpha_D)-\Phi(\alpha_0), \label{eq:omegaQ} \\
+\omega_P &= \PP(s\ge k_D)=1-\Phi(\alpha_D). \label{eq:omegaP}
+\end{align}
+
+\subsection{Truncated-normal Mean of the Signal}
+
+For any interval $[a,b)$,
+\begin{equation}
+\E[s\mid a\le s<b]
+=
+\mu + \sigma_s \frac{\phi\!\left(\frac{a-\mu}{\sigma_s}\right)-\phi\!\left(\frac{b-\mu}{\sigma_s}\right)}
+{\Phi\!\left(\frac{b-\mu}{\sigma_s}\right)-\Phi\!\left(\frac{a-\mu}{\sigma_s}\right)}.
+\label{eq:truncated-s}
+\end{equation}
+
+For a lower-tail truncation and upper-tail truncation:
+\begin{align}
+\E[s\mid s<k_1]
+&=
+\mu - \sigma_s \frac{\phi(\alpha_1)}{\Phi(\alpha_1)},
+\label{eq:trunc-left}
+\\
+\E[s\mid s\ge k_D]
+&=
+\mu + \sigma_s \frac{\phi(\alpha_D)}{1-\Phi(\alpha_D)}.
+\label{eq:trunc-right}
+\end{align}
+
+\subsection{Conditional Means of Fundamentals in Each Region}
+
+Because $\E[v\mid s]=\mu+\beta(s-\mu)$, applying the law of iterated expectations to each region yields:
+\begin{align}
+\mu_E
+&\equiv
+\E[v\mid s<k_1]
+=
+\mu - \beta \sigma_s \frac{\phi(\alpha_1)}{\Phi(\alpha_1)},
+\label{eq:muE}
+\\
+\mu_H
+&\equiv
+\E[v\mid k_1\le s<k_0]
+=
+\mu + \beta \sigma_s \frac{\phi(\alpha_1)-\phi(\alpha_0)}{\Phi(\alpha_0)-\Phi(\alpha_1)},
+\label{eq:muH}
+\\
+\mu_Q
+&\equiv
+\E[v\mid k_0\le s<k_D]
+=
+\mu + \beta \sigma_s \frac{\phi(\alpha_0)-\phi(\alpha_D)}{\Phi(\alpha_D)-\Phi(\alpha_0)},
+\label{eq:muQ}
+\\
+\mu_P
+&\equiv
+\E[v\mid s\ge k_D]
+=
+\mu + \beta \sigma_s \frac{\phi(\alpha_D)}{1-\Phi(\alpha_D)}.
+\label{eq:muP}
+\end{align}
+
+\begin{intuitionbox}
+These are the state-level ``fundamental anchors'' that later get mixed by Bayes' rule when the market sees $(X,D)$. The discrete inference problem is not only about whether activism occurred; it also determines which truncated fundamental distribution is relevant.
+\end{intuitionbox}
+
+\section{Posterior Beliefs from Order Flow}
+
+\subsection{Feasible Action-State Map}
+
+The cleanest way to derive the posterior formulas is to list which actions can generate each public state:
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.96\textwidth}{@{}p{0.22\textwidth}p{0.34\textwidth}X@{}}
+\toprule
+Observed state & Feasible underlying actions & Comment \\
+\midrule
+$(X,1)$ with $X\in\{0,1,2\}$ & Public Voice only & disclosed branch in the baseline action set \\
+$(-2,0)$ & Exit only & must be $q=-1$, $z=-1$ \\
+$(-1,0)$ & Exit, Hold, Quiet Voice & sell plus no noise, or $q=0$ plus $z=-1$ \\
+$(0,0)$ & Exit, Hold, Quiet Voice & sell plus $z=+1$, or $q=0$ plus $z=0$ \\
+$(1,0)$ & Hold, Quiet Voice & $q=0$ plus $z=+1$ \\
+\bottomrule
+\end{tabularx}
+\caption{Reachable public states under the baseline action set.}
+\label{tab:state-map}
+\end{table}
+
+Let
+\begin{equation}
+p_0 \equiv 1-\frac{2}{3}\kappa,
+\qquad
+p_1 \equiv \frac{\kappa}{3}.
+\label{eq:p0p1}
+\end{equation}
+
+\subsection{Posterior on the Disclosed Branch}
+
+\begin{proposition}[Disclosed branch posterior]
+\label{prop:disclosed}
+In the baseline action set,
+\begin{equation}
+\outcome{\pi}(X,1)=1
+\qquad
+\text{for all feasible } X\in\{0,1,2\}.
+\label{eq:pi-disclosed}
+\end{equation}
+\end{proposition}
+
+\textbf{Reason.}
+If $D=1$, then by \eqref{eq:disclosure} the blockholder chose $q=+1$. In the baseline action set the only action with $q=+1$ is Public Voice, and Public Voice implies $a=1$.
+
+\subsection{Posterior on the Nondisclosed Branch}
+
+\begin{proposition}[Nondisclosed branch posteriors]
+\label{prop:nondisclosed}
+For reached nondisclosed states:
+\begin{align}
+\outcome{\pi}(1,0)
+&=
+\frac{\omega_Q}{\omega_H+\omega_Q},
+\label{eq:pi10}
+\\
+\outcome{\pi}(-1,0)
+&=
+\frac{\omega_Q p_1}{(\omega_H+\omega_Q)p_1 + \omega_E p_0},
+\label{eq:pim10}
+\\
+\outcome{\pi}(0,0)
+&=
+\frac{\omega_Q p_0}{(\omega_H+\omega_Q)p_0 + \omega_E p_1},
+\label{eq:pi00}
+\\
+\outcome{\pi}(-2,0)
+&=
+0.
+\label{eq:pim20}
+\end{align}
+\end{proposition}
+
+\textbf{Proof.}
+
+\textbf{Case 1: $(X,D)=(1,0)$.}
+Only Hold and Quiet Voice can generate this state, both through $q=0$ and $z=+1$. Hence
+\begin{align}
+\PP(a=1,X=1,D=0)
+&=
+\PP(Q)\PP(z=+1)
+=
+\omega_Q p_1,
+\label{eq:pi10-num}
+\\
+\PP(X=1,D=0)
+&=
+\PP(H)\PP(z=+1)+\PP(Q)\PP(z=+1)
+=
+(\omega_H+\omega_Q)p_1.
+\label{eq:pi10-den}
+\end{align}
+Dividing \eqref{eq:pi10-num} by \eqref{eq:pi10-den} gives \eqref{eq:pi10}.
+
+\textbf{Case 2: $(X,D)=(-1,0)$.}
+This state arises either from Exit with $z=0$ or from Hold / Quiet Voice with $z=-1$. So
+\begin{align}
+\PP(a=1,X=-1,D=0)
+&=
+\PP(Q)\PP(z=-1)
+=
+\omega_Q p_1,
+\label{eq:pim10-num}
+\\
+\PP(X=-1,D=0)
+&=
+\omega_E p_0 + \omega_H p_1 + \omega_Q p_1
+\nonumber\\
+&=
+\omega_E p_0 + (\omega_H+\omega_Q)p_1.
+\label{eq:pim10-den}
+\end{align}
+Dividing \eqref{eq:pim10-num} by \eqref{eq:pim10-den} gives \eqref{eq:pim10}.
+
+\textbf{Case 3: $(X,D)=(0,0)$.}
+This state arises either from Exit with $z=+1$ or from Hold / Quiet Voice with $z=0$. Therefore
+\begin{align}
+\PP(a=1,X=0,D=0)
+&=
+\omega_Q p_0,
+\label{eq:pi00-num}
+\\
+\PP(X=0,D=0)
+&=
+\omega_E p_1 + (\omega_H+\omega_Q)p_0.
+\label{eq:pi00-den}
+\end{align}
+Dividing \eqref{eq:pi00-num} by \eqref{eq:pi00-den} gives \eqref{eq:pi00}.
+
+\textbf{Case 4: $(X,D)=(-2,0)$.}
+Only Exit with $z=-1$ can generate this state, so $a=1$ is impossible and \eqref{eq:pim20} follows.
+\hfill$\square$
+
+\subsection{Conditional Means of Fundamentals Given \texorpdfstring{$(X,D)$}{(X,D)}}
+
+The same logic gives $\E[v\mid X,D]$.
+
+\paragraph{Disclosed states.}
+Since only Public Voice can produce $D=1$,
+\begin{equation}
+\E[v\mid X,1]=\mu_P
+\qquad
+\text{for } X\in\{0,1,2\}.
+\label{eq:Ev-disclosed}
+\end{equation}
+
+\paragraph{Nondisclosed states.}
+For $X=-2$,
+\begin{equation}
+\E[v\mid -2,0]=\mu_E.
+\label{eq:Ev-m20}
+\end{equation}
+
+For $X=1$,
+\begin{equation}
+\E[v\mid 1,0]
+=
+\frac{\omega_H \mu_H + \omega_Q \mu_Q}{\omega_H+\omega_Q}.
+\label{eq:Ev-10}
+\end{equation}
+
+For $X=-1$,
+\begin{equation}
+\E[v\mid -1,0]
+=
+\frac{\omega_E \mu_E p_0 + (\omega_H \mu_H+\omega_Q \mu_Q)p_1}
+\omega_E p_0 + (\omega_H+\omega_Q)p_1
+\label{eq:Ev-m10}
+\end{equation}
+
+For $X=0$,
+\begin{equation}
+\E[v\mid 0,0]
+=
+\frac{\omega_E \mu_E p_1 + (\omega_H \mu_H+\omega_Q \mu_Q)p_0}
+\omega_E p_1 + (\omega_H+\omega_Q)p_0
+\label{eq:Ev-00}
+\end{equation}
+
+\section{Price Decomposition and Bid Deterrence}
+
+\subsection{Price Decomposition}
+
+Substituting \eqref{eq:Vhat} and \eqref{eq:mbar} into \eqref{eq:ppost-main} yields
+\begin{equation}
+\outcome{P_{\textup{post}}}(X,D)
+=
+\delta\left(
+\E[v\mid X,D]
++
+\tilde{\Delta}\outcome{\pi}(X,D)
++
+\outcome{p}(X,D)\outcome{\bar m}(X,D)
+\right).
+\label{eq:price-decomp}
+\end{equation}
+
+Expanding the last term once more,
+\begin{equation}
+\outcome{p}(X,D)\outcome{\bar m}(X,D)
+=
+\outcome{p}(X,D)m_0
++
+\outcome{p}(X,D)(\tilde m-m_0)\outcome{\pi}(X,D).
+\label{eq:price-decomp-prem}
+\end{equation}
+
+So the activism-related part of price is
+\begin{equation}
+\delta\left[
+\tilde{\Delta}\outcome{\pi}(X,D)
++
+\outcome{p}(X,D)(\tilde m-m_0)\outcome{\pi}(X,D)
+\right].
+\label{eq:activism-price-component}
+\end{equation}
+
+\begin{econbox}
+This split is worth memorizing. Activism enters prices through a \emph{standalone channel} and a \emph{takeover channel}. The whole paper is really about how liquidity and disclosure change the market's posterior $\pi(X,D)$, which then moves both channels.
+\end{econbox}
+
+\subsection{How Inferred Engagement Affects Bid Incidence}
+
+Let
+\begin{equation}
+\Gamma(X,D)
+\equiv
+\frac{\outcome{\hat V}(X,D)+\outcome{\bar m}(X,D)+K-(\bar S+\outcome{\pi}(X,D)\Delta_S)}{s_\xi}.
+\label{eq:Gamma}
+\end{equation}
+
+Then
+\begin{equation}
+\outcome{p}(X,D)=\lambda_B\big(1-\Lambda(\Gamma(X,D))\big).
+\label{eq:p-gamma}
+\end{equation}
+
+Differentiate with respect to $\pi \equiv \pi(X,D)$:
+\begin{align}
+\frac{\partial \Gamma}{\partial \pi}
+&=
+\frac{\tilde{\Delta} + (\tilde m-m_0) - \Delta_S}{s_\xi},
+\label{eq:dGamma-dpi}
+\\
+\frac{\partial \outcome{p}}{\partial \pi}
+&=
+-\lambda_B \Lambda'(\Gamma)\frac{\partial \Gamma}{\partial \pi}
+\nonumber\\
+&=
+-\lambda_B \Lambda'(\Gamma)\,
+\frac{\tilde{\Delta} + (\tilde m-m_0) - \Delta_S}{s_\xi}.
+\label{eq:dp-dpi}
+\end{align}
+
+Under Assumption~\ref{ass:deterrence}, the numerator is positive, and because $\Lambda'(\Gamma)>0$, we get
+\begin{equation}
+\frac{\partial \outcome{p}}{\partial \pi} < 0.
+\label{eq:dp-dpi-negative}
+\end{equation}
+
+\begin{intuitionbox}
+In the baseline model, higher inferred engagement makes the target more expensive faster than it makes the deal more synergistic. That is why disclosed engagement tends to deter marginal bidders even though activism can also improve sale quality.
+\end{intuitionbox}
+
+\section{Minority Takeover Gains}
+
+\subsection{Definition and Exact Decomposition}
+
+The paper's main outcome object is
+\begin{equation}
+\outcome{\Delta^{\min}}(\kappa)
+\equiv
+\E\big[m^R(a)\1\{\text{bid}\}\big].
+\label{eq:deltamin}
+\end{equation}
+
+Using $m^R(a)=m_0 + a(\tilde m-m_0)$,
+\begin{align}
+\outcome{\Delta^{\min}}(\kappa)
+&=
+\E\left[\big(m_0 + a(\tilde m-m_0)\big)\1\{\text{bid}\}\right]
+\nonumber\\
+&=
+m_0 \PP(\text{bid}) + (\tilde m-m_0)\E\big[a\1\{\text{bid}\}\big].
+\label{eq:deltamin-step1}
+\end{align}
+
+Apply iterated expectations conditional on $(X,D)$:
+\begin{align}
+\E\big[a\1\{\text{bid}\}\big]
+&=
+\E\left[\E[a\1\{\text{bid}\}\mid X,D]\right]
+\nonumber\\
+&=
+\E\left[\E[a\mid X,D]\E[\1\{\text{bid}\}\mid X,D]\right]
+\nonumber\\
+&=
+\E\big[\outcome{\pi}(X,D)\outcome{p}(X,D)\big].
+\label{eq:deltamin-step2}
+\end{align}
+
+Hence
+\begin{equation}
+\outcome{\Delta^{\min}}(\kappa)
+=
+\underbrace{m_0\PP(\text{bid})}_{\outcome{\Delta^{\textup{base}}}(\kappa)}
++
+\underbrace{(\tilde m-m_0)\E\big[\outcome{\pi}(X,D)\outcome{p}(X,D)\big]}_{\outcome{\Delta^{\textup{act}}}(\kappa)}.
+\label{eq:deltamin-decomp}
+\end{equation}
+
+\subsection{Within-Regime Effect of Liquidity on Posterior Beliefs}
+
+Holding cutoffs fixed, the comparative statics of the nondisclosed posteriors are clean.
+
+\paragraph{Posterior at $(1,0)$.}
+From \eqref{eq:pi10},
+\begin{equation}
+\outcome{\pi}(1,0)=\frac{\omega_Q}{\omega_H+\omega_Q},
+\label{eq:pi10-repeat}
+\end{equation}
+which does not involve $\kappa$. Therefore
+\begin{equation}
+\frac{\partial \outcome{\pi}(1,0)}{\partial \kappa}=0.
+\label{eq:pi10-deriv}
+\end{equation}
+
+\paragraph{Posterior at $(-1,0)$.}
+Rewrite \eqref{eq:pim10} as
+\begin{equation}
+\outcome{\pi}(-1,0)
+=
+\frac{\omega_Q \kappa}
+{(\omega_H+\omega_Q)\kappa + \omega_E(3-2\kappa)}.
+\label{eq:pim10-simplified}
+\end{equation}
+Differentiate:
+\begin{align}
+\frac{\partial \outcome{\pi}(-1,0)}{\partial \kappa}
+&=
+\frac{
+\omega_Q\big[(\omega_H+\omega_Q)\kappa + \omega_E(3-2\kappa)\big]
+- \omega_Q\kappa\big[(\omega_H+\omega_Q)-2\omega_E\big]
+}
+{\big[(\omega_H+\omega_Q)\kappa + \omega_E(3-2\kappa)\big]^2}
+\nonumber\\
+&=
+\frac{3\omega_Q\omega_E}
+{\big[(\omega_H+\omega_Q)\kappa + \omega_E(3-2\kappa)\big]^2}
+>0.
+\label{eq:pim10-deriv}
+\end{align}
+
+\paragraph{Posterior at $(0,0)$.}
+Rewrite \eqref{eq:pi00} as
+\begin{equation}
+\outcome{\pi}(0,0)
+=
+\frac{\omega_Q(3-2\kappa)}
+{(\omega_H+\omega_Q)(3-2\kappa)+\omega_E\kappa}.
+\label{eq:pi00-simplified}
+\end{equation}
+Differentiate:
+\begin{align}
+\frac{\partial \outcome{\pi}(0,0)}{\partial \kappa}
+&=
+\frac{
+-2\omega_Q\big[(\omega_H+\omega_Q)(3-2\kappa)+\omega_E\kappa\big]
+- \omega_Q(3-2\kappa)\big[-2(\omega_H+\omega_Q)+\omega_E\big]
+}
+{\big[(\omega_H+\omega_Q)(3-2\kappa)+\omega_E\kappa\big]^2}
+\nonumber\\
+&=
+\frac{-3\omega_Q\omega_E}
+{\big[(\omega_H+\omega_Q)(3-2\kappa)+\omega_E\kappa\big]^2}
+<0.
+\label{eq:pi00-deriv}
+\end{align}
+
+\begin{econbox}
+These signs are intuitive. When noise gets stronger, a negative order flow is less diagnostic of deliberate exit, so the market becomes more willing to attribute it to a quietly engaged blockholder plus noise. By contrast, a zero order flow becomes less reassuring because it can now more easily come from an exiting blockholder offset by positive noise.
+\end{econbox}
+
+\subsection{Endpoint Information Structure}
+
+Holding cutoffs fixed:
+\begin{itemize}
+\item As $\kappa \downarrow 0$, noise vanishes, so order flow essentially reveals the blockholder's trade.
+\item As $\kappa \uparrow 1$, noise becomes uniform on $\{-1,0,1\}$, but bounded support still keeps some order-flow realizations informative.
+\end{itemize}
+
+This matters because the right endpoint is \emph{not} a fully uninformative limit. The activism component of minority gains does not mechanically disappear at high liquidity.
+
+\begin{warningbox}
+That last point is exactly why the hump should be presented as a numerical equilibrium result, not as something you can read off from primitive endpoint theorems.
+\end{warningbox}
+
+\subsection{What Is and Is Not Proven About the Hump}
+
+Equation \eqref{eq:deltamin-decomp} is exact. The sign pattern
+\begin{equation}
+\outcome{\Delta^{\textup{base}}}(\kappa)\ \uparrow,
+\qquad
+\outcome{\Delta^{\textup{act}}}(\kappa)\ \downarrow
+\label{eq:hump-sign-pattern}
+\end{equation}
+on the plotted grid is numerical. Therefore the interior hump in
+\begin{equation}
+\outcome{\Delta^{\min}}(\kappa)
+=
+\outcome{\Delta^{\textup{base}}}(\kappa)
++
+\outcome{\Delta^{\textup{act}}}(\kappa)
+\label{eq:hump-object}
+\end{equation}
+is a baseline calibration result, not a general theorem from primitives.
+
+\section{Disclosure Attenuation}
+
+\subsection{Exact Split Between Disclosed and Nondisclosed Components}
+
+Because $\pi(X,1)=1$ on the baseline disclosed branch,
+\begin{align}
+\outcome{\Delta^{\textup{act}}}(\kappa)
+&=
+(\tilde m-m_0)\E\big[\pi(X,D)p(X,D)\big]
+\nonumber\\
+&=
+(\tilde m-m_0)
+\left[
+\PP(D=1)\E\big[p(X,1)\mid D=1\big]
++
+\PP(D=0)\E\big[\pi(X,0)p(X,0)\mid D=0\big]
+\right].
+\label{eq:disclosure-split}
+\end{align}
+
+If cutoffs are held fixed, then:
+\begin{itemize}
+\item the disclosed branch is $\kappa$-invariant in the baseline model,
+\item the nondisclosed branch is where $\kappa$ moves beliefs and bid probabilities.
+\end{itemize}
+
+So increasing the share of mass on the disclosed branch attenuates the overall sensitivity of the activism component to liquidity.
+
+\subsection{Why the Disclosed Branch Is Flat in \texorpdfstring{$X$}{X}}
+
+In the baseline action set, conditioning on $D=1$ already tells the market the blockholder chose Public Voice. Therefore:
+\begin{equation}
+\pi(X,1)=1,
+\qquad
+\E[v\mid X,1]=\mu_P,
+\qquad
+\outcome{\hat V}(X,1)=\mu_P+\tilde{\Delta},
+\label{eq:disclosed-constants}
+\end{equation}
+for all feasible $X\in\{0,1,2\}$.
+
+Hence both $\bar m(X,1)$ and $p(X,1)$ are constant in $X$, and so
+\begin{equation}
+\outcome{P_{\textup{post}}}(X,1)
+\text{ is constant in } X.
+\label{eq:ppost-flat}
+\end{equation}
+
+\begin{warningbox}
+This invariance relies on the baseline interpretation of the disclosed branch. If the model were expanded to allow passive threshold crossing on path, this result would have to be rewritten.
+\end{warningbox}
+
+\section{Existence, Uniqueness, Welfare, and Other Limits}
+
+\subsection{Existence and Uniqueness}
+
+The current paper uses a regularity-based existence result:
+\begin{itemize}
+\item choose a compact ordered cutoff domain,
+\item define a cutoff-updating map from the adjacent indifference equations,
+\item complete beliefs off path as needed,
+\item apply Brouwer.
+\end{itemize}
+
+This is acceptable as long as you describe it honestly. It is \emph{not} a global constructive uniqueness theorem.
+
+\subsection{Welfare}
+
+The current welfare section is not central to the presentation. The safest description is:
+\begin{itemize}
+\item minority takeover gains are the paper's main shareholder object,
+\item total surplus is a different object because takeover premia are transfers,
+\item the current welfare accounting is preliminary.
+\end{itemize}
+
+\subsection{Why the Discrete Framework Is Still Defensible}
+
+The strongest defense is not ``discrete trading is realistic.'' The stronger defense is:
+\begin{itemize}
+\item discrete noise yields transparent posterior formulas,
+\item disclosure generates two clean information regimes,
+\item the paper's contribution is about activism, disclosure, and takeover feedback in one tractable model.
+\end{itemize}
+
+If pressed, the next-generation model is dynamic or continuous time. But the current paper should be sold as a tractable first-pass theory, not as the final microstructure architecture.
+
+\section{Hand-Derivation Checklist Before the Seminar}
+
+You should be able to derive each of the following without looking at the slides.
+
+\begin{enumerate}
+\item Starting from \eqref{eq:v-dist} and \eqref{eq:s-def}, derive \eqref{eq:posterior-mean}.
+\item Write down the four baseline actions and explain economically why only Public Voice crosses the threshold in the baseline presentation.
+\item Derive the four payoff expressions \eqref{eq:UE}--\eqref{eq:UP}.
+\item Derive the sign of each adjacent payoff difference in Proposition~\ref{prop:single-crossing}.
+\item Write the cutoff indifference equations \eqref{eq:k1-indiff}--\eqref{eq:kD-indiff}.
+\item Derive the region probabilities \eqref{eq:omegaE}--\eqref{eq:omegaP}.
+\item Derive the truncated means \eqref{eq:muE}--\eqref{eq:muP}.
+\item Reconstruct Table~\ref{tab:state-map} from memory and use it to derive \eqref{eq:pi10}--\eqref{eq:pim20}.
+\item Derive the price formula \eqref{eq:ppost-main} and decomposition \eqref{eq:price-decomp}.
+\item Differentiate bidder entry with respect to $\pi$ and explain the sign in \eqref{eq:dp-dpi-negative}.
+\item Derive the minority-gains decomposition \eqref{eq:deltamin-decomp}.
+\item Explain, without bluffing, why the hump is numerical and why the disclosure attenuation statement is partial equilibrium.
+\end{enumerate}
+
+\begin{statusbox}
+\textbf{If you can do the twelve items above on paper, you know the current model well enough for the presentation.}
+\end{statusbox}
+
+\end{document}

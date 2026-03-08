@@ -1,0 +1,73 @@
+ M Makefile
+ D R/plot_fig01_cutoff_structure.R
+ D R/plot_fig02_nonmonotonicity.R
+ D R/plot_fig03_decomposition.R
+ D R/plot_fig04_prices.R
+ D R/plot_fig05_cutoffs_kappa.R
+ D R/plot_fig06_disclosure.R
+ D R/plot_fig07_sensitivity_C0.R
+ D R/plot_fig08_sensitivity_wedge.R
+ D R/plot_fig09_sensitivity_rho.R
+ D R/plot_fig10_sensitivity_sigma_xi.R
+ D R/plot_fig11_sensitivity_delta.R
+ D R/plot_fig12_noisy_rumor.R
+ D R/plot_fig13_welfare.R
+ D R/render_all.R
+ D R/theme_evtmodel.R
+ M bibliography.bib
+ D draft_v2.pdf
+ D draft_v2.tex
+ M numerical/__init__.py
+ D numerical/accel.py
+ M numerical/export_data.py
+ D numerical/figures_matplotlib.py
+ M numerical/model.py
+ M numerical/params.py
+ M numerical/solver.py
+ M numerical_output/fig_cutoff_structure.pdf
+ M numerical_output/fig_cutoffs_kappa.pdf
+ M numerical_output/fig_decomposition.pdf
+ M numerical_output/fig_disclosure.pdf
+ M numerical_output/fig_noisy_rumor_precision.pdf
+ M numerical_output/fig_nonmonotone.pdf
+ M numerical_output/fig_prices.pdf
+ M numerical_output/fig_sensitivity_C0.pdf
+ M numerical_output/fig_sensitivity_delta.pdf
+ M numerical_output/fig_sensitivity_rho.pdf
+ M numerical_output/fig_sensitivity_sigma_xi.pdf
+ M numerical_output/fig_sensitivity_wedge.pdf
+ M numerical_output/fig_welfare.pdf
+ M numerical_output/table_disclosure_extensions.tex
+ M numerical_output/table_example.tex
+ M pres/presentation.pdf
+ M pres/presentation.tex
+ T pres/slides.bib
+?? .claude/
+?? Archive/draft_v2.pdf
+?? Archive/draft_v2.tex
+?? diagnosis/
+?? draft_v3.pdf
+?? draft_v3.tex
+?? numerical/figures.py
+?? numerical/theme.py
+?? numerical_output/fig_disclosure_slopes.pdf
+?? numerical_output/fig_mechanism_chain.pdf
+?? numerical_output/fig_sensitivity_panel1.pdf
+?? numerical_output/fig_sensitivity_panel2.pdf
+?? numerical_output/fig_timeline.pdf
+?? pres/lecture_notes.pdf
+?? pres/lecture_notes.tex
+?? pres/presenter_companion.pdf
+?? pres/presenter_companion.tex
+?? quality_reports/code-review-2026-03-05-evt_codebase-numerical.md
+?? quality_reports/model_review_artifacts/
+?? quality_reports/paper_review_draft_v3.md
+?? quality_reports/plans/2026-03-05_presentation-prep-design.md
+?? quality_reports/plans/2026-03-05_presentation-prep-impl.md
+?? quality_reports/plans/2026-03-05_visual-overhaul-design.md
+?? quality_reports/plans/2026-03-05_visual-overhaul-impl.md
+?? quality_reports/research-qa-2026-03-05-draft_v3-illustrations.md
+?? quality_reports/session_logs/2026-03-03_deepthink-round3-package.md
+?? quality_reports/session_logs/2026-03-03_fixmd_review.md
+?? quality_reports/session_logs/2026-03-04_theory-repair-round4.md
+?? quality_reports/session_logs/tmp_images/

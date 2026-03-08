@@ -1,0 +1,2309 @@
+Conceptual Framework and Theory of M&A*
+
+                                  Alexander S. Gorbenko
+     University College London, Economics and School of Management
+
+                                          June 2025
+
+
+
+
+Contents
+1 Introduction                                                                               3
+
+2 Tender offers                                                                              4
+  2.1   The free-riding problem . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     6
+  2.2   Solutions to the problem . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    8
+  2.3   Private information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+  2.4   Large shareholders . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+  2.5   Endogenous value creation and deal terms . . . . . . . . . . . . . . . . . . . 14
+  2.6   Activist investors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+
+3 Negotiated deals                                                                           18
+  3.1   Structure of the sale process . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+        3.1.1    Classic auction formats . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+        3.1.2    Practical complications . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+        3.1.3    Auctions versus negotiations . . . . . . . . . . . . . . . . . . . . . . . 23
+  3.2   Cash and stock offers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+  3.3   Conditional deal terms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+  * Alexander S. Gorbenko: a.gorbenko@ucl.ac.uk.
+
+
+
+
+                                                   1
+         3.3.1   Cash flow terms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+         3.3.2   Closing conditions and other deal terms     . . . . . . . . . . . . . . . . 30
+   3.4   Market misvaluation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+   3.5   Tender offers vs mergers and the M&A market evolution . . . . . . . . . . . 32
+
+4 Initiation of deals and asset prices                                                       33
+   4.1   Deals driven by economies of scale . . . . . . . . . . . . . . . . . . . . . . . . 34
+   4.2   Deals driven by inefficiencies . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
+   4.3   Asset pricing implications . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+   4.4   Financial constraints and deal terms . . . . . . . . . . . . . . . . . . . . . . 41
+   4.5   Leverage and deals driven by financial distress . . . . . . . . . . . . . . . . . 43
+   4.6   Private and common values . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
+   4.7   Initiation of takeovers vs mergers and shareholder conflicts . . . . . . . . . . 46
+
+5 Deals in industry equilibrium                                                              48
+   5.1   Exogenous mergers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+   5.2   Endogenous merger decisions . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+   5.3   What next? The quest for a unified model . . . . . . . . . . . . . . . . . . . 52
+
+6 Conclusion                                                                                 53
+
+
+
+
+                                               2
+1.        Introduction
+The market for corporate control is one of the largest corporate markets with several trillion
+dollars worth of M&A deals announced and completed annually. Over the years, there have
+been multiple waves of merger activity, preceded and followed by new laws and regulations.
+In the U.S. alone, the post-Second World War period included a tightening of antitrust laws
+followed by a wave of diversifying mergers (conglomerates) in 1960s and early 1970s. The
+1980s wave was characterized by divestitures and hostile takeovers conducted via tender of-
+fers, which led to the creation of the modern M&A legal doctrine facilitating, among other
+things, takeover defenses. The 1990s saw the rise of private equity deals with their creative
+approach to the target company’s capital structure and incentives. Activist investors and
+hedge funds became key to many deals in the 2000s. More recently, in 2020–2021 spe-
+cial purpose acquisition vehicles (SPAC) accounted for approximately 20% of the U.S. deal
+volume before their (timely) demise, while 2022–2023 saw the rise of deals that included
+earnouts – and of inevitable lawsuits that followed weak performance of resulting business
+combinations. In the UK, merger activity broadly kept pace with the U.S.; over the years,
+the country also attracted foreign acquirers following rounds of privatization and deregula-
+tion of financial services, utilities and telecom sectors. To study features and participants
+of each of these trends, researchers came up with various theoretical frameworks.
+       The unfortunate complication of this development is that, much like merger waves driven
+by new economic and technological booms, laws, and regulations, these theoretical frame-
+works tend to be disconnected.1 For example, a researcher or practitioner delving into
+classic single-period models of tender offers and dispersed ownership would be hard-pressed
+to understand the impact of conflicts among target shareholders on the timing of a takeover
+attempt and its asset pricing implications. These issues are analyzed in the more recent
+literature of M&A as real options, which, alas, ignores the above-mentioned conflicts. More-
+over, a plethora of models with oftentimes conflicting assumptions significantly complicates
+empirical researchers’ job to verify or reject theories. One can find evidence consistent with
+a theory, but it can also be consistent with other theories, and tests against alternatives
+   1
+    This is the complication that theory of M&A shares – albeit to a lesser extent – with broad corporate
+finance theory. Spiegel (2023) outlines challenges faced by theoretical research in corporate finance.
+
+
+                                                   3
+are hard to conduct when models are methodologically disconnected.
+     Another complication is that there are currently few theories that study M&A in a com-
+petitive equilibrium. To be clear, models of M&A auctions allow for competition among
+potential acquirers for the target company at the deal stage. But there are few models
+that study industry-level competition before and after the deal – even though M&A, pos-
+sibly more than any other corporate action, change the competitive landscape. Moreover,
+industry-level competition likely drives competition among potential acquirers for targets.
+     With this in mind, the goal of this chapter is twofold. First, I aim to review both
+classic and recent papers in each class of M&A models that has emerged over the years.
+This includes models of (i) tender offers; (ii) “friendly” deals conducted via negotiations or
+auctions with bids in cash or securities; (iii) M&A as real options with the focus on deal
+timing and asset pricing implications; (iv) M&A and industry-level competition. Second,
+I complement the review of each class of models by highlighting overlaps across classes,
+particularly focusing on research that integrates classic approaches into a more general
+framework. In the absence of such overlaps, I provide some thoughts that may prove useful
+for future researchers interested in developing a more general, better connected M&A theory.
+     The remainder of the chapter is structured as follows. Section 2 focuses on tender
+offers. Section 3 examines friendly M&A conducted via negotiations or auctions. Section 4
+discusses the implications of modeling deals as real options. Section 5 reviews models that
+analyze industry-level effects of M&A. Section 6 concludes.
+
+
+
+2.      Tender offers
+A tender offer is a public offer by a potential acquirer to target shareholders to buy their
+shares at a certain price. Most tender offers are conditional on reaching a certain fraction of
+the target’s shares to gain control and possibly to squeeze out hold-out shareholders. E.g.,
+in the state of Delaware a successful offer to buy at least 90% of company A’s shares at a
+price of $20 would force hold-outs to sell their shares to the acquirer at $20. Importantly,
+a tender offer does not require a consent of target management or board of directors.
+     For this reason, hostile tender offers became the preferred method for corporations and
+
+
+                                              4
+private equity firms to effect disciplinary control changes in the U.S. and UK since the
+early 1980s.2 In turn, managers of target companies learned to employ various takeover
+defenses. Moreover, legal and regulatory changes of the late 1980s introduced more strin-
+gent disclosure requirements and facilitated shareholder activism as an alternative method
+of disciplining underperforming managers. Finally, the natural expansion and evolution of
+the market for corporate control led to specialization of control-oriented investors, many of
+whom would have arguably chosen shareholder activism even in the absence of the afore-
+mentioned laws and regulations. These forces led to a decline in hostile takeovers since the
+1990s.3 These days, tender offers are primarily conducted by private equity firms who tend
+to have more credible pre-deal financing guarantees and coordinate their efforts with large
+institutional target shareholders. Importantly, however, hostile takeovers remain a credi-
+ble threat and continue shaping actions of companies in the market for corporate control,
+because they remain residual options in otherwise unsuccessful activism campaigns.
+      The class of models that studies tender offers focuses on the impact of conflicts of
+interest among target shareholders on the outcome of an offer. The key building block is
+that a potential acquirer makes a conditional or unconditional offer to target shareholders,
+who then decide whether to accept it or not. In a rational-expectations equilibrium without
+coordination, value-maximizing shareholders tender their shares if and only if the offer price
+p is at least as high as the post-takeover share worth:
+
+
+                              p ≥ E [e(deal terms; post-takeover actions)] .                 (1)
+
+
+The post-takeover share worth e can depend on other terms of the offer (e.g., the fraction
+of shares required by the acquirer or the amount of debt that it must assume to complete
+the deal) and on post-takeover actions (e.g., investment, monitoring effort) undertaken by
+the acquirer. Much of the theoretical literature on tender offers studies variations of this
+general inequality, which in the remainder of this chapter will be referred to as the free-riding
+condition for reasons that will be apparent soon.
+      Section 2.1 outlines the core free-riding problem, and sections 2.2–2.6 examine solutions
+  2
+      Outside of common law jurisdictions, hostile takeovers remained rare.
+  3
+      See, e.g., Fos (2017) for the analysis of the evolution of takeover activity.
+
+
+                                                        5
+                                            Success       Failure
+                                     Tender       p            v0
+                                        Not      v1            v0
+
+
+       Table I: Grossman and Hart (1980): Shareholder payoffs following the tender offer.
+
+
+and settings in which this problem is mitigated.
+
+
+2.1       The free-riding problem
+The classic paper in this literature is Grossman and Hart (1980). It formalizes incentives
+of small target shareholders to free-ride on an acquirer’s attempt to improve the value of
+their company and shows that in some settings, the acquirer will not proceed to acquire the
+target – despite much potential value creation. Much of the focus of the follow-up research
+is to identify alternative settings and mechanisms that mitigate the free-riding problem.
+It therefore is valuable to present the Grossman and Hart (1980) model and discuss the
+assumptions that lead to their extreme result.
+       Consider a target company owned by identical atomistic shareholders, who each own one
+share (alternatively, assume indivisible holdings). The total number of shares is normalized
+to 1; in what follows, this eliminates the difference between, e.g., share worth e and equity
+worth. The company’s value under the current management is v0 . Its value under a more
+efficient acquirer, who for unmodeled reasons cannot agree with the company’s management
+on a friendly acquisition, is v1 > v0 . To unlock this value, the acquirer must gain control
+of the company, i.e. own at least α shares. Additionally, it must pay restructuring cost c.4
+The acquirer considers a conditional tender offer to buy α ≥ α shares at a price of p. Target
+shareholders cannot coordinate their strategies. Everyone is risk-neutral, and everything in
+the model is common knowledge.
+       Payoffs of target shareholders for various combinations of their action (to tender their
+share or not) and the outcome (a successful takeover or a failure) are presented in Table I.
+Let the perceived probability of a successful takeover by a non-tendering shareholder be π.
+   4
+   The acquirer is assumed to always want to increase company value after a successful takeover. In some
+more general follow-up papers, the acquirer’s choice is explicitly modeled.
+
+
+
+                                                   6
+Because shareholders are atomistic, they are unable to individually impact the fraction of
+tendered shares, and hence a tendering shareholder will have the same perceived probability.
+Then, for a tendering shareholder it must be that
+
+
+                             πp + (1 − π)v0 ≥ πv1 + (1 − π)v0
+                                      ⇒ p ≥ v1 .                                             (2)
+
+
+This is the simplest version of the free-riding condition (1), in which the post-takeover share
+worth e of a target is simply improved value v1 ; there are no additional deal terms such as
+leverage that can impact this value; and there are no post-takeover actions such as effort
+that the acquirer can undertake. In the setting of Grossman and Hart (1980), rational
+shareholders free-ride on the acquirer’s attempt to improve the value of their company to
+the extreme, capturing the entire surplus.
+   Grossman and Hart (1980) assume that if the free-riding condition holds with equality
+then all shareholders tender their shares. An alternative assumption, used in some follow-
+up papers, is that at p = v1 indifferent shareholders tender their shares with probability
+πS ∈ [α, 1) and believe that other shareholders do the same. Whichever set of assumptions
+is used, the tender offer succeeds for p ≥ v1 . However, assuming success the acquirer’s
+optimal profit is achieved at p = v1 and is negative: v1 − p − c = −c < 0. As a result,
+a profit-maximizing acquirer has no incentives to initiate a tender offer – even though a
+takeover is socially efficient when v1 − v0 − c > 0. To finish the discussion of possible
+outcomes, even if condition (2) holds, a less interesting self-fulfilling equilibrium always
+exists in which each shareholder believes that π = 0 (i.e., no other shareholders tender their
+shares) and therefore does not participate in the tender offer as well.
+   The market for corporate control in Grossman and Hart (1980) unravels because, expect-
+ing a likely success of the tender offer, each shareholder is unable to affect the probability of
+a success and hence prefers other shareholders to tender even at high prices. When everyone
+refuses to tender, even value-improving offers do not succeed.
+
+
+
+
+                                               7
+2.2       Solutions to the problem
+The extent of the free-riding problem outlined in section 2.1 has paved a way for research
+aimed at identifying features and mechanisms of the market for corporate control that
+could mitigate the problem and restore efficiency of deal-making – by moving a fraction of
+a surplus from a potential deal from the target to the acquirer.
+       Grossman and Hart (1980) show that value-creating deals will be made if the acquirer
+has large private benefits of control b > c. In this case, its optimal profit is b − c > 0, and
+it has incentives to initiate a tender offer. Alas, the target company cannot always rely
+on finding such an acquirer. Value-creating deals will also be made if minority shareholder
+protection laws in the jurisdiction of the post-takeover entity are weak.5 Suppose that value
+loss to hold-out target shareholders is ∆v > c. Then, the bottom-left outcome in Table I
+changes to v1 − ∆v, which in turn changes the free-riding condition to p ≥ v1 − ∆v. This
+leads to the acquirer’s optimal profit of ∆v − c > 0. Thus, perhaps counterintuitively,
+weak minority shareholder protection laws can facilitate disciplining takeovers. The same
+result obtains if initial target shareholders write their corporate charter voluntarily allowing
+for a value dilution of up to ∆v dollars by a successful acquirer.6 While such provisions
+are at odds with equal treatment of shareholders, they may be essential for the efficient
+functioning of the market for corporate control.
+       Shleifer and Vishny (1986) study an acquirer who has a toehold in a target company:
+                            c
+a fraction of shares θ > v1 −v 0
+                                 acquired at a low price before an attempt of a tender offer.7
+While the free-riding condition (2) still applies, the acquirer’s profit upon success changes,
+as it now benefits from increasing the value of its toehold from v0 to v1 : θ(v1 − v0 ) + (1 −
+θ)(v1 − p) − c = θ(v1 − v0 ) − c > 0.
+       Can an acquirer realistically accumulate a sufficiently large stake in a target at a low
+price? In many jurisdictions, mandatory disclosure rules are triggered whenever an inter-
+ested party buys a large block of a company’s shares. For example, as of October 2023 in
+   5
+     See, e.g., La Porta et al. (1998) for comparative analysis of shareholder protection laws.
+   6
+     The acquirer can achieve this by, e.g., issuing new shares to itself or selling some of the target’s assets
+to its other businesses at a low value. A limit on value dilution, of course, would be better enforced in
+jurisdictions with good minority shareholder protection laws.
+   7
+     Here, the assumption of common knowledge is maintained. In section 2.3, a general version of Shleifer
+and Vishny (1986) is considered in which the acquirer has private information about efficient value v1 .
+
+
+                                                       8
+the U.S., a Schedule 13D form must be filed with the Securities and Exchange Commission
+(SEC) within five business days8 of acquiring 5% of a company’s shares with the intent
+of change of control, and amended within two days in an event of a material change (if
+an additional 1% of shares is acquired or sold). Such rules limit the ability of a potential
+acquirer to buy a large toehold without a price impact and thereby limit its profit from a
+takeover. Moreover, even buying a small toehold may be complicated in the stock market
+with fully rational shareholders. Liquidity trading, however, can facilitate this purchase,
+as it limits informativeness of trades and provides camouflage for the acquirer. Kyle and
+Vila (1991) formalize this intuition by incorporating elements of Grossman and Hart (1980)
+and Shleifer and Vishny (1986) into a market microstructure framework; they require a
+non-standard information structure to achieve closed-form solutions.
+       Ravid and Spiegel (1999) consider a different model inspired by market microstructure
+frictions and allow for two-tier tender offers subject to legal framework constraints, in which
+one price is offered to target shareholders to gain control of the company and another
+price – to squeeze out remaining hold-out shareholders. The minimum squeeze-out price
+is court mandated.9 If a potential acquirer faces no competition for the target, it will not
+have incentives to buy a toehold, as a toehold drives up the target’s stock price, thereby
+increasing its perceived value and, in turn, the minimum squeeze-out price in the eyes of a
+court. If there is some competition (modeled via sequential entry) then a relatively small
+toehold gives the incumbent acquirer sufficient advantage. Fair price provisions, introduced
+in some jurisdictions to ensure equal treatment of shareholders in takeovers, eliminate the
+difference between the two prices and result in an efficient allocation of the target.
+       Motivated by the at-the-time recent proposal by the European Commission to intro-
+duce squeeze-out and sell-out rights, and an “equitable price” to be paid in a mandatory
+bid10 , Burkart and Panunzi (2003) study the impact of these provisions on the free-riding
+   8
+      Previously, the deadline was ten calendar days.
+   9
+      This assumption is consistent with, e.g., the Delaware statute of the 1990s. Logically, untendered shares
+are unlikely to retain their full value, as a takeover results in the legal dissolution of the target.
+   10
+      A squeeze-out right, as we have already seen, is the acquirer’s right to buy out hold-out shareholders
+following a successful tender offer. A sell-out right is the hold-out shareholders’ right to sell their shares
+following a successful tender offer, typically at the same price as in the offer. Both rights become available
+to their respective holders if the acquirer holds more than 90-95% (depending on a jurisdiction) of target
+shares after the tender offer. A mandatory bid must be made by the acquirer for remaining target shares
+
+
+                                                      9
+problem. They differentiate between good, value-creating acquirers and bad acquirers who
+may be motivated by, e.g., private benefits. The squeeze-out right allows an acquirer to
+overcome the free-riding problem; in particular, if the squeeze-out price is v0 then the free-
+riding condition (1) is p ≥ v0 , and the acquirer collects the entire surplus from the takeover.
+The opposite is true for the sell-out right: shareholders choose holding out over a value-
+decreasing offer from a bad acquirer if the sell-out right is triggered when the acquirer gains
+control of the target (i.e., holds at least 50% of shares). A mandatory bid is irrelevant if a
+good acquirer is interested in a target company. However, it creates a pressure for share-
+holders to tender and avoid being hold-outs if a bad acquirer makes the offer. Competition
+(e.g., from the incumbent manager who can offer v0 ) further protects hold-out shareholders
+if it pushes the offer by a bad acquirer above the current target value v0 .
+    Gomes (2024) extends the model of Kyle and Vila (1991) to a dynamic setting, in which
+arbitrageurs can camouflage their trades to accumulate a freeze-out stake in the target
+company: a stake sufficient to prevent the triggering of a squeeze-out right. This threat
+forces the acquirer to preemptively offer a high price.
+    Yet another way for an acquirer to profitably accumulate a toehold and capture some of
+the deal surplus is to engage in various disclosure circumvention tactics. First, it can create
+a group with another interested party and buy a substantial combined stake in a target as
+long as all members of the group stay below an appropriate disclosure threshold. Second,
+the acquirer can purchase cash-settled equity swaps that track performance of the target
+stock but do not trigger any physical delivery rights upon expiration. Once the acquirer
+is ready for a takeover, it can cancel the swap and buy the target’s stock (which is often
+conveniently held by the acquirer’s broker-dealer) at a favorable price, thereby immediately
+gaining voting rights.11 SEC’s October 2023 amendments to reporting requirements in the
+U.S.12 extend the definition of a group, impose group-level disclosure requirements (5% of
+a company’s shares), and require disclosure of cash-settled security-based swaps and other
+derivatives that are settled in cash. The goal is to restore the balance of power between
+the target and acquirer in tender offers; whether this goal is likely to be achieved has, to
+once its holdings cross a threshold at which they have effective control over the firm (e.g., 30% in the UK).
+  11
+     A classic example is the attempted and failed acquisition of Volkswagen by Porsche in 2008.
+  12
+     The document is available at https://www.sec.gov/files/rules/final/2023/33-11253.pdf .
+
+
+                                                     10
+my knowledge, not been addressed so far. The extension of the Grossman and Hart (1980)
+framework to disclosure circumvention strategies seems quite straightforward.
+
+
+2.3       Private information
+The interaction between the free-riding problem and private information held by an acquirer
+can lead to further inefficiencies. Grossman and Hart (1980) assume that everything in the
+model is common knowledge; in turn, the acquirer cannot have information rents. Shleifer
+and Vishny (1986) propose a general model, in which the acquirer has private information
+about efficient value v1 ≥ v0 drawn from a commonly known distribution. The acquirer
+learns v1 before it decides to make a tender offer; target shareholders can learn limited
+information about v1 from the offer price. As in their simple model reviewed in section 2.2,
+Shleifer and Vishny (1986) assume that the acquirer owns toehold θ.
+       The free-riding condition (1) in the presence of asymmetric information is p ≥ E[v1 |p].
+There is a unique outcome for any price p, if all target shareholders tender their shares
+when they are indifferent.13 The acquirer’s incremental profit upon success is θ(v1 − v0 ) +
+(1 − θ)(v1 − p) − c, so acquirers with values v1 ≥ (1 − α)p + αv0 + c make a tender offer.
+Hence, the free-riding condition becomes
+
+
+                                 p ≥ E[v1 |v1 ≥ (1 − α)p + αv0 + c].                                    (3)
+
+
+Generally, there is a continuum of Perfect Bayesian Equilibria (PBE) with different offer
+prices. However, the refinement of Grossman and Perry (1986)14 selects a unique equilib-
+rium, in which the free-riding condition holds with equality and price p∗ is the lowest.
+       The interaction between the free-riding problem and information asymmetry leads to
+acquirers with values v1 ≥ p∗ extracting information rents at the expense of acquirers with
+values v1 ∈ [(1 − α)p∗ + αv0 + c, p∗ ]. Moreover, information asymmetry can amplify the free-
+riding problem. To see this, let c = 0 and v0 = 0. It is clear that, with perfect information,
+  13
+     See Hirshleifer and Titman (1990) for the analysis of equilibria, in which offers succeed at different
+prices for different draws of v1 , and target shareholders tender their shares probabilistically.
+  14
+     Loosely, given prior beliefs, a deviation from a PBE can be done by those and only those acquirers that
+would gain from it.
+
+
+
+                                                    11
+the acquirer has incentives to initiate an offer for any v1 . However, in Shleifer and Visnhy
+(1986) sufficiently weak acquirers lack such incentives.
+
+
+2.4     Large shareholders
+In Grossman and Hart (1980), small target shareholders cannot affect the outcome of a
+tender offer; in practice, large shareholders may want to give up some of the deal surplus
+to improve its likelihood. Holmström and Nalebuff (1992) study a target company whose
+shareholders are large and possibly different. A large shareholder can non-trivially change
+the fraction of tendered shares and hence is likely to be pivotal for the success of a tender
+offer. It therefore will be willing to accept a lower offer price in exchange for a higher chance
+of a deal. For now, assume that each of n shareholders owns one share; this assumption will
+be relaxed later. k tendered shares ensure the acquirer’s success. Assume that a tendering
+                                                                        P
+shareholder gets price p with probability πH and v0 otherwise. πH = Pr( −i tj ≥ k − 1) is
+the probability that at least k − 1 other shareholders also tender (tj are their 0/1 tendering
+choices). Assume further that a non-tendering shareholder gets v1 with probability πL < πH
+                           P
+and v0 otherwise. πL = Pr( −i tj ≥ k) is the probability that at least k other shareholders
+tender. Finally, focus on the symmetric mixed strategy equilibrium, which is unique in this
+setting.15 Then, the free-riding condition (1) for each of the shareholders becomes
+
+
+                                    p ≥ E[e] = λv1 + (1 − λ) v0 ,                                     (4)
+
+
+where the expected share worth E[e] depends on a shareholder’s perceived gap between
+probabilities of a successful offer given its tendering choice, captured by λ = ππHL . In other
+words, (1 − λ)(v1 − v0 ) is the discount a shareholder is willing to accept to improve the deal
+likelihood. In equilibrium, the acquirer sets a price that makes shareholders just indifferent
+between tendering and not, which in turn makes them select an individual probability of
+tendering to be consistent with group probabilities πH and πL .16
+  15
+     There are many other equilibria in which shareholders coordinate on who tenders and who does not.
+Such coordination, while possible, is less likely for companies with a reasonably broad shareholder base –
+and is outright illegal in some jurisdictions.
+  16
+     Unlike Grossman and Hart (1980), Holmström and Nalebuff (1992) do not assume that an indifferent
+shareholder tenders with certainty and allow this probability to be determined in equilibrium.
+
+
+                                                   12
+   If the shareholder base n grows very large and the probability of their being pivotal ap-
+proaches zero – eliminating the difference between πL and πH – then condition (4) converges
+to (2), and the acquirer, again, does not make a tender offer. However, this result critically
+relies on the assumption that each shareholder only holds one share, and hence must either
+tender all or none of its holdings. Assume, instead, that each shareholder holds m shares
+and, in equilibrium, tenders l shares. Then, the free-riding condition for l-th share becomes
+
+
+                                     pl ≥ λl v1 + (1 − λl )v0 ,                                 (5)
+
+
+where λl = πL π−(m−l)(π  H −πL )
+                L +l(πH −πL )
+                                 . Tendering l-th share gives a shareholder the offer price for that
+share and improves the deal likelihood, thus increasing the value of remaining m − l shares;
+the cost of tendering this share is the ability to free-ride on it. The higher is l, the less the
+shareholder benefits from being pivotal, and hence the higher is the price pl it requires to
+tender its next share. In fact, the hardest share for the shareholder to sell is its last one. If
+m = l = 1, condition (5) becomes (4).
+   Holmström and Nalebuff (1992) show that in the symmetric mixed-strategy equilibrium,
+each shareholder retains m−l∗ −1 shares with certainty; tenders one share with an individual
+probability consistent with group probabilities πH and πL in (5); and tenders remaining l∗
+shares with certainty. Moreover, if target shareholders are asymmetric in their holdings,
+the mixed-strategy equilibrium still stipulates that each retains the same number of shares
+with certainty and tenders one share probabilistically. Hence, with asymmetric owners it
+is large shareholders who end up tendering their shares; small shareholders free-ride. The
+acquirer therefore benefits the most if target ownership concentration is high; the worst
+scenario for it is if ownership is distributed broadly and uniformly. Because shareholders
+with divisible holdings continue to care about their retained shares even when they become
+very small, they still accept a discount, and the acquirer may still profit – and conduct
+efficient deals – even in the limit with atomistic shareholders.
+   Of course, as is often the case with mixed equilibria, one has to wonder whether small
+shareholders indeed randomize among their choices in reality, and to what extent they are
+capable of incorporating the probability of being pivotal into their decisions. It is also worth
+mentioning that the mixed equilibrium considered above is sensitive to a collusion between
+
+                                                13
+shareholders (especially if they are large) and the acquirer.
+
+
+2.5       Endogenous value creation and deal terms
+Grossman and Hart (1980) consider exogenous efficient value v1 . Free-riding then ensures
+that conditional on a success the acquirer is indifferent among buying any fraction of target
+shares in the interval [α, 1]. Burkart, Gromb, and Panunzi (1998) add moral hazard to
+the classic model and ask whether this friction alleviates or exacerbates the free-riding
+problem. Specifically, the acquirer is allowed to divert fraction ϕ of value v1 to generate
+private benefits ϕ − c(ϕ), where c(·) is strictly increasing, twice differentiable and convex,
+such that c(0) = 0, c′ (0) = 0, c′ (1) = 1. In contrast to the paper, to be consistent with
+some follow-up literature I choose a different version of the moral hazard friction with very
+similar predictions: the acquirer is allowed to exert post-takeover effort a to generate value
+av1 at private cost c(a).17 The idea is that dispersed target shareholders lack incentives,
+coordination, or skills to bring about their own value improvements. Whichever form the
+friction takes, atomistic shareholders with indivisible holdings still free-ride on the acquirer’s
+effort and capture the entire deal surplus, unless the acquirer is able to somehow exclude
+them from some of the gains (e.g., by diluting their shares). Formally, optimal effort
+maximizes the post-takeover value of the acquirer:
+
+
+                                        αav1 − c(a) → max,                                               (6)
+                                                            a
+
+
+where α is its equity stake. Given assumptions about c(a), there is a unique strictly positive
+solution a∗ (α), which is increasing in α, bringing about a higher post-takeover value.
+       Next, consider target shareholders. Each shareholder forms beliefs about the acquirer’s
+post-takeover equity stake and therefore its effort; in a rational expectations equilibrium,
+these beliefs lead to the free-riding condition
+
+
+                                        p ≥ e(a∗ (α)) = a∗ (α)v1 .                                       (7)
+  17
+    This setting is isomorphic to a more general setting with a strictly increasing, twice differentiable and
+concave v(a).
+
+
+
+
+                                                     14
+At the point of an offer, the acquirer attempts to reduce the surplus extracted by target
+shareholders in a deal. This is achieved by minimizing the post-takeover value, or minimiz-
+ing α: α = α. In turn, there is maximal underprovision of post-takeover effort.
+   Burkart, Gromb, and Panunzi (1998) address the value of the supermajority – or shark
+repellent – provision (control over the company is gained if α > 12 ) that some company
+founders include in their corporate charters as a takeover defense. A higher α increases
+effort provision by the acquirer and, in turn, deal surplus. Of course, the acquirer must
+be incentivized to make a tender offer in the first place, which can be achieved by limited
+dilution provisions as discussed in section 2.2.
+   A slightly more complicated version of the model with probabilistic tendering decisions
+studies pros and cons of having multiple classes of shares with different voting rights. A sin-
+gle class of shares may deter too many takeovers; shares with better voting rights facilitate
+them. This is because a high concentration of voting rights lowers the fraction of cash flow
+rights that the acquirer needs to buy (via shares with better voting rights) to gain control.
+While multiple-class share structure harms effort provision and deal surplus, the acquirer’s
+profit improves, incentivizing it to initiate an offer and increasing the deal likelihood.
+   Müller and Panunzi (2004) consider yet another way for an acquirer to extract surplus
+from dispersed shareholders: by issuing debt against the target company’s cash flows. The
+strategy to lever up the target instead of the combined company is called “bootstrapping”
+and is commonly used by private equity firms. Assume that at the time of a tender offer,
+the acquirer pledges d of a target’s cash flows to receive f (d) ≤ d of cash upon deal success.
+The acquirer does not need to be financially constrained to want to issue debt – it does
+it exclusively to pocket f (d) of deal surplus. If the offer is successful, the target company
+becomes levered and non-tendering shareholders receive max {v1 − d, 0} < v1 . The free-
+riding condition is therefore
+
+
+                                 p ≥ e(d) = max {v1 − d, 0} .                                (8)
+
+
+Because debt has higher seniority than levered equity, the post-takeover share worth, and
+hence the offer price that ensures success, decrease in the amount of deal-level debt. The
+acquirer does not benefit from this decrease, as it pays a full price for levered equity.
+
+                                              15
+However, it benefits from pocketing the proceeds of debt issuance; the largest feasible debt,
+d∗ = v1 − v0 , maximizes the acquirer’s profit f (d∗ ) − c. For leverage in excess of d∗ , target
+shareholders prefer that the company remain standalone.
+   While Müller and Panunzi (2004) provide a reasonable explanation for the use of “lev-
+ered bootstrapping,” some of their model’s predictions are inconsistent with the data. First,
+in the model high leverage reduces the premium paid to target shareholders; second, com-
+petition among bidders lowers leverage; third, high leverage can be inefficient.
+   In response to this critique, Burkart, Lee, and Petri (2023) attempt to explain several
+features of private equity (LBO) financing by merging models of Burkart, Gromb, and
+Panunzi (1998) and Müller and Panunzi (2004). In their setting, the acquirer issues debt
+at the deal level, levering up the target instead of the combined company. The acquirer
+can also exert post-takeover effort. The optimal level of effort maximizes the post-takeover
+equity value of the acquirer:
+
+
+                                α max{av1 − d, 0} − c(a) → max .                             (9)
+                                                              a
+
+
+Optimal effort is not necessarily equal to a∗ (α) that maximizes the post-takeover firm value
+in equation (6): if the firm is sufficiently levered, i.e., when equation (9) is negative at
+a∗ (α), then debt overhang leads to no effort provision.
+   In a rational expectations equilibrium, the free-riding condition is now
+
+
+                        p ≥ e(d; a∗ (α, d)) = max {a∗ (α, d)v1 − d, 0} .                    (10)
+
+
+The model justifies both bootstrapping via high leverage (as compared to takeovers by
+corporate acquirers) and upfront payouts to investors in LBOs as an efficient deal structure,
+whereby an acquirer extracts surplus from target shareholders via debt but provides value-
+creating effort which results in high offer prices and post-takeover values. In one of the
+extensions, the paper incorporates competition among potential acquirers in its most basic
+form (acquirers possess no private information). More competition leads to a higher deal-
+level leverage and, in turn, a higher takeover surplus: the acquirer can pledge more of the
+target’s cash flows in the form of debt knowing that it can provide more post-takeover
+
+
+                                               16
+effort. These results are consistent with empirical observations.
+       Burkart, Gromb, Mueller, Panunzi (2014) consider interactions between shareholder
+protection laws and potential acquirers’ outside funding capacity. Legal protections limit
+acquirers’ private benefits and value diversion, thereby making takeovers less likely; at the
+same time, they increase the efficient value v1 , which can act as a collateral to receive more
+outside funding. With a single potential acquirer, the increase in v1 leads to a one-to-one
+increase in the offer price to induce shareholders to tender; competition among acquirers
+is therefore required for legal protections to be associated with more active takeover mar-
+kets, as shown in the empirical literature. Moreover, legal protections improve efficiency
+of takeovers, because they allow better but more cash-constrained acquirers to use more
+external financing to outbid worse but more wealthy competitors.
+
+
+2.6       Activist investors
+Burkart and Lee (2022) compare shareholder activism and tender offers from the perspective
+of a control investor considering a toehold in a target company with atomistic shareholders.
+The only modeled difference between the two roles is that an activist runs a costly campaign
+to enact changes, while an acquirer must pay the tender offer price to gain control and effect
+these costly changes on its own. Value-improving effort provision is more socially efficient
+in a takeover but is unattractive to the acquirer when it expects to provide much effort
+and it leads to a high tender offer price. Shareholder activism, on the other hand, is
+typically conducted with a small stake in the target, leading to underprovision of effort; it
+is unattractive to the activist – who, unlike the acquirer, is not concerned with the tender
+offer price – when such low levels of effort do not have a substantial positive impact on the
+target. A follow-up paper, Burkart, Lee, and Voss (2025), endogenizes a control investor’s
+choice to become an acquirer or activist investor that pushes the target towards a friendly
+merger with an outside buyer; it is therefore covered in the next section.18
+  18
+    While unrelated methodologically, here it is useful to cite Edmans, Goldstein, and Jiang (2015), who
+study feedback from the financial market to corporate decisions and discuss the limited disciplining role of
+informed activist investors in value-destroying takeover attempts.
+
+
+
+
+                                                    17
+3.        Negotiated deals
+In negotiated deals, which I call mergers in the remainder of this chapter, management
+teams and boards of two companies interested in a business combination agree on terms of
+the deal, before the merger agreement is presented for shareholder approval. It is often the
+case that one of these companies (the target) negotiates with multiple interested parties
+(acquirers) at early stages of the process of finding a suitable business combination, and
+therefore possesses some power to set up a competitive process among its suitors. For
+these reasons, unlike the literature on tender offers which focuses on conflicts among target
+shareholders who are approached by the acquirer directly, the literature on negotiated
+deals has historically focused on the impact of the competitive selling process and (often
+unobserved) heterogeneity among potential acquirers on deal outcomes.19
+       Section 3.1 starts with the overview of several classic auction formats that have been
+used to approximate the process of a target negotiating a deal with potential acquirers.
+Features of competitive M&A processes that make them different from classic auctions are
+then discussed. Next, the target’s choice between running an auction and a sequential
+negotiation process is analyzed. Section 3.2 discusses the target’s ability to commit to
+accepting cash or stock swap offers, as well as acquirers’ preferences over these offers.
+Section 3.3 adds conditional deal terms, such as contingent value rights (CVR), earnouts,
+and due diligence closing conditions, into the mix. Section 3.4 discusses the impact of
+market misvaluation on the process and outcomes. Section 3.5 incorporates insights of
+section 2 and examines settings in which the target may be sold either via a hostile tender
+offer or in a friendly manner. Dasgupta and Hansen (2007) is an excellent complementary
+read on auctions in corporate finance, while Eckbo, Malenko, and Thorburn (2020) offer
+another brief review of the theory of competitive selling processes in M&A.
+  19
+     Of course, negotiated deals are not devoid of shareholder conflicts: the deal still must be voted on by
+both target and acquirer shareholders. For example, in the acquisition of Xstrata by Glencore in 2013, the
+initial formal offer was blocked by a small group of target shareholders because Glencore was not allowed to
+vote their shares in the target. However, the difficulty of adding multiple shareholders on both the target’s
+and potential acquirers’ side into already complex models of bargaining and auctions that will be covered
+below, as well as high rates of shareholder approval of negotiated deals has likely prompted the researchers
+to omit shareholder conflicts in this strand of literature. The literature on tender offers, in contrast, has
+incorporated shareholder conflicts and even competition among potential acquirers, but largely ignored
+asymmetric information among them.
+
+
+                                                     18
+3.1       Structure of the sale process
+I first present some of the classic results from the auction theory. Krishna (2010) provides
+proofs and analyzes robustness of these results to some assumptions. I then discuss the
+applicability of these results in the context of M&A.
+
+
+3.1.1      Classic auction formats
+
+Consider an auction for a target with n symmetric risk-neutral potential acquirers, who
+draw their signals about the target’s value from the same commonly known Uniform distri-
+bution on interval [0, 1]. The target’s value under current management is v0 = 0.20 For now,
+let acquirers have private values for the target vi = si : no information about rivals’ signals
+makes them re-value it. In the market for corporate control, private values better approx-
+imate the setting in which strategic acquirers (companies in the same or related industry,
+who primarily pursue company-specific operational synergies) compete for a target.21
+       Assume that the target can commit to organize a competitive selling process in the form
+of either a first-price or a second-price, or an English auction, and to only accept offers in
+cash. In a first-price auction, each acquirer submits a single sealed bid, and the highest
+bidder pays its bid and merges with the target; in a second-price auction, it instead pays
+the second-highest bid. In an English auction, acquirers engage in an open bidding contest
+in which the cash bid increases continuously (e.g., the target keeps raising it), and each
+bidder drops out once the bid becomes unsustainable. The last bidder standing then pays
+the bid at which the second-highest bidder drops out.
+       Each of these auction formats has a unique equilibrium with bidding strategies
+
+                                    n−1
+                      bFi (si ) =       si ;   bSi (si ) = si ;   bE          S
+                                                                   i (si ) = bi (si ) = si .              (11)
+                                     n
+  20
+     v0 > 0 means that the target that faces an offer below v0 (its reservation value) prefers to remain
+standalone; see Krishna (2010) for the analysis of this setting.
+  21
+     The term “private values” includes the case of acquirers who have both a publicly known common
+component and a privately known component in their values for the target. For example, an alternative
+way to present acquirers’ values in my example
+                                             is to say that they have a common component Ev = 0.5 and a
+symmetric private adjustment si on interval − 21 , 12 . In practice, Ev can be a function of various observable
+target and deal characteristics; “private values” can therefore approximate many real-world settings. In
+contrast, the term “common values” formalized later in the section refers to the case of acquirers who have
+private information about Ev, which is of common interest.
+
+
+                                                       19
+Intuitively, in the second-price auction (S) acquirer i does not bid above its value because
+it risks winning the auction and making negative profit if its strongest rival’s bid is above
+vi = si . It also does not bid below its value because it forfeits positive profit if its strongest
+rival’s bid is above its bid but below vi . Hence, bSi (si ) = si is a weakly dominant strategy. In
+the first-price auction (F ), acquirer i bids less than vi , or else it makes non-positive profit;
+there is less bid shading when the acquirer must outbid more rivals.22 Finally, because
+private-value acquirers do not update their values upon learning about their rivals’ signals
+via the bidding process, the bid in the English auction (E) at which acquirer i is prepared
+to drop out is the same as its bid in the second-price auction. All auction formats are
+efficient: the target is acquired by the bidder with the highest value. Moreover, they are
+revenue-equivalent (Riley and Samuelson, 1981; Myerson, 1981), each delivering expected
+revenue n−1
+        n+1
+            to the target, which makes it indifferent among formats.
+       Consider now acquirers who have interdependent values, such that rivals’ signals may
+make them re-value the target. Specifically, if si are acquirers’ signals about the target’s
+value then vi = αsi + (1 − α)s̄−i , α ≥ n1 are their values for the target as a function of
+the average of rivals’ signals s̄−i . The case of α = n1 is known as common values. In
+the market for corporate control, common values better approximate the setting in which
+financial acquirers (e.g., private equity funds) compete for a target, or when the target
+underperforms so that its acquirers consider employing common restructuring strategies.
+       Each of the first-price, second-price, and English auction formats has a unique symmetric
+equilibrium with bidding strategies
+
+                       n−1
+         bFi (si ) =       Evi (si );   bSi (si ) = Evi (si );   bE           S
+                                                                  i (si ) ̸= bi (si ) (unless n = 2),         (12)
+                        n
+                                                                  
+                                                               n
+                                         
+where Evi (si ) = E vi |si , s(1:n−1) = si = si α + (1 − α) 2(n−1)   is the expected value to
+acquirer i when both its signal and its strongest rival’s signal is si . Intuitively, in the
+second-price auction, the interdependent-value acquirer faces the winner’s curse: bidding
+its signal and winning makes it realize that its rivals’ signals are lower, which in turn makes it
+re-value the target downwards and experience ex-post regret. In expectation of the winner’s
+  22
+     More generally, bF
+                      i (si ) = E[v
+                                    (1:n−1) (1:n−1)
+                                           |s       < si ], where v (1:n−1) = s(1:n−1) is the highest, out of n − 1,
+rival valuation that the acquirer must outbid.
+
+
+                                                         20
+curse, the acquirer shades its bid: Evi (si ) < si for n > 2. As with private values, in the first-
+price auction the acquirer further shades its bid. Finally, in the English auction strategies
+of interdependent-value acquirers are different from the second-price auction unless n = 2.
+This is because, observing bids at which some of their rivals drop out, acquirers infer
+rivals’ signals and update their own values and strategies; moreover, they do not face the
+winner’s curse because they know that signals of remaining rivals are sufficiently high, or
+else they would have dropped out.23 While all auction formats are efficient24 , they are no
+longer revenue-equivalent: second-price and English auctions deliver weakly higher expected
+revenue to the target. If acquirers’ signals are also affiliated (strongly positively correlated)
+then the English auction is weakly better for the target than the second-price auction.
+
+
+3.1.2      Practical complications
+
+Classic auction models omit many important complications faced by competing acquirers
+in reality, yet they can majorly impact deal surplus and its division between counterparties.
+First, acquirers are likely to be asymmetric ex-ante, before they conduct due diligence
+(“learn their signals”) and update their value of the target. Lebrun (1999) and Kaplan and
+Zamir (2012, 2015) derive equilibrium bidding strategies and discuss potential multiplicity
+of equilibria in a first-price auction with ex-ante asymmetric private-value bidders, while
+Gorbenko and Malenko (2024) extend the analysis to interdependent-value bidders. Chen
+and Wang (2023) show that it may be in the interest of the target company to treat even
+ex-ante symmetric bidders asymmetrically (e.g., to save on entry costs), provided that such
+treatment would not be perceived unfair and trigger litigation.
+       Second, classic models of English auctions, commonly perceived as more representative
+of the dynamic nature of a negotiation between the target and multiple bidders, ignore
+acquirers’ strategies to increase their bids by large increments (“jump bidding”) despite their
+pervasiveness in practice. Daniel and Hirshleifer (2018) focus on private-value acquirers, for
+whom bidding is costly. In the absence of costs, acquirers’ bids rise by a small increment.
+However, even low bidding costs can lead to large jump bids that convey a bidder’s strength
+  23
+   The exact bidding strategies in this case are recursive; see Krishna (2010).
+   This result may no longer hold if α < n1 , that is, if some acquirers believe their rivals’ signals to be
+  24
+
+more informative.
+
+
+                                                    21
+to rivals and may make them drop out at low prices, improving the acquirer’s profit and
+lowering its follow-on bidding costs. In contrast, weak acquirers have stronger incentives to
+delay their bids as they assess strength of their competition. The auction with jump bids
+is efficient and delivers revenue comparable to the first-price auction to the target.
+   Avery (1998) studies strategic jump bidding between two interdependent-value acquirers
+with affiliated signals. Jump bids are used to intimidate rivals and stifle competition:
+they inform early on that an acquirer likely has a high value, and winning against it may
+entail a strong winner’s curse. The alternative interpretation is that jump bids coordinate
+auction participants on a specific, at times uncompetitive, equilibrium during the remaining
+negotiation process. In this setting, the greater the importance of jump bidding the more
+the outcome of the English auction resembles a first-price auction. Jump bids also reduce
+expected revenue to the target: depending on the level of coordinated competition after
+such a bid, any revenue between that in the first-price and English auction with continuous
+bids is possible. Other notable papers that model jump bids are Fishman (1988), Hirshleifer
+and Png (1990) and Bhattacharya (1992).
+   Third, bidding in contested M&A deals often proceeds in multiple rounds, between
+which the target uses current information about bidders as well as their offers to either
+allow them into the next round or exclude them from further bidding. Early-round bids
+can either be formal or informal; in the former case, a bid must be paid by the winner; in
+the latter case, the acquirer can withdraw the bid. McAdams and Schwarz (2007) consider a
+target that cannot credibly commit to a number of formal bidding rounds but can commit
+to excluding some bidders after each round. They show that in each round, the target
+optimally sets an upper bound on bids that earn admission into the next round, trading off
+expected revenue against bad reputation for nickel-and-diming its suitors and delay costs.
+Private-value acquirers with sufficiently high values shade their bids in early rounds, bidding
+at the round’s upper bound and proceeding into the next round; if only one such acquirer
+bids high, it ends up the winner. The number of rounds, as well as target revenue, depends
+on acquirers’ values; in particular, a prolonged process with many strong bidders may lead
+to large target losses due to delay. However, the auction remains efficient. An intermediary
+who can help the target commit to a process with few rounds can minimize its losses.
+
+
+                                              22
+       Quint and Hendricks (2018) study early-round informal bidding by private-value ac-
+quirers, who have prior signals about the target’s value. Those who are allowed into the
+final round can update their signals at a cost and submit formal bids. In the early round,
+acquirers pool over a finite number of informal bids that are weakly increasing in their
+signals, providing the target with imperfect information about ex-ante best acquirers, some
+but not necessarily all of whom are admitted into the final round. Because of this, the
+auction is generally inefficient; however, restricting entry into the final round is beneficial
+for the target when the number of suitors is sufficiently high.
+
+
+3.1.3      Auctions versus negotiations
+
+Continuing the discussion of important practical complications, while around 50% of M&A
+deals entail competition among potential acquirers25 , other deals are negotiated with a single
+acquirer. Moreover, some competitive deals do not resemble auctions but rather sequential
+or simultaneous negotiations with acquirers. Why would a target want to spend effort
+and time on complex negotiations rather than on finding suitable acquirers and running an
+auction? Bulow and Klemperer (1996) show that with symmetric independent private-value
+acquirers, an auction with n + 1 participants always delivers a higher expected revenue to
+the target than any negotiation with n participants. To illustrate this, consider the private-
+value setting described in section 3.1.1. In one-round negotiations, the optimal strategy for
+the target is to offer a take-it-or-leave it price p that maximizes its expected revenue, given
+that at least one of the acquirers has signal above p: p · (1 − pn ) → maxp gives
+
+                                                         1
+                                             p=                 1   .                                  (13)
+                                                   (n + 1) n
+
+                                                      n
+The optimal expected target’s revenue is                  n+1   , and is generically lower than expected
+                                                  (n+1)    n
+         n
+revenue n+2 from an auction with n+1 acquirers.26 Of course, negotiations can be conducted
+in a more sophisticated way and can even include auction rounds (“negotiauctions” is the
+term sometimes used in practice to describe such deal structures). In this case, the optimal
+  25
+    E.g., Boone and Mulherin (2007); Gorbenko and Malenko (2014).
+  26
+    Recall that with independent private values, all auction formats considered in section 3.1.1 are revenue
+equivalent.
+
+
+                                                    23
+way to structure a negotiated sale for the target is to run, say, an English auction among
+n acquirers, eliciting the second-highest value, and then to make a take-it-or-leave-it offer
+to the winner. However, this optimal mechanism is still worse for the target than to invite
+an additional ex-ante equally strong acquirer into the auction.27
+       The result of Bulow and Klemperer (1996) crucially depends on several assumptions.
+For example, if acquirers are ex-ante asymmetric in ways observable to the target, it can
+negotiate with a subset of strong acquirers rather than run an auction which may elicit a low
+winning offer from a strong acquirer due to weak competition. To illustrate this, consider
+the same example as before but let one (strong) acquirer have publicly known value v1 ≡ 1,
+while other (weak) acquirers have their private values drawn from the Uniform distribution
+on interval [0, 1]. In negotiations with the the strong acquirer, the target can offer a take-
+it-or-leave-it price 1 and guarantee revenue 1. In a second-price or English auction with
+                                                                                     n
+n + 1 acquirers (one strong and n weak), however, expected target’s revenue is only n+1
+(the expected value of the highest weak acquirer). In the first-price auction, it is also clear
+that the strong acquirer would shade its bid, delivering expected revenue below 1.
+       Another reason why negotiations may sometimes be chosen over auctions in practice is
+risk aversion on the part of decision makers in the target: in auctions, the outcome is much
+less predictable. Yet another complication is affiliated signals. Cremer and McLean (1985),
+McAfee at al. (1989), and McAfee and Reny (1992) show that if signals are interdependent
+then the target can, theoretically, design a sale process that would extract the entire surplus
+from acquirers. However, Lopomo (1995) shows that an auction followed by a take-it-or-
+leave-it offer remains optimal and efficient if the target cannot force losing participants to
+pay.28 Under same conditions, therefore, the target benefits from attracting an additional
+acquirer and running a simple auction.
+       Auctions may also not deliver the highest revenue to the target if acquirers must pay
+       The take-it-or-leave-it offer price following the English auction with the winning bid b∗E
+  27
+                                                                                                        ∗E 1
+                                                                                               i is max bi , 2 ,
+                               n−1+ 1 n    n
+leading to expected revenue n+12 < n+2        . Moreover, a reverse order of actions, i.e., a negotiation followed
+by an auction, is clearly inferior in this setting: it is never optimal for the target to lock up into a price, if
+the same bid can be elicited in the auction.
+  28
+     The inability of the target to make losing bidders pay is a reasonable assumption if the deal occurs in
+a very competitive industry but less so if the deal occurs in a concentrated industry, where the combined
+company can make unsuccessful acquirers “pay” by being a stronger product market competitor.
+
+
+
+                                                        24
+entry or bidding costs to compete. Bulow and Klemperer (2009) show that sequential nego-
+tiations with independent private-value acquirers, who arrive in turn and decide whether to
+compete or not based on the bidding history, are always more efficient than a simultaneous
+auction, as they result in a higher expected value of the winner less aggregate entry costs.
+This is because, while sequential negotiations attract fewer acquirers in expectation, the
+target ends up talking to more acquirers exactly when they are most needed: when earlier
+rounds of negotiations result in low offers. The downside of the sequential procedure is
+that strong early acquirers submit sufficiently large jump bids to stifle competition, thus
+harming the target’s revenue.
+       Bulow and Klemperer (2009) show that auctions typically deliver higher expected tar-
+get’s revenue, unless there are many interested acquirers, and the target can commit to
+a sequentially negotiated sale process with bidding in small increments (to prohibit large
+jump bids that stifle competition). Target-subsidized entry of competitors further favors
+sequential negotiation processes, while the ability of the currently best acquirer to walk
+away from the deal if the target continues looking for a better offer favors auctions instead.
+
+
+3.2       Cash and stock offers
+A large fraction of acquirer bids in M&A includes non-cash elements, and most of these
+are stock swaps (or stock offers), in which target shareholders are offered a stake in the
+combined company.29 It is therefore important to understand whether cash or stock offers
+deliver a higher revenue for targets, and, in turn, why acquirers sort into one or the other
+type of an offer, or even mix them.
+       Hansen (1985) is the classic paper that studies auctions with stock bids. Consider our
+earlier example with independent private-value acquirers. The new assumption is that upon
+winning the auction, an acquirer must pay exogenous cost c to realize its value vi = si . To
+make sure that acquirers want to participate in the auction, further assume that their signals
+are drawn from the Uniform distribution on interval [c, 1 + c]. As in the earlier example,
+then, the NPV of value improvements si − c is on interval [0, 1]. In a second-price auction
+  29
+    E.g., Eckbo, Makaew, and Thorburn (2018) show that in early 2010s approximately 50% of offers made
+by US public bidders included some stock consideration. This fraction has increased since 2022, because
+high interest rate environment has made financing cash offers much costlier.
+
+
+                                                  25
+with stock bids, each acquirer offers fraction
+
+                                                              si − c
+                                                αiS (si ) =                                                    (14)
+                                                                si
+
+of the acquired company’s new value vi = si 30 : as with cash bids, this offer equates its
+net value improvement si − c with payment αiS si . Let acquirer 1 be the winner against its
+strongest rival 2. For any combination of signals s1 > s2 , target’s revenue in the second-
+price auction with stock bids is higher than when bids are in cash: α2S (s2 )s1 = (s2 − c) ss12 >
+s2 − c = bS2 (s2 ) ≥ 0. In turn, expected target’s revenue with stock bids is higher than n−1
+                                                                                          n+1
+                                                                                              ,
+a familiar expected revenue when bids are in cash. Linking the second-highest bid to the
+winner’s value in the payment allows the target to extract more rents; as will be clear in
+section 3.3, this result is also true for auctions with bids in other securities whose values
+are sensitive to acquirers’ information. Clearly, if the target can commit to a medium of
+exchange (a class of securities used as bids), in Hansen (1985) it prefers stock over cash.
+The acquirers, however, prefer cash bids.
+       Fishman (1989) extends the model of preemptive jump bids in Fishman (1988) by al-
+lowing acquirers to select among cash and stock bids. Two acquirers must conduct costly
+due diligence before learning their independent private signals si . The target possesses a
+standalone value v0 . Acquirer 1 is assumed to have identified the target and can make an
+initial offer. In this case, acquirer 2 discovers the target and can counteroffer, initiating an
+English auction. Before the contest starts, the target learns its own private signal s0 about
+the functional form of acquirers’ values: v(si ) < v(si ).
+       The value of stock offers is sensitive to acquirers’ information; such offers allow the
+target to efficiently accept or reject acquirers given its own information about their values.
+To induce the target to accept an informationally insensitive cash offer instead, it has to
+be sufficiently high, making it particularly costly for weak acquirers. In turn, strong initial
+acquirers sort into cash bids, which are costly but effective at preempting competition by
+signaling high value. Weak initial acquirers sort into stock bids, which – unlike the low-
+                                                                                                                −c
+  30
+    In reality, the acquirer will offer a fraction of the newly combined company. In this case, αiS (si ) = vsai+si
+                                                                                                                    ,
+where va is acquirers’ value. It is also possible, albeit cumbersome, to deal with acquirer-specific values: as
+long as they are publicly known, the target can infer and compare values of all bids.
+
+
+
+                                                         26
+value cash alternative that these acquirers could have submitted instead – are accepted
+by the target, but signal acquirers’ low value and often attract competition. In turn, cash
+offers yield higher acquirer’s abnormal announcement returns. A decrease in the cost of due
+diligence (relevant these days, as much of due diligence has shifted to virtual data rooms)
+decreases the likelihood of a preemptive cash offer and increases the likelihood of a contest.
+       Eckbo, Giammarino, and Heinkel (1990) study the choice of a mix of cash and stock in
+a bid. They consider a single acquirer with a private value for the target, and a target that
+privately knows its reservation value. While cash-only or stock-only offers do not allow the
+acquirer to perfectly signal its value to the target, it is possible via a mix of cash and stock,
+such that the value (and hence acquirer’s abnormal announcement returns) is increasing
+and convex in the amount of cash in the offer.
+       Hoffmann and Vladimirov (2025) study the impact of cash and stock bids on the choice
+between auctions and negotiations. A target trying to sell itself to many (n+1) independent
+private-value acquirers does not have enough information about its suitors, and hence is
+assumed to conduct an English auction in cash bids for fear of ending up in a stock swap
+with uncertain perspectives. In contrast, a target trying to sell itself to few (n) acquirers
+is more likely to perform due diligence on them, and hence is assumed to conduct at
+least some individual negotiations, in which both cash and stock offers are allowed.31 The
+target’s assets are complements to acquirers’ assets if the difference in the probability of
+the acquirers’ “success” with and without the target increases in their signal; otherwise,
+the target’s assets are substitutes.
+       In the complements case, the target makes a take-it-or-leave-it stock offer in negotiations,
+as this helps it extract more revenue from productive acquirers who at the same time have
+high willingness to pay. Recall that in Bulow and Klemperer (1996), auctions in cash
+bids with an extra bidder are preferred to negotiations with cash offers; in Hoffman and
+Vladimirov (2025), negotiations with stock offers are better in terms of target revenue
+than with cash offers, and can in fact be better than auctions in cash bids with an extra
+bidder. In contrast, in the substitutes case, cash offers are preferred to stock offers in
+negotiations, as the value of cash does not deteriorate when acquirers with high willingness
+  31
+     As in Bulow and Klemperer (1996), optimal negotiations entail an auction round among n acquirers
+followed by a take-it-or-leave-it offer by the target to the winner; this offer can be made in cash or stock.
+
+
+                                                     27
+to pay but low productivity win. In turn, results of Bulow and Klemperer (1996) apply
+and auctions are preferred to negotiations. Dispersion and magnitude of acquirers’ signals
+further favor negotiations. These results are consistent with the empirical literature on the
+method of payment in auctions and negotiations, as well as in deals with various degrees of
+complementarity between merging parties.
+
+
+3.3       Conditional deal terms
+Acquirers often include various conditional terms into their offers to targets. For example,
+collar offers in stock swaps are sometimes used. Some of the large U.S. deals included
+contingent value rights (CVR) that were designed to protect target shareholders against
+downside movements in the combined company’s price post-acquisition.32 Many deals done
+in the high interest rate environment of 2022–2024 included earnouts that were designed to
+bridge the gap between acquirers’ and targets’ valuations, and to reward target shareholders
+only if their beliefs about a successful business combination materialize. In addition to
+conditional cash flow terms, conversion of an offer into a completed deal can be contingent
+on various closing conditions such as continued due diligence, availability of financing, and
+clearance of antitrust and other legal hurdles. It is therefore important to study the value
+of these terms to both sides of the deal.
+
+
+3.3.1      Cash flow terms
+
+DeMarzo, Kremer, and Skrzypacz (2005) is the classic paper that generalizes the analysis
+of Hansen (1985) to auctions with bids that may include conditional cash flow terms. This
+encapsulates collar offers, contingent value rights, and earnouts, but not other conditional
+terms mentioned above. Suppose that the target can commit to a set of securities S(θ, vi )
+admissible for bidding. Payoffs of securities in such a set are ranked by index θ and depend
+on the acquirer’s value. E.g., call options have payoffs S(θ, vi ) = max{vi − θ, 0} that are
+ordered by strike price θ; they approximate CVR and earnouts. Generalizing Hansen (1985),
+upon learning the unbiased private signal si an acquirer only knows the distribution of value
+ 32
+      A classic example is the acquisition of Paramount by Viacom in 1994.
+
+
+
+                                                    28
+vi . In a second-price auction it therefore offers a security that equates its net expected value
+improvement E[vi ] − c = si − c with expected payment E[S(θ(s), vi (s))|s = si ].
+       Some sets of admissible securities can be ranked by their steepness.33 E.g., a set of call
+options on the combined company’s value ranked by their strike price is steeper than the
+set of stock offers ranked by the fraction of the combined company, which in turn is steeper
+than the set of cash offers. The key result is that the steeper the set of admissible securities,
+the higher is the target’s expected revenue: steeper securities reinforce the link between the
+second-highest bid and the winner’s signal/expected value in the payment and allow the
+target to extract more rents. This result extends to first-price auctions.34 In turn, targets
+prefer to restrict acquirers to bids in call options, while acquirers clearly prefer cash bids.
+       In most M&A deals, the target is in fact unable to commit to a set of admissible
+securities. Acquirers can bid in any security they like, which poses a complicated signaling
+problem for the target. DeMarzo, Kremer, and Skrzypacz (2005) show that in such informal
+auctions, bids will always be in cash if off-equilibrium beliefs are restricted to satisfy the D1
+refinement.35 If acquirers are cash-constrained, they will instead submit debt offers, such
+that a higher signal is associated with a higher face value.
+       Che and Kim (2010) assume that investment costs c(si ) are not constant but instead
+increasing in acquirer’s signal si . For example, a better plan to restructure a target involves
+more investment. If c(si ) grows sufficiently quickly and the set of admissible securities is
+sufficiently steep (e.g., stock offers as in Hansen, 1985), acquirers’ willingness to bid declines
+in their signal/expected value, and the auction exhibits adverse selection. In turn, the logic
+of DeMarzo, Kremer, and Skrzypacz (2005) reverses, and target’s expected revenue from
+restricting acquirers to bid in steep securities is lower than its expected revenue from a
+cash auction. Any desire of the target to restrict acquirers in their bids should therefore
+be exercised with caution, keeping both dimensions of acquirers’ value-creating strategies
+(synergies and costs of implementing them) in mind.
+  33
+     Loosely, steepness captures payoff sensitivity of securities in a set to acquirers’ values.
+  34
+     While the second-price auction is preferred when admissible securities are concave (e.g., debt-like offers
+ordered by their face value), the first-price auction is preferred when these securities are convex (e.g., call
+options). However, numerical differences in expected target revenue across auction formats are very small
+compared to differences across admissible sets.
+  35
+     See, e.g., Cho and Kreps (1987); Cho and Sobel (1990).
+
+
+
+                                                      29
+   Gorbenko and Malenko (2011) study targets that compete for acquirers’ attention, such
+that their incentives to restrict bids to steep securities diminish. In large markets with lots
+of companies for sale, targets ask buyers to offer cash. Yuan (2024) shows that results of
+DeMarzo, Kremer, and Skrzypacz (2005) on informal auctions can also be overturned if
+acquirers have common values. Fearing the target’s selection among various security offers
+and the associated winner’s curse, acquirers offer call options – even if the target is unable
+to force them to bid steep securities – leaving to themselves a flat debt-like payoff that
+mitigates the winner’s curse concern.
+   In a very different type of model, Chatterjee and Yan (2008) focus specifically on con-
+tingent value rights. They show that CVR are used by high-quality acquirers to separate
+themselves from low-quality acquirers (who bid stock of the combined company), especially
+if the degree of asymmetric information about quality is high. In turn, there are positive
+(negative) acquirer’s abnormal announcement returns following offers that include CVR
+(all-stock offers). These results are supported by empirical tests. Moving from auctions to
+negotiations with contingent deal terms, Chaves and Varas (2022) consider a continuous-
+time model of bargaining in securities and apply it to M&A under financial constraints.
+
+
+3.3.2   Closing conditions and other deal terms
+
+Daley, Geelen, and Green (2024) analyze offers that convert into a deal conditional on the
+outcome of continued due diligence process. Acquirers bid for the target in an auction;
+the winner then has the right to engage in due diligence which is modeled as a stopping
+problem in continuous time. The winner faces delay costs and continues learning about
+the target until either enough bad information arrives to withdraw its offer or enough good
+information arrives to execute the deal at the price determined in the auction.
+   The higher is the winning price, the more due diligence is done to warrant deal execution;
+it comes with longer delays and a higher probability of offer withdrawal. This leads to
+target’s revenue that is hump-shaped in the bid, prompting strong acquirers to limit their
+bids to improve the probability of deal execution and be selected by the target. High speed
+of learning (e.g., when due diligence shifts to a virtual data room) makes acquirers compete
+harder and increases the threshold for good news that triggers deal execution, lowering the
+
+
+                                              30
+likelihood of this event. Winners tend to conduct too much due diligence relative to the
+socially optimal level, because the winning price is above the target’s reservation value; this
+triggers inefficient delays and offer withdrawals.
+      Povel and Singh (2010) study stapled finance: the option granted by the target’s invest-
+ment bank at the start of a sale process to an eventual winner to take on a non-recourse
+loan and complete the deal. Even in the absence of financing constraints, stapled finance
+is more useful to weak acquirers because it acts as a valuable subsidy. In turn, the auction
+among acquirers becomes more competitive. This comes at the cost of allocative efficiency:
+the highest-value acquirer does not necessarily win. Moreover, a fraction of incremental
+target’s revenue generated by stapled finance goes to the investment bank to compensate it
+for expected loss given default on the loan. However, as long as stapled finance is accepted
+with a positive probability, it benefits the target on the net. This result complements De-
+Marzo, Kremer, and Skrzypacz (2005) in the sense that even with cash bids, it is possible
+to attach conditional financing terms to the deal to extract more revenue from acquirers.
+Another paper that studies how acquirers finance their cash bids is Vladimirov (2015).
+      Betton, Eckbo, and Thorburn (2009) analyze termination fees paid to the initial winner
+by a rival who discovers the target later and bids high enough to have the initial merger
+agreement canceled. The post-initial agreement contest is modeled as an English auction.
+In expectation of termination fee t in the event of winning, the rival lowers its bid to
+bE                                                          E
+ 2 = v2 − t. In turn, the initial acquirer also bids up to b1 = v1 − t: dropping at this
+
+bid awards it with t, which is above the expected profit from continuing. As a result of
+this underbidding, the target loses revenue. Betton, Eckbo, and Thorburn (2009) also show
+that a termination fee can limit the extent of overbidding by the initial bidder who owns a
+toehold36 in the target.
+      Chen, Mahmudi, Virani, and Zhao (2022) study termination provisions in a dynamic
+model, in which the value of the target to a single acquirer v1 and its standalone value v0
+change over time. Termination provisions create value if triggered when v1 < v0 , but can
+be costly otherwise. The model advocates for deal-specific provisions and associates their
+presence with higher combined abnormal announcement returns.
+ 36
+      A fraction of the target’s shares bought at prices that do not fully incorporate the probability of a deal.
+
+
+
+                                                       31
+3.4     Market misvaluation
+Shleifer and Vishny (2003) as well as Rhodes-Kropf and Viswanathan (2004) study the
+impact of stock market misvaluation of targets and acquirers on M&A. Both papers assume
+that decision makers in merging firms are fully rational but the stock market is not. I focus
+on Rhodes-Kropf and Viswanathan (2004) because they model various possible sources
+of market misvaluation separately and also analyze an English auction among potential
+acquirers, which fits into this section methodologically. Because firms are unable to perfectly
+filter out sources of market misvaluation (e.g., firm-specific or market-wide), in overvalued
+markets targets are more likely to overestimate synergies following a strong offer by an
+overvalued acquirer, or when they themselves are relatively undervalued. These predictions
+are shared with Shleifer and Vishny (2003). Multiple acquirers competing against each
+other provide the target with more information about synergies; high rival bids lower the
+target’s estimated synergies from any given bidder and make a deal less likely. Furthermore,
+there are more deals completed in stock in overvalued markets than in undervalued markets,
+and such deals are associated with lower acquirer’s merger announcement returns.
+
+
+3.5     Tender offers vs mergers and the M&A market evolution
+Multiple factors can lead to a deal conducted via a tender offer versus a friendly merger.
+Evolving laws and regulations have certainly made hostile takeovers more difficult since the
+1990s. The natural evolution and expansion of the market for corporate control that led
+to specialization of control-oriented investors into activist investors and serial acquirers has
+likely also been a critical factor. Burkart, Lee, and Voss (2025) start with the asymmetric
+information model of Shleifer and Vishny (1986) reviewed in section 2.3, but allow informed
+large shareholders to choose between acquiring a target or forcing it to merge with an outside
+buyer (e.g., a private equity firm) on friendly terms.37 The paper is a great example of how
+different literatures that have had little overlap so far can be merged to help understand
+  37
+     See also Burkart and Lee (2022) who compare tender offers and regular shareholder activism from the
+perspective of a control investor. Corum and Levit (2019) study the relative advantage of activist investors
+over potential acquirers in pressuring boards to sell their companies, stemming from their lack of a conflict
+of interest with other shareholders. This aligns with the empirical evidence that most proxy fights to replace
+parts of the resisting board are initiated by activist shareholders.
+
+
+                                                     32
+the market for corporate control better.
+     Recall that the interaction of asymmetric information and the free-riding problem in
+Shleifer and Vishny (1986) leads to inefficiencies whereby sufficiently weak control-oriented
+investors with a toehold do not initiate a tender offer. An additional choice to sell the target
+to a third party eliminates this inefficiency: a weak control investor optimally prefers to act
+as an activist and negotiate a friendly sale. Moreover, this option also becomes preferable
+for intermediate-quality control investors, who would have otherwise initiated a hostile
+offer. In an extension, Burkart, Lee, and Voss (2025) consider competition, via a second
+price auction, among outside buyers who have private values for the target. Shareholder
+activism is more likely in the presence of competition; moreover, friendly sales lead to, on
+average, higher offer prices and returns compared to tender offers.
+     Of course, at some point control investors choose to specialize: to become either an
+activist investor or outside buyer with the skill to restructure underperforming companies.
+Burkart, Lee, and Voss (2025) show, via comparative statics, that if there are few control
+investors or, alternatively, such investors have little capital then most of them prefer to
+be buyers. Early stages of development of the market for corporate control are therefore
+described well by Shleifer and Vishny (1986). In a developing market, new control investors
+end up on both sides of the deal, leading to some shareholder activism and friendly deals
+for some targets. In a fully developed market, there are already many control investors on
+the sell side, so new control investors, again, prefer to be buyers. Moreover, shareholder
+activism is plentiful and efficiency of the market for corporate control is maximized.
+     A limitation of the model is that the dynamic evolution of the market for corporate
+control, as well as control investors’ decisions, are studied in a static model via comparative
+statics. The next section focuses on the dynamics of deal making.
+
+
+
+4.      Initiation of deals and asset prices
+Dynamic models of M&A reviewed in sections 4.1–4.6 examine decisions of targets and
+acquirers to initiate a deal as a real option. I focus my discussion on questions of timing,
+method of payment, and asset pricing implications of mergers versus takeovers/tender offers
+
+
+                                              33
+(keeping in mind that, for technical reasons, models of real options omit individual share-
+holder incentives reviewed in section 2). Section 4.7 outlines one potential path forward for
+this promising literature.
+   Most dynamic M&A models are cast in continuous time. One advantage is that this
+often yields closed-form solutions. Another advantage is that these models integrate well
+with much of the asset pricing theory that is also cast in continuous time, permitting to
+study stock price dynamics of the target and acquirers before, around, and after the deal.
+The disadvantage is that typically, maintaining closed-form solutions requires increasingly
+stringent assumptions as the model is enriched with more realistic features, e.g., the intro-
+duction of a realistic industry-level competition among involved parties.
+   Yet another key advantage of dynamic models of M&A is that following a firm through
+time can help refine and enrich empirical predictions of static models. For example, models
+in section 3 offer many explanations for low acquirer returns in stock deals. Models of market
+misvaluation show that deals in stock are frequent in overvalued markets by relatively
+overvalued acquirers, implying that deal frequency and terms can change with economic
+and market conditions. Models that study acquirers’ financial constraints (including those
+covered in this section) show that deals in stock occur when acquirers are either unable
+or unwilling to commit cash to the deal, implying that deal frequency and terms can also
+change with acquirer and target characteristics, including level and speed of accumulation
+of cash. Some models of M&A auctions show that deals in stock may occur if the target has
+commitment power to force acquirers to bid in securities, implying that deal frequency and
+terms may further be impacted by how unique and desirable the target is, which in turn
+can depend on target industry structure and on trends in technology/asset reallocation.
+Most of these predictions are derived from static models, but they are inherently dynamic.
+Dynamic models of M&A can help verify these and derive multiple other timing- and asset
+pricing-related predictions within a single model that could then be jointly tested.
+
+
+4.1    Deals driven by economies of scale
+Lambrecht (2004) is the classic paper that studies the timing of M&A driven by product
+markets and economies of scale. I consider a simplified version of this model. Two firms in
+
+                                             34
+the industry are interested in a potential business combination. They can either achieve it
+via a merger or a takeover of one company (company 0) by another (company 1). Firms
+are price takers, and their cash flows are driven by price of their output pt , which follows a
+Geometric Brownian motion:
+                                    dpt = µpt dt + σpt dBt ,                              (15)
+
+where r is the risk-free rate such that the growth rate is µ < r, and the volatility is σ > 0.
+Firms’ cash flows are
+                                        xi (pt ) = qi pγt ,                               (16)
+
+where γ > 1 means an increasing rate of growth of cash flows with output price pt . qi is
+constant production of company i. This functional form can be justified with, e.g., a Cobb-
+Douglas production function with fixed capital and variable labor. In this case, qi = kiθ
+depends on a company’s capital ki . Of particular interest is the case of increasing returns
+to scale θ > 1. Standalone values of two companies are
+
+                                                     qi pγt
+                                      vi (pt ) =            ,                             (17)
+                                                   r − g(γ)
+
+where g(γ) = 12 σ 2 γ(γ − 1) + µγ satisfies g(γ) < r, or alternatively γ < β where β is the
+positive root of the characteristic equation
+
+                                 1 2
+                                   σ x(x − 1) + µx − r = 0.                               (18)
+                                 2
+
+   The value of a combined company is
+
+                                                  qm pγt
+                                     vm (pt ) =          ,                                (19)
+                                                r − g(γ)
+             P
+where qm >     qi , ensuring a positive surplus from a business combination. For example,
+this condition holds if production of the combined firm qm = ( ki )θ depends on the
+                                                                   P
+
+combined capital and θ > 1. Thus, synergies are motivated by economies of scale.
+   The cost of a business combination for company i is ci . It includes direct costs of
+integration as well as fees paid to lawyers and financial advisors. Finally, companies and
+
+
+                                               35
+their investors have full information about each other.
+   Using standard stochastic calculus, the socially optimal merger should occur when pt
+reaches the upper threshold p̄, at which, given risks the companies face, synergies grow
+sufficiently large relative to integration costs:
+                                                                 β
+                                                                 pt
+                       (vm (p̄) − v0 (p̄) − v1 (p̄) − c0 − c1 )      → max .                    (20)
+                                                                 p̄     p̄
+
+
+The first part of the maximand is the surplus conditional on reaching the merger threshold;
+the second part is the value of a contingent claim that pays $1 upon reaching this threshold.
+Alternatively, this value can be interpreted as a discount factor that brings the conditional
+surplus value to time zero. The socially optimal merger threshold is
+
+                                                                      γ1
+                                         β X r − g(γ)
+                                   p̄ =     ci     P                         .                  (21)
+                                        β−γ    qm − qi
+
+   Now, consider a stock swap merger, in which each company gets a fraction of the com-
+bined company’s shares. Firms get together and first decide on the merger timing to
+maximize the total surplus; second, they decide how to split it. This bilateral bargain-
+ing is assumed frictionless; from Coase (1960) it follows that the socially efficient surplus
+and merger threshold p̄ are achieveable; moreover, in this model the bargaining outcome is
+renegotiation-proof. As such, each company solves
+                                                            β
+                                                            pt
+                             (αi vm (p̄) − vi (p̄) − ci ))      → max,                          (22)
+                                                            p̄     αi
+
+        P
+where       αi = 1. As a result,
+
+                                            ci (qm − qj ) + cj qi
+                                     αi =        P                .                             (23)
+                                                    cl · q m
+                                                                                 P
+Mergers are pro-cyclical as they occur for sufficiently high pt . When qm =          qi (e.g., θ = 1,
+or returns to scale are constant), there is no surplus from the merger, and hence each
+                                                           P
+company’s ownership αi is proportional to qi . When qm >      qi , a company’s ownership
+grows in its relative size qqji , as it contributes more to the surplus. Finally, an increase in
+
+
+                                                  36
+costs of a merger makes it harder to persuade a company to merge at a socially optimal
+level, unless its ownership in the combined firm goes up.
+       Consider now a takeover, in which company 1 (the acquirer) acquires company 0 (the
+target). Lambrecht (2004) thinks of takeovers differently from the literature in section 2.
+In particular, shareholder conflicts are abstracted away from, and neither the desire for a
+speedy deal nor the acquirer’s advantageous financial position – common reasons to go for
+a tender offer – are modeled. Instead, the target is assumed to be able to credibly commit
+to a fraction of the combined company it wants and the acquirer then decides on the timing
+of deal initiation.38 Applying the backward induction, the acquirer solves
+                                                                β
+                                                                pt
+                                 (α1 vm (p̄) − v1 (p̄) − c1 ))      → max,                              (24)
+                                                                p̄     p̄
+
+
+while, at time zero, the target solves
+                                                                                 β
+                                                                           pt
+                    ((1 − α1 )vm (p̄(α1 )) − v0 (p̄(α1 )) − c0 ))                      → max .          (25)
+                                                                        p̄(α1 )                   α1
+
+
+The optimal takeover threshold is
+
+                                 "          2                 !                      # γ1
+                                        β               β            r − g(γ)
+                         p̄1 =                    c1 +     c0             P                   .         (26)
+                                       β−γ             β−γ          qm − qi
+
+Takeovers are also pro-cyclical. Because the target makes the first move, it is able to capture
+a higher fraction of the surplus compared to a merger. The takeover premium offered to the
+target over and above its standalone value increases in product market uncertainty σ and
+acquirer-to-target size ratio qq01 . However, the shift in the surplus split leads to deals that
+are initiated inefficiently late and are less likely to materialize than mergers: p̄1 > p̄. Even
+though takeovers generate a larger total return upon initiation, the inefficiencies outlined
+above make them less socially desirable than mergers.
+  38
+     This could, for example, be justified by a target manager-shareholder requiring a certain value in the
+stock swap to not oppose the deal for unmodeled reasons, which it then cashes out. In principle, the target’s
+ability to commit to a favorable split of the surplus would lower the threshold at which it is ready for a
+friendly merger with the potential acquirer, possibly overturning some of the results. However, the paper
+does not analyze the additional option of a merger in the model of a takeover.
+
+
+                                                     37
+   A natural question is whether one can additionally incorporate incentives to form a
+business combination to maximize market power in a model of product market competition.
+We defer the discussion of this version of Lambrecht (2004) until section 5.
+
+
+4.2    Deals driven by inefficiencies
+Synergies motivated by economies of scale drive many deals, but this motivation is certainly
+not the only one. Morellec and Zhdanov (2005) present a model, in which synergies between
+the two merging companies are driven by relative inefficiencies of the target. Consider the
+setup of Lambrecht (2004) with four major differences. First, cash flows and standalone
+values of the two companies are affected by two different but correlated Geometric Brownian
+motion processes, pi,t :
+                                                                          qi pi,t
+                                xi (pi,t ) = qi pi,t ; vi (pi,t ) =               .                   (27)
+                                                                        r − g(1)
+Here, I keep the notation pi,t to denote per-unit-of-production cash flows, which can come
+from companies’ profit margins. Using earlier definitions, γ = 1 means constant rate of
+growth of cash flows with pi,t ; g(γ) = g(1) = µ; and θ = 1 means constant returns to
+                                                                       P
+scale, and hence no synergies associated with economies of scale: qm =   qi . Instead, the
+second main difference from Lambrecht (2004) is that synergies depend on the degree of
+underperformance of one firm (the target) relative to the other firm (the acquirer), captured
+by the difference in their standalone values. Specifically,
+
+                                        X                  X
+                  vm (p0,t , p1,t ) =       vi (pi,t ) +        qi · s (ωv1 (p1,t ) − v0 (p0,t )) .   (28)
+
+
+Synergies are driven by the publicly observable component s, while ω is a component of
+synergies observable by deal participants but not by outside investors. Over time, outsiders
+update their beliefs about ω until the deal is initiated, at which point they learn ω precisely.
+As an example, if ω = 1 then synergies are positive when v1 (p1,t ) > v0 (p0,t ).
+   The third main difference from Lambrecht (2004) is that the roles of the target and
+acquirer in a merger are fixed: only company 1 can acquire company 0 when v1 (p1,t ) is
+substantially higher than v0 (p0,t ), but not the other way around when the ranking of values
+is reversed. Otherwise, deal initiation follows the Lambrecht (2004) model of mergers.
+
+                                                           38
+Fourth, there are no costs of forming a business combination: companies instead hold a
+switch option, in which they exchange their standalone value affected by one stream of cash
+flows for a share in the combined company affected by both imperfectly correlated streams.
+   With these assumptions, the payoff of the option to acquire is linear in pi,t , so the
+acquirer’s strategy depends on the ratio of cash flows (equivalently, of firm values) zt = pp1,t
+                                                                                             0,t
+
+crossing the upper threshold z̄. The drift and variance of the process for zt is µz = µ1 − µ0
+and σz2 = σ12 − 2ρσ0 σ1 + σ02 . Similar to Lambrecht (2004), the acquirer solves
+                                                            z βz
+                                                              t
+                           p1,t (α1 vm (z̄, 1) − q1 z̄))             → max,                 (29)
+                                                             z̄         z̄
+
+
+where βz is a positive root of equation (18) with µz and σz as parameters. The solution is
+                                             P
+                                    βz α1 (s qi − q0 )(r − g(1))
+                            z̄1 =                   P            .                          (30)
+                                  βz − 1 α1 (q1 + sω qi ) − q1
+
+A similar problem for the target gives
+                                                      P
+                               βz (α1 q0 + (1 − α1 )s qi ) (r − g(1))
+                       z̄0 =                              P           .                     (31)
+                             βz − 1      (1 − α1 )(q1 + sω qi )
+
+Using the same argument as in Lambrecht (2004), setting z̄1 = z̄0 achieves the social
+optimum, and is the outcome of the merger game in a frictionless setting. This gives
+
+                                             βz r − g(1)
+                                     z̄ =                ;                                  (32)
+                                           βz − 1     ω
+                                              q1
+                                   α1    =          .                                       (33)
+                                           q1 + ωq2
+
+The optimal merger threshold is decreasing in ω, which means that outside investors down-
+grade their expectations about this component of synergies as zt reaches new heights; once
+the deal occurs, ω is revealed through z̄ and the outsiders’ expectations are positively sub-
+verted. This logic has implications for asset prices and abnormal returns around initiation
+of the deal. High σ, low ρ, high µ1 , and low µ0 all increase both companies’ abnormal
+returns, because they all increase the value of the option to wait and therefore decrease
+the speed at which the outsiders downgrade their expectations about ω and increase their
+
+
+                                                  39
+surprise about synergies when the deal is initiated.
+   The paper also models competition between two acquirers via an English auction. Per-
+unit-of-production cash flows for acquirers are assumed the same, but they can differ in their
+production qi , i = 1, 2. Acquirers cannot accept a share of the combined company below
+         v (p   )
+αiE = vm (pi 0,ti,t,pi,t ) , their stopping point in the auction. There are two possible cases: first,
+the losing acquirer (say, company 2) is weak, i.e., α2E ≤ α1 from the single-acquirer model
+considered above. Then, competition is irrelevant for the winner. Second, the losing acquirer
+is strong. Then, the winner must accept a share lower than α1 . Morellec and Zhdanov (2005)
+again use the argument that the deal occurs when z̄1E = z̄0 to show that competition speeds
+up the takeover process: z̄ E < z̄. In the two-bidder case, however, conditions of Coase
+(1960) are no longer satisfied, so one has to wonder which implicit assumptions about the
+bargaining process among three companies can implement this solution.
+   The model with competition can generate negative announcement returns for acquirers
+around deal initiation; signs and magnitudes of these are consistent with empirical evidence.
+Outside investors now learn about synergies ω1 and ω2 not only from initiation but from
+the post-auction split of the combined value. Ignoring the difference in qi , if the bidders’
+synergies are sufficiently close and competition is fierce, the outsiders learn that no surplus
+has been retained by the winner, whereas before the deal the expectation was that of a
+positive surplus retention. This leads to negative announcement returns. More asymmetric
+outsiders’ beliefs lead to positive announcement returns. However, the model cannot explain
+negative announcement returns in single-bidder stock swap deals, which are quite common.
+
+
+4.3     Asset pricing implications
+Hackbarth and Morellec (2008) focus on stock market implications of mergers. They con-
+sider a model similar to Morellec and Zhdanov (2005), in which synergies in (28) are instead
+q0 (s(v1 (p1,t ) − v0 (p0,t )) − ωv0 (p0,t )). Fundamentally, the difference is that synergies driven
+by inefficiencies of the target scale with the target’s size only. Additionally, to derive asset
+pricing implications they assume that a riskless bond and two assets with market betas βi
+that are perfectly correlated with corresponding pi,t are traded in financial markets. Betas of
+two firms are additionally affected by the value of the option to merge. An extension incor-
+
+                                                 40
+porates follow-up options to expand operations or to divest some assets. Another extension
+adds asymmetric information and competition as in Morellec and Zhdanov (2015).
+      Hackbarth and Morellec (2008) show that betas of acquirers increase (decrease) prior to
+a deal if betas of core assets satisfy β1 > β0 (β1 < β0 ). These patterns are stronger in the
+presence of follow-up options and in the absence of competition. The acquirer’s beta then
+decreases (increases) upon deal initiation. The decision to merge is a switch option that
+replaces one stream of cash flows in the standalone acquirer with two streams of cash flows
+in the combined firm. Therefore, unlike with a standard call option, the beta only drops
+upon exercise of the option if the target is relatively safe. Similarly, the relationship between
+β1 and β0 is the key driver of the impact on the acquirer’s beta of follow-up decisions to
+expand operations (which is similar to but not quite a call option) and to divest assets
+(which is similar to but not quite a put option). Finally, while competition changes deal
+timing, in this model it does not affect the change in betas upon deal initiation. Empirical
+tests show that model predictions are broadly consistent with the data. The paper therefore
+demonstrates the importance of a multi-factor model that captures heterogeneity of business
+risk to understand the dynamics of asset prices around mergers.
+
+
+4.4       Financial constraints and deal terms
+Gorbenko and Malenko (2018) study the impact of potentially asymmetric acquirers’ finan-
+cial constraints on their decision to initiate deals and to offer target shareholders cash, a
+stock swap, or a combination of the two. The paper merges the literature on M&A as real
+options with the literature on auctions in which bids can be made in securities.
+      Consider the setup of Lambrecht (2004) in which roles of the target and acquirers are
+fixed, and cash flows of all companies are affected by the same Geometric Brownian motion
+pt . A constant rate of growth of cash flows with pt is captured by γ = 1, and economies of
+scale are captured by qm = q0 + q + ωi > q0 + qi , where qi = q for i = 1, 2.
+      Before initiation, acquirer i draws private signal si from a distribution on interval [s, s] ⊂
+[0, 1], which informs about the probability of synergies ωi being high: ωi ∈ {ωl , ωh } and
+Pr[ωi = ωh |si ] = si .39 After the deal is initiated but before bidding, bidders privately learn
+ 39
+      In an extension, Gorbenko and Malenko (2018) also consider the case of the continuous distribution of
+
+
+                                                     41
+ωi via due diligence, so that the asymmetry of information remains.
+   The cost of participating in the auction for an acquirer is ci = c. This cost captures due
+diligence, bid preparation, etc. At time zero, each acquirer decides when to approach the
+target with an offer, potentially attracting competition.40 If cost c is small enough, both
+acquirers want to compete in the auction (for brevity, I will only focus on this case); if c
+is large, a sufficiently weak rival does not compete, and the initiating acquirer negotiates a
+deal with the target. The auction is an extended version of an English auction of Milgrom
+and Weber (1982) and Hansen (1985), in which offers can be in combinations of cash and
+stock. Beyond strategic reasons to choose a security analyzed in, e.g., DeMarzo, Kremer
+and Skrzypacz (2005), acquirers are financially constrained: costs of raising b dollars in cash
+are commonly known to be λi = λ > 0 and do not affect synergies. The more interesting
+but complicated case of asymmetric costs of cash is briefly discussed later.
+   As in informal auctions of DeMarzo, Kremer and Skrzypacz (2005), bidding in various
+combinations of cash and stock is a signaling game, and the target must infer the value of
+security offers. A unique equilibrium in the auction is achieved if off-equilibrium beliefs by
+the target satisfy the Intuitive Criterion (Cho and Kreps, 1987).
+   As in the standard English auction, acquirers compete up to their maximum willingness
+to bid vm (pt , ωi ) − vi (pt ). If synergies are equal (either both high or low), the entire surplus
+is extracted by the target anyway, so acquirers bid in stock because raising cash entails
+costs. However, recall from Hansen (1985) in section 3.2 that if there is a gap ωh − ωl
+between the winner’s and loser’s synergies, a bid in stock also entails a cost. The winner
+trades off costs of cash and stock bids by making a mixed offer: fraction γ vm (pvmt ,ω(plt)−v i (pt )
+                                                                                            ,ωh )
+                                                                                                       of
+the combined firm and (1 − γ) (vm (pt , ωl ) − vi (pt )) in cash, where γ increases in costs of
+cash λ and decreases in parameters that magnify costs of stock bids, e.g., gap ωh − ωl .
+   The payoff of the strong acquirer winning against the weak rival is ψ(vh , vl ) = ωh − ωl −
+(λ − 1)(1 − γ) (vm (pt , ωl ) − vi (pt )). The expected payoff of the acquirer who considers deal
+initiation is Eψ(si ) = si (1 − E[sj |sj ≤ s1 ])ψ(ωh , ωl ). When Eψ(si ) is strictly increasing in
+si (a high signal improves the expected payoff), a decreasing upper threshold p̄(si ) at which
+synergies.
+  40
+     While the target is not allowed to make its own move, the equilibrium considered in Gorbenko and
+Malenko (2018) is unaffected in the presence of the active target.
+
+
+                                                   42
+the deal is initiated can be derived using stochastic calculus, and it takes familiar form:
+
+                                                   β c(r − g(1))
+                                     p̄(si ) =                   ,                              (34)
+                                                 β − 1 Eψ(si )
+
+where β is the positive root of equation (18). The threshold is increasing in σ, c, and
+decreasing in µ. More interestingly, p̄ is increasing in q0 (a large target requires more cash
+in the optimal mixed offer, which makes it costlier) and λ (high cost of cash makes it harder
+for the acquirer to signal its high synergy to the target to avoid undervaluation of the stock
+component of the bid). Empirical evidence (e.g., Harford, 1999; Faccio and Masulis, 2005)
+supports the theory link between financial constraints and propensity of deal making.
+       Perhaps surprisingly, if acquirers have asymmetric costs of cash then an acquirer initiates
+the deal later when its rival becomes more constrained. Expecting such a rival to delay its
+initiation more, all else the same the acquirer perceives it to have a stronger signal si and
+higher expected synergies than an unconstrained rival. In turn, the acquirer expects a stiffer
+competition and a lower payoff, and itself initiates the contest later. This result requires a
+dynamic model of deal timing and asymmetric information, and goes against the naive view
+that a more constrained rival is weaker, which would accelerate the acquirer’s initiation:
+because bids in stock are allowed, the rival’s willingness to bid is, in fact, unchanged.
+       Among other implications, the payoff of the winner is higher in deals involving cash
+than in pure stock swap deals (in which the payoff is negative, implying negative acquirer’s
+announcement returns around stock swaps41 ); deals involving cash have higher synergies
+than stock swap deals; the expected size of deals involving cash is smaller than that of stock
+swap deals. These implications are broadly consistent with empirical evidence.
+
+
+4.5       Leverage and deals driven by financial distress
+Morellec and Zhdanov (2008) study the link between companies’ choices of leverage and
+timing and outcomes of deals. Two acquirers compete for the target, and their synergies
+are driven by economies of scale. The target initiates the deal. At time zero all three firms
+optimize their leverage trading off tax benefits and bankruptcy costs as in, e.g., Leland
+  41
+   Another interesting model that justifies negative acquirers’ announcement returns is Jovanovic and
+Braguinsky (2004).
+
+
+                                                    43
+(1994). If any of the companies defaults before the deal, antitrust regulations prohibit a
+combination of two remaining companies.
+       If the target’s leverage is not very high, there exists an asymmetric equilibrium (and
+no symmetric equilibria), in which the eventual winning acquirer levers up much less than
+the losing acquirer, substituting tax benefits for synergies. This equilibrium survives if the
+winner can re-lever post-deal. If the target’s leverage is extremely high then the asymmetry
+flips, and the eventual winning acquirer levers up substantially, as its shareholders face a
+classic asset substitution problem, expropriate their debtholders, and bail out the target’s
+claimholders to win the contest.42 Finally, when acquirers strongly agree to disagree about
+rivals’ synergies, asymmetric equilibria disappear. Here, it becomes harder to predict the
+outcome of the deal, so the strategic role of low debt to facilitate deals disappears, and
+acquirers classically trade off tax benefits and bankruptcy costs in a symmetric equilibrium.
+       Eisdorfer, Morellec, and Zhdanov (2023) consider takeovers of financially distressed
+targets for purposes of financial and operational restructuring. They study the impact of
+a potential takeover and various anti-takeover laws on target’ stock returns and betas, and
+bond credit spreads. The model is similar to Morellec and Zhdanov (2005); unlike them,
+to zoom in on distressed deals Eisdorfer, Morellec, and Zhdanov (2023) assume that the
+acquirer’s value for the target vm is constant, and it is pursuing an all-cash deal.43
+       The levered target’s standalone value is
+                                                                               !η !
+                                                          q0 pB
+                                                                         
+                                       q0 pt     c0                    c0   pt
+                v0 (pt ) = (1 − τ )           − −                  −
+                                     r − g(1)    r      r − g(1)       r    pB
+                                           !η                                  !η
+                             c0 c0 p t                            q 0 pB    pt
+                           + −                + (1 − b)(1 − τ )                   ,                      (35)
+                              r     r pB                        r − g(1) pB
+
+where the first line is the value of levered equity and the second line is the value of levered
+debt. Here, τ is the corporate income tax rate; c0 is interest paid to target debtholders; b
+is percentage value loss given bankruptcy; and η is the negative root of the characteristic
+  42
+     In practice a highly levered firm’s debt covenants will sometimes prohibit buying highly levered targets.
+However, deals described by the model do occur: e.g., see the acquisition of Solarcity by Tesla in 2016.
+  43
+     Stock swap deals are uncommon in distressed takeovers, because target debtholders often prefer to be
+bought out, and acquirer’s shareholders do not want to be diluted.
+
+
+
+                                                     44
+equation (18): bankruptcy occurs when the target’s cash flows are sufficiently low. While
+shareholder conflicts are not explicitly modeled, surplus vm − v0 (pt ) is assumed to split in
+proportion of ϕe , ϕd , and 1 − ϕe − ϕd between target shareholders, debtholders, and the
+acquirer. Upon initiation of the deal, the takeover happens with exogenous probability λ.
+       Unlike in the earlier literature, if vm ≥ c0 /r then the deal happens when the target’s cash
+flows are sufficiently low, but not too low for it to go bankrupt44 : the acquirer maximizes
+                                                    
+                                                    pt
+                                     (vm − v0 (p))     → max,                                        (36)
+                                                    p     p
+
+
+and the solution is
+                                                         
+                   η                      vm    τ c0               η            c0
+               p=     (r − g(1))             −                >       (r − g(1)) = pB .              (37)
+                  η−1                    1−τ   1−τ r              η−1           r
+
+Target shareholders (debtholders) get a boost in the form of fraction λϕe (λϕd ) of the
+takeover option value held by the acquirer, which adjusts their market valuations and
+alters beta dynamics. Unlike Morellec and Zhdanov (2005), the acquirer’s valuation vm is
+constant, so the takeover option is a put option. Hence, the closer the target gets to the
+takeover threshold, the lower its equity beta. The decrease in takeover probability λ brought
+about by anti-takeover laws increases the equity beta, as the value of the option to acquire
+falls; the magnitude of the increase is large for targets close to bankruptcy or when target
+shareholders’ bargaining power ϕe is strong. Moreover, anti-takeover laws increase credit
+spreads on corporate debt, especially if target debtholders’ bargaining power ϕd is strong.
+Empirical evidence provided in the paper is consistent with predictions. The implication is
+that anti-takeover laws need to be implemented carefully, keeping in mind the multitude of
+reasons for why firms form a business combination.
+
+
+4.6       Private and common values
+Acquisitions by strategic bidders are more likely to be bidder-initiated, while acquisitions
+  44
+    Consistent with the logic of Morellec and Zhdanov (2005), the takeover occurs when the ratio of bidder
+valuation for the target to its standalone value is sufficiently high.
+
+
+
+
+                                                   45
+by private equity firms are more likely to be target-initiated.45 Gorbenko and Malenko
+(2024) explain this pattern by modeling contests among strategic (financial) acquirers as
+auctions in which bidders’ valuations have a substantial private (common) component.46
+Deals can be initiated by both sides: acquirers choose when to approach the target, and
+the target chooses when to put itself up for sale.
+       In an acquirer-initiated auction, ex-ante identical acquirers become asymmetric post-
+initiation: all parties infer the high signal of the initiating bidder about its synergies.
+Rivals use this information to update their bidding strategy and potentially revalue their
+own synergies, becoming more competitive. In auctions with a substantial common value
+component, these effects discourage acquirers from initiating the contest, and all contests
+are initiated by the target, if at all. In auctions with a substantial private value component,
+rivals’ synergies are not much revalued, which is insufficient to discourage acquirers from
+initiating. In turn, both target- and acquirer-initiated contests can occur. These results
+are robust to the choice of the auction format (e.g., first-price or English). The model also
+points to a positive role of shareholder activists, investment banks as intermediaries, and
+toeholds in facilitating valuable acquirer-initiated common-value deals.
+
+
+4.7       Initiation of takeovers vs mergers and shareholder conflicts
+It is clear that shareholder conflicts in tender offers have a first-order impact on the split of
+the surplus between the target and acquirer. Similarly, the lack of shareholder support in
+friendly mergers may prompt an acquirer to give up some of its surplus to succeed. Con-
+tested merger discussions also tend to be slower, favoring a more patient party. Relatedly,
+unlike in hostile takeovers, targets of mergers do not demand immediate financing guaran-
+tees from acquirers, substantially relaxing their costs of cash. In turn, ownership structure,
+length of the process, and associated process-specific costs should be critical for deal timing
+  45
+    See, e.g., Fidrmuc, Roosenboom, Paap, and Teunissen (2012).
+  46
+    Knowledge of strategic acquirers’ synergies (related to bidder-specific assets) with the target is unlikely
+to change their rivals’ valuations. However, knowledge of financial acquirers’ synergies (value added from
+restructuring an underperforming target) can be very useful for rivals trying to re-assess their own synergies
+from employing similar strategies.
+
+
+
+
+                                                      46
+and type.47 Hence, one possible direction in which dynamic models of M&A could evolve is
+to integrate the three literatures reviewed in sections 2–4 for a coherent and comprehensive
+analysis of competing M&A choices.
+       To my knowledge, Lukas, Pereira, and Rodrigues (2023) is the only paper that allows
+acquirers to choose between a merger and takeover in the same model. Consider the Lam-
+brecht (2004) model with γ = 1. Two companies first attempt a stock swap merger. If
+it fails, there is an option for a takeover, which, unlike in Lambrecht (2004), is conducted
+in cash: a pre-assigned acquirer commits to a takeover premium offered to a pre-assigned
+target, while the target chooses the timing. The takeover generates more synergies than the
+                                                                            P
+merger, possibly because inefficient target management is ousted: qt ≥ qm > qi . Further,
+company-level costs of completing a merger and tender offer, cm and ct , can differ.
+       The takeover acts as a walkaway threat in merger negotiations. The negotiations out-
+come is modeled as an asymmetric Nash bargaining solution with outside options (Muthoo,
+1999). Despite this complication, the jointly chosen merger threshold is still the socially
+optimal threshold, and fractions of the combined company retained by each firm increase
+in their threat value. If qt = qm and ct = cm , a merger is naturally preferred to a takeover.
+If qt is substantially higher than qm (the gap needs to be larger if the gap in costs ct and
+cm is larger), companies abandon merger negotiations for a takeover. Takeovers are also
+preferred if q0 is low or σ takes intermediate values (this non-linearity in the effect of σ is the
+result of companies holding a sequence of options). Takeovers also result in higher combined
+announcement returns than mergers. Empirical evidence supports these predictions.
+       The analysis abstracts away from shareholder conflicts48 , does not endogenize roles of
+target and acquirer in a takeover, and does not allow for a takeover attempt to precede
+friendly talks (e.g., see the case of Elon Musk buying Twitter in 2022). However, this is a
+good start to a difficult task of integrating competing M&A choices into a dynamic model.
+  47
+     Gorbenko and Malenko (2018) study the impact of financial constraints on merger timing, but they do
+not allow acquirers to initiate tender offers.
+  48
+     Lukas, Pereira, and Rodrigues (2023) use the term tender offers for takeovers, but do not incorporate
+salient features of tender offers reviewed in section 2.
+
+
+
+
+                                                   47
+5.      Deals in industry equilibrium
+Perhaps more than any other corporate choice, M&A affect the competitive landscape and
+innovation in involved parties’ industries, and hence often deservedly attract attention of
+antitrust authorities. It is therefore important to understand the link between industry-level
+competition and features of M&A deals discussed so far, including their dynamic nature.
+     Static models of industry-level competition and M&A have been studied in the indus-
+trial organization literature for many years; some of this literature is discussed below. The
+introduction of dynamics complicates things: more often than not, workhorse models re-
+viewed in section 4 cease yielding closed form solutions and require numerical analysis. The
+flip side of not chasing closed form solutions is that models can be made realistic and better
+yield themselves to calibration/estimation.
+     That the literature would benefit from more realistic and, by extension, more compli-
+cated models that use familiar building blocks is certainly not an ironclad fact but the
+author’s opinion. In his like-minded article on the state of theoretical corporate finance,
+Spiegel (2023) writes, “Corporate finance has turned into a field where researchers produce
+what seem like a constant flow of disconnected papers. Theories are never confirmed or
+refuted. At best, empirical papers confirm models without a realistic alternative to refute...
+If corporate finance is going to progress, we need papers with testable dynamic oligopoly
+models.” Realistic models that are comparable to each other and other literatures (e.g., as-
+set pricing and real options), and can therefore be directly tested against each other would,
+in my opinion, certainly make the back-and-forth between theory and empirical work in the
+field on M&A more productive.
+     Section 5.1 reviews industry models in which decisions to merge are exogenous, while
+section 5.2 examines models in which these decisions are optimally made by firms. Section
+5.3 outlines one potential future for models of M&A and industry-level competition.
+
+
+5.1     Exogenous mergers
+Farrell and Shapiro (1990) is a classic industrial organization paper that analyzes the wel-
+fare effects of a merger in a model of product market competition. Firms engage in static
+
+
+                                              48
+Cournot competition, and consumer demand and production costs satisfy standard restric-
+tions. Two firms are assumed to merge; a static snapshot of the post-merger industry is
+then compared to the initial snapshot. The paper derives necessary and sufficient conditions
+for a merger to increase consumer surplus, and shows that mergers that decrease fixed but
+not marginal production costs, as well as non-synergistic mergers never achieve this goal.
+The paper also analyzes sufficient conditions for a merger to increase aggregate surplus and
+shows that many sufficiently small output-reducing mergers, in particular in industries with
+inelastic demands, benefit the rest of the industry more than they harm consumers.
+   Spiegel and Tookes (2013) is the first continuous-time model that produces both qual-
+itative and quantitative predictions about financial deal making, including mergers, in a
+dynamic oligopoly. There are n firms, each investing ci,t ≥ 0, i = 1, ..., n in advertising,
+R&D, etc. to gain market share. The return on investment is si . Each company’s market
+share is eroded by rival investment, and retaining a larger share is more difficult (decreasing
+returns to size), capturing the idea that companies’ products and consumers are sufficiently
+different from each other to preclude monopolies. Formally, market shares evolve as
+                                                      P        
+                               ϕ (1 − mi )ci si − mi j̸=i cj sj
+                         dmi =             P                      dt.                     (38)
+                                                cj s j
+
+Here, ϕ is consumer stickiness parameter; it is high in industries with fickle customers (e.g.,
+fast food, but not manufacturing). Firms’ instantaneous cash flows are xi,t = egt (αi mi,t −
+ci,t − fi ). Cash flows scale with exogenous industry growth g; fi ≥ 0 are fixed operating
+costs. Companies choose ci to maximize the expected present value of cash flows discounted
+at rate r, considering their impact on rivals.
+   The paper characterizes steady state company values and investments, as well as con-
+vergence to steady state. Values are linear in market share. They are higher for firms who
+transform their market share into cash flows efficiently (high αi ), can convert investment
+into new customers easily (high si ), and have less fickle customers (low ϕ). Equilibrium
+investment ci is higher if customers are fickle (high ϕ) and if the present value of a customer
+is high (low discount rate r). Higher αi and si only improve investment of stronger firms
+(already high αi and si ), as they are better able to capture new market share.
+
+
+                                              49
+   The model can be extended to incorporate uncertainty. In this case,
+                                         P        
+                  ϕ (1 − mi )ci si − mi j̸=i cj sj         √ X √
+            dmi =             P                      dt + σ mi      ρi,j mj dBi,j ,          (39)
+                                   cj s j                      j̸=i
+
+
+where B is the standard Brownian motion and ρi,j = 1 (+1) for i < j (i > j), capturing
+that market share lost to a rival must increase rival’s share one-to-one. This leads to the
+law of motion for company values that somewhat resembles the literature in section 4:
+                                                      
+               αi              ϕαi si z − (n − 1)             αi √ X √
+        dvi =                                     − ϕmi dt +     σ mi      ρi,j mj dBi,j ,   (40)
+              ϕ+r                     αi si z                ϕ+r      j̸=i
+
+
+                 1
+            P
+where z =       αj s j
+                         is competitive strength of the industry.
+   In the static Cournot model with homogeneous firms, an exogenous increase in industry
+size n makes all firms cut back on their investment. In Spiegel and Tookes (2013), weak and
+average firms (low αi and si ) invest less because they are unable to retain their customers
+against a new entrant, and in turn lose their market share. Strong firms invest more as
+retaining their customers is easier, but in the end still lose some market share.
+   These results have implications for mergers. Suppose two firms want to merge unexpect-
+edly. In the absence of cash flow synergies (xm,t = xi,t + xj,t keeping market shares fixed)
+any merger gains arise from more market power. Then, strong firms will not merge, while
+weak firms benefit from combining. This is because a merger decreases industry size n but
+leads to more competition for market share, which becomes fierce if a strong company is re-
+moved via a merger. With cash flow synergies, even strong firms may merge. Interestingly,
+a merger (e.g., between strong firms) can trigger a merger wave (e.g., between weak firms
+that aggressively try to expand their market power as the set of strong rivals shrinks).
+   Another benefit of a detailed model in Spiegel and Tookes (2013) is that it can be
+calibrated to decompose rival’s merger announcement returns (which are marginally positive
+in the data) into a strongly positive component due to a smaller industry size (ignoring
+the strength of a newly combined company) and a strongly negative component due to a
+stronger new competitor, who is more aggressive in its investment to gain market share. The
+model also explains a substantial part of observable firm values despite not incorporating
+
+                                                    50
+news, accounting variable changes, etc.
+   The framework of Spiegel and Tookes (2013) has much untapped potential and can be
+used to analyze mergers driven by various motives as outlined in section 4. It is less clear if
+endogenous mergers or takeovers can be easily incorporated.49 It also remains to be explored
+how to analyze various deal structures, financing constraints, etc. Finally, modifications to
+the framework are needed to study high-growth industries, which are home to some of the
+most important deals in 2020s, and cross-industry acquisitions (vertical or conglomerate).
+
+
+5.2     Endogenous merger decisions
+The complexity of modeling endogenous mergers has limited much of the existing literature
+to studies of a duopoly or a market with a continuum of firms. Consider, again, Lambrecht
+(2004) reviewed in section 4.1. Instead of being price takers, let firms face demand function
+p(q) = qpεt , where ε < 1 is the price eleasicity of demand. Then, a merger additionally
+concentrates market power. Equations (16) and (17) still describe cash flows and standalone
+values of the two companies; now, γ ≡ γ(ε) is a decreasing function of ε, and qi are more
+complex functions of firms’ capital. Equation (19), however, becomes
+
+                                                        Qm pγt
+                                         Vm (pt ) =            ,                                    (41)
+                                                      r − g(γ)
+
+where, since a monopolist can do at least as well as two competing firms, Qm ≥ qm . The
+                            P          P               P          P
+shared surplus is Vm (pt ) − vi (pt ) − ci ≥ vm (pt ) − vi (pt ) − ci . Hence, market power
+speeds both socially efficient and negotiated deals. Moreover, while high price elasticity of
+demand ε decreases synergies (and hence the speed of surplus accumulation) by lowering γ
+as pt grows, it magnifies monopolistic market power and, on the net, leads to faster mergers.
+   An ideal extension of this version of the Lambrecht (2004) model should address how
+companies find each other in the market and decide on a deal, and how it impacts other
+firms in the industry, both in terms of their values and their own M&A decisions.
+   Huang and Xie (2023) study within- and across-industry takeovers in a continuous-time
+  49
+     Intuitively, the value of options to merge would change with the competitive environment and other
+merger activity, potentially triggering endogenous merger waves and interesting variation in firms’ stock
+returns and betas.
+
+
+                                                   51
+search-and-matching model. There is a continuum of acquirers and targets (e.g., the entire
+U.S. economy), whose role is exogenously fixed. Firms invest resources to search for a
+counterparty faster; upon matching, either a deal is made or at least one of the firms is not
+interested, so both continue searching. Companies’ profitability is driven by their industry-
+specific knowledge and managerial talent. A deal allows involved firms to incorporate the
+counterparty’s knowledge across all industries in which it is active. The acquirer also puts
+its own manager in control of the combined firm.
+       Companies with a high technology centrality are desirable, as they promise a high
+expected surplus. Such companies spend more resources to search for a good deal. For the
+same reason, acquirers (targets) with high (low) managerial talent also search more. Parties
+with larger knowledge spillovers are more likely to merge. There results are supported by
+empirical tests. While the model with a continuum of firms can approximate the entire
+economy, it is less applicable to individual oligopolistic industries (e.g., healthcare). Another
+useful extension can be to identify firm characteristics that make them serial acquirers.50
+       Dimopoulos and Sacchetto (2017) offer a discrete-time search-and-matching model of
+M&A driven by productivity gains and production cost cuts in a competitive equilibrium.51
+Firms are additionally allowed to enter and exit the market. Under calibrated parameters,
+the option to engage in merger activity enhances entry and slows down exit of unproductive
+firms from the industry. On the net, this leads to an incremental increase in the average
+industry productivity over and above productivity gains achieved in mergers themselves. A
+policy maker who encourages entry but ignores the M&A market may expect an increase
+in productivity; this may backfire, as stronger competition stifles productivity gains and
+M&A activity. This illustrates the usefulness of detailed M&A models for public policies.
+
+
+5.3       What next? The quest for a unified model
+To answer some deep M&A questions, one must model competitive firm environments.
+This section reviews several such frameworks, but it remains to be seen just how flexible
+  50
+     While not a fully-fledged search-and-matching model, here it is useful to mention Matsusaka (2001) as
+a potential motivation to further study cross-industry acquisitions and divestitures by conglomerates.
+  51
+     Theoretical precursors of this model include Jovanovic and Rousseau (2002) and Rhodes-Kropf and
+Robinson (2008).
+
+
+                                                   52
+they are at incorporating various realistic features of the M&A market. Continuous-time
+frameworks can provide closed form solutions and speak to asset pricing and real option
+researchers used to such models, but they tend to be inflexible. Discrete time frameworks,
+popular in the industrial organization literature, are more flexible but can be difficult to
+solve numerically52 and are more disconnected from other lines of research in finance. These
+models may however appeal to the empirical audience, as a wider arsenal of tools to estimate
+and analyze them has been developed; Wang (2025) reviews estimation of models in M&A.
+       Useful building blocks for dynamic discrete-time modeling employed in the industrial
+organization literature are reviewed in Asker and Nocke (2021), who focus on estimation of
+dynamic games (including M&A) in a competitive equilibrium, and in Aguirregabiria et al.
+(2021), who focus specifically on mergers and collusion but do not analyze firms’ financial
+decisions. Igami and Uetake (2020) estimate the impact of mergers on innovation in the
+hard disk industry; Uetake and Watanabe (2020) estimate a matching model of M&A in
+the commercial bank industry to uncover the impact of entry regulation. Jeziorski (2022)
+develops a framework to conduct a forward-looking antitrust review of large mergers within
+the same industry, relevant in 2024 as the FTC has stepped up its antitrust enforcement.
+
+
+
+6.        Conclusion
+In this chapter, I review theoretical models of M&A. This includes models of (i) tender offers;
+(ii) friendly (contested and uncontested) mergers, with a particular focus on deal terms;
+(iii) M&A as real options with the focus on deal timing and asset pricing implications;
+(iv) M&A and industry-level competition. I complement the review of each class of models
+by highlighting overlaps across classes, particularly focusing on research that attempts to
+integrate classic approaches into a more general framework. In the absence of such overlaps,
+I provide some thoughts that may prove useful for future researchers interested in developing
+a more general, better connected M&A theory.
+
+  52
+    It is easy to set up a continuous-time model in a competitive environment, so that only a pair of firms
+considers a business combination at any given time, reducing the complexity of the problem. It is harder
+to justify the same assumption in a discrete-time model.
+
+
+
+                                                    53
+References
+Aguirregabiria, Victor, Allan Collard-Wexler, and Stephen P. Ryan, Dynamic games in industrial
+organization, in Ho, K., A. Hortaçsu and A. Lizzeri (eds.), Handbook of Industrial Organization,
+Elsevier B. V., volume 4, chapter 4, 225–343.
+
+Asker, John, and Volker Nocke, 2021, Collusion, mergers, and related antitrust issues, in Ho, K.,
+A. Hortaçsu and A. Lizzeri (eds.), Handbook of Industrial Organization, Elsevier B. V., volume 5,
+chapter 12, 178–279.
+
+Avery, Christopher, 1998, Strategic jump bidding in English auctions, Review of Economic Studies
+65, 185–210.
+
+Betton, Sandra, B. Espen Eckbo, and Karin S. Thorburn, 2009, Merger negotiations and the
+toehold puzzle, Journal of Financial Economics 91, 158–178.
+
+Bhattacharyya, Sugato, 1992, The analytics of takeover bidding: initial bids and their premia,
+Working Paper.
+
+Boone, Audra L., and J. Harold Mulherin, 2007, How are firms sold? Journal of Finance 62,
+847–875.
+
+Bulow, Jeremy, and Paul Klemperer, 1996, Auctions versus negotiations, American Economic
+Review 86, 180–194.
+
+Bulow, Jeremy, and Paul Klemperer, 2009, Why do sellers (usually) prefer auctions? American
+Economic Review 99, 1544-1575.
+
+Burkart, Mike, Denis Gromb, Holger M. Mueller and Fausto Panunzi, 2014, Legal investor pro-
+tection and takeovers, Journal of Finance 69, 1129–1165.
+
+Burkart, Mike, Denis Gromb, and Fausto Panunzi, 1998, Why higher takeover premia protect
+minority shareholders, Journal of Political Economy 106, 172–204.
+
+Burkart, Mike, and Samuel Lee, 2022, Activism and takeovers, Review of Financial Studies 35,
+1868–1896.
+
+Burkart, Mike, Samuel Lee, and Henrik Petri, 2023, LBO financing, Working Paper.
+
+Burkart, Mike, Samuel Lee, and Paul Voss, 2025, The evolution of the market for corporate control,
+Working Paper.
+
+Burkart, Mike, and Fausto Panunzi, 2004, Mandatory bids, squeeze-out, sell-out and the dynamics
+of the tender offer process, in Ferrarini, G., K. Hopt, J. Winter and E. Wymeersch (eds.), Modern
+Company and Takeover Law in Europe, Oxford University Press, Oxford, 737–765.
+
+Chatterjee, Sris, and An Yan, 2008, Using innovative securities under asymmetric information:
+why do some firms pay with Contingent Value Rights? Journal of Financial & Quantitative
+Analysis 43, 1001–1035.
+
+                                               54
+Che, Yeon-Koo, and Jinwoo Kim, 2010, Bidding with securities: comment, American Economic
+Review 100, 1929–1935.
+
+Chen, Yi, and Zhe Wang, 2023, Optimal sequential selling mechanism and deal protections in
+mergers and acquisitions, Journal of Finance 78, 2139–2188.
+
+Chen, Zhiyao, Hamed Mahmudi, Aazam Virani, and Xiaofei Zhao, 2022, Why are bidder ter-
+mination provisions included in takeovers? Journal of Financial & Quantitative Analysis 57,
+2860–2896.
+
+Chaves, Isaı́as N., and Felipe Varas, 2022, Bargaining in securities, Working Paper.
+
+Cho, In-Koo, and David M. Kreps, 1987, Signaling games and stable equilibria, Quarterly Journal
+of Economics 102, 179–221.
+
+Cho, In-Koo, and Joel Sobel, 1990, Strategic stability and uniqueness in signaling games, Journal
+of Economic Theory 50, 381–413.
+
+Chowdhry, Bhagwan, and Vikram Nanda, 1993, The strategic role of debt in takeover contests,
+Journal of Finance 48, 731–745.
+
+Crémer, Jacques, and Richard P. McLean, 1985, Optimal selling strategies under uncertainty for
+a discriminating monopolist when demands are interdependent, Econometrica 45, 427–438.
+
+Coase, Ronald H., 1960, The problem of social cost, Journal of Law and Economics 3, 1–44.
+
+Corum, Adrian Aycan, and Doron Levit, 2019, Corporate control activism, Journal of Financial
+Economics 133, 1–17.
+
+Daley, Brendan, Thomas Geelen, and Brett Green, 2024, Due diligence, Journal of Finance 79,
+2115–2161.
+
+Daniel, Kent D., and David Hisrhleifer, 2018, A theory of costly sequential bidding, Review of
+Finance 22, 1631–1665.
+
+Dasgupta, Sudipto, and Robert G. Hansen, 2007, Auctions in corporate finance, in B. E. Eckbo
+(ed.), Handbook of Corporate Finance: Empirical Corporate Finance, volume 1, chapter 3, 87–143.
+
+DeMarzo, Peter M., Ilan Kremer, and Andrzej Skrzypacz, 2005, Bidding with securities: auctions
+and security design, American Economic Review 95, 936–959.
+
+Dimopoulos, Theodosios, and stefano Sacchetto, 2017, Merger activity in industry equilibrium,
+Journal of Financial Economics 126, 200–226.
+
+Edmans, Alex, Itay Goldstein, and Wei Jiang, 2015, Feedback effects, asymmetric trading, and
+the limits to arbitrage, American Economic Review 105, 3766–3797.
+
+Eckbo, Espen B., Andrey Malenko, and Karin S. Thorburn, 2020, Strategic decisions in takeover
+auctions: recent developments, Annual Review of Financial Economics 12, 237–276.
+
+Faccio, Mara, and Ronald W. Masulis, 2005, The choice of payment method in European mergers
+
+
+                                               55
+and acquisitions, Journal of Finance 60, 1345–1387.
+
+Farrell, Joseph, and Carl Shapiro, 1990, Horizontal mergers: an equilibrium analysis, American
+Economic Review 80, 107–126.
+
+Fidrmuc, Jana P., Peter Roosenboom, Richard Paap, and Tim Teunissen, 2012, One size does not
+fit all: selling firms to private equity versus strategic acquirers, Journal of Corporate Finance 18,
+828–848.
+
+Fishman, Michael J., 1988, A theory of preemptive takeover bidding, RAND Journal of Economics
+19, 88–101.
+
+Fishman, Michael J., 1989, Preemptive bidding and the role of the medium of exchange in acqui-
+sitions, Journal of Finance 44, 41–57.
+
+Fos, Vyacheslav, 2017, The disciplinary effects of proxy contests, Management Science 63, 655–
+671.
+
+Eckbo, B. Espen, Tanakorn Makaew, and Karin S. Thorburn, 2018, Are stock-financed takeovers
+opportunistic?, Journal of Financial Economics 128, 443–465.
+
+Eisdorfer, Assaf, Erwan Morellec, and Alexei Zhdanov, 2003, Takeover protections and asset prices,
+Working Paper.
+
+Gomes, Armando, 2024, Takeovers, freezeouts, and risk arbitrage, Games 15, 4.
+
+Gorbenko, Alexander S., and Andrey Malenko, 2011, Competition among sellers in securities
+auctions, American Economic Review 101, 1–38.
+
+Gorbenko, Alexander S., and Andrey Malenko, 2014, Strategic and financial bidders in takeover
+auctions, Journal of Finance 69, 2513–2555.
+
+Gorbenko, Alexander S., and Andrey Malenko, 2018, The timing and method of payment in
+mergers when acquirers are financially constrained, Review of Financial Studies 31, 3937–3977.
+
+Gorbenko, Alexander S., and Andrey Malenko, 2024, Auctions with endogenous initiation, Journal
+of Finance 79, 1353–1403.
+
+Grossman, Sanford J., and Oliver D. Hart, 1980, Takeover bids, the free-rider problem, and the
+theory of the corporation, Bell Journal of Economics 11, 42–64.
+
+Grossman, Sanford J., and Motty Perry, 1986, Sequential bargaining under asymmetric informa-
+tion, Journal of Economic Theory 39, 120–154.
+
+Hackbarth, Dirk, and Erwan Morellec, 2008, Stock returns in mergers and acquisitions, Journal
+of Finance 63, 1213–1252.
+
+Hansen, Robert G., 1985, Auctions with contingent payments, American Economic Review 75,
+862–865.
+
+Harford, Jarrad, 1999, Corporate cash reserves and acquisitions, Journal of Finance 54, 1969–
+
+
+                                                 56
+1997.
+
+Hirshleifer, Daniel, and Ivan P. L. Png, 1990, Facilitation of competing bids and the price of a
+takeover target, Review of Financial Studies 2, 587–606.
+
+Hirshleifer, Daniel, and Sheridan Titman, 1990, Share tendering strategies and the success of
+hostile takeover bids, Journal of Political Economy 98, 295–324.
+
+Hoffmann, Florian, and Vladimir Vladimirov, 2025, Auctions versus negotiations: the role of the
+payment structure, Journal of Finance 80, 1769–1813.
+
+Holmström, Bengt, and Barry Nalebuff, 1992, To the raider goes the surplus? A reexamination
+of the free-rider problem, Journal of Economics & Management Strategy 1, 37–62.
+
+Huang, Jindong, and Taojun Xie, 2023, Technology centrality, bilateral knowledge spillovers and
+mergers and acquisitions, Journal of Corporate Finance 79: 102366.
+
+Igami, Mitsuru, and Kosuke Uetake, 2020, Mergers, innovation, and entry-exit dynamics: consol-
+idation of the hard disk drive industry, 1996–2016, Review of Economic Studies 87, 2672–2702.
+
+Jovanovic, Boyan, and Serguey Braguinsky, 2004, Bidder discounts and target premia in takeovers,
+American Economic Review 94, 46–56.
+
+Jovanovic, Boyan, and Peter L. Rousseau, 2002, The Q-theory of mergers, American Economic
+Review 92, 198–204.
+
+Kaplan, Todd R., and Shmuel Zamir, 2012, Asymmetric first-price auctions with uniform distri-
+butions: analytic solutions to the general case, Economic Theory 50, 269–302.
+
+Kaplan, Todd R., and Shmuel Zamir, 2015, Multiple equilibria in asymmetric first-price auctions,
+Economic Theory Bulletin 3, 65–77.
+
+Krishna, Vijay, 2010, Auction theory, Second edition, Elsevier.
+
+Lambrecht, Bart, 2004, The timing and terms of mergers motivated by economies of scale, Journal
+of Financial Economics 72, 41–62.
+
+La Porta, Rafael, Florencio Lopes-de-Silanes, Andrei Shleifer, and Robert W. Vishny, 1998, Law
+and finance, Journal of Political Economy 106, 1113–1155.
+
+Lebrun, Bernard, 1999, First price auctions in the asymmetric N bidder case, International Eco-
+nomic Review 40, 125–142.
+
+Leland, Hayne, 1994, Corporate debt value, bond covenants, and optimal capital structure, Journal
+of Finance 49, 1213–1252.
+
+Levit, Doron, 2019, Soft shareholder activism, Review of Financial Studies 32, 2775–2808.
+
+Lopomo, Giuseppe, 1995, Optimality and robustness of the English auction, Working Paper.
+
+Lukas, Elmar, Paulo J. Pereira, and Artur Rodrigues, 2023, On the determinants of the dynamic
+choice between mergers and tender offers, Journal of Corporate Finance 83, 102489.
+
+                                               57
+Matsusaka, John G., 2001, Corporate diversification, value maximization, and organizational ca-
+pabilities, Journal of Business 74, 409–431.
+
+McAdams, David, and Michael Schwarz, 2007, Credible sales mechanisms and intermediaries,
+American Economic Review 97, 260–276.
+
+McAfee, R. Preston, John McMillan, and Philip J. Reny, 1989, Extracting the surplus in common
+value auctions, Econometrica 57, 1451–1459.
+
+McAfee, R. Preston, and Philip J. Reny, 1992, Correlated information and mechanism design,
+Econometrica 60, 395–421.
+
+Milgrom, Paul R., and Robert J. Weber, 1982, A theory of auctions and competitive bidding,
+Econometrica 50, 1089-1122.
+
+Morellec, Erwan, and Alexei Zhdanov, 2005, The dynamics of mergers and acquisitions, Journal
+of Financial Economics 77, 649–672.
+
+Morellec, Erwan, and Alexei Zhdanov, 2008, Financing and takeovers, Journal of Financial Eco-
+nomics 87, 556–581.
+
+Müller, Holger M., and Fausto Panunzi, 2004, Tender offers and leverage, Quarterly Journal of
+Economics 119, 1217–1248.
+
+Muthoo, Abhinay, 1999, Bargaining theory with applications, Cambridge University Press.
+
+Myerson, Roger B., 1981, Optimal auction design, Mathematics of Operations Research 6, 58–73.
+
+Povel, Paul, and Rajdeep Singh, 2010, Stapled finance, Journal of Finance 65, 927–954.
+
+Quint, Daniel, and Kenneth Hendricks, 2018, A theory of indicative bidding, American Economic
+Journal: Microeconomics 10, 118–151.
+
+Ravid, Abraham S., and Matthew Spiegel, 1999, Toehold strategies, takeover laws, and rival
+bidders, Journal of Banking & Finance 23, 1219–1242.
+
+Rhodes-Kropf, Matthew, and David T. Robinson, 2008, The market for mergers and the bound-
+aries of the firm, Journal of Finance 63, 1169–1211.
+
+Rhodes-Kropf, Matthew, and S. Viswanathan, 2004, Market valuation and merger waves, Journal
+of Finance 59, 2685–2718.
+
+Riley, John G., and William F. Samuelson, 1981, Optimal auctions, American Economic Review
+71, 381–392.
+
+Rhodes-Kropf, Matthew, and S. Viswanathan, 2004, Market valuation and merger waves, Journal
+of Banking & Finance 59, 2685–2718.
+
+Shleifer, Andrei, and Robert W. Vishny, 1986, Large shareholders and corporate control, Journal
+of Political Economy 94, 461–488.
+
+
+
+                                              58
+Shleifer, Andrei, and Robert W. Vishny, 2003, Stock market driven acquisitions, Journal of Fi-
+nancial Economics 70, 295–311.
+
+Skrzypacz, Andrzej, 2013, Auctions with contingent payments – an overview, International Journal
+of Industrial Organization 31, 666–675.
+
+Spiegel, Matthew, 2023, For corporate finance to truly advance we need more genuinely testable
+models, Financial Review 58, 657–661.
+
+Spiegel, Matthew, and Heather Tookes, 2013, Dynamic competition, valuation, and merger activ-
+ity, Journal of Finance 68, 125–172.
+
+Vladimirov, Vladimir, 2015, Financing bidders in takeover contests, Journal of Financial Eco-
+nomics 117, 534–557.
+
+Uetake, Kosuke, and Yasutora Watanabe, 2020, Entry by merger: estimates from a two-sided
+matching model with externalities, Working Paper.
+
+Wang, Wenyu, 2025, Structural estimation in mergers and acquisitions, Working Paper.
+
+Yuan, Yue, 2024, Security design under common-value competition, Working Paper.
+
+
+
+
+                                              59
+

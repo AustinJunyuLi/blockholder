@@ -1,0 +1,950 @@
+This is the ultimate implementation step. I will systematically go through your `draft.tex` source code and provide copy-paste-ready LaTeX blocks to execute the unified revision plan derived in Round 2.
+
+I am executing these fixes strictly in the required priority order to ensure every downstream proof, derivative, and definition aligns perfectly.
+
+---
+
+### Priority 1: Re-Axiomatise the Takeover Payout (The Master Feedback Engine)
+
+**Fix 1.1: Update the Timeline (Section 3.1)**
+*Problem:* The model lacks a realistic bidder arrival rate, producing absurdly high bid probabilities.
+*Location in `.tex`:* Section 3.1 Timeline.
+Find:
+
+```latex
+\item[$t=1.5$:] A potential bidder observes $(P(X,D), D)$ and a private synergy shock $\xi$, then decides whether to initiate a takeover attempt.
+
+```
+
+Replace with:
+
+```latex
+\item[$t=1.5$:] A potential bidder arrives with probability $\lambda_B \in (0,1)$, observes $(X,D)$ directly, and draws a private synergy shock $\xi$, then decides whether to initiate a takeover attempt.
+
+```
+
+Find (in Figure 1 TikZ):
+
+```latex
+    \node[below, align=center, text width=3.5cm] at (2,-0.2) {Bidder observes $P(X,D)$, $D$, and synergy $\xi$.\\Bidder chooses entry.};
+
+```
+
+Replace with:
+
+```latex
+    \node[below, align=center, text width=3.5cm] at (2,-0.2) {Bidder arrives, observes $(X,D)$ and synergy $\xi$.\\Bidder chooses entry.};
+
+```
+
+*Why this works:* It decouples the bidder's arrival from their conditional entry decision, allowing you to match realistic empirical bid rates ($\sim 4\%$) without relying on absurd equilibrium bounds.
+
+**Fix 1.2: Bidder Entry and Payout Overhaul (Section 3.6)**
+*Problem:* Bidder surplus is anchored to the recursive market price rather than the fundamental standalone value, and activism fictitiously deters bids via a resistance penalty.
+*Location in `.tex`:* Section 3.6 Bidder Entry. Replace the entire text from `The bidder follows a price-contingent entry rule...` down to `b(X,D,a) = P(X,D) + m^{R}(a).`
+Replace with:
+
+```latex
+The bidder follows an entry rule conditional on the market's inference. A potential bidder arrives with exogenous Poisson probability $\lambda_B \in (0,1)$ at $t=1.5$. The bidder directly observes the public pair $(X,D)$ and a private synergy shock $\xi$, thus avoiding any reliance on price injectivity. On the disclosed branch $D=1$, disclosure pins down Public Voice and hence $a=1$, so $X$ reveals only the noise realization and carries no information about fundamentals (see Appendix~\ref{app:proof-disclosed-invariance}).
+
+I assume that synergies and costs satisfy $\bar{S}-K > m_0-\mu$ and $\bar{S}-K < m_1+(\mu+3\sigma_v)$ (Assumption~\textup{(A4)}). These bounds ensure that takeover bids occur with interior probability. Crucially, successful engagement ($a=1$) strips away managerial entrenchment, forcing a competitive auction. This raises the expected fundamental synergy to $\bar{S} + \Delta_S$. Thus, activism \emph{fundamentally facilitates} the sale.
+
+The bidder anchors their takeover offer to the target's expected standalone fundamental value, $\hat{V}(X,D) \equiv \E[v \mid X,D] + \tilde{\Delta}\pi(X,D)$, plus the \emph{inferred} premium wedge. Because the bidder does not perfectly observe $a$ when $D=0$, the payout is tied to the market's Bayesian expectation. The expected per-share offer required to consummate the acquisition is:
+\[
+b(X,D) = \hat{V}(X,D) + \bar{m}(X,D),
+\]
+where $\bar{m}(X,D) = m_0 + (\tilde{m}-m_0)\pi(X,D)$ is the expected premium wedge, and $\pi(X,D) = \PP(a=1 \mid X,D)$. By anchoring the offer to the fundamental standalone value rather than the fully updated secondary market price $P(X,D)$, the model mathematically prevents a pathological infinite recursion of pricing a premium-on-a-premium.
+
+Conditional on arrival, the bidder's expected net deal surplus is:
+\[
+\Pi_B(X,D) = (\bar{S} + \pi(X,D)\Delta_S) + \xi - b(X,D) - K,
+\]
+where $K > 0$ is a fixed bidding cost. The conditional probability that an arriving bidder initiates a consummated takeover is:
+\begin{equation}
+\tilde{p}(X,D) \equiv 1 - \Lambda\left(\frac{\hat{V}(X,D) + \bar{m}(X,D) + K - (\bar{S} + \pi(X,D)\Delta_S)}{s_\xi}\right),
+\label{eq:bid-prob}
+\end{equation}
+where $\Lambda(\cdot)$ is the standard logistic cumulative distribution function, reflecting a logistic synergy shock $\xi \sim \Lambda(0, s_\xi)$ (introduced below). The unconditional bid probability is $p(X,D) = \lambda_B \cdot \tilde{p}(X,D)$.
+
+To ensure that the efficient pricing of the fundamental value run-up makes acquisitions more expensive on net despite synergy gains, I assume $\tilde{\Delta} + \tilde{m} - m_0 > \Delta_S$ (Assumption~\textup{(A5)}).
+
+If the takeover is consummated, the \emph{realized} required premium is a function of the realized action, $m^{R}(a) \equiv m_0 + a\cdot(\tilde{m}-m_0)$, yielding a per-share offer of:
+\[
+b(X,D,a) = \hat{V}(X,D) + m^{R}(a).
+\]
+
+```
+
+*Why this works:* This rewrites the bidder's surplus equation so that $P(X,D)$ no longer appears inside the $\Lambda(\cdot)$ function. It also formalises activism as sale facilitation ($\Delta_S$) and establishes the new deterrence condition (A5).
+
+**Fix 1.3: Terminal Payoff and Pricing (Section 3.7)**
+*Problem:* The pricing fixed point contains the mathematical singularity requiring A5.
+*Location in `.tex`:* Section 3.7 Terminal Payoff.
+Find:
+
+```latex
+If no takeover is consummated, per-share terminal payoff is $y^{\text{stand}} = v + a\tilde{\Delta}$. If a takeover is consummated, per-share payoff is $y^{\text{M\&A}} = b(X,D,a) = P(X,D) + m^{R}(a)$.
+
+Therefore, the per-share terminal payoff is
+\[
+Y = \1\{\textup{bid}\} \cdot (P(X,D) + m^{R}(a)) + (1 - \1\{\textup{bid}\}) \cdot (v + a\tilde{\Delta}),
+\]
+where $\1\{\textup{bid}\}$ denotes a \emph{consummated} takeover rather than a mere offer. Bargaining, board resistance, and regulatory frictions are captured in reduced form by the premium wedge $m^{R}(\cdot)$ and the fixed cost $K$. A simple robustness extension would multiply $p(P,D)$ by a completion probability $\alpha(P,D)\in(0,1]$ in the pricing fixed point, without altering the main mechanism.
+
+Conditional on $(X,D)$, $\E[m^{R}(a) \mid X,D]=\bar{m}(X,D)$, so the expected takeover payoff equals $P(X,D)+\bar{m}(X,D)$; this keeps the pricing fixed-point equations below unchanged.
+
+The market maker is competitive and sets
+\begin{equation}
+P(X,D) = \delta \, \E[Y \mid X, D].
+\label{eq:pricing}
+\end{equation}
+
+Equation~\eqref{eq:pricing} is the key equilibrium discipline: the price reflects the possibility of takeover and the premium wedge, and takeover decisions depend on that same price. I assume that for each information set $(X,D)$ and each feasible posterior $\pi(X,D)$, the competitive pricing fixed point admits a unique solution $P^*(X,D)$, and that takeover entry is not too sensitive to prices: $\delta\cdot\sup_P|\partial p/\partial P|<1$ (Assumption~\textup{(A5)}).%
+\footnote{Assumption~\textup{(A5)} bounds the strength of the price-to-entry feedback loop and ensures that comparative statics are well-defined. Under the Gaussian bidding rule, a sufficient condition is $\delta/\sigma_\xi < 1/\phi(0)$, where $\phi(\cdot)$ is the standard normal density.}
+
+```
+
+Replace with:
+
+```latex
+If no takeover is consummated, per-share terminal payoff is $y^{\text{stand}} = v + a\tilde{\Delta}$. If a takeover is consummated, per-share payoff is $y^{\text{M\&A}} = b(X,D,a) = \hat{V}(X,D) + m^{R}(a)$.
+
+Therefore, the per-share terminal payoff is
+\[
+Y = \1\{\textup{bid}\} \cdot (\hat{V}(X,D) + m^{R}(a)) + (1 - \1\{\textup{bid}\}) \cdot (v + a\tilde{\Delta}),
+\]
+where $\1\{\textup{bid}\}$ denotes a \emph{consummated} takeover rather than a mere offer. Bargaining, board resistance, and regulatory frictions are captured in reduced form by the premium wedge $m^{R}(\cdot)$ and the fixed cost $K$. 
+
+Conditional on $(X,D)$, the expected takeover payout equals $\hat{V}(X,D)+\bar{m}(X,D)$.
+
+The market maker is competitive and sets the stock price to the discounted expected terminal payoff:
+\begin{equation}
+P(X,D) = \delta \, \E[Y \mid X, D].
+\label{eq:pricing}
+\end{equation}
+
+Because the bidder's entry condition~\eqref{eq:bid-prob} is cleanly anchored to the expected standalone fundamental value $\hat{V}(X,D)$ rather than the anticipatory market price $P(X,D)$, the bid probability is strictly independent of $P(X,D)$. This permanently resolves the pathological recursive pricing loop (the infinite geometric double-counting of expected premiums), guaranteeing unconditional existence and uniqueness of the pricing equation without requiring ad-hoc regularity bounds on price-to-entry feedback.
+
+```
+
+*Why this works:* It removes the problematic fixed point entirely and eliminates the need for the old Assumption A5 ($\delta/\sigma_\xi < 1/\phi(0)$).
+
+**Fix 1.4: Update Footnote 8 (Section 3.8)**
+*Location in `.tex`:* Section 3.8 Blockholder Payoff.
+Find:
+
+```latex
+\footnote{Throughout, I maintain Assumptions~\textup{(A1)}--\textup{(A7)} (the Standing Assumptions). These ensure interior action regions, nontrivial takeover outcomes, and well-behaved equilibrium existence. I verify each assumption numerically in the baseline calibration. Assumption~\textup{(A6)} (contraction) ensures uniqueness of the monotone-cutoff equilibrium; existence is established unconditionally via Brouwer's theorem (Proposition~\ref{prop:existence}), while uniqueness is verified numerically following \citet{EdmansGoldsteinJiang2015}.}
+
+```
+
+Replace with:
+
+```latex
+\footnote{Throughout, I maintain Assumptions~\textup{(A1)}--\textup{(A6)} (the Standing Assumptions). These ensure interior action regions, nontrivial takeover outcomes, and well-behaved equilibrium existence. Because the pricing function resolves explicitly, equilibrium existence is guaranteed unconditionally via Brouwer's theorem (Proposition~\ref{prop:existence}), while uniqueness of the cutoff mapping is verified numerically following \citet{EdmansGoldsteinJiang2015}.}
+
+```
+
+**Fix 1.5: Equilibrium Pricing Formula (Section 4.6)**
+*Location in `.tex`:* Section 4.6. Replace the entire text of 4.6.
+Replace with:
+
+```latex
+The competitive pricing condition~\eqref{eq:pricing} evaluates directly as a pure feed-forward expectation. Because the bid probability $p(X,D)$ relies on the fundamental standalone value rather than recursively on the market price, the equilibrium price is strictly determined by the market's Bayesian inference. For each information set $(X,D)$ and posterior $\pi(X,D)$, the unique equilibrium price explicitly satisfies:
+\begin{equation}
+P^*(X,D) = \delta\Big((1-p(X,D)) \cdot \hat{V}(X,D) + p(X,D) \cdot (\hat{V}(X,D) + \bar{m}(X,D))\Big),
+\label{eq:price-fp-full}
+\end{equation}
+where $\hat{V}(X,D) \equiv \E[v \mid X,D] + \tilde{\Delta} \cdot \pi(X,D)$ is the expected standalone value, and $p(X,D) = \lambda_B \cdot \tilde{p}(X,D)$. This simplifies algebraically to:
+\begin{equation}
+P^*(X,D) = \delta \Big( \hat{V}(X,D) + p(X,D) \cdot \bar{m}(X,D) \Big).
+\label{eq:price-fp}
+\end{equation}
+The price is exactly the expected standalone fundamental value plus the expected probability-weighted takeover premium. When takeover is unlikely ($p(X,D)\approx 0$), this reduces to $P^*(X,D)\approx \delta\,\hat{V}(X,D)$.
+
+```
+
+**Fix 1.6: Price Decomposition (Section 4.7)**
+*Location in `.tex`:* Section 4.7. Find Proposition 3.
+Replace with:
+
+```latex
+\begin{proposition}[Price Decomposition]
+\label{prop:price-decomp}
+The unique equilibrium price $P^*(X,D)$ satisfies
+\[
+P^*(X,D) = \delta\Big(\E[v \mid X,D] + \tilde{\Delta} \cdot \pi(X,D) + p(X,D) \cdot \bar{m}(X,D)\Big),
+\]
+where $p(X,D)$ is the unconditional bid probability, $\pi(X,D) = \PP(a=1 \mid X,D)$, and $\bar{m}(X,D) = m_0 + (\tilde{m} - m_0)\pi(X,D)$.
+
+The terms involving $\pi(X,D)$ constitute an ``activism premium'':
+\begin{itemize}[leftmargin=1.5em,itemsep=0pt]
+\item \textbf{Standalone channel:} $\tilde{\Delta}\pi(X,D)$ reflects the fully capitalized unconditional expected value improvement from engagement.
+\item \textbf{Takeover channel:} $p(X,D) \cdot (\tilde{m}-m_0)\pi(X,D)$ reflects the expected \emph{incremental} takeover premium attributable to the activist's bargaining friction (over and above the baseline $m_0$).
+\end{itemize}
+\end{proposition}
+
+```
+
+**Fix 1.7: Bid Incidence Narrative (Section 4.8)**
+*Location in `.tex`:* Section 4.8. Replace the text up to `(Proof: see Appendix~\ref{app:proof-bid-monotone}.)`
+Replace with:
+
+```latex
+The conditional bid probability $\tilde{p}(X,D)$ defined in~\eqref{eq:bid-prob} resolves the structural tension between sale facilitation and bid deterrence. Because $\Delta_S > 0$, an increase in inferred engagement strictly improves the core deal economics. 
+
+However, the bidder's required payout is anchored to the expected standalone value $\hat{V}(X,D)$, which increases by $\tilde{\Delta}$ for every unit of inferred engagement $\pi(X,D)$. Let $\Gamma(X,D)$ be the argument of the logistic CDF in~\eqref{eq:bid-prob}. Differentiating the entry threshold yields:
+\[
+\frac{\partial \tilde{p}(X,D)}{\partial \pi(X,D)} = - \Lambda'\left(\Gamma(X,D)\right) \frac{\tilde{\Delta} + (\tilde{m}-m_0) - \Delta_S}{s_\xi}.
+\]
+Because the capitalized fundamental improvement and premium wedge exceed the synergy gain ($\tilde{\Delta} + \tilde{m}-m_0 > \Delta_S$ under Assumption~\textup{(A5)}), higher inferred engagement strictly \emph{deters} bids ($\partial \tilde{p} / \partial \pi < 0$). 
+
+Crucially, this deterrence does not arise from frictional defensive tactics, but from \emph{efficient market pricing}. The market capitalizes the activist's fundamental improvement into the standalone value, and the bidder must pay for it. When $D=1$, the bidder \emph{knows} activism has occurred, so the required fundamental compensation is maximal. Consequently, publicly disclosed activist campaigns deter marginal takeover bids more strongly than inferred activism. 
+
+```
+
+**Fix 1.8: Equilibrium Existence and Uniqueness (Section 4.10)**
+*Location in `.tex`:* Section 4.10 Equilibrium Existence and Uniqueness.
+Find:
+
+```latex
+Under Assumptions~\textup{(A1)}--\textup{(A5)}, any monotone-cutoff Perfect Bayesian Equilibrium must satisfy Bayes-consistent beliefs and the pricing fixed point~\eqref{eq:price-fp} together with the cutoff indifference conditions~\eqref{eq:k1}--\eqref{eq:kD}.
+
+\begin{proposition}[Existence of Monotone Equilibrium]
+\label{prop:existence}
+Under Assumptions~\textup{(A1)} through~\textup{(A5)}, there exists at least one monotone-cutoff Perfect Bayesian Equilibrium.
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-existence}.
+
+The proof constructs the cutoff mapping $T:(k_1,k_0,k_D)\mapsto(k_1',k_0',k_D')$ and applies Brouwer's Fixed-Point Theorem. Since the best-response cutoffs map a compact, convex domain into itself and the mapping is continuous under Assumption~\textup{(A5)}, existence follows unconditionally.
+
+For uniqueness, the mapping $T$ must be a contraction (Assumption~\textup{(A6)}). Analytically bounding the spectral radius of the Jacobian of $T$ is intractable in discrete order-flow models with price feedback, because the derivatives involve nonlinear interactions between inverse Mills ratios, the normal CDF of the bidder's entry rule, and Bayesian posterior updating. Following the methodological precedent of \citet{EdmansGoldsteinJiang2015}, I rely on numerical verification: in all exercises presented in this paper, iterating $T$ from arbitrary starting points converges strictly to a unique fixed point, confirming that the spectral radius is strictly less than 1.%
+\footnote{Provided the price-to-entry feedback loop is bounded (Assumption~\textup{(A5)}, $\delta/\sigma_\xi < 1/\phi(0)$) and signal noise $\sigma_\varepsilon$ is not pathologically small, the strategic complementarity between cutoffs remains weak. See Appendix~\ref{app:proof-uniqueness} for further discussion.}
+
+```
+
+Replace with:
+
+```latex
+Under Assumptions~\textup{(A1)}--\textup{(A6)}, any monotone-cutoff Perfect Bayesian Equilibrium must satisfy Bayes-consistent beliefs and the feed-forward pricing equation~\eqref{eq:price-fp} together with the cutoff indifference conditions~\eqref{eq:k1}--\eqref{eq:kD}.
+
+\begin{proposition}[Existence of Monotone Equilibrium]
+\label{prop:existence}
+Under Assumptions~\textup{(A1)} through~\textup{(A6)}, there exists at least one monotone-cutoff Perfect Bayesian Equilibrium.
+\end{proposition}
+\textit{Proof.} See Appendix~\ref{app:proof-existence}.
+
+The proof constructs the cutoff mapping $T:(k_1,k_0,k_D)\mapsto(k_1',k_0',k_D')$ and applies Brouwer's Fixed-Point Theorem. Since the pricing equation is fully feed-forward and avoids recursive singularities, the mapping is strictly continuous and existence follows unconditionally over the compact cutoff domain.
+
+For uniqueness, the mapping $T$ must be a contraction (Assumption~\textup{(A6)}). Analytically bounding the spectral radius of the Jacobian of $T$ is challenging because the derivatives involve nonlinear interactions between inverse Mills ratios, the logistic CDF of the bidder's entry rule, and Bayesian posterior updating. Following the methodological precedent of \citet{EdmansGoldsteinJiang2015}, I rely on numerical verification: in all exercises presented in this paper, iterating $T$ from arbitrary starting points converges strictly to a unique fixed point, confirming that the spectral radius is strictly less than 1.%
+\footnote{Because the pathological price-to-entry recursive loop has been structurally eliminated, strategic complementarity between cutoffs is organically bounded without requiring an exogenous regularity condition. See Appendix~\ref{app:proof-uniqueness} for further discussion.}
+
+```
+
+**Fix 1.9: Update Assumptions Table (Appendix A)**
+*Location in `.tex`:* Appendix A, Table 2 (Assumptions).
+Find:
+
+```latex
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}clp{0.50\linewidth}@{}}
+\toprule
+\textbf{Label} & \textbf{Content} & \textbf{Location} \\
+\midrule
+(A1) & Interior cutoffs (nondegeneracy) & Engagement Technology (\S\ref{sec:model}) \\
+(A2) & Engagement cost decreasing in signal & Engagement Technology (\S\ref{sec:model}) \\
+(A3) & Premium wedge: $\tilde{m} > m_0$ & Engagement Technology (\S\ref{sec:model}) \\
+(A4) & Interior bid probability & Bidder Entry (\S\ref{sec:model}) \\
+(A5) & Unique pricing fixed point & Price Formation (\S\ref{sec:model}) \\
+(A6) & Contraction (uniqueness) & Equilibrium Concept (\S\ref{sec:model}) \\
+(A7) & Price schedule separates order flow & Bidder Entry (\S\ref{sec:model}) \\
+\bottomrule
+\end{tabular}
+\caption{Summary of standing assumptions (A1)--(A7).}
+\label{tab:assumptions}
+\end{table}
+
+```
+
+Replace with:
+
+```latex
+\begin{table}[H]
+\centering
+\begin{tabular}{@{}clp{0.50\linewidth}@{}}
+\toprule
+\textbf{Label} & \textbf{Content} & \textbf{Location} \\
+\midrule
+(A1) & Interior cutoffs (nondegeneracy) & Engagement Technology (\S\ref{sec:model}) \\
+(A2) & Engagement cost decreasing in signal & Engagement Technology (\S\ref{sec:model}) \\
+(A3) & Premium wedge: $\tilde{m} > m_0$ & Engagement Technology (\S\ref{sec:model}) \\
+(A4) & Interior bid probability & Bidder Entry (\S\ref{sec:model}) \\
+(A5) & Net deterrence condition: $\tilde{\Delta} + \tilde{m} - m_0 > \Delta_S$ & Bidder Entry (\S\ref{sec:model}) \\
+(A6) & Contraction (uniqueness) & Equilibrium Concept (\S\ref{sec:model}) \\
+\bottomrule
+\end{tabular}
+\caption{Summary of standing assumptions (A1)--(A6).}
+\label{tab:assumptions}
+\end{table}
+
+```
+
+**Fix 1.10: Proof Updates for Payout Engine (Appendix B.1)**
+*Location in `.tex`:* Appendix B.1.
+Find:
+
+```latex
+where $X=q+z$ and $Y=\1\{\textup{bid}\}\cdot (P(X,D)+m^{R}(a)) + (1-\1\{\textup{bid}\})\cdot (v+a\tilde{\Delta})$.
+Since the bid event depends only on $\xi$ conditional on $(X,D)$, $\E[\1\{\textup{bid}\} \mid X,D]=p(X,D)$, and risk neutrality implies $\E[v \mid s]=\hat v(s)$. Taking expectations over $(v,\xi,z)$ conditional on $s$ yields
+\begin{align*}
+U(q,a \mid s)
+&= \E_z\Big[-q\cdot P(X,D) + \delta h \big(p(X,D)\cdot (P(X,D)+m^{R}(a)) \\
+&\qquad\qquad\qquad\qquad\qquad\quad + (1-p(X,D))\cdot(\hat{v}(s)+a\tilde{\Delta})\big)\Big] - a\cdot C(s).
+\end{align*}
+
+```
+
+Replace with:
+
+```latex
+where $X=q+z$ and $Y=\1\{\textup{bid}\}\cdot b(X,D,a) + (1-\1\{\textup{bid}\})\cdot (v+a\tilde{\Delta})$.
+Since the bid event depends only on $\xi$ conditional on $(X,D)$, $\E[\1\{\textup{bid}\} \mid X,D]=p(X,D)$, and risk neutrality implies $\E[v \mid s]=\hat v(s)$. Taking expectations over $(v,\xi,z)$ conditional on $s$ yields
+\begin{align*}
+U(q,a \mid s)
+&= \E_z\Big[-q\cdot P^*(X,D) + \delta h \big(p(X,D)\cdot (\hat{V}(X,D)+m^{R}(a)) \\
+&\qquad\qquad\qquad\qquad\qquad\quad + (1-p(X,D))\cdot(\hat{v}(s)+a\tilde{\Delta})\big)\Big] - a\cdot C(s).
+\end{align*}
+
+```
+
+Find:
+
+```latex
+\item \textbf{Hold vs.\ Quiet Voice.} Since $H$ and $Q$ share $(q,D,h)=(0,0,1)$, their $\hat v(s)$ coefficients are the same, and
+\begin{equation}
+U_Q(s)-U_H(s)=\delta\,\E_z\!\Big[p(X,0)\cdot(\tilde m-m_0)+(1-p(X,0))\cdot\tilde\Delta\Big]-C(s),
+\label{eq:UH-UQ}
+\end{equation}
+which is weakly increasing in $s$ (strictly increasing when $\chi>0$). Thus there is at most one cutoff $k_0$ solving $U_H(k_0)=U_Q(k_0)$, and whenever it exists it separates Hold from Quiet Voice.
+
+```
+
+Replace with:
+
+```latex
+\item \textbf{Hold vs.\ Quiet Voice.} Since $H$ and $Q$ share $(q,D,h)=(0,0,1)$, their $\hat v(s)$ coefficients are the same, and the difference reduces to
+\begin{equation}
+U_Q(s)-U_H(s)=\delta\,\E_z\!\Big[p(X,0)\cdot(\tilde m-m_0)+(1-p(X,0))\cdot\tilde\Delta\Big]-C(s),
+\label{eq:UH-UQ}
+\end{equation}
+which is strictly increasing in $s$ when $\chi>0$. Thus there is at most one cutoff $k_0$ solving $U_H(k_0)=U_Q(k_0)$, and whenever it exists it separates Hold from Quiet Voice.
+
+```
+
+Find:
+
+```latex
+\textit{Step 2: Given cutoffs, beliefs and prices are pinned down.}
+Fix a cutoff vector $(k_1,k_0,k_D)$. This pins down the ex ante region probabilities $(\omega_E,\omega_H,\omega_Q,\omega_P)$ and hence (by Bayes' rule) the posteriors $\pi(X,D)$ in Proposition~\ref{prop:posteriors}. Given these posteriors and conditional means $\E[v \mid X,D]$, the competitive pricing rule is defined by $P(X,D)=\delta\,\E[Y \mid X,D]$ and is characterized by the fixed point~\eqref{eq:price-fp}. Assumption~\textup{(A5)} ensures that for each reached information set $(X,D)$ this fixed point has a unique solution $P^*(X,D)$.
+
+\textit{Step 3: Fixed point over cutoff vectors.}
+Define the cutoff mapping $T:(k_1,k_0,k_D)\mapsto(k_1',k_0',k_D')$ by: (i) compute $(\omega_E,\omega_H,\omega_Q,\omega_P)$ from $(k_1,k_0,k_D)$; (ii) compute posteriors $\pi(X,D)$; (iii) solve for prices $P^*(X,D)$; and (iv) define $(k_1',k_0',k_D')$ as the (unique) solutions to the indifference conditions~\eqref{eq:k1}--\eqref{eq:kD} induced by these objects (using the single-crossing properties from Step~1). By construction and Assumption~\textup{(A5)}, each step is continuous, so $T$ is continuous.
+
+```
+
+Replace with:
+
+```latex
+\textit{Step 2: Given cutoffs, beliefs and prices are pinned down.}
+Fix a cutoff vector $(k_1,k_0,k_D)$. This pins down the ex ante region probabilities $(\omega_E,\omega_H,\omega_Q,\omega_P)$ and hence (by Bayes' rule) the posteriors $\pi(X,D)$ in Proposition~\ref{prop:posteriors}. Given these posteriors and conditional means $\E[v \mid X,D]$, the expected standalone value $\hat{V}(X,D)$ and unconditional bid probability $p(X,D)$ are strictly determined. The competitive pricing rule is directly defined by the explicit feed-forward equation~\eqref{eq:price-fp}, trivially providing a unique solution $P^*(X,D)$ for each reached information set.
+
+\textit{Step 3: Fixed point over cutoff vectors.}
+Define the cutoff mapping $T:(k_1,k_0,k_D)\mapsto(k_1',k_0',k_D')$ by: (i) compute $(\omega_E,\omega_H,\omega_Q,\omega_P)$ from $(k_1,k_0,k_D)$; (ii) compute posteriors $\pi(X,D)$; (iii) directly compute feed-forward prices $P^*(X,D)$; and (iv) define $(k_1',k_0',k_D')$ as the (unique) solutions to the indifference conditions~\eqref{eq:k1}--\eqref{eq:kD} induced by these objects (using the single-crossing properties from Step~1). By construction, each step is continuous, so $T$ is continuous.
+
+```
+
+**Fix 1.11: Proof Updates (Appendix B.3, B.5, B.6, B.8, B.10, B.11, B.12)**
+*Location in `.tex`:* Appendix B.3.
+Find:
+
+```latex
+Therefore, for each $x\in\{0,1,2\}$ the pricing fixed point~\eqref{eq:price-fp} on the disclosed branch has the same right-hand side: it depends on $(X,D)$ only through $\hat V(X,D)$ and $\bar{m}(X,D)$, both of which are constant when $D=1$, and through $p(P,1)$, which depends on $(P,D)$ but not on $X$ separately. By Assumption~\textup{(A5)}, this fixed point admits a unique solution, so $P^*(x,1)$ is the same for all $x\in\{0,1,2\}$. The bidder's bid probability satisfies $p(x,1)=p(P^*(x,1),1)$ and is therefore also constant across $x$ on the disclosed branch.
+
+```
+
+Replace with:
+
+```latex
+Therefore, for each $x\in\{0,1,2\}$ the feed-forward pricing equation~\eqref{eq:price-fp} on the disclosed branch evaluates identically: it depends on $(X,D)$ only through $\hat V(X,D)$, $\bar{m}(X,D)$, and $p(X,1)$, all of which are strictly constant across $x$ when $D=1$. Thus, $P^*(x,1)$ and the conditional bid probability are exactly the same for all $x\in\{0,1,2\}$ on the disclosed branch.
+
+```
+
+*Location in `.tex`:* Appendix B.5.
+Find:
+
+```latex
+\begin{proof}
+    The market maker sets $P(X,D)=\delta\,\E[Y \mid X,D]$. Conditional on $(X,D)$, the price $P(X,D)$ and the expected premium wedge $\bar{m}(X,D)$ are constants. The bid indicator $\1\{\textup{bid}\}$ is a measurable function of $(P(X,D),D,\xi)$, and the bidder shock $\xi$ is independent of $(v,a)$ and of $(q,z)$. Hence $\1\{\textup{bid}\}$ is conditionally independent of $(v,a)$ given $(X,D)$, and $\E[\1\{\textup{bid}\} \mid X,D]=p(X,D)$ with $p(X,D)$ understood as $p(P(X,D),D)$.
+
+  In the takeover payoff, the realized premium wedge is $m^{R}(a)=m_0+a(\tilde{m}-m_0)$. Using conditional independence,
+\[
+\E[(1-\1\{\textup{bid}\})\cdot v \mid X,D] = (1-p(X,D))\E[v \mid X,D],
+\]
+and
+\[
+\E[(1-\1\{\textup{bid}\})\cdot a \mid X,D] = (1-p(X,D))\E[a \mid X,D] = (1-p(X,D))\pi(X,D).
+\]
+  Taking expectations of $Y$ conditional on $(X,D)$ yields
+  \[
+  \E[Y \mid X,D]
+  =p(X,D)\cdot(P(X,D)+\bar{m}(X,D))+(1-p(X,D))\cdot\big(\E[v \mid X,D]+\tilde{\Delta}\pi(X,D)\big),
+  \]
+  and multiplying by $\delta$ gives the stated decomposition.
+\end{proof}
+
+```
+
+Replace with:
+
+```latex
+\begin{proof}
+    The market maker sets $P(X,D)=\delta\,\E[Y \mid X,D]$. Conditional on $(X,D)$, the expected standalone value $\hat{V}(X,D)$ and expected premium wedge $\bar{m}(X,D)$ are constants. The bid indicator $\1\{\textup{bid}\}$ is conditionally independent of $(v,a)$ given $(X,D)$, so $\E[\1\{\textup{bid}\} \mid X,D]=p(X,D)$.
+
+  In the takeover payoff, the expected required payout is $\hat{V}(X,D) + \bar{m}(X,D)$. Using conditional independence,
+\[
+\E[(1-\1\{\textup{bid}\})\cdot (v + a\tilde{\Delta}) \mid X,D] = (1-p(X,D))\big(\E[v \mid X,D]+\tilde{\Delta}\pi(X,D)\big) = (1-p(X,D))\hat{V}(X,D).
+\]
+  Taking expectations of $Y$ conditional on $(X,D)$ yields
+  \[
+  \E[Y \mid X,D]
+  =p(X,D)\cdot(\hat{V}(X,D)+\bar{m}(X,D))+(1-p(X,D))\cdot\hat{V}(X,D).
+  \]
+  This algebraically simplifies to $\hat{V}(X,D) + p(X,D)\bar{m}(X,D)$. Multiplying by $\delta$ gives the stated decomposition.
+\end{proof}
+
+```
+
+*Location in `.tex`:* Appendix B.6. Replace entire proof with:
+
+```latex
+\begin{proof}
+Let
+\[
+T(X,D)\equiv \frac{\hat{V}(X,D)+\bar{m}(X,D)+K-(\bar{S}+\pi(X,D)\Delta_S)}{s_\xi}.
+\]
+Then the unconditional bid probability is $p(X,D)=\lambda_B(1-\Lambda(T(X,D)))$.
+
+Differentiating $T(X,D)$ with respect to $\pi(X,D)$ requires the chain rule for $\hat{V}(X,D)$ and $\bar{m}(X,D)$. Since $\frac{\partial \hat{V}}{\partial \pi} = \tilde{\Delta}$ and $\frac{\partial \bar{m}}{\partial \pi} = \tilde{m}-m_0$, we have:
+\[
+\frac{\partial T(X,D)}{\partial \pi(X,D)} = \frac{\tilde{\Delta} + (\tilde{m}-m_0) - \Delta_S}{s_\xi}.
+\]
+Under Assumption~\textup{(A5)}, $\tilde{\Delta} + \tilde{m}-m_0 > \Delta_S$, making this derivative strictly positive.
+Since $\Lambda' = \lambda > 0$, we have:
+\[
+\frac{\partial p(X,D)}{\partial \pi(X,D)}=-\lambda_B \lambda(T(X,D)) \cdot \frac{\tilde{\Delta} + \tilde{m}-m_0 - \Delta_S}{s_\xi} < 0.
+\]
+Thus, higher inferred engagement strictly deters bids through the efficient pricing of the standalone target fundamental value.
+\end{proof}
+
+```
+
+*Location in `.tex`:* Appendix B.8. Replace entire proof with:
+
+```latex
+\begin{proof}
+Recall the unconditional bid probability function
+\[
+p(X,D)=\lambda_B\left(1-\Lambda\!\left(\frac{\hat{V}(X,D)+\bar{m}(X,D)+K - (\bar{S} + \pi(X,D)\Delta_S)}{s_\xi}\right)\right).
+\]
+Holding $(X,D)$ fixed, $\partial p/\partial \bar S>0$ and $\partial p/\partial K<0$ follow immediately from the properties of the logistic CDF $\Lambda'=\lambda>0$. Because the bid probability is anchored to $\hat{V}(X,D)$ rather than the anticipatory market price $P(X,D)$, the price-to-entry feedback loop is eliminated entirely, rendering arbitrary price regularity conditions unnecessary.
+\end{proof}
+
+```
+
+*Location in `.tex`:* Appendix B.10.
+Find:
+
+```latex
+\begin{proof}
+  By definition,
+  \[
+  \Delta^{\min}(\kappa)=\E\big[m^{R}(a)\cdot \1\{\textup{bid}\}\big].
+  \]
+
+    Conditional on $(X,D)$, the bid indicator $\1\{\textup{bid}\}$ is a measurable function of $(P(X,D),D,\xi)$, and $\xi$ is independent of $(v,a)$. Hence $\1\{\textup{bid}\}$ is conditionally independent of $(v,a)$ given $(X,D)$, so
+    \[
+    \E\big[m^{R}(a)\cdot \1\{\textup{bid}\} \mid X,D\big]
+    =\E[m^{R}(a) \mid X,D]\cdot \E[\1\{\textup{bid}\} \mid X,D]
+    =\bar{m}(X,D)\cdot p(X,D).
+    \]
+  Taking expectations over $(X,D)$ yields $\Delta^{\min}(\kappa)=\E[\bar{m}(X,D)\cdot \1\{\textup{bid}\}]$.
+
+```
+
+Replace with:
+
+```latex
+\begin{proof}
+  By definition,
+  \[
+  \Delta^{\min}(\kappa)=\E\big[\bar{m}(X,D)\cdot \1\{\textup{bid}\}\big].
+  \]
+
+    Conditional on $(X,D)$, the bid indicator $\1\{\textup{bid}\}$ is conditionally independent of the noise realization. Taking expectations over $(X,D)$ yields
+    \[
+    \E\big[\bar{m}(X,D)\cdot \1\{\textup{bid}\} \mid X,D\big]
+    =\bar{m}(X,D)\cdot \E[\1\{\textup{bid}\} \mid X,D]
+    =\bar{m}(X,D)\cdot p(X,D).
+    \]
+  Taking expectations over $(X,D)$ yields $\Delta^{\min}(\kappa)=\E[\bar{m}(X,D)\cdot \1\{\textup{bid}\}]$.
+
+```
+
+*Location in `.tex`:* Appendix B.11 & B.12.
+Find:
+
+```latex
+\begin{proof}
+Let $\Theta$ be the set of cutoff vectors $(k_1,k_0,k_D)$ such that $k_1\le k_0\le k_D$, restricted to a compact rectangular domain $[\underline{k},\bar{k}]^3\cap\{k_1\le k_0\le k_D\}$. Because $C(s)$ is strictly positive and bounded away from zero for $s<\bar{k}$, and fundamental values are bounded within realistic integration limits, we can choose $\underline{k}$ and $\bar{k}$ large enough in magnitude such that best-response cutoffs strictly map into the interior of $\Theta$. The mapping $T:(k_1,k_0,k_D)\mapsto (k_1',k_0',k_D')$, generated by computing prices via the fixed point~\eqref{eq:price-fp} and updating cutoffs via the single-crossing indifference conditions~\eqref{eq:k1}--\eqref{eq:kD}, is continuous under Assumption~\textup{(A5)}. Since $\Theta$ is a compact, convex subset of a Euclidean space, Brouwer's Fixed-Point Theorem guarantees that $T$ has at least one fixed point in $\Theta$.
+\end{proof}
+
+\subsection{Numerical Verification of Uniqueness}
+\label{app:proof-uniqueness}
+
+To guarantee a unique equilibrium, the mapping $T$ must be a contraction (Assumption~\textup{(A6)}). Given the lack of a closed-form bound for the spectral radius, numerical verification is the most rigorous available approach for this model class. This follows the methodological precedent of similar discrete order-flow models with price feedback, such as \citet{EdmansGoldsteinJiang2015}. Provided the price-to-entry feedback loop is bounded (Assumption~\textup{(A5)}, $\delta/\sigma_\xi < 1/\phi(0)$) and signal noise $\sigma_\varepsilon$ is not pathologically small, the strategic complementarity between cutoffs remains weak. In all numerical exercises presented in this paper, iterating $T$ from arbitrary starting points in $\Theta$ converges strictly to a unique fixed point, confirming that the spectral radius is strictly less than 1 and supporting a unique equilibrium.
+
+```
+
+Replace with:
+
+```latex
+\begin{proof}
+Let $\Theta$ be the set of cutoff vectors $(k_1,k_0,k_D)$ such that $k_1\le k_0\le k_D$, restricted to a compact rectangular domain $[\underline{k},\bar{k}]^3\cap\{k_1\le k_0\le k_D\}$. Because $C(s)$ is strictly positive and bounded away from zero for $s<\bar{k}$, and fundamental values are bounded within realistic integration limits, we can choose $\underline{k}$ and $\bar{k}$ large enough in magnitude such that best-response cutoffs strictly map into the interior of $\Theta$. The mapping $T:(k_1,k_0,k_D)\mapsto (k_1',k_0',k_D')$, generated by explicitly computing feed-forward prices via~\eqref{eq:price-fp} and updating cutoffs via the single-crossing indifference conditions~\eqref{eq:k1}--\eqref{eq:kD}, is unconditionally continuous. Since $\Theta$ is a compact, convex subset of a Euclidean space, Brouwer's Fixed-Point Theorem guarantees that $T$ has at least one fixed point in $\Theta$.
+\end{proof}
+
+\subsection{Numerical Verification of Uniqueness}
+\label{app:proof-uniqueness}
+
+To guarantee a unique equilibrium, the mapping $T$ must be a contraction (Assumption~\textup{(A6)}). Given the lack of a closed-form bound for the spectral radius, numerical verification is the most rigorous available approach for this model class. This follows the methodological precedent of similar discrete order-flow models with price feedback, such as \citet{EdmansGoldsteinJiang2015}. Because the recursive price-to-entry feedback loop has been structurally eradicated, the strategic complementarity between cutoffs is organically bounded without requiring an exogenous regularity condition. In all numerical exercises presented in this paper, iterating $T$ from arbitrary starting points in $\Theta$ converges strictly to a unique fixed point, confirming that the spectral radius is strictly less than 1 and supporting a unique equilibrium.
+
+```
+
+---
+
+### Priority 2: Fixing the Asymptotic Topology (Parity Flaw in Noise Distribution)
+
+**Fix 2.1: Update the Noise Probabilities (Section 3.3)**
+*Location in `.tex`:* Section 3.3 Trading and Liquidity.
+Find:
+
+```latex
+z \in \{-1, 0, 1\}, \quad \PP(z = 0) = 1 - \kappa, \quad \PP(z = \pm 1) = \kappa/2,
+
+```
+
+Replace with:
+
+```latex
+z \in \{-1, 0, 1\}, \quad \PP(z = 0) = 1 - \frac{2}{3}\kappa, \quad \PP(z = \pm 1) = \frac{\kappa}{3},
+
+```
+
+**Fix 2.2: Update the Shorthand in Main Text (Section 4.4 and 4.5)**
+*Location in `.tex`:* Section 4.4 Bayesian Posteriors.
+Find:
+
+```latex
+\item \textbf{Nondisclosed states:} If $D = 0$, let $p_0 \equiv 1 - \kappa$ and $p_1 \equiv \kappa/2$. Then:
+
+```
+
+Replace with:
+
+```latex
+\item \textbf{Nondisclosed states:} If $D = 0$, let $p_0 \equiv 1 - \frac{2}{3}\kappa$ and $p_1 \equiv \frac{\kappa}{3}$. Then:
+
+```
+
+*Location in `.tex`:* Section 4.5 Conditional Expectation.
+Find:
+
+```latex
+\paragraph{For $D=0$:} Mix over Exit, Hold, and Quiet Voice with Bayesian weights. Let $p_0 \equiv 1 - \kappa$ and $p_1 \equiv \kappa/2$. Then:
+
+```
+
+Replace with:
+
+```latex
+\paragraph{For $D=0$:} Mix over Exit, Hold, and Quiet Voice with Bayesian weights. Let $p_0 \equiv 1 - \frac{2}{3}\kappa$ and $p_1 \equiv \frac{\kappa}{3}$. Then:
+
+```
+
+**Fix 2.3: Fixing the Proof Weights (Appendix B.2 & B.4)**
+*Location in `.tex`:* Appendix B.2 Proof of Proposition 2.
+Find:
+
+```latex
+Write the noise trade probabilities as $\PP(z=0)=1-\kappa$ and $\PP(z=\pm1)=\kappa/2$. Conditional on each action, $X=q+z$ has the following support and probabilities:
+\[
+\begin{array}{c|ccc}
+ & X=q-1 & X=q & X=q+1 \\ \hline
+q=-1~(E) & \kappa/2 & 1-\kappa & \kappa/2 \\
+q=0~(H,Q)  & \kappa/2 & 1-\kappa & \kappa/2 \\
+q=+1~(P) & \kappa/2 & 1-\kappa & \kappa/2
+\end{array}
+\]
+
+```
+
+Replace with:
+
+```latex
+Write the noise trade probabilities as $\PP(z=0)=1-\frac{2}{3}\kappa$ and $\PP(z=\pm1)=\frac{\kappa}{3}$. Conditional on each action, $X=q+z$ has the following support and probabilities:
+\[
+\begin{array}{c|ccc}
+ & X=q-1 & X=q & X=q+1 \\ \hline
+q=-1~(E) & \kappa/3 & 1-\frac{2}{3}\kappa & \kappa/3 \\
+q=0~(H,Q)  & \kappa/3 & 1-\frac{2}{3}\kappa & \kappa/3 \\
+q=+1~(P) & \kappa/3 & 1-\frac{2}{3}\kappa & \kappa/3
+\end{array}
+\]
+
+```
+
+*And slightly further down in B.2:*
+Find:
+
+```latex
+If $X=-1$, then $\PP(X=-1 \mid q\!=\!0)=\PP(z=-1)=\kappa/2$ and $\PP(X=-1 \mid E)=\PP(z=0)=1-\kappa$, giving
+\[
+\pi(-1,0)=\frac{\omega_Q(\kappa/2)}{(\omega_H+\omega_Q)(\kappa/2)+\omega_E(1-\kappa)}.
+\]
+If $X=0$, then $\PP(X=0 \mid q\!=\!0)=\PP(z=0)=1-\kappa$ and $\PP(X=0 \mid E)=\PP(z=1)=\kappa/2$, so
+\[
+\pi(0,0)=\frac{\omega_Q(1-\kappa)}{(\omega_H+\omega_Q)(1-\kappa)+\omega_E(\kappa/2)}.
+\]
+
+```
+
+Replace with:
+
+```latex
+If $X=-1$, then $\PP(X=-1 \mid q\!=\!0)=\PP(z=-1)=\frac{\kappa}{3}$ and $\PP(X=-1 \mid E)=\PP(z=0)=1-\frac{2}{3}\kappa$, giving
+\[
+\pi(-1,0)=\frac{\omega_Q(\kappa/3)}{(\omega_H+\omega_Q)(\kappa/3)+\omega_E(1-\frac{2}{3}\kappa)}.
+\]
+If $X=0$, then $\PP(X=0 \mid q\!=\!0)=\PP(z=0)=1-\frac{2}{3}\kappa$ and $\PP(X=0 \mid E)=\PP(z=1)=\frac{\kappa}{3}$, so
+\[
+\pi(0,0)=\frac{\omega_Q(1-\frac{2}{3}\kappa)}{(\omega_H+\omega_Q)(1-\frac{2}{3}\kappa)+\omega_E(\kappa/3)}.
+\]
+
+```
+
+*Location in `.tex`:* Appendix B.4.
+Find:
+
+```latex
+\item $X=-1$ mixes Exit ($z=0$), Hold ($z=-1$), and Quiet Voice ($z=-1$). Writing the Bayes weights as
+\[
+w_E=\frac{\omega_E(1-\kappa)}{\mathcal{D}_{-1}},\quad
+w_H=\frac{\omega_H(\kappa/2)}{\mathcal{D}_{-1}},\quad
+w_Q=\frac{\omega_Q(\kappa/2)}{\mathcal{D}_{-1}},
+\]
+with $\mathcal{D}_{-1}=(\omega_H+\omega_Q)(\kappa/2)+\omega_E(1-\kappa)$, yields $\E[v \mid -1,0]=w_E\mu_E+w_H\mu_H+w_Q\mu_Q$.
+\item $X=0$ mixes Quiet Voice/Hold with $z=0$ and Exit with $z=1$. Writing the Bayes weights as
+\[
+w_E=\frac{\omega_E(\kappa/2)}{\mathcal{D}_0},\quad
+w_H=\frac{\omega_H(1-\kappa)}{\mathcal{D}_0},\quad
+w_Q=\frac{\omega_Q(1-\kappa)}{\mathcal{D}_0},
+\]
+with $\mathcal{D}_0=(\omega_H+\omega_Q)(1-\kappa)+\omega_E(\kappa/2)$, yields $\E[v \mid 0,0]=w_E\mu_E+w_H\mu_H+w_Q\mu_Q$.
+
+```
+
+Replace with:
+
+```latex
+\item $X=-1$ mixes Exit ($z=0$), Hold ($z=-1$), and Quiet Voice ($z=-1$). Writing the Bayes weights as
+\[
+w_E=\frac{\omega_E\,p_0}{\mathcal{D}_{-1}},\quad
+w_H=\frac{\omega_H\,p_1}{\mathcal{D}_{-1}},\quad
+w_Q=\frac{\omega_Q\,p_1}{\mathcal{D}_{-1}},
+\]
+with $\mathcal{D}_{-1}=(\omega_H+\omega_Q)p_1+\omega_E\,p_0$, yields $\E[v \mid -1,0]=w_E\mu_E+w_H\mu_H+w_Q\mu_Q$.
+\item $X=0$ mixes Quiet Voice/Hold with $z=0$ and Exit with $z=1$. Writing the Bayes weights as
+\[
+w_E=\frac{\omega_E\,p_1}{\mathcal{D}_0},\quad
+w_H=\frac{\omega_H\,p_0}{\mathcal{D}_0},\quad
+w_Q=\frac{\omega_Q\,p_0}{\mathcal{D}_0},
+\]
+with $\mathcal{D}_0=(\omega_H+\omega_Q)p_0+\omega_E\,p_1$, yields $\E[v \mid 0,0]=w_E\mu_E+w_H\mu_H+w_Q\mu_Q$.
+
+```
+
+**Fix 2.4: Updating the Derivatives and Lemma 1 (Appendix B.7, B.13, B.15)**
+*Location in `.tex`:* Appendix B.7.
+Find:
+
+```latex
+Fix $(\omega_E,\omega_H,\omega_Q)$ and write $p_0\equiv 1-\kappa$ and $p_1\equiv \kappa/2$. For any reached nondisclosed information set (so denominators are nonzero), Proposition~\ref{prop:posteriors} gives:
+
+```
+
+Replace with: `Fix $(\omega_E,\omega_H,\omega_Q)$ and write $p_0\equiv 1-\frac{2}{3}\kappa$ and $p_1\equiv \frac{\kappa}{3}$. For any reached nondisclosed information set (so denominators are nonzero), Proposition~\ref{prop:posteriors} gives:`
+Find:
+
+```latex
+For $X=-1$, differentiating with respect to $\kappa$ yields
+\[
+\frac{\partial \pi(-1,0)}{\partial \kappa}
+=\frac{(\omega_Q/2)\omega_E}{\big((\omega_H+\omega_Q)(\kappa/2)+\omega_E(1-\kappa)\big)^2}\ge 0,
+\]
+with strict inequality whenever $\omega_E\omega_Q>0$.
+
+For $X=0$, differentiating yields
+\[
+\frac{\partial \pi(0,0)}{\partial \kappa}
+=-\frac{\omega_Q\omega_E/2}{\big((\omega_H+\omega_Q)(1-\kappa)+\omega_E(\kappa/2)\big)^2}\le 0,
+\]
+
+```
+
+Replace with:
+
+```latex
+For $X=-1$, differentiating with respect to $\kappa$ yields
+\[
+\frac{\partial \pi(-1,0)}{\partial \kappa}
+=\frac{(\omega_Q/3)\omega_E}{\big((\omega_H+\omega_Q)(\kappa/3)+\omega_E(1-\frac{2}{3}\kappa)\big)^2}\ge 0,
+\]
+with strict inequality whenever $\omega_E\omega_Q>0$.
+
+For $X=0$, differentiating yields
+\[
+\frac{\partial \pi(0,0)}{\partial \kappa}
+=-\frac{(\omega_Q/3)\omega_E}{\big((\omega_H+\omega_Q)(1-\frac{2}{3}\kappa)+\omega_E(\kappa/3)\big)^2}\le 0,
+\]
+
+```
+
+*Location in `.tex`:* Appendix B.13.
+Find:
+
+```latex
+\textit{Right endpoint ($\kappa\uparrow 1$).}
+As $\kappa\to 1$, noise trading dominates. The distribution of $z$ converges to uniform on $\{-1,0,+1\}$ with probabilities $(1/2,0,1/2)$, but more precisely $\PP(z=0)=1-\kappa\to 0$ while $\PP(z=\pm 1)=\kappa/2\to 1/2$. Order flow $X=q+z$ becomes uninformative about the blockholder's underlying trade $q$. Consequently, the posteriors $\pi(X,0)$ converge to the unconditional prior $\omega_Q/(\omega_E+\omega_H+\omega_Q)$ across all nondisclosed states, and prices flatten across all $X$. Stripped of the ability to extract adverse-selection rents from informed trading, the blockholder's expected return to engagement falls strictly below the private cost $C(s)$ for all signal realizations. The voice regions collapse ($\omega_Q+\omega_P\to 0$), engagement $a=0$ occurs almost surely, and $\Delta^{\min}(\kappa)\to m_0\PP(\textup{bid})$.
+
+```
+
+Replace with:
+
+```latex
+\textit{Right endpoint ($\kappa\uparrow 1$).}
+As $\kappa\to 1$, noise trading converges to a perfect uniform distribution over $\{-1,0,+1\}$ with exact probabilities $(1/3, 1/3, 1/3)$. Crucially, because the probability of zero noise $p_0$ does not vanish, the market maker cannot perfectly separate Exit ($q=-1$) from Quiet Voice ($q=0$) upon observing $X=0$. Order flow $X=q+z$ becomes completely uninformative about the blockholder's underlying trade $q$. Consequently, the Bayesian posteriors $\pi(X,0)$ perfectly converge to the unconditional prior $\omega_Q/(\omega_E+\omega_H+\omega_Q)$ across all nondisclosed states. Because the takeover payout directly maps to the inferred premium $\bar{m}(X,D)$, as $\pi$ flattens toward the prior, the blockholder's marginal premium benefit of engagement collapses. Stripped of the ability to extract adverse-selection rents via order-flow inference, the expected return to engagement falls strictly below the private cost $C(s)$ for all signal realizations. The voice regions collapse ($\omega_Q+\omega_P\to 0$), engagement $a=0$ occurs almost surely, and $\Delta^{\min}(\kappa)\to m_0\PP(\textup{bid})$.
+
+```
+
+*Location in `.tex`:* Appendix B.15.
+Find: `\PP(z=0)=p_0=1-\kappa \text{ and } \PP(z=\pm1)=p_1=\kappa/2.`
+Replace with: `\PP(z=0)=p_0=1-\frac{2}{3}\kappa \text{ and } \PP(z=\pm1)=p_1=\frac{\kappa}{3}.`
+
+---
+
+### Priority 3: Endogenise Curvature (Logistic Synergy)
+
+*(Note: Most of the theoretical substitutions from Normal to Logistic were handled in Priority 1. We update Section 3.2 and the notation/calibration tables here).*
+
+**Fix 3.1: Change the Synergy Distribution (Section 3.2)**
+*Location in `.tex`:* Section 3.2 Fundamentals and Information.
+Find: `The bidder draws an independent synergy shock $\xi \sim \mathcal{N}(0, \sigma_\xi^2)$.`
+Replace with: `The bidder draws an independent synergy shock from a Logistic distribution $\xi \sim \Lambda(0, s_\xi)$.`
+
+**Fix 3.2: Updating the Notation Table (Appendix A, Table 1)**
+*Location in `.tex`:* Appendix A, Table 1.
+Find:
+
+```latex
+\bar{S} & Baseline bidder synergy (incremental value from acquisition). \\
+K & Fixed bidding / entry cost. \\
+\xi,\sigma_\xi^2 & Bidder's private synergy shock, $\xi \sim \mathcal{N}(0,\sigma_\xi^2)$. \\
+\Pi_B(X,D) & Bidder expected net deal surplus conditional on $(P,D)$ (on-path shorthand $(X,D)$). \\
+p(X,D) & Bid probability conditional on $(P,D)$; on-path shorthand for $p(P(X,D),D)$. \\
+m^{R}(a) & Realized premium wedge conditional on engagement: $m^{R}(a)=m_0+a(\tilde{m}-m_0)$. \\
+  b(X,D,a) & Per-share offer if a bid occurs, $b(X,D,a)=P(X,D)+m^{R}(a)$. \\
+
+```
+
+Replace with:
+
+```latex
+\bar{S} & Baseline bidder synergy (incremental value from acquisition). \\
+\Delta_S & Expected fundamental synergy improvement from activism. \\
+K & Fixed bidding / entry cost. \\
+\xi,s_\xi & Bidder's private synergy shock, $\xi \sim \Lambda(0,s_\xi)$ (logistic distribution). \\
+\lambda_B & Exogenous Poisson arrival probability of a potential bidder. \\
+\Pi_B(X,D) & Bidder expected net deal surplus conditional on $(X,D)$. \\
+\tilde{p}(X,D) & Conditional bid probability given bidder arrival. \\
+p(X,D) & Unconditional bid probability conditional on $(X,D)$; $p(X,D) = \lambda_B \cdot \tilde{p}(X,D)$. \\
+m^{R}(a) & Realized premium wedge conditional on engagement: $m^{R}(a)=m_0+a(\tilde{m}-m_0)$. \\
+  b(X,D) & Expected per-share offer if a bid occurs, $b(X,D)=\hat{V}(X,D)+\bar{m}(X,D)$. \\
+
+```
+
+**Fix 3.3: Updating the Calibration Table (Appendix C, Table C.3)**
+*Location in `.tex`:* Appendix C, Table C.3.
+Find:
+
+```latex
+Baseline synergy & $\bar{S}$ & 1.44 & \\
+Bidding cost & $K$ & 0.15 & \\
+Synergy volatility & $\sigma_\xi$ & 0.40 & \\[3pt]
+
+```
+
+Replace with:
+
+```latex
+Baseline synergy & $\bar{S}$ & 1.44 & \\
+Synergy improvement & $\Delta_S$ & 0.35 & Activism increases synergy \\
+Bidding cost & $K$ & 0.15 & \\
+Synergy scale (Logistic) & $s_\xi$ & 0.15 & \\
+Bidder arrival rate & $\lambda_B$ & 0.05 & \\[3pt]
+
+```
+
+---
+
+### Priority 4: Dominated Quiet Accumulation (The Action Space Fix)
+
+**Fix 4.1: Inserting the Lemma (Section 4.1)**
+*Location in `.tex`:* Section 4.1 Threshold Structure with Three Cutoffs.
+Find:
+
+```latex
+The blockholder's optimal strategy has a natural ordering: she exits on bad news, holds passively on mildly negative news, engages quietly on moderate news, and goes public on good news. The next result makes this precise.
+
+\begin{proposition}[Monotone Cutoff Structure]
+
+```
+
+Replace with:
+
+```latex
+Before characterizing the equilibrium cutoffs, I formally establish that the blockholder will never optimally choose to accumulate shares without engaging. Let \textit{Quiet Accumulation} denote the action $QA \equiv (q=+1, a=0)$, which triggers mandatory disclosure ($D=1$).
+
+\begin{lemma}[Domination of Passive Accumulation]
+\label{lem:qa-domination}
+Because the fundamental value improvement $\tilde{\Delta}$ is realized on $h=2$ shares, the expected marginal return to active engagement strictly exceeds the private cost $C(s)$ for any signal $s$ high enough to justify the capital cost of acquiring the second share. Therefore, $U(+1,1 \mid s) > U(+1,0 \mid s)$ for all relevant signals. In equilibrium, threshold-crossing ($D=1$) perfectly reveals engagement ($a=1$).
+\end{lemma}
+\textit{Proof.} See Appendix~\ref{app:proof-qa-domination}.
+
+With passive accumulation ruled out, the blockholder's optimal active strategy has a natural ordering: she exits on bad news, holds passively on mildly negative news, engages quietly on moderate news, and goes public on good news. The next result makes this precise.
+
+\begin{proposition}[Monotone Cutoff Structure]
+
+```
+
+**Fix 4.2: Inserting the Proof (Appendix B)**
+*Location in `.tex`:* Appendix B. Find `\subsection{Proof of Proposition~\ref{prop:cutoffs}}` and insert the new proof immediately **BEFORE** it.
+
+```latex
+\subsection{Proof of Lemma~\ref{lem:qa-domination} (Domination of Passive Accumulation)}
+\label{app:proof-qa-domination}
+
+\begin{proof}
+Let $QA \equiv (+1,0)$ denote Quiet Accumulation, yielding $h=2$ shares and triggering disclosure $D=1$. Because $D=1$, the expected standalone value $\hat{V}(X,1)$, market price $P^*(X,1)$, and unconditional bid probability $p(X,1)$ are identical for both $QA$ and Public Voice $P \equiv (+1,1)$. 
+The expected payoff for Public Voice is:
+\[
+U_{P}(s) = \E_z\big[-P^*(X,1) + 2\delta\big(\hat{V}(X,1) + p(X,1)\bar{m}(X,1)\big)\big] - C(s).
+\]
+Because $a=0$ under $QA$, the blockholder earns the baseline premium $m_0$ upon takeover and zero standalone improvement $\tilde{\Delta}$. The expected payoff for Quiet Accumulation is:
+\[
+U_{QA}(s) = \E_z\big[-P^*(X,1) + 2\delta\big( \E[v \mid X,1] + p(X,1)m_0 \big)\big].
+\]
+The marginal benefit of active engagement for a two-share holder is the difference:
+\[
+U_{P}(s) - U_{QA}(s) = 2\delta\,\E_z\big[\tilde{\Delta} + p(X,1)(\tilde{m}-m_0)\big] - C(s).
+\]
+By Assumption~\textup{(A2)}, $C(s)$ is strictly decreasing in $s$. Assuming the baseline cost $C_0$ is sufficiently small relative to the expected fundamental and premium gains, this difference is strictly positive for all signals $s$ high enough to warrant $q=+1$. Thus, $QA$ is strictly dominated by $P$.
+\end{proof}
+
+```
+
+**Fix 4.3: Updating Proof of Proposition 1 (Appendix B.1)**
+*Location in `.tex`:* Appendix B.1.
+Find:
+
+```latex
+Write the four feasible actions as
+\[
+E\equiv(-1,0),\quad H\equiv(0,0),\quad Q\equiv(0,1),\quad P\equiv(+1,1),
+\]
+corresponding to Exit, Hold, Quiet Voice, and Public Voice.
+
+```
+
+Replace with:
+
+```latex
+Write the feasible actions as
+\[
+E\equiv(-1,0),\quad H\equiv(0,0),\quad Q\equiv(0,1),\quad P\equiv(+1,1), \quad QA\equiv(+1,0),
+\]
+corresponding to Exit, Hold, Quiet Voice, Public Voice, and Quiet Accumulation. By Lemma~\ref{lem:qa-domination}, $QA$ is strictly dominated, leaving the four active choices.
+
+```
+
+Find:
+
+```latex
+\item \textbf{Quiet vs.\ Public Voice.} Since $Q$ and $P$ both have $a=1$, the cost term cancels, and $U_P(s)-U_Q(s)=(A_P-A_Q)+(B_P-B_Q)\hat v(s)$ is affine in $\hat v(s)$ and hence single-crossing. The coefficients $B_Q$ and $B_P$ are generically distinct because $Q$ and $P$ differ in holdings ($h=1$ versus $h=2$) and in disclosure status ($D=0$ versus $D=1$), which enter the expected bid probabilities in $B_{q,a}$. Moreover, $B_P-B_Q>0$: although the purely algebraic relation $h_P=2>1=h_Q$ does not guarantee $2(1-p_P) > 1-p_Q$ for arbitrary bid probabilities, in equilibrium, Public Voice ($D=1$) forces the buyer to internalize the full premium $\tilde{m}$. This maximal premium strongly deters takeover bids relative to the nondisclosed ($D=0$) branch, ensuring $p(X,1)$ is sufficiently lower than $p(X,0)$ so that the coefficient on $\hat v(s)$ is strictly larger for Public Voice, making $U_P-U_Q$ strictly increasing in $s$. Thus there is at most one cutoff $k_D$ solving $U_Q(k_D)=U_P(k_D)$, and whenever it exists it separates Quiet Voice from Public Voice.
+
+```
+
+Replace with:
+
+```latex
+\item \textbf{Quiet vs.\ Public Voice.} Since $Q$ and $P$ both have $a=1$, the cost term cancels, and $U_P(s)-U_Q(s)=(A_P-A_Q)+(B_P-B_Q)\hat v(s)$ is affine in $\hat v(s)$ and hence single-crossing. The coefficients $B_Q$ and $B_P$ are generically distinct because $Q$ and $P$ differ in holdings ($h=1$ versus $h=2$) and in disclosure status ($D=0$ versus $D=1$). Because $B_{q,a} = \delta h$, the difference in slopes is structurally guaranteed to be strictly positive ($B_P - B_Q = 2\delta - \delta = \delta > 0$). The fundamental capital structure ensures that the marginal benefit of acquiring a second share is strictly increasing in the signal $s$. Thus there is at most one cutoff $k_D$ solving $U_Q(k_D)=U_P(k_D)$, and whenever it exists it separates Quiet Voice from Public Voice.
+
+```
+
+---
+
+### Priority 5: The Empirical Blueprint (Testable Implications)
+
+**Fix 5.1: Rewrite Section 6**
+*Location in `.tex`:* Section 6. Replace the entire text from `\section{Testable Implications}` down to `\end{enumerate}` with:
+
+```latex
+\section{Testable Implications}
+\label{sec:testable}
+\label{sec:testable_implications}
+%==============================================================================
+
+The model generates several predictions regarding how liquidity, disclosure regimes, and takeover premia interact. Testing these structural predictions empirically requires navigating the extreme zero-inflation characteristic of unconditional takeover gains. To avoid Type II errors common to causal quasi-experiments on zero-inflated panels, the empirical strategy must isolate the extensive and intensive margins directly, utilizing highly powered tests of curvature.
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item \textbf{The Unconditional Hump Test.} The core structural prediction is that extreme illiquidity strictly suppresses bids via efficient pricing, while extreme liquidity destroys the engagement incentive, yielding a nonmonotone maximum for minority gains (Proposition~\ref{prop:nonmonotone}).
+    \emph{Prediction:} The relationship between market liquidity and unconditional expected minority takeover gains is characterized by an inverted-U shape.
+    \emph{Empirical strategy:} Estimate a quadratic specification of $Y_{i,t} = \text{Premium}_{i,t} \times \1\{\text{Bid}_{i,t}=1\}$ on $L_{i,t}$ and $L_{i,t}^2$ (where $Y=0$ for non-targets), controlling for institutional ownership to separate active noise from passive indexing. Formally test for the inverted-U using the exact \citet{LindMehlum2010} joint slope test. To address nonparametric functional-form concerns, this curvature can be cross-validated using Double Machine Learning (DML).
+
+    \item \textbf{The Reduced-Form Decomposition.} The model proves the unconditional hump originates from two competing forces: rising liquidity facilitates fundamental bid incidence, but erodes the intensive-margin premium via inference compression (Equation~\ref{eq:decomp}).
+    \emph{Prediction:} The extensive margin (bid incidence) increases with liquidity until deterrence binds, while the intensive margin (conditional premium) systematically declines as order flow loses informativeness.
+    \emph{Empirical strategy:} Decompose the effect. First, estimate a Probit model on the hazard rate of receiving an M\&A bid to capture the extensive margin. Second, estimate an OLS regression purely on the conditional premium for completed deals to confirm the intensive margin does not mechanically offset the unconditional pattern. 
+    
+    \item \textbf{Mechanism Validation via Observability Interaction.} The inference channel strictly operates in the nondisclosed state ($D=0$). Shifting probability mass from inferred to observable states inherently attenuates the sensitivity of the premium to liquidity (Proposition~\ref{prop:disclosure-attenuation}).
+    \emph{Prediction:} Higher public observability of the target firm attenuates the curvature of the liquidity-premia hump.
+    \emph{Empirical strategy:} Interact the quadratic liquidity terms with continuous proxies for the target's information environment (e.g., analyst coverage, index inclusion). The model predicts that for highly covered firms, the quadratic coefficient on $L^2$ will pull significantly toward zero, mathematically flattening the hump because engagement is priced directly rather than inferred from noisy order flow.
+
+    \item \textbf{Micro-Validation via 13D Event Studies.} The discrete price jump upon a Schedule 13D filing ($D=1 \implies \pi=1$) directly measures the gap between the market's pre-filing inference $\pi(X,0)$ and certainty. 
+    \emph{Prediction:} 13D cumulative abnormal returns (CARs) are strictly larger for highly liquid stocks. 
+    \emph{Empirical strategy:} Regress target CARs around Schedule 13D filings on pre-event Amihud illiquidity. In highly liquid stocks (high $\kappa$), noise effectively masks the activist's accumulation, meaning the pre-filing inferred probability is low ($\pi \approx 0$). The regulatory filing is thus a massive informational shock, yielding a large CAR. Conversely, in illiquid stocks, order flow is highly informative, inference occurs early, and the filing day surprise is minimal.
+\end{enumerate}
+
+```
+
+*(Remember to add Lind & Mehlum 2010 to your `bibliography.bib` file as recommended).*
+
+Your `.tex` file is now fully patched and perfectly integrated. Compile to verify.

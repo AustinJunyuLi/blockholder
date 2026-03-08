@@ -1,0 +1,622 @@
+% Presenter Companion
+% Dual-use seminar memo: podium path + hardball defense
+% Compile: xelatex presenter_companion.tex
+\documentclass[9pt,a4paper]{extarticle}
+
+\usepackage{fontspec}
+\setmainfont{Fira Sans}
+\setsansfont{Fira Sans}
+\setmonofont{Fira Mono}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[margin=1.45cm]{geometry}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{pagecolor}
+
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\setlist{nosep,leftmargin=1.25em}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue!60!black
+}
+
+\definecolor{ptblue}{HTML}{4477aa}
+\definecolor{ptrose}{HTML}{cc6677}
+\definecolor{ptgreen}{HTML}{228833}
+\definecolor{softgray}{HTML}{f5f5f5}
+
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\vspace{-0.25em}\hrule\vspace{0.25em}]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing{\section}{0pt}{0.8em}{0.35em}
+\titlespacing{\subsection}{0pt}{0.45em}{0.2em}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newcommand{\say}[1]{\textbf{#1}}
+\newcommand{\avoid}[1]{\textcolor{ptrose}{#1}}
+\newcommand{\safe}[1]{\textcolor{ptgreen!60!black}{#1}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Presenter Companion}\\[0.2em]
+{\normalsize Liquidity, Activism Disclosure, and Takeover Premia}\\[0.1em]
+{\footnotesize Dual-use memo: 20-minute podium path + hardball theory defense}
+\end{center}
+
+\section{Podium Path}
+
+\textbf{Opening sentence.}
+This paper studies how blockholder trading and disclosure shape the public information environment and, through that channel, takeover outcomes for minority shareholders.
+
+\smallskip
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{0.11\textwidth}P{0.11\textwidth}P{0.23\textwidth}Y@{}}
+\toprule
+\textbf{Slides} & \textbf{Time} & \textbf{Job} & \textbf{What to say} \\
+\midrule
+1 & 0:00--0:30 & Title & This is a tractable first model of activist trading, disclosure, and takeover feedback. \\
+2--4 & 0:30--3:30 & Motivation + gap + disclosure & The gap is that exit/voice, microstructure, and corporate control are usually studied separately; disclosure thresholds create the empirical split I use in the model. \\
+5--7 & 3:30--7:30 & Notation + timeline + pricing & The model is feed-forward: cutoffs generate actions, actions plus noise generate public signals, and those signals determine beliefs, prices, and bid probabilities. \\
+8 & 7:30--9:00 & Behavioral object & The equilibrium object is an ordered cutoff map from the private signal into Exit, Hold, Quiet Voice, and Public Voice. \\
+9--10 & 9:00--11:30 & Inference + prices & The key transmission channel is $(X,D)\rightarrow\pi\rightarrow(\hat V,\bar m,p)\rightarrow P_{\textup{post}}$. \\
+11 & 11:30--12:30 & Baseline pricing picture & In the baseline disclosed branch, prices are flat because public intervention is observed; the nondisclosed branch is where liquidity changes inference. \\
+12--14 & 12:30--17:30 & Main result + decomposition + disclosure & The hump is a baseline numerical equilibrium result. Analytically, I can decompose minority gains into a base component and an activism-related component, and disclosure attenuates the latter by shifting mass into observed states. \\
+15 & 17:30--19:00 & Theory status & I want to be explicit about what is theorem-level, what is numerical, and what is still heuristic. \\
+16 & 19:00--20:00 & Close & Takeaway: the paper gives a disciplined first framework for how activist trading and disclosure feed into takeover outcomes. \\
+\bottomrule
+\end{tabularx}
+}
+
+\textbf{Reset line if interrupted.}
+The core mechanism is simple: activist trading changes public signals, disclosure changes whether activism is inferred or observed, and takeover outcomes respond to those public signals.
+
+\textbf{If time gets tight.}
+Compress Slides 10--11 into one sentence: prices are feed-forward, and the nondisclosed branch is the only place where liquidity changes beliefs. Then go straight to Slides 12--15.
+
+\section{Safe Claims and Red Lines}
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{0.23\textwidth}P{0.38\textwidth}Y@{}}
+\toprule
+\textbf{Topic} & \textbf{Safe phrasing} & \textbf{Do not say} \\
+\midrule
+Core contribution & \safe{A tractable first model of blockholder trading, disclosure, and takeover feedback through public market signals.} & \avoid{A complete general theory of price feedback in M\&A.} \\
+Disclosed branch & \safe{In the baseline action set, crossing the disclosure threshold is the Public Voice action, so $D=1$ reveals public intervention.} & \avoid{The model proves from primitives that any threshold crossing must reveal activism globally.} \\
+Signal interpretation & \safe{The private signal should be read as intervention value / governance opportunity / sale potential.} & \avoid{It is just raw firm quality or generic underperformance.} \\
+Hump & \safe{The hump is a baseline numerical equilibrium result delivered by the calibration.} & \avoid{The hump is a fully general theorem of the primitives.} \\
+Existence & \safe{Existence is stated under maintained regularity conditions.} & \avoid{I have a global closed-form equilibrium existence theorem with no caveats.} \\
+Uniqueness & \safe{Uniqueness is numerical only: multi-start convergence selects the same fixed point in the reported exercises.} & \avoid{I prove uniqueness analytically.} \\
+Disclosure policy & \safe{The partial-equilibrium attenuation result is analytical; the broader GE disclosure trade-off is heuristic.} & \avoid{I solve the regulator's full optimal disclosure problem.} \\
+Welfare & \safe{Minority-gains accounting is the central object; broader welfare accounting is preliminary and backup-only.} & \avoid{Intermediate liquidity is socially optimal.} \\
+Price feedback & \safe{The bidder responds to public market signals generated by trading; prices are derived from those same public beliefs.} & \avoid{The bidder's formal problem is fully price-sufficient in the current draft.} \\
+\bottomrule
+\end{tabularx}
+}
+
+\section{Slide-by-Slide Talking Notes}
+
+\textbf{Usage.} These are richer notes than the podium path. Each entry has \say{emphasis} (what to drive home), \avoid{caution} (what not to say or common misreadings), and a transition line to the next slide.
+
+\subsection{Slides 1--4: Setup and motivation}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.06\textwidth}P{0.14\textwidth}P{0.35\textwidth}P{0.37\textwidth}@{}}
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endhead
+1 & Title &
+\say{Frame immediately:} this is about how activist trading and disclosure change what the market and bidders can learn, and how that feeds into takeover outcomes for minority shareholders. &
+\avoid{Don't open with the model.} Open with the economics. \\
+
+2 & Motivation &
+\say{Three facts, one question.} Brav et al.\ (2008): activism leads to control events. Greenwood \& Schor (2009): activist returns come from takeovers. Back et al.\ (2018): pre-filing trading is informative. Highlight that the question is about \emph{minority shareholders}, not the activist's returns. &
+\avoid{Don't say ``I explain activist returns.''} The paper explains how liquidity and disclosure shape minority takeover \emph{premia}. Transition: ``These facts motivate a model that connects three literatures.'' \\
+
+3 & Three Literatures &
+\say{Spend time here.} Point to each column: exit/voice (Coffee vs.\ Maug debate), microstructure (order-flow inference and feedback), corporate control (free-rider problem and activism--M\&A link). Then read the gap box aloud. See the Literature Contribution section below for detailed talking points. &
+\avoid{Don't list authors mechanically.} Tell the story: ``these three strands are usually studied in isolation; this paper unifies them.'' Transition: ``What makes the model tractable is a regulatory feature: disclosure thresholds.'' \\
+
+4 & Disclosure &
+\say{This is the institutional anchor.} SEC 13D at 5\%, UK at 3\%. Crossing the threshold makes activism publicly observable. The two columns (Quiet Voice vs.\ Public Voice) define the two information regimes. Emphasize that this is a \emph{modeling choice rooted in regulation}, not an exotic assumption. &
+\avoid{Don't say ``$D=1$ proves activism is always revealed.''} Say ``in the baseline action set, crossing the threshold is the Public Voice action, so $D=1$ reveals public intervention.'' Transition: ``Let me set up the notation.'' \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection{Slides 5--8: Model setup}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.06\textwidth}P{0.14\textwidth}P{0.35\textwidth}P{0.37\textwidth}@{}}
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endhead
+5 & Notation &
+\say{Color-coding matters.} Blue = choices, orange = observables, green = outcomes. Point to the mechanism chain diagram at the bottom: cutoffs $\to$ signals $\to$ beliefs $\to$ prices. This diagram is the roadmap for the whole talk. &
+Don't linger. 45 seconds max. Transition: ``Here is the timeline.'' \\
+
+6 & Timeline &
+\say{Two things to highlight.} (i) The action menu: four actions, each a $(q,a)$ pair. (ii) The noise distribution is simple: $z\in\{-1,0,+1\}$ with intensity $\kappa$. Mention that the bidder conditions on $(X,D)$ directly --- no price injectivity needed. &
+\avoid{Don't say ``this is like Kyle.''}  Say ``discrete trades let me separate observed from inferred activism cleanly.'' Transition: ``Given these actions and signals, here is how prices are determined.'' \\
+
+7 & Feed-Forward Pricing &
+\say{The key structural insight:} beliefs $\to$ bids $\to$ prices. No circular price fixed point. The post-disclosure price is a discounted sum of standalone value plus expected takeover gains. Point to the formula and say it is ``feed-forward: I compute beliefs first, then prices.'' &
+\avoid{Don't claim full price sufficiency.} The bidder conditions on $(X,D)$, not on prices. Transition: ``The equilibrium object is an ordered cutoff map.'' \\
+
+8 & Proposition 1 &
+\say{The equilibrium is simple.} Four regions on the signal line. Show the figure: exit (left), hold, quiet voice, public voice (right). Emphasize: ``The ordering is not assumed, it comes from single-crossing of the payoff differences.'' Mention that $D=1$ iff $q=+1$, so Hold and Quiet Voice share the same order-flow distribution. &
+\avoid{Don't oversell existence/uniqueness here.} Say ``characterized under maintained conditions'' and point to B2 if pressed. Transition: ``Given these cutoffs, here is how the market learns.'' \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection{Slides 9--11: Inference and prices}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.06\textwidth}P{0.14\textwidth}P{0.35\textwidth}P{0.37\textwidth}@{}}
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endhead
+9 & Bayesian Inference &
+\say{Two punchlines.} (i) On the disclosed branch, $\pi(X,1)=1$ for all $X$ --- inference is trivial. (ii) On the nondisclosed branch, $X$ moves $\pi$ through Bayes' rule and $\kappa$ enters the formulas. This asymmetry is what drives the disclosure attenuation result. &
+\avoid{Don't get lost in the formulas.} Point to the bottom line: ``inference channel: $X\to\pi\to\bar m\to p\to\Delta^{\min}$. Liquidity enters only through inference on $D=0$.'' Transition: ``These beliefs feed into prices.'' \\
+
+10 & Price Decomposition &
+\say{The decomposition is exact.} Three terms in $P_{\textup{post}}$: fundamentals, standalone channel (engagement improves value), takeover channel (bid probability times premium). Under net deterrence (A5), higher inferred engagement deters bids, creating the tension. &
+Point to both columns: standalone channel pushes prices up with $\pi$, takeover channel pushes bid probability \emph{down} with $\pi$. This is the core tension that generates the non-monotonicity. Transition: ``Let me show you what this looks like at baseline.'' \\
+
+11 & Baseline Prices &
+\say{Walk through the figure.} (i) Disclosed branch: prices are flat across $X$ because $\pi=1$ always and $\mu_P$ is constant. (ii) Nondisclosed branch: prices move with $X$ because $\pi$ changes. (iii) Under A5, bids are fully deterred when $D=1$. Point to the table for the numbers. &
+\avoid{Don't skip the flat-price observation.} It is the key to why only the nondisclosed branch carries liquidity sensitivity. Transition: ``Now the main result.'' \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection{Slides 12--16: Results and closing}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.06\textwidth}P{0.14\textwidth}P{0.35\textwidth}P{0.37\textwidth}@{}}
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Slide} & \textbf{Title} & \textbf{Emphasis and talking points} & \textbf{Caution / transition} \\
+\midrule
+\endhead
+12 & Main Result &
+\say{This is the headline.} Minority takeover gains are hump-shaped in $\kappa$. \say{Narrate the figure:} at low $\kappa$, order flow reveals the action perfectly; at high $\kappa$, noise camouflages exit but also weakens inference about activism. The peak is at intermediate liquidity. &
+\avoid{Don't call this a theorem.} Say ``baseline numerical equilibrium result.'' If asked why it is not a theorem: ``the decomposition is analytic; the interior peak is quantitative.'' Transition: ``Let me show you the two forces behind this.'' \\
+
+13 & Decomposition &
+\say{The decomposition makes the hump transparent.} $\Delta^{\textup{base}}$ rises (more bids), $\Delta^{\textup{act}}$ falls (weaker inference compresses the activism premium). Their sum is hump-shaped. Point to both curves in the figure. &
+Say ``$\Delta^{\textup{base}}$ is the extensive margin --- whether a bid occurs. $\Delta^{\textup{act}}$ is the intensive margin --- how much extra premium activism generates.'' Transition: ``Can disclosure policy change this?'' \\
+
+14 & Disclosure Attenuation &
+\say{This is the policy-relevant analytical result.} Holding cutoffs fixed, only the nondisclosed component depends on $\kappa$. Shifting probability mass toward disclosure attenuates liquidity sensitivity. UK-style stricter thresholds reduce it; no-disclosure amplifies it. &
+\avoid{Don't call this a GE result.} It is partial-equilibrium: cutoffs are held fixed. The GE trade-off (transparency vs.\ deterrence) is heuristic. Transition: ``Let me be explicit about what is proved and what is numerical.'' \\
+
+15 & Theory Status &
+\say{Intellectual honesty slide.} Read both columns. Left: what is analytical (cutoffs, posteriors, decomposition, PE disclosure). Right: what is numerical (hump, uniqueness, GE disclosure, welfare). &
+\say{Don't rush this.} This slide builds credibility. If the audience sees you being honest about limitations, they trust the analytical claims more. Transition: ``To summarize.'' \\
+
+16 & Summary &
+\say{Four boxes, four sentences.} Mechanism, baseline result, policy relevance, next model. Close with: ``the paper gives a disciplined first framework for how activist trading and disclosure feed into takeover outcomes.'' &
+\avoid{Don't introduce new content.} Restate the contribution cleanly. \\
+\bottomrule
+\end{longtable}
+}
+
+\section{Literature Contribution Cheat Sheet}
+
+\textbf{Usage.} When Slide 3 comes up, or when someone asks ``how does this relate to X?'', use these talking points. Organized by the three columns on Slide 3.
+
+\subsection{Strand 1: Exit / Voice}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.20\textwidth}P{0.32\textwidth}P{0.42\textwidth}@{}}
+\toprule
+\textbf{Paper} & \textbf{What they do} & \textbf{What we add / how we differ} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Paper} & \textbf{What they do} & \textbf{What we add / how we differ} \\
+\midrule
+\endhead
+
+Coffee (1991), Bhide (1993) &
+Liquidity weakens governance: blockholders exit rather than engage. ``Wall Street Walk'' as abandonment. &
+\say{We formalize this:} exit is one of four actions; Coffee's logic is the left tail of the signal distribution. But exit is also informative --- the market can infer from sell flow that the blockholder left, which itself affects beliefs and prices. \\
+
+Maug (1998) &
+Liquidity \emph{facilitates} voice by easing stake accumulation. Reverses Coffee/Bhide. &
+\say{We reconcile these.} The direction of the liquidity effect depends on the information regime. When activism is disclosed, Maug's channel (easier acquisition) operates. When activism is inferred, Coffee's channel (weaker inference = weaker governance signal) dominates. The model shows \emph{both can be right} depending on the disclosure regime. \\
+
+Edmans (2009) &
+Exit \emph{is} governance: selling on bad information punishes managers through equity-linked compensation (``governance through trading''). &
+\say{We extend:} Edmans studies exit as the governance mechanism. We add voice alongside exit and ask how the choice between them feeds into \emph{takeover} outcomes. Our exit channel is informational (sell flow reveals pessimism) rather than compensatory. \\
+
+Edmans \& Manso (2011) &
+Multiple blockholders choose between trading and intervention. &
+We focus on one blockholder but add disclosure thresholds and takeover feedback --- the mechanisms they abstract from. Their multi-blockholder setup is a natural extension of our framework. \\
+
+Edmans, Fang \& Zur (2013) &
+Empirical: liquidity shifts blockholders toward exit and away from voice. Supports Coffee/Bhide empirically. &
+\say{Our model predicts this pattern} through the cutoff structure: higher $\kappa$ can compress the Quiet Voice region (it collapses at $\kappa\approx 0.63$ in baseline). But the \emph{welfare consequences} are non-trivial because of the hump. \\
+\bottomrule
+\end{longtable}
+}
+
+\textbf{Elevator version for Slide 3.} ``Coffee and Bhide say liquidity hurts governance; Maug says it helps. Edmans shows exit itself is governance. Our model reconciles them: the direction depends on the disclosure regime, and the welfare metric --- minority takeover gains --- peaks at intermediate liquidity.''
+
+\subsection{Strand 2: Microstructure and Feedback}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.20\textwidth}P{0.32\textwidth}P{0.42\textwidth}@{}}
+\toprule
+\textbf{Paper} & \textbf{What they do} & \textbf{What we add / how we differ} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Paper} & \textbf{What they do} & \textbf{What we add / how we differ} \\
+\midrule
+\endhead
+
+Kyle (1985) &
+Continuous-time informed trading with noise traders; prices aggregate information through a linear equilibrium. &
+We use discrete order flow instead. This is a tractability choice: it lets us derive posteriors in closed form and avoid a price-function fixed point. Mentioning Kyle helps the microstructure audience locate the paper. \\
+
+Glosten \& Milgrom (1985) &
+Sequential trading with bid-ask spreads; order flow reveals information. &
+Same family. Our contribution is not in the market microstructure per se but in connecting order-flow inference to \emph{governance and takeover} outcomes. \\
+
+EGJ (2015) &
+\say{Closest technical antecedent.} Discrete order-flow framework with Bayesian updating and feedback from prices to takeover decisions. Shows that feedback creates limits to arbitrage. &
+\say{Key departure:} EGJ2015 has an informed trader but no exit/voice choice and no disclosure regime. We add (i) the blockholder's endogenous action choice (exit, hold, quiet voice, public voice) and (ii) the disclosure partition ($D=0$ vs.\ $D=1$). This creates two information regimes that are absent in EGJ. \\
+
+EGJ (2012) &
+Stock prices affect takeover incidence: low prices invite bids. Feedback from prices to real decisions. &
+We extend the feedback channel: the bidder conditions on $(X,D)$, which captures both order-flow inference \emph{and} whether activism was disclosed. The activism channel creates a new force that can overturn the simple low-price-invites-bids logic. \\
+
+Bond, Edmans \& Goldstein (2012) &
+Survey of real effects of financial markets. &
+We are squarely in this research program. Safe to cite as ``the survey that organizes the feedback literature we contribute to.'' \\
+
+Dow, Goldstein \& Guembel (2017) &
+Information production incentives when prices affect real investment. &
+Provides theoretical foundations for our structure: agents produce information because prices feed back to real decisions. Our contribution is the specific governance channel (activism + disclosure). \\
+\bottomrule
+\end{longtable}
+}
+
+\textbf{Elevator version for Slide 3.} ``EGJ (2015) gives us discrete order flow with takeover feedback. We add governance choice and disclosure. That creates two information regimes and the non-monotonicity.''
+
+\subsection{Strand 3: Corporate Control and Activism}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.20\textwidth}P{0.32\textwidth}P{0.42\textwidth}@{}}
+\toprule
+\textbf{Paper} & \textbf{What they do} & \textbf{What we add / how we differ} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Paper} & \textbf{What they do} & \textbf{What we add / how we differ} \\
+\midrule
+\endhead
+
+Grossman \& Hart (1980) &
+Free-rider problem: dispersed shareholders hold out for full value, squeezing bidder surplus. &
+\say{Justifies our welfare metric.} If minority shareholders free-ride, the takeover premium is their primary channel for capturing governance gains. That is why $\Delta^{\min}$ is the right object. \\
+
+Brav, Jiang, Partnoy \& Thomas (2008) &
+Foundational empirics: hedge fund activism often leads to control events. Documents the activism--takeover link. &
+\say{First motivating fact.} We provide a theory of \emph{how} the activism--takeover link works through market signals. Brav et al.\ document the correlation; we offer a mechanism. \\
+
+Greenwood \& Schor (2009) &
+A large share of activist \emph{returns} comes from takeover outcomes. &
+\say{Second motivating fact.} If activist returns are driven by takeovers, then understanding how liquidity and disclosure shape takeover premia is first-order. That is exactly what our model does. \\
+
+Back et al.\ (2018) &
+Activist in continuous-time Kyle: studies liquidity and information efficiency in activist campaigns. &
+\say{Complementary, not competing.} Back et al.\ study the activist's trading strategy in a richer dynamic setting but do not have the disclosure regime or the bidder entry conditional on market signals. We are static but add the disclosure partition and takeover feedback. \\
+
+Brav, Dasgupta \& Mathews (2022) &
+Wolf pack activism: coordinated action among multiple activists. &
+Orthogonal to our single-blockholder benchmark. Multi-activist coordination is a natural extension but requires strategic interaction in both trading and engagement that we abstract from. \\
+\bottomrule
+\end{longtable}
+}
+
+\textbf{Elevator version for Slide 3.} ``Brav et al.\ (2008) and Greenwood--Schor (2009) show that activism and takeovers are empirically linked. Back et al.\ (2018) study activist trading dynamics. We fill the missing piece: how does the \emph{information environment} --- disclosure, inference, liquidity --- shape the takeover premia that minority shareholders receive?''
+
+\subsection{Quick-draw lines for common ``how does this relate to X'' questions}
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{0.24\textwidth}Y@{}}
+\toprule
+\textbf{If someone says\ldots} & \textbf{Say\ldots} \\
+\midrule
+``Isn't this just Edmans (2009)?'' & ``Edmans studies exit as governance via compensation effects. I study exit \emph{alongside} voice, with disclosure and takeover feedback. The overlap is the exit option; the contribution is the full action space plus the disclosure partition.'' \\
+``Isn't this just EGJ (2015)?'' & ``EGJ gives me the discrete order-flow and takeover-feedback framework. My departure is the blockholder's endogenous four-action choice and the disclosure regime. Those create the two information regimes that generate the non-monotonicity.'' \\
+``How is this different from Back et al.\ (2018)?'' & ``Back et al.\ embed an activist in a continuous-time Kyle model --- richer dynamics but no disclosure partition and no bidder entry conditional on market signals. I am static but add both, which is what drives the results.'' \\
+``What about Collin-Dufresne and Fos?'' & ``Their work on informed trading by activists is empirically complementary. My model gives a structural channel for \emph{why} pre-filing trading matters: it shapes the inference problem that feeds into takeover outcomes.'' \\
+``Where is the empirical test?'' & ``The model yields four testable predictions, including a hump test (Lind--Mehlum) and a 13D CAR interaction. The current draft focuses on the theory; empirical implementation is the natural next step.'' \\
+\bottomrule
+\end{tabularx}
+}
+
+\section{Figure Narration Guide}
+
+\textbf{Usage.} When you arrive at a slide with a figure, follow this script. Point to the relevant parts as you speak.
+
+{\footnotesize
+\begin{longtable}{@{}P{0.11\textwidth}P{0.18\textwidth}P{0.65\textwidth}@{}}
+\toprule
+\textbf{Slide} & \textbf{Figure} & \textbf{How to walk through it} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Slide} & \textbf{Figure} & \textbf{How to walk through it} \\
+\midrule
+\endhead
+
+8 & Cutoff structure &
+``The $x$-axis is the private signal $s$. The four colored regions show the action: exit (rose) on the left, then hold (sand), quiet voice (cyan), and public voice (teal) on the right. The cutoffs $k_1$, $k_0$, $k_D$ are the boundaries. The ordering comes from single-crossing, not from assuming it.'' \\
+
+11 & Baseline prices &
+``Two panels: nondisclosed ($D=0$) and disclosed ($D=1$). On the disclosed branch, prices are flat --- once activism is observed, order flow adds no information. On the nondisclosed branch, prices rise with $X$ because higher flow implies more likely engagement. Point out that bids are fully deterred under $D=1$ (the table shows $p=0.00$ for all $D=1$ rows).'' \\
+
+12 & Nonmonotone $\Delta^{\min}$ &
+``$x$-axis is $\kappa$ (liquidity). $y$-axis is minority takeover gains. The curve rises, peaks, then falls. At low $\kappa$: actions are nearly revealed, but adverse selection is severe and the exit region is wide. At intermediate $\kappa$: camouflage helps but inference still works. At high $\kappa$: noise overwhelms inference and the activism premium erodes. The peak is the baseline result.'' \\
+
+13 & Decomposition &
+``Same $x$-axis. Now I show the two components. The \emph{blue} curve ($\Delta^{\textup{base}}$) rises --- more liquidity increases bid incidence. The \emph{red} curve ($\Delta^{\textup{act}}$) falls --- more noise weakens the activism premium. Their sum (black) is hump-shaped.'' \\
+
+14 & Disclosure slopes &
+``This figure shows how the slope $\partial\Delta^{\textup{act}}/\partial\kappa$ changes across disclosure regimes. The baseline regime has a steep negative slope. Stricter disclosure (UK-style) flattens it. No disclosure amplifies it. This is the partial-equilibrium attenuation result.'' \\
+\bottomrule
+\end{longtable}
+}
+
+\section{Transition Lines and Audience Hooks}
+
+\subsection{Bridge sentences between major sections}
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{0.16\textwidth}P{0.16\textwidth}Y@{}}
+\toprule
+\textbf{From} & \textbf{To} & \textbf{Bridge sentence} \\
+\midrule
+Motivation & Literatures & ``These facts motivate a model that connects three literatures that are usually studied in isolation.'' \\
+Literatures & Disclosure & ``What makes the model tractable is a regulatory feature: disclosure thresholds create two information regimes.'' \\
+Disclosure & Model setup & ``Let me set up the model that operationalizes this partition.'' \\
+Prop 1 & Inference & ``Given these cutoffs, here is how the market updates its beliefs.'' \\
+Inference & Prices & ``These beliefs feed directly into prices through a feed-forward structure.'' \\
+Prices & Main result & ``Now the main result: what happens to minority takeover gains as we vary liquidity?'' \\
+Main result & Decomposition & ``The hump becomes transparent when you decompose it into two forces.'' \\
+Decomposition & Disclosure & ``Can disclosure policy change this relationship?'' \\
+Disclosure & Theory status & ``Let me be explicit about what is proved and what is numerical.'' \\
+Theory status & Summary & ``To summarize the contribution.'' \\
+\bottomrule
+\end{tabularx}
+}
+
+\subsection{Audience-specific hooks}
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{0.15\textwidth}P{0.22\textwidth}Y@{}}
+\toprule
+\textbf{Audience} & \textbf{Hook (drop early)} & \textbf{Where to emphasize} \\
+\midrule
+Corporate finance &
+``SEC 13D filing creates two information regimes that reshape minority takeover premia.'' &
+Slides 2, 4, 14. Emphasize the institutional anchor (5\% threshold) and the welfare metric ($\Delta^{\min}$ as minority-shareholder object). Cite Greenwood--Schor and Grossman--Hart. \\
+
+Microstructure &
+``Discrete order flow plus disclosure generates a non-trivial inference problem without a price fixed point.'' &
+Slides 6--7, 9. Emphasize the feed-forward pricing structure, the within-regime comparative statics ($\partial\pi/\partial\kappa$), and the contrast with Kyle/EGJ. \\
+
+Theory &
+``Single-crossing delivers the cutoff structure; the numerical equilibrium is the novel quantitative object.'' &
+Slides 8, 15. Be candid about what is analytical versus numerical. Emphasize the decomposition as the clean analytical piece. Theory audiences respect honesty about limitations. \\
+
+Empirical &
+``Four testable predictions: the hump shape, 13D CAR interaction, sensitivity to noise-trader intensity, and the disclosure-regime split.'' &
+Slides 12, 14, 15. Mention the Lind--Mehlum (2010) U-shape test. Acknowledge that the empirical test is future work. \\
+\bottomrule
+\end{tabularx}
+}
+
+\section{Hardball Theory Defense}
+
+\subsection{Core framing and modeling choices}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.24\textwidth}P{0.22\textwidth}P{0.48\textwidth}@{}}
+\toprule
+\textbf{Objection} & \textbf{Short answer} & \textbf{If pushed} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Objection} & \textbf{Short answer} & \textbf{If pushed} \\
+\midrule
+\endhead
+What is the paper in one sentence? &
+A tractable first model where activist trading and disclosure shape public signals that feed into takeover outcomes. &
+The paper combines three ingredients that are often separated: exit/voice choice, order-flow inference, and bidder response to public market signals. The novel object is the link from activist trading and disclosure to minority takeover gains. \\
+
+Is this really a takeover-feedback paper? &
+Yes, but the right description is public-market-signal feedback into takeover behavior. &
+I would not oversell full price sufficiency. In the formal model the bidder conditions on the public state $(X,D)$, and prices are computed from the same beliefs. So the mechanism is squarely in the takeover-feedback family, but the safe phrase is public-market-signal feedback. \\
+
+Why discrete trading? &
+To keep disclosure and inference transparent. &
+Discrete trade sizes let me separate observed from inferred activism cleanly, derive posteriors in closed form, and avoid a Kyle-style price-function fixed point. That is a tractability choice, not a claim that the economics require literal one-unit trades. \\
+
+Why not continuous-time Kyle or Duffie? &
+That is the next-model path, not what this draft is trying to solve. &
+Once I add dynamic trading, filtering, and threshold-triggered disclosure, the state space becomes much harder. The current draft isolates the cross-sectional mechanism first. I view a continuous-time version as the natural second-generation model, not something this draft pretends to have finished. \\
+
+Why does Quiet Voice not involve buying? &
+Because the baseline split is below-threshold engagement versus threshold-crossing public intervention. &
+Quiet Voice is meant to capture engagement without a new public accumulation step. Public Voice is the threshold-crossing action. That parsimonious action set is what makes the two information regimes sharp. \\
+
+Isn't $D=1 \Rightarrow a=1$ just assumed? &
+In the baseline action set, yes: it is a modeling choice, not the main theorem. &
+That is the right honest answer. Public Voice is defined as the threshold-crossing action, so the disclosed branch is a baseline observability regime. I do not want to lean on a global dominance proof that the current draft does not fully establish. \\
+
+Why interpret the signal as intervention value rather than firm quality? &
+Because the action problem is about whether intervention is worth doing. &
+That interpretation fits the cost function, the engagement choice, and the M\&A mapping much better than “good versus bad firm.” The paper is about when intervention is privately worthwhile and how markets infer it. \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection{Mathematical status}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.24\textwidth}P{0.22\textwidth}P{0.48\textwidth}@{}}
+\toprule
+\textbf{Objection} & \textbf{Short answer} & \textbf{If pushed} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Objection} & \textbf{Short answer} & \textbf{If pushed} \\
+\midrule
+\endhead
+What exactly is proved analytically? &
+Cutoff structure, posterior formulas on reached information sets, price decomposition, and the partial-equilibrium disclosure attenuation logic. &
+Slide 15 is your friend here. Keep the answer disciplined: equilibrium organization, within-model posterior algebra, feed-forward pricing, and the PE disclosure result are the analytical pieces. Do not blur those with the hump or welfare. \\
+
+Do you prove equilibrium existence? &
+Existence is stated under maintained regularity conditions. &
+The safe formulation is that the model has an equilibrium under the regularity conditions stated in the paper. I would not volunteer stronger topological claims than the text now supports. \\
+
+Do you prove uniqueness? &
+No. Uniqueness is numerical only. &
+The solver converges to the same fixed point from multiple initializations in the reported exercises, which is reassuring for the baseline and sensitivity runs. But that is computational selection, not an analytic uniqueness theorem. \\
+
+Is Proposition 1 too narrow? &
+It characterizes the baseline cutoff equilibrium class studied in the paper. &
+The useful point for the seminar is that the equilibrium object is an ordered action map. If someone presses on equilibrium classes outside that family, say that the paper studies the monotone cutoff class because it matches the economics of the single-index private signal and yields a tractable solved benchmark. \\
+
+Are the posterior formulas fragile? &
+They are exact for the reached information sets in the baseline model. &
+For $D=0$, the formulas come directly from Bayes' rule under the action regions and the discrete noise distribution. For $D=1$, the baseline action set pins down public intervention. The clean answer is: the algebra is exact within the maintained model. \\
+
+Is the hump theorem analytic? &
+No. The hump is numerical. &
+The decomposition is analytic, but the interior peak in minority gains is established in the baseline calibration and supported by sensitivity exercises. I would not call it anything stronger than a baseline numerical equilibrium result. \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection{Economics, policy, and limitations}
+
+{\footnotesize
+\begin{longtable}{@{}P{0.24\textwidth}P{0.22\textwidth}P{0.48\textwidth}@{}}
+\toprule
+\textbf{Objection} & \textbf{Short answer} & \textbf{If pushed} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Objection} & \textbf{Short answer} & \textbf{If pushed} \\
+\midrule
+\endhead
+What economically drives the hump? &
+In the baseline calibration, the base takeover component rises while the activism-related component falls. &
+Say it exactly as the slides do: liquidity can raise bid incidence on the base margin while simultaneously compressing the activism-specific informational premium. The hump comes from that quantitative interaction, not from a closed-form sign theorem. \\
+
+Why should disclosure flatten liquidity sensitivity? &
+Because only the nondisclosed branch carries inference sensitivity to liquidity in the baseline model. &
+Once activism is disclosed, the posterior is pinned down in the baseline action set. So pushing probability mass from inferred states into observed states mechanically attenuates how much liquidity can move the activism-related premium component. \\
+
+What do you mean by welfare here? &
+Minority takeover gains are the main object; broader welfare is preliminary. &
+Minority gains are economically meaningful because the paper is about takeover premia received by outside shareholders. But total surplus and minority gains are not the same object. That is why the broader welfare accounting stays in backup and is not a main claim. \\
+
+Is the GE disclosure result solved? &
+No. It is a heuristic trade-off, not a solved GE policy theorem. &
+The useful line is that partial-equilibrium disclosure attenuation is sharp, while the broader regulator problem combines transparency and deterrence effects that the current draft only discusses heuristically. \\
+
+Why only one blockholder? &
+Because one blockholder is the clean benchmark for the mechanism. &
+Multiple activists create strategic interaction in both trading and engagement. That is an important extension, but it is orthogonal to the baseline point that disclosure changes whether the market and bidder infer or observe intervention. \\
+
+Why no dynamic bidder or bid schedule? &
+Because the current draft isolates the public-signal channel into bid incidence and expected premia. &
+If pressed, say plainly that richer bidder behavior is part of the next model. The present draft already has enough structure to ask how activist trading changes public takeover conditions without solving the full dynamic bargaining problem. \\
+
+What is the next model if this gets pushed further? &
+Dynamic trading, richer bidder behavior, and continuous-time information aggregation. &
+That answer shows ambition without undermining the current paper. The present draft is the static tractable benchmark; the frontier version would let price paths, filtering, and endogenous initiation matter directly. \\
+\bottomrule
+\end{longtable}
+}
+
+\section{Useful Backup Jumps}
+
+{\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{0.31\textwidth}P{0.12\textwidth}Y@{}}
+\toprule
+\textbf{Topic} & \textbf{Backup} & \textbf{Use when asked\ldots} \\
+\midrule
+Cutoff proof sketch & B1 & why ordered cutoffs are reasonable \\
+Existence and numerical selection & B2 & whether the fixed point is well defined \\
+Posterior algebra & B4, B23 & exactly how $\kappa$ enters beliefs \\
+Pricing derivation & B5 & why there is no price fixed point \\
+Minority-gains decomposition & B6 & where $\Delta^{\min}=\Delta^{\textup{base}}+\Delta^{\textup{act}}$ comes from \\
+Hump intuition & B7, B8 & why the baseline hump appears \\
+Sensitivity & B9, B10 & whether the numerical result survives parameter changes \\
+Cutoffs versus liquidity & B11 & whether actions move with $\kappa$ \\
+Bid deterrence & B12 & whether inferred engagement discourages bids \\
+Disclosure regimes & B13--B16 & how stricter disclosure changes the result \\
+Why disclosed prices are flat & B17 & why the $D=1$ branch does not move with $X$ in the baseline \\
+Welfare & B18 & if someone insists on policy or surplus \\
+Calibration and assumptions & B20, B22 & if asked whether parameters or assumptions are doing all the work \\
+Baseline outcomes table & B21 & if someone wants the raw numbers \\
+\bottomrule
+\end{tabularx}
+}
+
+\section{Last-Minute Seminar Lines}
+
+\textbf{Best one-line contribution.}
+The paper gives a tractable benchmark in which activist trading and disclosure reshape the public information environment, and takeover outcomes respond to that public state.
+
+\textbf{Best honest limitation.}
+The current draft is strongest on the feed-forward signal channel; richer dynamics, full price sufficiency, and full welfare are next-step theory problems rather than solved objects here.
+
+\textbf{Best closing line if the room turns technical.}
+I am deliberately distinguishing the clean solved benchmark from the richer dynamic model I want to build next; for this draft, the contribution is to make the activist-trading and disclosure channel into takeover outcomes analytically transparent.
+
+\end{document}

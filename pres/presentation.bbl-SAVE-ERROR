@@ -1,0 +1,203 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{BackEtAl2018}{article}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=3ad4bb0c9863a1615ad1fc102c98994d}{%
+           family={Back},
+           familyi={B\bibinitperiod},
+           given={Kerry},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9572d38db00c2951b7e0e1a3a2c2e6e6}{%
+           family={Collin-Dufresne},
+           familyi={C\bibinithyphendelim D\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7c77f58b78f1dfd22815ef77341a859}{%
+           family={Fos},
+           familyi={F\bibinitperiod},
+           given={Vyacheslav},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=38f3efe34cb29092007fe04331b383a3}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Tao},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=81ea9898e8e571add7e4b186afd3f58f}{%
+           family={Ljungqvist},
+           familyi={L\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2a73451a5553802e872ab2a5848beef4}
+      \strng{fullhash}{284cf5fad9fa2ef64174434e3838a020}
+      \strng{fullhashraw}{284cf5fad9fa2ef64174434e3838a020}
+      \strng{bibnamehash}{284cf5fad9fa2ef64174434e3838a020}
+      \strng{authorbibnamehash}{284cf5fad9fa2ef64174434e3838a020}
+      \strng{authornamehash}{2a73451a5553802e872ab2a5848beef4}
+      \strng{authorfullhash}{284cf5fad9fa2ef64174434e3838a020}
+      \strng{authorfullhashraw}{284cf5fad9fa2ef64174434e3838a020}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Econometrica}
+      \field{number}{4}
+      \field{title}{Activism, Strategic Trading, and Liquidity}
+      \field{volume}{86}
+      \field{year}{2018}
+      \field{pages}{1431\bibrangedash 1463}
+      \range{pages}{33}
+    \endentry
+    \entry{BravJiangPartnoyThomas2008}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=5b1aa028b1fd809606ed862528043059}{%
+           family={Brav},
+           familyi={B\bibinitperiod},
+           given={Alon},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e3dafe978a62db8ea9fec63a537b07dc}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2a851c06739511872772b0765212ca10}{%
+           family={Partnoy},
+           familyi={P\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=465f610f98854299765b09983492b33c}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={Randall},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{38afcd837b3b736c242ce293f420caac}
+      \strng{fullhash}{058a71a7a8dc3fb2f0047a0c324d2ec5}
+      \strng{fullhashraw}{058a71a7a8dc3fb2f0047a0c324d2ec5}
+      \strng{bibnamehash}{058a71a7a8dc3fb2f0047a0c324d2ec5}
+      \strng{authorbibnamehash}{058a71a7a8dc3fb2f0047a0c324d2ec5}
+      \strng{authornamehash}{38afcd837b3b736c242ce293f420caac}
+      \strng{authorfullhash}{058a71a7a8dc3fb2f0047a0c324d2ec5}
+      \strng{authorfullhashraw}{058a71a7a8dc3fb2f0047a0c324d2ec5}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Finance}
+      \field{number}{4}
+      \field{title}{Hedge Fund Activism, Corporate Governance, and Firm Performance}
+      \field{volume}{63}
+      \field{year}{2008}
+      \field{pages}{1729\bibrangedash 1775}
+      \range{pages}{47}
+    \endentry
+    \entry{GreenwoodSchor2009}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f5a264ded5eb43714160ed5c2ff253d3}{%
+           family={Greenwood},
+           familyi={G\bibinitperiod},
+           given={Robin},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5ede2226a0c6722ead05e3a76847a4da}{%
+           family={Schor},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \strng{fullhash}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \strng{fullhashraw}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \strng{bibnamehash}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \strng{authorbibnamehash}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \strng{authornamehash}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \strng{authorfullhash}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \strng{authorfullhashraw}{08d7fc65e2f71644ff307bedb4eca3bb}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Financial Economics}
+      \field{number}{3}
+      \field{title}{Investor Activism and Takeovers}
+      \field{volume}{92}
+      \field{year}{2009}
+      \field{pages}{362\bibrangedash 375}
+      \range{pages}{14}
+    \endentry
+    \entry{GrossmanHart1980}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a0e1f164ed9c0f1df4d104f87bd0666a}{%
+           family={Grossman},
+           familyi={G\bibinitperiod},
+           given={Sanford\bibnamedelima J.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b543ea2ee9d551349b4fbf9998572166}{%
+           family={Hart},
+           familyi={H\bibinitperiod},
+           given={Oliver\bibnamedelima D.},
+           giveni={O\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cd33a3b355c96f3b4120075417c0438c}
+      \strng{fullhash}{cd33a3b355c96f3b4120075417c0438c}
+      \strng{fullhashraw}{cd33a3b355c96f3b4120075417c0438c}
+      \strng{bibnamehash}{cd33a3b355c96f3b4120075417c0438c}
+      \strng{authorbibnamehash}{cd33a3b355c96f3b4120075417c0438c}
+      \strng{authornamehash}{cd33a3b355c96f3b4120075417c0438c}
+      \strng{authorfullhash}{cd33a3b355c96f3b4120075417c0438c}
+      \strng{authorfullhashraw}{cd33a3b355c96f3b4120075417c0438c}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bell Journal of Economics}
+      \field{number}{1}
+      \field{title}{Takeover Bids, the Free-Rider Problem, and the Theory of the Corporation}
+      \field{volume}{11}
+      \field{year}{1980}
+      \field{pages}{42\bibrangedash 64}
+      \range{pages}{23}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
