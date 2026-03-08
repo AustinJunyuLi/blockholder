@@ -1,12 +1,12 @@
 # ============================================================================
 # Makefile for Exit-Voice-Takeover model figures
 #
-# Pipeline: Python (model) → CSV data → R/ggplot2 → PDF figures
+# Pipeline: Python (model) → CSV data → Python (matplotlib) → PDF figures
 #
 # Usage:
 #   make all       -- run full pipeline (data + figures)
 #   make data      -- export model computations to CSV
-#   make figures   -- generate ggplot2 figures from CSV
+#   make figures   -- generate matplotlib figures from CSV
 #   make clean     -- remove generated CSVs and PDFs
 # ============================================================================
 
@@ -28,7 +28,7 @@ CSVS := $(DATA_DIR)/baseline_params.csv \
         $(DATA_DIR)/noisy_rumor.csv \
         $(DATA_DIR)/welfare.csv
 
-# PDF figures produced by R
+# PDF figures produced by Python/matplotlib
 PDFS := $(OUTPUT_DIR)/fig_cutoff_structure.pdf \
         $(OUTPUT_DIR)/fig_nonmonotone.pdf \
         $(OUTPUT_DIR)/fig_decomposition.pdf \
@@ -40,8 +40,13 @@ PDFS := $(OUTPUT_DIR)/fig_cutoff_structure.pdf \
         $(OUTPUT_DIR)/fig_sensitivity_rho.pdf \
         $(OUTPUT_DIR)/fig_sensitivity_sigma_xi.pdf \
         $(OUTPUT_DIR)/fig_sensitivity_delta.pdf \
+        $(OUTPUT_DIR)/fig_sensitivity_panel1.pdf \
+        $(OUTPUT_DIR)/fig_sensitivity_panel2.pdf \
+        $(OUTPUT_DIR)/fig_disclosure_slopes.pdf \
         $(OUTPUT_DIR)/fig_noisy_rumor_precision.pdf \
-        $(OUTPUT_DIR)/fig_welfare.pdf
+        $(OUTPUT_DIR)/fig_welfare.pdf \
+        $(OUTPUT_DIR)/fig_timeline.pdf \
+        $(OUTPUT_DIR)/fig_mechanism_chain.pdf
 
 .PHONY: all data figures clean
 
@@ -50,14 +55,13 @@ all: data figures
 # Step 1: Python computation → CSV
 data: $(CSVS)
 
-$(CSVS): numerical/export_data.py numerical/model.py numerical/solver.py numerical/params.py
+$(CSVS) &: numerical/export_data.py numerical/model.py numerical/solver.py numerical/params.py
 	python -m numerical.export_data --output-dir $(OUTPUT_DIR)
 
-# Step 2: R/ggplot2 visualization → PDF
+# Step 2: Python/matplotlib visualization → PDF
 figures: $(PDFS)
-
-$(PDFS): $(CSVS) R/theme_evtmodel.R R/render_all.R $(wildcard R/plot_fig*.R)
-	Rscript R/render_all.R --data-dir $(DATA_DIR) --output-dir $(OUTPUT_DIR)
+$(PDFS) &: $(CSVS) numerical/figures.py numerical/theme.py
+	python -m numerical.figures --data-dir $(DATA_DIR) --output-dir $(OUTPUT_DIR)
 
 clean:
 	rm -f $(CSVS)

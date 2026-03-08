@@ -1,546 +1,597 @@
-"""
-Core economic model functions for the Exit-Voice-Takeover model.
+"""Core economic functions for the numerical exercise.
 
-This module implements the equilibrium objects described in Sections 2--5
-of "Liquidity, Activism Disclosure, and Takeover Premia":
+This module is the *source of truth* for implementing the model primitives in
+`draft_v3.tex`. It is intentionally explicit rather than clever.
 
-    Section 2 -- Information structure (signal, engagement cost, posterior mean)
-    Section 3 -- Market microstructure (action probabilities, posteriors, prices)
-    Section 4 -- Welfare and minority gains
-    Section 5 -- Counterfactual information regimes
+Objects implemented:
 
-All mathematical computations are identical to those in the monolithic
-``numerical.py``; only the interface has been modernised (Action enum,
-MinorityGains namedtuple, named tolerance constants).
+- Noise distribution z and order flow X = q + z
+- Signal posterior v_hat(s) and engagement cost C(s)
+- Action probabilities ω_a and conditional means μ_a
+- Posteriors π(X,D) (baseline disclosure) and counterfactual posteriors
+- Conditional means E[v|X,D] and pricing objects V_hat, m_bar, p(X,D), P_post, P_trade
+- Payoffs U(q,a|s)
+- Minority gains Δ^min and decomposition
+- Welfare components (minority, bidder, blockholder, total)
+
+All formulas are coded to match the paper's equations and propositions.
 """
 
 from __future__ import annotations
 
-from typing import Dict, Tuple
+from dataclasses import dataclass
+from typing import Dict, Iterable, List, Mapping, Tuple
 
 import numpy as np
+from scipy.special import expit
 from scipy.stats import norm
 
-from numerical.params import (
+from .params import (
     Action,
     MinorityGains,
     ModelParams,
-    TOL_CONVERGE,
+    SIGMA_GRID,
     TOL_PROB,
-    TOL_REGION,
 )
 
-# ── Section 2: Information Structure ────────────────────────────────────────
+# States
+XD = Tuple[int, int]          # (X, D)
+XDR = Tuple[int, int, int]    # (X, D, R)
 
+
+# -----------------------------------------------------------------------------
+# Noise distribution
+# -----------------------------------------------------------------------------
+
+def noise_probs(kappa: float) -> Tuple[float, float]:
+    """Return (p0, p1) where
+
+    - p0 = P(z=0) = 1 - 2*kappa/3
+    - p1 = P(z=+1) = P(z=-1) = kappa/3
+
+    Requires kappa in [0,1].
+    """
+    if not (0.0 <= kappa <= 1.0):
+        raise ValueError(f"kappa must be in [0,1], got {kappa}")
+    p0 = 1.0 - (2.0 / 3.0) * kappa
+    p1 = (1.0 / 3.0) * kappa
+    return float(p0), float(p1)
+
+
+# -----------------------------------------------------------------------------
+# Information structure
+# -----------------------------------------------------------------------------
 
 def engagement_cost(s: float, params: ModelParams) -> float:
-    """Signal-dependent engagement cost C(s) -- Equation (3).
-
-    C(s) = C0 * exp(-chi * z),  where z = (s - mu) / sigma_s.
-    """
+    """Engagement cost C(s) = C0 * exp(-chi*(s-mu)/sigma_s)."""
     z = (s - params.mu) / params.sigma_s
-    return params.C0 * np.exp(-params.chi * z)
+    return float(params.C0 * np.exp(-params.chi * z))
 
 
 def v_hat(s: float, params: ModelParams) -> float:
-    """Posterior mean of v given signal s -- Equation (2).
-
-    v_hat(s) = mu + beta * (s - mu).
-    """
-    return params.mu + params.beta * (s - params.mu)
+    """Posterior mean E[v|s] for Gaussian signal structure."""
+    return float(params.mu + params.beta * (s - params.mu))
 
 
-# ── Section 3: Market Microstructure ────────────────────────────────────────
+# -----------------------------------------------------------------------------
+# Action probabilities and conditional means
+# -----------------------------------------------------------------------------
+
+def compute_action_probabilities(k1: float, k0: float, kD: float, params: ModelParams) -> Tuple[float, float, float, float]:
+    """Unconditional action probabilities (ω_E, ω_H, ω_Q, ω_P)."""
+    alpha1 = (k1 - params.mu) / params.sigma_s
+    alpha0 = (k0 - params.mu) / params.sigma_s
+    alphaD = (kD - params.mu) / params.sigma_s
+
+    omega_E = float(norm.cdf(alpha1))
+    omega_H = float(norm.cdf(alpha0) - norm.cdf(alpha1))
+    omega_Q = float(norm.cdf(alphaD) - norm.cdf(alpha0))
+    omega_P = float(1.0 - norm.cdf(alphaD))
+
+    # numerical guard
+    omega_E = max(0.0, omega_E)
+    omega_H = max(0.0, omega_H)
+    omega_Q = max(0.0, omega_Q)
+    omega_P = max(0.0, omega_P)
+
+    # normalize (rarely needed; just protects against tiny rounding drift)
+    tot = omega_E + omega_H + omega_Q + omega_P
+    if tot <= TOL_PROB:
+        return 0.0, 0.0, 0.0, 0.0
+    return omega_E / tot, omega_H / tot, omega_Q / tot, omega_P / tot
 
 
-def compute_action_probabilities(
-    k1: float, k0: float, kD: float, params: ModelParams
-) -> Tuple[float, float, float, float]:
-    """Unconditional action probabilities -- Proposition 1.
+def _inv_mills_left(alpha: float) -> float:
+    """λ_L(α) = φ(α)/Φ(α) with a stable tail fallback."""
+    cdf = float(norm.cdf(alpha))
+    if cdf < TOL_PROB:
+        # As α→-∞, φ/Φ ~ -α (Mills ratio asymptotic)
+        return float(-alpha)
+    return float(norm.pdf(alpha) / cdf)
 
-    Returns
-    -------
-    (omega_E, omega_H, omega_Q, omega_P):
-        Exit, Passive Hold, Quiet Voice, Public Voice probabilities.
+
+def _inv_mills_right(alpha: float) -> float:
+    """λ_U(α) = φ(α)/(1-Φ(α)) with a stable tail fallback."""
+    ccdf = float(1.0 - norm.cdf(alpha))
+    if ccdf < TOL_PROB:
+        # As α→+∞, φ/(1-Φ) ~ α
+        return float(alpha)
+    return float(norm.pdf(alpha) / ccdf)
+
+
+def compute_conditional_means(k1: float, k0: float, kD: float, params: ModelParams) -> Tuple[float, float, float, float]:
+    """Conditional means (μ_E, μ_H, μ_Q, μ_P) as in Proposition 2 proof.
+
+    These are E[v | s in region] where regions correspond to the cutoff strategy.
     """
     alpha1 = (k1 - params.mu) / params.sigma_s
     alpha0 = (k0 - params.mu) / params.sigma_s
     alphaD = (kD - params.mu) / params.sigma_s
 
-    omega_E = norm.cdf(alpha1)
-    omega_H = norm.cdf(alpha0) - norm.cdf(alpha1)
-    omega_Q = norm.cdf(alphaD) - norm.cdf(alpha0)
-    omega_P = 1 - norm.cdf(alphaD)
+    # Exit region: s < k1
+    mu_E = params.mu - params.beta * params.sigma_s * _inv_mills_left(alpha1)
 
-    # Ensure non-negative (numerical stability)
-    omega_E = max(0, omega_E)
-    omega_H = max(0, omega_H)
-    omega_Q = max(0, omega_Q)
-    omega_P = max(0, omega_P)
-
-    return omega_E, omega_H, omega_Q, omega_P
-
-
-def compute_conditional_means(
-    k1: float, k0: float, kD: float, params: ModelParams
-) -> Tuple[float, float, float, float]:
-    """Conditional means E[v | action region] -- derived from Proposition 1.
-
-    Returns
-    -------
-    (mu_E, mu_H, mu_Q, mu_P):
-        Conditional mean of v in each signal region.
-    """
-    alpha1 = (k1 - params.mu) / params.sigma_s
-    alpha0 = (k0 - params.mu) / params.sigma_s
-    alphaD = (kD - params.mu) / params.sigma_s
-
-    # Inverse Mills ratios
-    def lambda_L(alpha: float) -> float:
-        """Lower inverse Mills ratio."""
-        cdf = norm.cdf(alpha)
-        if cdf < TOL_PROB:
-            return -alpha  # Approximation for extreme values
-        return norm.pdf(alpha) / cdf
-
-    def lambda_U(alpha: float) -> float:
-        """Upper inverse Mills ratio."""
-        ccdf = 1 - norm.cdf(alpha)
-        if ccdf < TOL_PROB:
-            return alpha  # Approximation for extreme values
-        return norm.pdf(alpha) / ccdf
-
-    # Exit: s < k1
-    mu_E = params.mu - params.beta * params.sigma_s * lambda_L(alpha1)
-
-    # Passive Hold: k1 <= s < k0
-    denom_H = norm.cdf(alpha0) - norm.cdf(alpha1)
+    # Hold region: k1 <= s < k0
+    denom_H = float(norm.cdf(alpha0) - norm.cdf(alpha1))
     if denom_H > TOL_PROB:
-        mu_H = params.mu + params.beta * params.sigma_s * (
-            norm.pdf(alpha1) - norm.pdf(alpha0)
-        ) / denom_H
+        mu_H = params.mu + params.beta * params.sigma_s * (norm.pdf(alpha1) - norm.pdf(alpha0)) / denom_H
     else:
-        mu_H = params.mu + params.beta * (k0 + k1) / 2 - params.beta * params.mu
+        # collapsed region fallback: mean at midpoint (should not matter on-path)
+        mu_H = v_hat(0.5 * (k1 + k0), params)
 
-    # Quiet Voice: k0 <= s < kD
-    denom_Q = norm.cdf(alphaD) - norm.cdf(alpha0)
+    # Quiet region: k0 <= s < kD
+    denom_Q = float(norm.cdf(alphaD) - norm.cdf(alpha0))
     if denom_Q > TOL_PROB:
-        mu_Q = params.mu + params.beta * params.sigma_s * (
-            norm.pdf(alpha0) - norm.pdf(alphaD)
-        ) / denom_Q
+        mu_Q = params.mu + params.beta * params.sigma_s * (norm.pdf(alpha0) - norm.pdf(alphaD)) / denom_Q
     else:
-        mu_Q = params.mu + params.beta * (kD + k0) / 2 - params.beta * params.mu
+        mu_Q = v_hat(0.5 * (k0 + kD), params)
 
-    # Public Voice: s >= kD
-    mu_P = params.mu + params.beta * params.sigma_s * lambda_U(alphaD)
+    # Public region: s >= kD
+    mu_P = params.mu + params.beta * params.sigma_s * _inv_mills_right(alphaD)
 
-    return mu_E, mu_H, mu_Q, mu_P
+    return float(mu_E), float(mu_H), float(mu_Q), float(mu_P)
 
 
-def compute_posteriors(
-    omega_E: float, omega_H: float, omega_Q: float, omega_P: float,
-    kappa: float
-) -> Dict[Tuple[int, int], float]:
-    """Bayesian posterior pi(X, D) -- Proposition 2, Eqs. (12)--(15).
+# -----------------------------------------------------------------------------
+# Baseline disclosure posteriors π(X,D)
+# -----------------------------------------------------------------------------
 
-    Returns
-    -------
-    dict mapping (X, D) -> pi(X, D):
-        Posterior probability of engagement given market observables.
+def compute_posteriors(omega_E: float, omega_H: float, omega_Q: float, omega_P: float, kappa: float) -> Dict[XD, float]:
+    """Posterior π(X,D)=P(a=1|X,D) in the baseline disclosure regime.
+
+    Implements Proposition 2.
+
+    Returns dict keyed by (X,D) for the 7 on-/near-path states.
     """
-    p0 = 1 - kappa   # P(z=0)
-    p1 = kappa / 2    # P(z=+1) = P(z=-1)
+    p0, p1 = noise_probs(kappa)
 
-    posteriors: Dict[Tuple[int, int], float] = {}
+    post: Dict[XD, float] = {}
 
-    # Disclosed states: D=1 => a=1 always
-    for X in [0, 1, 2]:
-        posteriors[(X, 1)] = 1.0
+    # disclosed states (D=1): engagement known
+    for X in (0, 1, 2):
+        post[(X, 1)] = 1.0
 
-    # Non-disclosed states: D=0
-    # X = -2: only Exit possible
-    posteriors[(-2, 0)] = 0.0
+    # nondisclosed states (D=0)
+    post[(-2, 0)] = 0.0
 
-    # X = 1: q=0 with z=+1 (only Hold/Quiet Voice)
-    denom_1 = omega_H + omega_Q
-    if denom_1 > TOL_PROB:
-        posteriors[(1, 0)] = omega_Q / denom_1
-    else:
-        posteriors[(1, 0)] = 0.0
+    denom_10 = omega_H + omega_Q
+    post[(1, 0)] = float(omega_Q / denom_10) if denom_10 > TOL_PROB else 0.0
 
-    # X = -1: Hold/QuietVoice with z=-1, or Exit with z=0
-    denom_m1 = (omega_H + omega_Q) * p1 + omega_E * p0
-    if denom_m1 > TOL_PROB:
-        posteriors[(-1, 0)] = omega_Q * p1 / denom_m1
-    else:
-        posteriors[(-1, 0)] = 0.0
+    denom_m10 = (omega_H + omega_Q) * p1 + omega_E * p0
+    post[(-1, 0)] = float(omega_Q * p1 / denom_m10) if denom_m10 > TOL_PROB else 0.0
 
-    # X = 0: Hold/QuietVoice with z=0, or Exit with z=+1
-    denom_0 = (omega_H + omega_Q) * p0 + omega_E * p1
-    if denom_0 > TOL_PROB:
-        posteriors[(0, 0)] = omega_Q * p0 / denom_0
-    else:
-        posteriors[(0, 0)] = 0.0
+    denom_00 = (omega_H + omega_Q) * p0 + omega_E * p1
+    post[(0, 0)] = float(omega_Q * p0 / denom_00) if denom_00 > TOL_PROB else 0.0
 
-    return posteriors
+    return post
 
+
+# -----------------------------------------------------------------------------
+# Conditional mean E[v | X,D]
+# -----------------------------------------------------------------------------
 
 def compute_E_v_given_XD(
-    X: int, D: int,
-    omega_E: float, omega_H: float, omega_Q: float, omega_P: float,
-    mu_E: float, mu_H: float, mu_Q: float, mu_P: float,
-    kappa: float
+    X: int,
+    D: int,
+    omega_E: float,
+    omega_H: float,
+    omega_Q: float,
+    omega_P: float,
+    mu_E: float,
+    mu_H: float,
+    mu_Q: float,
+    mu_P: float,
+    kappa: float,
 ) -> float:
-    """Conditional expectation E[v | X, D] -- Eqs. (10)--(11).
+    """Compute E[v | X,D] for reached states.
 
-    Mixes over unobserved blockholder actions weighted by their likelihood
-    of producing the observed order flow and disclosure state.
+    Matches the formulas in the equilibrium characterization.
     """
-    p0 = 1 - kappa
-    p1 = kappa / 2
+    p0, p1 = noise_probs(kappa)
 
     if D == 1:
-        # Only Public Voice possible
-        return mu_P
+        # only Public Voice possible
+        return float(mu_P)
 
-    # D = 0
+    # D == 0
     if X == -2:
-        return mu_E
-    elif X == 1:
-        # Hold/QuietVoice with z=+1 only
+        return float(mu_E)
+
+    if X == 1:
         denom = omega_H + omega_Q
-        if denom < TOL_PROB:
-            return (mu_H + mu_Q) / 2
-        return (omega_H * mu_H + omega_Q * mu_Q) / denom
-    elif X == -1:
-        # Hold/QuietVoice with z=-1, or Exit with z=0
+        if denom <= TOL_PROB:
+            return float(0.5 * (mu_H + mu_Q))
+        return float((omega_H * mu_H + omega_Q * mu_Q) / denom)
+
+    if X == -1:
         denom = (omega_H + omega_Q) * p1 + omega_E * p0
-        if denom < TOL_PROB:
-            return (mu_H + mu_Q + mu_E) / 3
-        return ((omega_H * mu_H + omega_Q * mu_Q) * p1 + omega_E * mu_E * p0) / denom
-    else:  # X == 0
-        # Hold/QuietVoice with z=0, or Exit with z=+1
+        if denom <= TOL_PROB:
+            return float((mu_E + mu_H + mu_Q) / 3.0)
+        return float(((omega_H * mu_H + omega_Q * mu_Q) * p1 + omega_E * mu_E * p0) / denom)
+
+    if X == 0:
         denom = (omega_H + omega_Q) * p0 + omega_E * p1
-        if denom < TOL_PROB:
-            return (mu_H + mu_Q + mu_E) / 3
-        return ((omega_H * mu_H + omega_Q * mu_Q) * p0 +
-                omega_E * mu_E * p1) / denom
+        if denom <= TOL_PROB:
+            return float((mu_E + mu_H + mu_Q) / 3.0)
+        return float(((omega_H * mu_H + omega_Q * mu_Q) * p0 + omega_E * mu_E * p1) / denom)
+
+    raise ValueError(f"E[v|X,D] requested for infeasible state X={X}, D={D}")
 
 
-def bid_probability(P: float, m_XD: float, params: ModelParams) -> float:
-    """Bid probability p(X, D) -- Equation (8).
+# -----------------------------------------------------------------------------
+# Bid probability and pricing
+# -----------------------------------------------------------------------------
 
-    The bidder submits a takeover offer when synergy shock xi exceeds
-    the threshold T = (m + K - S_bar + P) / sigma_xi.
+def bid_probability_tilde(V_hat_XD: float, m_bar_XD: float, pi_XD: float, params: ModelParams) -> float:
+    r"""Conditional bid probability \tilde{p}(X,D) given bidder arrival.
+
+    Eq. (bid-prob):
+
+        \tilde{p}(X,D) = 1 - \Lambda( (V_hat + m_bar + K - (S_bar + pi*Delta_S)) / s_xi )
+
+    with \Lambda the standard logistic CDF.
+
+    For Logistic(0,s), 1-\Lambda(t/s) = expit(-t/s).
     """
-    T = (m_XD + params.K - params.S_bar + P) / params.sigma_xi
-    return 1 - norm.cdf(T)
+    T_raw = V_hat_XD + m_bar_XD + params.K - (params.S_bar + pi_XD * params.Delta_S)
+    return float(expit(-T_raw / params.s_xi))
 
 
-def solve_price_fixed_point(
-    E_v_XD: float, pi_XD: float, params: ModelParams,
-    max_iter: int = 100, tol: float = 1e-8
-) -> float:
-    """Solve for equilibrium price P(X, D) via fixed-point iteration -- Equation (9).
+def bid_probability(V_hat_XD: float, m_bar_XD: float, pi_XD: float, params: ModelParams) -> float:
+    r"""Unconditional bid probability p(X,D) = lambda_B * \tilde{p}(X,D)."""
+    return float(params.lambda_B * bid_probability_tilde(V_hat_XD, m_bar_XD, pi_XD, params))
 
-    Price equation:
-        P = delta * [(1 - p) * V_hat + p * (P + m)]
 
-    where V_hat = E[v|X,D] + Delta_tilde * pi(X,D)
-    and   m     = m0 + (m_tilde - m0) * pi(X,D).
+def price_post(V_hat_XD: float, p_bid: float, m_bar_XD: float, params: ModelParams) -> float:
+    """Post-disclosure price P_post(X,D) = δ [ V_hat + p * m_bar ]."""
+    return float(params.delta * (V_hat_XD + p_bid * m_bar_XD))
+
+
+# -----------------------------------------------------------------------------
+# Equilibrium objects for a given cutoff triple
+# -----------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class EquilibriumObjects:
+    """Container for equilibrium objects computed from cutoffs and params."""
+
+    omega_E: float
+    omega_H: float
+    omega_Q: float
+    omega_P: float
+    mu_E: float
+    mu_H: float
+    mu_Q: float
+    mu_P: float
+    posteriors: Dict[XD, float]
+    E_v: Dict[XD, float]
+    P_post: Dict[XD, float]
+    P_trade: Dict[int, float]
+    prob_XD: Dict[XD, float]   # unconditional probability of (X,D)
+
+
+def compute_equilibrium_objects(k1: float, k0: float, kD: float, params: ModelParams) -> EquilibriumObjects:
+    """Compute all equilibrium objects implied by cutoffs (k1,k0,kD).
+
+    This is the workhorse used by the solver and exporters.
     """
-    V_hat = E_v_XD + params.Delta_tilde * pi_XD
-    m_XD = params.m0 + (params.m_tilde - params.m0) * pi_XD
-
-    # Initial guess
-    P = params.delta * V_hat
-
-    for _ in range(max_iter):
-        p = bid_probability(P, m_XD, params)
-        P_new = params.delta * ((1 - p) * V_hat + p * (P + m_XD))
-
-        if abs(P_new - P) < tol:
-            return P_new
-        P = P_new
-
-    return P
-
-
-def compute_equilibrium_prices(
-    k1: float, k0: float, kD: float, params: ModelParams
-) -> Dict[Tuple[int, int], float]:
-    """Equilibrium prices P(X, D) for all feasible (X, D) pairs.
-
-    Combines action probabilities, conditional means, posteriors, and the
-    price fixed point (Eq. 9) for each information state.
-    """
-    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(
-        k1, k0, kD, params
-    )
+    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(k1, k0, kD, params)
     mu_E, mu_H, mu_Q, mu_P = compute_conditional_means(k1, k0, kD, params)
-    posteriors = compute_posteriors(omega_E, omega_H, omega_Q, omega_P, params.kappa)
+    post = compute_posteriors(omega_E, omega_H, omega_Q, omega_P, params.kappa)
 
-    prices: Dict[Tuple[int, int], float] = {}
+    # Conditional means E[v|X,D]
+    E_v: Dict[XD, float] = {}
+    # Prices P_post
+    P_post: Dict[XD, float] = {}
 
-    # All possible (X, D) pairs
-    for X in [-2, -1, 0, 1, 2]:
-        for D in [0, 1]:
-            # Check feasibility
-            if D == 1 and X < 0:
-                continue  # D=1 requires q=+1, so X >= 0
+    # Compute for the 7 feasible states
+    feasible_states: List[XD] = [(-2, 0), (-1, 0), (0, 0), (1, 0), (0, 1), (1, 1), (2, 1)]
 
-            if (X, D) not in posteriors:
-                continue
-
-            pi_XD = posteriors[(X, D)]
+    for X, D in feasible_states:
+        pi = post.get((X, D), 0.0)
+        # E[v|X,D]
+        if D == 1:
+            E_v_XD = mu_P
+        else:
             E_v_XD = compute_E_v_given_XD(
-                X, D, omega_E, omega_H, omega_Q, omega_P,
-                mu_E, mu_H, mu_Q, mu_P, params.kappa
+                X, D,
+                omega_E, omega_H, omega_Q, omega_P,
+                mu_E, mu_H, mu_Q, mu_P,
+                params.kappa,
             )
+        E_v[(X, D)] = float(E_v_XD)
 
-            prices[(X, D)] = solve_price_fixed_point(E_v_XD, pi_XD, params)
+        V_hat_XD = float(E_v_XD + params.Delta_tilde * pi)
+        m_bar_XD = float(params.m0 + (params.m_tilde - params.m0) * pi)
+        p_bid = bid_probability(V_hat_XD, m_bar_XD, pi, params)
+        P_post[(X, D)] = price_post(V_hat_XD, p_bid, m_bar_XD, params)
 
-    return prices
+    # Joint distribution of (X,D) given action probabilities and noise
+    p0, p1 = noise_probs(params.kappa)
+    prob_XD: Dict[XD, float] = {}
+
+    # action list: (q, D, omega)
+    actions: List[Tuple[int, int, float]] = [
+        (-1, 0, omega_E),
+        (0, 0, omega_H),
+        (0, 0, omega_Q),
+        (1, 1, omega_P),
+    ]
+
+    for q, D, omega in actions:
+        if omega < TOL_PROB:
+            continue
+        for z, pz in ((-1, p1), (0, p0), (1, p1)):
+            key = (q + z, D)
+            prob_XD[key] = prob_XD.get(key, 0.0) + omega * pz
+
+    # Anonymous execution prices P_trade(X) = E[P_post(X,D) | X]
+    P_trade: Dict[int, float] = {}
+    for X in (-2, -1, 0, 1, 2):
+        pr_X = prob_XD.get((X, 0), 0.0) + prob_XD.get((X, 1), 0.0)
+        if pr_X < TOL_PROB:
+            continue
+        val = 0.0
+        for D in (0, 1):
+            pr = prob_XD.get((X, D), 0.0)
+            if pr < TOL_PROB:
+                continue
+            if (X, D) not in P_post:
+                continue
+            val += (pr / pr_X) * P_post[(X, D)]
+        P_trade[X] = float(val)
+
+    return EquilibriumObjects(
+        omega_E=omega_E,
+        omega_H=omega_H,
+        omega_Q=omega_Q,
+        omega_P=omega_P,
+        mu_E=mu_E,
+        mu_H=mu_H,
+        mu_Q=mu_Q,
+        mu_P=mu_P,
+        posteriors=post,
+        E_v=E_v,
+        P_post=P_post,
+        P_trade=P_trade,
+        prob_XD=prob_XD,
+    )
 
 
-def compute_expected_payoff(
-    action: Action, s: float,
-    prices: Dict[Tuple[int, int], float],
-    posteriors: Dict[Tuple[int, int], float],
-    params: ModelParams
-) -> float:
-    """Expected payoff for a given action and signal -- Equation (7).
+# -----------------------------------------------------------------------------
+# Payoffs
+# -----------------------------------------------------------------------------
 
-    Parameters
-    ----------
-    action : Action
-        One of Action.EXIT, Action.HOLD, Action.QUIET, Action.PUBLIC.
-    s : float
-        Private signal realisation.
-    prices : dict
-        Equilibrium prices P(X, D).
-    posteriors : dict
-        Posterior engagement probabilities pi(X, D).
-    params : ModelParams
-        Model calibration.
+def _p_z(z: int, p0: float, p1: float) -> float:
+    if z == 0:
+        return p0
+    if z in (-1, 1):
+        return p1
+    return 0.0
 
-    Returns
-    -------
-    float
-        Expected payoff of the blockholder under the chosen action.
+
+def compute_expected_payoff(action: Action, s: float, eq: EquilibriumObjects, params: ModelParams) -> float:
+    r"""Compute the blockholder's expected utility U(action | s).
+
+    Utility definition (Eq. U-def in paper):
+
+        U(q,a|s) = E[ -q P_trade(X) + δ h Y - a C(s) | s, q, a ]
+
+    where h is the terminal shareholdings (1 for Exit/Hold/Quiet, 2 for Public).
+
+    Terminal per-share payoff Y:
+
+    - if bid occurs: \hat{V}(X,D) + m^R(a)
+    - if no bid:     v + a \tilde{\Delta}
+
+    Bid probability is p(X,D) determined by market inference.
     """
-    p0 = 1 - params.kappa
-    p1 = params.kappa / 2
 
+    p0, p1 = noise_probs(params.kappa)
     v_post = v_hat(s, params)
+    C = engagement_cost(s, params)
 
-    def get_price_safe(X: int, D: int) -> float:
-        return prices.get((X, D), params.mu)
-
-    def get_m_XD(X: int, D: int) -> float:
-        pi = posteriors.get((X, D), 0)
-        return params.m0 + (params.m_tilde - params.m0) * pi
-
-    if action == Action.EXIT:  # Exit: q=-1, a=0, h=0
-        # Payoff: +P(X, 0) (selling 1 share)
-        # X = -1 + z, so X in {-2, -1, 0}
-        payoff = 0.0
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
-            X = -1 + z
-            P = get_price_safe(X, 0)
-            payoff += pz * P
-        return payoff
-
-    elif action == Action.HOLD:  # Passive Hold: q=0, a=0, h=1
-        # X = 0 + z, so X in {-1, 0, 1}
-        payoff = 0.0
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
-            X = z
-            P = get_price_safe(X, 0)
-            m_XD = get_m_XD(X, 0)
-            p_bid = bid_probability(P, m_XD, params)
-            # Holding h=1 share, no trading cash flow
-            # Terminal: if bid, get P + m(a=0); if no bid, get v
-            expected_terminal = p_bid * (P + params.m0) + (1 - p_bid) * v_post
-            payoff += pz * params.delta * expected_terminal
-        return payoff
-
-    elif action == Action.QUIET:  # Quiet Voice: q=0, a=1, h=1
-        # X = 0 + z, so X in {-1, 0, 1}
-        C = engagement_cost(s, params)
-        payoff = -C  # Pay engagement cost
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
-            X = z
-            P = get_price_safe(X, 0)
-            m_XD = get_m_XD(X, 0)
-            p_bid = bid_probability(P, m_XD, params)
-            # Terminal with engagement: if bid, get P + m_tilde; if no bid, get v + Delta_tilde
-            expected_terminal = p_bid * (P + params.m_tilde) + (1 - p_bid) * (v_post + params.Delta_tilde)
-            payoff += pz * params.delta * expected_terminal
-        return payoff
-
-    elif action == Action.PUBLIC:  # Public Voice: q=+1, a=1, h=2, D=1
-        # X = 1 + z, so X in {0, 1, 2}
-        C = engagement_cost(s, params)
-        payoff = -C  # Pay engagement cost
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
-            X = 1 + z
-            P = get_price_safe(X, 1)
-            m_XD = params.m_tilde  # D=1 means a=1 is known
-            p_bid = bid_probability(P, m_XD, params)
-            # Trading cash flow: -P (buying 1 share)
-            # Terminal with h=2: if bid, get 2*(P + m_tilde); if no bid, get 2*(v + Delta_tilde)
-            trading_cf = -P
-            expected_terminal = p_bid * 2 * (P + params.m_tilde) + (1 - p_bid) * 2 * (v_post + params.Delta_tilde)
-            payoff += pz * (trading_cf + params.delta * expected_terminal)
-        return payoff
-
+    if action == Action.EXIT:
+        q, a, h, D = -1, 0, 0, 0
+    elif action == Action.HOLD:
+        q, a, h, D = 0, 0, 1, 0
+    elif action == Action.QUIET:
+        q, a, h, D = 0, 1, 1, 0
+    elif action == Action.PUBLIC:
+        q, a, h, D = 1, 1, 2, 1
     else:
-        raise ValueError(f"Unknown action: {action}")
+        raise ValueError(f"Unknown action {action}")
 
+    m_realized = params.m_tilde if a == 1 else params.m0
 
-# ── Section 4: Welfare and Minority Gains ───────────────────────────────────
+    # Upfront cost
+    util = -a * C
 
-
-def compute_minority_gains(
-    k1: float, k0: float, kD: float, params: ModelParams
-) -> MinorityGains:
-    """Expected minority takeover gains by exact enumeration -- Section 4.
-
-    Iterates over all (action, noise-trader) state pairs, weighting by
-    unconditional probabilities and bid incidence.
-
-    Returns
-    -------
-    MinorityGains
-        Named tuple (total, base, activism).
-    """
-    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(
-        k1, k0, kD, params
-    )
-    mu_E, mu_H, mu_Q, mu_P = compute_conditional_means(k1, k0, kD, params)
-    posteriors = compute_posteriors(omega_E, omega_H, omega_Q, omega_P, params.kappa)
-    prices = compute_equilibrium_prices(k1, k0, kD, params)
-
-    p0 = 1 - params.kappa
-    p1 = params.kappa / 2
-
-    total_gains = 0.0
-    base_gains = 0.0
-    activism_gains = 0.0
-
-    # Iterate over all (action, z) combinations
-    actions = [
-        (Action.EXIT, -1, omega_E),
-        (Action.HOLD, 0, omega_H),
-        (Action.QUIET, 0, omega_Q),
-        (Action.PUBLIC, 1, omega_P),
-    ]
-
-    for action, q, omega_a in actions:
-        if omega_a < TOL_PROB:
+    # Expectation over z
+    for z in (-1, 0, 1):
+        pz = _p_z(z, p0, p1)
+        if pz < TOL_PROB:
             continue
 
-        a = 1 if action in (Action.QUIET, Action.PUBLIC) else 0
-        D = 1 if action == Action.PUBLIC else 0
+        X = q + z
 
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
+        # Trading cash flow at t=1
+        if q != 0:
+            P_exec = eq.P_trade.get(X, params.mu)
+            util += pz * (-q * P_exec)
+
+        # Terminal expected payoff per share
+        if h == 0:
+            continue
+
+        # Determine relevant posterior state
+        if D == 1:
+            # public voice always implies D=1
+            pi = 1.0
+            E_v_XD = eq.E_v[(X, 1)]
+        else:
+            pi = eq.posteriors.get((X, 0), 0.0)
+            E_v_XD = eq.E_v[(X, 0)]
+
+        V_hat_XD = float(E_v_XD + params.Delta_tilde * pi)
+        m_bar_XD = float(params.m0 + (params.m_tilde - params.m0) * pi)
+        p_bid = bid_probability(V_hat_XD, m_bar_XD, pi, params)
+
+        per_share_terminal = p_bid * (V_hat_XD + m_realized) + (1.0 - p_bid) * (v_post + a * params.Delta_tilde)
+
+        util += pz * params.delta * h * per_share_terminal
+
+    return float(util)
+
+
+# -----------------------------------------------------------------------------
+# Minority gains and welfare
+# -----------------------------------------------------------------------------
+
+def compute_minority_gains(k1: float, k0: float, kD: float, params: ModelParams) -> MinorityGains:
+    """Compute Δ^min, its base component, and activism component.
+
+    Definition (Eq. (minority)):
+        Δ^min = E[m^R(a) * 1{bid}]
+
+    Decomposition (Eq. (decomp)):
+        Δ^min = m0 * P(bid) + (m_tilde - m0) * E[ π(X,D) * 1{bid} ]
+
+    Numerically, we enumerate actions, noise, and use p(X,D) from equilibrium objects.
+    """
+
+    eq = compute_equilibrium_objects(k1, k0, kD, params)
+    p0, p1 = noise_probs(params.kappa)
+
+    actions: List[Tuple[Action, int, int, float]] = [
+        (Action.EXIT, -1, 0, eq.omega_E),
+        (Action.HOLD, 0, 0, eq.omega_H),
+        (Action.QUIET, 0, 0, eq.omega_Q),
+        (Action.PUBLIC, 1, 1, eq.omega_P),
+    ]
+
+    total = 0.0
+    base = 0.0
+    act = 0.0
+
+    for act_name, q, D, omega in actions:
+        if omega < TOL_PROB:
+            continue
+        a = 1 if act_name in (Action.QUIET, Action.PUBLIC) else 0
+        m_realized = params.m_tilde if a == 1 else params.m0
+
+        for z, pz in ((-1, p1), (0, p0), (1, p1)):
+            if pz < TOL_PROB:
+                continue
             X = q + z
-
-            # Skip infeasible combinations
-            if D == 1 and (X, D) not in prices:
+            # posterior state uses market inference (depends on X,D)
+            if (X, D) not in eq.E_v:
                 continue
-            if D == 0 and (X, D) not in prices:
-                continue
+            pi = 1.0 if D == 1 else eq.posteriors.get((X, 0), 0.0)
+            E_v_XD = eq.E_v[(X, D)]
+            V_hat_XD = float(E_v_XD + params.Delta_tilde * pi)
+            m_bar_XD = float(params.m0 + (params.m_tilde - params.m0) * pi)
+            p_bid = bid_probability(V_hat_XD, m_bar_XD, pi, params)
 
-            P = prices.get((X, D), params.mu)
-            pi_XD = posteriors.get((X, D), 0)
-            m_XD = params.m0 + (params.m_tilde - params.m0) * pi_XD
+            w = omega * pz
+            total += w * p_bid * m_realized
+            base += w * p_bid * params.m0
+            act += w * p_bid * (m_realized - params.m0)
 
-            p_bid = bid_probability(P, m_XD, params)
-
-            # Realized premium
-            m_realized = params.m_tilde if a == 1 else params.m0
-
-            # Weight
-            weight = omega_a * pz
-
-            # Contributions
-            total_gains += weight * p_bid * m_realized
-            base_gains += weight * p_bid * params.m0
-            activism_gains += weight * p_bid * (m_realized - params.m0)
-
-    return MinorityGains(total=total_gains, base=base_gains, activism=activism_gains)
+    return MinorityGains(total=float(total), base=float(base), activism=float(act))
 
 
-# ── Section 4b: Bidder Surplus and Total Welfare ─────────────────────────────
+def compute_bidder_surplus_state(V_hat_XD: float, m_bar_XD: float, pi_XD: float, params: ModelParams) -> float:
+    """Expected bidder surplus E[max(ξ - T, 0)] in a given state.
 
+    With ξ ~ Logistic(0, s_xi) and threshold
+        T = V_hat + m_bar + K - (S_bar + pi*Delta_S),
 
-def compute_bidder_surplus_state(
-    P: float, m_XD: float, params: ModelParams
-) -> float:
-    """Bidder expected surplus E[max(Pi_B, 0)] in a specific (X, D) state.
+    we need E[max(ξ - T, 0)]. For the logistic distribution this has the
+    closed form:
 
-    The bidder's surplus from entry is xi - T where T = m_XD + K - S_bar + P,
-    and she enters when xi > T.  The expectation of max(xi - T, 0) for
-    xi ~ N(0, sigma_xi^2) is the standard truncated-normal formula.
+        s_xi * ln(1 + exp(-T/s_xi)).
+
+    (This is the integral of the logistic survival function.)
     """
-    T = m_XD + params.K - params.S_bar + P
-    z = T / params.sigma_xi
-    return params.sigma_xi * norm.pdf(z) - T * (1 - norm.cdf(z))
+    T_raw = V_hat_XD + m_bar_XD + params.K - (params.S_bar + pi_XD * params.Delta_S)
+    return float(params.s_xi * np.logaddexp(0.0, -T_raw / params.s_xi))
 
 
-def compute_welfare(
-    k1: float, k0: float, kD: float, params: ModelParams
-) -> Tuple[float, float, float, float]:
-    """Compute total expected welfare and its components.
+def compute_welfare(k1: float, k0: float, kD: float, params: ModelParams) -> Tuple[float, float, float, float]:
+    """Compute welfare components (W_min, W_bid, W_B, W_tot).
 
-    Returns
-    -------
-    (W_min, W_bid, W_B, W_total):
-        Minority gains, bidder surplus, blockholder utility, total surplus.
+    Paper definition (Section 7):
+
+        W_min = Δ^min
+        W_bid = E[max(Π_B,0)] (bidder surplus)
+        W_B   = E[ U(q*,a*|s) ] (blockholder welfare)
+        W_tot = W_min + W_bid + W_B
+
+    Implementation:
+    - W_min from compute_minority_gains
+    - W_bid by enumerating (action, z) states and using closed-form logistic surplus
+    - W_B by integrating U(s) over the signal distribution
+
+    Note: W_min is an *expected premium* (not discounted) by paper definition.
     """
-    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(
-        k1, k0, kD, params
-    )
-    posteriors = compute_posteriors(
-        omega_E, omega_H, omega_Q, omega_P, params.kappa
-    )
-    prices = compute_equilibrium_prices(k1, k0, kD, params)
 
-    p0 = 1 - params.kappa
-    p1 = params.kappa / 2
+    eq = compute_equilibrium_objects(k1, k0, kD, params)
+    p0, p1 = noise_probs(params.kappa)
 
-    # ── Bidder welfare W_bid ──────────────────────────────────────────────
+    # Bidder surplus
     W_bid = 0.0
-    actions = [
-        (Action.EXIT, -1, omega_E),
-        (Action.HOLD, 0, omega_H),
-        (Action.QUIET, 0, omega_Q),
-        (Action.PUBLIC, 1, omega_P),
+    actions: List[Tuple[Action, int, int, float]] = [
+        (Action.EXIT, -1, 0, eq.omega_E),
+        (Action.HOLD, 0, 0, eq.omega_H),
+        (Action.QUIET, 0, 0, eq.omega_Q),
+        (Action.PUBLIC, 1, 1, eq.omega_P),
     ]
-    for action, q, omega_a in actions:
-        if omega_a < TOL_PROB:
-            continue
-        D = 1 if action == Action.PUBLIC else 0
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
-            X = q + z
-            if (X, D) not in prices:
-                continue
-            P = prices[(X, D)]
-            pi_XD = posteriors.get((X, D), 0.0)
-            m_XD = params.m0 + (params.m_tilde - params.m0) * pi_XD
-            surplus = compute_bidder_surplus_state(P, m_XD, params)
-            W_bid += omega_a * pz * surplus
 
-    # ── Blockholder welfare W_B ───────────────────────────────────────────
-    s_grid = np.linspace(
-        params.mu - 6 * params.sigma_s,
-        params.mu + 6 * params.sigma_s,
-        501,
-    )
+    for act_name, q, D, omega in actions:
+        if omega < TOL_PROB:
+            continue
+        for z, pz in ((-1, p1), (0, p0), (1, p1)):
+            if pz < TOL_PROB:
+                continue
+            X = q + z
+            if (X, D) not in eq.E_v:
+                continue
+            pi = 1.0 if D == 1 else eq.posteriors.get((X, 0), 0.0)
+            E_v_XD = eq.E_v[(X, D)]
+            V_hat_XD = float(E_v_XD + params.Delta_tilde * pi)
+            m_bar_XD = float(params.m0 + (params.m_tilde - params.m0) * pi)
+
+            surplus = params.lambda_B * compute_bidder_surplus_state(V_hat_XD, m_bar_XD, pi, params)
+            W_bid += omega * pz * surplus
+
+    # Blockholder welfare: integrate expected utility over s
+    s_min = params.mu - SIGMA_GRID * params.sigma_s
+    s_max = params.mu + SIGMA_GRID * params.sigma_s
+    s_grid = np.linspace(s_min, s_max, 801)
     pdf = norm.pdf(s_grid, loc=params.mu, scale=params.sigma_s)
-    u_vals = np.zeros_like(s_grid)
+
+    U_vals = np.zeros_like(s_grid)
     for i, s in enumerate(s_grid):
         if s < k1:
             act = Action.EXIT
@@ -550,377 +601,86 @@ def compute_welfare(
             act = Action.QUIET
         else:
             act = Action.PUBLIC
-        u_vals[i] = compute_expected_payoff(
-            act, float(s), prices, posteriors, params
-        )
+        U_vals[i] = compute_expected_payoff(act, float(s), eq, params)
 
-    W_B = float(np.trapz(u_vals * pdf, s_grid))
+    W_B = float(np.trapezoid(U_vals * pdf, s_grid))
 
-    # ── Minority gains W_min ──────────────────────────────────────────────
     gains = compute_minority_gains(k1, k0, kD, params)
-    W_min = gains.total
+    W_min = float(gains.total)
 
-    W_total = W_min + W_bid + W_B
-    return float(W_min), float(W_bid), float(W_B), float(W_total)
+    W_tot = float(W_min + W_bid + W_B)
 
-
-def compute_minority_gains_no_disclosure_given_strategy(
-    k1: float, k0: float, kD: float, params: ModelParams
-) -> MinorityGains:
-    """Counterfactual minority gains when disclosure is not observed -- Section 4.
-
-    Holds fixed the blockholder strategy (cutoffs) and recomputes inference,
-    prices, and bid incidence when the market conditions only on order flow X.
-
-    Returns
-    -------
-    MinorityGains
-        Named tuple (total, base, activism).
-    """
-    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(
-        k1, k0, kD, params
-    )
-    mu_E, mu_H, mu_Q, mu_P = compute_conditional_means(k1, k0, kD, params)
-
-    post_X = compute_posteriors_no_disclosure(
-        omega_E, omega_H, omega_Q, omega_P, params.kappa
-    )
-
-    # Compute pooled prices P(X) for all X
-    prices_X: Dict[int, float] = {}
-    for X in [-2, -1, 0, 1, 2]:
-        pi_X = post_X.get(X, 0.0)
-        E_v_X = compute_E_v_given_X_no_disclosure(
-            X,
-            omega_E, omega_H, omega_Q, omega_P,
-            mu_E, mu_H, mu_Q, mu_P,
-            params.kappa
-        )
-        prices_X[X] = solve_price_fixed_point(E_v_X, pi_X, params)
-
-    p0 = 1 - params.kappa
-    p1 = params.kappa / 2
-
-    total_gains = 0.0
-    base_gains = 0.0
-    activism_gains = 0.0
-
-    actions = [
-        (Action.EXIT, -1, omega_E),
-        (Action.HOLD, 0, omega_H),
-        (Action.QUIET, 0, omega_Q),
-        (Action.PUBLIC, 1, omega_P),
-    ]
-
-    for action, q, omega_a in actions:
-        if omega_a < TOL_PROB:
-            continue
-
-        a = 1 if action in (Action.QUIET, Action.PUBLIC) else 0
-        m_realized = params.m_tilde if a == 1 else params.m0
-
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
-            X = q + z
-            P = prices_X.get(X, params.mu)
-            pi_X = post_X.get(X, 0.0)
-            m_X = params.m0 + (params.m_tilde - params.m0) * pi_X
-            p_bid = bid_probability(P, m_X, params)
-
-            weight = omega_a * pz
-            total_gains += weight * p_bid * m_realized
-            base_gains += weight * p_bid * params.m0
-            activism_gains += weight * p_bid * (m_realized - params.m0)
-
-    return MinorityGains(total=total_gains, base=base_gains, activism=activism_gains)
+    return float(W_min), float(W_bid), float(W_B), float(W_tot)
 
 
-# ── Section 5: Counterfactual Information Regimes ───────────────────────────
-
+# -----------------------------------------------------------------------------
+# Counterfactual information regimes
+# -----------------------------------------------------------------------------
 
 def compute_posteriors_no_disclosure(
-    omega_E: float, omega_H: float, omega_Q: float, omega_P: float,
-    kappa: float
+    omega_E: float, omega_H: float, omega_Q: float, omega_P: float, kappa: float
 ) -> Dict[int, float]:
-    """Posterior pi(X) when disclosure is not observed -- Section 5.1.
+    """Posterior π(X) when the market observes only X (no disclosure signal D)."""
+    p0, p1 = noise_probs(kappa)
 
-    In this counterfactual the market conditions only on order flow X
-    (no D signal), so (q,a)=(+1,1) states are pooled with other D=0 states.
-    """
-    p0 = 1 - kappa   # P(z=0)
-    p1 = kappa / 2    # P(z=+1) = P(z=-1)
-
-    def prob_z(z: int) -> float:
+    def pr_z(z: int) -> float:
         if z == 0:
             return p0
         if z in (-1, 1):
             return p1
         return 0.0
 
-    # (action, q, a, omega)
-    actions = [
-        (Action.EXIT, -1, 0, omega_E),
-        (Action.HOLD, 0, 0, omega_H),
-        (Action.QUIET, 0, 1, omega_Q),
-        (Action.PUBLIC, 1, 1, omega_P),
+    # actions: (q, a, omega)
+    acts = [
+        (-1, 0, omega_E),
+        (0, 0, omega_H),
+        (0, 1, omega_Q),
+        (1, 1, omega_P),
     ]
 
-    posteriors: Dict[int, float] = {}
-    for X in [-2, -1, 0, 1, 2]:
+    post: Dict[int, float] = {}
+    for X in (-2, -1, 0, 1, 2):
         denom = 0.0
         numer = 0.0
-        for _, q, a, omega in actions:
-            pz = prob_z(X - q)
-            if pz == 0.0 or omega < TOL_PROB:
+        for q, a, omega in acts:
+            if omega < TOL_PROB:
+                continue
+            pz = pr_z(X - q)
+            if pz < TOL_PROB:
                 continue
             w = omega * pz
             denom += w
             if a == 1:
                 numer += w
-        posteriors[X] = (numer / denom) if denom > TOL_PROB else 0.0
+        post[X] = float(numer / denom) if denom > TOL_PROB else 0.0
 
-    return posteriors
-
-
-def compute_posteriors_full_information() -> Dict[Tuple[int, int], float]:
-    """Posterior pi under full information S_FI = (q, a) -- Section 5.2.
-
-    Returns
-    -------
-    dict mapping (q, a) -> pi = a.
-    """
-    return {(-1, 0): 0.0, (0, 0): 0.0, (0, 1): 1.0, (1, 1): 1.0}
-
-
-def compute_posteriors_noisy_rumor(
-    omega_E: float, omega_H: float, omega_Q: float, omega_P: float,
-    kappa: float, rho1: float, rho0: float
-) -> Dict[Tuple[int, int, int], float]:
-    """Posterior pi under the noisy-rumor regime -- Section 5.3.
-
-    Signal S_NR = (D, R), where D = 1{q=+1} and R is informative about
-    engagement only when D=0.  Uses P(R=1|Exit) = rho0.
-    """
-    p0 = 1 - kappa
-    p1 = kappa / 2
-
-    posteriors: Dict[Tuple[int, int, int], float] = {}
-
-    # Disclosed branch: D=1 => engagement known
-    for X in [0, 1, 2]:
-        for R in [0, 1]:
-            posteriors[(X, 1, R)] = 1.0
-
-    # Non-disclosed branch: D=0
-    for R in [0, 1]:
-        posteriors[(-2, 0, R)] = 0.0
-
-    # X = 1, D = 0: q=0 pinned down
-    denom_r1 = omega_Q * rho1 + omega_H * rho0
-    denom_r0 = omega_Q * (1 - rho1) + omega_H * (1 - rho0)
-    posteriors[(1, 0, 1)] = (omega_Q * rho1 / denom_r1) if denom_r1 > TOL_PROB else 0.0
-    posteriors[(1, 0, 0)] = (omega_Q * (1 - rho1) / denom_r0) if denom_r0 > TOL_PROB else 0.0
-
-    # X = -1, D = 0: q in {-1,0}
-    denom_m1_r1 = (omega_H * p1 + omega_E * p0) * rho0 + omega_Q * p1 * rho1
-    denom_m1_r0 = (omega_H * p1 + omega_E * p0) * (1 - rho0) + omega_Q * p1 * (1 - rho1)
-    posteriors[(-1, 0, 1)] = (omega_Q * p1 * rho1 / denom_m1_r1) if denom_m1_r1 > TOL_PROB else 0.0
-    posteriors[(-1, 0, 0)] = (omega_Q * p1 * (1 - rho1) / denom_m1_r0) if denom_m1_r0 > TOL_PROB else 0.0
-
-    # X = 0, D = 0: q in {-1,0}
-    denom_0_r1 = (omega_H * p0 + omega_E * p1) * rho0 + omega_Q * p0 * rho1
-    denom_0_r0 = (omega_H * p0 + omega_E * p1) * (1 - rho0) + omega_Q * p0 * (1 - rho1)
-    posteriors[(0, 0, 1)] = (omega_Q * p0 * rho1 / denom_0_r1) if denom_0_r1 > TOL_PROB else 0.0
-    posteriors[(0, 0, 0)] = (omega_Q * p0 * (1 - rho1) / denom_0_r0) if denom_0_r0 > TOL_PROB else 0.0
-
-    return posteriors
-
-
-def compute_premium_wedges_full_information(
-    params: ModelParams
-) -> Dict[Tuple[int, int], float]:
-    """Takeover premium m under full information S_FI = (q, a) -- Section 5.2."""
-    posteriors = compute_posteriors_full_information()
-    return {k: params.m0 + (params.m_tilde - params.m0) * v for k, v in posteriors.items()}
-
-
-def compute_premium_wedges_no_disclosure(
-    omega_E: float, omega_H: float, omega_Q: float, omega_P: float,
-    kappa: float, params: ModelParams
-) -> Dict[int, float]:
-    """Takeover premium m under the no-disclosure regime -- Section 5.1."""
-    posteriors = compute_posteriors_no_disclosure(omega_E, omega_H, omega_Q, omega_P, kappa)
-    return {k: params.m0 + (params.m_tilde - params.m0) * v for k, v in posteriors.items()}
-
-
-def compute_premium_wedges_noisy_rumor(
-    omega_E: float, omega_H: float, omega_Q: float, omega_P: float,
-    kappa: float, rho1: float, rho0: float, params: ModelParams
-) -> Dict[Tuple[int, int, int], float]:
-    """Takeover premium m under the noisy-rumor regime -- Section 5.3."""
-    posteriors = compute_posteriors_noisy_rumor(omega_E, omega_H, omega_Q, omega_P, kappa, rho1, rho0)
-    return {k: params.m0 + (params.m_tilde - params.m0) * v for k, v in posteriors.items()}
-
-
-def compute_minority_gains_noisy_rumor(
-    k1: float, k0: float, kD: float, params: ModelParams,
-    eta_1: float, eta_0: float,
-) -> MinorityGains:
-    """Expected minority gains under the noisy-rumor regime (partial equilibrium).
-
-    Holds fixed the blockholder's strategy (cutoffs) and augments the
-    market's information set with a binary rumor signal R.  The rumor fires
-    with probability eta_1 when the blockholder engages and eta_0 otherwise.
-
-    Parameters
-    ----------
-    k1, k0, kD : float
-        Equilibrium cutoffs (held fixed from the baseline).
-    params : ModelParams
-        Model calibration.
-    eta_1 : float
-        True-positive rumor probability (P(R=1 | a=1)).
-    eta_0 : float
-        False-positive rumor probability (P(R=1 | a=0)).
-
-    Returns
-    -------
-    MinorityGains
-        Named tuple (total, base, activism).
-    """
-    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(
-        k1, k0, kD, params
-    )
-    mu_E, mu_H, mu_Q, mu_P = compute_conditional_means(k1, k0, kD, params)
-    post_R = compute_posteriors_noisy_rumor(
-        omega_E, omega_H, omega_Q, omega_P, params.kappa, eta_1, eta_0
-    )
-
-    # Compute prices P(X, D, R) for the augmented state space
-    prices_R: Dict[Tuple[int, int, int], float] = {}
-    p0 = 1 - params.kappa
-    p1 = params.kappa / 2
-
-    for X in [-2, -1, 0, 1, 2]:
-        for D in [0, 1]:
-            if D == 1 and X < 0:
-                continue
-            for R in [0, 1]:
-                if (X, D, R) not in post_R:
-                    continue
-                pi_XDR = post_R[(X, D, R)]
-
-                # E[v | X, D, R]
-                if D == 1:
-                    E_v = mu_P
-                elif X == -2:
-                    E_v = mu_E
-                elif X == 1:
-                    wH = omega_H * (eta_0 if R == 1 else 1 - eta_0)
-                    wQ = omega_Q * (eta_1 if R == 1 else 1 - eta_1)
-                    denom = wH + wQ
-                    E_v = (
-                        (wH * mu_H + wQ * mu_Q) / denom
-                        if denom > TOL_PROB
-                        else (mu_H + mu_Q) / 2
-                    )
-                elif X == -1:
-                    wE = omega_E * p0 * (eta_0 if R == 1 else 1 - eta_0)
-                    wH = omega_H * p1 * (eta_0 if R == 1 else 1 - eta_0)
-                    wQ = omega_Q * p1 * (eta_1 if R == 1 else 1 - eta_1)
-                    denom = wE + wH + wQ
-                    E_v = (
-                        (wE * mu_E + wH * mu_H + wQ * mu_Q) / denom
-                        if denom > TOL_PROB
-                        else (mu_E + mu_H + mu_Q) / 3
-                    )
-                else:  # X == 0
-                    wE = omega_E * p1 * (eta_0 if R == 1 else 1 - eta_0)
-                    wH = omega_H * p0 * (eta_0 if R == 1 else 1 - eta_0)
-                    wQ = omega_Q * p0 * (eta_1 if R == 1 else 1 - eta_1)
-                    denom = wE + wH + wQ
-                    E_v = (
-                        (wE * mu_E + wH * mu_H + wQ * mu_Q) / denom
-                        if denom > TOL_PROB
-                        else (mu_E + mu_H + mu_Q) / 3
-                    )
-
-                prices_R[(X, D, R)] = solve_price_fixed_point(
-                    E_v, pi_XDR, params
-                )
-
-    # Enumerate (action, noise, rumor) states to compute gains
-    total_gains = 0.0
-    base_gains = 0.0
-    activism_gains = 0.0
-
-    actions = [
-        (Action.EXIT, -1, omega_E),
-        (Action.HOLD, 0, omega_H),
-        (Action.QUIET, 0, omega_Q),
-        (Action.PUBLIC, 1, omega_P),
-    ]
-
-    for action, q, omega_a in actions:
-        if omega_a < TOL_PROB:
-            continue
-        a = 1 if action in (Action.QUIET, Action.PUBLIC) else 0
-        D = 1 if action == Action.PUBLIC else 0
-        m_realized = params.m_tilde if a == 1 else params.m0
-
-        for z, pz in [(-1, p1), (0, p0), (1, p1)]:
-            X = q + z
-            for R in [0, 1]:
-                # Rumor probability conditional on action
-                if D == 1:
-                    pR = 1.0 if R == 1 else 0.0
-                else:
-                    pR = (
-                        (eta_1 if R == 1 else 1 - eta_1)
-                        if a == 1
-                        else (eta_0 if R == 1 else 1 - eta_0)
-                    )
-
-                if pR < TOL_PROB:
-                    continue
-
-                weight = omega_a * pz * pR
-                P = prices_R.get((X, D, R), params.mu)
-                pi_XDR = post_R.get((X, D, R), 0.0)
-                m_XDR = params.m0 + (params.m_tilde - params.m0) * pi_XDR
-                p_bid = bid_probability(P, m_XDR, params)
-
-                total_gains += weight * p_bid * m_realized
-                base_gains += weight * p_bid * params.m0
-                activism_gains += weight * p_bid * (m_realized - params.m0)
-
-    return MinorityGains(
-        total=total_gains, base=base_gains, activism=activism_gains
-    )
+    return post
 
 
 def compute_E_v_given_X_no_disclosure(
     X: int,
-    omega_E: float, omega_H: float, omega_Q: float, omega_P: float,
-    mu_E: float, mu_H: float, mu_Q: float, mu_P: float,
-    kappa: float
+    omega_E: float,
+    omega_H: float,
+    omega_Q: float,
+    omega_P: float,
+    mu_E: float,
+    mu_H: float,
+    mu_Q: float,
+    mu_P: float,
+    kappa: float,
 ) -> float:
-    """E[v | X] when disclosure is not observed -- Section 5.1.
+    """Conditional mean E[v|X] when the market observes only X."""
+    p0, p1 = noise_probs(kappa)
 
-    Pools over all actions (including Public Voice) since the market
-    does not observe the disclosure signal D.
-    """
-    p0 = 1 - kappa
-    p1 = kappa / 2
-
-    def prob_z(z: int) -> float:
+    def pr_z(z: int) -> float:
         if z == 0:
             return p0
         if z in (-1, 1):
             return p1
         return 0.0
 
-    # (q, mu, omega)
-    actions = [
+    # actions (q, mu_action, omega)
+    acts = [
         (-1, mu_E, omega_E),
         (0, mu_H, omega_H),
         (0, mu_Q, omega_Q),
@@ -929,14 +689,245 @@ def compute_E_v_given_X_no_disclosure(
 
     denom = 0.0
     numer = 0.0
-    for q, mu_a, omega in actions:
-        pz = prob_z(X - q)
-        if pz == 0.0 or omega < TOL_PROB:
+    for q, mu_a, omega in acts:
+        if omega < TOL_PROB:
+            continue
+        pz = pr_z(X - q)
+        if pz < TOL_PROB:
             continue
         w = omega * pz
         denom += w
         numer += w * mu_a
 
-    if denom < TOL_PROB:
+    if denom <= TOL_PROB:
         return float(np.mean([mu_E, mu_H, mu_Q, mu_P]))
-    return numer / denom
+
+    return float(numer / denom)
+
+
+def compute_minority_gains_no_disclosure_given_strategy(k1: float, k0: float, kD: float, params: ModelParams) -> MinorityGains:
+    """Compute minority gains under *no disclosure*, holding cutoffs fixed.
+
+    This is the partial-equilibrium counterfactual used in Section 8.
+
+    Implementation: we keep ω and μ implied by (k1,k0,kD), compute π(X) and
+    E[v|X], and then compute p(X) and expected premia.
+    """
+
+    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(k1, k0, kD, params)
+    mu_E, mu_H, mu_Q, mu_P = compute_conditional_means(k1, k0, kD, params)
+    post_X = compute_posteriors_no_disclosure(omega_E, omega_H, omega_Q, omega_P, params.kappa)
+
+    # Bid probability depends only on X under this regime
+    p_bid_X: Dict[int, float] = {}
+    for X in (-2, -1, 0, 1, 2):
+        pi_X = post_X.get(X, 0.0)
+        E_v_X = compute_E_v_given_X_no_disclosure(X, omega_E, omega_H, omega_Q, omega_P, mu_E, mu_H, mu_Q, mu_P, params.kappa)
+        V_hat_X = float(E_v_X + params.Delta_tilde * pi_X)
+        m_bar_X = float(params.m0 + (params.m_tilde - params.m0) * pi_X)
+        p_bid_X[X] = bid_probability(V_hat_X, m_bar_X, pi_X, params)
+
+    p0, p1 = noise_probs(params.kappa)
+    actions: List[Tuple[Action, int, float]] = [
+        (Action.EXIT, -1, omega_E),
+        (Action.HOLD, 0, omega_H),
+        (Action.QUIET, 0, omega_Q),
+        (Action.PUBLIC, 1, omega_P),
+    ]
+
+    total = base = act = 0.0
+
+    for act_name, q, omega in actions:
+        if omega < TOL_PROB:
+            continue
+        a = 1 if act_name in (Action.QUIET, Action.PUBLIC) else 0
+        m_realized = params.m_tilde if a == 1 else params.m0
+
+        for z, pz in ((-1, p1), (0, p0), (1, p1)):
+            if pz < TOL_PROB:
+                continue
+            X = q + z
+            p_bid = p_bid_X.get(X, 0.0)
+            w = omega * pz
+            total += w * p_bid * m_realized
+            base += w * p_bid * params.m0
+            act += w * p_bid * (m_realized - params.m0)
+
+    return MinorityGains(total=float(total), base=float(base), activism=float(act))
+
+
+def compute_posteriors_noisy_rumor(
+    omega_E: float,
+    omega_H: float,
+    omega_Q: float,
+    omega_P: float,
+    kappa: float,
+    eta_1: float,
+    eta_0: float,
+) -> Dict[XDR, float]:
+    """Posterior π(X,D,R) for the noisy-rumor regime (Section 8).
+
+    R is only informative in nondisclosed states D=0.
+
+    eta_1 = P(R=1 | a=1)
+    eta_0 = P(R=1 | a=0)
+    """
+    p0, p1 = noise_probs(kappa)
+    post: Dict[XDR, float] = {}
+
+    # Disclosed states: D=1 => engagement certain regardless of R
+    for X in (0, 1, 2):
+        for R in (0, 1):
+            post[(X, 1, R)] = 1.0
+
+    # D=0, X=-2: Exit only => no engagement
+    for R in (0, 1):
+        post[(-2, 0, R)] = 0.0
+
+    # Helper: rumor likelihoods
+    def pr_R_given_a(R: int, a: int) -> float:
+        if a == 1:
+            return eta_1 if R == 1 else (1.0 - eta_1)
+        return eta_0 if R == 1 else (1.0 - eta_0)
+
+    # X=1,D=0 can only come from q=0 (Hold or Quiet) with z=+1.
+    # Hence π depends only on ω_H, ω_Q and rumor.
+    for R in (0, 1):
+        wQ = omega_Q * pr_R_given_a(R, 1)
+        wH = omega_H * pr_R_given_a(R, 0)
+        denom = wQ + wH
+        post[(1, 0, R)] = float(wQ / denom) if denom > TOL_PROB else 0.0
+
+    # X=-1,D=0 can come from Exit with z=0, or q=0 with z=-1.
+    for R in (0, 1):
+        # weights proportional to prior * likelihood
+        wQ = omega_Q * p1 * pr_R_given_a(R, 1)
+        wH = omega_H * p1 * pr_R_given_a(R, 0)
+        wE = omega_E * p0 * pr_R_given_a(R, 0)
+        denom = wQ + wH + wE
+        post[(-1, 0, R)] = float(wQ / denom) if denom > TOL_PROB else 0.0
+
+    # X=0,D=0 can come from Exit with z=+1, or q=0 with z=0.
+    for R in (0, 1):
+        wQ = omega_Q * p0 * pr_R_given_a(R, 1)
+        wH = omega_H * p0 * pr_R_given_a(R, 0)
+        wE = omega_E * p1 * pr_R_given_a(R, 0)
+        denom = wQ + wH + wE
+        post[(0, 0, R)] = float(wQ / denom) if denom > TOL_PROB else 0.0
+
+    return post
+
+
+def compute_minority_gains_noisy_rumor_given_strategy(
+    k1: float,
+    k0: float,
+    kD: float,
+    params: ModelParams,
+    eta_1: float,
+    eta_0: float,
+) -> MinorityGains:
+    """Minority gains under the noisy-rumor regime, holding cutoffs fixed."""
+
+    omega_E, omega_H, omega_Q, omega_P = compute_action_probabilities(k1, k0, kD, params)
+    mu_E, mu_H, mu_Q, mu_P = compute_conditional_means(k1, k0, kD, params)
+    post = compute_posteriors_noisy_rumor(omega_E, omega_H, omega_Q, omega_P, params.kappa, eta_1, eta_0)
+
+    p0, p1 = noise_probs(params.kappa)
+
+    # Precompute bid probabilities p(X,D,R)
+    p_bid: Dict[XDR, float] = {}
+    E_v: Dict[XDR, float] = {}
+
+    for X in (-2, -1, 0, 1, 2):
+        for D in (0, 1):
+            if D == 1 and X < 0:
+                continue
+            for R in (0, 1):
+                key = (X, D, R)
+                if key not in post:
+                    continue
+                pi = post[key]
+
+                # E[v|X,D,R] must incorporate rumor because it shifts weights across H vs Q.
+                if D == 1:
+                    E_v_XDR = mu_P
+                else:
+                    # D=0 cases
+                    if X == -2:
+                        E_v_XDR = mu_E
+                    elif X == 1:
+                        # only H or Q; rumor reweights
+                        wH = omega_H * (eta_0 if R == 1 else 1.0 - eta_0)
+                        wQ = omega_Q * (eta_1 if R == 1 else 1.0 - eta_1)
+                        denom = wH + wQ
+                        E_v_XDR = (wH * mu_H + wQ * mu_Q) / denom if denom > TOL_PROB else 0.5 * (mu_H + mu_Q)
+                    elif X == -1:
+                        # Exit with z=0 plus H/Q with z=-1
+                        wE = omega_E * p0 * (eta_0 if R == 1 else 1.0 - eta_0)
+                        wH = omega_H * p1 * (eta_0 if R == 1 else 1.0 - eta_0)
+                        wQ = omega_Q * p1 * (eta_1 if R == 1 else 1.0 - eta_1)
+                        denom = wE + wH + wQ
+                        E_v_XDR = (wE * mu_E + wH * mu_H + wQ * mu_Q) / denom if denom > TOL_PROB else (mu_E + mu_H + mu_Q) / 3.0
+                    elif X == 0:
+                        # Exit with z=+1 plus H/Q with z=0
+                        wE = omega_E * p1 * (eta_0 if R == 1 else 1.0 - eta_0)
+                        wH = omega_H * p0 * (eta_0 if R == 1 else 1.0 - eta_0)
+                        wQ = omega_Q * p0 * (eta_1 if R == 1 else 1.0 - eta_1)
+                        denom = wE + wH + wQ
+                        E_v_XDR = (wE * mu_E + wH * mu_H + wQ * mu_Q) / denom if denom > TOL_PROB else (mu_E + mu_H + mu_Q) / 3.0
+                    else:
+                        # X=2 with D=0 is infeasible
+                        continue
+
+                E_v[key] = float(E_v_XDR)
+
+                V_hat = float(E_v_XDR + params.Delta_tilde * pi)
+                m_bar = float(params.m0 + (params.m_tilde - params.m0) * pi)
+                p_bid[key] = bid_probability(V_hat, m_bar, pi, params)
+
+    # Expected minority gains: enumerate action, noise, and rumor likelihood
+    total = base = act = 0.0
+
+    # rumor likelihood conditional on a in D=0 states
+    def pr_R_given_a(R: int, a: int) -> float:
+        if a == 1:
+            return eta_1 if R == 1 else 1.0 - eta_1
+        return eta_0 if R == 1 else 1.0 - eta_0
+
+    actions: List[Tuple[Action, int, int, float]] = [
+        (Action.EXIT, -1, 0, omega_E),
+        (Action.HOLD, 0, 0, omega_H),
+        (Action.QUIET, 0, 0, omega_Q),
+        (Action.PUBLIC, 1, 1, omega_P),
+    ]
+
+    for act_name, q, D, omega in actions:
+        if omega < TOL_PROB:
+            continue
+        a = 1 if act_name in (Action.QUIET, Action.PUBLIC) else 0
+        m_realized = params.m_tilde if a == 1 else params.m0
+
+        for z, pz in ((-1, p1), (0, p0), (1, p1)):
+            if pz < TOL_PROB:
+                continue
+            X = q + z
+
+            for R in (0, 1):
+                if D == 1:
+                    # rumor irrelevant; treat as degenerate (say R=1 always)
+                    prR = 1.0 if R == 1 else 0.0
+                else:
+                    prR = pr_R_given_a(R, a)
+
+                if prR < TOL_PROB:
+                    continue
+                key = (X, D, R)
+                if key not in p_bid:
+                    continue
+                w = omega * pz * prR
+                pb = p_bid[key]
+                total += w * pb * m_realized
+                base += w * pb * params.m0
+                act += w * pb * (m_realized - params.m0)
+
+    return MinorityGains(total=float(total), base=float(base), activism=float(act))

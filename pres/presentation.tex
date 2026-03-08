@@ -1,1406 +1,1263 @@
 % ============================================================================
 % presentation.tex
 % Beamer deck for: Liquidity, Activism Disclosure, and Takeover Premia
-% 14 core slides + 27 backup slides with bidirectional hyperlinks
+%
+% Source of truth: ../draft_v3.tex
+% Figures: ../numerical_output/*.pdf
+% Theme: UCL beamer banner
 % ============================================================================
 %
-% ── AUDIENCE CALIBRATION NOTE ──────────────────────────────────────────────
+% -- AUDIENCE CALIBRATION --------------------------------------------------
 %
-% Professor Alex Gorbenko (Primary supervisor, UCL)
-%   Published: JF (2014, 2024), AER (2011), RFS (2010, 2013, 2018),
-%     JFE (2019, 2022). Key papers on M&A auctions, strategic vs financial
-%     bidders, deal initiation, CDS auctions, VC contracts.
-%   Research profile: Theory + structural estimation in corporate control.
-%     Co-Director of MSc Law & Finance. Values law & finance intersections,
-%     institutional design, and policy-relevant implications.
-%   Calibration: Frame disclosure policy and testable predictions as
-%     first-class results. Connect equilibrium mechanics to Schedule 13D,
-%     FCA thresholds, SEC filing window debates. His 2024 JF paper on
-%     endogenous auction initiation parallels our disclosure threshold
-%     (information revelation through action choice).
+% Primary audience: Finance seminar (theory or corporate finance field)
+%   Frame as: liquidity -> inference -> public market signals -> takeover premia
+%   Emphasize: disclosure policy as governance tool + tractable first-pass theory
+%   Duration: 30 min talk + 15 min Q&A
 %
-% Professor Ming Yang (Second supervisor, UCL)
-%   Published: REStud (2020, 2022), RFS (2019, 2024), TE (2020),
-%     JET (2015), JAE (2017), MS (2024). Key papers on rational inattention,
-%     security design under flexible info acquisition, coordination games.
-%   Research profile: Microeconomic theorist at the boundary of information
-%     economics and finance. Distinctive contribution: applying rational
-%     inattention to corporate finance. Works with Stephen Morris (REStud 2022)
-%     on coordination and global games.
-%   Calibration: State propositions formally. Do not hand-wave the contraction
-%     mapping or fixed-point arguments. The Bayesian inference mechanics
-%     (Proposition 2) are where the model's information-theoretic content
-%     lives. The noisy rumor extension echoes his interest in information
-%     structures. He will probe single-crossing logic and whether comparative
-%     statics are grounded in primitives.
-%
-% Design principle: Every slide must simultaneously satisfy a theorist who
-% will stress-test equilibrium foundations (Yang) and a corporate-finance
-% economist who will ask "what does this mean for SEC policy?" (Gorbenko).
+% Key hooks for different audiences:
+%   Corporate finance: SEC 13D filing window, activism returns, M&A premia
+%   Microstructure: order-flow inference, Kyle-type noise trading, takeover feedback
+%   Theory: single-crossing + partial-equilibrium disclosure + numerical equilibrium selection
+%   Empirical: four predictions incl. hump test + 13D CAR interaction
 % ============================================================================
 
 \documentclass[aspectratio=169,11pt]{beamer}
+\usepackage{beamerthememinimal}
 
-\usetheme{ucl}
-\useoutertheme[small]{ucltitlebanner}
-
-% Title page style
-\setbeamercolor{title}{fg=black,bg=}
-\setbeamerfont{frametitle}{series=\bfseries}
-
-% Packages
+% --- Packages ---
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{array}
-\usepackage{tabularx}
-\usepackage{multirow}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,decorations.pathreplacing}
+\graphicspath{{../numerical_output/}}
+\usepackage{array,tabularx,multirow}
 \usepackage{csquotes}
-\usepackage{hyperref}
+\usepackage{appendixnumberbeamer}
 
 \usepackage[backend=biber,style=authoryear,natbib=true,maxcitenames=2,maxbibnames=99]{biblatex}
 \addbibresource{slides.bib}
 
-% Notation macros
+% --- Serif math ---
+\usefonttheme[onlymath]{serif}
+
+% --- Math macros ---
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\PP}{\mathbb{P}}
 \newcommand{\1}{\mathbf{1}}
 \newcommand{\Var}{\mathrm{Var}}
 \newcommand{\R}{\mathbb{R}}
 
-% Color coding for notation categories
-\usepackage{xcolor}
-\newcommand{\choice}[1]{\textcolor{blue}{#1}}
-\newcommand{\obs}[1]{\textcolor{red!70!black}{#1}}
-\newcommand{\outcome}[1]{\textcolor{green!50!black}{#1}}
+% --- Color-coded variable system (refined for light bg) ---
+\colorlet{txblue}{mnNavy!85!black}
+\colorlet{txrose}{mnGray!70!black}
+\colorlet{txgreen}{mnBlue!70!mnNavy}
+\newcommand{\choice}[1]{{\color{txblue}#1}}
+\newcommand{\obs}[1]{{\color{txrose}#1}}
+\newcommand{\outcome}[1]{{\color{txgreen}#1}}
 
-% Hyperlink styling
-\hypersetup{colorlinks=true, linkcolor=brightblue, urlcolor=brightblue}
+% --- Hyperlinks ---
+\hypersetup{colorlinks=true, linkcolor=mnBlue, urlcolor=mnBlue, citecolor=mnBlue}
 
-% Backup slide navigation helper
+% --- Navigation helpers ---
 \newcommand{\backuplink}[2]{%
-  \hfill{\scriptsize\hyperlink{#1}{\textcolor{brightblue}{#2\,$\nearrow$}}}%
+  \hfill{\scriptsize\hyperlink{#1}{\textcolor{mnBlue}{#2\,$\nearrow$}}}%
 }
 \newcommand{\returnlink}[2]{%
-  \par\vspace{0.2em}\hfill{\scriptsize\hyperlink{#1}{\textcolor{brightblue}{$\leftarrow$\,#2}}}%
+  \par\vspace{0.2em}\hfill{\scriptsize\hyperlink{#1}{\textcolor{mnBlue}{$\leftarrow$\,#2}}}%
 }
 
-% Beamer cosmetics
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[author title date]
-
-% Block style
-\setbeamercolor{block title}{fg=brightblue,bg=}
-\setbeamercolor{block body}{fg=black,bg=}
-\setbeamerfont{block title}{series=\bfseries}
-\setbeamertemplate{block begin}{%
-  \par\vskip\smallskipamount%
-  {\usebeamerfont*{block title}\usebeamercolor[fg]{block title}\insertblocktitle\par}%
-  \vspace{0.2ex}%
-  {\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}\par}%
-  \begin{beamercolorbox}[wd=\linewidth,sep=0.6ex]{block body}%
-    \usebeamerfont{block body}%
-}
-\setbeamertemplate{block end}{%
-  \end{beamercolorbox}%
-  \vskip\smallskipamount%
-}
-
-% Graphics path
-\graphicspath{{figures/}}
-
-% Title
-\title[Liquidity, Activism, Takeover Premia]{\textbf{Liquidity, Activism Disclosure, and Takeover Premia:}\\[0.2em]
-\large A Theory of Exit, Voice, and Corporate Control}
-\author[Austin Li]{Austin Li}
-\institute[]{University College London}
-\date[]{}
+% --- Title ---
+\title{Liquidity, Activism Disclosure,\\ and Takeover Premia}
+\subtitle{Exit, Voice, and Corporate Control}
+\author{Austin Li}
+\institute{University College London}
+\date{}
 
 \begin{document}
 
 % ============================================================================
-% TITLE SLIDE
+% CORE SLIDES (13 substantive + title)
 % ============================================================================
 
-\begin{frame}
+\begin{frame}[plain,noframenumbering]
+  \hypertarget{main:title}{}
   \titlepage
 \end{frame}
 
-% ============================================================================
-% CORE DECK: 13 SLIDES
-% ============================================================================
-
-% ── SLIDE 1: Motivating Facts & Central Question ──────────────────────────
-\begin{frame}{Activist Returns and the Takeover Channel}
+% -- SLIDE 1: Motivation + Gap ----------------------------------------------
+\begin{frame}{Motivation and Gap}
 \hypertarget{main:motivation}{}
-\begin{itemize}\itemsep0.5em
-  \item \textbf{\citealp{BravJiangPartnoyThomas2008}:} Roughly 65\% of activist hedge fund returns come from M\&A events
-  \item \textbf{\citealp{GreenwoodSchor2009}:} Activist targets are acquired at significant premia; activists profit primarily through the takeover channel
-  \item \textbf{\citealp{CollinDufresneFos2015}:} Informed trading before Schedule 13D filings moves prices; activists trade strategically on private information
-\end{itemize}
-
-\vspace{0.5em}
-
-\begin{block}{Central Question}
-How does market liquidity shape the takeover premia that minority shareholders receive when a blockholder can exit, hold, or engage?
-\end{block}
-\end{frame}
-
-% ── SLIDE 2: Literature Gap & Contribution ────────────────────────────────
-\begin{frame}{Three Literatures, One Missing Piece}
-\hypertarget{main:literature}{}
+\hypertarget{main:lit}{}
 \small
 \begin{columns}[T,onlytextwidth]
-\column{0.52\textwidth}
+\column{0.55\textwidth}
+\textbf{Three empirical facts motivate the paper.}
+\begin{itemize}\itemsep0.45em
+  \item \citealp{BravJiangPartnoyThomas2008}: activist campaigns often culminate in corporate control events.
+  \item \citealp{GreenwoodSchor2009}: a large share of activist returns comes through takeover outcomes.
+  \item \citealp{BackEtAl2018}: pre-filing trading suggests activists exploit informational advantages before disclosure.
+\end{itemize}
 
-{\usebeamerfont*{block title}\usebeamercolor[fg]{block title}\textbf{Exit / Voice}\par}
-\vspace{0.2ex}{\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}\par}\vspace{0.3em}
-\citealp{Edmans2009}, \citealp{Maug1998}, \citealp{AdmatiPfleiderer2009}: liquidity enables exit-based governance and stake-building for intervention.
+\vspace{0.3em}
+\begin{alertblock}{Gap}
+No existing framework combines \textbf{endogenous exit vs.\ voice choice}, \textbf{order-flow inference}, and \textbf{takeover entry from public market signals}.
+\end{alertblock}
+
+\column{0.41\textwidth}
+\begin{block}{Question}
+How does market liquidity shape \emph{takeover premia} for minority shareholders when a blockholder can \emph{exit}, \emph{hold}, or \emph{engage}?
+\end{block}
 
 \vspace{0.25em}
-
-{\usebeamerfont*{block title}\usebeamercolor[fg]{block title}\textbf{Microstructure \& Feedback}\par}
-\vspace{0.2ex}{\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}\par}\vspace{0.3em}
-\citealp{Kyle1985}, \citealp{BackEtAl2018}: informed trading, strategic liquidity, and price discovery.
-
-\vspace{0.25em}
-
-{\usebeamerfont*{block title}\usebeamercolor[fg]{block title}\textbf{Takeover \& Real Effects}\par}
-\vspace{0.2ex}{\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}\par}\vspace{0.3em}
-\citealp{EdmansGoldsteinJiang2012}: prices guide real decisions, including takeover entry.
-
-\column{0.46\textwidth}
-\begin{block}{The Gap}
-No model links all three: how does market liquidity, through its effect on information in prices, shape takeover premia for minority shareholders?
+\begin{block}{Closest inspiration}
+\citealp{EdmansGoldsteinJiang2015}: public market information feeds back into takeover outcomes. This paper adds endogenous exit/voice choice and disclosure.
 \end{block}
 
 \vspace{0.2em}
-
-{\small\textbf{Contribution:}\\[0.2em]
-(i) Non-monotone liquidity effect on premia\\
-(ii) Disclosure attenuation mechanism\\
-(iii) Liquidity regulation $\equiv$ governance policy}
+\textbf{Bridge:} exit / voice, microstructure, and corporate control.
 \end{columns}
 \end{frame}
 
-% ── SLIDE 3: Disclosure Creates Two Information Regimes ───────────────────
+% -- SLIDE 2: Institutional Context -----------------------------------------
 \begin{frame}{Disclosure Creates Two Information Regimes}
 \hypertarget{main:disclosure}{}
-\begin{columns}[T,onlytextwidth]
-\column{0.54\textwidth}
-\textbf{Institutional facts:}
-\begin{itemize}\itemsep0.1em
-  \item \textbf{US:} 5\% threshold, 10-day filing window (Schedule 13D)
-  \item \textbf{UK:} 3\% threshold, 2-day window (FCA TR-1)
-  \item Creates two observability regimes:
+\textbf{Institutional trigger}
+\begin{itemize}\itemsep0.6em
+  \item US: Schedule 13D at 5\% beneficial ownership
+  \item UK: 3\% threshold with tighter timing
+  \item Crossing threshold makes activism \emph{publicly observable}
 \end{itemize}
 
-\vspace{0.3em}
-
-\scriptsize
-\begin{tabular}{ll}
+\vspace{0.6em}
+\renewcommand{\arraystretch}{1.2}%
+\begin{tabular}{@{}p{0.44\linewidth}p{0.44\linewidth}@{}}
 \toprule
-\textbf{Quiet Voice} ($D{=}0$) & \textbf{Public Voice} ($D{=}1$) \\
+\textbf{Quiet Voice} & \textbf{Public Voice} \\
 \midrule
-No disclosure triggered & Filing triggers $D{=}1$ \\
-Engagement \emph{inferred} from $X$ & Engagement \emph{observed} \\
-Inference depends on $\kappa$ & Independent of $\kappa$ \\
+Engage below threshold & Stake building + engage \\
+No filing signal & Filing reveals activism \\
+Inference from \obs{$X$} & Baseline: \obs{$D=1$} reveals public intervention \\
 \bottomrule
 \end{tabular}
-\normalsize
-
-\column{0.44\textwidth}
-\begin{block}{Model Translation}
-\vspace{0.2em}
-$D = \1\{q = +1\}$\\[0.3em]
-Buy-and-engage $\Rightarrow$ public disclosure\\
-Hold-and-engage $\Rightarrow$ no disclosure
-\end{block}
-
-\vspace{0.3em}
-
-{\footnotesize Disclosure partitions equilibrium into \textbf{inference} ($D{=}0$, $\kappa$ matters) vs.\ \textbf{observed} ($D{=}1$, $\kappa$ irrelevant) regimes.}
-
-\backuplink{backup:disclosure_regimes}{Alternative regimes}
-\end{columns}
 \end{frame}
 
-% ── SLIDE 4: Notation Guide ──────────────────────────────────────────────
+% -- SLIDE 3: Main mechanism -------------------------------------------------
+\begin{frame}{Main Mechanism}
+\hypertarget{main:mechanismpreview}{}
+\small
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{What the market learns}
+\begin{itemize}\itemsep0.35em
+  \item Before activism is fully public, trading and disclosure leave a public footprint.
+  \item Without a filing, order flow makes activism look more or less likely.
+  \item Liquidity matters because it changes how informative that footprint is.
+\end{itemize}
+\end{block}
+
+\column{0.48\textwidth}
+\begin{block}{Why takeover outcomes move}
+\begin{itemize}\itemsep0.35em
+  \item When activism looks more likely, expected standalone value is higher.
+  \item Expected takeover premia are also higher.
+  \item But some bidders stay out because the target looks harder or more expensive to acquire.
+  \item Minority takeover gains reflect the balance of those forces.
+\end{itemize}
+\end{block}
+\end{columns}
+
+\vspace{0.45em}
+\textbf{In short:} the same public footprint that raises expected value and premia can also discourage bidder entry, and takeover gains reflect that balance.
+
+\vfill
+\backuplink{backup:B5}{Mechanism logic}\hfill
+\backuplink{backup:B4}{Full posteriors}\hfill
+\backuplink{backup:B12}{Bid deterrence}
+\end{frame}
+
+% -- SLIDE 4: Notation ------------------------------------------------------
 \begin{frame}{Notation Guide}
 \hypertarget{main:notation}{}
-\tiny
-\begin{columns}[T,onlytextwidth]
-\column{0.31\textwidth}
-\begin{tabular}{@{}ll@{}}
-\toprule
-\multicolumn{2}{l}{\textbf{\choice{Choices / Actions}}} \\
-\midrule
-$\choice{q} \in \{-1,0,+1\}$ & Trade order \\
-$\choice{a} \in \{0,1\}$ & Engage? \\
-$\choice{z} \in \{-1,0,+1\}$ & Noise trade \\
-\midrule
-\multicolumn{2}{l}{\textbf{\obs{Observables}}} \\
-\midrule
-$\obs{X} = q + z$ & Order flow \\
-$\obs{D} = \1\{q=+1\}$ & Disclosure \\
-$\obs{s} = v + \varepsilon$ & Private signal \\
-$\obs{v} \sim N(\mu,\sigma_v^2)$ & Fundamental \\
-\bottomrule
-\end{tabular}
-
-\column{0.35\textwidth}
-\begin{tabular}{@{}ll@{}}
-\toprule
-\multicolumn{2}{l}{\textbf{\outcome{Equilibrium Objects}}} \\
-\midrule
-$\outcome{\pi}(X,D)$ & Posterior $\PP(a{=}1|X,D)$ \\
-$\outcome{P}(X,D)$ & Equilibrium price \\
-$\outcome{p}(P,D)$ & Bid probability \\
-$\outcome{m}(X,D)$ & Expected premium \\
-\midrule
-\multicolumn{2}{l}{\textbf{Cutoffs (Prop.\ 1)}} \\
-\midrule
-$k_1$ & Exit / Hold \\
-$k_0$ & Hold / Quiet Voice \\
-$k_D$ & Quiet / Public Voice \\
-\bottomrule
-\end{tabular}
-
-\column{0.33\textwidth}
-\begin{tabular}{@{}ll@{}}
-\toprule
-\multicolumn{2}{l}{\textbf{Parameters}} \\
-\midrule
-$\kappa$ & Liquidity (noise) \\
-$\rho$ & Engage success prob. \\
-$\Delta,\tilde{\Delta}$ & Value-add ($\tilde{\Delta}=\rho\Delta$) \\
-$m_0, m_1$ & Premia (base, success) \\
-$\tilde{m}$ & $m_0 + \rho(m_1 - m_0)$ \\
-$C_0, \chi$ & Engage cost params \\
-$\bar{S}, K, \sigma_\xi$ & Bidder entry \\
-$\delta$ & Discount factor \\
-\midrule
-\multicolumn{2}{l}{\textbf{Region probs}} \\
-\midrule
-$\omega_E,\omega_H,\omega_Q,\omega_P$ & Action probs \\
-\bottomrule
-\end{tabular}
-\end{columns}
-
-\vspace{0.3em}
-\centering
-{\footnotesize \choice{Blue}\,=\,choices \quad \obs{Red}\,=\,observables \quad \outcome{Green}\,=\,outcomes}
-\end{frame}
-
-% ── SLIDE 5: Model Timeline & Actions ─────────────────────────────────────
-\begin{frame}{Model Timeline \& Actions}
-\hypertarget{main:timeline}{}
-\centering
-\begin{tikzpicture}[
-  stage/.style={circle, draw=brightblue, thick, fill=brightblue!15,
-                minimum size=1.0cm, font=\footnotesize\bfseries},
-  arr/.style={-Stealth, thick, brightblue!70!black},
-  lbl/.style={font=\scriptsize, text width=2.5cm, align=center},
-  node distance=2.5cm
-]
-  \node[stage] (t0) {$t{=}0$};
-  \node[stage, right=of t0] (t1) {$t{=}1$};
-  \node[stage, right=of t1] (t15) {$t{=}1.5$};
-  \node[stage, right=of t15] (t2) {$t{=}2$};
-  \draw[arr] (t0) -- (t1);
-  \draw[arr] (t1) -- (t15);
-  \draw[arr] (t15) -- (t2);
-  \node[above=0.25cm of t0, font=\bfseries\footnotesize] {Nature};
-  \node[above=0.25cm of t1, font=\bfseries\footnotesize] {Trading};
-  \node[above=0.25cm of t15, font=\bfseries\footnotesize] {Entry};
-  \node[above=0.25cm of t2, font=\bfseries\footnotesize] {Payoffs};
-  \node[lbl, below=0.35cm of t0] {\obs{$v$} drawn;\\ blockholder\\ observes \obs{$s$}};
-  \node[lbl, below=0.35cm of t1] {Chooses $(\choice{q},\choice{a})$;\\ noise $\choice{z}$;\\ MM sets $\outcome{P}$};
-  \node[lbl, below=0.35cm of t15] {Bidder sees\\ $(\outcome{P},\obs{D})$,\\ draws $\xi$};
-  \node[lbl, below=0.35cm of t2] {Takeover or\\ standalone};
-\end{tikzpicture}
-
-\vspace{0.3em}
-
 \scriptsize
 \begin{columns}[T,onlytextwidth]
 \column{0.48\textwidth}
-\renewcommand{\arraystretch}{1.1}
-\begin{tabular}{|c|c|c|}
-\hline
-& $\choice{a}=0$ & $\choice{a}=1$ \\
-\hline
-$\choice{q}=-1$ & \textbf{Exit} & -- \\
-\hline
-$\choice{q}=0$ & \textbf{Hold} & \textbf{Quiet Voice} \\
-\hline
-$\choice{q}=+1$ & -- & \textbf{Public Voice} \\
-\hline
+\begin{block}{\choice{Choices (blockholder)}}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabular}{@{}r@{\;---\;}l@{}}
+\choice{$s$} & private signal\\[0.16em]
+\choice{$q$} & trade order $\in\{-1,0,+1\}$\\[0.16em]
+\choice{$a$} & engage $\in\{0,1\}$\\[0.16em]
+\choice{$C(s)$} & engagement cost\\[0.16em]
+\choice{$k_1$} & Exit/Hold cutoff\\[0.16em]
+\choice{$k_0$} & Hold/Quiet Voice cutoff\\[0.16em]
+\choice{$k_D$} & Quiet/Public Voice cutoff\\[0.16em]
+\choice{$\omega_i$} & region probabilities
 \end{tabular}
+\end{block}
 
 \column{0.48\textwidth}
-\textbf{Noise:} $z \in \{-1,0,+1\}$, $\PP(z{=}0) = 1 - \kappa$, $\PP(z{=}\pm 1) = \kappa/2$
-
-\vspace{0.2em}
-\textbf{Feedback:} Bidder conditions entry on $(P, D)$, creating a price-to-entry loop.
+\begin{block}{\obs{Observables (market)}}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabular}{@{}r@{\;---\;}l@{}}
+\obs{$z$} & noise trade $\in\{-1,0,+1\}$\\[0.16em]
+\obs{$\kappa$} & liquidity (noise intensity)\\[0.16em]
+\obs{$X$} & order flow $=q+z$\\[0.16em]
+\obs{$D$} & disclosure $=\1\{q\!=\!+1\}$\\[0.16em]
+\obs{$\xi$} & bidder synergy shock\\[0.16em]
+$s_{\xi}$ & synergy dispersion
+\end{tabular}
+\end{block}
 \end{columns}
 
-\backuplink{backup:assumptions}{Standing assumptions}
+\vspace{0.05em}
+\begin{block}{\outcome{Outcomes (equilibrium)}}
+\begin{columns}[T,onlytextwidth]
+\column{0.49\textwidth}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabular}{@{}r@{\;---\;}l@{}}
+\outcome{$\tilde\Delta$} & expected value gain from engagement\\[0.16em]
+\outcome{$\tilde m$} & expected premium under engagement\\[0.16em]
+\outcome{$\pi(X,D)$} & posterior on $a\!=\!1$\\[0.16em]
+\outcome{$\hat V(X,D)$} & standalone value\\[0.16em]
+\outcome{$\bar m(X,D)$} & expected premium\\[0.16em]
+\outcome{$p(X,D)$} & bid probability
+\end{tabular}
+
+\column{0.47\textwidth}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabular}{@{}r@{\;---\;}l@{}}
+\outcome{$P_{\textup{post}}$} & post-disclosure price\\[0.16em]
+\outcome{$P_{\textup{trade}}$} & execution price\\[0.16em]
+\outcome{$\Delta^{\min}$} & minority takeover gains
+\end{tabular}
+\end{columns}
+\end{block}
 \end{frame}
 
-% ── SLIDE 6: Engagement Technology & Bidder Entry ─────────────────────────
-\begin{frame}{Engagement Technology \& Bidder Entry}
+% -- SLIDE 5: Timeline ------------------------------------------------------
+\begin{frame}{Timeline and Actions}
+\hypertarget{main:timeline}{}
+\footnotesize
+\begin{center}
+  \includegraphics[width=0.78\textwidth]{fig_timeline.pdf}
+\end{center}
+\vspace{-0.5em}
+\begin{columns}[T,onlytextwidth]
+\column{0.34\textwidth}
+\textbf{Action menu}
+\renewcommand{\arraystretch}{1.1}%
+\begin{tabular}{@{}ll@{}}
+\toprule
+Action & $(\choice{q},\choice{a})$ \\
+\midrule
+Exit & $(-1,0)$ \\
+Hold & $(0,0)$ \\
+Quiet Voice & $(0,1)$ \\
+Public Voice & $(+1,1)$ \\
+\bottomrule
+\end{tabular}
+
+\column{0.62\textwidth}
+\textbf{Noise trading} (liquidity \obs{$\kappa$})\\[0.15em]
+$\obs{z}\in\{-1,0,1\}$,\; $\PP(\obs{z}\!=\!0)=1-\tfrac{2}{3}\kappa$,\; $\PP(\obs{z}\!=\!\pm 1)=\tfrac{\kappa}{3}$.
+
+\vspace{0.25em}
+Bidder conditions on the public market signal; in the baseline, it is summarized by $(\obs{X},\obs{D})$.
+
+\vspace{0.3em}
+\textbf{Identification in the baseline}
+\begin{itemize}\itemsep0.15em
+  \item Public Voice is the only threshold-crossing action: $(\choice{q},\choice{a})=(+1,1)\Rightarrow \obs{D}=1$.
+  \item Hold and Quiet Voice both imply $\choice{q}=0$, so \obs{$D=0$} states are separated only by inference.
+\end{itemize}
+
+\end{columns}
+\end{frame}
+
+% -- SLIDE 6: Equilibrium definition ----------------------------------------
+\begin{frame}{How the Model Closes}
+\hypertarget{main:eqmdef}{}
+\footnotesize
+\begin{columns}[T,onlytextwidth]
+\column{0.50\textwidth}
+\begin{block}{What outsiders see}
+\begin{itemize}\itemsep0.35em
+  \item Blockholder strategy is a monotone cutoff rule \choice{$\sigma_B(s)$}, summarized by \choice{$k_1\le k_0\le k_D$}.
+  \item Outsiders do not observe the blockholder's signal \choice{$s$} or exact motive.
+  \item They see only the public market signal left by trading and disclosure; in the baseline, that signal is summarized by \obs{$(X,D)$}.
+  \item From that public signal, they infer which actions are more likely.
+\end{itemize}
+\end{block}
+
+\column{0.46\textwidth}
+\begin{block}{What equilibrium requires}
+\begin{itemize}\itemsep0.35em
+  \item The market maker sets prices from those inferences.
+  \item The bidder decides whether to enter using the same public signal and private synergy \obs{$\xi$}.
+  \item The cutoff rule must be optimal given those pricing and bidding responses.
+  \item Beliefs, prices, bids, and cutoffs must fit together in a self-consistent way.
+\end{itemize}
+\end{block}
+\end{columns}
+
+\vfill
+\backuplink{backup:B2a}{Full PBE}\hfill
+\backuplink{backup:B2b}{Bayes}\hfill
+\backuplink{backup:B2c}{Public state}\hfill
+\backuplink{backup:B2}{Existence}
+\end{frame}
+
+% -- SLIDE 6: Standing assumptions ------------------------------------------
+\begin{frame}{Standing Assumptions}
+\hypertarget{main:assumptions}{}
+\footnotesize
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{Action structure}
+\begin{itemize}\itemsep0.35em
+  \item A1: Interior regions; no single action always dominates.
+  \item A2: Engagement cost \choice{$C(s)$} is positive and decreasing in \choice{$s$}.
+  \item A3: Engagement raises the expected premium, \choice{$\tilde m>m_0$}.
+\end{itemize}
+\end{block}
+
+\begin{block}{Bidder entry}
+\begin{itemize}\itemsep0.35em
+  \item A4: Synergy bounds keep bid incidence interior.
+  \item A5: \choice{$\tilde\Delta+\tilde m-m_0>\Delta_S$} (net deterrence).
+\end{itemize}
+\end{block}
+
+\column{0.48\textwidth}
+\begin{block}{Regularity}
+\begin{itemize}\itemsep0.35em
+  \item A6: The cutoff map selects a unique fixed point numerically.
+  \item A7: Bidder arrival is bounded, \choice{$\lambda_B\le 1/2$}, supporting single-crossing.
+\end{itemize}
+\end{block}
+
+\begin{block}{Why these matter}
+\begin{itemize}\itemsep0.35em
+  \item A1--A3 generate the four action regions.
+  \item A4--A5 keep bids interior and make inferred engagement deter bids.
+  \item A6--A7 discipline equilibrium selection.
+\end{itemize}
+\end{block}
+\end{columns}
+
+\vfill
+\backuplink{backup:B22}{Full assumptions}\hfill
+\backuplink{backup:B12}{A5 and bid deterrence}
+\end{frame}
+
+% -- SLIDE 7: Proposition 1 --------------------------------------------------
+\begin{frame}{Equilibrium Cutoffs (Proposition 1)}
+\hypertarget{main:prop1}{}
+\footnotesize
+\textbf{Proposition 1.} Equilibrium behavior is organized by ordered cutoffs \choice{$k_1\le k_0\le k_D$}.
+
+\begin{columns}[T,onlytextwidth]
+\column{0.38\textwidth}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Signal Region} & \textbf{Action} \\
+\midrule
+\choice{$s<k_1$} & Exit \\
+\choice{$k_1\le s<k_0$} & Hold \\
+\choice{$k_0\le s<k_D$} & Quiet Voice \\
+\choice{$s\ge k_D$} & Public Voice \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.25em}
+Action map: Exit $=(-1,0)$, Hold $=(0,0)$,\\
+Quiet Voice $=(0,1)$, Public Voice $=(+1,1)$.
+
+\vspace{0.25em}
+\textbf{Disclosure:} \obs{$D=1$} iff $\choice{q}=+1$.\\
+Hold and Quiet Voice both imply $\choice{q}=0$, so they share the same \obs{order-flow} distribution.
+
+\column{0.58\textwidth}
+\begin{center}
+  \includegraphics[width=\textwidth,height=0.44\textheight,keepaspectratio]{fig_cutoff_structure.pdf}
+\end{center}
+\end{columns}
+
+\vfill
+\hfill\backuplink{backup:B1}{Proof sketch}\hfill\backuplink{backup:B24}{Action set}\hfill\backuplink{backup:B11}{Cutoffs vs.\ $\kappa$}
+\end{frame}
+
+% -- SLIDE 9: Mechanism -----------------------------------------------------
+\begin{frame}{Inference, Bid Entry, and Prices}
 \hypertarget{main:engagement}{}
+\hypertarget{main:prop2}{}
+\hypertarget{main:pricedecomp}{}
+\hypertarget{main:prices}{}
 \small
 \begin{columns}[T,onlytextwidth]
 \column{0.48\textwidth}
-\textbf{Engagement cost:}
-\[
-C(s) = C_0 \exp\!\left(-\chi\,\frac{s - \mu}{\sigma_s}\right)
-\]
-Decreasing in signal $\Rightarrow$ strong-thesis activism.
-
-\vspace{0.3em}
-
-\textbf{Success:} with probability $\rho$:
-\begin{itemize}\itemsep0pt
-  \item Standalone value $+\Delta$ $\Rightarrow$ $\tilde{\Delta} = \rho\Delta$
-  \item Premium rises: $m_0 \to m_1$ $\Rightarrow$ $\tilde{m} = m_0 + \rho(m_1 - m_0)$
+\textbf{Inference}
+\begin{itemize}\itemsep0.35em
+  \item Disclosed branch: \obs{$D=1$} $\Rightarrow$ \outcome{$\pi(X,1)=1$}.
+  \item Nondisclosed branch: \obs{$D=0$} mixes Exit, Hold, and Quiet Voice through order flow \obs{$X$}.
+  \item Liquidity \obs{$\kappa$} matters by changing how informative \obs{$X$} is in nondisclosed states.
+  \item Channel: \obs{$X$} changes \outcome{$\pi$}, which moves \outcome{$\bar m$}, \outcome{$p$}, and \outcome{$\Delta^{\min}$}.
 \end{itemize}
 
 \column{0.48\textwidth}
-\textbf{Bidder entry:}
+\textbf{Bidder and prices}
+{\footnotesize
 \[
-p(P,D) = 1 - \Phi\!\left(\frac{\bar{m}(X,D) + K - \bar{S} + P}{\sigma_\xi}\right)
+\outcome{\hat V}=\E[v\mid \obs{X},\obs{D}]+\tilde{\Delta}\,\outcome{\pi},
+\qquad
+\outcome{\bar m}=m_0+(\tilde m-m_0)\outcome{\pi}
 \]
-
-\textbf{Pricing fixed point:}
 \[
-P = \delta\!\left[(1-p)\hat{V} + p(P + \bar{m})\right]
+\outcome{p}=\lambda_B\!\big(1-\Lambda(\Gamma)\big),
+\qquad
+\Gamma=\frac{\outcome{\hat V}+\outcome{\bar m}+K-(\bar S+\outcome{\pi}\Delta_S)}{s_{\xi}}
 \]
-
-where $\hat{V} = \E[v|X,D] + \tilde{\Delta}\,\pi(X,D)$.
-
-\vspace{0.2em}
-
-\textbf{Regularity:} $\delta\,\varphi(0)/\sigma_\xi < 1$ ensures unique $P^*$.
+\[
+\outcome{P_{\textup{post}}}=\delta\big(\outcome{\hat V}+\outcome{p}\,\outcome{\bar m}\big),
+\qquad
+\outcome{P_{\textup{trade}}}(\obs{X})=\E[\outcome{P_{\textup{post}}}\mid \obs{X}]
+\]
+}
+\begin{itemize}\itemsep0.3em
+  \item Under A5 (net deterrence), higher inferred engagement raises value and premia enough to deter marginal bids.
+  \item Sequential mechanism: public signal $\to$ beliefs $\to$ bidder entry $\to$ prices.
+\end{itemize}
 \end{columns}
 
-\backuplink{backup:fixed_point}{Fixed-point derivation}
-\backuplink{backup:bid_monotonicity}{Bid deterrence}
-\backuplink{backup:takeover_comps}{Takeover comparative statics}
+\vfill
+\backuplink{backup:B25}{Discrete flow}\hfill
+\backuplink{backup:B4}{Full posteriors}\hfill
+\backuplink{backup:B5}{Mechanism logic}\hfill
+\backuplink{backup:B12}{Bid deterrence}
 \end{frame}
 
-% ── SLIDE 7: Equilibrium — Monotone Cutoff Structure (Prop 1) ────────────
-\begin{frame}{Equilibrium: Monotone Cutoff Strategy}
-\hypertarget{main:prop1}{}
+% -- SLIDE 10: Main result --------------------------------------------------
+\begin{frame}{Main Result: Baseline Hump}
+\hypertarget{main:mainresult}{}
+\footnotesize
 \begin{columns}[T,onlytextwidth]
-\column{0.46\textwidth}
-\begin{block}{Proposition 1 (Cutoff Structure)}
-\vspace{-0.2em}
-{\small In any PBE, cutoffs $k_1 \le k_0 \le k_D$:}
-\vspace{-0.4em}
-\begin{align*}
-s < k_1 &\;\Rightarrow\; \text{Exit}\\
-k_1 \le s < k_0 &\;\Rightarrow\; \text{Hold}\\
-k_0 \le s < k_D &\;\Rightarrow\; \text{Quiet Voice}\\
-s \ge k_D &\;\Rightarrow\; \text{Public Voice}
-\end{align*}
-\vspace{-0.8em}
-\end{block}
-
-\vspace{0.05em}
-
-{\small\textbf{Key:} Hold and Quiet Voice produce identical order-flow distributions $\Rightarrow$ market cannot distinguish them.}
-
-\column{0.52\textwidth}
-\centering
-\includegraphics[width=\linewidth]{fig_cutoff_structure.pdf}
-
-\vspace{0.1em}
-{\footnotesize Equilibrium regions in signal space.\\
-$k_0 = k_1$ at baseline (Hold collapsed).}
-\end{columns}
-
-\backuplink{backup:proof_prop1}{Proof sketch}
-\end{frame}
-
-% ── SLIDE 8: Bayesian Inference — Where kappa Enters (Prop 2) ────────────
-\begin{frame}{Bayesian Inference: Where $\kappa$ Enters}
-\hypertarget{main:prop2}{}
-\small
-\begin{block}{Proposition 2 (Posteriors)}
-\vspace{-0.2em}
-\textbf{Disclosed:} $\outcome{\pi}(X,1) = 1$ $\forall X$. \quad
-\textbf{Non-disclosed} ($D{=}0$, $p_0 {=} 1{-}\kappa$, $p_1 {=} \kappa/2$):
+\column{0.58\textwidth}
 \vspace{-0.3em}
-\begin{align*}
-\outcome{\pi}(1,0) &= \tfrac{\omega_Q}{\omega_H + \omega_Q} \;\; \textcolor{gray}{\text{($\kappa$-free)}} \qquad
-\outcome{\pi}(0,0) = \tfrac{\omega_Q\,p_0}{(\omega_H {+} \omega_Q)\,p_0 + \omega_E\,p_1}\\[0.1em]
-\outcome{\pi}(-1,0) &= \tfrac{\omega_Q\,p_1}{(\omega_H {+} \omega_Q)\,p_1 + \omega_E\,p_0}
-\end{align*}
-\vspace{-0.8em}
-\end{block}
+\begin{center}
+  \includegraphics[width=0.95\textwidth,height=0.45\textheight,keepaspectratio]{fig_nonmonotone.pdf}
+\end{center}
 
-\vspace{0.1em}
+\column{0.38\textwidth}
+\textbf{Baseline result.}
+Minority takeover gains
+$\outcome{\Delta^{\min}}(\kappa)=\E\big[\outcome{m^{R}}(\choice{a})\cdot\1\{\textup{bid}\}\big]$
+are hump-shaped, with an interior maximizer.
 
-{\footnotesize\textbf{Mechanism:}\;
-$\obs{X} \!\to\! \outcome{\pi}(X,D) \!\to\! \bar{m}(X,D) \!\to\! \outcome{p}(P,D) \!\to\! \Delta^{\min}$}
-
-\vspace{0.1em}
-$\kappa$ enters at inference, \textbf{only on $D{=}0$}: rising $\kappa$ compresses posteriors toward the prior.
-
-\backuplink{backup:full_posteriors}{Full posterior formulas}
-\backuplink{backup:disclosed_invariance}{Disclosed-branch invariance}
+\textbf{Interpretation}
+\begin{itemize}\itemsep0.15em
+  \item More liquidity improves camouflage and lowers adverse selection.
+  \item More liquidity weakens inference and erodes the activism premium.
+  \item The hump is a quantitative result, not a closed-form theorem.
+\end{itemize}
+\vfill
+\backuplink{backup:B7}{Endpoints}\hfill\backuplink{backup:B8}{Proof idea}
+\end{columns}
 \end{frame}
 
-% ── SLIDE 9: Price Decomposition (Prop 3) ────────────────────────────────
-\begin{frame}{Prices Embed an Activism Premium}
-\hypertarget{main:prop3}{}
+% -- SLIDE 11: Decomposition -------------------------------------------------
+\begin{frame}{Decomposition: Two Forces}
+\hypertarget{main:decomp}{}
+\begin{columns}[T,onlytextwidth]
+\column{0.54\textwidth}
+\begin{center}
+  \includegraphics[width=\textwidth]{fig_decomposition.pdf}
+\end{center}
+
+\column{0.42\textwidth}
+\textbf{Exact decomposition}
 \small
-\begin{block}{Proposition 3 (Price Decomposition)}
-\vspace{-0.4em}
 \begin{align*}
-\outcome{P}(X,D) = \delta\Big(&\underbrace{(1-\outcome{p}^*)\,\E[v\mid X,D]}_{\text{fundamental}}
-+ \underbrace{(1-\outcome{p}^*)\,\tilde{\Delta}\,\outcome{\pi}}_{\text{\textbf{standalone channel}}}\\
-&+ \underbrace{\outcome{p}^*\,(P + m_0)}_{\text{baseline takeover}}
-+ \underbrace{\outcome{p}^*\,(\tilde{m} - m_0)\,\outcome{\pi}}_{\text{\textbf{takeover channel}}}\Big)
+\outcome{\Delta^{\textup{base}}}(\kappa) &= m_0\,\PP(\textup{bid}),\\
+\outcome{\Delta^{\textup{act}}}(\kappa) &= (\tilde m-m_0)\,\E\!\big[\outcome{\pi}\cdot\1\{\textup{bid}\}\big],\\
+\outcome{\Delta^{\min}}(\kappa) &= \outcome{\Delta^{\textup{base}}}+\outcome{\Delta^{\textup{act}}},
 \end{align*}
-\end{block}
+where $\outcome{\pi}\equiv\outcome{\pi}(\obs{X},\obs{D})$.
 
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\textbf{Standalone channel:}\\
-Engagement raises expected standalone value by $\tilde{\Delta}\,\pi$.
-Weighted by $(1-p^*)$: matters when no bid arrives.
+\vspace{0.3em}
+\textbf{Reading the forces}
+\begin{itemize}\itemsep0.35em
+  \item \outcome{$\Delta^{\textup{base}}$} rises with bid incidence.
+  \item \outcome{$\Delta^{\textup{act}}$} declines as inference compresses.
+\end{itemize}
 
-\column{0.48\textwidth}
-\textbf{Takeover channel:}\\
-Engagement raises the expected premium wedge by $(\tilde{m} - m_0)\,\pi$.
-Weighted by $p^*$: matters when a bid arrives.
+\vfill
+\backuplink{backup:B9}{Bidder sens.}\hfill\backuplink{backup:B10}{Activism sens.}
 \end{columns}
-
-\vspace{0.2em}
-\textbf{Both channels depend on $\outcome{\pi}(X,D)$}: the inferred probability of engagement.
-
-\backuplink{backup:fixed_point}{Pricing derivation}
-\backuplink{backup:disclosed_invariance}{Disclosed-branch invariance}
 \end{frame}
 
-% ── SLIDE 10: Main Result — Nonmonotone Liquidity Effect (Prop 5) ────────
-\begin{frame}{Main Result: Non-Monotone Liquidity Effect}
-\hypertarget{main:result}{}
-\begin{columns}[T,onlytextwidth]
-\column{0.55\textwidth}
-\centering
-\includegraphics[width=\linewidth]{fig_nonmonotone.pdf}
-
-\column{0.43\textwidth}
-\begin{block}{Proposition 5}
-\vspace{-0.2em}
-$\Delta^{\min}(\kappa)$ is \textbf{hump-shaped}: moderate $\kappa$ uniquely maximizes minority takeover gains.
-\vspace{-0.2em}
-\end{block}
-
-\vspace{0.1em}
-{\footnotesize\textbf{Decomposition:}
-\vspace{-0.5em}
-\[
-\Delta^{\min} = \underbrace{m_0 \cdot \PP(\text{bid})}_{\text{base}} + \underbrace{(\tilde{m}{-}m_0)\E[\pi \cdot \1_{\text{bid}}]}_{\text{activism}}
-\]
-\vspace{-0.5em}
-}
-\textbf{Two forces:}\\
-{\small(i) $\kappa\!\uparrow$ $\Rightarrow$ noise cover $\Rightarrow$ more bids\\
-(ii) $\kappa\!\uparrow$ $\Rightarrow$ weaker inference $\Rightarrow$ lower $\pi$}
-\end{columns}
-
-\vspace{0.1em}
-{\small At $\kappa^{\dagger}$: marginal benefit of noise cover $=$ marginal cost of inference destruction.}
-
-\backuplink{backup:sensitivity}{Sensitivity analyses}
-\backuplink{backup:endpoint_behavior}{Endpoint limits}
-\backuplink{backup:nonmonotonicity_proof}{Nonmonotonicity proof}
-\end{frame}
-
-% ── SLIDE 10b: Decomposition — Two Competing Forces ─────────────────────
-\begin{frame}{Decomposition: Two Competing Forces}
-\hypertarget{main:decomposition}{}
-\begin{columns}[T,onlytextwidth]
-\column{0.55\textwidth}
-\centering
-\includegraphics[width=\linewidth]{fig_decomposition.pdf}
-
-\column{0.43\textwidth}
-\begin{block}{Two Components}
-\vspace{-0.2em}
-{\small
-\vspace{-0.5em}
-\[
-\Delta^{\min} = \underbrace{m_0 \cdot \PP(\text{bid})}_{\text{base}} + \underbrace{(\tilde{m}{-}m_0)\E[\pi \cdot \1_{\text{bid}}]}_{\text{activism}}
-\]
-\vspace{-0.5em}
-}
-\end{block}
-
-\vspace{0.1em}
-{\footnotesize\textbf{Base} (dashed): monotone $\uparrow$ --- noise $\Rightarrow$ lower prices $\Rightarrow$ more bids.}
-
-\vspace{0.1em}
-{\footnotesize\textbf{Activism} (dotdash): hump-shaped --- inference degrades as $\kappa$ rises.}
-
-\vspace{0.1em}
-{\footnotesize At $\kappa^{\dagger}$: activism peak drives the overall maximum.}
-\end{columns}
-
-\backuplink{backup:sensitivity}{Sensitivity analyses}
-\backuplink{backup:decomposition_proof}{Decomposition proof}
-\end{frame}
-
-% ── SLIDE 11: Disclosure Attenuation (Prop 6) ────────────────────────────
-\begin{frame}{Disclosure Attenuates the Liquidity Effect}
+% -- SLIDE 12: Disclosure attenuation ----------------------------------------
+\begin{frame}{Disclosure Attenuation (Proposition 6)}
 \hypertarget{main:attenuation}{}
+\small
 \begin{columns}[T,onlytextwidth]
-\column{0.55\textwidth}
-\centering
-\includegraphics[width=\linewidth]{fig_disclosure_slopes.pdf}
+\column{0.56\textwidth}
+\begin{center}
+  \includegraphics[width=\textwidth]{fig_disclosure_slopes.pdf}
+\end{center}
 
-\column{0.43\textwidth}
-\begin{block}{Proposition 6 (Attenuation)}
-\vspace{-0.2em}
-{\small The \textbf{slope} $\partial\Delta^{\text{act}}/\partial\kappa$ is flatter under disclosure: the $D{=}1$ states contribute zero sensitivity.}
-\vspace{-0.2em}
-\end{block}
+\column{0.40\textwidth}
+\textbf{Partial-equilibrium statement}
+Hold \choice{cutoffs} fixed and vary $\kappa$ only through inference. Only the nondisclosed component depends on $\kappa$ because \obs{$D=1$} implies \outcome{$\pi=1$}.
 
-\vspace{0.1em}
-{\small The shaded region shows the attenuation gap: disclosure mechanically dampens $\kappa$-sensitivity.}
+\vspace{0.35em}
+\textbf{Main implication}
+Shifting probability mass toward disclosed engagement attenuates
+$|\partial\outcome{\Delta^{\textup{act}}}/\partial\kappa|$.
 
-\vspace{0.2em}
-
-{\small\textbf{Implication:} Disclosure and liquidity are \textbf{substitutes} in shaping inference.}\\[0.1em]
-{\footnotesize UK 3\% threshold attenuates sensitivity relative to US 5\%.}
+\vspace{0.35em}
+\textbf{Interpretation}
+\begin{itemize}\itemsep0.4em
+  \item UK-style stricter thresholds reduce liquidity sensitivity.
+  \item A no-disclosure counterfactual amplifies it.
+\end{itemize}
+\vfill
+\backuplink{backup:B13}{Other regimes}\hfill\backuplink{backup:B14}{Noisy rumors}\hfill\backuplink{backup:B26}{Anonymity}
 \end{columns}
-
-\backuplink{backup:disclosure_regimes}{Alternative regimes}
-\backuplink{backup:noisy_rumor}{Noisy rumors}
-\backuplink{backup:PE_vs_GE}{PE vs GE distinction}
 \end{frame}
 
-% ── SLIDE 12: Policy Implications & Testable Predictions ─────────────────
-\begin{frame}{Policy Implications \& Testable Predictions}
+% -- SLIDE 13: Close ---------------------------------------------------------
+\begin{frame}{Takeaways and Testable Implications}
+\hypertarget{main:summary}{}
 \hypertarget{main:policy}{}
 \footnotesize
 \begin{columns}[T,onlytextwidth]
-\column{0.52\textwidth}
-\textbf{Four testable predictions:}
-\begin{enumerate}\itemsep0.15em
-  \item \textbf{Hump-shaped premia:} Quadratic $\kappa$ term in premia regressions (SDC/CRSP)
-  \item \textbf{Disclosure attenuates:} Interact liquidity $\times$ UK/US; UK effect muted
-  \item \textbf{13D event study:} Abnormal return upon filing $\uparrow$ in illiquidity
-  \item \textbf{Bid deterrence:} Lower bid hazard for 13D filers, but higher conditional premia
-\end{enumerate}
-
-\column{0.46\textwidth}
-\begin{block}{GE Disclosure Trade-off (Prop.\ 7)}
-\vspace{-0.2em}
-{\footnotesize
-$\frac{d\Delta^{\text{act}}}{d\tau} \approx \underbrace{\text{transparency}}_{{+}} + \underbrace{\text{deterrence}}_{{-}}$
-}
-
-\vspace{0.2em}
-{\small Strict disclosure can \textbf{paradoxically harm} minorities by destroying Quiet Voice.}
-
-\vspace{0.2em}
-{\small $C_0$ low, $\kappa$ moderate: transparency dominates.\\
-$C_0$ high: deterrence dominates.}
-\vspace{-0.2em}
+\column{0.50\textwidth}
+\begin{block}{Takeaways}
+\begin{itemize}\itemsep0.35em
+  \item Liquidity matters because it changes inference from order flow.
+  \item Threshold disclosure shifts activism from inferred states to observed states.
+  \item Minority takeover gains can peak at intermediate liquidity.
+\end{itemize}
 \end{block}
 
-\vspace{0.1em}
-\textbf{Key:} Liquidity regulation is implicitly governance policy.
+\begin{block}{Theory status}
+\textbf{Analytical:} cutoffs, posteriors, exact decomposition, partial-equilibrium attenuation.
+
+\vspace{0.2em}
+\textbf{Numerical:} baseline hump, fixed-point selection, broader disclosure and welfare patterns.
+\end{block}
+
+\column{0.46\textwidth}
+\begin{block}{Testable implications}
+\begin{itemize}\itemsep0.35em
+  \item Unconditional hump test in minority takeover gains.
+  \item Decomposition: bid incidence rises with liquidity while activism-related premia weaken.
+  \item Stricter disclosure or more observable firms should flatten the liquidity--premia relation; 13D filing CARs should be larger for more liquid targets.
+\end{itemize}
+\end{block}
+
+\begin{block}{Welfare caveat}
+The hump is about \outcome{$\Delta^{\min}$}, not total surplus. Welfare and general-equilibrium disclosure trade-offs remain preliminary.
+\end{block}
 \end{columns}
-
-\backuplink{backup:GE_disclosure}{GE disclosure analysis}
-\backuplink{backup:welfare}{Welfare decomposition}
-\backuplink{backup:PE_vs_GE}{PE vs GE distinction}
-\end{frame}
-
-% ── SLIDE 13: Summary & Conclusion ───────────────────────────────────────
-\begin{frame}{Summary}
-\hypertarget{main:summary}{}
-\footnotesize
-
-\textbf{\textcolor{brightblue}{Mechanism}}\\[-0.2em]
-{\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}}\\[0.1em]
-Liquidity changes what order flow reveals about hidden engagement.
-Disclosure creates observability vs.\ inference regimes.
-
-\vspace{0.2em}
-
-\textbf{\textcolor{brightblue}{Main Prediction}}\\[-0.2em]
-{\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}}\\[0.1em]
-Minority takeover gains are \textbf{hump-shaped} in liquidity:
-bid incidence rises but the activism premium erodes.
-
-\vspace{0.2em}
-
-\textbf{\textcolor{brightblue}{Contribution}}\\[-0.2em]
-{\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}}\\[0.1em]
-Unifies exit/voice, informed trading, and takeover literatures.
-Disclosure policy implicitly governs the liquidity-premia relationship.
-
-\vspace{0.2em}
-
-\textbf{\textcolor{brightblue}{Extensions}}\\[-0.2em]
-{\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}}\\[0.1em]
-Dynamic multi-round trading, multiple blockholders, endogenous information acquisition.
-
-\vspace{0.3em}
-\centering
-\textbf{Thank you!}\\[0.1em]
-\texttt{junyu.li.24@ucl.ac.uk}
 \end{frame}
 
 % ============================================================================
-% REFERENCES
-% ============================================================================
-
-\begin{frame}[allowframebreaks]{References}
-\small
-\printbibliography
-\end{frame}
-
-% ============================================================================
-% BACKUP SLIDES (20 slides)
+% BACKUP SLIDES
 % ============================================================================
 
 \appendix
 
-% ── CATEGORY DIVIDER: Mathematical Foundations ────────────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Mathematical Foundations \& Equilibrium Robustness}}
+% --- Section A: Mathematical Foundations ---
+% \section{Mathematical Foundations}
+
+% -- B1 ----------------------------------------------------------------------
+\begin{frame}{B1. How do you establish the cutoff ordering?}
+\hypertarget{backup:B1}{}
+\footnotesize
+\begin{alertblock}{Proof Sketch for Proposition 1}
+Key ingredients:
+\begin{itemize}\itemsep0.15em
+  \item Payoffs are affine in $\hat v(\choice{s})=\E[v\mid \choice{s}]$; $\hat v$ increases in \choice{$s$}
+  \item Engagement cost \choice{$C(s)$} is (weakly) decreasing in \choice{$s$}
+  \item \outcome{$P_{\textup{trade}}(X)$} is independent of \choice{$s$} within a given action
+\end{itemize}
+These imply strict single-crossing of adjacent payoff differences, yielding a monotone best response with cutoffs \choice{$k_1\le k_0\le k_D$}.
+\end{alertblock}
+
+\begin{alertblock}{Baseline action-set interpretation}
+The model is written for a control-oriented activist, so the only threshold-crossing action in the baseline action set is Public Voice. Appendix lemma: passive threshold crossing is dominated for sufficiently high signals, and in the baseline calibration \choice{$k_D\ge\bar{s}$}.
+\end{alertblock}
+
+\returnlink{main:prop1}{Slide 8: Cutoffs}
 \end{frame}
 
-% ── BACKUP 1: Proof sketch of Proposition 1 ──────────────────────────────
-\begin{frame}{How do you establish that the cutoff ordering holds?}
-\hypertarget{backup:proof_prop1}{}
+% -- B2 ----------------------------------------------------------------------
+\begin{frame}{B2. Existence and numerical fixed-point selection}
+\hypertarget{backup:B2}{}
 \small
-\textbf{Proof sketch (Proposition 1):} Single-crossing of payoffs in $s$.
+\begin{alertblock}{Existence (Proposition 4)}
+Existence is stated under maintained regularity conditions: a compact ordered cutoff set $\Theta$, a well-defined cutoff mapping $T$, and continuity on reached information sets with an off-path completion. Brouwer then implies a fixed point.
+\end{alertblock}
 
-\vspace{0.3em}
+\begin{alertblock}{Uniqueness (Assumption A6)}
+No analytic uniqueness theorem is claimed. The solver converges to the same fixed point from multiple starts in all reported exercises.
+\end{alertblock}
 
-\textbf{Step 1: Exit vs.\ Hold.} $B_E(s) - B_H(s)$ is decreasing in $s$: holding becomes relatively more attractive as $v$ improves (higher terminal payoff, lower exit price relative to fundamental). $\Rightarrow$ $\exists\, k_1$ with Exit optimal below.
+\begin{alertblock}{Solver Implementation}
+Damped fixed-point iteration with \texttt{scipy.optimize.brentq} for sub-problems. Multi-start search with collapsed-hold fallback. Convergence tolerance: $10^{-6}$.
+\end{alertblock}
 
-\vspace{0.3em}
-
-\textbf{Step 2: Hold vs.\ Quiet Voice.} $B_H(s) - B_Q(s)$: engagement cost $C(s)$ is decreasing in $s$ (strong-thesis activism), while the payoff uplift $\tilde{\Delta}$ and $\tilde{m} - m_0$ are constant. $\Rightarrow$ $\exists\, k_0 \ge k_1$ with Quiet optimal above.
-
-\vspace{0.3em}
-
-\textbf{Step 3: Quiet vs.\ Public Voice.} $B_Q(s) - B_P(s)$: Public Voice requires buying an additional share at price $P$, but gains double the terminal payoff. The cost of buying ($P$) is fixed in $s$ while the benefit of a larger holding position increases with expected fundamental value. $\Rightarrow$ $\exists\, k_D \ge k_0$ with Public optimal above.
-
-\vspace{0.3em}
-
-The weak ordering $k_1 \le k_0 \le k_D$ permits region collapse (e.g., $k_0 = k_1$: no Hold region).
-
-\returnlink{main:prop1}{Slide 7: Proposition 1}
+\returnlink{main:eqmdef}{Slide 6: How the Model Closes}
 \end{frame}
 
-% ── BACKUP 2: Equilibrium uniqueness ─────────────────────────────────────
-\begin{frame}{How do you know the equilibrium is unique?}
-\hypertarget{backup:uniqueness}{}
+% -- B2a ---------------------------------------------------------------------
+\begin{frame}{B2a. Full monotone-cutoff PBE definition}
+\hypertarget{backup:B2a}{}
+\footnotesize
+\begin{alertblock}{Equilibrium object}
+A monotone-cutoff Perfect Bayesian Equilibrium is a tuple
+\[
+\Big(\choice{k_1,k_0,k_D},\; \outcome{\mu(\cdot\mid h)},\; \outcome{P_{\textup{trade}}(X)},\; \outcome{P_{\textup{post}}(h)},\; \outcome{\tilde p(h,\xi)}\Big)
+\]
+such that the following conditions hold.
+\end{alertblock}
+
+\begin{enumerate}\itemsep0.35em
+  \item \textbf{Blockholder optimality:} the cutoff rule induced by \choice{$(k_1,k_0,k_D)$} maximizes expected payoff at every signal \choice{$s$}.
+  \item \textbf{Bidder best response:} for every reached public state \obs{$h$} and private synergy \obs{$\xi$}, entry follows the surplus-maximizing rule \outcome{$\tilde p(h,\xi)$}.
+  \item \textbf{Competitive pricing:} \outcome{$P_{\textup{trade}}(X)=\delta\E[Y\mid X]$} and \outcome{$P_{\textup{post}}(h)=\delta\E[Y\mid h]$}.
+  \item \textbf{Belief consistency:} \outcome{$\mu(\cdot\mid h)$} is Bayes-consistent on each reached public state.
+  \item \textbf{Cutoff indifference:} adjacent-action indifference equalities hold at \choice{$k_1,k_0,k_D$}.
+\end{enumerate}
+
+\returnlink{main:eqmdef}{Slide 6: How the Model Closes}
+\end{frame}
+
+% -- B2b ---------------------------------------------------------------------
+\begin{frame}{B2b. Reached public states and Bayes consistency}
+\hypertarget{backup:B2b}{}
+\footnotesize
+\textbf{Public state.}
+Let \obs{$h$} denote the public information state at $t=1.5$. In the baseline, \obs{$h$} is indexed by \obs{$(X,D)$}.
+
+\vspace{0.35em}
+\begin{alertblock}{On-path belief formula}
+For any reached public state \obs{$h$} with \obs{$\PP(h)>0$},
+\[
+\outcome{\mu(a\mid h)}=\frac{\PP(a,h)}{\PP(h)}.
+\]
+Equivalently, beliefs over Exit / Hold / Quiet Voice / Public Voice are pinned down by the cutoff strategy and the noise distribution via Bayes' rule.
+\end{alertblock}
+
+\textbf{Reached states in the baseline}
+\begin{itemize}\itemsep0.3em
+  \item Disclosed branch: \obs{$D=1$} implies Public Voice, so only \obs{$(0,1),(1,1),(2,1)$} can occur.
+  \item Nondisclosed branch: \obs{$D=0$} mixes Exit, Hold, and Quiet Voice through order flow.
+  \item Off-path states require a completion for existence, but the quantitative objects use on-path beliefs.
+\end{itemize}
+
+\returnlink{main:eqmdef}{Slide 6: How the Model Closes}
+\end{frame}
+
+% -- B2c ---------------------------------------------------------------------
+\begin{frame}{B2c. What does the bidder observe?}
+\hypertarget{backup:B2c}{}
+\footnotesize
+\begin{alertblock}{Reduced-form interpretation}
+The bidder need not literally observe raw exchange-level order flow. What the theorem package requires is that, by the entry stage, both the market maker and the bidder condition on the same \emph{public state} \obs{$h$}.
+\end{alertblock}
+
+\begin{itemize}\itemsep0.35em
+  \item In the baseline, \obs{$h$} is indexed by the public trading/disclosure outcome \obs{$(X,D)$}.
+  \item This is a sufficient-statistic formulation: any richer public history generating the same posterior \outcome{$\mu(\cdot\mid h)$} is observationally equivalent for prices and bidder entry.
+  \item The economics is public learning from a trading footprint, not literal tape-reading by bidders.
+\end{itemize}
+
+\returnlink{main:eqmdef}{Slide 6: How the Model Closes}
+\end{frame}
+
+% -- B3 ----------------------------------------------------------------------
+\begin{frame}{B3. Conditional means and truncated normal expectations}
+\hypertarget{backup:B3}{}
 \small
-\textbf{Existence (Proposition 4):} Brouwer's fixed-point theorem guarantees existence unconditionally. The cutoff mapping $T: (k_1, k_0, k_D) \mapsto (k_1', k_0', k_D')$ maps a compact convex set to itself.
+Let $\alpha_i=(\choice{k_i}-\mu)/\sigma_s$ and inverse Mills ratios
+$\lambda_L(\alpha)=\phi(\alpha)/\Phi(\alpha)$,
+$\lambda_U(\alpha)=\phi(\alpha)/(1-\Phi(\alpha))$.
+
+\begin{alertblock}{Conditional Means (Lemma 3)}
+\begin{align*}
+\mu_E&=\E[v\mid \choice{s}<\choice{k_1}]=\mu-\beta\sigma_s\lambda_L(\alpha_1), &
+\mu_P&=\E[v\mid \choice{s}\ge \choice{k_D}]=\mu+\beta\sigma_s\lambda_U(\alpha_D),\\[0.3em]
+\mu_H&=\mu+\beta\sigma_s\frac{\phi(\alpha_1)-\phi(\alpha_0)}{\Phi(\alpha_0)-\Phi(\alpha_1)}, &
+\mu_Q&=\mu+\beta\sigma_s\frac{\phi(\alpha_0)-\phi(\alpha_D)}{\Phi(\alpha_D)-\Phi(\alpha_0)}.
+\end{align*}
+\end{alertblock}
+
+These enter \outcome{$\hat V(X,D)$} through the conditional expectation $\E[v\mid \obs{X},\obs{D}]$, which weights $\mu_E$, $\mu_H$, $\mu_Q$, $\mu_P$ by the posterior action probabilities.
+
+\returnlink{main:prop2}{Slide 9: Inference, Bids, Prices}
+\end{frame}
+
+% -- B4 ----------------------------------------------------------------------
+\begin{frame}{B4. Full posterior formulas and within-regime effects}
+\hypertarget{backup:B4}{}
+\small
+\begin{alertblock}{Posterior Engagement Probabilities (Proposition 2)}
+Baseline disclosed branch: \obs{$D=1$} $\Rightarrow$ \outcome{$\pi(X,1)=1$}. For \obs{$D=0$} with $p_0=1-2\kappa/3$, $p_1=\kappa/3$:
+\begin{align*}
+\outcome{\pi(1,0)}&=\frac{\choice{\omega_Q}}{\choice{\omega_H}+\choice{\omega_Q}},\\
+\outcome{\pi(-1,0)}&=\frac{\choice{\omega_Q} p_1}{(\choice{\omega_H}+\choice{\omega_Q})p_1+\choice{\omega_E} p_0},\\
+\outcome{\pi(0,0)}&=\frac{\choice{\omega_Q} p_0}{(\choice{\omega_H}+\choice{\omega_Q})p_0+\choice{\omega_E} p_1}.
+\end{align*}
+\end{alertblock}
+
+\begin{alertblock}{Comparative statics (holding \choice{$\omega$} fixed)}
+$\partial_\kappa\outcome{\pi(1,0)}=0$, \; $\partial_\kappa\outcome{\pi(-1,0)}\ge 0$, \; $\partial_\kappa\outcome{\pi(0,0)}\le 0$.
+\end{alertblock}
+
+\returnlink{main:prop2}{Slide 9: Inference, Bids, Prices}
+\end{frame}
+
+% -- B5 ----------------------------------------------------------------------
+\begin{frame}{B5. Mechanism and pricing logic}
+\hypertarget{backup:B5}{}
+\small
+\begin{alertblock}{Step 1: Public signal to activism beliefs}
+Trading and disclosure generate the public signal \obs{$(\obs{X},\obs{D})$}. The market maker and bidder update to the posterior activism belief \outcome{$\pi(\obs{X},\obs{D})=\PP(\choice{a}=1\mid \obs{X},\obs{D})$}.
+\begin{itemize}\itemsep0.2em
+  \item \obs{$D=1$} reveals Public Voice, so \outcome{$\pi(\obs{X},1)=1$}.
+  \item \obs{$D=0$} mixes Exit, Hold, and Quiet Voice through order flow \obs{$X$}.
+\end{itemize}
+\end{alertblock}
+
+\begin{alertblock}{Step 2: Beliefs move value, premia, and bid incentives}
+\[
+\outcome{\hat V}(\obs{X},\obs{D})=\E[v\mid \obs{X},\obs{D}]+\tilde\Delta\,\outcome{\pi}(\obs{X},\obs{D}),
+\qquad
+\outcome{\bar m}(\obs{X},\obs{D})=m_0+(\tilde m-m_0)\outcome{\pi}(\obs{X},\obs{D}).
+\]
+\[
+\outcome{p}(\obs{X},\obs{D})=\lambda_B(1-\Lambda(\Gamma)),\qquad
+\Gamma=\frac{\outcome{\hat V}+\outcome{\bar m}+K-(\bar S+\outcome{\pi}\Delta_S)}{s_\xi}.
+\]
+Higher inferred activism raises expected value and premia; under A5 it also raises the entry cutoff \obs{$\Gamma$} and deters marginal bids.
+\end{alertblock}
+
+\vfill
+\returnlink{main:engagement}{Slide 9: Inference, Bids, Prices}\hfill
+\backuplink{backup:B5b}{Pricing step}
+\end{frame}
+
+\begin{frame}{B5b. Pricing from the mechanism}
+\hypertarget{backup:B5b}{}
+\footnotesize
+\begin{alertblock}{Step 3: Post-disclosure price}
+Conditional on the realized public signal, competitive pricing averages standalone value and expected takeover surplus:
+\[
+\outcome{P_{\textup{post}}}(\obs{X},\obs{D})=
+\delta\big(\outcome{\hat V}(\obs{X},\obs{D})+\outcome{p}(\obs{X},\obs{D})\outcome{\bar m}(\obs{X},\obs{D})\big).
+\]
+\end{alertblock}
+
+\begin{alertblock}{Trade-date price}
+Before disclosure is realized, the trade-date price averages over the later disclosure branch:
+\[
+\outcome{P_{\textup{trade}}}(\obs{X})=
+\sum_{\obs{d}\in\{0,1\}}\PP(\obs{D}=\obs{d}\mid \obs{X})\,\outcome{P_{\textup{post}}}(\obs{X},\obs{d}).
+\]
+\end{alertblock}
+
+\begin{alertblock}{Timing logic}
+\begin{itemize}\itemsep0.25em
+  \item Public signal \obs{$(X,D)$} determines beliefs \outcome{$\pi$}.
+  \item Those beliefs determine bidder entry and expected premia.
+  \item Prices then aggregate value and expected takeover surplus at each stage.
+\end{itemize}
+\end{alertblock}
+
+\returnlink{main:engagement}{Slide 9: Inference, Bids, Prices}
+\end{frame}
+
+% -- B6 ----------------------------------------------------------------------
+\begin{frame}{B6. Deriving the minority-gains decomposition}
+\hypertarget{backup:B6}{}
+\small
+\begin{alertblock}{Definition}
+\[
+\outcome{\Delta^{\min}}(\kappa)=\E\big[\outcome{m^{R}}(\choice{a})\cdot\1\{\textup{bid}\}\big].
+\]
+\end{alertblock}
+
+\begin{alertblock}{Decomposition}
+Since $\outcome{m^{R}}(\choice{a})=m_0+(\tilde m-m_0)\cdot \choice{a}$ and $\E[\choice{a}\mid \obs{X},\obs{D}]=\outcome{\pi}(\obs{X},\obs{D})$,
+\[
+\outcome{\Delta^{\min}}(\kappa)=\underbrace{m_0\PP(\textup{bid})}_{\outcome{\Delta^{\textup{base}}}}+\underbrace{(\tilde m-m_0)\E\big[\outcome{\pi}(\obs{X},\obs{D})\cdot\1\{\textup{bid}\}\big]}_{\outcome{\Delta^{\textup{act}}}}.
+\]
+\end{alertblock}
+
+The decomposition separates \emph{whether} a bid occurs (extensive margin) from the \emph{size} of the premium conditional on bidding (intensive margin).
+
+\returnlink{main:decomp}{Slide 11: Decomposition}
+\end{frame}
+
+% -- B7 ----------------------------------------------------------------------
+\begin{frame}{B7. Endpoint behavior with bounded noise (Lemma 2)}
+\hypertarget{backup:B7}{}
+\footnotesize
+
+\textbf{As $\kappa\downarrow 0$ (no noise):}\;
+$\PP(\obs{z}\!=\!0)\to 1$ so $\obs{X}=\choice{q}$ a.s.\ and $\outcome{P_{\textup{trade}}}(\obs{X})\to \outcome{P_{\textup{post}}}(\obs{X},\obs{D}(\obs{X}))$.
 
 \vspace{0.3em}
+Order flow perfectly reveals the action: $\obs{X}\!=\!-1$ $\Rightarrow$ Exit, $\obs{X}\!=\!0$ $\Rightarrow$ Hold/Quiet Voice, $\obs{X}\!=\!+1$ $\Rightarrow$ Public Voice. Inference is maximally sharp; execution price collapses to post-disclosure price.
 
-\textbf{Uniqueness:} Requires the spectral radius of the Jacobian $DT$ to be ${<}\,1$ (contraction condition). This is analytically intractable due to the nested fixed-point structure (prices depend on cutoffs, cutoffs depend on prices).
-
-\vspace{0.3em}
-
-\textbf{Numerical verification:}
-\begin{itemize}\itemsep0.1em
-  \item Following \citealp{EdmansGoldsteinJiang2015}: verify numerically that the solver converges to the \emph{same} cutoffs from arbitrary starting points
-  \item Multi-start search with 4+ initial conditions yields identical solutions
-  \item Convergence rate consistent with spectral radius $\ll 1$
+\vspace{0.6em}
+\textbf{As $\kappa\uparrow 1$ (maximal noise):}\;
+$\obs{z}$ becomes uniform on $\{-1,0,1\}$. Because the support of $\obs{z}$ is bounded:
+\begin{itemize}\itemsep0.4em
+  \item Extreme flows still reveal disclosure: $\PP(\obs{D}\!=\!1\mid \obs{X}\!=\!2)=1$ and $\PP(\obs{D}\!=\!1\mid \obs{X}\in\{-2,-1\})=0$
+  \item Interior flows ($\obs{X}\in\{0,1\}$) continue mixing via Bayes' rule
+  \item $\outcome{\Delta^{\textup{act}}}$ does \textbf{not} vanish --- engagement survives in the Public Voice region
 \end{itemize}
 
 \vspace{0.3em}
-
-\textbf{Sufficient conditions:} Bounded price-feedback (Assumption A5: $\delta\varphi(0)/\sigma_\xi < 1$) and non-pathological signal noise.
-
-\returnlink{main:prop1}{Slide 7: Proposition 1}
+\returnlink{main:mainresult}{Slide 10: Main Result}
 \end{frame}
 
-% ── BACKUP 3: Conditional means derivation ───────────────────────────────
-\begin{frame}{How does the market update its expectation of fundamentals?}
-\hypertarget{backup:cond_means}{}
-\scriptsize
-\textbf{Conditional means $\E[v \mid \text{action region}]$:}
-
-\vspace{0.2em}
-
-Let $\alpha_j = (k_j - \mu)/\sigma_s$. Using truncated normal expectations (Lemma 2):
-
-\vspace{0.2em}
-
-\begin{align*}
-\mu_E &= \E[v \mid s < k_1] = \mu - \beta\sigma_s \cdot \frac{\phi(\alpha_1)}{\Phi(\alpha_1)} &\text{(inverse Mills ratio)}\\[0.3em]
-\mu_H &= \E[v \mid k_1 \le s < k_0] = \mu + \beta\sigma_s \cdot \frac{\phi(\alpha_1) - \phi(\alpha_0)}{\Phi(\alpha_0) - \Phi(\alpha_1)}\\[0.3em]
-\mu_Q &= \E[v \mid k_0 \le s < k_D] = \mu + \beta\sigma_s \cdot \frac{\phi(\alpha_0) - \phi(\alpha_D)}{\Phi(\alpha_D) - \Phi(\alpha_0)}\\[0.3em]
-\mu_P &= \E[v \mid s \ge k_D] = \mu + \beta\sigma_s \cdot \frac{\phi(\alpha_D)}{1 - \Phi(\alpha_D)}
-\end{align*}
-
-\vspace{0.2em}
-
-\textbf{Bayesian mixing:} $\E[v \mid X, D] = \sum_{j} \PP(j \mid X, D)\,\mu_j$ over seven reachable $(X,D)$ states.
-
-\returnlink{main:prop2}{Slide 8: Proposition 2}
-\end{frame}
-
-% ── BACKUP 4: Pricing fixed-point solution ───────────────────────────────
-\begin{frame}{Walk me through the pricing fixed-point solution.}
-\hypertarget{backup:fixed_point}{}
-\small
-For each information set $(X, D)$:
-
+% -- B8 ----------------------------------------------------------------------
+\begin{frame}{B8. Why does the baseline hump appear?}
+\hypertarget{backup:B8}{}
+\footnotesize
+\textbf{How to read Proposition 5}
 \begin{enumerate}\itemsep0.3em
-  \item Compute $\pi(X, D)$ from Bayes' rule (Proposition 2)
-  \item Compute $\hat{V}(X, D) = \E[v \mid X, D] + \tilde{\Delta}\,\pi(X, D)$
-  \item Define $\bar{m}(X,D) = m_0 + (\tilde{m} - m_0)\,\pi(X,D)$
-  \item Solve the scalar fixed point:
-  \[
-  P = \delta\big((1 - p(P, D))\,\hat{V} + p(P, D)(P + \bar{m})\big)
-  \]
-  where $p(P, D) = 1 - \Phi\!\left(\frac{\bar{m} + K - \bar{S} + P}{\sigma_\xi}\right)$
+  \item \textbf{Analytic piece:} $\Delta^{\min}=\Delta^{\textup{base}}+\Delta^{\textup{act}}$ is an exact decomposition.
+  \item \textbf{Endpoint intuition:} low and high liquidity have different information structures under bounded noise.
+  \item \textbf{Quantitative piece:} the interior hump is established in the baseline calibration and sensitivity exercises, not as a general closed-form theorem.
 \end{enumerate}
 
-\vspace{0.3em}
+\textbf{Important caveat}
+Continuity gives an attained maximum on a compact set, but whether that maximum is interior is quantitative. The baseline calibration confirms a single-peaked hump (Figure~2); the peak can shift or disappear under other primitives.
 
-\textbf{Closed form (rearranged):} $P^* = \frac{\delta\left[(1-p^*)\hat{V} + p^*\bar{m}\right]}{1 - \delta\,p^*}$
-
-\vspace{0.3em}
-
-\textbf{Regularity:} $\delta\,\varphi(0)/\sigma_\xi < 1$ ensures the map $P \mapsto \delta[(1-p(P))\hat{V} + p(P)(P + \bar{m})]$ is a contraction. At baseline: $0.95 \times 0.3989 / 0.40 = 0.947 < 1$. \checkmark
-
-\returnlink{main:engagement}{Slide 6: Engagement \& Bidder Entry}
+\returnlink{main:mainresult}{Slide 10: Main Result}
 \end{frame}
 
-% ── BACKUP 5: Full posterior formulas ────────────────────────────────────
-\begin{frame}{What are the full posterior formulas?}
-\hypertarget{backup:full_posteriors}{}
-\scriptsize
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\textbf{Disclosed branch ($D=1$):}
-\begin{itemize}\itemsep0.05em
-  \item $X \in \{0, 1, 2\}$ (since $q = +1$)
-  \item $\pi(X, 1) = 1$ for all $X$
-  \item $\E[v|X,1] = \mu_P$ for all $X$
-  \item Engagement fully observed; inference trivial
+% --- Section B: Sensitivity & Comparative Statics ---
+% \section{Sensitivity \& Comparative Statics}
+
+% -- B9 ----------------------------------------------------------------------
+\begin{frame}{B9. Sensitivity: bidder and discount parameters}
+\hypertarget{backup:B9}{}
+\centering
+\includegraphics[width=\textwidth,height=0.53\textheight,keepaspectratio]{fig_sensitivity_panel1.pdf}\par
+\vspace{-0.2em}
+\footnotesize
+\begin{itemize}\itemsep0.25em
+  \item Larger $s_{\xi}$: more bidder heterogeneity flattens/shifts the hump
+  \item Lower $\delta$: weaker engagement incentives compress \outcome{$\Delta^{\min}$}
+\end{itemize}
+\returnlink{main:mainresult}{Slide 10: Main Result}
+\end{frame}
+
+% -- B10 ---------------------------------------------------------------------
+\begin{frame}{B10. Sensitivity: engagement frictions and bargaining wedge}
+\hypertarget{backup:B10}{}
+\footnotesize
+\begin{center}
+  \includegraphics[width=0.92\textwidth,height=0.48\textheight,keepaspectratio]{fig_sensitivity_panel2.pdf}
+\end{center}
+
+\textbf{Read the panels as follows.}
+\begin{itemize}\itemsep0.25em
+  \item Higher $C_0$ shrinks the voice region and can shift $\kappa^\dagger$.
+  \item Larger $(m_1-m_0)$ or higher $\rho$ raise conditional premia, but can also deter bids.
+\end{itemize}
+\returnlink{main:mainresult}{Slide 10: Main Result}
+\end{frame}
+
+% -- B11 ---------------------------------------------------------------------
+\begin{frame}{B11. How do equilibrium cutoffs move with liquidity?}
+\hypertarget{backup:B11}{}
+\centering
+\includegraphics[width=0.88\textwidth,height=0.50\textheight,keepaspectratio]{fig_cutoffs_kappa.pdf}\par
+\vspace{-0.2em}
+\footnotesize
+\begin{itemize}\itemsep0.25em
+  \item Ordering \choice{$k_1\le k_0\le k_D$} holds; regions may collapse for some primitives
+  \item Quiet Voice collapses ($\choice{k_0}=\choice{k_D}$) at $\kappa\approx 0.63$ in baseline
+  \item Baseline calibration features an interior Hold region ($\choice{k_1}<\choice{k_0}$)
+\end{itemize}
+\returnlink{main:prop1}{Slide 8: Cutoffs}
+\end{frame}
+
+% -- B12 ---------------------------------------------------------------------
+\begin{frame}{B12. Does inferred engagement deter bids?}
+\hypertarget{backup:B12}{}
+\footnotesize
+\begin{alertblock}{Bid probability}
+\[
+\outcome{p}(\obs{X},\obs{D})=\lambda_B\left(1-\Lambda\!\left(\frac{\outcome{\hat V}(\obs{X},\obs{D})+\outcome{\bar m}(\obs{X},\obs{D})+K-(\bar S+\outcome{\pi}(\obs{X},\obs{D})\Delta_S)}{s_{\xi}}\right)\right).
+\]
+\end{alertblock}
+
+\begin{alertblock}{Comparative statics}
+$\partial_{\bar S}\outcome{p}>0$, $\partial_K \outcome{p}<0$. Under net deterrence (A5):
+\[
+\frac{\partial \outcome{p}}{\partial\outcome{\pi}}=-\lambda_B\Lambda'(\cdot)\,\frac{\tilde\Delta+(\tilde m-m_0)-\Delta_S}{s_{\xi}}<0.
+\]
+\end{alertblock}
+
+\textbf{Intuition:} Higher inferred engagement raises target value and the premium the bidder must pay, deterring marginal bidders.
+
+\returnlink{main:engagement}{Slide 9: Inference, Bids, Prices}
+\end{frame}
+
+% --- Section C: Disclosure Extensions ---
+% \section{Disclosure Extensions}
+
+% -- B13 ---------------------------------------------------------------------
+\begin{frame}{B13. Full disclosure vs.\ no disclosure benchmarks}
+\hypertarget{backup:B13}{}
+\footnotesize
+
+\textbf{Benchmarks:}
+\begin{itemize}\itemsep0.2em
+  \item \textbf{Full disclosure:} market observes $(\choice{q},\choice{a})$, inference channel shuts down
+  \item \textbf{No disclosure:} market conditions only on \obs{$X$}; inference amplifies liquidity sensitivity
 \end{itemize}
 
-\column{0.48\textwidth}
-\textbf{Non-disclosed ($D=0$):}
-\begin{itemize}\itemsep0.05em
-  \item $X \in \{-2, -1, 0, 1\}$ (since $q \in \{-1, 0\}$)
-  \item $\pi(X, 0)$ via Bayes' rule
-  \item Depends on $\kappa$ through $(p_0, p_1)$
-\end{itemize}
+\vspace{0.3em}
+\textbf{Posterior comparison (baseline example):}
+\centering
+\resizebox{0.88\linewidth}{!}{\input{../numerical_output/table_disclosure_extensions.tex}}
+
+\vspace{0.05em}
+\raggedright
+No disclosure raises the sensitivity of \outcome{$\pi$} to \obs{$X$}; full disclosure eliminates inference.
+
+\returnlink{main:attenuation}{Slide 12: Disclosure Attenuation}
+\end{frame}
+
+% -- B14 ---------------------------------------------------------------------
+\begin{frame}{B14. Noisy rumors flatten the liquidity sensitivity}
+\hypertarget{backup:B14}{}
+\footnotesize
+\begin{columns}[T,onlytextwidth]
+\column{0.58\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth,height=0.50\textheight,keepaspectratio]{fig_noisy_rumor_precision.pdf}
+\end{center}
+
+\column{0.38\textwidth}
+\textbf{Setup}
+Rumors add a public signal $R\in\{0,1\}$ in nondisclosed states. The posterior becomes
+\[
+\resizebox{\linewidth}{!}{$\outcome{\pi}(\obs{X},0,R)=\frac{\choice{\omega_Q}\PP(\obs{X}\mid \choice{q}=0)\PP(R\mid \choice{a}=1)}{\choice{\omega_E}\PP(\obs{X}\mid \choice{q}=-1)\PP(R\mid \choice{a}=0)+\PP(\obs{X}\mid \choice{q}=0)\big(\choice{\omega_H}\PP(R\mid \choice{a}=0)+\choice{\omega_Q}\PP(R\mid \choice{a}=1)\big)}$}
+\]
+
+\textbf{Takeaway}
+More precise rumors flatten \outcome{$\Delta^{\min}(\kappa)$} by reducing reliance on order-flow inference.
 \end{columns}
 
-\vspace{0.2em}
-
-$p_0 = 1 - \kappa$, $p_1 = \kappa/2$:
-
-\begin{align*}
-\pi(-2,0) &= 0 &\text{($X=-2$ requires $q=-1$: Exit only)}\\
-\pi(1,0)  &= \frac{\omega_Q}{\omega_H + \omega_Q} &\text{(independent of $\kappa$)}\\
-\pi(0,0)  &= \frac{\omega_Q\,p_0}{(\omega_H + \omega_Q)\,p_0 + \omega_E\,p_1}\\
-\pi(-1,0) &= \frac{\omega_Q\,p_1}{(\omega_H + \omega_Q)\,p_1 + \omega_E\,p_0}
-\end{align*}
-
-\vspace{0.1em}
-
-\textbf{Partial derivatives (Section 5.4):}
-$\frac{\partial\pi(1,0)}{\partial\kappa} = 0$, \;
-$\frac{\partial\pi(-1,0)}{\partial\kappa} \ge 0$, \;
-$\frac{\partial\pi(0,0)}{\partial\kappa} \le 0$.
-
-\returnlink{main:prop2}{Slide 8: Proposition 2}
+\returnlink{main:attenuation}{Slide 12: Disclosure Attenuation}
 \end{frame}
 
-% ── BACKUP 6b: Decomposition derivation ────────────────────────────────
-\begin{frame}{How do you derive the $\Delta^{\min}$ decomposition?}
-\hypertarget{backup:decomposition_proof}{}
+% -- B15 ---------------------------------------------------------------------
+\begin{frame}{B15. Heuristic GE effect of stricter disclosure}
+\hypertarget{backup:B15}{}
 \small
-\textbf{Goal:} Prove $\Delta^{\min} = m_0 \cdot \PP(\text{bid}) + (\tilde{m} - m_0)\,\E[\pi(X,D) \cdot \1\{\text{bid}\}]$.
-
-\vspace{0.3em}
-
-\textbf{Step 1: Definition.} $\Delta^{\min}(\kappa) = \E[m^R(a) \cdot \1\{\text{bid}\}]$ where $m^R(a) = m_0 + a(\tilde{m} - m_0)$.
-
-\vspace{0.3em}
-
-\textbf{Step 2: Conditional independence.} Given $(X,D)$, the bid indicator $\1\{\text{bid}\}$ depends on $(P(X,D), D, \xi)$. Since $\xi \perp (v,a)$, the bid indicator is conditionally independent of $(v,a)$:
+\begin{alertblock}{Heuristic Decomposition}
 \[
-\E[m^R(a) \cdot \1\{\text{bid}\} \mid X,D] = \bar{m}(X,D) \cdot p(X,D)
+\frac{d\outcome{\Delta^{\textup{act}}}}{d\tau}\approx\underbrace{\frac{\partial\outcome{\Delta^{\textup{act}}}}{\partial\tau}}_{\text{Transparency }(+)}+\underbrace{\frac{\partial\outcome{\Delta^{\textup{act}}}}{\partial(\choice{\omega_Q}+\choice{\omega_P})}\frac{d(\choice{\omega_Q}+\choice{\omega_P})}{d\tau}}_{\text{Deterrence }(-)}.
 \]
+\end{alertblock}
 
-\vspace{0.3em}
-
-\textbf{Step 3: Iterated expectations.} Taking $\E$ over $(X,D)$ and substituting $\bar{m} = m_0 + (\tilde{m} - m_0)\pi$:
-\[
-\Delta^{\min} = m_0 \cdot \PP(\text{bid}) + (\tilde{m} - m_0) \cdot \E[\pi(X,D) \cdot \1\{\text{bid}\}] \qquad \blacksquare
-\]
-
-\vspace{0.2em}
-{\footnotesize\textbf{Key:} The conditional independence step requires $\xi$ (bidder shock) to be independent of $(v,a)$ --- the bid is determined by public information and idiosyncratic bidder heterogeneity alone.}
-
-\returnlink{main:decomposition}{Slide 10b: Decomposition}
-\end{frame}
-
-% ── BACKUP 6c: Endpoint behavior (Lemma 1) ─────────────────────────────
-\begin{frame}{What are the endpoint limits of minority gains?}
-\hypertarget{backup:endpoint_behavior}{}
-\small
-\begin{block}{Lemma 1 (Endpoint Behavior)}
-\vspace{-0.2em}
-{\small As $\kappa\uparrow 1$: $\Delta^{\text{act}}(\kappa)\to 0$, $\Delta^{\min}(\kappa)\to m_0\PP(\text{bid})$.\\
-As $\kappa\downarrow 0$: $\Delta^{\text{act}}(\kappa) > 0$ but suppressed below interior optimum.}
-\vspace{-0.2em}
+\begin{columns}[T,onlytextwidth]
+\column{0.48\textwidth}
+\begin{block}{Transparency Effect $(+)$}
+Shifting mass to observable states removes the inference discount. In \obs{$D=1$} states, \outcome{$\pi=1$} and the pricing objects are $\kappa$-invariant, so the activism premium is fully capitalized.
 \end{block}
 
-\begin{columns}[T,onlytextwidth]
 \column{0.48\textwidth}
-\textbf{Right endpoint ($\kappa \uparrow 1$):}
-\begin{itemize}\itemsep0.1em
-  \item $\PP(z{=}0) \to 0$: order flow uninformative
-  \item $\pi(X,0) \to$ unconditional prior
-  \item Engagement return $< C(s)$ for all $s$
-  \item Voice regions collapse: $\omega_Q + \omega_P \to 0$
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Left endpoint ($\kappa \downarrow 0$):}
-\begin{itemize}\itemsep0.1em
-  \item $\PP(z{=}0) \to 1$: $X \to q$ a.s.
-  \item Market perfectly deduces $q = 0$
-  \item Engagement benefit bounded below $\Rightarrow$ $\omega_Q > 0$ persists
-  \item But full informativeness depresses $p(X,0)$ via bid deterrence
-\end{itemize}
+\begin{block}{Deterrence Effect $(-)$}
+Stricter thresholds force earlier disclosure, which can reduce expected returns to quiet engagement and shrink total activism probability \choice{$\omega_Q+\omega_P$}. This is an economic heuristic, not a separate theorem.
+\end{block}
 \end{columns}
 
-\vspace{0.2em}
-{\footnotesize $\Rightarrow$ The global maximum of $\Delta^{\min}(\kappa)$ cannot be at either boundary.}
-
-\returnlink{main:result}{Slide 10: Main Result}
+\returnlink{main:policy}{Slide 13: Takeaways}
 \end{frame}
 
-% ── BACKUP 6d: Nonmonotonicity proof (Prop 5) ──────────────────────────
-\begin{frame}{How do you know the hump is strict?}
-\hypertarget{backup:nonmonotonicity_proof}{}
+% -- B16 ---------------------------------------------------------------------
+\begin{frame}{B16. Partial vs general equilibrium disclosure effects}
+\hypertarget{backup:B16}{}
+\footnotesize
+\textbf{Comparison}
+\centering
+\begin{tabular}{@{}p{0.42\linewidth}p{0.42\linewidth}@{}}
+\toprule
+\textbf{Partial Equilibrium (Prop 6)} & \textbf{GE heuristic} \\
+\midrule
+Hold \choice{$(k_1,k_0,k_D)$} fixed & \choice{Cutoffs} respond to $\tau$ \\
+Vary $\kappa$ through inference only & Vary disclosure regime $\tau$ \\
+\outcome{$|\partial\Delta^{\textup{act}}/\partial\kappa|$} $\downarrow$ in \choice{$\omega_P$} & $d\outcome{\Delta^{\textup{act}}}/d\tau$ ambiguous \\
+Pure transparency channel & Transparency $+$ deterrence \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.3em}
+\textbf{Key bridge:} Anonymous accumulation helps keep Public Voice alive on path by letting the blockholder acquire at $\outcome{P_{\textup{trade}}(X)}$ before the adverse-selection penalty in $\outcome{P_{\textup{post}}(X,1)}$ is realized.
+
+\returnlink{main:policy}{Slide 13: Takeaways}
+\end{frame}
+
+% -- B17 ---------------------------------------------------------------------
+\begin{frame}{B17. Why are disclosed-branch prices flat in \obs{$X$}?}
+\hypertarget{backup:B17}{}
 \small
-\textbf{Proof of Proposition 5 (Nonmonotonic Liquidity Effect):}
+\begin{alertblock}{Full reasoning chain (color-coded)}
+\begin{enumerate}\itemsep0.4em
+  \item When \obs{$D=1$}, the action is Public Voice: \choice{$a=1$} with certainty
+  \item Order flow is $\obs{X}=1+\obs{z}$, which reveals \emph{only noise} — no information about fundamentals beyond Public Voice
+  \item Therefore \outcome{$\pi(X,1)=1$} and $\E[v\mid \obs{X},1]=\mu_P$ are both \textbf{constant} across $\obs{X}\in\{0,1,2\}$
+  \item Since $\outcome{\hat V}$, \outcome{$\pi$}, and hence \outcome{$p$} are all constant, $\outcome{P_{\textup{post}}(X,1)}$ is invariant in \obs{$X$}
+\end{enumerate}
+\end{alertblock}
 
-\vspace{0.3em}
+\textbf{Consequence:} In the baseline action set, the only thing the market maker learns from $\obs{X}$ is the noise realization $\obs{z}$, which is uninformative. This makes \obs{$D=1$} a clean benchmark where inference plays no role.
 
-\textbf{Step 1: Continuity.} $\Delta^{\min}(\kappa)$ is continuous on $[0,1]$ (normal probabilities, Bayesian posteriors, and pricing are all continuous in $\kappa$).
-
-\vspace{0.3em}
-
-\textbf{Step 2: Weierstrass.} Continuous on compact $\Rightarrow$ attains a global maximum $\kappa^{\dagger} = \arg\max_{\kappa \in [0,1]} \Delta^{\min}(\kappa)$.
-
-\vspace{0.3em}
-
-\textbf{Step 3: Interior maximizer.} By Lemma 1, neither endpoint achieves the maximum:
-\[
-\Delta^{\min}(\tilde{\kappa}) > \lim_{\kappa \downarrow 0} \Delta^{\min}(\kappa) \quad \text{and} \quad \lim_{\kappa \uparrow 1} \Delta^{\min}(\kappa) = m_0 \PP(\text{bid})
-\]
-$\Rightarrow$ $\kappa^{\dagger} \in (0,1)$: the hump is \textbf{strict} with an interior peak. $\blacksquare$
-
-\vspace{0.3em}
-
-{\footnotesize\textbf{Note on shape:} The Weierstrass argument guarantees at least one interior peak but does not rule out multiple local maxima (W-shape). The baseline calibration confirms a well-behaved single-peaked hump, demonstrating that the fundamental economic trade-off dominates.}
-
-\returnlink{main:result}{Slide 10: Main Result}
+\returnlink{main:prices}{Slide 9: Inference, Bids, Prices}
 \end{frame}
 
-% ── CATEGORY DIVIDER: Sensitivity & Comparative Statics ──────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Sensitivity \& Comparative Statics}}
-\end{frame}
+% --- Section D: Welfare ---
+% \section{Welfare}
 
-% ── BACKUP 6: Sensitivity Panel 1 (delta + sigma_xi) ───────────────────
-\begin{frame}{Sensitivity: Discount Factor \& Bidder Shock}
-\hypertarget{backup:sensitivity}{}
+% -- B18 ---------------------------------------------------------------------
+\begin{frame}{B18. Preliminary welfare accounting}
+\hypertarget{backup:B18}{}
 \centering
-\includegraphics[width=0.85\linewidth]{fig_sensitivity_panel1.pdf}
-
+\includegraphics[width=0.88\textwidth,height=0.55\textheight,keepaspectratio]{fig_welfare.pdf}\par
 \vspace{-0.2em}
+\small
+\outcome{$\Delta^{\min}$} can peak at $\kappa^{\dagger}$ while total surplus keeps increasing. Treat this as preliminary accounting: takeover premia are \emph{transfers} from bidder to target shareholders, so the mapping from minority gains to total surplus depends on normalization choices.
+
+\returnlink{main:policy}{Slide 13: Takeaways}
+\end{frame}
+
+% -- B19 ---------------------------------------------------------------------
+\begin{frame}{B19. Why use \outcome{$\Delta^{\min}$} as the welfare metric?}
+\hypertarget{backup:B19}{}
 \footnotesize
-\textbf{Left:} Lower $\delta$ shifts curve up; hump flattens. \textbf{Right:} Hump robust to bidder variance $\sigma_\xi$. Green dotted: $\kappa^{\dagger}$.
+\textbf{Minority-shareholder object.}
+With dispersed ownership, minority shareholders cannot coordinate to internalize governance benefits directly. Their main channel for capturing value from control changes is the takeover premium, consistent with the \citealp{GrossmanHart1980} free-rider logic.
 
-\returnlink{main:result}{Slide 10: Main Result}
+\vspace{0.4em}
+\textbf{Definition}
+\[
+\outcome{\Delta^{\min}}(\kappa)\equiv\E\big[\outcome{m^{R}}(\choice{a})\cdot\1\{\textup{bid}\}\big]
+\]
+This is the expected premium, weighted by bid occurrence, that minority shareholders receive ex ante.
+
+\vspace{0.4em}
+\textbf{Alternative metrics.}
+Total surplus $W_{\textup{tot}}$ includes bidder surplus, so transfers cancel. It can move monotonically in $\kappa$ even when \outcome{$\Delta^{\min}$} is hump-shaped, reflecting a different policy objective.
+\returnlink{main:mainresult}{Slide 10: Main Result}
 \end{frame}
 
-% ── BACKUP 7: Sensitivity Panel 2 (C0 + wedge + rho) ──────────────────
-\begin{frame}{Sensitivity: Cost, Premium Wedge \& Success Probability}
-\hypertarget{backup:sensitivity_panel2}{}
-\centering
-\includegraphics[width=0.92\linewidth]{fig_sensitivity_panel2.pdf}
+% --- Section E: Calibration & Numerics ---
+% \section{Calibration \& Numerics}
 
-\vspace{0.1em}
+% -- B20 ---------------------------------------------------------------------
+\begin{frame}{B20. Baseline parameter values}
+\hypertarget{backup:B20}{}
 \footnotesize
-\textbf{Left:} Higher $C_0$ flattens but preserves nonmonotonicity. \textbf{Center:} Larger $m_1{-}m_0$ raises conditional premia but deters entry. \textbf{Right:} Lower $\rho$ compresses vertically; $\rho = 0.9$ reflects selective activists.
-
-\returnlink{main:result}{Slide 10: Main Result}
-\end{frame}
-
-% ── BACKUP 8: Bid probability monotonicity ──────────────────────────────
-\begin{frame}{Does engagement deter bids?}
-\hypertarget{backup:bid_monotonicity}{}
-\small
-\textbf{Bid probability:} $p(X,D) = 1 - \Phi\!\left(\frac{\bar{m}(X,D) + K - \bar{S} + P}{\sigma_\xi}\right)$ where $T \equiv \frac{\bar{m} + K - \bar{S} + P}{\sigma_\xi}$.
-
-\vspace{0.3em}
-
-\textbf{Result 1: Higher prices deter bids.}
-\[
-\frac{\partial p}{\partial P} = -\frac{\phi(T)}{\sigma_\xi} < 0
-\]
-The supremum $\sup_P |\partial p / \partial P| = \phi(0)/\sigma_\xi$ is the binding term in Assumption A5.
-
-\vspace{0.3em}
-
-\textbf{Result 2: Higher inferred engagement deters bids} (when $\tilde{m} > m_0$).
-\[
-\frac{\partial p}{\partial \pi} = -\frac{(\tilde{m} - m_0)\,\phi(T)}{\sigma_\xi} < 0
-\]
-
-\vspace{0.2em}
-
-{\footnotesize\textbf{Policy implication:} Disclosed activism ($\pi = 1$) deters bids more strongly than inferred activism ($\pi < 1$), since the full premium $\tilde{m}$ enters the bidder's cost.  This is why $p(X,1) < p(X,0)$ in the baseline table.}
-
-\returnlink{main:engagement}{Slide 6: Engagement \& Bidder Entry}
-\end{frame}
-
-% ── BACKUP 9: Takeover comparative statics ──────────────────────────────
-\begin{frame}{How do synergies and entry costs affect bids?}
-\hypertarget{backup:takeover_comps}{}
-\small
-Fix any $(X,D)$. Define $T \equiv (\bar{m} + K - \bar{S} + P)/\sigma_\xi$, so $p = 1 - \Phi(T)$.
-
-\vspace{0.3em}
-
-\textbf{Result (a): Higher synergies increase bids.}
-\[
-\frac{\partial p}{\partial \bar{S}} = \frac{\phi(T)}{\sigma_\xi} > 0 \qquad (\text{since } \partial T / \partial \bar{S} = -1/\sigma_\xi)
-\]
-
-\vspace{0.3em}
-
-\textbf{Result (b): Higher entry costs reduce bids.}
-\[
-\frac{\partial p}{\partial K} = -\frac{\phi(T)}{\sigma_\xi} < 0 \qquad (\text{since } \partial T / \partial K = +1/\sigma_\xi)
-\]
-
-\vspace{0.3em}
-
-{\footnotesize\textbf{Unified structure:} All three derivatives ($\bar{S}$, $K$, $P$) share the same $\phi(T)/\sigma_\xi$ factor. Differences are purely in sign, driven by how each parameter enters the bidder's standardized threshold $T$.}
-
-\vspace{0.2em}
-
-{\footnotesize\textbf{Note:} These are partial equilibrium results (equilibrium prices held fixed). In GE, higher $\bar{S}$ also raises equilibrium prices, partially offsetting the direct effect through the price-entry feedback loop.}
-
-\returnlink{main:engagement}{Slide 6: Engagement \& Bidder Entry}
-\end{frame}
-
-% ── BACKUP 10: Disclosed-branch invariance ──────────────────────────────
-\begin{frame}{Why are prices flat on the disclosed branch?}
-\hypertarget{backup:disclosed_invariance}{}
-\small
-\textbf{Claim:} $P^*(x,1) = P^*(x',1)$ and $p(x,1) = p(x',1)$ for all $x, x' \in \{0,1,2\}$.
-
-\vspace{0.3em}
-
-\textbf{Step 1: Identification.} $D = 1 \Leftrightarrow$ Public Voice: $a = 1$ a.s.\ and $X = 1 + z$ with $z \in \{-1, 0, 1\}$.
-
-\vspace{0.3em}
-
-\textbf{Step 2: Independence.} Since $z \perp (v, s, \xi)$, conditioning on $X = x$ given $D = 1$ only reveals $z = x - 1$ --- no information about $v$ beyond what $D = 1$ already implies:
-\[
-\PP(v \in B \mid X{=}x, D{=}1) = \PP(v \in B \mid D{=}1) \quad \forall\, x \in \{0,1,2\}
-\]
-$\Rightarrow$ $\pi(x,1) = 1$, $\E[v \mid x, 1] = \mu_P$ for all $x$.
-
-\vspace{0.3em}
-
-\textbf{Step 3: Fixed-point uniqueness.} Since $\hat{V}(x,1)$ and $\bar{m}(x,1) = \tilde{m}$ are constant, the pricing fixed point has the same RHS for all $x$. By A5, $P^*(x,1) = P^*(x',1)$. $\blacksquare$
-
-\vspace{0.2em}
-
-{\footnotesize\textbf{Consequence:} The disclosed component of $\Delta^{\text{act}}$ is $\kappa$-invariant --- this is the foundation of Proposition 6 (disclosure attenuation).}
-
-\returnlink{main:prop2}{Slide 8: Bayesian Inference}
-\end{frame}
-
-% ── BACKUP 11: Cutoffs vs liquidity ─────────────────────────────────────
-\begin{frame}{How do equilibrium cutoffs move with liquidity?}
-\hypertarget{backup:cutoffs_kappa}{}
 \centering
-\includegraphics[height=0.50\textheight]{fig_cutoffs_kappa.pdf}
-
-\vspace{0.1em}
-\footnotesize
-\begin{itemize}\itemsep0pt
-  \item $k_1 = k_0$ throughout (Hold collapsed at baseline)
-  \item $k_D$ tracks the Quiet/Public Voice boundary
-  \item Weak ordering $k_1 \le k_0 \le k_D$ preserved across all $\kappa$
-\end{itemize}
-
-\returnlink{main:prop1}{Slide 7: Proposition 1}
-\end{frame}
-
-% ── CATEGORY DIVIDER: Disclosure Extensions ──────────────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Disclosure Extensions \& Information Regimes}}
-\end{frame}
-
-% ── BACKUP 12: Full disclosure / No disclosure benchmarks ────────────────
-\begin{frame}{Full disclosure vs.\ no disclosure benchmarks}
-\hypertarget{backup:disclosure_regimes}{}
-\small
-\textbf{Full Information (FI):} Market observes $(q,a)$ directly.
-\begin{itemize}\itemsep0.05em
-  \item $\pi_{\text{FI}} = a$ (deterministic); inference channel shuts down
-  \item Activism premium deterministic: $\bar{m} = m_0$ or $\tilde{m}$
-  \item Order flow uninformative about engagement
-  \item \emph{Upper bound} on disclosure informativeness
-\end{itemize}
-
 \vspace{0.3em}
-
-\textbf{No Disclosure (ND):} Market conditions only on $X$ (no $D$ signal).
-\begin{itemize}\itemsep0.05em
-  \item $\pi_{\text{ND}}(X)$ pools over all $(q,a)$ states producing $X$
-  \item Activism premium more $\kappa$-sensitive (no $D=1$ anchor)
-  \item \emph{Lower bound} on disclosure informativeness
-\end{itemize}
-
-\vspace{0.3em}
-
-\textbf{Ordering:} $\text{Var}_{\kappa}[\Delta^{\text{act}}_{\text{FI}}] = 0 < \text{Var}_{\kappa}[\Delta^{\text{act}}_{\text{baseline}}] < \text{Var}_{\kappa}[\Delta^{\text{act}}_{\text{ND}}]$
-
-\vspace{0.2em}
-These are the upper and lower bounds on the disclosure attenuation effect.
-
-\returnlink{main:attenuation}{Slide 11: Disclosure Attenuation}
-\end{frame}
-
-% ── BACKUP 13: Noisy rumors (wolf packs) ────────────────────────────────
-\begin{frame}{How do noisy rumors affect the mechanism?}
-\hypertarget{backup:noisy_rumor}{}
-\begin{columns}[T,onlytextwidth]
-\column{0.55\textwidth}
+\begin{columns}[c,onlytextwidth]
+\column{0.46\textwidth}
 \centering
-\includegraphics[width=\linewidth]{fig_noisy_rumor.pdf}
+\renewcommand{\arraystretch}{1.15}%
+\begin{tabular}{@{}lc@{}}
+\toprule
+Parameter & Value \\
+\midrule
+$\mu$ & 1.00 \\
+$\sigma_v$ & 0.50 \\
+$\sigma_{\varepsilon}$ & 0.50 \\
+$\delta$ & 0.95 \\
+$\kappa$ & 0.50 \\
+$C_0$ & 0.25 \\
+$\chi$ & 0.50 \\
+$\rho$ & 0.90 \\
+\bottomrule
+\end{tabular}
 
-\column{0.43\textwidth}
-\small
-\textbf{Extension (Section 8.3):} Augment market's information with binary rumor $R \in \{0,1\}$:
-\begin{itemize}\itemsep0.1em
-  \item $\PP(R{=}1 \mid a{=}1) = \eta_1$ (true positive)
-  \item $\PP(R{=}1 \mid a{=}0) = \eta_0$ (false positive)
-\end{itemize}
-
-Updated posterior:
-{\footnotesize
-\[
-\pi(X,0,R) = \frac{\omega_Q \cdot p_z \cdot \eta_R^Q}{\sum_j \omega_j \cdot p_z \cdot \eta_R^j}
-\]}
-
-As $\eta_1 \to 1, \eta_0 \to 0$: converges to FI within $D{=}0$ states.
+\column{0.46\textwidth}
+\centering
+\renewcommand{\arraystretch}{1.15}%
+\begin{tabular}{@{}lc@{}}
+\toprule
+Parameter & Value \\
+\midrule
+$\Delta$ & 0.25 \\
+$m_0$ & 0.10 \\
+$m_1$ & 0.45 \\
+$\bar S$ & 1.10 \\
+$\Delta_S$ & 0.30 \\
+$K$ & 0.15 \\
+$s_{\xi}$ & 0.15 \\
+$\lambda_B$ & 0.20 \\
+\bottomrule
+\end{tabular}
 \end{columns}
 
-\vspace{0.1em}
-\footnotesize
-Systematic \textbf{flattening} as rumor precision increases: additional information about quiet engagement substitutes for disclosure, further attenuating the liquidity effect.
+\vspace{0.4em}
+Net deterrence (A5): $\tilde\Delta+(\tilde m-m_0)-\Delta_S = 0.225+0.315-0.30=0.24>0$. \checkmark
 
-\returnlink{main:attenuation}{Slide 11: Disclosure Attenuation}
+\vspace{0.3em}
+\returnlink{main:timeline}{Slide 5: Timeline}
 \end{frame}
 
-% ── BACKUP 14: GE disclosure effect ─────────────────────────────────────
-\begin{frame}{GE effect of stricter disclosure?}
-\hypertarget{backup:GE_disclosure}{}
-\small
-\begin{block}{Proposition 7 (GE Disclosure Trade-off)}
-\vspace{-0.3em}
-\[
-\frac{d\Delta^{\text{act}}}{d\tau} \approx \underbrace{\frac{\partial\Delta^{\text{act}}}{\partial\tau}\bigg|_{\text{fixed}}}_{\text{Transparency (+)}} + \underbrace{\frac{\partial\Delta^{\text{act}}}{\partial k_D}\cdot\frac{dk_D}{d\tau}}_{\text{Deterrence (---)}}
-\]
+% -- B21 ---------------------------------------------------------------------
+\begin{frame}{B21. Baseline equilibrium outcomes table}
+\hypertarget{backup:B21}{}
+\scriptsize
+\centering
 \vspace{-0.5em}
-\end{block}
+{\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{0.95}%
+\resizebox{0.82\linewidth}{!}{\input{../numerical_output/table_example.tex}}}
 
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-{\small\textbf{Transparency dominates:}}
-\begin{itemize}\itemsep0pt
-  \item Low $C_0$, moderate $\kappa$
-  \item Strict disclosure improves welfare
-\end{itemize}
-
-\column{0.48\textwidth}
-{\small\textbf{Deterrence dominates:}}
-\begin{itemize}\itemsep0pt
-  \item High $C_0$
-  \item Destroys Quiet Voice, \emph{harms} minorities
-\end{itemize}
-\end{columns}
-
-\vspace{0.2em}
-{\small\textbf{Policy:} SEC 13D filing window reforms must account for deterrence, not just transparency.}
-
-\returnlink{main:policy}{Slide 12: Policy Implications}
+\vspace{0.1em}
+\obs{$D=1$} rows have $\outcome{p}=0.00$: bids are fully deterred on the disclosed branch under A5.
+\returnlink{main:prices}{Slide 9: Inference, Bids, Prices}
 \end{frame}
 
-% ── BACKUP 12b: PE vs GE disclosure distinction ────────────────────────
-\begin{frame}{PE vs.\ GE: Two disclosure effects}
-\hypertarget{backup:PE_vs_GE}{}
-\small
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\textbf{Proposition 6 (Partial Equilibrium):}
-\begin{itemize}\itemsep0.1em
-  \item \textbf{Fix} cutoffs $(k_1, k_0, k_D)$
-  \item Vary $\kappa$ through inference only
-  \item Disclosed states ($D{=}1$): $\kappa$-invariant
-  \item Inferred states ($D{=}0$): weight $1 - \omega_P$
-\end{itemize}
-$\Rightarrow$ $|\partial\Delta^{\text{act}}/\partial\kappa|$ \textbf{decreases} as $\omega_P$ rises.
-
-\column{0.48\textwidth}
-\textbf{Proposition 7 (General Equilibrium):}
-\begin{itemize}\itemsep0.1em
-  \item \textbf{Allow} $k_D = k_D(\tau)$ to adjust
-  \item Total derivative decomposes:
-\end{itemize}
-\vspace{-0.3em}
-\[
-\frac{d\Delta^{\text{act}}}{d\tau} \approx \underbrace{(+)}_{\text{transp.}} + \underbrace{(-)}_{\text{deter.}}
-\]
-\vspace{-0.3em}
-\begin{itemize}\itemsep0.1em
-  \item Stricter $\tau$ destroys Quiet Voice
-  \item Blockholder may exit rather than disclose
-\end{itemize}
-\end{columns}
-
-\vspace{0.3em}
-
-{\footnotesize\textbf{Key distinction:} PE shows \emph{why} disclosure attenuates (mechanical: $D{=}1$ states are $\kappa$-free). GE shows \emph{whether} stricter disclosure helps. Low $C_0$ + moderate $\kappa$: transparency dominates. High $C_0$: deterrence dominates.}
-
-\returnlink{main:attenuation}{Slide 11: Disclosure Attenuation}
-\end{frame}
-
-% ── CATEGORY DIVIDER: Welfare ────────────────────────────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Welfare}}
-\end{frame}
-
-% ── BACKUP 15: Welfare decomposition ────────────────────────────────────
-\begin{frame}{Distributional or total surplus?}
-\hypertarget{backup:welfare}{}
-\begin{columns}[T,onlytextwidth]
-\column{0.55\textwidth}
-\centering
-\includegraphics[width=0.95\linewidth]{fig_welfare.pdf}
-
-\column{0.43\textwidth}
+% -- B22 ---------------------------------------------------------------------
+\begin{frame}{B22. Standing assumptions (A1--A7)}
+\hypertarget{backup:B22}{}
 \footnotesize
-\textbf{Welfare:} $W(\kappa) = W_{\min} + W_B + W_{\text{bid}}$
+\begin{columns}[T,onlytextwidth]
+\column{0.58\textwidth}
+\renewcommand{\arraystretch}{1.05}%
+\begin{tabular}{@{}p{0.08\linewidth}p{0.84\linewidth}@{}}
+\toprule
+A1 & Interior regions: no single action always dominates \\
+A2 & \choice{$C(s)>0$} and decreasing in \choice{$s$} \\
+A3 & Engagement raises expected premium: $\tilde m>m_0$ \\
+A4 & Synergy bounds ensure interior bid probability: $\outcome{p}\in(0,1)$ \\
+A5 & Net deterrence: $\tilde\Delta+\tilde m-m_0>\Delta_S$ \\
+A6 & Cutoff map $T$ is a contraction (verified numerically) \\
+A7 & Arrival bound $\lambda_B\le 1/2$ (single-crossing) \\
+\bottomrule
+\end{tabular}
 
-\vspace{0.1em}
-Prices/premia are transfers. Surplus $=$ synergies $+$ improvements $-$ costs.
-
-\vspace{0.1em}
-\textbf{Tension:} $\kappa^{\dagger}$ maximizes extraction, deterring marginal efficient takeovers.
-$\Rightarrow$ $\kappa^* \neq \kappa^{\dagger}$.
+\column{0.38\textwidth}
+\textbf{Role in the model}
+\begin{itemize}\itemsep0.35em
+  \item A1--A3 deliver four distinct action regions.
+  \item A4--A5 keep bidder entry interior and make activism deter bids.
+  \item A6 is the numerical uniqueness condition.
+  \item A7 guarantees monotone payoff differences.
+\end{itemize}
 \end{columns}
 
-\returnlink{main:policy}{Slide 12: Policy Implications}
+\returnlink{main:assumptions}{Slide 7: Standing Assumptions}
 \end{frame}
 
-% ── BACKUP 16: Why minority gains as welfare metric ──────────────────────
-\begin{frame}{Why use expected minority takeover gains as the welfare metric?}
-\hypertarget{backup:welfare_metric}{}
-\footnotesize
-\textbf{Grossman \& Hart (1980):} Dispersed minorities benefit only through the takeover \emph{premium}.
-
-\vspace{0.1em}
-
-\textbf{$\Delta^{\min}$ captures:}
-\vspace{-0.2em}
-\begin{enumerate}\itemsep-0.05em
-  \item \emph{Probability} a bid arrives (prices embed inference)
-  \item \emph{Premium} conditional on bid (inferred vs.\ observed)
-  \item Interaction of these channels through $\kappa$
-\end{enumerate}
-
-\vspace{-0.15em}
-
-\textbf{Empirical:} activist returns $\approx$ takeover premia \citep{BravJiangPartnoyThomas2008}. $\Delta^{\min}$ $=$ \emph{ex ante} expected CAR.
-
-\returnlink{main:result}{Slide 10: Main Result}
-\end{frame}
-
-% ── CATEGORY DIVIDER: Calibration & Numerical Details ────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Calibration \& Numerical Details}}
-\end{frame}
-
-% ── BACKUP 17: Baseline parameter values ────────────────────────────────
-\begin{frame}{What are your baseline parameter values and why?}
-\hypertarget{backup:calibration}{}
+% -- B23 ---------------------------------------------------------------------
+\begin{frame}{B23. Within-regime $\kappa$ effects on beliefs}
+\hypertarget{backup:B23}{}
 \scriptsize
-\begin{columns}[T,onlytextwidth]
-\column{0.48\textwidth}
-\begin{tabular}{@{}lrl@{}}
-\toprule
-\textbf{Parameter} & \textbf{Value} & \textbf{Rationale} \\
-\midrule
-$\mu$ (prior mean) & 1.00 & Normalization \\
-$\sigma_v$ (value std) & 0.50 & Moderate uncertainty \\
-$\sigma_\varepsilon$ (noise std) & 0.50 & $\beta = 0.5$ (equal weight) \\
-$\delta$ (discount) & 0.95 & Near-term horizon \\
-$\kappa$ (liquidity) & 0.50 & Interior baseline \\
-$C_0$ (base cost) & 0.12 & Moderate engagement \\
-$\chi$ (cost sensitivity) & 0.50 & Gradual decay \\
-\bottomrule
-\end{tabular}
-
-\column{0.48\textwidth}
-\begin{tabular}{@{}lrl@{}}
-\toprule
-\textbf{Parameter} & \textbf{Value} & \textbf{Rationale} \\
-\midrule
-$\rho$ (success prob) & 0.90 & Selective activists \\
-$\Delta$ (value-add) & 0.25 & 25\% of $\mu$ \\
-$m_0$ (base premium) & 0.10 & 10\% of $\mu$ \\
-$m_1$ (success premium) & 0.30 & 30\% of $\mu$ \\
-$\bar{S}$ (synergy) & 1.44 & Interior bid prob \\
-$K$ (entry cost) & 0.15 & Moderate friction \\
-$\sigma_\xi$ (shock vol) & 0.40 & Bidder heterogeneity \\
-\bottomrule
-\end{tabular}
-\end{columns}
-
-\vspace{0.3em}
-
-\textbf{Derived:} $\sigma_s = 0.707$, $\beta = 0.5$, $\tilde{m} = 0.28$, $\tilde{\Delta} = 0.225$.
-
-\vspace{0.2em}
-
-\textbf{Regularity check:} $\delta/\sigma_\xi = 0.95/0.40 = 2.375 < 1/\varphi(0) \approx 2.507$. $\checkmark$ (Assumption A5 satisfied.)
-
-\returnlink{main:engagement}{Slide 6: Engagement \& Bidder Entry}
-\end{frame}
-
-% ── BACKUP 18: Full equilibrium outcomes at baseline ─────────────────────
-\begin{frame}{Show me the full equilibrium outcomes at baseline.}
-\hypertarget{backup:baseline_outcomes}{}
-\footnotesize
-\textbf{Cutoffs:} $k_1 = k_0 \approx 0.82$, $k_D \approx 2.26$.
-
-\vspace{0.1em}
-
+\textbf{Sign pattern}
+From Proposition 2 with $p_0=1-2\kappa/3$ and $p_1=\kappa/3$:
 \begin{center}
-\begin{tabular}{ccrrrr}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{0.16\linewidth}p{0.18\linewidth}p{0.56\linewidth}@{}}
 \toprule
-$D$ & $X$ & $P(X,D)$ & $\pi(X,D)$ & $p(X,D)$ & $\bar{m}(X,D)$ \\
+\textbf{Flow} & \textbf{Effect of $\kappa$} & \textbf{Reason} \\
 \midrule
-0 & $-2$ & 0.65 & 0.00 & 0.58 & 0.10 \\
-0 & $-1$ & 0.72 & 0.09 & 0.55 & 0.12 \\
-0 & $0$  & 0.89 & 0.52 & 0.48 & 0.19 \\
-0 & $1$  & 1.04 & 0.78 & 0.43 & 0.24 \\
-\midrule
-1 & $0$  & 1.14 & 1.00 & 0.39 & 0.28 \\
-1 & $1$  & 1.14 & 1.00 & 0.39 & 0.28 \\
-1 & $2$  & 1.14 & 1.00 & 0.39 & 0.28 \\
+\obs{$X=1$} & none & Only Hold and Quiet Voice can generate \obs{$X=1$} when \obs{$D=0$}, so the noise terms cancel. \\
+\obs{$X=-1$} & \outcome{$\pi(-1,0)$} rises & More noise makes sell flow more likely to be camouflage rather than Exit. \\
+\obs{$X=0$} & \outcome{$\pi(0,0)$} falls & More noise makes zero flow more likely under Exit, lowering inferred engagement. \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\vspace{0.1em}
+\textbf{Interpretation.}
+These within-regime effects generate the inference channel. Cross-equilibrium effects also move \choice{cutoffs}, creating the general-equilibrium feedback in Propositions 5--7.
 
-\textbf{Key:} (i) $D{=}1$: $\pi = 1$, flat prices; (ii) $D{=}0$: inference gradient; (iii) $D{=}1$ has \emph{lower} bid probability ($\tilde{m} > m_0$).
-
-\returnlink{main:prop3}{Slide 9: Price Decomposition}
+\returnlink{main:prop2}{Slide 9: Inference, Bids, Prices}
 \end{frame}
 
-% ── BACKUP 19: Within-regime liquidity effects on posteriors ─────────────
-\begin{frame}{What are the within-regime liquidity effects on posteriors?}
-\hypertarget{backup:liquidity_posteriors}{}
-\small
-\textbf{Partial derivatives (Appendix B.7):}
-
-\vspace{0.2em}
-
-\begin{enumerate}\itemsep0.2em
-  \item $\frac{\partial\pi(1,0)}{\partial\kappa} = 0$\;---\;
-  {\footnotesize $X{=}1, D{=}0$ pins $q{=}0$; mix of Hold/Quiet depends on cutoffs, not $\kappa$.}
-
-  \item $\frac{\partial\pi(0,0)}{\partial\kappa} \le 0$\;---\;
-  {\footnotesize Rising $\kappa$ dilutes inference of Quiet Voice; compresses $\pi(0,0)$ toward prior.}
-
-  \item $\frac{\partial\pi(-1,0)}{\partial\kappa} \ge 0$\;---\;
-  {\footnotesize Rising $\kappa$ makes $X{=}{-}1$ more likely from Hold/Quiet with bad noise, raising $\pi$.}
-\end{enumerate}
-
-\vspace{0.2em}
-
-{\small\textbf{Net effect on $\Delta^{\text{act}}$:} probability-weighted sum across states yields the hump.}
-
-\returnlink{main:prop2}{Slide 8: Proposition 2}
-\end{frame}
-
-% ── BACKUP 20: Standing assumptions ──────────────────────────────────────
-\begin{frame}{What are the standing assumptions?}
-\hypertarget{backup:assumptions}{}
+% -- B24 ---------------------------------------------------------------------
+\begin{frame}{B24. Why is passive threshold crossing omitted in the baseline action set?}
+\hypertarget{backup:B24}{}
 \footnotesize
-\begin{center}
-\begin{tabular}{clp{6.5cm}}
-\toprule
-& \textbf{Assumption} & \textbf{Where Used} \\
-\midrule
-A1 & Normal fundamentals: $v \sim N(\mu, \sigma_v^2)$ & Posterior mean, conditional expectations \\
-A2 & Normal signal noise: $s = v + \varepsilon$, $\varepsilon \sim N(0, \sigma_\varepsilon^2)$ & Bayesian updating, cutoff regions \\
-A3 & Discrete noise trading: $z \in \{-1,0,+1\}$ & Order flow inference, posterior formulas \\
-A4 & Exponential engagement cost: $C(s) = C_0 e^{-\chi z}$ & Single-crossing (Prop.\ 1) \\
-A5 & Bounded feedback: $\delta\varphi(0)/\sigma_\xi < 1$ & Price fixed-point uniqueness \\
-A6 & Cutoff mapping is a contraction & Equilibrium uniqueness (Prop.\ 4) \\
-A7 & Bidder observes $(P, D)$ but not $(X, s, v, a)$ & Information structure, entry rule \\
-\bottomrule
-\end{tabular}
-\end{center}
+\textbf{Candidate omitted action:} Passive Accumulation $=(+1,0)$.
 
-\vspace{0.3em}
+\vspace{0.4em}
+\begin{alertblock}{Why it is not on-path in the baseline}
+\begin{itemize}\itemsep0.3em
+  \item Threshold crossing without engagement still triggers disclosure and the associated adverse-selection penalty.
+  \item For high signals, the same forces that make buying attractive also make engagement attractive: expected value improvement rises while \choice{$C(s)$} falls.
+  \item The appendix lemma shows that passive threshold crossing is dominated above a signal cutoff under maintained conditions; in the baseline calibration, the threshold-crossing region is therefore Public Voice.
+\end{itemize}
+\end{alertblock}
 
-\textbf{Note:} A5 is verifiable ex ante from primitives. A6 is verified numerically (following \citealp{EdmansGoldsteinJiang2015}). All other assumptions are standard.
+\begin{alertblock}{Interpretation}
+The baseline action set is not ruling out passive buying by assumption. It is summarizing the on-path equilibrium object for a control-oriented activist: once she crosses the threshold in relevant high-signal states, she also chooses to engage.
+\end{alertblock}
 
-\returnlink{main:timeline}{Slide 5: Model Timeline}
+\returnlink{main:prop1}{Slide 8: Cutoffs}
+\end{frame}
+
+% -- B25 ---------------------------------------------------------------------
+\begin{frame}{B25. Why use discrete order flow instead of continuous trading?}
+\hypertarget{backup:B25}{}
+\footnotesize
+\begin{alertblock}{What the discrete setup buys}
+\begin{itemize}\itemsep0.3em
+  \item Finite order-flow states give transparent Bayes updating in both \obs{$D=0$} and \obs{$D=1$} regimes.
+  \item The market-maker problem stays feed-forward once disclosure arrives after anonymous execution.
+  \item The model can combine governance choice, disclosure, and takeover feedback without a price fixed point.
+\end{itemize}
+\end{alertblock}
+
+\begin{alertblock}{What it gives up}
+\begin{itemize}\itemsep0.3em
+  \item No gradual multi-round accumulation.
+  \item Bounded noise support rather than a continuous Kyle environment.
+  \item No claim that the hump is a generic closed-form property of all trading protocols.
+\end{itemize}
+\end{alertblock}
+
+\textbf{Interpretation:} this is a tractable first-pass theory design, not a claim that real activist trading is literally one-shot.
+
+\returnlink{main:engagement}{Slide 9: Inference, Bids, Prices}
+\end{frame}
+
+% -- B26 ---------------------------------------------------------------------
+\begin{frame}{B26. Why does anonymous accumulation matter for Public Voice?}
+\hypertarget{backup:B26}{}
+\footnotesize
+\begin{alertblock}{Timing wedge}
+\[
+\text{At } t=1:\quad \choice{\text{buy at }}\outcome{P_{\textup{trade}}}(\obs{X})
+\qquad\Longrightarrow\qquad
+\text{At } t=1.2:\quad \obs{D}=1 \text{ and price updates to } \outcome{P_{\textup{post}}}(\obs{X},1)
+\]
+\end{alertblock}
+
+\begin{itemize}\itemsep0.35em
+  \item The activist accumulates before the market fully capitalizes observed engagement.
+  \item If she had to buy at the fully disclosed price, she would internalize the whole activism premium immediately.
+  \item That would shrink the Public Voice region and weaken the transparency-attenuation channel in general equilibrium.
+\end{itemize}
+
+\begin{alertblock}{Bridge to the disclosure results}
+Anonymous execution is what lets Public Voice survive on path in the baseline calibration. That is why the partial-equilibrium attenuation result has economic bite instead of being a purely mechanical accounting statement.
+\end{alertblock}
+
+\returnlink{main:attenuation}{Slide 12: Disclosure Attenuation}
 \end{frame}
 
 \end{document}

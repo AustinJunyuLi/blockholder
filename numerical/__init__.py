@@ -1,25 +1,25 @@
-"""
-Exit-Voice-Takeover Model: Numerical Analysis Package.
+"""Numerical package for "Liquidity, Activism Disclosure, and Takeover Premia".
 
-Modules
--------
-params       -- Model parameters, Action enum, Cutoffs/MinorityGains types
-model        -- Core economic functions (posteriors, prices, payoffs)
-solver       -- Equilibrium solver and comparative statics
-export_data  -- CSV data export and LaTeX table generation
+The public surface area is intentionally small. Most users should run:
+
+    python -m numerical.export_data --output-dir numerical_output
+    python -m numerical.figures     --output-dir numerical_output
+
+or simply:
+
+    make clean && make all
 """
 
-from numerical.params import Action, Cutoffs, MinorityGains, ModelParams
-from numerical.solver import solve_equilibrium, solve_valid, compute_series_over_kappa
-from numerical.export_data import export_all
+from .params import ModelParams, Cutoffs, MinorityGains, Action
+from .solver import solve_valid, solve_equilibrium
+from .model import compute_minority_gains
 
 __all__ = [
-    "Action",
+    "ModelParams",
     "Cutoffs",
     "MinorityGains",
-    "ModelParams",
-    "solve_equilibrium",
+    "Action",
     "solve_valid",
-    "compute_series_over_kappa",
-    "export_all",
+    "solve_equilibrium",
+    "compute_minority_gains",
 ]

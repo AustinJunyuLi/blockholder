@@ -1,13 +1,11 @@
-"""
-Model parameters and type definitions for the Exit-Voice-Takeover model.
+"""Parameter and type definitions for the numerical exercise.
 
-This is the foundational module — all other modules in the numerical package
-import from here. It defines:
+Notation matches `draft_v3.tex`.
 
-- Named tolerance constants used across the solver and equilibrium routines
-- The ``Action`` enum encoding the blockholder's four action choices
-- ``Cutoffs`` and ``MinorityGains`` named tuples for structured return values
-- The ``ModelParams`` dataclass with baseline calibration and derived quantities
+Key objects:
+- Action set: Exit, Hold, Quiet Voice, Public Voice
+- Cutoffs: (k1, k0, kD)
+- ModelParams: baseline calibration + derived quantities
 """
 
 from __future__ import annotations
@@ -18,29 +16,31 @@ from dataclasses import dataclass
 from typing import NamedTuple
 
 import numpy as np
-from scipy.stats import norm
 
-# ---------------------------------------------------------------------------
-# Tolerance constants
-# ---------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Numerical tolerances
+# -----------------------------------------------------------------------------
 
-TOL_PROB: float = 1e-10        # Near-zero probability threshold
-TOL_CONVERGE: float = 1e-6    # Fixed-point convergence criterion
-TOL_RESIDUAL: float = 5e-3    # Equilibrium quality gate
-TOL_REGION: float = 1e-4      # Cutoff region collapse detection
+TOL_PROB: float = 1e-12        # treat probabilities below as 0
+TOL_CONVERGE: float = 1e-7     # fixed-point cutoff convergence
+TOL_RESIDUAL: float = 5e-3     # acceptable max cutoff indifference residual
+TOL_REGION: float = 1e-5       # treat regions narrower than this as collapsed
+
+# Integration / grids
+SIGMA_GRID: float = 6.0        # integrate over s in [mu-6*sigma_s, mu+6*sigma_s]
 
 
-# ---------------------------------------------------------------------------
-# Action enum
-# ---------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+# Actions
+# -----------------------------------------------------------------------------
 
 class Action(enum.Enum):
-    """Blockholder action choice (Definition 2 in the paper).
+    """Blockholder action.
 
-    EXIT   -- Sell stake  (q = -1, a = 0)
-    HOLD   -- Passive hold (q = 0,  a = 0)
-    QUIET  -- Quiet Voice: engage below disclosure threshold (q = 0,  a = 1)
-    PUBLIC -- Public Voice: buy, engage, trigger disclosure  (q = +1, a = 1)
+    EXIT   : (q=-1, a=0)
+    HOLD   : (q=0,  a=0)
+    QUIET  : (q=0,  a=1)
+    PUBLIC : (q=+1, a=1)  (stake-triggered disclosure)
     """
 
     EXIT = "E"
@@ -49,19 +49,8 @@ class Action(enum.Enum):
     PUBLIC = "P"
 
 
-# ---------------------------------------------------------------------------
-# Named tuples
-# ---------------------------------------------------------------------------
-
 class Cutoffs(NamedTuple):
-    """Equilibrium signal cutoffs (Proposition 1).
-
-    k1: Exit/Hold boundary -- signals below k1 trigger exit
-    k0: Hold/Quiet Voice boundary -- signals above k0 trigger engagement
-    kD: Quiet/Public Voice boundary -- signals above kD trigger disclosure
-
-    Satisfies k1 <= k0 <= kD (weak ordering allows region collapse).
-    """
+    """Equilibrium cutoffs (k1, k0, kD) with weak ordering k1 <= k0 <= kD."""
 
     k1: float
     k0: float
@@ -69,104 +58,92 @@ class Cutoffs(NamedTuple):
 
 
 class MinorityGains(NamedTuple):
-    """Expected minority takeover gains decomposition (Section 5).
-
-    total: Total expected minority gains Delta^min
-    base:  Base component m0 * Pr(bid)
-    activism: Activism-driven component Delta^act
-    """
+    """Minority takeover gains decomposition (Eq. (decomp) in the paper)."""
 
     total: float
     base: float
     activism: float
 
 
-# ---------------------------------------------------------------------------
-# Model parameters
-# ---------------------------------------------------------------------------
-
-@dataclass
+@dataclass(frozen=True)
 class ModelParams:
-    """Parameters for the Exit-Voice-Takeover model.
+    """Model parameters.
 
-    Notation follows the paper:
+    Fundamentals:
+        v ~ N(mu, sigma_v^2)
+        s = v + eps, eps ~ N(0, sigma_eps^2)
 
-        mu, sigma_v     -- Prior: v ~ N(mu, sigma_v^2)              [Section 2.1]
-        sigma_eps       -- Signal noise: s = v + eps                 [Eq. 1]
-        kappa           -- Noise trading intensity                   [Definition 1]
-        C0, chi         -- Engagement cost: C(s) = C0*exp(-chi*z)   [Eq. 3]
-        rho, Delta      -- Success probability and value improvement [Eq. 4]
-        m0, m1          -- Takeover premia without/with engagement   [Eq. 5]
-        S_bar, K        -- Baseline synergy and bidding cost         [Eq. 8]
-        sigma_xi        -- Synergy shock volatility                  [Eq. 8]
-        delta           -- Discount factor                           [Eq. 6]
+    Liquidity:
+        z ∈ {-1,0,1} with P(0)=1-2kappa/3, P(±1)=kappa/3
 
-    Default values correspond to the baseline calibration used throughout
-    the paper.
+    Engagement:
+        C(s) = C0 * exp(-chi * (s-mu)/sigma_s)
+        success prob rho; improvement Delta; premium wedge m0→m1
+
+    Takeover:
+        bidder arrives with prob lambda_B
+        synergy shock xi ~ Logistic(0, s_xi)
+        entry depends on inferred engagement π(X,D)
+
+    Discounting:
+        delta
+
+    Baseline calibration defaults match the paper.
     """
 
     # Fundamentals
-    mu: float = 1.0                # Prior mean of v
-    sigma_v: float = 0.5           # Std dev of v
-    sigma_eps: float = 0.5         # Std dev of signal noise
+    mu: float = 1.0
+    sigma_v: float = 0.50
+    sigma_eps: float = 0.50
 
     # Liquidity
-    kappa: float = 0.5             # Noise trading intensity
+    kappa: float = 0.50
 
     # Engagement
-    C0: float = 0.12              # Base engagement cost
-    chi: float = 0.5              # Cost sensitivity to signal
-    rho: float = 0.9              # Engagement success probability
-    Delta: float = 0.25           # Value improvement from engagement
+    C0: float = 0.25
+    chi: float = 0.50
+    rho: float = 0.90
+    Delta: float = 0.25
 
-    # Takeover
-    m0: float = 0.10              # Base takeover premium
-    m1: float = 0.30              # Premium with successful engagement
-    S_bar: float = 1.44           # Baseline synergy
-    K: float = 0.15               # Bidding cost
-    sigma_xi: float = 0.40        # Synergy shock volatility
+    # Takeover terms
+    m0: float = 0.10
+    m1: float = 0.45
+    S_bar: float = 1.10
+    Delta_S: float = 0.30
+    K: float = 0.15
+    s_xi: float = 0.15
+    lambda_B: float = 0.20
 
-    # Discounting
-    delta: float = 0.95           # Discount factor
+    # Discount factor
+    delta: float = 0.95
 
-    # -- Derived quantities ------------------------------------------------
+    # ------------------------------------------------------------------
+    # Derived quantities
+    # ------------------------------------------------------------------
 
     @property
     def sigma_s(self) -> float:
-        """Signal standard deviation: sqrt(sigma_v^2 + sigma_eps^2)."""
-        return np.sqrt(self.sigma_v**2 + self.sigma_eps**2)
+        return float(np.sqrt(self.sigma_v**2 + self.sigma_eps**2))
 
     @property
     def beta(self) -> float:
-        """Posterior weight on the signal in v_hat(s).
-
-        beta = sigma_v^2 / (sigma_v^2 + sigma_eps^2)
-        """
-        return self.sigma_v**2 / (self.sigma_v**2 + self.sigma_eps**2)
-
-    @property
-    def m_tilde(self) -> float:
-        """Expected takeover premium under engagement.
-
-        m_tilde = m0 + rho * (m1 - m0)
-        """
-        return self.m0 + self.rho * (self.m1 - self.m0)
+        # Posterior weight on signal (E[v|s] = mu + beta(s-mu))
+        return float(self.sigma_v**2 / (self.sigma_v**2 + self.sigma_eps**2))
 
     @property
     def Delta_tilde(self) -> float:
-        """Expected value improvement under engagement.
+        # Expected fundamental improvement under engagement
+        return float(self.rho * self.Delta)
 
-        Delta_tilde = rho * Delta
-        """
-        return self.rho * self.Delta
+    @property
+    def m_tilde(self) -> float:
+        # Expected premium wedge under engagement
+        return float(self.m0 + self.rho * (self.m1 - self.m0))
 
-    # -- Convenience methods -----------------------------------------------
+    @property
+    def net_deterrence(self) -> bool:
+        # Assumption (A5): Delta_tilde + m_tilde - m0 > Delta_S
+        return (self.Delta_tilde + self.m_tilde - self.m0) > self.Delta_S
 
-    def replace(self, **kwargs) -> ModelParams:
-        """Return a copy with specified fields overridden."""
+    def replace(self, **kwargs) -> "ModelParams":
         return dataclasses.replace(self, **kwargs)
-
-    @classmethod
-    def baseline(cls) -> ModelParams:
-        """Baseline calibration used in the paper."""
-        return cls()
