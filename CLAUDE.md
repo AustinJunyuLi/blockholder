@@ -4,11 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an economic theory model studying blockholder behavior (exit, voice, corporate control). The codebase has three layers: numerical computation (Python), visualization (R/ggplot2), and manuscript/presentation (LaTeX/Beamer).
+Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an economic theory model studying blockholder behavior (exit, voice, corporate control). The codebase has three layers: numerical computation (Python), visualization (Python/matplotlib), and manuscript/presentation (LaTeX/Beamer).
 
 ## Build Pipeline
 
-The pipeline flows: **Python → CSV → R → PDF figures → LaTeX manuscript**.
+The pipeline flows (Python end-to-end): **Python → CSV → matplotlib → PDF figures → LaTeX manuscript**.
+
+Set up the environment once with `make venv` (creates `.venv/` from `requirements.txt`).
 
 ```bash
 # Full pipeline (data export + figure generation)
@@ -17,7 +19,7 @@ make all
 # Step 1 only: Python model → 13 CSV files in numerical_output/data/
 make data
 
-# Step 2 only: R/ggplot2 → 13 PDF figures in numerical_output/
+# Step 2 only: matplotlib → 13 PDF figures in numerical_output/
 make figures
 
 # Remove all generated CSVs and PDFs
@@ -30,10 +32,10 @@ make clean && make all
 **Individual commands** (when Make isn't needed):
 ```bash
 # Python data export
-python -m numerical.export_data --output-dir numerical_output
+.venv/bin/python -m numerical.export_data --output-dir numerical_output
 
-# R figure rendering
-Rscript R/render_all.R --data-dir numerical_output/data --output-dir numerical_output
+# Python figure rendering
+.venv/bin/python -m pyfig.render_all --data-dir numerical_output/data --output-dir numerical_output
 
 # Compile manuscript
 xelatex draft_v2.tex && biber draft_v2 && xelatex draft_v2.tex
@@ -57,16 +59,16 @@ params.py → model.py → solver.py → export_data.py
 - **`params.py`**: `ModelParams` dataclass (baseline calibration), `Action` enum (EXIT/HOLD/QUIET/PUBLIC), `Cutoffs` and `MinorityGains` named tuples, tolerance constants
 - **`model.py`**: Core economic functions — posteriors, prices, payoffs, welfare, information regimes. Sections of the paper are cited in comments
 - **`solver.py`**: Equilibrium solver using damped fixed-point iteration with `scipy.optimize.brentq`. Multi-start search with collapsed-hold fallback
-- **`export_data.py`**: Sweeps parameter grids and writes 13 CSV files — this is the interface contract between Python and R
+- **`export_data.py`**: Sweeps parameter grids and writes 13 CSV files — this is the interface contract between the model and the figure layer (`pyfig/`)
 - **`accel.py`**: Optional Numba JIT layer. Performance optimization only; `solver.py` is the reference implementation
 
 **Conventions**: Pure functions throughout, full type hints, all functions take `params: ModelParams` argument, immutable return types (NamedTuples).
 
-### R visualization (`R/`)
+### Python visualization (`pyfig/`)
 
-- **`theme_evtmodel.R`**: Shared theme, Paul Tol colourblind-friendly palette, and `plot_sensitivity()` helper. Must be sourced before any figure script
-- **`plot_fig01_*.R` through `plot_fig13_*.R`**: One script per figure, each exports a function named `plot_figXX(data_dir, output_dir)`
-- **`render_all.R`**: Master orchestrator that sources and calls all 13 figure scripts in sequence
+- **`pyfig/style.py`**: Shared matplotlib house style, Paul Tol colourblind-friendly palette, and helpers (`apply_style`, `new_ax`, `legend_outside`, `save_fig`). Editorial-minimal, with Computer-Modern math typography matching the manuscript
+- **`pyfig/figures.py`**: One function per figure (`fig01_*` … `fig13_*`), each taking `(data_dir, output_dir)`; `ALL_FIGURES` lists them in render order
+- **`pyfig/render_all.py`**: Master orchestrator (`python -m pyfig.render_all`) that applies the style and calls all 13 figures
 
 **Color palette** (Paul Tol muted, used consistently across all figures):
 - Exit: `#cc6677` (rose), Hold: `#ddcc77` (sand), Quiet Voice: `#88ccee` (cyan), Public Voice: `#44aa99` (teal)
@@ -74,7 +76,7 @@ params.py → model.py → solver.py → export_data.py
 
 ### CSV interface contract
 
-The 13 CSV files in `numerical_output/data/` are the stable boundary between Python and R. Column names match paper notation. When modifying the model, update both the export logic and the corresponding R figure script.
+The 13 CSV files in `numerical_output/data/` are the stable boundary between the model and the figure layer. Column names match paper notation. When modifying the model, update both the export logic and the corresponding figure function in `pyfig/figures.py`.
 
 ### LaTeX
 
@@ -100,13 +102,13 @@ Defined in `params.py` — do not change without understanding downstream effect
 - `TOL_REGION = 1e-4`: cutoff collapse detection
 - `TOL_PROB = 1e-10`: near-zero probability threshold
 
-## R Dependencies
+## Python Dependencies
 
-`ggplot2`, `dplyr`, `readr`, `latex2exp`, `scales`, `here`. All figures use `cairo_pdf()` device for font embedding.
+`numpy`, `scipy`, `pandas`, `matplotlib` (pinned in `requirements.txt`; install via `make venv`). Figures are written as vector PDF with embedded fonts (`pdf.fonttype = 42`) and matplotlib `mathtext` (Computer Modern) for math labels.
 
 ## Working Notes
 
-- The `figures/` directory contains archived matplotlib PDFs from before the R migration — these are superseded by `numerical_output/*.pdf`
-- `figures_matplotlib.py` is archived legacy code; the active visualization pipeline is R-only
-- Solver may produce NA rows at extreme `kappa` values (edge-case non-convergence) — this is expected and handled gracefully by R scripts
+- The active visualization pipeline is Python/matplotlib (`pyfig/`); the earlier R/ggplot2 layer (`R/`) was removed in favour of an end-to-end Python pipeline
+- The `figures/` directory (if present) holds archived PDFs superseded by `numerical_output/*.pdf`
+- Solver may produce NA rows at extreme `kappa` values (edge-case non-convergence) — this is expected and the figure functions drop NA rows gracefully
 - No formal test suite; verification is via `make clean && make all` + visual inspection of output PDFs and CSV row counts

@@ -1,0 +1,8 @@
+# Python dependencies for the Exit-Voice-Takeover numerical + figure pipeline.
+# Create the environment with:  make venv   (or: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt)
+numpy>=1.26
+scipy>=1.11
+pandas>=2.0
+matplotlib>=3.8
+# numba>=0.59   # OPTIONAL JIT acceleration (numerical/accel.py); solver.py is the
+#              # reference implementation and runs without it. Install manually if wanted.

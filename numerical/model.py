@@ -19,6 +19,12 @@ from __future__ import annotations
 from typing import Dict, Tuple
 
 import numpy as np
+
+# --- numpy>=2.0 compatibility: np.trapz was removed in favor of np.trapezoid ---
+if not hasattr(np, 'trapezoid') and hasattr(np, 'trapz'):
+    np.trapezoid = np.trapz  # older numpy
+if not hasattr(np, 'trapz') and hasattr(np, 'trapezoid'):
+    np.trapz = np.trapezoid  # numpy>=2.0
 from scipy.stats import norm
 
 from numerical.params import (
@@ -554,7 +560,7 @@ def compute_welfare(
             act, float(s), prices, posteriors, params
         )
 
-    W_B = float(np.trapz(u_vals * pdf, s_grid))
+    W_B = float(np.trapezoid(u_vals * pdf, s_grid))
 
     # ── Minority gains W_min ──────────────────────────────────────────────
     gains = compute_minority_gains(k1, k0, kD, params)
