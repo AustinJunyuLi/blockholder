@@ -1,0 +1,405 @@
+%==============================================================================
+%  D1_prop6_GE_cutoffshift.tex
+%
+%  HONEST RELABEL of Proposition 6 (the "liquidity hump" in minority gains
+%  Delta^min(kappa)), separating what is ANALYTICALLY PROVED from the single
+%  general-equilibrium (cutoff-shift) step that we have NOT been able to sign
+%  in closed form. Following the precedent of Edmans, Goldstein and Jiang
+%  (2015, JF) -- who establish their feedback result under an explicit
+%  primitive condition and verify the residual monotonicity numerically -- we
+%  state Proposition 6 under an EXPLICIT primitive condition (C*) and present
+%  the residual cutoff-shift step as a NUMERICALLY VERIFIED REGULARITY, clearly
+%  flagged as such rather than as a completed proof.
+%
+%  Notation/macros follow draft_v2.tex: \E (expectation), \PP (probability),
+%  \1 (indicator), \Var (variance); biblatex \citet/\citep.
+%
+%  This file is a drop-in replacement for the old Proposition 6 + Endpoints
+%  Lemma block. The OLD argument is REJECTED: it assumed its own conclusion,
+%  and the OLD Endpoints Lemma (voice "collapses" as kappa->1) is FALSE.
+%==============================================================================
+
+\section*{Proposition 6, rewritten: the conditional liquidity hump in minority gains}
+
+\subsection*{Object and decomposition}
+
+Recall the headline comparative-statics object, the minority's expected gain
+from the disciplining channel as a function of noise-trading intensity
+$\kappa\in[0,1]$,
+\begin{equation}
+  \Delta^{\min}(\kappa)
+  \;=\;
+  \E\!\big[\, m^{R}(a)\,\1\{\text{bid}\} \,\big],
+  \label{eq:dmin-def}
+\end{equation}
+evaluated along the equilibrium cutoff path
+$k(\kappa)=\big(k_1(\kappa),k_0(\kappa),k_D(\kappa)\big)$ that solves the
+fixed-point system of Section~\ref{sec:equilibrium}. Throughout we maintain the
+standing assumptions A1--A7 and the baseline calibration of the draft
+($\delta=0.95$, $\sigma_\xi=0.40$, $\rho=0.9$), under which the Hold region
+collapses ($k_0=k_1$) at all interior $\kappa$.
+
+Because the equilibrium cutoffs themselves depend on $\kappa$, the total
+derivative of \eqref{eq:dmin-def} splits into two economically distinct
+channels:
+\begin{equation}
+  \frac{\mathrm{d}\,\Delta^{\min}}{\mathrm{d}\kappa}
+  \;=\;
+  \underbrace{\frac{\partial \Delta^{\min}}{\partial \kappa}\bigg|_{k\ \text{fixed}}}_{\text{(A) posterior / pricing channel}}
+  \;+\;
+  \underbrace{\sum_{i\in\{1,0,D\}}\frac{\partial \Delta^{\min}}{\partial k_i}\,\frac{\mathrm{d} k_i}{\mathrm{d}\kappa}}_{\text{(B) GE cutoff-shift channel}}.
+  \label{eq:decomp}
+\end{equation}
+The substantive content of Proposition~6 -- that $\Delta^{\min}(\kappa)$ is
+single-peaked (a "hump") in the interior of $[0,1]$ -- requires controlling
+\emph{both} channels. We can sign (A) under an explicit primitive condition and
+we can pin down the endpoints exactly. We have NOT been able to sign (B) in
+closed form; that step is supplied as a numerically verified regularity.
+
+\medskip
+\noindent\textbf{Honesty flag.} The dividing line in this section is sharp.
+Lemma~\ref{lem:endpoints} and Lemma~\ref{lem:jensen} below are \emph{proved}.
+The control of channel (B) -- Hypothesis~\ref{hyp:cutoffshift} -- is
+\emph{not} proved; it is stated as a primitive regularity condition and
+corroborated numerically (Phase-0; see \S\ref{sec:numverify}). Proposition~6 is
+then a conditional statement: it holds \emph{given} (C*) and
+Hypothesis~\ref{hyp:cutoffshift}.
+
+%------------------------------------------------------------------------------
+\subsection*{The realized $D=0$ posterior and the chord representation}
+
+Under the stake-triggered disclosure rule, the public signal $D=1$ iff the
+blockholder buys ($q=+1$); a realized $D=0$ pools the Hold and Quiet-Voice
+regions. The \emph{realized} $D=0$ posterior support is the two-point set
+\begin{equation}
+  \big\{\,0,\ \bar\pi\,\big\},
+  \qquad
+  \bar\pi \;=\; \frac{\omega_Q}{\omega_H+\omega_Q},
+  \label{eq:twopoint}
+\end{equation}
+where $\omega_H,\omega_Q$ are the equilibrium masses in the Hold and
+Quiet-Voice regions, and $\bar\pi$ is the conditional probability of an active
+(Quiet-Voice) type given $D=0$. (At the baseline, Hold collapses so
+$\omega_H\!\approx\!0$ and $\bar\pi=1$ at interior $\kappa$, while
+$\bar\pi=0.9589$ at the extreme $\kappa\in\{0,1\}$ where Hold reappears
+infinitesimally; Phase-0.)
+
+Write $\pi$ for the activist posterior weight and let
+\begin{equation}
+  h(\pi)\;=\;\pi\,p(\pi)
+  \qquad\text{where}\qquad
+  p(\pi)\;=\;1-\Phi\!\left(\frac{\bar m(\pi)+K-\bar S+P}{\sigma_\xi}\right)
+  \label{eq:hdef}
+\end{equation}
+is the bidder's entry probability evaluated at posterior $\pi$, and
+$\bar m(\pi)=m_0+\pi\,(m_1-m_0)$ is the posterior-expected managerial private
+benefit. Then the contribution of the $D=0$ event to $\Delta^{\min}$ is
+governed by the expectation of $h$ over the two-point law \eqref{eq:twopoint}.
+
+\medskip
+\noindent\textbf{Correction relative to the rigor memo (load-bearing).} The
+relevant integrand is $h(\pi)=\pi\,p(\pi)$ -- the activist probability $\pi$
+times the entry probability $p$ -- \emph{not} $g(\pi)=\bar m(\pi)\,p(\pi)$. The
+two differ in curvature and even disagree in sign in at least one calibration
+cell (Phase-0 robustness: at $\sigma_\xi=0.25$, $\bar S=1.44$ the
+$g$-criterion returns $-0.073$ while $h''_{\max}=+0.015$), so the memo's
+$g$-based condition certifies the wrong function. The correct object is $h$.
+
+\medskip
+\noindent\textbf{Chord/secant formulation (load-bearing).} Because the realized
+law is the \emph{two-point} measure \eqref{eq:twopoint} and not a smooth
+density, the curvature that matters is the \emph{secant} curvature of $h$ across
+the chord $[0,\bar\pi]$, not the pointwise second derivative $h''$. Concretely,
+let $\lambda=\bar\pi/(\bar\pi)=$ the mixing weight implied by the realized law;
+the Jensen gap that drives channel (A) is the second difference along the chord,
+\begin{equation}
+  \mathcal{C}(\bar\pi)
+  \;:=\;
+  h(0)\;-\;2\,h\!\big(\tfrac{\bar\pi}{2}\big)\;+\;h(\bar\pi),
+  \label{eq:chord}
+\end{equation}
+and $h$ is "secant-concave on $[0,\bar\pi]$" iff $\mathcal{C}(\bar\pi)<0$. The
+Phase-0 robustness run confirms that the chord second difference
+\eqref{eq:chord} predicts the realized hump/trough orientation in 16/20
+calibration cells, whereas the pointwise criterion $h''_{\max}$ predicts only
+8/20. We therefore state the primitive condition in chord form.
+
+%------------------------------------------------------------------------------
+\subsection*{What is PROVED}
+
+\begin{lemma}[Endpoint symmetry of minority gains]
+\label{lem:endpoints}
+As $\kappa\to 0^{+}$ and as $\kappa\to 1^{-}$ the realized $D=0$ posterior law
+converges to the \emph{same} two-point measure on $\{0,\bar\pi\}$, and
+consequently
+\begin{equation}
+  \lim_{\kappa\to 0^{+}}\Delta^{\min}(\kappa)
+  \;=\;
+  \lim_{\kappa\to 1^{-}}\Delta^{\min}(\kappa).
+  \label{eq:symmetry}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The price function is $P(X,D)=\delta\,\E[Y\mid X,D]$ and the order flow is
+$X=q+z$ with $z\in\{-1,0,1\}$, $\PP(z=0)=1-\kappa$,
+$\PP(z=\pm1)=\kappa/2$. Fix the cutoffs $k$. The mapping
+$\kappa\mapsto \PP(z=\cdot)$ is symmetric under $\kappa\leftrightarrow$ the
+two informative regimes: at $\kappa=0$ the order flow is fully revealing of
+$q$ (no noise), while at $\kappa=1$ the noise mass concentrates on
+$z=\pm1$ with $\PP(z=0)=0$. In either extreme the \emph{conditional} law of
+the activist type given the realized public signal $D=0$ collapses onto the
+same two atoms $\{0,\bar\pi\}$ with the same weights: at both ends the
+$D=0$ event is informationally equivalent because the blockholder's
+\emph{disclosure} decision $D=\1\{q=+1\}$ is unaffected by $z$, and the
+posterior over $(q\in\{H,Q\})$ given $D=0$ is determined by the equilibrium
+region masses $(\omega_H,\omega_Q)$, which are continuous in $\kappa$ and take
+identical limiting values at the two endpoints by the symmetry of the
+$z$-distribution. Hence the integrand $h$ in \eqref{eq:hdef} is integrated
+against the same measure at both ends, giving \eqref{eq:symmetry}. The tower
+identity $\E[\pi\,\1\{D=0\}]=\omega_Q$ holds exactly at every $\kappa$
+(Phase-0 residual $=0$), confirming the two-point structure used here.
+\end{proof}
+
+\begin{remark}[Numerical corroboration of Lemma~\ref{lem:endpoints}]
+Solving directly at the extremes (multi-start solver, tightened $10^{-5}$
+gate): $\Delta^{\min}(10^{-6})=0.07020822$ and
+$\Delta^{\min}(1-10^{-6})=0.07020753$, a gap of $6.86\times10^{-7}$, with the
+two equilibrium cutoff triples coinciding to four decimals
+($\approx(0.1379,0.2596,2.6752)$). On fully converged near-endpoints the gap is
+$3.56\times10^{-5}$ (Phase-0). This \emph{confirms} the corrected endpoint
+symmetry and \emph{refutes} the old "voice-collapse" Endpoints Lemma: voice
+does not collapse as $\kappa\to1$; the $\kappa=1$ posterior is $\{0,\bar\pi\}$,
+not the prior. Because the exact endpoints are degenerate grid-edge solves
+(large residuals), \eqref{eq:symmetry} should be read as a \emph{limit}
+statement, exactly as written.
+\end{remark}
+
+\begin{lemma}[Sign of the posterior/pricing channel under (C*)]
+\label{lem:jensen}
+Hold the cutoffs $k$ fixed. The interior of channel~(A) in \eqref{eq:decomp}
+inherits the sign of the chord second difference \eqref{eq:chord}. In
+particular, if the primitive condition
+\begin{equation}
+  \textbf{(C*)}\qquad
+  \mathcal{C}(\bar\pi)
+  \;=\;
+  h(0)-2\,h\!\big(\tfrac{\bar\pi}{2}\big)+h(\bar\pi)
+  \;<\;0
+  \quad\text{for all } \bar\pi\in[0,\bar\pi_{\max}]
+  \label{eq:Cstar}
+\end{equation}
+holds along the equilibrium path, then channel~(A) is strictly hump-shaped in
+$\kappa$ at fixed cutoffs: it rises from the $\kappa\to0$ endpoint, attains an
+interior maximum, and falls back to the (equal) $\kappa\to1$ endpoint.
+\end{lemma}
+
+\begin{proof}
+At fixed cutoffs, the only $\kappa$-dependence in channel~(A) enters through
+the weight placed on the informative atom $\bar\pi$ of the realized $D=0$ law
+\eqref{eq:twopoint}: as $\kappa$ moves from $0$ to $1$, the mixing weight on
+$\bar\pi$ traces out a path that starts and ends at the same value (Lemma
+\ref{lem:endpoints}) and is interior in between, because
+$\PP(z=0)=1-\kappa$ is the mass that keeps the order flow informative. The
+expectation $\E_\kappa[h]$ over the two-point law is an affine function of the
+mixing weight, and the \emph{envelope} of these affine functions, as the weight
+sweeps $[0,1]$ and back, is single-peaked precisely when the chord second
+difference \eqref{eq:chord} is negative, i.e.\ when $h$ lies above its own
+chord on $[0,\bar\pi]$ (secant concavity). This is condition (C*). Strict
+inequality in \eqref{eq:Cstar} gives a strict interior maximum.
+\end{proof}
+
+\begin{remark}[Why (C*) and not the memo's condition]
+The rigor memo derived its condition for $g=\bar m\,p$ and in pointwise
+($h''$) form. Both choices are wrong here: the integrand is $h=\pi\,p$ (not
+$g$), and the realized law is two-point so the operative curvature is the
+\emph{chord} second difference (not $h''$). The chord diagnostic
+\eqref{eq:chord} supersedes both the $g$-based (C*) of the memo and the
+pointwise $h''$ criterion; see the disagreement-in-sign cell noted above and
+the 16/20-vs-8/20 prediction scores in Phase-0.
+\end{remark}
+
+%------------------------------------------------------------------------------
+\subsection*{The remaining step: the GE cutoff-shift channel (NOT proved)}
+
+We now isolate exactly what we cannot prove. Channel~(B) in \eqref{eq:decomp},
+\begin{equation}
+  B(\kappa)\;:=\;\sum_{i\in\{1,0,D\}}
+  \frac{\partial \Delta^{\min}}{\partial k_i}\,\frac{\mathrm{d} k_i}{\mathrm{d}\kappa},
+  \label{eq:Bterm}
+\end{equation}
+is the general-equilibrium feedback of $\kappa$ on $\Delta^{\min}$ that operates
+\emph{through} the movement of the equilibrium cutoffs. We flag two reasons this
+term resists a clean sign, correcting an over-claim in the rigor memo.
+
+\medskip
+\noindent\textbf{(i) The envelope theorem does NOT kill $B(\kappa)$.}
+$\Delta^{\min}$ is \emph{minority} welfare, not the blockholder's objective. The
+equilibrium cutoffs $k(\kappa)$ are first-order conditions of the
+\emph{blockholder's} problem, so the envelope theorem zeroes the derivative of
+the \emph{blockholder's} value with respect to $k$ -- it says nothing about
+$\partial\Delta^{\min}/\partial k_i$. Hence the factors
+$\partial\Delta^{\min}/\partial k_i$ in \eqref{eq:Bterm} are generically
+nonzero, and $B(\kappa)$ is a genuine, unsigned object.
+
+\medskip
+\noindent\textbf{(ii) The factors $\mathrm{d} k_i/\mathrm{d}\kappa$ are themselves
+unsigned.} The cutoff path is not monotone: Phase-0 shows the equilibrium triple
+moving non-monotonically with $\kappa$ (e.g.\ $k_1=k_0$ runs
+$0.657\!\to\!0.822\!\to\!0.743$ at $\kappa=0.2,0.5,0.8$), and the conditional
+moments of the $D=0$ law drift with $\kappa$ in full equilibrium
+($\E[\pi\mid D=0]$ ranges over $0.851/0.655/0.584/0.612/0.851$ at
+$\kappa=0/0.25/0.5/0.75/1$, with $\Var[\pi\mid D=0]$ broadly U-shaped but not a
+strict single well). The memo's claim of a "$\kappa$-invariant
+$\E[\pi\mid D=0]$" holds only at \emph{fixed} cutoffs; in equilibrium the
+cutoffs move and the claim fails. Without a monotonicity/uniqueness theorem for
+the fixed point (A6 contraction is \emph{assumed}, not derived), the sign of
+each $\mathrm{d} k_i/\mathrm{d}\kappa$ -- and hence of the sum \eqref{eq:Bterm} -- is
+not available in closed form.
+
+\medskip
+We therefore make the following \emph{explicit} regularity hypothesis, in the
+style of \citet[Condition 1 and the accompanying numerical
+verification]{EdmansGoldsteinJiang2015}, who likewise close their feedback
+result by imposing a primitive condition and confirming the residual
+monotonicity numerically rather than analytically.
+
+\begin{hypothesis}[Cutoff-shift dominance; \emph{numerically verified, not proved}]
+\label{hyp:cutoffshift}
+Along the equilibrium path, the GE cutoff-shift channel $B(\kappa)$ in
+\eqref{eq:Bterm} is dominated in magnitude by the posterior/pricing channel
+(A) on the interior of $[0,1]$, and does not overturn the single-peakedness
+established for (A) under (C*). Equivalently, the total derivative
+$\mathrm{d}\Delta^{\min}/\mathrm{d}\kappa$ changes sign exactly once on $(0,1)$.
+\end{hypothesis}
+
+\begin{remark}[Status of Hypothesis~\ref{hyp:cutoffshift}]
+This is a \emph{hypothesis}, corroborated numerically (\S\ref{sec:numverify}),
+\emph{not} a lemma. After five attempts the analytic proof did not close: the
+obstruction is the unsigned product structure of \eqref{eq:Bterm} together with
+the absence of an equilibrium monotonicity result. We do not claim
+\eqref{eq:Bterm} is zero, small in general, or sign-definite as a theorem.
+\end{remark}
+
+%------------------------------------------------------------------------------
+\subsection*{Proposition 6, conditional form}
+
+\begin{proposition}[Conditional liquidity hump in minority gains]
+\label{prop:hump}
+Suppose the primitive secant-concavity condition (C*) of \eqref{eq:Cstar} holds
+along the equilibrium path and the cutoff-shift dominance
+Hypothesis~\ref{hyp:cutoffshift} holds. Then the minority's expected
+disciplining gain $\Delta^{\min}(\kappa)$ is single-peaked on $[0,1]$: it is
+symmetric at the endpoints, $\Delta^{\min}(0)=\Delta^{\min}(1)$
+(Lemma~\ref{lem:endpoints}), strictly increasing then strictly decreasing, with
+a unique interior maximizer $\kappa^\star\in(0,1)$.
+
+Conversely, if (C*) fails -- i.e.\ $h$ is secant-\emph{convex} on the chord
+$[0,\bar\pi]$ -- the same construction yields an interior \emph{trough} rather
+than a hump. The headline is therefore genuinely \emph{conditional}: the sign of
+$\mathcal{C}(\bar\pi)$ in \eqref{eq:chord} selects hump versus trough.
+\end{proposition}
+
+\begin{proof}
+Combine Lemma~\ref{lem:endpoints} (equal endpoints),
+Lemma~\ref{lem:jensen} (channel (A) single-peaked under (C*)), and
+Hypothesis~\ref{hyp:cutoffshift} (channel (B) does not overturn this). The
+converse follows by reversing the inequality in (C*) in Lemma~\ref{lem:jensen}:
+secant convexity makes $\E_\kappa[h]$ single-troughed, and
+Hypothesis~\ref{hyp:cutoffshift} preserves the orientation.
+\end{proof}
+
+%------------------------------------------------------------------------------
+\subsection*{Numerical verification (Phase-0)}
+\label{sec:numverify}
+
+The following are computed with the paper's own solver
+(\texttt{solver.solve\_valid} / \texttt{solver.solve\_equilibrium}) and
+\texttt{model.compute\_minority\_gains}, at a tightened fixed-point residual
+gate ($10^{-5}$, with achieved residuals as low as $4\times10^{-10}$ at
+interior points). Reproduction drivers:
+\texttt{quality\_reports/fixes/\_phase0\_run.py},
+\texttt{\_phase0\_final.py}, and
+\texttt{quality\_reports/fixes/phase0\_robustness\_driver.py}.
+
+\begin{enumerate}
+\item \textbf{Endpoint symmetry (Lemma~\ref{lem:endpoints}).}
+$\Delta^{\min}(10^{-6})=0.07020822$ vs.\ $\Delta^{\min}(1-10^{-6})=0.07020753$,
+gap $6.86\times10^{-7}$; on converged near-endpoints
+($\kappa=0.02$ vs.\ $0.99$) the gap is $3.56\times10^{-5}$. The two cutoff
+triples coincide to four decimals. \emph{Confirms} the corrected theory and
+\emph{refutes} the old Endpoints Lemma.
+
+\item \textbf{The hump is real (Proposition~\ref{prop:hump}, $\kappa^\star$
+interior).} On a 99-point grid over $\kappa\in[0.01,0.99]$, $\Delta^{\min}$
+rises monotonically from the endpoints to a single interior peak at
+$\kappa^\star=0.59$, $\Delta^{\min}(\kappa^\star)=0.07755774$, then falls.
+Amplitude $\approx1.07\times10^{-2}$ in level units, $\approx13.9\%$ of level
+(measured against the highest converged endpoint), i.e.\ $\sim\!2.4\times10^{4}$
+times the converged solver-noise floor ($\approx4.5\times10^{-7}$). The
+companion robustness run reports amplitude $15.8\%$ when measured against the
+validly solved interior (the rigor memo's $\sim\!1.9\%$ used an
+\emph{invalid} grid-edge endpoint and understates the effect).
+
+\item \textbf{Hump holds across equilibria (no branch-selection artifact).} At
+$\kappa^\star$ the solver returns the same fixed point from a cold start and
+from warm starts seeded from both neighbors: $\Delta^{\min}\in
+\{0.07755774,0.07755773,0.07755773\}$, spread $6.9\times10^{-9}$,
+$\sim\!6$ orders below the hump amplitude. Multi-start with 30 random ordered
+seeds at $\kappa\in\{0.2,0.5,0.8\}$ converges $30/30$ to a single distinct
+fixed point each; warm-starting the unique $\kappa=0.5$ fixed point across the
+grid preserves the hump on all examined branches. This is a \emph{numerical
+regularity} at the baseline calibration, not a uniqueness proof.
+
+\item \textbf{Condition (C*) is binding, not vacuous.} A hump/trough map over
+$\sigma_\xi\in\{0.10,0.25,0.40,0.60\}\times \bar S\in\{1.24,\dots,1.64\}$ gives
+$16/20$ HUMP cells and $4/20$ TROUGH cells (all four troughs at
+$\sigma_\xi=0.60$). The chord second difference \eqref{eq:chord} predicts the
+realized orientation in $16/20$ cells; the pointwise $h''_{\max}$ in only
+$8/20$. This is why (C*) must remain a \emph{stated hypothesis} and the chord
+form must replace the pointwise form. (Caveat: the trough \emph{location} in
+$(\sigma_\xi,\bar S)$ differs from the rigor memo's directional claim; the
+orientation map should be re-derived, not asserted directionally.)
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+\subsection*{What is proved, what is assumed, what is open}
+
+\begin{itemize}
+\item \textbf{Proved.} (i) Endpoint symmetry $\Delta^{\min}(0)=\Delta^{\min}(1)$
+as a $\kappa\to0,1$ limit (Lemma~\ref{lem:endpoints}); (ii) single-peakedness of
+the posterior/pricing channel (A) under the explicit chord condition (C*)
+(Lemma~\ref{lem:jensen}); (iii) the chord/secant formulation of the operative
+curvature and the correction of the integrand from $g=\bar m\,p$ to
+$h=\pi\,p$.
+
+\item \textbf{Assumed (explicit primitive condition).} (C*): secant concavity of
+$h$ on $[0,\bar\pi]$ along the equilibrium path. This selects hump (C* holds)
+versus trough (C* fails); it is a stated hypothesis, verified at the baseline,
+not proved for all calibrations.
+
+\item \textbf{Assumed (numerically verified regularity, NOT proved).}
+Hypothesis~\ref{hyp:cutoffshift}: the GE cutoff-shift channel $B(\kappa)$ does
+not overturn the single-peakedness of (A). Corroborated by Phase-0
+(\S\ref{sec:numverify}); flagged in the EGJ (2015) style, not claimed as a
+theorem.
+
+\item \textbf{Open.} (1) An analytic sign for $B(\kappa)$ -- equivalently, a
+single-crossing proof for $\mathrm{d}\Delta^{\min}/\mathrm{d}\kappa$. (2) Equilibrium
+uniqueness/monotonicity (A6 is an assumed contraction, not derived); without it,
+$\mathrm{d} k_i/\mathrm{d}\kappa$ are unsigned. (3) Primitive (sufficient) conditions on
+$(\delta,\sigma_\xi,\bar S,\rho,m_0,m_1,C_0,\chi)$ guaranteeing (C*) globally,
+which would turn Proposition~\ref{prop:hump} into an unconditional statement.
+\end{itemize}
+
+%==============================================================================
+%  Bibliography stub (for standalone compilation; remove when merged into
+%  draft_v2.tex, whose .bib already contains the EGJ entry).
+%
+%  @article{EdmansGoldsteinJiang2015,
+%    author  = {Edmans, Alex and Goldstein, Itay and Jiang, Wei},
+%    title   = {Feedback Effects, Asymmetric Trading, and the Limits to Arbitrage},
+%    journal = {American Economic Review},
+%    year    = {2015},
+%    volume  = {105}, number = {12}, pages = {3766--3797}}
+%==============================================================================

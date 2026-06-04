@@ -1,0 +1,34 @@
+PASS (B0a) value(0+) = wE*Psi(0)+a*Psi(barpi)
+PASS (B0b) value(1-) = wE*Psi(0)+a*Psi(barpi)
+PASS (B0c) value(0+) = value(1-)
+PASS (B0d) kappa->0 mass at pi=0  -> wE
+PASS (B0e) kappa->0 mass at pi=barpi -> a
+PASS (B0f) kappa->1 mass at pi=0  -> wE
+PASS (B0g) kappa->1 mass at pi=barpi -> a
+PASS (B1) P(D=0) = wE + a
+PASS (B1') dP(D=0)/dkappa = 0
+PASS (B2) E[pi 1{D=0}] = wQ
+PASS (B2') dE[pi 1{D=0}]/dkappa = 0
+PASS (B3) V(0) = V(1)
+PASS (B4a) deg Q = 4
+PASS (B4b) Vp*16 a Tm^2 T0^2 = wE wQ^2 Q
+PASS (B4c) Q(0) = -8 a wE
+PASS (B4d) Q(1) = + a wE
+PASS (B4e) lead(Q) = (a-2wE)(2a-wE)
+PASS (B4f) V'(0) = -wQ^2/(2 a^2)
+PASS (B4g) V'(1) = + wQ^2/a^2
+PASS (B5a) lead>0 for (wE,wH,wQ)=(.1,.4,.4)  [wE/2 < a; a > 2wE]
+PASS (B5b) lead<0 for (wE,wH,wQ)=(.4,.15,.15) [wE/2 < a < 2wE]
+PASS (B5c) lead changes sign across admissible masses
+PASS (B6a) Q = 8 * Qsmall (so 16 = 2*8 sign-preserving)
+PASS (B6b) sgn Qsmall(0) = sgn Q(0) < 0 and sgn Qsmall(1) = sgn Q(1) > 0
+PASS (B8a) S'(0) = -wQ^2 (a+wE)/(2 a^2)
+PASS (B8b) S'(1) = + wQ^2 (a+wE)/a^2
+PASS (B7a) bar_pi = 0.45/0.70 = 9/14 = 0.642857...
+FAIL (B7b) the OLD printed 0.4545 = 0.45/0.99 used wrong denominator
+
+lead(Q) expanded: 2*wE**2 - 5*wE*wH - 5*wE*wQ + 2*wH**2 + 4*wH*wQ + 2*wQ**2
+Q(kappa) = 4*kappa**4*wE**4/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 6*kappa**4*wE**3*wH/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 6*kappa**4*wE**3*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 6*kappa**4*wE**2*wH**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 12*kappa**4*wE**2*wH*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 6*kappa**4*wE**2*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 4*kappa**4*wE*wH**3/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 12*kappa**4*wE*wH**2*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 12*kappa**4*wE*wH*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 4*kappa**4*wE*wQ**3/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 8*kappa**3*wE**4/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 24*kappa**3*wE**3*wH/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 24*kappa**3*wE**3*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 24*kappa**3*wE**2*wH**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 48*kappa**3*wE**2*wH*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 24*kappa**3*wE**2*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 8*kappa**3*wE*wH**3/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 24*kappa**3*wE*wH**2*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 24*kappa**3*wE*wH*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 8*kappa**3*wE*wQ**3/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 4*kappa**2*wE**4/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 48*kappa**2*wE**3*wH/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 48*kappa**2*wE**3*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 48*kappa**2*wE**2*wH**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 96*kappa**2*wE**2*wH*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 48*kappa**2*wE**2*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 4*kappa**2*wE*wH**3/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 12*kappa**2*wE*wH**2*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 12*kappa**2*wE*wH*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 4*kappa**2*wE*wQ**3/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 48*kappa*wE**3*wH/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 48*kappa*wE**3*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 48*kappa*wE**2*wH**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 96*kappa*wE**2*wH*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) + 48*kappa*wE**2*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 16*wE**3*wH/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 16*wE**3*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 16*wE**2*wH**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 32*wE**2*wH*wQ/(2*wE**2 + 2*wE*wH + 2*wE*wQ) - 16*wE**2*wQ**2/(2*wE**2 + 2*wE*wH + 2*wE*wQ)
+
+1 CHECK(S) FAILED: (B7b) the OLD printed 0.4545 = 0.45/0.99 used wrong denominator
+RUNNER=/tmp/blk_venv/bin/python RC=1

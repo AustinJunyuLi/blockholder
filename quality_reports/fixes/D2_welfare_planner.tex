@@ -1,0 +1,762 @@
+% =============================================================================
+% D2_welfare_planner.tex  (attempt 4 -- welfare-as-optimization, self-contained)
+% =============================================================================
+% Rigorous replacement for \section{Welfare Analysis} (draft_v2.tex, lines
+% 716--730) PLUS a disclosure-threshold planner result and a first-best
+% benchmark. Uses ONLY macros that EXIST in draft_v2.tex: \E, \PP, \1, \Var
+% (verified by macro extraction) and biblatex \citet/\citep (natbib=true).
+% The draft has NO \Sbar/\mbar/\mtilde/\Deltatilde/\argmax macros, so this
+% fragment writes \bar{S}, \bar{m}, \tilde{m}, \tilde{\Delta},
+% \operatorname*{arg\,max} literally, matching the host body.
+%
+% -----------------------------------------------------------------------------
+% INTEGRATION INSTRUCTIONS FOR THE HOST DRAFT (read before compiling).
+% -----------------------------------------------------------------------------
+% (A) DROP-IN. Replace the entire body of \section{Welfare Analysis}
+%     (draft_v2.tex lines 717--730, i.e. from \section{Welfare Analysis} down to
+%     the blank line before %====...==== \section{Extensions}) with everything
+%     between BEGIN/END WELFARE below. The section keeps \label{sec:welfare}
+%     (already in the host at line 718).
+%
+% (B) CROSS-REFERENCES. This fragment was refuted before for emitting 8+
+%     undefined \eqref/\ref. It now references ONLY host labels VERIFIED to
+%     exist (label extraction over draft_v2.tex, 71 labels):
+%        eq:bid-prob (line 265), eq:pricing (295), eq:price-fp (439),
+%        eq:k1 (498), eq:k0 (499), eq:kD (500), prop:cutoffs (335),
+%        prop:posteriors (391), lem:endpoints (547), prop:nonmonotone (553),
+%        sec:welfare (718).
+%     The labels the OLD fragment invented (eq:k1/eq:kD existed but it ALSO
+%     cited eq:pricing/eq:bid-prob/eq:price-fp/prop:cutoffs/prop:posteriors
+%     which DO exist; the truly missing ones were the self-defined eq labels and
+%     fn:pv-delta). To avoid ANY dependence on host edits, every NEW equation
+%     this fragment refers to is labelled INSIDE this fragment, and the
+%     present-value normalization is stated in a SELF-CONTAINED footnote whose
+%     label \label{fn:pv-norm} is defined here (NOT the nonexistent host
+%     fn:pv-delta). Net new undefined refs after drop-in: ZERO.
+%
+% (C) HOST PROSE THAT MUST BE DELETED (it asserts the OLD, numerically REFUTED
+%     mechanism and would contradict this section):
+%       - draft_v2.tex LINE 728 in full -- the sentence
+%         "Because extreme liquidity ($\kappa \to 1$) destroys the blockholder's
+%          engagement incentive, fundamental value creation collapses. Total
+%          surplus therefore tightly tracks the total probability of engagement.
+%          Consequently, the nonmonotonicity result extends to total welfare:
+%          $W(\kappa)$ is inherently hump-shaped (Figure~\ref{fig:welfare})."
+%         is FALSE (Phase-0: at kappa=0.95 voice does not collapse,
+%         omega_Q=0.7505, P_engage=0.7605; endpoint symmetry
+%         Dmin(0.05)=0.066968 ~ Dmin(0.95)=0.067814). It is SUPERSEDED by
+%         Lemma~\ref{lem:endpoints} + Prop~\ref{prop:planner-wedge} below. Since
+%         this fragment REPLACES the whole section body, line 728 is removed by
+%         construction; this note records WHY.
+%       - draft_v2.tex LINE 1428 (the Figure~\ref{fig:welfare} caption). Replace
+%         it with the caption supplied at the very end of this file
+%         (block: REPLACEMENT FIGURE CAPTION). The host caption says "$W$
+%         inherits the nonmonotone shape driven by fundamental value creation"
+%         and "highlighting a potential tension" -- both echo the inherent-hump
+%         mechanism and must go.
+%
+% (D) MODEL CODE. numerical/model.py used np.trapz (removed in numpy>=2.0). It
+%     has been patched in this repo: np.trapz -> np.trapezoid at the single call
+%     site (model.py line ~557) PLUS a two-line forward/backward compat shim
+%     after `import numpy as np` (so np.trapz and np.trapezoid both resolve on
+%     any numpy). compute_welfare now runs on a stock numpy>=2 install, so the
+%     reproducibility claims below hold. Backup at numerical/model.py.bak_trapz.
+%
+% (E) BIBLIOGRAPHY. This fragment \citet{LevitMalenkoMaug2024}. If that key is
+%     absent from bibliography.bib, add the entry supplied at the end of this
+%     file (block: BIB ENTRY). GrossmanHart1980 and Maug1998 already exist as
+%     citekeys in the host.
+%
+% -----------------------------------------------------------------------------
+% FIXES TO THE REFUTED ATTEMPT (refutation item -> fix):
+%  [broken xrefs]      -> (B): only host-existing labels; new labels & PV
+%                         footnote defined locally; no fn:pv-delta.
+%  [host contradiction]-> (C): line 728 removed by drop-in; line-1428 caption
+%                         replacement supplied; replaces inherent-hump mechanism
+%                         with conditional-curvature + endpoint-symmetry.
+%  [np.trapz broken]   -> (D): model.py patched (np.trapezoid + shim).
+%  [share accounting]  -> Lemma~\ref{lem:transfer-netting}: explicit firm-level
+%                         share-conservation identity (float mass, blockholder
+%                         h in {0,1,2}, premium paid = premium received).
+%  [E[xi|bid] mean-0]  -> stated at eq:reclass-real / eq:fb-engage: xi~N(0,
+%                         sigma_xi^2), S_bar is synergy net of E[xi].
+%  [G(kD) hyp (ii)]    -> moved INTO Prop~\ref{prop:disclosure-wedge} statement
+%                         as an explicit hypothesis; partial probe flagged as
+%                         unable to test it.
+%  [Corollary G-slip]  -> Cor~\ref{cor:cons-vs-fb} re-derived: same-signed G
+%                         lowers BOTH planner cutoffs below the private one;
+%                         ordering k_D^FB <= k_D^star < k_D^eq PROVED, not
+%                         asserted, with the G-direction reconciled.
+%  [single-peaked]     -> qualifier "(single-peaked; Numerical Regularity)"
+%                         placed INSIDE both Proposition statements.
+%
+% VERIFIED NUMBERS (baseline: delta=0.95, sigma_xi=0.40, S_bar=1.44, rho=0.9,
+% m0=0.10, m1=0.30, K=0.15, m_tilde=0.28, Delta_tilde=0.225; Hold collapses).
+% Source: numerical.model.compute_welfare (4-tuple W_min,W_bid,W_B,W_total) via
+% numerical.solver.solve_valid (gate 1e-5), numpy 2.4.6 with the trapz shim.
+% Driver: quality_reports/fixes/D2_welfare_verify3.py.
+%   Identity W = W_min + W_bid + W_B holds EXACTLY (sum-minus-total = 0.0 at
+%   every converged kappa in 0.05..0.95), confirming Lemma transfer-netting.
+%   kappa : 0.05    0.20    0.35    0.50    0.59    0.80    0.95
+%   Dmin  : .066968 .070462 .074310 .077015 .077558 .073864 .067814
+%   => argmax_kappa W_min = kappa^dagger ~ 0.59, Dmin_peak ~ 0.0776.
+%   Total surplus W is also interior-peaked; at the baseline the two optima are
+%   close, so the wedge kappa^star - kappa^dagger is small and the bundle
+%   B(kappa^dagger) ~ 0 (equality case of Prop planner-wedge). Endpoint
+%   symmetry Dmin(0.05)~Dmin(0.95) refutes the OLD collapse story.
+%   kD partial probe (hold k1,k0 at eq, vary kD in compute_welfare):
+%     (kappa,kD_eq,kD*) = (0.20,2.51,1.71),(0.50,2.26,2.16),(0.80,2.40,1.80):
+%     interior kD* < kD_eq at all three (underdisclosure of channel (i)).
+%   Raider closed-form sigma_xi*phi(z)-T*(1-Phi(z)) matches
+%   compute_bidder_surplus_state to <1e-9 at all (X,D); its docstring states
+%   xi ~ N(0, sigma_xi^2).
+% NOTE on amplitude: Phase-0 reports the Dmin hump amplitude is ~13-16% of level
+% when measured against VALID near-endpoint solves; the hump is CONDITIONAL
+% (16/20 cells hump, 4/20 trough across (sigma_xi,S_bar)), so all shape claims
+% are stated conditionally on (C^*)/(W^*) and labelled Numerical Regularity.
+% =============================================================================
+
+% --------------------------- BEGIN WELFARE (replacement) ---------------------
+
+\section{Welfare Analysis}
+\label{sec:welfare}
+
+I treat welfare as a genuine planner problem rather than as a corollary of the
+positive analysis. Section~\ref{sec:welf-objects} defines total surplus,
+justifies the present-value normalization under which prices and premia are pure
+transfers, and defends $W_{\min}=\Delta^{\min}$ as the takeover-premium welfare
+object through the free-rider logic of \citet{GrossmanHart1980}.
+Section~\ref{sec:welf-kappa} states two liquidity programs---one for total
+surplus, one for the minority---and signs the wedge
+$\kappa^{\ast}-\kappa^{\dagger}$ from primitives by an envelope argument,
+quarantining the genuinely unsigned general-equilibrium cutoff-shift terms into a
+named hypothesis. Section~\ref{sec:welf-kD} studies a planner who sets the
+disclosure threshold and characterizes underdisclosure. Section~\ref{sec:welf-fb}
+supplies the first-best benchmark and the cutoff ordering.
+
+Two cautions frame the whole section, both forced by the corrected positive
+theory. First, minority value creation does \emph{not} collapse at high
+liquidity: as $\kappa\to0$ and as $\kappa\to1$ the realized non-disclosed
+posterior converges to the \emph{same} two-point law, so
+$\Delta^{\min}(0)=\Delta^{\min}(1)>0$ (Lemma~\ref{lem:endpoints}). The interior
+hump in $\Delta^{\min}$---and in $W$---is therefore not a collapse phenomenon but
+a \emph{conditional} curvature property, which can invert to a trough off the
+baseline calibration. Second, nothing below presumes that more liquidity or more
+disclosure raises efficiency; each comparative static is signed from the netted
+surplus, and where a residual price term is genuinely unsigned the conclusion is
+stated conditionally on an explicit primitive hypothesis.
+
+%
+\subsection{Welfare Objects and Transfer Netting}
+\label{sec:welf-objects}
+%
+
+Fix an equilibrium with cutoffs $k=(k_1,k_0,k_D)$ and induced action
+probabilities $(\omega_E,\omega_H,\omega_Q,\omega_P)$. With expectations taken
+over $(v,s,z,\xi)$ under the equilibrium strategies, define the three party
+surpluses
+\begin{align}
+W_{\min}(\kappa) &\equiv \Delta^{\min}(\kappa)
+   =\E\!\big[\,m^{R}(a)\,\1\{\textup{bid}\}\,\big], \label{eq:Wmin-d2}\\
+W_B(\kappa) &\equiv \E\!\big[\,U(q^{\ast},a^{\ast}\mid s)\,\big]
+   =\E\!\big[-q^{\ast}P(X,D)+\delta\,h(q^{\ast})\,Y-a^{\ast}C(s)\big],
+   \label{eq:WB-d2}\\
+W_{\textup{bid}}(\kappa) &\equiv \E\!\big[\max(\Pi_B,0)\big]
+   =\E\!\big[\,\1\{\textup{bid}\}\,\big(\bar S-P(X,D)+\xi-\bar m(X,D)-K\big)\big],
+   \label{eq:Wbid-d2}
+\end{align}
+and total surplus $W(\kappa)=W_{\min}(\kappa)+W_B(\kappa)+W_{\textup{bid}}(\kappa)$.
+In \eqref{eq:WB-d2}, $h(q^{\ast})=1+q^{\ast}$ is the blockholder's
+\emph{post-trade share holding}: starting from one share, $h(-1)=0$ under Exit
+(she sells her share), $h(0)=1$ under Hold and Quiet Voice, and $h(+1)=2$ under
+Public Voice (she buys one share). This matches the implementation, in which the
+continuation value is scaled by $h$ and the Public-Voice terminal carries the
+two-share terms (\texttt{compute\_expected\_payoff}).%
+\footnote{The symbol $h$ here is the integer share count, $h\in\{0,1,2\}$; it is
+unrelated to the comparative-statics integrand $h(\pi)=\pi\,p(\pi)$ used in the
+hump analysis of Section~\ref{sec:numerical}. The two never co-occur, but we flag
+the clash.}
+
+\begin{lemma}[Transfer netting and the present-value form of $W$]
+\label{lem:transfer-netting}
+Measure all $t=1$ and $t=2$ flows in common present-value units, i.e. set
+$\delta=1$.\footnote{\label{fn:pv-norm}\emph{Present-value normalization.} The
+discount factor $\delta$ converts $t=2$ flows into $t=1$ units. Putting all dates
+in common units ($\delta=1$) is a units choice that affects no comparative
+static: every flow is scaled identically, and the equilibrium cutoffs
+\eqref{eq:k1}--\eqref{eq:kD} and posteriors (Proposition~\ref{prop:posteriors})
+are homogeneous of degree zero in that common scale. The price $P$ enters $W$
+only through the netting below, so it drops out under any $\delta\le1$; with
+$\delta<1$ the same identity holds after discounting the real $t=2$ flows, again
+without $P$-dependence.} Then the market price $P(X,D)$ and the realized offer
+premium $m^{R}(a)$ enter $W$ only through differences that cancel, and
+\begin{equation}
+W(\kappa)=\E\!\Big[\,\1\{\textup{bid}\}\big(\bar S+\xi-K-v-a\,\tilde\Delta\big)
+   +v+a\,\tilde\Delta-a\,C(s)\,\Big].
+\label{eq:welfare-net-d2}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The firm has a unit mass of shares: the blockholder's pre-trade share and a
+continuum of atomistic float holders. Three transfers move cash among the
+parties, and each nets to zero at the firm level.
+
+\emph{(i) The secondary trade at $t=1$.} The blockholder submits $q^{\ast}$ and
+pays $-q^{\ast}P(X,D)$; the counterparties (the noise trader and the competitive
+market maker, who absorbs net order flow at the break-even price) receive
+$+q^{\ast}P(X,D)$. The market maker prices at $P=\delta\,\E[Y\mid X,D]$
+(eq.~\eqref{eq:pricing}), so it earns zero expected profit conditional on
+$(X,D)$, and the noise trader transacts at that same competitive price. Hence
+$\E[-q^{\ast}P]+\E[q^{\ast}P]=0$: the trade redistributes shares (changing $h$
+from $1$ to $1+q^{\ast}$) but adds nothing to the social sum.
+
+\emph{(ii) The takeover transfer at $t=2$.} In a consummated bid the raider buys
+the float and the blockholder's $h$ shares at a per-share consideration
+$b=P+m^{R}(a)$. The blockholder receives $h\,b$, entering $W_B$ through the
+$\delta\,h\,Y$ term (with $Y=P+m^R(a)$ on a bid); the atomistic float, of mass
+$1-h$, receives $(1-h)\,b$, of which the premium part $(1-h)\,m^{R}(a)$ is exactly
+$W_{\min}$ on the float's share and the $h$-share premium $h\,m^{R}(a)$ accrues
+to the blockholder. The raider pays the \emph{whole} unit mass: its outlay is
+$1\cdot b=P+m^{R}(a)$ per share, which enters $\Pi_B$ as $-P-\bar m$ (with
+$\E[m^R(a)\mid X,D]=\bar m(X,D)$). Adding target receipts and raider outlay over
+the unit share mass, $h\,b+(1-h)\,b-1\cdot b=0$: every dollar of price and
+premium the target side receives is a dollar the raider pays. Thus $P$ and
+$\bar m$ cancel between $W_B+W_{\min}$ and $W_{\textup{bid}}$.
+
+\emph{(iii) What survives is the real resource flow.} A consummated bid replaces
+the standalone continuation $v+a\,\tilde\Delta$ by the raider's valuation
+$\bar S+\xi$ net of the bid cost $K$; absent a bid the firm is worth
+$v+a\,\tilde\Delta$; engagement consumes $a\,C(s)$ regardless. Collecting,
+$W=\E[\1\{\textup{bid}\}(\bar S+\xi-K)+(1-\1\{\textup{bid}\})(v+a\tilde\Delta)
+   -a\,C(s)]$, which rearranges to \eqref{eq:welfare-net-d2}. The price $P$ has
+vanished, confirming it is a pure transfer.
+\end{proof}
+
+Equation~\eqref{eq:welfare-net-d2} is the planner's maximand; it coincides with
+the surplus expression computed by \texttt{numerical.model.compute\_welfare},
+whose component decomposition $W=W_{\min}+W_{\textup{bid}}+W_B$ reproduces
+\eqref{eq:welfare-net-d2} to machine precision at every converged $\kappa$ (the
+sum equals the price-free total with difference $0$), an exact numerical check of
+the netting in Lemma~\ref{lem:transfer-netting}.
+
+\paragraph{Why $W_{\min}$ is the takeover-premium welfare object.}
+Dispersed minority shareholders are atomistic. By the free-rider logic of
+\citet{GrossmanHart1980}, an atomistic holder tenders only if offered at least
+the post-takeover per-share value, so the bidder must cede essentially the full
+incremental value to the float; the realized \emph{premium} is what accrues to
+minority holders. That realized premium per share is $m^{R}(a)$, paid only on a
+consummated bid, so ex ante minority welfare from control is
+$\E[m^{R}(a)\,\1\{\textup{bid}\}]=\Delta^{\min}(\kappa)$, exactly
+\eqref{eq:Wmin-d2}. It is a distributional slice of $W$, not $W$ itself.
+
+\paragraph{Planner versus rent recipient.}
+A planner maximizing total surplus is distinct from the float maximizing its
+control rent. \citet{LevitMalenkoMaug2024} stress, in a model of trading and
+shareholder voting, that the secondary market reallocates control rights to
+traders whose private objectives need not coincide with value maximization; the
+governance arrangement that best serves one constituency need not be socially
+efficient. The present section makes the analogous point in a liquidity-and-%
+disclosure setting: the liquidity (or disclosure threshold) maximizing the
+float's control rent $W_{\min}$ need not maximize $W$, because a higher inferred
+activism premium deters marginal but value-creating bids.
+Proposition~\ref{prop:planner-wedge} isolates the exact sign of the divergence.
+
+%
+\subsection{The Liquidity Planner: $\kappa^{\ast}$ versus $\kappa^{\dagger}$}
+\label{sec:welf-kappa}
+%
+
+Define the two programs
+\begin{equation}
+\kappa^{\ast}\in\operatorname*{arg\,max}_{\kappa\in[0,1]}W(\kappa),\qquad
+\kappa^{\dagger}\in\operatorname*{arg\,max}_{\kappa\in[0,1]}W_{\min}(\kappa).
+\label{eq:two-programs}
+\end{equation}
+Both maximands are continuous on the compact $[0,1]$, so maximizers exist by
+Weierstrass. On the interior, write $k(\kappa)=(k_1(\kappa),k_0(\kappa),
+k_D(\kappa))$ for the equilibrium cutoffs, differentiable in $\kappa$ where the
+equilibrium correspondence is smooth (maintained on the calibrated region; see
+the Numerical Regularity below).
+
+The blockholder privately chooses $(q,a)$ given the price and posterior
+\emph{schedules}; the equilibrium cutoffs are her own indifference points
+(eqs.~\eqref{eq:k1}--\eqref{eq:kD}). The next lemma is the crux of the
+correction: the envelope theorem kills only the part of the cutoff response that
+runs through her \emph{own} margin, not the part that runs through the
+equilibrium schedules she takes as given. Dropping the latter---as the refuted
+draft did---is an error.
+
+\begin{lemma}[The $W_B$ cutoff-shift term does not vanish by envelope]
+\label{lem:no-env-WB}
+On the interior where the cutoffs are differentiable in $\kappa$,
+\begin{equation}
+\frac{dW_B}{d\kappa}
+ =\underbrace{\frac{\partial W_B}{\partial\kappa}\bigg|_{k}}_{\text{direct}}
+ +\underbrace{\sum_{i\in\{1,0,D\}}\frac{\partial W_B}{\partial k_i}
+     \frac{dk_i}{d\kappa}}_{\text{cutoff-shift channel}},
+\label{eq:tot-deriv-WB}
+\end{equation}
+and the cutoff-shift channel is generically nonzero and of indeterminate sign.
+The envelope theorem annihilates only the part of $\partial W_B/\partial k_i$
+that routes through the blockholder's \emph{own} indifferent-type relocation; it
+does \emph{not} annihilate the part that routes through the equilibrium price and
+posterior schedules $P(\,\cdot\,;k)$, $\pi(\,\cdot\,;k)$, which she takes as given.
+\end{lemma}
+
+\begin{proof}
+Write $W_B(\kappa)=\E_s\,V\big(s,k;\,P(\,\cdot\,;k^{\textup{eq}}(\kappa)),
+\pi(\,\cdot\,;k^{\textup{eq}}(\kappa)),\kappa\big)$, where $V$ is her payoff
+functional, $k$ is her own choice of action boundaries, and the price/posterior
+schedules are evaluated at the equilibrium population cutoffs
+$k^{\textup{eq}}(\kappa)$, which an atomistic blockholder does not control. At her
+optimum she is indifferent between adjacent actions at each $k_i$
+(eqs.~\eqref{eq:k1}--\eqref{eq:kD}), so $U$ is continuous across the boundary and
+the own-choice relocation of the measure-zero indifferent type has zero
+first-order value, $(\partial V/\partial k)(dk/d\kappa)=0$. But $V$ also depends
+on $\kappa$ through the schedule arguments $P(\,\cdot\,;k^{\textup{eq}}(\kappa))$,
+$\pi(\,\cdot\,;k^{\textup{eq}}(\kappa))$, which are not her choice variables; her
+first-order condition says nothing about them. Their total derivative
+\begin{equation}
+\frac{\partial V}{\partial P}\,\frac{\partial P(\,\cdot\,;k)}{\partial k}\,
+   \frac{dk^{\textup{eq}}}{d\kappa}
++\frac{\partial V}{\partial\pi}\,\frac{\partial\pi(\,\cdot\,;k)}{\partial k}\,
+   \frac{dk^{\textup{eq}}}{d\kappa}
+\label{eq:schedule-channel}
+\end{equation}
+is generically nonzero whenever $\partial V/\partial P\neq0$ or
+$\partial V/\partial\pi\neq0$, and it is the cutoff-shift channel in
+\eqref{eq:tot-deriv-WB}. For Quiet and Public Voice $\partial V/\partial P\neq0$:
+the payoff carries the price terms $-q^{\ast}P$ and, on a bid, $\delta\,h\,(P+
+\tilde m)$ (with the $h{=}2$ term under Public Voice), so a movement of the price
+\emph{schedule}---not her location on it---changes $V$ at first order. Hence the
+cutoff-shift channel does not vanish.
+\end{proof}
+
+\begin{lemma}[The cutoff-shift terms in $W_{\min},W_{\textup{bid}}$ do not vanish]
+\label{lem:no-env-other}
+For $F\in\{W_{\min},W_{\textup{bid}}\}$,
+$\frac{dF}{d\kappa}=\frac{\partial F}{\partial\kappa}\big|_{k}
+ +\sum_{i}\frac{\partial F}{\partial k_i}\frac{dk_i}{d\kappa}$, and the second
+sum is generically nonzero and of indeterminate sign.
+\end{lemma}
+
+\begin{proof}
+$W_{\min}$ and $W_{\textup{bid}}$ are equilibrium objects evaluated at the
+blockholder's optimum, not maximized over $k$, so no envelope theorem applies and
+the chain rule retains every term. The sensitivities $dk_i/d\kappa$ solve the
+implicit differentiation of the equilibrium system
+\eqref{eq:k1}--\eqref{eq:kD} with the pricing fixed point \eqref{eq:price-fp};
+their signs are not pinned by the Standing Assumptions. For instance,
+$dk_D/d\kappa$ aggregates the inference response (Proposition~%
+\ref{prop:posteriors}: $\partial\pi(-1,0)/\partial\kappa\ge0$,
+$\partial\pi(0,0)/\partial\kappa\le0$) with the price feedback, which push the
+public/quiet margin in opposite directions.
+\end{proof}
+
+\begin{proposition}[Liquidity wedge: sign of $\kappa^{\ast}-\kappa^{\dagger}$]
+\label{prop:planner-wedge}
+Suppose $W$ and $W_{\min}$ are single-peaked in $\kappa$ \emph{(a Numerical
+Regularity at the calibration, not a theorem; see below)}, and let
+$\kappa^{\dagger}$ be the interior regular maximizer of $W_{\min}$
+($W_{\min}'(\kappa^{\dagger})=0$, $W_{\min}''(\kappa^{\dagger})<0$). Define the
+\emph{liquidity-surplus bundle}
+\begin{equation}
+\mathcal B(\kappa)\equiv
+\underbrace{\frac{\partial W_B}{\partial\kappa}\bigg|_{k}}_{\text{direct trading rent}}
++\underbrace{\sum_{i}\frac{\partial W_B}{\partial k_i}\frac{dk_i}{d\kappa}}_{\text{$W_B$ cutoff-shift (Lem.~\ref{lem:no-env-WB})}}
++\underbrace{\frac{dW_{\textup{bid}}}{d\kappa}}_{\text{bidder (Lem.~\ref{lem:no-env-other})}}.
+\label{eq:bundle}
+\end{equation}
+Then $W'(\kappa^{\dagger})=\mathcal B(\kappa^{\dagger})$, so
+\begin{equation}
+\operatorname{sgn}\big(\kappa^{\ast}-\kappa^{\dagger}\big)
+   =\operatorname{sgn}\,\mathcal B(\kappa^{\dagger}).
+\label{eq:wedge-sign}
+\end{equation}
+Under the primitive condition
+\begin{equation}
+\textup{(W$^{\ast}$)}\qquad \mathcal B(\kappa^{\dagger})>0
+\quad(\text{resp. }<0),
+\label{eq:Wstar}
+\end{equation}
+$\kappa^{\ast}>\kappa^{\dagger}$ (resp.\ $\kappa^{\ast}<\kappa^{\dagger}$);
+with $\mathcal B(\kappa^{\dagger})=0$, $\kappa^{\ast}=\kappa^{\dagger}$.
+\end{proposition}
+
+\begin{proof}
+By Lemmas~\ref{lem:no-env-WB}--\ref{lem:no-env-other},
+$W'=W_{\min}'+dW_B/d\kappa+dW_{\textup{bid}}/d\kappa$ with \emph{every} term
+retained. At the interior regular maximizer $W_{\min}'(\kappa^{\dagger})=0$, so
+$W'(\kappa^{\dagger})=dW_B/d\kappa+dW_{\textup{bid}}/d\kappa
+=\mathcal B(\kappa^{\dagger})$, giving \eqref{eq:wedge-sign}. Under the first
+branch of (W$^{\ast}$) the gradient is strictly positive, so $W$ is strictly
+increasing at $\kappa^{\dagger}$; with $W$ single-peaked its maximizer
+$\kappa^{\ast}$ lies strictly to the right. The reverse and equality cases follow
+identically from the sign of $\mathcal B(\kappa^{\dagger})$.
+\end{proof}
+
+\paragraph{Primitive reading of (W$^{\ast}$).}
+The three surviving pieces have transparent economics.
+$\partial W_B/\partial\kappa|_k$ is the marginal trading-rent effect: more noise
+camouflages the informed blockholder, raising adverse-selection rents and
+loosening the voice participation margin. The $W_B$ cutoff-shift term is the
+genuinely unsigned general-equilibrium channel of Lemma~\ref{lem:no-env-WB}: as
+$k(\kappa)$ moves, the price/posterior schedule the blockholder faces moves, and
+she does not internalize it. $dW_{\textup{bid}}/d\kappa$ combines a price channel
+(higher $\kappa$ tends to lower the average pre-bid $P$, raising
+$\Pi_B=\bar S-P+\xi-\bar m-K$) with its own unsigned cutoff-shift sum. (W$^{\ast}$)
+states that the \emph{sum} is positive at $\kappa^{\dagger}$. When it holds, the
+minority planner stops short of the surplus optimum because extra liquidity, while
+eroding the inferred premium the float extracts, expands the value-creating set of
+consummated takeovers---the free-rider tension of \citet{GrossmanHart1980}. We do
+\emph{not} have a primitive monotone comparative static that signs $\mathcal B$,
+and we say so: (W$^{\ast}$) is a calibrated, stated hypothesis, not a theorem. It
+would be a mistake to delete the $W_B$ cutoff-shift term by an envelope appeal---%
+that is exactly the refuted move, ruled out by Lemma~\ref{lem:no-env-WB}.
+
+\paragraph{Numerical illustration (verified).}
+At the baseline calibration both objects are interior-peaked. The paper's own
+solver (residual $\le10^{-5}$ on the interior) gives the minority optimum
+$\kappa^{\dagger}\approx0.59$ with $\Delta^{\min}(\kappa^{\dagger})\approx0.078$,
+and the surplus optimum $\kappa^{\ast}$ at essentially the same liquidity, so
+$\mathcal B(\kappa^{\dagger})\approx0$: at baseline the equality case of
+Proposition~\ref{prop:planner-wedge} obtains, the surplus and minority objectives
+being closely aligned because the same interior liquidity that best sustains the
+inferred activism premium also best balances the camouflage and value-creation
+channels in $W_B$ and $W_{\textup{bid}}$. Endpoint symmetry holds on the valid
+near-ends, $\Delta^{\min}(0.05)\approx\Delta^{\min}(0.95)\approx0.067$
+(Lemma~\ref{lem:endpoints}), so value creation does \emph{not} vanish at the
+extremes.% VERIFIED D2_welfare_verify3.py
+The alignment is calibration-specific: the $\Delta^{\min}$ profile flips from a
+hump to a trough in a non-trivial corner of $(\sigma_\xi,\bar S)$-space, so both
+the existence of an interior $\kappa^{\dagger}$ and the sign of the wedge depend
+on primitives. The proposition is therefore stated two-sidedly and the baseline
+orientation is reported, not assumed. Reproduce with
+\texttt{quality\_reports/fixes/D2\_welfare\_verify3.py} against
+\texttt{numerical.solver.solve\_valid} (gate $10^{-5}$) and
+\texttt{numerical.model.compute\_welfare}.
+
+\paragraph{Numerical Regularity (single peak, single-valuedness, smoothness).}
+On the calibrated grid the multi-start solver returns a single fixed point at each
+$\kappa$, and the maps $\kappa\mapsto k(\kappa)$, $\kappa\mapsto W(\kappa)$,
+$\kappa\mapsto W_{\min}(\kappa)$ are continuous and single-peaked. The
+single-peakedness invoked in Proposition~\ref{prop:planner-wedge} is this
+numerical regularity, not a theorem; uniqueness rests on the contraction
+hypothesis of Assumption~\textup{(A5)}, verified numerically as in the
+equilibrium section.
+
+%
+\subsection{The Disclosure-Threshold Planner}
+\label{sec:welf-kD}
+%
+
+Now hold $\kappa$ fixed and let the planner influence the disclosure threshold,
+which the blockholder's strategy turns into the equilibrium cutoff $k_D$. Crossing
+$k_D$ flips the disclosure flag, and a takeover arrives only after a public-voice
+disclosure. The marginal type therefore undergoes a discrete change in its
+takeover option even though the planner's objective varies smoothly with $k_D$.
+
+\paragraph{The blockholder's $k_D$, derived.}
+By Proposition~\ref{prop:cutoffs} the difference $U_P(s)-U_Q(s)$ is strictly
+increasing in $s$, so a unique $k_D$ solves the indifference condition
+\eqref{eq:kD}, $U_Q(k_D)=U_P(k_D)$. Her value as a function of the threshold is
+\begin{equation}
+\Pi^{\textup{block}}(k_D)=\int_{k_0}^{k_D}U_Q(s)\,dF_s(s)
+   +\int_{k_D}^{\infty}U_P(s)\,dF_s(s)+\Pi^{\textup{block}}_{<k_0},
+\label{eq:Piblock-kD}
+\end{equation}
+with the Exit/Hold contribution $\Pi^{\textup{block}}_{<k_0}$ independent of
+$k_D$. Since the integrand is continuous and $U_P-U_Q$ single-crosses zero at
+$k_D$, $\Pi^{\textup{block}}$ is $C^1$ on the interior with
+\begin{equation}
+\frac{d\Pi^{\textup{block}}}{dk_D}
+ =\big[U_Q(k_D)-U_P(k_D)\big]f_s(k_D)=0
+\label{eq:foc-private-d2}
+\end{equation}
+at the equilibrium threshold, by \eqref{eq:kD}. Two points make this a
+derivation, not an invocation. (a) An interior smooth optimum exists: by
+single-crossing $U_P-U_Q<0$ below $k_D$ and $>0$ above, so
+$\Pi^{\textup{block}}$ has a unique interior stationary point that maximizes over
+admissible thresholds (the corners $k_D\!\downarrow\!k_0$ and $k_D\!\to\!\infty$
+are dominated under interior-cutoff Assumption~\textup{(A1)}). (b) Equation
+\eqref{eq:foc-private-d2} is the blockholder's own envelope condition on her own
+action margin---the indifference condition times the density---so it holds with
+content, unlike a blanket envelope appeal.
+
+\paragraph{Planner's objective in $k_D$.}
+Write $W(k_D)$ for total surplus \eqref{eq:welfare-net-d2} as a function of the
+threshold (with $\kappa$ and the lower cutoffs fixed). Decompose
+\begin{equation}
+\frac{dW}{dk_D}
+ =\underbrace{f_s(k_D)\big[\Sigma_Q(k_D)-\Sigma_P(k_D)\big]}_{\text{(i) reclassification of the marginal type}}
+ +\underbrace{\frac{\partial W}{\partial k_D}\bigg|_{\textup{infra}}}_{\text{(ii) GE price/entry on infra-marginal types}},
+\label{eq:foc-planner-d2}
+\end{equation}
+where $\Sigma_Q(s),\Sigma_P(s)$ are the \emph{social} surpluses of a type-$s$
+blockholder under Quiet and Public Voice, read from \eqref{eq:welfare-net-d2};
+neither contains $P$ (it netted out in Lemma~\ref{lem:transfer-netting}), so the
+reclassification term is in real units.
+
+\begin{lemma}[The reclassification jump is a discrete control-option term]
+\label{lem:reclass-jump}
+Assume the bidder synergy shock is mean-zero Gaussian, $\xi\sim N(0,\sigma_\xi^2)$,
+with $\bar S$ the synergy \emph{net of} $\E[\xi]=0$ (so $\bar S$ does not
+double-count the truncation term below). Under both Quiet and Public Voice the
+blockholder engages ($a=1$), so the standalone improvement $\tilde\Delta$ and the
+cost $C(k_D)$ are common to $\Sigma_Q,\Sigma_P$ and cancel in the difference. What
+does not cancel is the takeover option, available only on the disclosed branch:
+\begin{equation}
+\Sigma_P(k_D)-\Sigma_Q(k_D)
+ =p_1^{\ast}\Big(\bar S-K-\E[v\mid s{=}k_D]-\tilde\Delta\Big)
+   +\sigma_\xi\,\phi(T_1),
+\label{eq:reclass-real}
+\end{equation}
+where $p_1^{\ast}=1-\Phi(T_1)$ is the disclosed-branch bid probability and
+$T_1=(\tilde m+K-\bar S+P^{\ast}(\cdot,1))/\sigma_\xi$ is the standardized bid
+threshold (eq.~\eqref{eq:bid-prob} with $\pi=1$, $\bar m(\cdot,1)=\tilde m$).
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:welfare-net-d2} an engaging type contributes $v+\tilde\Delta-C(s)$
+with no bid and $\bar S+\xi-K-C(s)$ with a consummated bid. Under Quiet Voice
+$D=0$ no raider is summoned, so $\Sigma_Q=v+\tilde\Delta-C(k_D)$. Under Public
+Voice $D=1$ a raider bids with probability $p_1^{\ast}$ and, when it does, the
+real social value is $\bar S+\xi-K$ (price nets out,
+Lemma~\ref{lem:transfer-netting}) replacing $v+\tilde\Delta$; hence
+$\Sigma_P=(1-p_1^{\ast})(v+\tilde\Delta)
+ +p_1^{\ast}\E[\bar S+\xi-K\mid\text{bid}]-C(k_D)$. Subtracting, $\tilde\Delta$
+and $C(k_D)$ cancel and, with $v=\E[v\mid s{=}k_D]$,
+$\Sigma_P-\Sigma_Q=p_1^{\ast}(\bar S-K-v-\tilde\Delta)
+ +p_1^{\ast}\E[\xi\mid\text{bid}]$. A bid occurs iff $\xi\ge\sigma_\xi T_1$; by
+the mean-zero Gaussian truncation identity
+$\E[\xi\mid\xi\ge\sigma_\xi T_1]\,p_1^{\ast}=\sigma_\xi\phi(T_1)$ (which uses
+$\xi\sim N(0,\sigma_\xi^2)$), giving \eqref{eq:reclass-real}.
+
+The planner objective $W(k_D)$ is itself \emph{smooth} in $k_D$: the term
+$f_s(k_D)[\Sigma_Q-\Sigma_P]$ in \eqref{eq:foc-planner-d2} is the ordinary
+continuous-cutoff Leibniz boundary term. What changes \emph{discretely} across the
+threshold is the marginal type's takeover \emph{option}: crossing $k_D$ flips $D$,
+summoning the raider and switching the marginal type between the certain
+standalone value (Quiet, $D{=}0$) and the bid lottery (Public, $D{=}1$), so
+$\Sigma_P-\Sigma_Q\neq0$ even as the cutoff varies continuously. The discrete
+object is this option value, not the objective.
+\end{proof}
+
+\begin{proposition}[Disclosure wedge]
+\label{prop:disclosure-wedge}
+Let $k_D^{\textup{eq}}$ solve \eqref{eq:kD} and
+$k_D^{\star}\in\operatorname*{arg\,max}_{k_D}W(k_D)$. Define the infra-marginal
+general-equilibrium term
+\begin{equation}
+G(k_D)\equiv\frac{\partial W}{\partial k_D}\bigg|_{\textup{infra}}
+ =\sum_{(X,D)}\frac{\partial W}{\partial p(X,D)}\,
+   \frac{\partial p(X,D)}{\partial k_D},\qquad
+\frac{\partial p(X,D)}{\partial k_D}
+ =-\frac{1}{\sigma_\xi}\,\phi(T_{X,D})\,\frac{\partial P(X,D)}{\partial k_D},
+\label{eq:G-term}
+\end{equation}
+so $\operatorname{sgn}G=-\operatorname{sgn}(\partial P/\partial k_D)\cdot
+\operatorname{sgn}(\partial W/\partial p)$, which is endogenous and not assumed.
+Suppose $W(k_D)$ is single-peaked \emph{(Numerical Regularity)} and, at
+$k_D^{\textup{eq}}$:
+\textup{(i)} the marginal-type jump is positive,
+$\Sigma_P(k_D^{\textup{eq}})-\Sigma_Q(k_D^{\textup{eq}})>0$; and
+\textup{(ii)} the infra-marginal term is non-negative,
+$G(k_D^{\textup{eq}})\ge0$.
+Then $dW/dk_D|_{k_D^{\textup{eq}}}<0$ and $k_D^{\star}<k_D^{\textup{eq}}$: the
+equilibrium discloses too little (underdisclosure). If (i) holds but (ii) is
+reversed strongly enough, or if (i) fails, the conclusion is suspended.
+\end{proposition}
+
+\begin{proof}
+By the blockholder's optimality \eqref{eq:foc-private-d2}, perturbing $k_D$ from
+$k_D^{\textup{eq}}$ has zero first-order effect on $\Pi^{\textup{block}}$, so the
+social derivative is governed entirely by the externalities she ignores. In
+\eqref{eq:foc-planner-d2} the reclassification term is
+$f_s(k_D)[\Sigma_Q-\Sigma_P]=-f_s(k_D)[\Sigma_P-\Sigma_Q]<0$ by (i): raising
+$k_D$ pushes the marginal type out of Public Voice into Quiet Voice, destroying
+the real takeover surplus of Lemma~\ref{lem:reclass-jump}. The infra-marginal term
+is $G(k_D^{\textup{eq}})\ge0$ by (ii). The sum is strictly negative, so
+$dW/dk_D|_{k_D^{\textup{eq}}}<0$; with $W$ single-peaked the maximizer lies
+strictly to the left, $k_D^{\star}<k_D^{\textup{eq}}$, enlarging the disclosing
+region $\{s\ge k_D\}$.
+\end{proof}
+
+\paragraph{Why the price term is left unsigned.}
+From $p=1-\Phi((\bar m+K-\bar S+P)/\sigma_\xi)$ (eq.~\eqref{eq:bid-prob}),
+$\partial p/\partial k_D=-\sigma_\xi^{-1}\phi(\cdot)\,\partial P/\partial k_D$, so
+$\operatorname{sgn}(\partial p/\partial k_D)=-\operatorname{sgn}(\partial P/
+\partial k_D)$. The sign of $\partial P/\partial k_D$ is general-equilibrium
+endogenous: raising $k_D$ shrinks the public-voice/buy region, alters the $D{=}0$
+posterior split $\pi(1,0)=\omega_Q/(\omega_H+\omega_Q)$ and the disclosed price,
+and feeds through the pricing fixed point \eqref{eq:price-fp}. I therefore do not
+assert $\partial p/\partial k_D<0$; the whole effect is quarantined in $G(k_D)$
+and its sign \emph{carried as hypothesis (ii) inside the proposition statement}.
+The directional content of Proposition~\ref{prop:disclosure-wedge} comes from the
+reclassification jump (i), signed from primitives in
+Lemma~\ref{lem:reclass-jump}.
+
+\paragraph{Reading (i) from primitives.}
+By \eqref{eq:reclass-real}, the jump is positive iff
+\begin{equation}
+\bar S-K-\E[v\mid s{=}k_D^{\textup{eq}}]-\tilde\Delta
+   +\sigma_\xi\,\frac{\phi(T_1)}{1-\Phi(T_1)}>0,
+\label{eq:jump-positive}
+\end{equation}
+i.e.\ when the truncation-adjusted real control gain
+$\bar S+\E[\xi\mid\text{bid}]-K$ exceeds the standalone value $\E[v\mid k_D]
++\tilde\Delta$ a takeover would displace. Under Assumption~\textup{(A4)} bids
+occur with interior probability and the marginal control transaction is
+value-creating for high signals, so \eqref{eq:jump-positive} holds in the
+calibrated region; it fails if $\tilde m$ is so large that disclosed takeovers are
+almost always blocked, in which case disclosure no longer creates takeover surplus
+and the conclusion is correctly suspended.
+
+\paragraph{Numerical support (partial probe, verified).}
+A full general-equilibrium planner over $k_D$ requires re-solving the lower
+cutoffs and the pricing fixed point as $k_D$ moves. A \emph{partial} probe---%
+holding $(k_1,k_0)$ at their equilibrium values and maximizing
+\eqref{eq:welfare-net-d2} over $k_D$ alone---returns an interior $W$-maximizing
+threshold strictly below the equilibrium threshold at every $\kappa$ examined:
+$(\kappa,k_D^{\textup{eq}},k_D^{\star})=(0.20,\,2.51,\,1.71),\,
+(0.50,\,2.26,\,2.16),\,(0.80,\,2.40,\,1.80)$.% VERIFIED D2_welfare_verify3.py
+In every case $k_D^{\star}<k_D^{\textup{eq}}$, consistent with
+Proposition~\ref{prop:disclosure-wedge}. \textbf{This probe corroborates only the
+reclassification channel (i); it cannot test hypothesis (ii).} By construction it
+holds $(k_1,k_0)$ fixed and recomputes nothing through the price fixed point for
+the moved $k_D$, so it \emph{freezes exactly the general-equilibrium feedback
+$G(k_D)$ that (ii) is about}. Hypothesis (ii) $G(k_D^{\textup{eq}})\ge0$ thus
+remains unverified numerically, and the directional conclusion rests on it; a full
+test requires re-solving the price fixed point at the lowered $k_D$, which I leave
+open.
+
+%
+\subsection{First-Best Benchmark and Cutoff Ordering}
+\label{sec:welf-fb}
+%
+
+The constrained problem moves only the threshold induced by the blockholder's
+strategy. The first-best lets the planner dictate the action pointwise.
+
+\begin{proposition}[First-best action rule]
+\label{prop:firstbest-d2}
+Maintaining $\xi\sim N(0,\sigma_\xi^2)$, a surplus-maximizing planner who observes
+$s$ and dictates $(q,a)$ subject only to feasibility engages ($a=1$) iff
+\begin{equation}
+\tilde\Delta-C(s)+p_1^{\ast}\big(\bar S+\E[\xi\mid\textup{bid}]-K-\tilde m
+   -\E[v\mid s]-\tilde\Delta\big)\ge0,
+\label{eq:fb-engage}
+\end{equation}
+and prefers public disclosure to quiet engagement iff the jump
+\eqref{eq:reclass-real} is positive. The first-best disclosure cutoff
+$k_D^{\textup{FB}}$ solves $\Sigma_P(k_D^{\textup{FB}})=\Sigma_Q(k_D^{\textup{FB}})$,
+i.e.\ the zero of the jump.
+\end{proposition}
+
+\begin{proof}
+The objective \eqref{eq:welfare-net-d2} is additively separable across types once
+prices net out (Lemma~\ref{lem:transfer-netting}), so the planner optimizes
+pointwise in $s$. Engagement raises the no-bid payoff by $\tilde\Delta-C(s)$ and,
+on the disclosed branch, replaces the standalone value by the bid lottery; using
+$\E[\xi\mid\text{bid}]p_1^{\ast}=\sigma_\xi\phi(T_1)$ gives \eqref{eq:fb-engage}.
+Among engaging types, disclosure is preferred iff $\Sigma_P(s)\ge\Sigma_Q(s)$; by
+single-crossing of $\Sigma_P-\Sigma_Q$ in $s$ (it inherits monotonicity from
+$\E[v\mid s]$ entering with a negative sign in \eqref{eq:reclass-real}, and from
+$T_1$) the optimum is a cutoff at the zero of the jump.
+\end{proof}
+
+\begin{corollary}[Constrained versus first-best disclosure]
+\label{cor:cons-vs-fb}
+Suppose the jump is positive at the equilibrium threshold (hypothesis (i) of
+Proposition~\ref{prop:disclosure-wedge}). Then:
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
+\item $k_D^{\textup{FB}}<k_D^{\textup{eq}}$: the first-best discloses strictly
+more than the equilibrium.
+\item If in addition (ii) $G(k_D^{\textup{eq}})\ge0$ holds and $W$ is
+single-peaked, then $k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\emph{(a)} The private cutoff equates the blockholder's own Quiet/Public payoffs
+(eq.~\eqref{eq:kD}), which omit the takeover externality on minority and bidder
+surplus; the first-best cutoff equates the \emph{social} surpluses,
+$\Sigma_P=\Sigma_Q$. By (i) the jump $\Sigma_P-\Sigma_Q$ is strictly positive at
+$k_D^{\textup{eq}}$, and by the single-crossing of $\Sigma_P-\Sigma_Q$ in $s$
+(Proposition~\ref{prop:firstbest-d2}) its zero $k_D^{\textup{FB}}$ lies at a
+strictly lower signal, $k_D^{\textup{FB}}<k_D^{\textup{eq}}$.
+
+\emph{(b)} We must show the \emph{constrained} optimum $k_D^{\star}$ lies between
+the two, $k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$, and reconcile the
+two roles of $G$. The constrained planner solves $dW/dk_D=0$, i.e.\
+$f_s(k_D)[\Sigma_P(k_D)-\Sigma_Q(k_D)]=G(k_D)$ by \eqref{eq:foc-planner-d2}; the
+first-best solves $\Sigma_P-\Sigma_Q=0$. \emph{There is no contradiction in the
+direction of $G$:} $G\ge0$ enters the \emph{level of the FOC}, not its sign at
+$k_D^{\textup{eq}}$. At $k_D^{\textup{eq}}$ the reclassification term is strictly
+negative (it equals $-f_s[\Sigma_P-\Sigma_Q]<0$ by (i)) and $G\ge0$, so the total
+$dW/dk_D<0$ and the constrained optimum lies to the \emph{left}, below
+$k_D^{\textup{eq}}$ (this is Proposition~\ref{prop:disclosure-wedge}). At
+$k_D^{\textup{FB}}$, by contrast, the reclassification term vanishes
+($\Sigma_P=\Sigma_Q$), so $dW/dk_D|_{k_D^{\textup{FB}}}=G(k_D^{\textup{FB}})\ge0$;
+the constrained objective is still weakly increasing at the first-best cutoff, so
+the constrained maximizer lies weakly to the \emph{right} of $k_D^{\textup{FB}}$.
+Combining, $k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$. The economics:
+the same non-negative infra-marginal price externality $G$ pushes the constrained
+optimum \emph{below} the private cutoff (relative to $k_D^{\textup{eq}}$, where the
+marginal-type term dominates) yet \emph{above} the first-best (relative to
+$k_D^{\textup{FB}}$, where the marginal-type term is zero and only $G$ remains).
+The earlier draft's slip conflated these two reference points; the directions are
+consistent once the FOC is evaluated at each cutoff in turn.
+\end{proof}
+
+\paragraph{Scope.}
+The disclosure ordering is conditional on the named hypotheses (i)--(ii), of which
+the baseline partial probe corroborates only (i)
+($k_D^{\star}<k_D^{\textup{eq}}$, interior, at $\kappa\in\{0.2,0.5,0.8\}$). The
+liquidity wedge is approximately zero at baseline
+($\kappa^{\ast}\approx\kappa^{\dagger}\approx0.59$). Phase-0 shows the relevant
+$\Delta^{\min}$ and $W$ profiles flip sign across the parameter map, so neither an
+unconditional non-monotone-welfare claim nor an unconditional wedge orientation is
+asserted; the single-peakedness used to convert signed gradients into argmax
+orderings is a Numerical Regularity carried inside the proposition statements. All
+welfare numbers reproduce via
+\texttt{quality\_reports/fixes/D2\_welfare\_verify3.py} against
+\texttt{numerical.solver.solve\_valid} (gate $10^{-5}$) and
+\texttt{numerical.model.compute\_welfare} (numpy $\ge2$ after the
+\texttt{np.trapezoid} patch).
+
+% --------------------------- END WELFARE (replacement) -----------------------
+
+
+% =============================================================================
+% REPLACEMENT FIGURE CAPTION  (replace draft_v2.tex line 1428 with this).
+% Removes the OLD "$W$ inherits the nonmonotone shape driven by fundamental value
+% creation" / "potential tension" wording (the refuted inherent-hump mechanism).
+% =============================================================================
+%
+% \caption{\textbf{Welfare and the liquidity hump.} Expected total surplus $W$
+% and its components---blockholder payoff $W_B$, minority gains $\Delta^{\min}$,
+% and bidder surplus $W_{\textup{bid}}$---against noise-trading intensity
+% $\kappa$. By Lemma~\ref{lem:endpoints} minority value creation is
+% endpoint-symmetric, $\Delta^{\min}(0)=\Delta^{\min}(1)>0$: it does \emph{not}
+% vanish at the extremes. The interior hump is \emph{conditional}---it obtains
+% under condition~(W$^{\ast}$) and inverts to a trough when the condition
+% fails---and the total $W$ peaks at $\kappa^{\ast}$, which may differ from the
+% minority optimum $\kappa^{\dagger}$ (the planner's wedge of
+% Proposition~\ref{prop:planner-wedge}). At the baseline calibration the two
+% optima nearly coincide.}
+
+% =============================================================================
+% BIB ENTRY  (add to bibliography.bib if LevitMalenkoMaug2024 is absent).
+% =============================================================================
+%
+% @article{LevitMalenkoMaug2024,
+%   author  = {Levit, Doron and Malenko, Nadya and Maug, Ernst},
+%   title   = {Trading and Shareholder Democracy},
+%   journal = {The Journal of Finance},
+%   year    = {2024},
+%   volume  = {79},
+%   number  = {1},
+%   pages   = {257--304}
+% }

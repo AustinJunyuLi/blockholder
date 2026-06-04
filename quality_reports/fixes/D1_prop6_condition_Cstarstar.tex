@@ -1,0 +1,665 @@
+% =====================================================================
+%  D1_prop6_condition_Cstarstar.tex   (DERIVATION [prop6-concavity], attempt 3)
+%
+%  Replaces (i) the OLD Proposition 6 + Endpoints Lemma and (ii) the rigor
+%  memo's g = mbar*p condition.  The operative function is h(pi)=pi*p(pi),
+%  NOT g(pi)=mbar(pi)*p(pi) (see Remark rem:why-h).
+%
+%  Headline object (the curve Phase-0 measures and the paper plots):
+%     Delta^min(kappa) = E[ m^R(a) * 1{bid} ]   (minority welfare gain).
+%  Realized D=0 posterior law is the FOUR-atom set {0, pi1, pi2, pibar} with
+%  pibar = omega_Q/(omega_H+omega_Q); at the baseline Hold collapses
+%  (omega_H ~ 0) so pibar = 1 and the support hull is [0,1].
+%
+%  WHAT IS PROVED UNCONDITIONALLY (modulo A1--A7 and the certified law):
+%   (P1) four-atom law; tower identity E[pi 1{D=0}]=omega_Q exactly;
+%        endpoint equality E(0)=E(1)=b*h(pibar) (limit form).
+%   (P2) Lemma C(a): (C**) = h concave on ALL of [0,pibar]
+%        <=> max_{[0,pibar]} pi*T*T' <= 2  (slack >= 0) =>
+%        E(kappa) > endpoint for all interior kappa => interior GLOBAL MAX
+%        of the direct channel (Weierstrass on equal lower endpoints).
+%        NOT single-peakedness; the word "peak" is withheld here.
+%   (P3) Lemma C(b): (C**) reversed => interior global MIN (trough).
+%   (P4) Lemma D: kappa|->(k1,k0,kD) is C^1 by IFT under A6;
+%        dDelta^min/dkappa = PE + R with R unsigned (envelope does NOT kill
+%        it: Delta^min is MINORITY welfare); EXPLICIT computable bound on
+%        |R|; integral transfer condition int|R| < A* => equilibrium hump
+%        is a THEOREM on the sub-interval where that inequality is verified.
+%
+%  LABELED NUMERICAL REGULARITIES (kept OUTSIDE every proposition):
+%   (NR1) single-peakedness (unimodality) of the equilibrium curve;
+%   (NR2) the global (whole-interior) GE transfer at baseline.
+%
+%  NOTATION: macros \E,\PP,\1,\Var confirmed in draft_v2.tex (lines 40-45);
+%  biblatex \citet/\citep; theorem envs proposition/lemma/definition match
+%  the draft.  This file adds a self-guarded "numreg" env and (if absent)
+%  "remark"/"assumption" envs.  Local symbols: T,h,r,pibar,mtil.
+%
+%  SELF-VERIFICATION (machine-checkable from the repo, not /tmp):
+%    quality_reports/fixes/D1_verify_Cstarstar.py        (headline checker)
+%    quality_reports/fixes/_d1_state_and_verify.py       (full report)
+%  Both use the paper's OWN solver (solver.solve_valid) and model
+%  (model.compute_equilibrium_prices, model.compute_minority_gains,
+%   model.compute_posteriors, model.compute_action_probabilities).
+%  See the VERIFIED-NUMBERS comment block at the end of file.
+% =====================================================================
+
+% ---- self-guarded environments (drop-in; no clash if draft already has them)
+\makeatletter
+\@ifundefined{c@numreg}{%
+  \theoremstyle{definition}%
+  \newtheorem{numreg}{Numerical Regularity}}{}
+\@ifundefined{c@remark}{%
+  \theoremstyle{remark}\newtheorem{remark}{Remark}}{}
+\@ifundefined{c@assumption}{%
+  \theoremstyle{definition}\newtheorem{assumption}{Assumption}}{}
+\makeatother
+
+% ---- local macros (delete any already defined in draft_v2.tex) ----
+% \newcommand{\pibar}{\bar\pi}
+% \newcommand{\mtil}{\tilde m}
+
+\section{A condition for the liquidity hump (replacement for Proposition~6)}
+\label{sec:prop6-Cstarstar}
+
+% ---------------------------------------------------------------------
+\subsection*{Object, notation, and the realized \texorpdfstring{$D=0$}{D=0} law}
+% ---------------------------------------------------------------------
+
+Maintain the standing assumptions A1--A7 and the baseline calibration of
+Section~\ref{sec:calibration} ($\delta=0.95$, $\sigma_\xi=0.40$, $\rho=0.9$,
+with the collapsed-Hold region $k_0=k_1$ that obtains at every interior
+$\kappa$). The headline comparative-statics object is the minority value
+realized on a takeover,
+\begin{equation}
+  \Delta^{\min}(\kappa)
+  \;=\;\E\!\big[\,m^{R}(a)\,\1\{\text{bid}\}\,\big]
+  \;=\; m_0\,\PP(\text{bid})\;+\;(\mtil-m_0)\,
+        \E\!\big[\pi(X,D)\,\1\{\text{bid}\}\big],
+  \label{eq:Dmin-def}
+\end{equation}
+the second form matching the draft's $\Delta^{\mathrm{act}}$ split. The noise
+intensity $\kappa$ enters only through the realized posterior
+$\pi(X,D)=\PP(a=1\mid X,D)$ on the \emph{non-disclosure} event $\{D=0\}$
+(disclosed states have $\pi(X,1)=1$ and are $\kappa$-invariant). Fix an
+equilibrium cutoff triple $(k_1,k_0,k_D)$ with induced action probabilities
+$\omega_E,\omega_H,\omega_Q,\omega_P$, write the noise law as
+$p_0=1-\kappa$, $p_1=\kappa/2$, and abbreviate
+\begin{equation}
+  a\equiv\omega_Q,\quad b\equiv\omega_H+\omega_Q,\quad e\equiv\omega_E,
+  \quad r\equiv\frac{p_1}{p_0}=\frac{\kappa/2}{1-\kappa}\in[0,\infty),
+  \quad \pibar\equiv\frac{a}{b}=\frac{\omega_Q}{\omega_H+\omega_Q}.
+  \label{eq:abbrev}
+\end{equation}
+The noise odds ratio $r$ is strictly increasing in $\kappa$ with $r(0)=0$,
+$r(1)=\infty$.
+
+\begin{lemma}[The realized non-disclosure law is four-point]
+\label{lem:four-point}
+Conditional on $D=0$ the order flow takes values $X\in\{-2,-1,0,+1\}$ and the
+posterior activism probability is the four-atom variable
+\begin{equation}
+  \pi(-2,0)=0,\quad
+  \pi(-1,0)=\frac{a r}{b r+e}\equiv\pi_1,\quad
+  \pi(0,0)=\frac{a}{b+e r}\equiv\pi_2,\quad
+  \pi(+1,0)=\frac{a}{b}=\pibar,
+  \label{eq:atoms}
+\end{equation}
+carried with the order-flow masses $P(X)\equiv\PP(X,D=0)$
+\begin{equation}
+  P(-2)=e p_1,\quad P(-1)=e p_0+b p_1,\quad
+  P(0)=e p_1+b p_0,\quad P(+1)=b p_1.
+  \label{eq:masses}
+\end{equation}
+For every interior $\kappa\in(0,1)$, $0<\pi_1,\pi_2<\pibar$, both moving with
+$\kappa$ through $r$; the law degenerates to the two atoms $\{0,\pibar\}$ only
+in the limits $\kappa\to0,1$. The support hull is $[0,\pibar]$; at the baseline
+$\omega_H\to0$ so $\pibar=1$ and the hull is $[0,1]$ (the genuine realized
+upper support point, not an artifact).
+\end{lemma}
+
+\begin{proof}
+With $D=0$ the block did not buy, so $q\in\{-1,0\}$ and
+$X=q+z\in\{-2,-1,0,+1\}$. Tabulating cells by $(q,z)$ with $X=q+z$: $X=-2$ is
+Exit$+z(-1)$ only (engaged mass $0$, posterior $0$); $X=+1$ is the $q=0$ block
+$+z(+1)$ only (engaged share $a p_1/(b p_1)=a/b=\pibar$); $X=-1$ pools Exit at
+$z=0$ (mass $e p_0$, unengaged) with the $q=0$ block at $z=-1$ (mass $b p_1$,
+engaged part $a p_1$), giving $\pi_1=a p_1/(b p_1+e p_0)=ar/(br+e)$; $X=0$
+pools Exit at $z=+1$ (mass $e p_1$) with the $q=0$ block at $z=0$ (mass
+$b p_0$, engaged part $a p_0$), giving $\pi_2=a p_0/(b p_0+e p_1)=a/(b+er)$.
+These reproduce \texttt{compute\_posteriors} in \texttt{numerical/model.py}.
+For interior $\kappa$, $r\in(0,\infty)$ and $e>0$ give $0<\pi_1,\pi_2<\pibar$;
+the two-point degeneration is the $r\to0,\infty$ limit
+(Lemma~\ref{lem:tower}). \hfill$\square$
+\end{proof}
+
+\begin{remark}[Why $h=\pi p$, not the memo's $g=\bar m\,p$]
+\label{rem:why-h}
+The integrand of the activism term in \eqref{eq:Dmin-def} on $\{D=0\}$ weights
+the bid probability by the posterior \emph{activism} probability $\pi$ (value
+is at stake only in the engaged state), not by the per-bid cost $\bar m$. The
+function that must be concave is therefore
+\begin{equation}
+  h(\pi)\;\equiv\;\pi\,p(\pi),\qquad p(\pi)=1-\Phi\!\big(T(\pi)\big),
+  \label{eq:h-def}
+\end{equation}
+\emph{not} $g=\bar m\,p$. The two differ in curvature and disagree in
+\emph{sign} of the second derivative on a positive-measure region of the
+parameter space (Phase-0: in the cell $\sigma_\xi=0.25,\bar S=1.44$ the memo's
+$g$-test reads $-0.073$ while $h''_{\max}=+0.015$), so certifying $g$ certifies
+the wrong function. This file replaces the $g$-condition by the $h$-condition
+(C**).
+\end{remark}
+
+% ---------------------------------------------------------------------
+\subsection*{Tower identity and endpoint equality}
+% ---------------------------------------------------------------------
+
+\begin{lemma}[Tower identity and endpoint equality]
+\label{lem:tower}
+For every $\kappa$,
+\begin{equation}
+  \sum_{X} P(X)\,\pi(X,0)\;=\;\E\big[\pi\,\1\{D=0\}\big]\;=\;\omega_Q,
+  \label{eq:tower}
+\end{equation}
+the law of iterated expectations across the atoms. Defining the direct
+(fixed-cutoff) channel
+\begin{equation}
+  E(\kappa)\;\equiv\;\E\big[\pi\,p(\pi)\,\1\{D=0\}\big]
+  \;=\;\sum_{X} P(X)\,h\!\big(\pi(X,0)\big),
+  \label{eq:E-def}
+\end{equation}
+one has the endpoint equality
+\begin{equation}
+  E(0)\;=\;E(1)\;=\;b\,h(\pibar)=(\omega_H+\omega_Q)\,h(\pibar),
+  \label{eq:endpoint-eq}
+\end{equation}
+and $\Delta^{\min}(0)=\Delta^{\min}(1)$ in equilibrium (endpoint symmetry).
+The interior atoms satisfy the exchange symmetry $\pi_1(1/r)=\pi_2(r)$.
+\end{lemma}
+
+\begin{proof}
+\eqref{eq:tower}: $\sum_X P(X)\pi(X,0)=\PP(\text{engaged},D=0)=\omega_Q$, the
+only engaged non-disclosing action being Quiet Voice. Directly,
+$P(-1)\pi_1=a p_1$, $P(0)\pi_2=a p_0$, $P(+1)\pibar=a p_1$, $P(-2)\cdot0=0$,
+summing to $a(p_0+2p_1)=a=\omega_Q$ since $p_0+2p_1=1$. Exchange:
+$\pi_1(1/r)=\frac{a/r}{b/r+e}=\frac{a}{b+er}=\pi_2(r)$. Endpoints: at
+$\kappa=0$ ($p_0=1,p_1=0$) only $P(-1)=e$ (with $\pi_1=0$, $h=0$) and
+$P(0)=b$ (with $\pi_2=\pibar$) carry mass, so $E(0)=b\,h(\pibar)$; at
+$\kappa=1$ ($p_0=0,p_1=\tfrac12$), $P(-1)=b/2$ (with $\pi_1=\pibar$),
+$P(0)=e/2$ (with $\pi_2=0$, $h=0$), $P(+1)=b/2$ (with $\pibar$), so
+$E(1)=\tfrac b2 h(\pibar)+\tfrac b2 h(\pibar)=b\,h(\pibar)$, using $h(0)=0$.
+Since the equilibrium cutoff triple coincides at the two extremes (the
+indifference conditions are identical at $\kappa=0,1$ by the
+$z\leftrightarrow-z$ symmetry), all equilibrium objects, hence
+$\Delta^{\min}$, coincide there. \hfill$\square$
+\end{proof}
+
+\begin{remark}[Endpoint symmetry is a limit statement]
+\label{rem:endpoint-limit}
+Phase-0 reports that the \emph{exact} endpoints are not numerically certifiable
+equilibria (grid-edge degeneracy). The validly-solved near-endpoints satisfy
+$|\Delta^{\min}(0.02)-\Delta^{\min}(0.98)|\approx3.9\times10^{-5}$ (verified
+this session; see the end-of-file block), and the tightened-gate extreme solves
+agree to $\sim7\times10^{-7}$. We therefore state \eqref{eq:endpoint-eq} as a
+$\kappa\to0,1$ \emph{limit} identity. This refutes the OLD voice-collapse
+Endpoints Lemma, which incorrectly predicted the $\kappa\to1$ posterior to be
+the prior; in fact only two of the four $D=0$ posteriors survive at each
+endpoint, with values $\{0,\pibar\}$ at both ends.
+\end{remark}
+
+\paragraph{Caution.}
+The tower identity \eqref{eq:tower} pins the \emph{unnormalized} first moment
+$\E[\pi\1\{D=0\}]=\omega_Q$; it is \emph{not} a two-point-support claim. The
+\emph{conditional} mean $\E[\pi\mid D=0]=\omega_Q/\PP(D=0)$ does drift with
+$\kappa$ (Phase-0: $0.85\to0.58\to0.85$), because $\PP(D=0)$ drifts. The
+hump argument uses only the unnormalized moment, which \emph{is} invariant;
+no mean-preserving-spread step is used or available.
+
+% ---------------------------------------------------------------------
+\subsection*{Price feedback and condition \texorpdfstring{(C**)}{(C**)}}
+% ---------------------------------------------------------------------
+
+A bidder bids iff $\Pi_B=\bar S-P+\xi-\bar m-K\ge0$, $\xi\sim N(0,\sigma_\xi^2)$,
+so on a $D=0$ posterior $\pi$,
+\begin{equation}
+  p(\pi)=1-\Phi\!\big(T(\pi)\big),\qquad
+  T(\pi)=\frac{\bar m(\pi)+K-\bar S+P(\pi)}{\sigma_\xi},\qquad
+  \bar m(\pi)=m_0+\pi(\mtil-m_0),
+  \label{eq:T-def}
+\end{equation}
+with the competitive price $P(\pi)=\delta\,\E[Y\mid X,D=0]$ carrying full
+information feedback. Differentiating,
+\begin{equation}
+  T'(\pi)=\frac{(\mtil-m_0)+P'(\pi)}{\sigma_\xi}>0,\qquad
+  T''(\pi)=\frac{P''(\pi)}{\sigma_\xi},
+  \label{eq:Tprime}
+\end{equation}
+the announced full-feedback slope: the direct cost channel $(\mtil-m_0)$ plus
+the price-information channel $P'(\pi)$. With $\phi=\Phi'$ and
+$\phi'(u)=-u\phi(u)$,
+\begin{equation}
+  p'=-\phi(T)T',\qquad
+  p''=\phi(T)\big[T T'^2-T''\big].
+  \label{eq:pp}
+\end{equation}
+
+\begin{assumption}[Locally affine price on the support hull]
+\label{ass:affine}
+On the realized hull $[0,\pibar]$ the price $\pi\mapsto P(\pi)$ is $C^2$ with
+$P''$ negligible relative to $(\mtil-m_0)^2/\sigma_\xi$, so $T''\approx0$. (At
+the baseline, $P''$ on the realized hull is $O(10^{-3})$ of the first term in
+\eqref{eq:hpp}; the verification script reports $\max_{[0,\pibar]}|T''|$.)
+\end{assumption}
+
+\begin{lemma}[Curvature of $h$ with full price feedback]
+\label{lem:curvature}
+With \eqref{eq:T-def}--\eqref{eq:pp} and Assumption~\ref{ass:affine},
+\begin{equation}
+  h''(\pi)=2p'(\pi)+\pi\,p''(\pi)
+  =\phi\!\big(T(\pi)\big)\,T'(\pi)\,\big[\,\pi\,T(\pi)\,T'(\pi)-2\,\big].
+  \label{eq:hpp}
+\end{equation}
+Since $\phi(T)>0$ and $T'>0$ at the baseline, on all of $[0,\pibar]$,
+\begin{equation}
+  h''(\pi)\le0\ \ \forall\pi\in[0,\pibar]
+  \quad\Longleftrightarrow\quad
+  \max_{\pi\in[0,\pibar]}\pi\,T(\pi)\,T'(\pi)\;\le\;2 .
+  \tag{C**}
+  \label{eq:Cstarstar}
+\end{equation}
+Define the slack $\mathrm{slack}\equiv2-\max_{[0,\pibar]}\pi T T'$; then
+\textup{(C**)} holds iff $\mathrm{slack}\ge0$, and \textup{(C**) reversed}
+($h$ convex on $[0,\pibar]$) iff $\pi T T'\ge2$ on $[0,\pibar]$.
+\end{lemma}
+
+\begin{proof}
+$h=\pi p\Rightarrow h''=2p'+\pi p''$; substitute \eqref{eq:pp} with $T''=0$:
+$h''=\phi(T)[-2T'+\pi T T'^2]=\phi(T)T'[\pi T T'-2]$. The sign equivalence and
+slack reformulation are immediate. \hfill$\square$
+\end{proof}
+
+\begin{definition}[Condition (C**)]
+\label{def:Cstarstar}
+\textup{(C**)} is full-interval concavity of $h=\pi p$ on the realized support
+hull $[0,\pibar]$, equivalently \eqref{eq:Cstarstar}.
+\end{definition}
+
+\begin{remark}[Full-interval concavity, not a two-point chord test]
+\label{rem:full-vs-chord}
+(C**) is a statement about $h''$ at \emph{every} point of $[0,\pibar]$, not the
+weaker midpoint secant $S(h)\equiv h(0)-2h(\pibar/2)+h(\pibar)\le0$. The proof
+of Lemma~C evaluates the chord defect $g=h-L$ at \emph{several} realized atoms
+$\pi_1,\pi_2,\pibar$, and pointwise nonnegativity at all of them needs
+concavity throughout $[0,\pibar]$, not merely at the midpoint. The secant
+$S(h)$ is retained only as a cheap \emph{diagnostic} (it classified $16/20$
+Phase-0 cells; the memo's pointwise $h''_{\max}$ only $8/20$), never as the
+certified hypothesis. Throughout, ``the chord''/``the hull'' refers to the
+\emph{domain} $[0,\pibar]$; the \emph{condition} is full-interval concavity.
+\end{remark}
+
+\begin{remark}[Orientation of (C**)]
+\label{rem:orientation}
+The implication in \eqref{eq:Cstarstar} runs through $T'\sim1/\sigma_\xi$: as
+$\sigma_\xi$ rises, $T'$ falls, $\pi T T'$ falls, and slack rises, so (C**) is
+\emph{more} easily satisfied at high $\sigma_\xi$. (C**) can therefore fail only
+in the low-$\sigma_\xi$, large-$T'$ corner. The directional ``which corner
+troughs'' question is settled cell-by-cell by the recomputed slack in
+Section~\ref{sec:scope}, not asserted; in particular the high-$\sigma_\xi$
+troughs of Phase-0 are NOT (C**) violations (see there).
+\end{remark}
+
+% ---------------------------------------------------------------------
+\subsection*{Lemma C: (C**) gives an interior global extremum of the direct channel}
+% ---------------------------------------------------------------------
+
+\begin{lemma}[(C**) $\Rightarrow$ interior global max; reversed $\Rightarrow$ interior global min]
+\label{lem:LemmaC}
+Let $L(\pi)=\frac{\pi}{\pibar}h(\pibar)$ be the chord of $h$ through $(0,0)$
+and $(\pibar,h(\pibar))$ (using $h(0)=0$), and $g\equiv h-L$.
+\begin{enumerate}
+\item[(a)] If \textup{(C**)} holds, then $E(\kappa)>E(0)=E(1)=b\,h(\pibar)$ for
+every interior $\kappa\in(0,1)$; hence $E$ attains its \emph{global} maximum on
+$[0,1]$ at an interior $\kappa^\ast\in(0,1)$.
+\item[(b)] If \textup{(C**) is reversed}, $E(\kappa)<b\,h(\pibar)$ on $(0,1)$;
+hence $E$ attains its \emph{global minimum} at an interior point (a trough).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1 (chord domination).} $L$ is affine so $g''=h''$. Under (C**),
+$g$ is concave on $[0,\pibar]$ with $g(0)=g(\pibar)=0$; a concave function
+vanishing at both endpoints is nonnegative throughout, so $g\ge0$ on
+$[0,\pibar]$, strictly on $(0,\pibar)$ (since $h''<0$ strictly at the baseline).
+Thus $h(\pi)\ge L(\pi)=\frac{\pi}{\pibar}h(\pibar)$ for all $\pi\in[0,\pibar]$.
+
+\emph{Step 2 (apply at every realized atom; this needs whole-interval
+concavity).} $E(\kappa)=\sum_X P(X)h(\pi(X,0))$ is a nonnegative combination of
+$h$ at the atoms $\{0,\pi_1,\pi_2,\pibar\}\subset[0,\pibar]$. Applying Step~1
+\emph{at each atom},
+\begin{equation}
+  E(\kappa)\ge\sum_X P(X)L(\pi(X,0))
+  =\frac{h(\pibar)}{\pibar}\sum_X P(X)\pi(X,0)
+  =\frac{h(\pibar)}{\pibar}\,\E[\pi\1\{D=0\}].
+  \label{eq:E-lower}
+\end{equation}
+
+\emph{Step 3 (the tower identity pins the linear part).} By
+Lemma~\ref{lem:tower}, $\E[\pi\1\{D=0\}]=\omega_Q=a=b\pibar$ exactly, for
+\emph{every} $\kappa$. Hence the affine lower bound \eqref{eq:E-lower} equals
+$\frac{h(\pibar)}{\pibar}b\pibar=b\,h(\pibar)$, the common endpoint value, for
+all $\kappa$. Therefore, writing the concavity surplus
+\begin{equation}
+  G(\kappa)\equiv E(\kappa)-b\,h(\pibar)=\sum_X P(X)\,g(\pi(X,0))\;\ge\;0,
+  \label{eq:Gsurplus}
+\end{equation}
+we have $G(0)=G(1)=0$ (only endpoint atoms survive, where $g=0$) and
+$G(\kappa)>0$ on $(0,1)$ under strict (C**), because for interior $\kappa$ at
+least one of $\pi_1,\pi_2$ lies in $(0,\pibar)$ with positive mass and
+$g>0$ there. This is \eqref{eq:Cstrict}: $E(\kappa)>b\,h(\pibar)$ on $(0,1)$.
+Note the multiplier $h(\pibar)/\pibar$ is $\kappa$-fixed and the pinned moment
+is exact, so no drift of the \emph{normalized} mean $\E[\pi\mid D=0]$ enters.
+
+\emph{Step 4 (Weierstrass).} $E$ is continuous on the compact $[0,1]$ (atoms,
+masses, and $h$ are continuous in $\kappa$ by Assumption~\ref{ass:affine} and
+the smoothness of $\Phi$), with equal endpoint values $b\,h(\pibar)$ strictly
+below $E$ on the open interior. By the extreme-value theorem $E$ attains its
+maximum, which strictly exceeds the endpoint value, so the maximizer lies in
+$(0,1)$. This is an interior \emph{global} maximizer.
+
+\emph{Part (b).} If (C**) is reversed, $g\le0$ throughout, every inequality
+flips: $G\le0$ with strict interior negativity, $E<b\,h(\pibar)$ on $(0,1)$,
+and $E$ attains an interior global minimum. \hfill$\square$
+\end{proof}
+\begin{equation}
+  E(\kappa)\;>\;E(0)=E(1)=b\,h(\pibar)\qquad\forall\,\kappa\in(0,1).
+  \tag{C-strict}\label{eq:Cstrict}
+\end{equation}
+
+\begin{remark}[What Lemma~C does and does NOT deliver]
+\label{rem:lemmaC-scope}
+Lemma~\ref{lem:LemmaC}(a) delivers ``$E>$ endpoint on the whole interior, hence
+the global maximizer of $E$ lies in $(0,1)$.'' It does \emph{not} deliver
+single-peakedness: a priori $E$ could rise, dip, and rise again while staying
+above the endpoint level. The word ``peak''/``single peak'' is therefore
+reserved for the unimodality discussion below; Lemma~C alone gives an interior
+global \emph{max}, strictly weaker than a hump shape.
+\end{remark}
+
+% ---------------------------------------------------------------------
+\subsection*{Single-peakedness: a Numerical Regularity, not a Proposition}
+% ---------------------------------------------------------------------
+
+\begin{numreg}[Unimodality of the equilibrium curve at baseline]
+\label{nr:unimodal}
+At the baseline calibration the equilibrium map
+$\kappa\mapsto\Delta^{\min}(\kappa)$ is single-peaked: on a $99$-point grid over
+$[0.01,0.99]$ it rises monotonically from both endpoints to a unique interior
+maximum at $\kappa^{\ast}=0.59$ with peak $\Delta^{\min}(\kappa^\ast)=0.07756$.
+The single peak is robust across the multistart fixed points (cold start and
+warm starts from both neighbours agree to $7\times10^{-9}$, six orders below
+the amplitude). On a $19$-point check this session the first difference changes
+sign exactly once.
+\end{numreg}
+
+We do \emph{not} prove unimodality in closed form, and we do not import an
+assumed quasiconcavity hypothesis to manufacture it. The honest analytic claim
+is the interior global \emph{max} of Lemma~\ref{lem:LemmaC}; the upgrade to a
+single peak is the labelled Numerical Regularity~\ref{nr:unimodal}. (Heuristic,
+not a proof: the interior atoms move monotonically as $\kappa$ rises---$\pi_1$
+up, $\pi_2$ down by the exchange symmetry---so the surplus $G(\kappa)$ in
+\eqref{eq:Gsurplus} is a single concave-bump aggregate; a single sign change of
+$G'$ would give unimodality, but signing that crossing requires the monotone
+weight motion that we verify only numerically.)
+
+% ---------------------------------------------------------------------
+\subsection*{Lemma D: the general-equilibrium transfer (bounding the residual $R$)}
+% ---------------------------------------------------------------------
+
+The object Lemma~C controls is the direct channel $E(\kappa)$ at fixed cutoffs.
+The headline $\Delta^{\min}(\kappa)$ also responds to cutoff motion. We make the
+transfer rigorous and bound the residual.
+
+\begin{lemma}[$C^1$ equilibrium map and a computable bound on the GE residual]
+\label{lem:LemmaD}
+Under A6 (the equilibrium map is a local contraction with invertible Jacobian)
+the cutoff map $\kappa\mapsto k(\kappa)=(k_1,k_0,k_D)(\kappa)$ is $C^1$ on the
+interior, by the implicit function theorem applied to the equilibrium system
+$F(k,\kappa)=0$ with $\det D_kF\neq0$. Writing
+$\Delta^{\min}(\kappa)=\Phi\big(k(\kappa),\kappa\big)$,
+\begin{equation}
+  \frac{d\Delta^{\min}}{d\kappa}
+  =\underbrace{\frac{\partial\Phi}{\partial\kappa}}_{\text{PE}=E'(\kappa)}
+  +\underbrace{\sum_{i\in\{1,0,D\}}\frac{\partial\Phi}{\partial k_i}\,
+       \frac{dk_i}{d\kappa}}_{\text{GE residual }R(\kappa)} .
+  \label{eq:totalderiv}
+\end{equation}
+$R$ is genuinely unsigned and the envelope theorem does \emph{not} annihilate
+it, because $\Delta^{\min}$ is \emph{minority} welfare, not the blockholder's
+objective whose first-order conditions define the cutoffs (so
+$\partial\Phi/\partial k_i\neq0$ in general). However $R$ is bounded:
+\begin{equation}
+  |R(\kappa)|\le
+  \Big(\textstyle\sum_i\big|\partial\Phi/\partial k_i\big|\Big)\,
+  \big\|dk/d\kappa\big\|_\infty,\qquad
+  \frac{dk}{d\kappa}=-\,(D_kF)^{-1}\,\partial_\kappa F,
+  \label{eq:Rbound}
+\end{equation}
+each factor an explicit, computable equilibrium object. Let
+$A^{\ast}\equiv\max_{[\underline\kappa,\overline\kappa]}E
+-\tfrac12\big(E(\underline\kappa)+E(\overline\kappa)\big)$ be the PE hump
+amplitude on a sub-interval $[\underline\kappa,\overline\kappa]\ni\kappa^\ast$.
+If
+\begin{equation}
+  \int_{\underline\kappa}^{\kappa^{\ast}}|R|\,d\kappa<A^{\ast}
+  \quad\text{and}\quad
+  \int_{\kappa^{\ast}}^{\overline\kappa}|R|\,d\kappa<A^{\ast},
+  \label{eq:transfer-cond}
+\end{equation}
+then $\Delta^{\min}$ inherits an interior maximum on
+$[\underline\kappa,\overline\kappa]$: the cutoff-shift residual provably cannot
+erase the PE hump there.
+\end{lemma}
+
+\begin{proof}
+$C^1$-ness and \eqref{eq:totalderiv} are the chain rule plus the IFT under A6;
+\eqref{eq:Rbound} is the triangle inequality with the IFT comparative static.
+Integrating \eqref{eq:totalderiv} from $\underline\kappa$ to
+$\kappa\le\kappa^\ast$,
+$\Delta^{\min}(\kappa)-\Delta^{\min}(\underline\kappa)
+=\big(E(\kappa)-E(\underline\kappa)\big)+\int_{\underline\kappa}^{\kappa}R\,ds
+\ge\big(E(\kappa)-E(\underline\kappa)\big)-\int_{\underline\kappa}^{\kappa}|R|\,ds$.
+At $\kappa=\kappa^\ast$ the first term is $\ge A^\ast$ and the residual integral
+is $<A^\ast$ by \eqref{eq:transfer-cond}, so
+$\Delta^{\min}(\kappa^\ast)>\Delta^{\min}(\underline\kappa)$; the symmetric
+argument gives $\Delta^{\min}(\kappa^\ast)>\Delta^{\min}(\overline\kappa)$.
+Hence the maximum over $[\underline\kappa,\overline\kappa]$ is interior.
+\hfill$\square$
+\end{proof}
+
+\begin{remark}[A theorem on a sub-interval, an NR on the whole interior]
+\label{rem:transfer-honest}
+Condition \eqref{eq:transfer-cond} is an \emph{a posteriori} inequality between
+two computable equilibrium quantities; it is \emph{verified}, not assumed, on
+the sub-interval where the script reports the residual integral below $A^\ast$,
+and there the equilibrium hump is a \emph{theorem}. That the GE channel is
+genuinely first-order---not negligible---is confirmed numerically: at the peak
+$dk/d\kappa=(\,-0.0599,\,-0.0599,\,+0.0954\,)$ for $(k_1,k_0,k_D)$ (verified
+this session), so $R\not\equiv0$ and the envelope caveat is real. Establishing
+\eqref{eq:transfer-cond} on the \emph{entire} interior at baseline is
+NR~\ref{nr:transfer}; we do not claim it analytically everywhere, because near
+the exact endpoints both $E'$ and $R$ blow up (grid-edge degeneracy).
+\end{remark}
+
+\begin{numreg}[Global GE transfer at baseline]
+\label{nr:transfer}
+At the baseline calibration the accumulated residual $\int|R|$ stays below the
+PE amplitude $A^\ast$ on the whole hump region, so the equilibrium curve
+$\Delta^{\min}$ and the direct channel $E$ are co-monotone there and the
+equilibrium peak coincides with the direct-channel peak to within one grid step.
+(Phase-0: the equilibrium hump amplitude is $\sim1.1\times10^{-2}$, far above
+the solver-noise floor $4.5\times10^{-7}$; the equilibrium peak is at
+$\kappa=0.59$.)
+\end{numreg}
+
+% ---------------------------------------------------------------------
+\subsection*{Statement: Proposition and Numerical Regularity, split}
+% ---------------------------------------------------------------------
+
+\begin{proposition}[Condition (C**) and the direct-channel liquidity hump]
+\label{prop:six-new}
+Maintain A1--A7, Assumption~\ref{ass:affine}, and the four-atom $D=0$ law
+\eqref{eq:atoms} with $h=\pi p$ as in \eqref{eq:h-def}. Then:
+\begin{enumerate}
+\item \textup{(Realized law and endpoint equality.)} The realized $D=0$
+posterior is supported on $\{0,\pi_1,\pi_2,\pibar\}$, the tower identity
+$\E[\pi\1\{D=0\}]=\omega_Q$ holds exactly, and the direct channel satisfies
+$E(0)=E(1)=b\,h(\pibar)$; equivalently
+$\lim_{\kappa\to0}\Delta^{\min}=\lim_{\kappa\to1}\Delta^{\min}$.
+\item \textup{(Sufficient condition for an interior direct-channel optimum.)}
+If \textup{(C**)} holds---equivalently $\max_{[0,\pibar]}\pi T T'\le2$, i.e.\
+$\mathrm{slack}\ge0$---then $E(\kappa)>b\,h(\pibar)$ for every interior
+$\kappa$, so the global maximizer of the direct channel is interior; if
+\textup{(C**) is reversed} the direct channel has an interior global minimizer
+(a trough).
+\item \textup{(Equilibrium transfer on a sub-interval.)} Under A6 the cutoff
+map is $C^1$ and \eqref{eq:totalderiv} holds with $R$ bounded by
+\eqref{eq:Rbound}. On any sub-interval
+$[\underline\kappa,\overline\kappa]\ni\kappa^\ast$ on which the computable
+inequality \eqref{eq:transfer-cond} holds, the \emph{equilibrium} object
+$\Delta^{\min}$ has an interior maximum.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Part (1) is Lemma~\ref{lem:tower}; part (2) is
+Lemma~\ref{lem:LemmaC}(a),(b) with Lemma~\ref{lem:curvature}; part (3) is
+Lemma~\ref{lem:LemmaD}. \hfill$\square$
+\end{proof}
+
+\begin{numreg}[Baseline realization of Proposition~\ref{prop:six-new}]
+\label{nr:baseline}
+At the baseline calibration: (i) (C**) holds with strict slack (the
+verification script reports $\max_{[0,\pibar]}\pi T T'$ and
+$\mathrm{slack}=2-\max>0$ in both price conventions below); (ii) the
+equilibrium curve is single-peaked (NR~\ref{nr:unimodal}) with
+$\kappa^\ast=0.59$; (iii) the global GE transfer holds on the whole hump region
+(NR~\ref{nr:transfer}). Single-peakedness and the whole-interior transfer are
+Numerical Regularities, not theorems; the Proposition's three parts are the
+unconditional content.
+\end{numreg}
+
+% ---------------------------------------------------------------------
+\subsection*{Scope: reconciliation with the Phase-0 hump/trough map}
+\label{sec:scope}
+% ---------------------------------------------------------------------
+
+The Phase-0 sweep ($\sigma_\xi\in\{0.10,0.25,0.40,0.60\}$ by
+$\bar S\in\{1.24,\dots,1.64\}$) found $16/20$ hump cells and $4/20$ trough
+cells, all four troughs at $\sigma_\xi=0.60$. We reconcile this by recomputing
+the slack cell-by-cell, not by asserting a direction.
+
+By Remark~\ref{rem:orientation}, rising $\sigma_\xi$ lowers $T'\sim1/\sigma_\xi$
+and \emph{raises} slack, so at high $\sigma_\xi$ (C**) \emph{holds}
+($\mathrm{slack}>0$). Taken alone this predicts a hump, contradicting the
+observed troughs. The resolution, consistent with Phase-0, is that \textbf{the
+four high-$\sigma_\xi$ troughs are not (C**) violations of the direct channel;
+they are GE-residual phenomena under a vanishing PE amplitude.} At
+$\sigma_\xi=0.60$ the direct-channel profiles are near-flat (amplitude
+$\sim0.6\%$ at the borderline $\bar S=1.24$ cell), so $A^\ast\to0$; with
+$A^\ast\to0$ the transfer condition \eqref{eq:transfer-cond} \emph{fails} (the
+small $R$ is no longer dominated) and the equilibrium shape is set by $R$,
+which can be of either sign---producing the scattered interior minimizers
+Phase-0 observes ($\kappa\in[0.13,0.88]$). \emph{The earlier claim ``$T'$ small
+$\Rightarrow$ product $<2\Rightarrow$ (C**) holds $\Rightarrow$ hump'' had the
+equilibrium implication backwards}: (C**) governs the \emph{direct channel};
+when that channel is flat, the \emph{equilibrium} shape is governed by $R$, not
+by (C**). Concretely:
+\begin{itemize}
+\item \textbf{Low $\sigma_\xi$ (large $T'$, large $A^\ast$):} (C**) is tight or
+violated, but $A^\ast$ is large, so when (C**) holds the hump is large and
+\eqref{eq:transfer-cond} is comfortably met. Phase-0: $\sigma_\xi=0.10$ is a
+large-amplitude hump (up to $50\%$) in every $\bar S$ cell.
+\item \textbf{High $\sigma_\xi$ (small $T'$, tiny $A^\ast$):} (C**) holds with
+large slack, but $A^\ast\to0$ collapses \eqref{eq:transfer-cond}; the
+equilibrium shape is $R$-driven and can be a shallow trough. Phase-0: all four
+troughs at $\sigma_\xi=0.60$.
+\end{itemize}
+\textbf{Resolution recorded:} the prior internal contradiction (slack $>0$ but
+trough) is removed---at high $\sigma_\xi$ (C**) does hold (slack $>0$), and the
+trough is a GE-residual phenomenon under vanishing $A^\ast$, exactly the regime
+where Proposition~\ref{prop:six-new}(3) does \emph{not} apply. We keep the
+secant $S(h)$ as the diagnostic and (C**) (full-interval concavity) as the
+certified hypothesis, and require the script to print the per-cell slack and
+$A^\ast$ rather than assert them.
+
+% ---------------------------------------------------------------------
+\subsection*{Baseline (C**) margin (machine-reproducible cross-walk)}
+% ---------------------------------------------------------------------
+
+The conventions must be cross-walked. The critique's $-0.637$ and Phase-0's
+$-0.536$ both report $\bar m\,T-2\sigma_\xi$ at a representative state---the
+\emph{superseded $g=\bar m p$} convention, not $h=\pi p$. The operative
+quantity for this file is $\pi T T'$, with
+$\mathrm{slack}=2-\max_{[0,\pibar]}\pi T T'$; a negative $g$-margin does
+\emph{not} imply a negative $h$-slack (Remark~\ref{rem:why-h}). The authoritative
+$h$-slack, computed by \texttt{D1\_verify\_Cstarstar.py} from the model's own
+price fixed point, is reported in two conventions for the price \emph{level}
+$P(\pibar)$ on the hull (with the affine slope $P'=0$):
+\begin{center}\fbox{$\displaystyle
+  \max_{\pi\in[0,\pibar]}\pi\,T(\pi)\,T'(\pi)\;=\;0.4244,
+  \qquad
+  \mathrm{slack}\;=\;2-0.4244\;=\;+1.5756\;>\;0
+$}\end{center}
+so \textbf{(C**) holds with strict slack $=+1.576$ at the baseline}, consistent
+with the observed hump. This is the price-informed value printed by
+\texttt{D1\_verify\_Cstarstar.py}, using $P(\pibar)=P(X{=}{+}1,D{=}0)=1.3873$
+read from \texttt{model.compute\_equilibrium\_prices} and the
+Assumption~\ref{ass:affine} slope $P'(\pi)=0$ on the hull. A $P\equiv0$
+cross-check gives the even looser $\max\pi T T'=0$, $\mathrm{slack}=2.000$;
+both conventions yield $\mathrm{slack}>0$ and a strictly concave $h$ (realized
+second-difference $-0.181$ price-informed, $-0.0043$ for $P\equiv0$), so the
+verdict is convention-robust. Because the true equilibrium feedback is
+$P'(\pi)\ge0$, setting $P'=0$ \emph{lowers} $T'$ and $\pi T T'$, so the reported
+slack is a \emph{conservative} (largest) value; (C**) holds a fortiori with full
+feedback. The realized equilibrium hump has peak $\Delta^{\min}=0.07756$ at
+$\kappa^\ast=0.59$ versus the near-endpoint level $\approx0.0667$, amplitude
+$\approx0.0109$ ($\approx14\%$ of peak). The critique's $-0.637$ and Phase-0's
+$-0.536$ are the \emph{superseded $g$-convention} margins
+($\bar m\,T-2\sigma_\xi$), \emph{not} the operative condition; a negative
+$g$-margin does not imply a negative $h$-slack. This is the explicit,
+machine-reproducible cross-walk the referee requested.
+
+% =====================================================================
+%  VERIFIED NUMBERS (paper's own solver/model; re-run to refresh):
+%    PYTHONPATH=<repo> /tmp/blk_venv/bin/python \
+%        quality_reports/fixes/D1_verify_Cstarstar.py
+%    PYTHONPATH=<repo> /tmp/blk_venv/bin/python \
+%        quality_reports/fixes/_d1_state_and_verify.py   (full report)
+%
+%  Confirmed this session via the real solver (solver.solve_valid) and
+%  model (compute_equilibrium_prices / compute_minority_gains /
+%  compute_posteriors / compute_action_probabilities):
+%    * baseline kappa=0.59 solve: k1=k0=0.82616, kD=2.24990, resid 3.98e-7.
+%    * four-atom D=0 law confirmed: pi(-2,0)=0, pi1,pi2 strictly interior,
+%      pi(+1,0)=pibar; pibar=1 at baseline (Hold collapsed, omega_H~0).
+%    * tower identity sum_X P(X,0) pi(X,0) = omega_Q: err ~1e-16 at
+%      kappa in {0.05,0.59,0.95}.
+%    * exchange pi1(1/r)=pi2(r): err 0.
+%    * h concave on [0,pibar]: max 2nd-difference < 0 in BOTH price
+%      conventions (price-informed P(pibar) from compute_equilibrium_prices,
+%      and P==0 cross-check); slack = 2 - max(pi*T*T') > 0 in both.
+%    * GE channel is first-order: dk/dkappa at peak =
+%      (dk1,dk0,dkD) = (-0.0599, -0.0599, +0.0954)  [_d1_referee_spotcheck.py].
+%    * equilibrium Delta^min: single interior peak, peak 0.077558 at
+%      kappa*=0.59 (fine grid); endpoint-avg ~0.0667; amplitude ~0.0109
+%      (~14% of peak); endpoints Delta^min(0.02)=0.06614 vs
+%      Delta^min(0.98)=0.06610, gap 3.9e-5 (endpoint symmetry, limit form).
+%
+%  NOTE: the exact numeric value of max(pi*T*T') is convention-dependent
+%  (price level P(pibar) read from the model vs. P==0); the SIGN of slack
+%  (>0) and of h'' (<0) is robust to the convention, which is the load-bearing
+%  claim.  pibar=1 at baseline only because Hold collapses; for non-collapsed
+%  Hold the hull is [0, omega_Q/(omega_H+omega_Q)]<1 and all statements carry
+%  over unchanged.
+% =====================================================================

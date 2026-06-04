@@ -1,0 +1,818 @@
+% =====================================================================
+%  D1_prop6_endpoint_variance.tex   (attempt 6 -- HONEST RELABEL)
+%  Corrected core for the OLD Proposition 6 / OLD "Endpoints Lemma."
+%  Fragment to be \input into draft_v2.tex.  Uses the draft's preamble
+%  macros: \E \PP \1 \Var \R ; biblatex \citet/\citep.
+%
+%  HONEST-RELABEL HEADER (attempt 6).  After five attempts the FULL analytic
+%  proof of the headline interior hump did NOT close.  Per the EGJ (2015)
+%  precedent, this fragment now states the result under an EXPLICIT primitive
+%  condition and presents the remaining step as a NUMERICALLY VERIFIED
+%  regularity, clearly flagged as such -- NOT as a completed proof.  What IS
+%  proved is kept as proved.  A closing subsection states precisely what
+%  remains open.  Status tags used throughout:
+%     [PROVED]               an analytic argument is given here and closes.
+%     [PRIMITIVE CONDITION]  a hypothesis on model primitives (not derived).
+%     [NUMERICAL REGULARITY] verified numerically at the calibration, flagged.
+%     [OPEN]                 explicitly not established; see closing list.
+%  The headline single-peakedness is therefore NOT claimed as a theorem; the
+%  claim that closes is the analytic CORE (Lemmas below) plus a conditional
+%  partial-equilibrium bulge, with the global step a Numerical Regularity.
+%
+%  WHAT THIS FILE DELIVERS (status in brackets)
+%    Lemma (Transport) [PROVED] -- the minority-gain kernel reads only pi.
+%    Lemma A (endpoint symmetry, as a kappa->0,1 LIMIT statement) [PROVED,
+%      conditional on (UHC)+(ISO)] -- with A2-monotonicity made the explicit
+%      local hypothesis that delivers (ISO).  The closure step does NOT assert
+%      a uniqueness it lacks; (UHC) is a STATED regularity hypothesis.
+%    Lemma B (mean and variance of the non-disclosed posterior, AT FIXED
+%      MASSES) [PROVED in closed form] -- mean kappa-invariant; variance
+%      strictly U-shaped with a UNIQUE interior well, proved via strict
+%      convexity of the second moment (g'' = 2A^2/T_-^3 + 2A^2/T_0^3 > 0),
+%      not by simulation.  The "at fixed masses" qualifier is carried into
+%      BOTH (i) and (iii); the equilibrium (moving-mass) variance need not be
+%      monotone on each side.
+%    Remark (decomposition + bridge) -- EXACT finite-support Jensen statement
+%      on the realized atoms (no Taylor remainder), with Lambda the exact
+%      chord diagnostic; orientation hump<=>Lambda<0 retained.  The GE
+%      cutoff-shift channel is kept genuinely UNSIGNED [OPEN] (the envelope
+%      theorem does NOT kill it: Delta^min is minority welfare, not the
+%      blockholder's objective).  (C*) is a STATED [PRIMITIVE CONDITION].
+%    Closing subsection "What is proved / what remains open" [STATUS LEDGER].
+%
+%  CONVENTION (matches the draft, Prop 2 / app:proof-posteriors):
+%    p_0 = 1-kappa (z=0),  p_1 = kappa/2 (z=+-1);
+%    A := omega_E (Exit, q=-1),  B := omega_H+omega_Q (q=0 pool),
+%    Q := omega_Q,  barpi := Q/B (Hold-vs-Quiet posterior, =pi(1,0));
+%    T_- := A p_0 + B p_1 = denom of pi(-1,0),
+%    T_0 := A p_1 + B p_0 = denom of pi(0,0).
+%
+%  SELF-VERIFICATION (sympy 1.14; all symbolic residuals EXACTLY 0;
+%  script quality_reports/fixes/D1_prop6_endpoint_variance_check.py):
+%    * P(D=0)=A+B (kappa-free); E[pi 1{D=0}]=Q (tower, exact);
+%      d/dkappa E[pi 1{D=0}] = 0  (mean invariance at fixed masses).
+%    * BOXED closed form (residual boxed_minus_direct = 0):
+%        f(kappa)=E[pi^2 1{D=0}]-Q^2/B
+%               = - A Q^2 (A+B) kappa (2-kappa)(1-kappa) / (4 B T_- T_0).
+%    * CLOSED-FORM SINGLE-WELL ENGINE: with x=kappa/2 in [0,1/2] the second
+%      moment over Q^2 is g(x)=x^2/T_-(x)+(1-2x)^2/T_0(x)+x/B, and sympy
+%      certifies g''(x)=2A^2/T_-(x)^3+2A^2/T_0(x)^3>0 (resid_gpp_identity=0).
+%      Strict convexity + equal endpoints g(0)=g(1/2)=1/B => UNIQUE interior
+%      minimizer.  Variance is an increasing-affine image of g (mean fixed),
+%      so it inherits strict convexity and the unique well exactly.
+%    * Endpoint slopes (resid_fprime0 = resid_fprime1 = 0):
+%        f'(0) = -(A+B)Q^2/(2B^2),  f'(1) = +(A+B)Q^2/B^2;  divide by A+B:
+%        V'(0) = -Q^2/(2B^2) < 0,   V'(1) = +Q^2/B^2 > 0.
+%    * symmetric A=B: f=-2 Q^2 k(1-k)/(B(2-k)); minimizer 2-sqrt(2)~0.586
+%      (matches the Phase-0 numeric peak kappa*~0.59).
+%  PHASE-0 EQUILIBRIUM NUMERICS (phase0_facts.md, phase0_robustness.md):
+%    * endpoint symmetry Delta^min(1e-6)=0.07020822 vs (1-1e-6)=0.07020753,
+%      gap 6.86e-7; cutoffs coincide to 4 dp (~0.1379,0.2596,2.6752).
+%    * baseline hump real: kappa*~0.59, peak 0.07755774, amplitude 9.5-15.8%
+%      of level vs converged-point solver-noise floor ~4.5e-7.
+%    * CONDITIONAL: 16/20 (sigma_xi,S_bar) cells hump, 4/20 trough (all at
+%      high sigma_xi=0.60).  So (C*) MUST be a stated hypothesis.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+% Guarded definitions so the fragment is self-contained (each
+% \providecommand / guard is a no-op if the draft already supplies the
+% macro or environment).  Remove this block when integrating if the
+% draft preamble already defines all of these.
+% ---------------------------------------------------------------------
+\providecommand{\E}{\mathbb{E}}
+\providecommand{\PP}{\mathbb{P}}
+\providecommand{\Var}{\operatorname{Var}}
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\1}{\mathbf{1}}
+\makeatletter
+\@ifundefined{c@assumption}{\newtheorem{assumption}{Assumption}}{}
+% The draft defines theorem/proposition/lemma/corollary/definition but NOT
+% remark; guard it here so the two \begin{remark} blocks below resolve.
+\@ifundefined{c@remark}{\newtheorem{remark}{Remark}}{}
+\makeatother
+
+% ---------------------------------------------------------------------
+% PRIMITIVE STANDING ASSUMPTION (states the primitive ONLY, not the
+% conclusion).  Add to the model's A-list (renumber to fit A1--A7).
+% The conditional independence is strengthened to z _|_ s as well, so the
+% UNCONDITIONAL factorization actually used in Lemma~\ref{lem:transport} is
+% licensed.
+% ---------------------------------------------------------------------
+\begin{assumption}[Noise independence -- \emph{primitive}]\label{ass:noise-indep}
+The noise-trade draw $z\in\{-1,0,+1\}$, with $\PP(z=0)=1-\kappa$ and
+$\PP(z=\pm1)=\kappa/2$, is exogenous: it is statistically independent of the
+triple $\bigl(s,v,(q,a)\bigr)$. Equivalently,
+\begin{equation}\label{eq:noise-prim}
+   z\;\perp\;\bigl(s,v,(q,a)\bigr),
+   \qquad
+   \PP(z=0)=1-\kappa,\quad \PP(z=\pm1)=\tfrac{\kappa}{2}.
+\end{equation}
+In particular $z\perp\bigl(v,(q,a)\bigr)\mid s$ \emph{and} $z\perp s$, so
+$\PP(z\mid s)=\PP(z)$.
+\end{assumption}
+
+\noindent\emph{Status and scope.} Assumption~\ref{ass:noise-indep} records only
+the primitive~\eqref{eq:noise-prim}: an exogenous, symmetric three-point
+liquidity-trade law, drawn independently of everything the blockholder knows or
+does, with the played action $(q,a)$ measurable with respect to $s$. The clause
+$z\perp s$ (equivalently $\PP(z)=\PP(z\mid s)$) is the formal content of
+``exogenous noise'' and is exactly what licenses the unconditional factorization
+$\PP\bigl((q,a),v\in\mathcal B,z\bigr)=\PP\bigl((q,a),v\in\mathcal B\bigr)\PP(z)$
+used once, in Lemma~\ref{lem:transport}; conditional independence given $s$ alone
+would leave $\PP(z\mid s)$ in the integrand and would not suffice. The assumption
+makes \emph{no} claim about posteriors or order-flow cells. The \emph{pooling
+property}---that on $\{D=0\}$ the action-conditional posterior of $v$ depends on
+order flow $X$ only through the engagement posterior $\pi(X)$, never through which
+noise draw produced $X$---is \emph{derived} from~\eqref{eq:noise-prim} in
+Lemma~\ref{lem:transport}, and is the only place a ``change of variables from
+actions to the posterior $\pi$'' is used.
+
+% ---------------------------------------------------------------------
+\paragraph{Realized beliefs on the no-disclosure event.}
+Fix the action masses $(\omega_E,\omega_H,\omega_Q,\omega_P)$, $\sum\omega=1$.
+Disclosure is stake-triggered, $D=\1\{q=+1\}$, so $\{D=0\}=\{\text{Exit, Hold,
+Quiet Voice}\}$ ($q\in\{-1,0\}$) and $\{D=1\}=\{\text{Public Voice}\}$. Write
+\begin{equation}\label{eq:abc}
+   A:=\omega_E,\qquad B:=\omega_H+\omega_Q,\qquad Q:=\omega_Q,\qquad
+   \bar\pi:=\frac{\omega_Q}{\omega_H+\omega_Q}=\frac{Q}{B},
+\end{equation}
+so $A$ is the Exit ($q=-1$) mass, $B$ the pooled $q=0$ mass, and $\bar\pi$ the
+engagement posterior conditional on $q=0$. With $X=q+z$ and the draft's
+$p_0:=1-\kappa$, $p_1:=\kappa/2$, the engagement posterior on $\{D=0\}$ is
+$\pi(X)=\PP(a{=}1\mid X,D{=}0)$, the Quiet-Voice share of the mass pooled at
+$X$. Enumerating the four $D=0$ cells (consistent with Proposition~2 of the
+draft) gives Table~\ref{tab:D0cells}, where
+\begin{equation}\label{eq:Tdef}
+   T_-:=A\,p_0+B\,p_1 \quad(\text{denominator of }\pi(-1,0)),\qquad
+   T_0:=A\,p_1+B\,p_0 \quad(\text{denominator of }\pi(0,0)).
+\end{equation}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{cccc}
+\toprule
+$X$ & contributing $(q,z)$ (mass) & pooled mass at $X$ & $\pi(X)$\\
+\midrule
+$-2$ & $(q{=}{-}1,z{=}{-}1)$: $A p_1$ & $A p_1$ & $0$\\
+$-1$ & $(q{=}{-}1,z{=}0)$: $A p_0$;\ $(q{=}0,z{=}{-}1)$: $B p_1$ & $T_-=A p_0+B p_1$ & $\dfrac{Q\,p_1}{T_-}$\\
+$0$  & $(q{=}{-}1,z{=}{+}1)$: $A p_1$;\ $(q{=}0,z{=}0)$: $B p_0$ & $T_0=A p_1+B p_0$ & $\dfrac{Q\,p_0}{T_0}$\\
+$+1$ & $(q{=}0,z{=}{+}1)$: $B p_1$ & $B p_1$ & $\dfrac{Q}{B}=\bar\pi$\\
+\bottomrule
+\end{tabular}
+\caption{The no-disclosure ($D=0$) order-flow cells, pooled mass, and realized
+engagement posterior $\pi(X)$. Each action's mass sums to its population weight
+across the three $z$-outcomes ($2p_1+p_0=1$). The $\pi(X)$ column reproduces
+Proposition~2 of the draft. The realized $\{D=0\}$ posterior law is supported on
+\emph{at most four} points $\{0,\pi(-1),\pi(0),\bar\pi\}$; the two ends $0$ and
+$\bar\pi$ are the chord endpoints, $\pi(-1),\pi(0)$ the two interior atoms.}
+\label{tab:D0cells}
+\end{table}
+
+We also record the tower identity, anchoring the first moment:
+\begin{equation}\label{eq:tower}
+   \E\!\bigl[\pi\,\1\{D{=}0\}\bigr]
+   =\sum_{X}\PP(X,D{=}0)\,\pi(X)
+   =\PP(\text{Quiet--Voice type},\,D{=}0)
+   =\omega_Q=Q,
+\end{equation}
+exact for every $\kappa$ (Quiet-Voice types never disclose).
+\emph{[PROVED;} verified to residual $0$ in
+\texttt{D1\_prop6\_endpoint\_variance\_check.py} and at every $\kappa$ in the
+model solver, \texttt{phase0\_facts.md}.\emph{]}
+
+% =====================================================================
+% LEMMA A.0 (TRANSPORT)  -- [PROVED]
+% =====================================================================
+\begin{lemma}[Transport: the minority-gain kernel reads only $\pi$ \textnormal{[PROVED]}]\label{lem:transport}
+Grant Assumption~\ref{ass:noise-indep}. On $\{D=0\}$ there is a single
+continuous, bounded map $\Psi:[0,\bar\pi]\to\R$, \emph{the same function in
+every order-flow cell}, such that the per-cell minority-gain contribution equals
+$\Psi\bigl(\pi(X)\bigr)$. Concretely, the action-conditional posterior of $v$,
+the recovery $m^{R}(a)$, the competitive price $P$, and the bid probability $p$
+all depend on $(X,D{=}0)$ only through $\pi(X)$, and the dependence is given by
+one fixed pair of cell constants $\bigl(m^{R}(0),m^{R}(1)\bigr)$ and one fixed
+affine-then-$\Phi$ schedule. Moreover
+$\Psi(\pi)=\bigl(\pi\,m^{R}(1)+(1-\pi)m^{R}(0)\bigr)\,p(\pi)$, a product of an
+affine factor and the nonlinear bid probability.
+\end{lemma}
+
+\begin{proof}
+Fix $D=0$; the engagement indicator $a\in\{0,1\}$ is the only payoff-relevant
+hidden state. By Bayes' rule on the finite cell, for a Borel set $\mathcal B$,
+\[
+   \PP(a{=}1,\,v\in\mathcal B\mid X,D{=}0)
+   =\frac{\displaystyle\sum_{\substack{(q,z):\,q+z=X,\\ q\neq+1}}
+          \PP\bigl((q,a{=}1)\ \text{played},\,v\in\mathcal B,\,z\bigr)}
+         {\PP(X,D{=}0)} .
+\]
+\emph{($z$-independence within a cell.)} For each admissible $(q,z)$,
+write the joint by conditioning on $s$ and integrating it out:
+\[
+   \PP\bigl((q,a),v\in\mathcal B,z\bigr)
+   =\int \PP\bigl((q,a),v\in\mathcal B\mid s\bigr)\,\PP(z\mid s)\,dF(s)
+   =\PP(z)\int \PP\bigl((q,a),v\in\mathcal B\mid s\bigr)\,dF(s)
+   =\PP(z)\,\PP\bigl((q,a),v\in\mathcal B\bigr),
+\]
+where the first equality uses $z\perp\bigl(v,(q,a)\bigr)\mid s$ (the played
+action being $s$-measurable) and the second uses the \emph{unconditional}
+exogeneity $\PP(z\mid s)=\PP(z)$ from Assumption~\ref{ass:noise-indep}---this is
+exactly the $z\perp s$ clause, without which $\PP(z\mid s)$ could not be pulled
+out of the $s$-integral. Hence $\PP(z)$ contributes only the cell \emph{weight}
+(the $p_0,p_1$ proportions), while the $v$-content is carried by the
+action-conditional law $\PP\bigl((q,a),v\in\mathcal B\bigr)$. Therefore the
+conditional law of $(v,a)$ given $(X,D{=}0)$ is the two-point mixture
+\begin{equation}\label{eq:pooling}
+   a=1\ \text{w.p.}\ \pi(X),\qquad a=0\ \text{w.p.}\ 1-\pi(X),
+\end{equation}
+with the $v$-posteriors $F_{v\mid a}$ independent of $z$ \emph{and} of $X$.
+
+\emph{(Same map across cells -- the load-bearing point.)} It remains to show
+that the recovery and price/bid schedules are the \emph{same function of $\pi$}
+in every cell, not merely cell-by-cell constants. This is structural to the
+model: $m^{R}(a)$, $F_{v\mid a}$, the success probability $\rho$, and
+$\tilde m=m_0+\rho(m_1-m_0)$ are indexed by the \emph{hidden engagement state
+$a$ alone}, by construction (they describe what a minority shareholder recovers
+when the firm is, or is not, under engagement); they carry no dependence on
+which base trade $q\in\{-1,0\}$ produced the pool. Consequently the
+$v$-content attached to ``$a=1$'' is the \emph{same} law $F_{v\mid 1}$ whether
+the engaged mass arrived through the Exit-type pooling ($q=-1$) or the Hold/Quiet
+pooling ($q=0$); only the \emph{weight} $\pi(X)$ on that law differs across
+cells. (Formally: within $\{D=0\}$ the only engaging type is Quiet Voice, so
+``$a=1$'' is a single population type with a single $v$-law; ``$a=0$'' pools the
+non-engaging types Exit and Hold, whose recovery $m^{R}(0)$ and $v$-law are
+likewise type-fixed.) Therefore, given~\eqref{eq:pooling}: (a) the cell
+constants $m^{R}(0),m^{R}(1)$ and $F_{v\mid a}$ are common to all cells; (b) the
+posterior averages $\bar m(\pi)=m_0+(\tilde m-m_0)\pi$ and
+$P(\pi)=\delta\bigl(\pi\,\E[Y\mid a{=}1]+(1-\pi)\E[Y\mid a{=}0]\bigr)$ are one
+affine schedule in $\pi$; (c) the bid probability
+$p(\pi)=1-\Phi\bigl((\bar m(\pi)+K-\bar S+P(\pi))/\sigma_\xi\bigr)$ is one
+smooth, bounded $\Phi$-composition of the affine objects in (b). The minority
+floor on $\{D=0\}$ is therefore the single map
+$\Psi(\pi)=\E[m^{R}(a)\1\{\text{bid}\}\mid X,0]
+=\bigl(\pi\,m^{R}(1)+(1-\pi)m^{R}(0)\bigr)p(\pi)$, continuous and bounded on the
+compact $[0,\bar\pi]$, identical across cells and depending on the cell only
+through the scalar $\pi(X)$.
+\end{proof}
+
+% =====================================================================
+% LEMMA A (ENDPOINT SYMMETRY) -- CONDITIONAL LIMIT STATEMENT [PROVED, cond.]
+% (UHC) and (ISO) explicit hypotheses; A2-monotonicity is the local
+% hypothesis delivering (ISO); the closure does NOT assert uniqueness.
+% =====================================================================
+\begin{lemma}[Endpoint symmetry, in the liquidity limits \textnormal{[PROVED, conditional on (UHC)+(ISO)]}]\label{lem:endpoint}
+Maintain the Standing Assumptions and Assumption~\ref{ass:noise-indep}, and
+suppose:
+\begin{itemize}
+\item[\textup{(UHC)}] the equilibrium correspondence $\kappa\mapsto
+(k_1,k_0,k_D)(\kappa)$ is upper hemicontinuous as $\kappa\to0^{+}$ and as
+$\kappa\to1^{-}$ (every limit of equilibrium cutoffs along $\kappa\to0^{+}$, resp.
+$\kappa\to1^{-}$, solves the corresponding limiting indifference system); and
+\item[\textup{(ISO)}] the common limiting indifference
+system~\eqref{eq:limsys} below has an isolated root, i.e.\ a locally unique
+solution $(k_1^\star,k_0^\star,k_D^\star)$.
+\end{itemize}
+Then the equilibrium minority takeover gain satisfies
+\[
+   \lim_{\kappa\to0^{+}}\Delta^{\min}(\kappa)
+   \;=\;\lim_{\kappa\to1^{-}}\Delta^{\min}(\kappa).
+\]
+Moreover, the strict monotonicity of the engagement cost $C(\cdot)$
+(Assumption~A2) is a local sufficient condition for \textup{(ISO)}: it makes the
+$k_0$- and $k_D$-equations cross transversally in the signal $s$, so their roots
+are isolated.
+\end{lemma}
+
+\begin{proof}
+We show that the data of $\Delta^{\min}$ have a common limit at the two extremes,
+in three steps: the realized posterior law (at fixed masses), the limiting
+indifference system, and the transfer to equilibrium objects via (UHC)+(ISO).
+
+\emph{Step 1: the realized $\{D=0\}$ posterior law has the same limit at both
+ends, at fixed masses.} Read limits off Table~\ref{tab:D0cells}.
+
+\emph{As $\kappa\to0^{+}$} ($p_1\to0$, $p_0\to1$): $X{=}{-}2,{+}1$ carry mass
+$\to0$; $X{=}{-}1$ has $\pi=Q p_1/T_-\to0$ and mass $T_-\to A$; $X{=}0$ has
+$\pi=Q p_0/T_0\to Q/B=\bar\pi$ and mass $T_0\to B$. The realized law converges to
+\begin{equation}\label{eq:limitlaw0}
+   \pi=0\ \text{w.p.}\ A,\qquad \pi=\bar\pi\ \text{w.p.}\ B,
+   \qquad(\PP(D{=}0)\to A+B).
+\end{equation}
+
+\emph{As $\kappa\to1^{-}$} ($p_1\to\tfrac12$, $p_0\to0$): $X{=}{-}2$ has $\pi=0$,
+mass $A p_1\to A/2$; $X{=}0$ has $\pi=Q p_0/T_0\to0$, mass $T_0\to A/2$;
+$X{=}{-}1$ has $\pi=Q p_1/T_-\to \tfrac{Q/2}{B/2}=\bar\pi$, mass $T_-\to B/2$;
+$X{=}{+}1$ has $\pi=\bar\pi$, mass $B p_1\to B/2$. Collecting by posterior value,
+total mass on $\pi=0$ is $A/2+A/2=A$ and on $\pi=\bar\pi$ is $B/2+B/2=B$, giving
+\emph{exactly}~\eqref{eq:limitlaw0}. The four order-flow cells regroup into the
+same two posterior atoms with the same masses; the symmetry $\PP(z=+1)=\PP(z=-1)$
+makes $X\mapsto-X$ a measure-preserving relabeling. (This is the corrected
+endpoint statement: voice does \emph{not} collapse and the non-disclosed
+posteriors do \emph{not} converge to the prior; both limits give the two-point
+law $\{0,\bar\pi\}$. This \emph{refutes} the OLD Endpoints Lemma.)
+
+\emph{Step 2: the limiting indifference systems coincide.} By
+Lemma~\ref{lem:transport} every realized $\{D=0\}$ price and bid probability is a
+function of the realized posterior atom, taking values in the two-element set
+$\{(P(0),p(0)),(P(\bar\pi),p(\bar\pi))\}$; denote the disclosed-branch ($q=+1$)
+price and bid probability by $P^{P},p^{P}$, which are $\kappa$-free because the
+disclosed pool $\{X{=}{+}2\}$ contains only Public Voice (no noise mixing changes
+its composition). For a base action with order-flow draw $z$, write
+$\mathcal X(q,z)=q+z$ and let $V^{\,a}(X)$ be the action-$a$ continuation value at
+flow $X$,
+\begin{equation}\label{eq:cont}
+   V^{\,a}(X)=p\bigl(\pi(X)\bigr)\,\Pi^{\,a}_{\text{bid}}(X)
+             +\bigl(1-p(\pi(X))\bigr)\,\Pi^{\,a}_{\text{nobid}}(X),
+\end{equation}
+where $\Pi^{\,a}_{\bullet}(X)$ are the bounded bid/no-bid payoffs, functions of
+$\pi(X)$ alone by Lemma~\ref{lem:transport}. The three indifference conditions are
+expectations over $z$ of~\eqref{eq:cont} for the two adjacent base actions:
+\begin{align}
+\text{$k_1$ (Exit$\sim$Hold):}\quad
+   & \E_z\!\bigl[V^{E}(\mathcal X(-1,z))\bigr]
+   = \E_z\!\bigl[V^{H}(\mathcal X(0,z))\bigr],
+   \label{eq:k1}\\[2pt]
+\text{$k_0$ (Hold$\sim$Quiet):}\quad
+   & \E_z\!\bigl[V^{H}(\mathcal X(0,z))\bigr]
+   = \E_z\!\bigl[V^{Q}(\mathcal X(0,z))\bigr] - C(k_0),
+   \label{eq:k0}\\[2pt]
+\text{$k_D$ (Quiet$\sim$Public):}\quad
+   & \E_z\!\bigl[V^{Q}(\mathcal X(0,z))\bigr] - C(k_D)
+   = V^{P}\bigl(\text{disclosed: }P^{P},p^{P}\bigr) - C(k_D).
+   \label{eq:kD}
+\end{align}
+Take the two limits cell-by-cell.
+\emph{(i) Exit base ($q=-1$).} As $\kappa\to0^{+}$ only $z=0$ survives, with
+$\pi(-1)\to0$, so $\E_z V^{E}\to V^{E}(0)$, where
+$V^{E}(0):=p(0)\Pi^{E}_{\text{bid}}(0)+(1-p(0))\Pi^{E}_{\text{nobid}}(0)$. As
+$\kappa\to1^{-}$, weight $\tfrac12,\tfrac12$ falls on $z=\pm1$; the $z=-1$ cell has
+$\pi=0$ and the $z=+1$ cell has $\pi(0)\to0$ (Step~1), so both surviving cells
+evaluate $V^{E}$ at the \emph{same} atom $\pi=0$, giving $\E_z V^{E}\to V^{E}(0)$.
+\emph{(ii) Hold/Quiet base ($q=0$).} As $\kappa\to0^{+}$ only $z=0$ survives, with
+$\pi(0)\to\bar\pi$, so $\E_z V^{H}\to V^{H}(\bar\pi)$, $\E_z V^{Q}\to
+V^{Q}(\bar\pi)$. As $\kappa\to1^{-}$, the $z=-1$ cell has $\pi(-1)\to\bar\pi$ and
+the $z=+1$ cell has $\pi=\bar\pi$, so again both surviving cells evaluate at the
+\emph{same} atom $\bar\pi$, giving the same limits $V^{H}(\bar\pi),V^{Q}(\bar\pi)$.
+\emph{(iii) Disclosed branch.} The right side of~\eqref{eq:kD} is built from the
+$\kappa$-free $(P^{P},p^{P})$, hence literally identical at both ends.
+Substituting (i)--(iii) into~\eqref{eq:k1}--\eqref{eq:kD}, the \emph{limiting}
+indifference system is, at both ends, one and the same:
+\begin{equation}\label{eq:limsys}
+   V^{E}(0)=V^{H}(\bar\pi),\quad
+   V^{H}(\bar\pi)=V^{Q}(\bar\pi)-C(k_0),\quad
+   V^{Q}(\bar\pi)-C(k_D)=V^{P}(P^{P},p^{P})-C(k_D),
+\end{equation}
+with the \emph{same} price/bid-indexed payoffs $\{P(0),P(\bar\pi),P^{P}\}$,
+$\{p(0),p(\bar\pi),p^{P}\}$ and the \emph{same} cost $C(\cdot)$.
+
+\emph{Step 3: transfer to equilibrium via (UHC)+(ISO).} Steps 1--2 establish only
+that the \emph{equations} coincide in the limit; they do not by themselves
+identify $\lim_{\kappa\to0^{+}}(k_1,k_0,k_D)(\kappa)$ with
+$\lim_{\kappa\to1^{-}}(k_1,k_0,k_D)(\kappa)$, because ``same limiting equation''
+forces ``same limiting cutoff'' only when the limit of an equilibrium is an
+equilibrium of the limit (this is (UHC)) and the limiting equation pins a single
+cutoff (this is (ISO)). Grant both. By (UHC), any accumulation point of the
+equilibrium cutoffs along $\kappa\to0^{+}$, and any along $\kappa\to1^{-}$, solves
+the \emph{common} limiting system~\eqref{eq:limsys}. By (ISO) that system has a
+locally unique root $(k_1^\star,k_0^\star,k_D^\star)$; hence \emph{both} one-sided
+limits of the cutoffs exist and equal $(k_1^\star,k_0^\star,k_D^\star)$. The masses
+$(A,B,Q,\omega_P)$ are continuous functions of the cutoffs through the signal
+distribution, so they too share the common limit. Finally, by
+Lemma~\ref{lem:transport},
+\[
+   \Delta^{\min}
+   =\PP(D{=}0)\,\E[\Psi(\pi)\mid D{=}0]
+    +\tilde m\,\PP(D{=}1)\,p^{P},
+\]
+the second term being the $\kappa$-invariant disclosed branch ($\tilde m$ the
+post-success recovery; $p^{P}$ the disclosed bid probability;
+$\PP(D{=}1)=\omega_P$; see the identification note after this proof). All inputs
+have a common limit at $\kappa\to0^{+}$ and $\kappa\to1^{-}$ (the masses by the
+above, the posterior law $\{0,\bar\pi\}$ with masses $(A,B)$ by Step~1, the kernel
+$\Psi$ by Lemma~\ref{lem:transport}), so the two one-sided limits of $\Delta^{\min}$
+coincide, with common value $A\,\Psi(0)+B\,\Psi(\bar\pi)+\tilde m\,\omega_P\,p^{P}$.
+
+\emph{Why A2 delivers (ISO).} Differentiate the $k_0$-equation~\eqref{eq:k0} in the
+threshold $s=k_0$: the engagement-value side carries $-C'(k_0)$, with $C'<0$
+strictly by A2 ($C(s)=C_0e^{-\chi(s-\mu)/\sigma_s}$, strictly decreasing), while the
+$z$-expected continuation values are bounded; hence the indifference map has a
+strictly signed derivative at any root, so roots are transversal and isolated. The
+same applies to the $k_D$-equation~\eqref{eq:kD}. Thus A2 is the explicit local
+hypothesis that secures (ISO) for the voice cutoffs; (UHC) remains a separate
+regularity hypothesis on the correspondence (it is \emph{not} delivered by A2 and
+is not claimed here as proved---see Remark~\ref{rem:limit}).
+\end{proof}
+
+\paragraph{Identification of the disclosed-branch term.}
+The headline object is $\Delta^{\min}=\E[m^{R}(a)\1\{\text{bid}\}]$. On
+$\{D=1\}=\{\text{Public Voice}\}$ the blockholder \emph{always} engages
+($a=1$) and triggers the success lottery, so $m^{R}(a)$ on this branch is the
+engaged recovery, whose expectation across the success draw is the post-success
+recovery $\tilde m=m_0+\rho(m_1-m_0)$; thus the disclosed contribution is
+$\E[m^{R}(a)\1\{\text{bid}\}\mid D{=}1]\,\PP(D{=}1)=\tilde m\,p^{P}\,\PP(D{=}1)$.
+Here $\PP(D{=}1)=\omega_P$ (the Public-Voice mass) and $p^{P}=p(P^{P},1)$ is
+$\kappa$-free for one reason: the disclosed pool is the single order-flow cell
+$\{X{=}{+}2\}$, which contains \emph{only} Public Voice ($q{=}{+}1,z{=}{+}1$), so
+no noise mixing alters its composition and its posterior is $\pi\equiv1$
+regardless of $\kappa$.
+
+\begin{remark}[Why a limit, not a value at the endpoints; the role of (UHC);
+what Phase-0 certifies]\label{rem:limit}
+\emph{(a) [OPEN at the exact endpoints.]} Lemma~\ref{lem:endpoint} is stated as
+equality of one-sided limits, not ``$\Delta^{\min}(0)=\Delta^{\min}(1)$''. At the
+exact endpoints $\kappa\in\{0,1\}$ the fixed-point map is degenerate (noise is a
+point mass and several $\{D=0\}$ cells have zero probability), and these points
+are not numerically-solvable equilibria: the solver returns residuals
+$\approx1.2\times10^{-2}$ (tightened run) and $\approx0.46$ (independent
+robustness run) there. The symmetry must therefore remain a \emph{limit}
+statement; a clean evaluation at $\kappa\in\{0,1\}$ is not available.
+\emph{(b) [STATUS: (UHC) is a stated hypothesis, not a theorem.]} (UHC) and (ISO)
+are \emph{hypotheses}. (ISO) is delivered locally by A2 (proof above).
+(UHC)---the interchange of the $\kappa$-limit with the equilibrium solve---is a
+regularity property of the equilibrium correspondence that we do \emph{not}
+prove; it is the same correspondence whose global uniqueness we treat only as a
+Numerical Regularity (Remark~\ref{rem:decomp}(d)). The honest reading of
+Lemma~\ref{lem:endpoint} is: \emph{if} the equilibrium selection is upper
+hemicontinuous at the extremes, \emph{then} the two limits coincide; Steps 1--2
+do the model-specific work of showing the limiting \emph{equations} are
+identical, which is what makes (UHC)+(ISO) suffice.
+\emph{(c) [NUMERICAL REGULARITY confirming the limit.]} On validly solved
+near-endpoints the values agree to high precision, consistent with the limit
+equality: $\Delta^{\min}(0.02)=0.06678$ vs.\ $\Delta^{\min}(0.99)=0.06681$ (gap
+$3.6\times10^{-5}$); robustness run $0.066138$ vs.\ $0.066099$ (gap
+$3.8\times10^{-5}$); and the exact-endpoint solves coincide to $6.86\times10^{-7}$
+(\texttt{phase0\_facts.md}). The equality is a genuine coincidence of equilibrium
+objects, not a triviality: $\bar\pi$ itself differs between the interior (Hold
+collapsed, $\omega_H\approx0$, $\bar\pi\approx1$) and the limits
+($\bar\pi\approx0.959$).
+\end{remark}
+
+% =====================================================================
+% LEMMA B (CONDITIONAL MEAN AND VARIANCE) -- CLOSED FORM [PROVED]
+% unique well PROVED in closed form via strict convexity of the second
+% moment (g'' = 2A^2/T_-^3+2A^2/T_0^3>0), not by simulation.
+% "at fixed masses" carried into BOTH (i) and (iii).
+% =====================================================================
+\begin{lemma}[Conditional mean and variance of the non-disclosed posterior, at
+fixed masses \textnormal{[PROVED, closed form]}]\label{lem:variance}
+Fix the masses $(A,B,Q)$ as in~\eqref{eq:abc} with $A,B,Q>0$, $Q\le B$,
+$A+B\le1$, and let $\kappa\in[0,1]$ with $T_-,T_0$ as in~\eqref{eq:Tdef}.
+Conditional on $\{D=0\}$, \emph{and holding $(A,B,Q)$ fixed}:
+\begin{enumerate}
+\item[\textup{(i)}] \emph{(Mean $\kappa$-invariant at fixed masses.)}
+$\displaystyle \E[\pi\mid D{=}0]=\frac{Q}{A+B}$, independent of $\kappa$.
+\item[\textup{(ii)}] \emph{(Second moment.)}
+$\displaystyle \E\bigl[\pi^2\1\{D{=}0\}\bigr]
+=\frac{Q^2p_1^2}{T_-}+\frac{Q^2p_0^2}{T_0}+\frac{Q^2 p_1}{B}$,
+with $p_0=1-\kappa$, $p_1=\kappa/2$.
+\item[\textup{(iii)}] \emph{(Variance strictly U-shaped with a unique interior
+well, at fixed masses.)} Writing
+$f(\kappa):=\E[\pi^2\1\{D{=}0\}]-\tfrac{Q^2}{B}$, one has the exact factorization
+\begin{equation}\label{eq:fclosed}
+\boxed{\;
+f(\kappa)\;=\;-\,\frac{A\,Q^{2}\,(A+B)\,\kappa\,(2-\kappa)\,(1-\kappa)}
+                      {4\,B\,T_-\,T_0}\;}
+\end{equation}
+so $f(0)=f(1)=0$ and $f(\kappa)<0$ for all $\kappa\in(0,1)$. Moreover the second
+moment is \emph{strictly convex} in $\kappa$: in the variable
+$x:=\kappa/2\in[0,\tfrac12]$, with $g(x):=\E[\pi^2\1\{D{=}0\}]/Q^2$,
+\begin{equation}\label{eq:gconvex}
+   g''(x)\;=\;\frac{2A^2}{T_-(x)^3}+\frac{2A^2}{T_0(x)^3}\;>\;0
+   \qquad\text{for all }x\in[0,\tfrac12].
+\end{equation}
+Since the mean is $\kappa$-invariant by (i), $\Var[\pi\mid D{=}0]$ is an
+increasing-affine image of $g$ and therefore inherits strict convexity; with
+equal endpoints $\Var(0)=\Var(1)$ this gives a \emph{unique} interior minimizer,
+with $\Var$ strictly decreasing then strictly increasing. The decisive endpoint
+slopes are
+\begin{equation}\label{eq:Vslopes}
+   V'(0)=-\frac{Q^2}{2B^2}<0,\qquad V'(1)=+\frac{Q^2}{B^2}>0 .
+\end{equation}
+\end{enumerate}
+The qualifier ``at fixed masses'' is essential in \textup{(i)} and
+\textup{(iii)}: in full equilibrium the cutoffs, hence $(A,B,Q)$, move with
+$\kappa$, and the equilibrium (moving-mass) conditional variance need \emph{not}
+be monotone on each side of any interior point (Remark~\ref{rem:decomp}(a)).
+\end{lemma}
+
+\begin{proof}
+\emph{(i)} By the tower identity~\eqref{eq:tower}, $\E[\pi\1\{D{=}0\}]=Q$.
+Summing the masses of Table~\ref{tab:D0cells},
+$\PP(D{=}0)=A p_1+T_-+T_0+B p_1=A(2p_1+p_0)+B(2p_1+p_0)=A+B$ since
+$2p_1+p_0=\kappa+(1-\kappa)=1$. Hence $\E[\pi\mid D{=}0]=Q/(A+B)$, free of $\kappa$
+at fixed masses. [Verified: tower residual $0$; $\partial_\kappa\E[\pi\1\{D{=}0\}]=0$
+symbolically.]
+
+\emph{(ii)} $\E[\pi^2\1\{D{=}0\}]=\sum_X\PP(X,D{=}0)\,\pi(X)^2$. The $X{=}{-}2$ term
+vanishes; the remaining three, using $T_-(Q p_1/T_-)^2=Q^2p_1^2/T_-$,
+$T_0(Q p_0/T_0)^2=Q^2p_0^2/T_0$, and $(Bp_1)(Q/B)^2=Q^2p_1/B$, give the stated sum.
+
+\emph{(iii), closed form and sign.} At $\kappa=0$ ($p_1=0,p_0=1$): the $T_-$ and
+$p_1$ terms vanish, $T_0\to B$, so $\E[\pi^2\1\{D{=}0\}]=Q^2/B$ and $f(0)=0$. At
+$\kappa=1$ ($p_1=\tfrac12,p_0=0$): $T_-\to B/2$, so
+$\E[\pi^2\1\{D{=}0\}]=\tfrac{Q^2/4}{B/2}+0+\tfrac{Q^2/2}{B}=\tfrac{Q^2}{B}$ and
+$f(1)=0$. Placing the three terms over the common denominator $4 B\,T_-T_0$ and
+reducing yields~\eqref{eq:fclosed} (sympy: \texttt{boxed\_minus\_direct}$=0$).
+Every factor of~\eqref{eq:fclosed} is signed on $(0,1)$: $A,B,Q>0$; $\kappa>0$,
+$(2-\kappa)>0$, $(1-\kappa)>0$; and $T_-=A(1-\kappa)+B\tfrac\kappa2>0$,
+$T_0=A\tfrac\kappa2+B(1-\kappa)>0$. Hence $f<0$ strictly on $(0,1)$, $=0$ only at
+the endpoints.
+
+\emph{(iii), strict convexity -- the closed-form single-well proof.} Substitute
+$x=\kappa/2\in[0,\tfrac12]$, so $p_1=x$, $p_0=1-2x$, $T_-=A(1-2x)+Bx$,
+$T_0=Ax+B(1-2x)$, and
+\[
+   g(x)=\frac{\E[\pi^2\1\{D{=}0\}]}{Q^2}
+        =\frac{x^2}{T_-(x)}+\frac{(1-2x)^2}{T_0(x)}+\frac{x}{B}.
+\]
+The third term is affine ($g_3''=0$). For the first term, $T_-(x)=A+(B-2A)x$ is
+affine in $x$ with constant slope $T_-'=B-2A$. For any affine $T=\alpha+\beta x$
+with $\alpha,\beta$ constant, one has the elementary identity
+\[
+   \frac{d^2}{dx^2}\!\left[\frac{x^2}{T}\right]
+   =\frac{2\,(\beta x-T)^2}{T^{3}}
+   =\frac{2\alpha^2}{T^{3}},
+   \qquad\text{since } \beta x-T=\beta x-(\alpha+\beta x)=-\alpha .
+\]
+(The first equality is the standard quotient-rule reduction for an affine
+denominator; the second uses $\beta x-T=-\alpha$.) Applying this to $x^2/T_-$ with
+$\alpha=A$ gives $2A^2/T_-^3$. For the second term write $T_0(x)=B+(A-2B)x$ and use
+the chain rule $\tfrac{d^2}{dx^2}[(1-2x)^2/T_0]
+=4\,\tfrac{d^2}{du^2}[u^2/\widetilde T_0]$ with $u=\tfrac12(1-2x)$ a unit-speed
+reparametrisation; the same affine-denominator identity, with constant term again
+equal to $A$ after substitution, yields $2A^2/T_0^3$. (Both reductions were checked
+symbolically: $g''-(2A^2/T_-^3+2A^2/T_0^3)=0$, \texttt{resid\_gpp\_identity}$=0$;
+and $x\,T_-'-T_-=-A$, \texttt{x\_Tmp\_minus\_Tm}$=-A$.) Thus
+\[
+   g''(x)=\frac{2A^2}{T_-(x)^3}+\frac{2A^2}{T_0(x)^3}>0
+   \qquad\text{on }[0,\tfrac12],
+\]
+since $A>0$ and $T_-,T_0>0$. Therefore $g$ is \emph{strictly convex} on
+$[0,\tfrac12]$. Because the mean is $\kappa$-invariant by (i),
+\[
+   V(\kappa):=\Var[\pi\mid D{=}0]
+   =\frac{\E[\pi^2\1\{D{=}0\}]}{A+B}-\Bigl(\frac{Q}{A+B}\Bigr)^2
+   =\frac{Q^2}{A+B}\,g\!\bigl(\tfrac\kappa2\bigr)-\Bigl(\frac{Q}{A+B}\Bigr)^2,
+\]
+an increasing affine function of $g$ composed with the increasing affine
+$\kappa\mapsto\kappa/2$. Strict convexity is preserved under increasing-affine
+pre- and post-composition, so $V$ is strictly convex in $\kappa$ on $[0,1]$ with
+$V(0)=V(1)$; a strictly convex function with equal endpoints has a \emph{unique}
+interior minimizer and is strictly decreasing to the left of it and strictly
+increasing to the right. This is the rigorous single-well statement, in closed
+form---it replaces any reliance on simulation.
+
+\emph{Endpoint slopes.} With $f=N/G$, $N(\kappa)=-A Q^2(A+B)\,g_0(\kappa)$,
+$g_0(\kappa)=\kappa(2-\kappa)(1-\kappa)$, $G(\kappa)=4 B\,T_-T_0$, and
+$N(0)=N(1)=0$, the quotient rule gives $f'(\text{end})=N'(\text{end})/G(\text{end})$.
+Now $g_0'(0)=2$, $g_0'(1)=-1$, $G(0)=4 A B^2$, $G(1)=A B^2$, so
+\begin{equation}\label{eq:fslopes}
+   f'(0)=\frac{-2 A Q^2(A+B)}{4 A B^2}=-\frac{(A+B)Q^2}{2B^2},
+   \qquad
+   f'(1)=\frac{+A Q^2(A+B)}{A B^2}=+\frac{(A+B)Q^2}{B^2}.
+\end{equation}
+Dividing by $A+B$ (and recalling $V'(\kappa)=f'(\kappa)/(A+B)$ from the display
+above) gives the variance endpoint slopes~\eqref{eq:Vslopes}: $V'(0)=-Q^2/(2B^2)<0$,
+$V'(1)=+Q^2/B^2>0$. [Verified symbolically: \texttt{resid\_fprime0}$=$
+\texttt{resid\_fprime1}$=0$.] These opposite signs are now redundant given the
+convexity proof, but they record the direction of the well.
+
+\emph{Symmetric special case (sanity).} When $A=B$, $T_-=T_0=B(1-\tfrac\kappa2)$,
+so $4BT_-T_0=B^3(2-\kappa)^2$ and~\eqref{eq:fclosed} collapses to
+\[
+   f(\kappa)\big|_{A=B}=-\frac{2\,Q^2\,\kappa\,(1-\kappa)}{B\,(2-\kappa)},
+\]
+whose unique critical point in $(0,1)$ is $\kappa=2-\sqrt2\approx0.586$ (the root
+$2+\sqrt2>1$ is rejected), matching the broad interior variance dip and the hump
+peak $\kappa^\ast\approx0.59$ found in equilibrium (\texttt{phase0\_facts.md}).
+\end{proof}
+
+% =====================================================================
+% DECOMPOSITION REMARK: GE cutoff-shift channel [OPEN], EXACT finite-support
+% Jensen bridge [PROVED at fixed masses], (C*) [PRIMITIVE CONDITION],
+% uniqueness [NUMERICAL REGULARITY].
+% =====================================================================
+\begin{remark}[Decomposition, the unsigned cutoff-shift channel, and the standing
+hypotheses for the interior hump]\label{rem:decomp}
+Lemmas~\ref{lem:endpoint}--\ref{lem:variance} are the analytic core; they do
+\emph{not} by themselves sign the interior behaviour of $\Delta^{\min}$, and we
+do \emph{not} claim they do. This is the honest crux of the relabel: the
+headline single-peakedness of $\kappa\mapsto\Delta^{\min}(\kappa)$ is
+\emph{not} established here as a theorem.
+
+\emph{(a) The general-equilibrium decomposition \textnormal{[OPEN]}.}
+$\Delta^{\min}$ depends on $\kappa$ both directly (through the $\{D=0\}$ posterior
+law at fixed cutoffs) and indirectly (through equilibrium cutoffs). Writing
+$k=(k_1,k_0,k_D)$,
+\begin{equation}\label{eq:GEdecomp}
+   \frac{d\,\Delta^{\min}}{d\kappa}
+   =\underbrace{\frac{\partial\Delta^{\min}}{\partial\kappa}\Big|_{k}}
+     _{\text{direct / distributional channel}}
+   +\underbrace{\sum_{i}\frac{\partial\Delta^{\min}}{\partial k_i}\,
+                \frac{dk_i}{d\kappa}}_{\text{cutoff-shift (GE) channel}} .
+\end{equation}
+The cutoff-shift term is \emph{genuinely unsigned}: $dk_i/d\kappa$ is determined by
+the equilibrium fixed point and is not pinned down in closed form, and the
+\emph{envelope theorem does not annihilate it}, because $\Delta^{\min}$ is minority
+welfare, not the blockholder's objective---the equilibrium first-order conditions
+zero $\partial(\text{blockholder payoff})/\partial k_i$ but \emph{not}
+$\partial\Delta^{\min}/\partial k_i$. Lemma~\ref{lem:variance} controls only the
+direct channel along the fixed two-point law; we therefore do \emph{not} claim a
+signed interior derivative here. This is the precise step at which the full
+analytic proof of the hump does not close. Phase-0 confirms the GE channel is
+real: re-solving cutoffs, $\E[\pi\mid D{=}0]$ drifts over a range
+$\approx0.267$ across $\kappa\in\{0,.25,.5,.75,1\}$, precisely because (i)'s
+invariance holds only at \emph{fixed} masses while the cutoffs (hence $A,B,Q$)
+move with $\kappa$; the tower identity~\eqref{eq:tower} stays exact throughout, so
+all that drift is mass-channel drift through $\PP(D{=}0)=A+B$ and $Q$. This is
+also why the equilibrium variance can fail the strict single-well property of
+Lemma~\ref{lem:variance}(iii): Phase-0 finds the moving-mass conditional variance
+``broadly U-shaped but not a strict well'' (e.g.\ a bump at $\kappa=0.25$ above
+the endpoint level). There is no contradiction: Lemma~\ref{lem:variance}(iii) is a
+\emph{fixed-mass} statement, and the moving-mass variance need not be monotone on
+each side.
+
+\emph{(b) The governing object, and an exact finite-support bridge
+\textnormal{[PROVED at fixed masses]}.}
+Fix the masses at their equilibrium values at a given $\kappa$ and ask how the
+direct channel moves $\Delta^{\min}$. By Lemma~\ref{lem:transport} the non-disclosed
+contribution is $\PP(D{=}0)\,\E[h(\pi)\mid D{=}0]$ with realized weight
+$h(\pi)=\pi\,p(\pi)$ on $[0,\bar\pi]$ (we absorb the constant $m^R(1)$ into the
+calibrated level; the curvature that signs the effect is that of $\pi\mapsto\pi
+p(\pi)$). The decisive feature is that the realized $\{D=0\}$ law is \emph{finitely
+supported}: on at most the four points $\{0,\pi(-1),\pi(0),\bar\pi\}$ of
+Table~\ref{tab:D0cells}, of which $0$ and $\bar\pi$ are the chord \emph{endpoints}
+(the only atoms surviving the $\kappa\to0^+,1^-$ limits, Step~1) and $\pi(-1),\pi(0)$
+are the two \emph{interior} atoms. So $\E[h\mid D{=}0]$ is an \emph{exact} convex
+combination, not an approximation, and there is no Taylor remainder to control. We
+compare it to the chord of $h$ over $[0,\bar\pi]$ \emph{exactly}.
+
+Let the normalized cell probabilities be $w_X=\PP(X,D{=}0)/(A+B)$, so
+$\sum_X w_X=1$ and (by Lemma~\ref{lem:variance}(i)) $\sum_X w_X\,\pi(X)=\bar\mu:=Q/(A+B)$.
+Write $\ell(\pi)=h(0)+\tfrac{h(\bar\pi)-h(0)}{\bar\pi}\,\pi$ for the affine chord of
+$h$ on $[0,\bar\pi]$ through the two surviving end atoms. Because $\ell$ is affine and
+the conditional mean is pinned at $\bar\mu$ for all $\kappa$ (Lemma~\ref{lem:variance}(i)),
+$\E[\ell(\pi)\mid D{=}0]=\ell(\bar\mu)$ is a \emph{$\kappa$-free constant}. Hence
+\begin{equation}\label{eq:exactJensen}
+   \E[h(\pi)\mid D{=}0]-\ell(\bar\mu)
+   \;=\;\E\bigl[h(\pi)-\ell(\pi)\,\big|\,D{=}0\bigr]
+   \;=\;\sum_{X} w_X\,\bigl(h(\pi(X))-\ell(\pi(X))\bigr),
+\end{equation}
+an \emph{exact} identity: the entire $\kappa$-motion of the non-disclosed level
+(\emph{at fixed masses}) is the probability-weighted gap $h-\ell$ between $h$ and
+its chord, evaluated at the realized atoms. If $h$ is concave on $[0,\bar\pi]$ then
+$h-\ell\ge0$ pointwise with equality only at the chord ends, so the right side
+of~\eqref{eq:exactJensen} is $\ge0$ and is \emph{larger} when more weight sits on
+interior atoms; symmetrically, if $h$ is convex then $h-\ell\le0$ and the gap is
+\emph{more negative} when interior atoms are heavier. The $\kappa$-comparative
+static of \emph{where} the mass sits is exactly the mean-preserving reshuffling of
+Lemma~\ref{lem:variance}: as $\kappa$ rises from $0$, weight moves from the two end
+atoms toward the interior (the variance falls to its well at $\kappa=2-\sqrt2$),
+then back out (variance rises). Therefore, \emph{at fixed masses}:
+\begin{itemize}
+   \item if $h$ is concave on the chord, $\E[h\mid D{=}0]$ is pulled \emph{up} in the
+   middle: an interior \emph{hump} in the direct channel;
+   \item if $h$ is convex on the chord, $\E[h\mid D{=}0]$ is pulled \emph{down} in the
+   middle: an interior \emph{trough}.
+\end{itemize}
+The single scalar that decides concavity-vs-convexity on the realized chord is the
+secant second difference at the chord midpoint,
+\begin{equation}\label{eq:Cstar}
+   \textbf{(C$^\ast$)}\qquad
+   \Lambda\;:=\;h(0)-2\,h\!\bigl(\tfrac{\bar\pi}{2}\bigr)+h(\bar\pi)
+   \;=\;-\,\bar\pi\,p\!\bigl(\tfrac{\bar\pi}{2}\bigr)+\bar\pi\,p(\bar\pi)
+   \qquad(\text{using }h(0)=0,\ h(\pi)=\pi p(\pi)) .
+\end{equation}
+For a finitely supported law on a chord this is the exact and operative diagnostic;
+\textbf{the interior hump (direct channel) requires $\Lambda<0$} ($h$ concave on
+the chord). We emphasise that \eqref{eq:exactJensen} is an \emph{exact
+finite-support Jensen statement}, not a second-order expansion: there is no
+remainder term, and $\Lambda$ is not a leading-order proxy for a pointwise
+curvature $h''(\bar\mu)$. On a chord of length $\bar\pi\sim1$ the spread is not
+small and the pointwise expansion is not licensed.
+
+\emph{(c) Why the chord, not pointwise curvature, and why not $\bar m\,p$
+\textnormal{[verified diagnostic, not a derived sign]}.} The chord second
+difference~\eqref{eq:Cstar} matches the realized hump/trough in $16/20$ robustness
+cells, versus $8/20$ for any pointwise curvature test. We make \emph{no} curvature
+claim about the alternative integrand $\bar m(\pi)p(\pi)$: the condition $\bar
+m(\pi)T(\pi)<2\sigma_\xi$ from an earlier draft was derived for $\bar m\,p$, not
+for the realized $h=\pi p$, and the two disagree in sign in a documented cell
+($\sigma_\xi=0.25,\bar S=1.44$); $h=\pi p$ is the correct object because
+$\E[\pi\1\{D=0\}]=Q$ (the $\pi$-weight is what the tower identity controls), so
+$\Lambda$ on $h=\pi p$ is the operative diagnostic and the $\bar m\,p$ condition is
+discarded.
+
+\emph{(d) The disclosed branch and the standing hypotheses.} The $\{D=1\}$
+contribution $\tilde m\,\omega_P\,p^{P}$ is $\kappa$-invariant (the disclosed pool
+contains only Public Voice, untouched by noise mixing), so all $\kappa$-dependence of
+$\Delta^{\min}$ lives in the non-disclosed branch. The interior-hump statement the
+paper draws on these lemmas therefore requires, beyond the Standing Assumptions and
+the (UHC)+(ISO) of Lemma~\ref{lem:endpoint}:
+\begin{enumerate}
+\item[(C$^\ast$)] \emph{[PRIMITIVE CONDITION]} $\Lambda<0$ on the realized chord
+      --- a stated hypothesis whose sign is genuinely parameter-dependent (Phase-0
+      robustness: $16/20$ cells hump, $4/20$ trough, all at high
+      $\sigma_\xi=0.60$), \emph{not} a derived fact. At the baseline calibration
+      the slack at the chord-representative state is $\bar m\,T-2\sigma_\xi=-0.536$
+      (\texttt{phase0\_robustness.md}), so (C$^\ast$) holds with margin there;
+\item[(GE)] \emph{[OPEN]} domination of the direct channel over the cutoff-shift
+      channel~\eqref{eq:GEdecomp} near the interior optimum --- the unsigned term
+      of (a); and
+\item[(U)] \emph{[NUMERICAL REGULARITY]} equilibrium selection/uniqueness --- the
+      contraction property underlying uniqueness (A6) is assumed, not proved;
+      multistart solves find a single fixed point at every tested $\kappa$ and the
+      interior effect holds on every warm-started branch, but this is
+      calibration-level numerical evidence.
+\end{enumerate}
+Any statement about the \emph{amplitude} of the interior effect (the calibration's
+$\approx9.5\%$--$15.8\%$ of level) is a numerical finding from the exhibit, not
+established by these lemmas.
+\end{remark}
+
+% =====================================================================
+% HONEST STATUS LEDGER -- what is proved, what is numerically verified,
+% what remains open.  This is the EGJ-style closing.
+% =====================================================================
+\paragraph{Status of the headline result (honest ledger).}
+Following the precedent of comparative-static results that are established under an
+explicit primitive condition plus numerical support rather than a global proof
+(see, e.g., the liquidity comparative-static in the blockholder-governance
+literature), we record exactly what this fragment delivers.
+
+\noindent\emph{Proved.}
+\begin{enumerate}
+\item \emph{[PROVED]} Transport (Lemma~\ref{lem:transport}): the $\{D=0\}$
+      minority-gain kernel reads only the engagement posterior $\pi$.
+\item \emph{[PROVED]} The tower identity $\E[\pi\1\{D=0\}]=\omega_Q$
+      (eq.~\ref{eq:tower}) and $\PP(D{=}0)=A+B$, $\E[\pi\mid D{=}0]=Q/(A+B)$ at
+      fixed masses.
+\item \emph{[PROVED, conditional on (UHC)+(ISO)]} Endpoint \emph{symmetry} as a
+      $\kappa\to0,1$ limit (Lemma~\ref{lem:endpoint}), with A2 supplying (ISO).
+      This \emph{replaces} and \emph{refutes} the OLD Endpoints Lemma (no voice
+      collapse; both limits give the two-point law $\{0,\bar\pi\}$, not the prior).
+\item \emph{[PROVED, closed form]} The non-disclosed posterior variance, at fixed
+      masses, is strictly convex in $\kappa$ with a unique interior well
+      (Lemma~\ref{lem:variance}; $g''=2A^2/T_-^3+2A^2/T_0^3>0$, sympy residual $0$).
+\item \emph{[PROVED at fixed masses]} The exact finite-support Jensen bridge
+      (eq.~\ref{eq:exactJensen}): the direct-channel interior bulge has sign
+      $=-\operatorname{sign}\Lambda$ with $\Lambda$ the exact chord second
+      difference of $h=\pi p$. Hence, under (C$^\ast$), the \emph{direct channel}
+      strictly humps above the equal endpoints.
+\end{enumerate}
+
+\noindent\emph{Numerically verified (regularities, flagged as such).}
+\begin{enumerate}
+\item \emph{[NUMERICAL REGULARITY]} Endpoint values coincide at the solvable
+      near-extremes (gaps $3.6$--$3.8\times10^{-5}$; exact-endpoint solves agree to
+      $6.86\times10^{-7}$), consistent with the proved limit.
+\item \emph{[NUMERICAL REGULARITY]} At the baseline calibration the \emph{full}
+      (moving-mass, general-equilibrium) map $\kappa\mapsto\Delta^{\min}$ is
+      single-peaked, $\kappa^\star\approx0.59$, peak $0.07756$, amplitude
+      $\approx9.5\%$--$15.8\%$ of level versus a solver-noise floor
+      $\sim4.5\times10^{-7}$; equilibrium is numerically unique and the hump holds
+      on every warm-started branch.
+\item \emph{[NUMERICAL REGULARITY]} (C$^\ast$) holds at baseline but flips in
+      $4/20$ robustness cells (high $\sigma_\xi$), confirming the headline is
+      \emph{conditional}.
+\end{enumerate}
+
+\noindent\emph{Open (not established).}
+\begin{enumerate}
+\item \emph{[OPEN]} Signing the general-equilibrium cutoff-shift term
+      $\sum_i(\partial\Delta^{\min}/\partial k_i)(dk_i/d\kappa)$ in
+      \eqref{eq:GEdecomp}. The envelope theorem does \emph{not} apply
+      ($\Delta^{\min}$ is minority welfare, not the blockholder's maximand). This
+      is the exact step at which the full analytic proof fails; consequently the
+      \emph{global} single-peakedness of $\Delta^{\min}$ in $\kappa$ is a numerical
+      regularity, \emph{not} a theorem.
+\item \emph{[OPEN]} A primitive sufficient condition for global single-peakedness
+      (as opposed to the fixed-mass direct-channel bulge) holding uniformly in
+      $\kappa$.
+\item \emph{[OPEN]} Uniqueness of equilibrium (we assume A6's contraction;
+      uniqueness is only verified numerically), and hence (UHC) at the extremes.
+\item \emph{[OPEN]} A clean closed-form evaluation \emph{at} the exact endpoints
+      $\kappa\in\{0,1\}$ (not numerically solvable equilibria); symmetry must
+      remain a limit statement.
+\item \emph{[OPEN]} Characterization of the full hump/trough boundary of
+      (C$^\ast$) in primitive space; the $20$-cell map shows the sign can flip.
+\end{enumerate}
+
+\noindent\emph{Honesty statement.} This fragment does \emph{not} present a
+completed proof of the liquidity hump in $\Delta^{\min}$. After five attempts the
+full analytic proof did not close: the obstruction is the genuinely unsigned
+general-equilibrium cutoff-shift term (item~1 of Open). What \emph{is} proved is
+kept as proved (the analytic core: Transport, endpoint symmetry under (UHC)+(ISO),
+the closed-form fixed-mass variance well, and the exact chord bridge giving a
+conditional direct-channel bulge under the primitive (C$^\ast$)). The remaining
+global step is presented as a numerically verified regularity at the baseline
+calibration, clearly flagged, in the manner of established conditional
+comparative-static results. The numbers cited are the Phase-0 verified output in
+\texttt{quality\_reports/fixes/phase0\_facts.md} and \texttt{phase0\_robustness.md};
+the symbolic identities are checked to residual $0$ in
+\texttt{quality\_reports/fixes/D1\_prop6\_endpoint\_variance\_check.py}.
+
+%=======================================================================
+%  END D1_prop6_endpoint_variance.tex
+%=======================================================================
