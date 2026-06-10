@@ -181,8 +181,24 @@ No model links all three: how does market liquidity, through its effect on infor
 {\small\textbf{Contribution:}\\[0.2em]
 (i) Non-monotone liquidity effect on premia\\
 (ii) Disclosure attenuation mechanism\\
-(iii) Liquidity regulation $\equiv$ governance policy}
+(iii) Premium wedge from tender mechanics\\
+(iv) Liquidity regulation $\equiv$ governance policy}
 \end{columns}
+\end{frame}
+
+% ── SLIDE 2b: Positioning vs the structural activism trio ────────────────
+\begin{frame}{Positioning: The Structural Activism Trio}
+\hypertarget{main:positioning}{}
+\small
+\begin{itemize}\itemsep0.35em
+  \item \textbf{\citealp{JohnsonSwem2021}} (JFE): dynamic \emph{reputation}; accumulation is a reduced-form cost draw; owns the 13D-window $\leftrightarrow$ $\sigma^2 T$ lever (2024 acceleration).
+  \item \textbf{\citealp{AlbuquerqueFosSchroth2022}} (JFE): structural 13D-vs-13G choice; engagement cost a \emph{scalar}; estimate activism \emph{lowers} bid premia by $13.7\%$.
+  \item \textbf{\citealp{CelentanoLevine2025}} (R\&R RFS): equilibrium activism $+$ takeovers $+$ managerial discipline; no market microstructure.
+\end{itemize}
+
+\begin{block}{This paper's lane}
+\small Liquidity, order-flow inference, and the disclosure rule are the trio's \textbf{missing state variables}. The premium they estimate as a constant is here an \textbf{equilibrium object of tender mechanics} ($\lambda = 1-q(1-\gamma)\psi$) --- and the AFS negative sign is the low-$\lambda$ region of our model, not a contradiction.
+\end{block}
 \end{frame}
 
 % ── SLIDE 3: Disclosure Creates Two Information Regimes ───────────────────
@@ -504,6 +520,8 @@ $\Delta^{\min}(\kappa)$ is \textbf{hump-shaped}: moderate $\kappa$ uniquely maxi
 \vspace{-0.2em}
 \end{block}
 
+{\scriptsize\textbf{Status upgrade (new):} the GE clause is now a \emph{theorem} on a certified region $+$ a certified counterexample at its boundary (Theorem B slide).}
+
 \vspace{0.1em}
 {\footnotesize\textbf{Decomposition:}
 \vspace{-0.5em}
@@ -557,6 +575,51 @@ $\Delta^{\min}(\kappa)$ is \textbf{hump-shaped}: moderate $\kappa$ uniquely maxi
 
 \backuplink{backup:sensitivity}{Sensitivity analyses}
 \backuplink{backup:decomposition_proof}{Decomposition proof}
+\end{frame}
+
+% ── SLIDE 10c: NEW Theorem A — the wedge from tender mechanics ───────────
+\begin{frame}{New Theorem A: The Premium Wedge from Tender Mechanics}
+\hypertarget{main:thmA}{}
+\begin{columns}[T,onlytextwidth]
+\column{0.55\textwidth}
+\centering
+\includegraphics[width=\linewidth]{fig_wedge_primitives.pdf}
+
+\column{0.43\textwidth}
+\begin{block}{Appropriability is now derived}
+\vspace{-0.6em}
+\[
+\lambda \;=\; 1 - q\,(1-\gamma)\,\psi \;\in\; [0,1]
+\]
+\vspace{-1.4em}
+
+{\footnotesize $q$: fringe-raid intensity \;$\cdot$\; $\gamma$: improvement portability \;$\cdot$\; $\psi$: pivotality}
+\end{block}
+
+{\small $m_1{-}m_0 = (1{-}\theta)\lambda\rho\Delta_{\text{eng}}$. \;A3 fails \textbf{only if} fringe raids are certain, fully superseding, and unblockable.}
+
+\vspace{0.2em}
+{\footnotesize\textbf{AFS reconciled:} measured premium $\bar m/P$ \emph{falls} in activism evidence when $\lambda$ is small --- the price capitalizes activism faster than the wedge grows.}
+\end{columns}
+\end{frame}
+
+% ── SLIDE 10d: NEW Theorem B — certified region + counterexample ─────────
+\begin{frame}{New Theorem B: When Is the Hump a Theorem?}
+\hypertarget{main:thmB}{}
+\begin{columns}[T,onlytextwidth]
+\column{0.58\textwidth}
+\centering
+\includegraphics[width=\linewidth]{fig_ge_decomposition.pdf}
+
+\column{0.40\textwidth}
+{\small\textbf{Certified region:} GE cutoff-shift channel bounded \emph{inversion-free} via the contraction modulus ($L \le 0.84$): hump $=$ \textbf{theorem} on $\kappa\in[0.35,0.825]$.}
+
+\vspace{0.3em}
+{\small\textbf{Certified counterexample:} at $\sigma_\xi{=}0.60$ channel (A) stays single-peaked, yet equilibrium $\Delta^{\min}$ is a \textbf{trough} --- GE-dominance is false globally.}
+
+\vspace{0.3em}
+{\footnotesize The boundary is economic: GE feedback wins exactly where bid entry is insensitive to premia.}
+\end{columns}
 \end{frame}
 
 % ── SLIDE 11: Disclosure Attenuation (Prop 6) ────────────────────────────
@@ -650,6 +713,10 @@ bid incidence rises but the activism premium erodes.
 {\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}}\\[0.1em]
 Unifies exit/voice, informed trading, and takeover literatures.
 Disclosure policy implicitly governs the liquidity-premia relationship.
+\textbf{New:} premium wedge derived from a free-rider tender game
+($\lambda = 1-q(1-\gamma)\psi$; rationalizes AFS's negative premium estimate);
+GE clause of the hump certified as a theorem on $[0.35,0.825]$ with a genuine
+counterexample at $\sigma_\xi = 0.60$.
 
 \vspace{0.2em}
 

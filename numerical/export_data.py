@@ -42,6 +42,10 @@ from numerical.solver import (
     solve_equilibrium,
     solve_valid,
 )
+from numerical.takeover_game import (
+    TenderGameParams,
+    params_with_endogenous_wedge,
+)
 
 
 # ============================================================================
@@ -367,6 +371,142 @@ def export_noisy_rumor(base_params: ModelParams, data_dir: str) -> None:
     )
 
 
+def export_ge_decomposition(base_params: ModelParams, data_dir: str) -> None:
+    """Export data for Figure 14: the GE cutoff-shift channel (Appendix D8).
+
+    Two CSVs:
+      ge_decomposition.csv -- baseline-path channel decomposition
+          d(Delta_min)/d(kappa) = chanA (posterior/pricing, kappa-FD at frozen
+          cutoffs) + chanB (GE cutoff-shift, residual of the total derivative).
+      ge_cellmap.csv -- hump/trough classification over the (sigma_xi, S_bar)
+          robustness family (the D8 counterexample cells live at
+          sigma_xi = 0.60).
+    """
+    h = 2e-3
+
+    def phi(cut: Cutoffs, p: ModelParams) -> float:
+        return compute_minority_gains(cut.k1, cut.k0, cut.kD, p).total
+
+    # -- baseline path decomposition ----------------------------------------
+    rows = []
+    prev: Optional[Cutoffs] = None
+    for kappa in np.linspace(0.30, 0.85, 19):
+        try:
+            p = base_params.replace(kappa=float(kappa))
+            cut, res = solve_valid(p, prev)
+            if cut is None or not np.isfinite(res) or res > TOL_RESIDUAL:
+                rows.append([_fmt(float(kappa)), "NA", "NA", "NA", "NA"])
+                prev = None
+                continue
+            prev = cut
+            dmin = phi(cut, p)
+            chanA = (phi(cut, base_params.replace(kappa=float(kappa + h)))
+                     - phi(cut, base_params.replace(kappa=float(kappa - h)))) / (2 * h)
+            cut_p, res_p = solve_valid(base_params.replace(kappa=float(kappa + h)), cut)
+            cut_m, res_m = solve_valid(base_params.replace(kappa=float(kappa - h)), cut)
+            if cut_p is None or cut_m is None or max(res_p, res_m) > TOL_RESIDUAL:
+                rows.append([_fmt(float(kappa)), _fmt(dmin), _fmt(chanA), "NA", "NA"])
+                continue
+            total = (phi(cut_p, base_params.replace(kappa=float(kappa + h)))
+                     - phi(cut_m, base_params.replace(kappa=float(kappa - h)))) / (2 * h)
+            rows.append([_fmt(float(kappa)), _fmt(dmin), _fmt(chanA),
+                         _fmt(total - chanA), _fmt(total)])
+        except Exception:
+            rows.append([_fmt(float(kappa)), "NA", "NA", "NA", "NA"])
+
+    _write_csv(
+        os.path.join(data_dir, "ge_decomposition.csv"),
+        ["kappa", "Delta_min", "chanA", "chanB", "total"],
+        rows,
+    )
+
+    # -- hump/trough cell map over (sigma_xi, S_bar) ------------------------
+    cell_rows = []
+    kappa_grid = np.linspace(0.10, 0.90, 13)
+    for sigma_xi in [0.20, 0.40, 0.60]:
+        for S_bar in [1.24, 1.44, 1.64]:
+            p0 = base_params.replace(sigma_xi=sigma_xi, S_bar=S_bar)
+            prev = None
+            ks, vals = [], []
+            for kappa in kappa_grid:
+                try:
+                    cut, res = solve_valid(p0.replace(kappa=float(kappa)), prev)
+                    if cut is None or not np.isfinite(res) or res > TOL_RESIDUAL:
+                        prev = None
+                        continue
+                    prev = cut
+                    ks.append(float(kappa))
+                    vals.append(phi(cut, p0.replace(kappa=float(kappa))))
+                except Exception:
+                    prev = None
+            if len(vals) < 7:
+                cell_rows.append([_fmt(sigma_xi), _fmt(S_bar), "NA", "NA", "NA"])
+                continue
+            v = np.array(vals)
+            i_max, i_min = int(np.argmax(v)), int(np.argmin(v))
+            peak_amp = float(v[i_max] - max(v[0], v[-1]))
+            trough_amp = float(min(v[0], v[-1]) - v[i_min])
+            if 0 < i_min < len(v) - 1 and trough_amp > max(peak_amp, 1e-4):
+                shape, k_ext = "trough", ks[i_min]
+            elif 0 < i_max < len(v) - 1 and peak_amp > 1e-4:
+                shape, k_ext = "hump", ks[i_max]
+            else:
+                shape, k_ext = "flat", ks[i_max]
+            cell_rows.append([_fmt(sigma_xi), _fmt(S_bar), shape,
+                              _fmt(k_ext), _fmt(max(peak_amp, trough_amp))])
+
+    _write_csv(
+        os.path.join(data_dir, "ge_cellmap.csv"),
+        ["sigma_xi", "S_bar", "shape", "kappa_extremum", "amplitude"],
+        cell_rows,
+    )
+
+
+def export_wedge_primitives(base_params: ModelParams, data_dir: str) -> None:
+    """Export data for Figure 15: minority gains under the microfounded wedge.
+
+    Sweeps tender-game primitives (Appendix D7) -- portability gamma at fixed
+    fringe intensity q, then q at fixed gamma -- mapping each cell into the
+    body's calibration via ``params_with_endogenous_wedge`` (only m1 changes),
+    so the equilibrium pipeline is reused unchanged.
+    """
+    game0 = TenderGameParams.baseline()
+    sweeps = (
+        [("gamma", g, game0.replace(gamma=g)) for g in [0.0, 0.6, 1.0]]
+        + [("q", q, game0.replace(q=q)) for q in [0.2, 0.5, 0.9]]
+    )
+    kappa_values = np.linspace(0.25, 0.85, 21)
+
+    rows = []
+    for sweep_name, value, game in sweeps:
+        lam = game.appropriability
+        wedge = game.wedge(base_params.rho)
+        p_swept = params_with_endogenous_wedge(base_params, game)
+        prev: Optional[Cutoffs] = None
+        for kappa in kappa_values:
+            try:
+                p = p_swept.replace(kappa=float(kappa))
+                cutoffs, res = solve_valid(p, prev)
+                if cutoffs is None or not np.isfinite(res) or res > TOL_RESIDUAL:
+                    rows.append([sweep_name, _fmt(value), _fmt(lam), _fmt(wedge),
+                                 _fmt(float(kappa)), "NA"])
+                    prev = None
+                    continue
+                prev = cutoffs
+                total, _, _ = compute_minority_gains(cutoffs.k1, cutoffs.k0, cutoffs.kD, p)
+                rows.append([sweep_name, _fmt(value), _fmt(lam), _fmt(wedge),
+                             _fmt(float(kappa)), _fmt(total)])
+            except Exception:
+                rows.append([sweep_name, _fmt(value), _fmt(lam), _fmt(wedge),
+                             _fmt(float(kappa)), "NA"])
+
+    _write_csv(
+        os.path.join(data_dir, "wedge_primitives.csv"),
+        ["sweep", "value", "lambda", "wedge", "kappa", "Delta_min"],
+        rows,
+    )
+
+
 def export_welfare(base_params: ModelParams, data_dir: str) -> None:
     """Export data for Figure 13: Welfare decomposition."""
     kappa_values = np.linspace(0.25, 0.85, 21)
@@ -550,6 +690,14 @@ def export_all(output_dir: str = "numerical_output") -> None:
     # Figure 13: welfare
     print("Exporting Figure 13 data: Welfare...")
     export_welfare(params, data_dir)
+
+    # Figure 14: GE channel decomposition (Appendix D8)
+    print("Exporting Figure 14 data: GE Decomposition + Cell Map...")
+    export_ge_decomposition(params, data_dir)
+
+    # Figure 15: microfounded wedge primitives (Appendix D7)
+    print("Exporting Figure 15 data: Wedge Primitives (tender game)...")
+    export_wedge_primitives(params, data_dir)
 
     # LaTeX tables
     print("Writing LaTeX tables...")

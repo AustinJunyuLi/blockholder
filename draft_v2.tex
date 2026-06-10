@@ -81,7 +81,7 @@
 
 %==============================================================================
 \begin{abstract}
-\noindent How does a stake-triggered disclosure threshold shape the liquidity sensitivity of takeover premia? I develop a takeover model in which an informed blockholder, observing a private signal about firm value, chooses among Exit (sell the stake), Hold (retain passively), Quiet Voice (engage below the disclosure threshold), and Public Voice (accumulate shares, engage, and trigger mandatory disclosure). A market maker prices from order flow and the disclosure flag, and a potential bidder conditions entry on these market signals. Disclosure partitions order-flow inference into a disclosed branch, where the activism premium is directly observed, and a nondisclosed branch, where it is merely inferred. The central result is a disclosure-attenuation theorem: by moving the activism premium from an inferred to a directly observable basis, stricter disclosure makes takeover premia less sensitive to market liquidity, predicting lower liquidity sensitivity in strict-disclosure jurisdictions. As a supporting comparative static, under a transparent primitive condition on the price-elasticity of bids, the premium captured by minority shareholders is single-peaked in liquidity, with exact endpoint symmetry $\Delta^{\min}(0)=\Delta^{\min}(1)$, so an interior, premium-maximizing liquidity level $\kappa^{\dagger}$ exists and its location is governed by the disclosure threshold. Rising noise-trading intensity lowers adverse-selection costs but erodes the informativeness of order flow, pushing bid incidence and engagement incentives in opposing directions; the interior optimum reflects this balance and is driven by the disclosure regime rather than by the activism technology.
+\noindent How does a stake-triggered disclosure threshold shape the liquidity sensitivity of takeover premia? I develop a takeover model in which an informed blockholder, observing a private signal about firm value, chooses among Exit (sell the stake), Hold (retain passively), Quiet Voice (engage below the disclosure threshold), and Public Voice (accumulate shares, engage, and trigger mandatory disclosure). A market maker prices from order flow and the disclosure flag, and a potential bidder conditions entry on these market signals. Disclosure partitions order-flow inference into a disclosed branch, where the activism premium is directly observed, and a nondisclosed branch, where it is merely inferred. The central result is a disclosure-attenuation theorem: by moving the activism premium from an inferred to a directly observable basis, stricter disclosure makes takeover premia less sensitive to market liquidity, predicting lower liquidity sensitivity in strict-disclosure jurisdictions. As a supporting comparative static, under a transparent primitive condition on the price-elasticity of bids, the premium captured by minority shareholders is single-peaked in liquidity, with exact endpoint symmetry $\Delta^{\min}(0)=\Delta^{\min}(1)$, so an interior, premium-maximizing liquidity level $\kappa^{\dagger}$ exists and its location is governed by the disclosure threshold. Rising noise-trading intensity lowers adverse-selection costs but erodes the informativeness of order flow, pushing bid incidence and engagement incentives in opposing directions; the interior optimum reflects this balance and is driven by the disclosure regime rather than by the activism technology. Two further results place the model's load-bearing primitives on solved foundations. First, the engagement premium wedge $m_1>m_0$ is derived from a complete free-rider tender game at the bargaining disagreement node: the appropriability of the activist's improvement is $\lambda=1-q(1-\gamma)\psi$ in fringe-raid intensity, improvement portability, and bloc pivotality, and the wedge fails only on a characterized boundary --- which also rationalizes, rather than contradicts, the negative \emph{measured} premium effect of activism estimated by Albuquerque, Fos, and Schroth (2022). Second, the general-equilibrium cutoff-shift channel that conditions the single-peak result is bounded by an inversion-free computable quantity: single-peakedness is a theorem on a certified interior region of liquidity, and a certified counterexample at high bidder heterogeneity shows the restriction is not removable.
 \end{abstract}
 
 \newpage
@@ -98,7 +98,7 @@ The model yields two main results. First, liquidity has a nonmonotone effect on 
 
 These theoretical mechanisms speak directly to active policy debates. The United States Schedule 13D threshold of 5\% and the United Kingdom FCA threshold of 3\% create meaningfully different information environments. The framework provides a rigorous way to evaluate how such cross-country differences affect takeover outcomes and minority shareholder welfare, revealing that liquidity regulation operates implicitly as governance policy.
 
-The model's predictions are motivated by well-documented empirical patterns. \citet{BravJiangPartnoyThomas2008} show that hedge fund activism often targets firms that subsequently receive acquisition offers. \citet{GreenwoodSchor2009} find that a substantial fraction of activist returns is attributable to takeover outcomes. The free-rider problem that \citet{GrossmanHart1980} identified in tender offers makes takeover premia the natural welfare object for dispersed minority shareholders, underscoring the importance of understanding how liquidity shapes these outcomes.
+The model's predictions are motivated by well-documented empirical patterns. \citet{BravJiangPartnoyThomas2008} show that hedge fund activism often targets firms that subsequently receive acquisition offers. \citet{GreenwoodSchor2009} find that a substantial fraction of activist returns is attributable to takeover outcomes. The free-rider problem that \citet{GrossmanHart1980} identified in tender offers makes takeover premia the natural welfare object for dispersed minority shareholders, underscoring the importance of understanding how liquidity shapes these outcomes. The same free-rider logic does double duty here: solving the tender game at the bargaining disagreement node is what pins the engagement premium wedge from primitives (Appendix~\ref{app:d7}), and the resulting appropriability coefficient predicts \emph{where} activism raises premia and where --- as \citet{AlbuquerqueFosSchroth2022} estimate on average --- measured premia fall.
 
 The paper proceeds as follows. Section~\ref{sec:lit} reviews the literature. Section~\ref{sec:model} presents the model, and Section~\ref{sec:equilibrium} characterizes the equilibrium. Section~\ref{sec:numerical} develops comparative statics with numerical analysis. Section~\ref{sec:testable} presents testable implications. Sections~\ref{sec:welfare} and~\ref{sec:extensions} analyze welfare and disclosure extensions. Section~\ref{sec:conclusion} concludes.
 \section{Related Literature}
@@ -125,7 +125,9 @@ Microstructure models explain how prices aggregate private information through t
 \subsection{Shareholder Activism and Takeovers}
 %
 
-Empirical evidence firmly links activism to corporate control. \citet{BravJiangPartnoyThomas2008} document foundational stylized facts regarding activist target selection and subsequent acquisition offers. \citet{GreenwoodSchor2009} show that a substantial fraction of activist returns traces to these takeover outcomes. \citet{CorumLevit2019} model this control channel directly, showing that activists hold a comparative advantage over bidders in pressuring entrenched incumbents to sell; relative to their static contracting focus, the present paper embeds the activist's governance choice in a market-microstructure setting where order-flow inference and disclosure shape bidder entry. The canonical \citet{GrossmanHart1980} model establishes the free-rider problem that makes the takeover premium the relevant welfare metric for dispersed minority shareholders.\footnote{\citet{BackEtAl2018} embed an activist in a continuous-time Kyle model to study liquidity and efficiency, but they do not incorporate the feedback loop between order-flow inference and bidder entry conditional on disclosure. \citet{CetemenCisternasKolbViswanathan2026} study a dynamic complement in which sophisticated activists time their trades sequentially and use market signals to coordinate, generating leader-follower dynamics among blockholders; this paper instead focuses on a single blockholder's static choice among exit, quiet voice, and threshold-triggering public voice, and how disclosure partitions order-flow inference that feeds bidder entry.}
+Empirical evidence firmly links activism to corporate control. \citet{BravJiangPartnoyThomas2008} document foundational stylized facts regarding activist target selection and subsequent acquisition offers. \citet{GreenwoodSchor2009} show that a substantial fraction of activist returns traces to these takeover outcomes. \citet{CorumLevit2019} model this control channel directly, showing that activists hold a comparative advantage over bidders in pressuring entrenched incumbents to sell; relative to their static contracting focus, the present paper embeds the activist's governance choice in a market-microstructure setting where order-flow inference and disclosure shape bidder entry. The canonical \citet{GrossmanHart1980} model establishes the free-rider problem that makes the takeover premium the relevant welfare metric for dispersed minority shareholders.
+
+A rapidly maturing structural literature quantifies activism along complementary margins, and the present paper's positioning is sharpest against it. \citet{Gantchev2013} estimates the sequential costs of campaigns; \citet{AlbuquerqueFosSchroth2022} structurally estimate the binary 13D-versus-13G choice jointly with announcement returns, decomposing activist returns into treatment, stock-picking, and selection --- and estimate that activism \emph{lowers} takeover bid premia relative to a no-activist counterfactual, a finding Proposition~\ref{prop:d7-afs} rationalizes through the price channel without reversing the engagement wedge; \citet{JohnsonSwem2021} estimate a dynamic reputation model of activism in which the pre-disclosure accumulation window plays the role of cumulative noise-trading cover, the lever the 2024 acceleration of the 13D deadline moves; and \citet{CelentanoLevine2025} estimate an equilibrium model of activism, takeovers, and managerial discipline. None of these models the trading-and-disclosure environment itself --- liquidity, order-flow inference, and the stake-triggered disclosure rule are this paper's state variables, and the premium those papers treat as an estimated constant is here an equilibrium object of tender mechanics (Appendix~\ref{app:d7}) whose sign and size vary in observable primitives. \citet{CollinDufresneFos2015} provide the reduced-form complement, showing measured price impact falls exactly when informed blockholders trade against liquidity.\footnote{\citet{BackEtAl2018} embed an activist in a continuous-time Kyle model to study liquidity and efficiency, but they do not incorporate the feedback loop between order-flow inference and bidder entry conditional on disclosure. \citet{CetemenCisternasKolbViswanathan2026} study a dynamic complement in which sophisticated activists time their trades sequentially and use market signals to coordinate, generating leader-follower dynamics among blockholders; this paper instead focuses on a single blockholder's static choice among exit, quiet voice, and threshold-triggering public voice, and how disclosure partitions order-flow inference that feeds bidder entry.}
 
 %
 \subsection{Relation to This Paper}
@@ -281,7 +283,11 @@ I interpret $m_0$ and $m_1$ as \emph{per-share takeover premia} above the market
 \]
 Then engagement ($a=1$) yields expected standalone improvement $\tilde{\Delta}$ and expected premium wedge $\tilde{m}$. I assume the premium wedge satisfies $\tilde{m} > m_0$, which requires $\rho(m_1 - m_0) > 0$ (Assumption~\textup{(A3)}). This ensures that engagement has real consequences for takeover outcomes; an engaged blockholder can extract higher premia through an improved bargaining position or defensive tactics.
 
-\paragraph{Bargaining micro-foundation of the premium wedge.} Assumption~\textup{(A3)} can be read as the conclusion of an explicit bargaining stage rather than a free-standing primitive. In Appendix~\ref{app:bg} I show that if the bid-conditional premia $(m_0,m_1)$ arise from generalized Nash bargaining between the target's control bloc (bargaining weight $\theta\in(0,1)$) and the bidder over the takeover surplus $\bar S+\xi$, and if engagement raises the bloc's disagreement payoff by an appropriable amount $\lambda\,\rho\,\Delta_{\mathrm{eng}}>0$ (Condition~\ref{cond:bg}, motivated by the free-rider tender logic of \citet{GrossmanHart1980} and the outside-option reading of \citet{BinmoreRubinsteinWolinsky1986}), then the wedge is the closed form $m_1-m_0=(1-\theta)\lambda\rho\Delta_{\mathrm{eng}}$, which is invariant to the synergy draw $\xi$, and $\tilde m>m_0$ follows as a theorem whenever $\theta<1$ (Theorem~\ref{thm:bg-A3}). The reduced form used in the body is exactly the constant-$\theta$, full-appropriability ($\lambda=1$) special case; the appendix is explicit about what is proved (the Nash split, the wedge's $\xi$-invariance, the reduced-form nesting) versus what remains a transparent structural condition (the appropriability coefficient $\lambda$, which a complete tender-game equilibrium would be needed to derive).
+\paragraph{Tender-game micro-foundation of the premium wedge.} Assumption~\textup{(A3)} is the conclusion of an explicit two-layer micro-foundation rather than a free-standing primitive. In Appendix~\ref{app:bg} I show that if the bid-conditional premia $(m_0,m_1)$ arise from generalized Nash bargaining between the target's control bloc (bargaining weight $\theta\in(0,1)$) and the bidder over the takeover surplus $\bar S+\xi$, and if engagement raises the bloc's disagreement payoff by an appropriable amount $\lambda\,\rho\,\Delta_{\mathrm{eng}}>0$ (Condition~\ref{cond:bg}), then the wedge is the closed form $m_1-m_0=(1-\theta)\lambda\rho\Delta_{\mathrm{eng}}$, invariant to the synergy draw $\xi$ (Theorem~\ref{thm:bg-A3}). In Appendix~\ref{app:d7} I then close the step earlier drafts left open: solving the complete free-rider tender game at the disagreement node (in the institution of \citet{GrossmanHart1980}, with the outside-option reading of \citet{BinmoreRubinsteinWolinsky1986}) \emph{derives} the appropriability coefficient,
+\[
+\lambda \;=\; 1-q\,(1-\gamma)\,\psi\;\in\;[0,1],
+\]
+where $q$ is the equilibrium fringe-raid probability, $\gamma\in[0,1]$ the portability of the activist's improvement under an alternative acquirer, and $\psi$ a pivotality factor (Proposition~\ref{prop:d7-lambda}). Assumption~\textup{(A3)} then holds \emph{except on a characterized boundary}: it fails only when fringe raids are certain, fully supersede the activist's improvement, and cannot be blocked (Theorem~\ref{thm:d7-A3}). The same appendix shows that the \emph{measured} bid premium --- the offer over a market price that already capitalizes activism --- declines in activism evidence whenever $\lambda$ is small even though $m_1\ge m_0$ throughout (Proposition~\ref{prop:d7-afs}), reconciling the model with the negative premium effect estimated by \citet{AlbuquerqueFosSchroth2022}. The reduced form used in the body is the constant-$\theta$, $\lambda$-at-baseline special case.
 
 %
 \subsection{Bidder Entry and Bidding Terms}
@@ -942,6 +948,25 @@ baseline; Hypothesis~\ref{hyp:d1-cutoffshift} (channel~(B) does not overturn the
 shape) is corroborated numerically in Section~\ref{sec:numerical}, not asserted
 as a theorem. The baseline calibration confirms a well-behaved single-peaked
 hump (Figure~\ref{fig:nonmonotone}).
+
+Appendix~\ref{app:d8} sharpens this division in both directions. In one
+direction, Theorem~\ref{thm:d8-region} bounds the GE channel by an
+\emph{inversion-free} quantity $\bar B(\kappa)$ computable from a single
+equilibrium solve (the contraction modulus of Assumption~\textup{(A6)} replaces
+the unknown path derivative), and certifies single-peakedness as a
+\emph{theorem} on the interior region where $\bar B$ is dominated --- at the
+baseline, $\kappa\in[0.35,0.825]$ under the inversion-free bound and
+$[0.30,0.85]$ under the exact implicit-function bound, comfortably containing
+$\kappa^{\dagger}$ (Corollary~\ref{cor:d8-baseline}, Figure~\ref{fig:ge-decomposition}).
+In the other direction, Proposition~\ref{prop:d8-counter} certifies that
+Hypothesis~\ref{hyp:d1-cutoffshift} \emph{fails} at the high-$\sigma_\xi$
+robustness cells: channel (A) remains single-peaked there, yet the
+full-equilibrium profile is a trough, so the GE channel genuinely overturns the
+shape and no calibration-free version of the hypothesis can be true. The
+hump-versus-trough boundary is itself economic --- channel (A)'s amplitude
+scales with the sensitivity of bidder entry to expected resistance, so GE
+feedback dominates exactly where entry is premia-insensitive
+(Remark~\ref{rem:d8-boundary}).
 
 The economic logic is as follows. At very low liquidity ($\kappa \to 0$), order flow is nearly perfectly revealing. The market infers the blockholder's action, fully pricing the expected engagement into the share price and deterring marginal takeover bids. Although the blockholder still benefits fundamentally from engagement, this bid deterrence suppresses the overall minority gains. At very high liquidity ($\kappa \to 1$), noise trading dominates, posteriors converge to the unconditional prior across all states, and prices flatten. The blockholder can no longer extract adverse-selection rents from informed trading, so the expected return to engagement falls below its private cost for all signal realizations. In this upper limit, $\Delta^{\textup{act}}(\kappa)\to 0$. Between these extremes, an interior $\kappa$ optimally balances the cover provided by noise traders with the survival of engagement incentives.
 
@@ -2394,6 +2419,10 @@ because near the exact endpoints both $E'$ and $B$ blow up (grid-edge
 degeneracy). Equilibrium uniqueness is the contraction property of
 Assumption~\textup{(A6)}, verified numerically (multistart solves return a
 single fixed point at every tested $\kappa$), not derived in closed form.
+Appendix~\ref{app:d8} upgrades this lemma's bound: the quantified contraction
+modulus yields an inversion-free bound on $B(\kappa)$ requiring no path
+derivative, a certified single-peakedness region at the baseline, and a
+certified counterexample showing the hypothesis fails globally.
 \end{remark}
 
 \subsection{Derivations for Section~\ref{sec:extensions}}
@@ -2437,8 +2466,8 @@ Evaluating $\PP(X \mid q)$ using $X=q+z$ yields the cases in Section~\ref{sec:ex
 
 This appendix gives a generalized-Nash-bargaining reading of the bid-conditional control premia $(m_{0},m_{1})$ used in the body. We are deliberate about the \emph{epistemic status} of every claim, because the load-bearing object --- the engagement-induced shift in the seller bloc's disagreement payoff --- cannot be honestly derived from deeper primitives within the scope of this paper.
 
-\paragraph{Honest scope statement.}
-A full microfoundation would derive the threat-point shift $d(1)-d(0)>0$ (and hence Assumption~\textup{(A3)}, $\mtil>m_{0}$) from primitives, with \emph{no} residual structural assumption. We do not achieve that, and we say so plainly. The obstruction is concrete: the sign and magnitude of the shift are governed by a pivotality/appropriability coefficient $\lambda$ that can only be pinned by a complete tender-game equilibrium --- a model orthogonal to this paper's disclosure mechanism. Following the strategy of \citet{EdmansGoldsteinJiang2015} and the corporate-finance tradition of stating results under transparent primitive conditions, we instead: (i) \emph{state} the threat-point shift as an explicit, economically interpretable condition (Condition~\ref{cond:bg}); (ii) \emph{motivate} that condition with a free-rider tender heuristic in the spirit of \citet{GrossmanHart1980}, flagged honestly as motivation rather than proof; (iii) prove what genuinely follows from the bargaining protocol \emph{given} the condition; and (iv) carry the one remaining numerical claim (the single-peak comparative static) as a \emph{numerically verified regularity} at the baseline calibration, clearly labelled as such.
+\paragraph{Honest scope statement (updated).}
+A full microfoundation must derive the threat-point shift $d(1)-d(0)>0$ (and hence Assumption~\textup{(A3)}, $\mtil>m_{0}$) from primitives. Within this appendix we do not do that: the sign and magnitude of the shift are governed by a pivotality/appropriability coefficient $\lambda$ that can only be pinned by a complete tender-game equilibrium. \textbf{That tender game is now solved in Appendix~\ref{app:d7}}, which derives $\lambda=1-q(1-\gamma)\psi$ from the disagreement-node environment and characterizes exactly when Condition~\ref{cond:bg} holds (Theorem~\ref{thm:d7-A3}). This appendix therefore retains its original role as the \emph{bargaining layer} --- everything proved here conditional on Condition~\ref{cond:bg} now operates on a derived premise --- and its honest-scope discipline applies one level down, to the institutional primitives of the tender environment listed in \S\ref{app:d7-ledger}. Following the strategy of \citet{EdmansGoldsteinJiang2015} and the corporate-finance tradition of stating results under transparent primitive conditions, we instead: (i) \emph{state} the threat-point shift as an explicit, economically interpretable condition (Condition~\ref{cond:bg}); (ii) \emph{motivate} that condition with a free-rider tender heuristic in the spirit of \citet{GrossmanHart1980}, flagged honestly as motivation rather than proof; (iii) prove what genuinely follows from the bargaining protocol \emph{given} the condition; and (iv) carry the one remaining numerical claim (the single-peak comparative static) as a \emph{numerically verified regularity} at the baseline calibration, clearly labelled as such.
 
 \paragraph{Two distinct primitives, kept distinct.}
 The body uses two separate engagement primitives: the \emph{standalone} improvement $\Delta$ (baseline $\Delta=0.25$), which enters only through $\Dtil=\rho\Delta$ on the no-takeover branch, and the \emph{premium wedge} $m_{1}-m_{0}$ (baseline $m_{1}-m_{0}=0.30-0.10=0.20$), which is its own primitive. The bargaining reading introduces an engagement value $\Delta_{\mathrm{eng}}$ that shifts the target bloc's \emph{sale} threat point and so drives the wedge; conceptually $\Delta_{\mathrm{eng}}$ is the engagement improvement that survives into a sale, and it need not numerically equal the body's standalone $\Delta$.
@@ -2644,6 +2673,12 @@ For transparency: \emph{proved} are the closed-form Nash rent and participation 
 \makeatother
 \providecommand{\sgn}{\operatorname{sgn}}
 
+%==============================================================================
+% Appendix D7: the disagreement-node tender game (derives Condition BG's
+% lambda from primitives). Single source of truth: quality_reports/fixes/.
+%==============================================================================
+\input{quality_reports/fixes/D7_takeover_game_microfound.tex}
+
 \section{Robustness to the Decreasing-Cost Assumption (A2)}
 \label{app:d5}
 
@@ -2801,8 +2836,14 @@ Three points must be kept distinct. (1) The single-peak \emph{engine} is (GE-dom
 \item \textbf{Ordering (Proposition~\ref{prop:d5-a2}).} The four-action threshold structure survives any cost profile in the persuasion regime $C'(s)<\Lambda(s)$; A2 ($\chi>0$) is sufficient, not necessary, with $k_0\in(k_1,k_D)$ pinned by the boundary signs.
 \item \textbf{Flat cost ($\chi=0$).} All existence, ordering, and comparative-statics results survive; only the level of $k_0$ shifts.
 \item \textbf{Inversion.} The ordering can invert only under entrenchment-type cost, which carries the opposite, falsifiable empirical signature (Remark~\ref{rem:d5-mech}).
-\item \textbf{Interior peak (Lemma~\ref{lem:d5-endpoints}, Proposition~\ref{prop:d5-peak}, Conditional Claim~\ref{claim:d5-singlepeak}).} Endpoint symmetry $\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$ is derived from the noise law plus cutoff convergence; the existence of an interior maximizer is unconditional (Weierstrass); strict single-peakedness is governed by the GE cutoff-shift channel (GE-dom) and reported as a numerical regularity at the baseline ($\kappa^{\dagger}\approx0.59$, amplitude $\approx14$--$16\%$).
+\item \textbf{Interior peak (Lemma~\ref{lem:d5-endpoints}, Proposition~\ref{prop:d5-peak}, Conditional Claim~\ref{claim:d5-singlepeak}).} Endpoint symmetry $\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$ is derived from the noise law plus cutoff convergence; the existence of an interior maximizer is unconditional (Weierstrass); strict single-peakedness is governed by the GE cutoff-shift channel (GE-dom): Appendix~\ref{app:d8} now certifies it as a theorem on an interior region at the baseline ($\kappa^{\dagger}\approx0.59$, amplitude $\approx14$--$16\%$) and certifies its failure at the $\sigma_\xi=0.60$ cells (Proposition~\ref{prop:d8-counter}).
 \end{enumerate}
+
+%==============================================================================
+% Appendix D8: the GE cutoff-shift channel -- region theorem + counterexample.
+% Single source of truth: quality_reports/fixes/.
+%==============================================================================
+\input{quality_reports/fixes/D8_GE_dominance_MCS.tex}
 
 %==============================================================================
 \section{Tables}
@@ -2964,6 +3005,37 @@ minority optimum $\kappa^{\dagger}$ (the planner's wedge of
 Proposition~\ref{prop:planner-wedge}). At the baseline calibration the two
 optima nearly coincide.}
 \label{fig:welfare}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{numerical_output/fig_ge_decomposition.pdf}
+\caption{\textbf{The GE cutoff-shift channel (Appendix~\ref{app:d8}).}
+Left: decomposition of $\mathrm{d}\Delta^{\min}/\mathrm{d}\kappa$ into the
+posterior/pricing channel (A) and the GE cutoff-shift channel (B) along the
+baseline equilibrium path; channel (A) dominates throughout the certified
+region of Corollary~\ref{cor:d8-baseline}, so the hump is a theorem there.
+Right: hump/trough classification over the $(\bar S,\sigma_\xi)$ robustness
+family. The troughs at $\sigma_\xi=0.60$ are the certified counterexamples of
+Proposition~\ref{prop:d8-counter}: channel (A) is single-peaked in every cell,
+so the trough orientation is produced entirely by the GE channel.}
+\label{fig:ge-decomposition}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{numerical_output/fig_wedge_primitives.pdf}
+\caption{\textbf{Minority gains under the microfounded wedge
+(Appendix~\ref{app:d7}).} Equilibrium $\Delta^{\min}(\kappa)$ when the premium
+wedge is generated by the disagreement-node tender game,
+$m_1-m_0=(1-\theta)\lambda\rho\Delta_{\mathrm{eng}}$ with
+$\lambda=1-q(1-\gamma)\psi$. Left: sweeping the portability $\gamma$ of the
+activist's improvement under fringe acquirers ($\gamma=0$: superseding
+acquirers erode appropriability). Right: sweeping the fringe-raid intensity
+$q$. The legend reports the implied appropriability $\lambda$; the sensitivity
+analysis of Figure~\ref{fig:sensitivity-wedge} is thereby re-expressed in
+observable primitives.}
+\label{fig:wedge-primitives}
 \end{figure}
 
 \end{document}

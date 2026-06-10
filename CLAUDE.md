@@ -57,6 +57,7 @@ params.py → model.py → solver.py → export_data.py
 ```
 
 - **`params.py`**: `ModelParams` dataclass (baseline calibration), `Action` enum (EXIT/HOLD/QUIET/PUBLIC), `Cutoffs` and `MinorityGains` named tuples, tolerance constants
+- **`takeover_game.py`**: Disagreement-node tender game (Appendix D7) — derives the appropriability coefficient `lambda = 1 - q(1-gamma)psi` and the microfounded premium wedge; `params_with_endogenous_wedge` maps game primitives into `ModelParams` (opt-in; exogenous `(m0, m1)` remains the default)
 - **`model.py`**: Core economic functions — posteriors, prices, payoffs, welfare, information regimes. Sections of the paper are cited in comments
 - **`solver.py`**: Equilibrium solver using damped fixed-point iteration with `scipy.optimize.brentq`. Multi-start search with collapsed-hold fallback
 - **`export_data.py`**: Sweeps parameter grids and writes 13 CSV files — this is the interface contract between the model and the figure layer (`pyfig/`)
@@ -67,7 +68,7 @@ params.py → model.py → solver.py → export_data.py
 ### Python visualization (`pyfig/`)
 
 - **`pyfig/style.py`**: Shared matplotlib house style, Paul Tol colourblind-friendly palette, and helpers (`apply_style`, `new_ax`, `legend_outside`, `save_fig`). Editorial-minimal, with Computer-Modern math typography matching the manuscript
-- **`pyfig/figures.py`**: One function per figure (`fig01_*` … `fig13_*`), each taking `(data_dir, output_dir)`; `ALL_FIGURES` lists them in render order
+- **`pyfig/figures.py`**: One function per figure (`fig01_*` … `fig15_*`; fig14 = GE channel decomposition, fig15 = microfounded wedge), each taking `(data_dir, output_dir)`; `ALL_FIGURES` lists them in render order
 - **`pyfig/render_all.py`**: Master orchestrator (`python -m pyfig.render_all`) that applies the style and calls all 13 figures
 
 **Color palette** (Paul Tol muted, used consistently across all figures):
@@ -76,7 +77,15 @@ params.py → model.py → solver.py → export_data.py
 
 ### CSV interface contract
 
-The 13 CSV files in `numerical_output/data/` are the stable boundary between the model and the figure layer. Column names match paper notation. When modifying the model, update both the export logic and the corresponding figure function in `pyfig/figures.py`.
+The CSV files in `numerical_output/data/` (16 as of 2026-06: the original 13 plus `ge_decomposition.csv`, `ge_cellmap.csv`, `wedge_primitives.csv`) are the stable boundary between the model and the figure layer. Column names match paper notation. When modifying the model, update both the export logic and the corresponding figure function in `pyfig/figures.py`.
+
+### Empirics layer (`empirics/`)
+
+Stdlib-only EDGAR pipeline for the de-risk data leg: `edgar_fetch.py` (quarterly form.idx enumeration, throttled fetcher), `parse_13d.py` (event/filed dates, CIKs), `facts.py` (Fact 1: 13D disclosure-delay compression around the 2024-02-05 five-business-day rule). Raw data in `empirics/data/` is gitignored; summaries committed in `empirics/output/`. See `empirics/README.md`.
+
+### Derivation records (`quality_reports/fixes/`)
+
+D-series pattern: each derivation lands as `DN_*.tex` (spliced into `draft_v2.tex` via `\input` for D7/D8) plus a paired `dN_*_check.py` verification script with JSON output. D7 = tender-game microfoundation of the premium wedge; D8 = GE cutoff-shift region theorem + counterexample.
 
 ### LaTeX
 

@@ -45,3 +45,6 @@ Rplots.pdf
 # OS
 .DS_Store
 Thumbs.db
+
+# Empirics raw data (large, regenerable from EDGAR)
+empirics/data/

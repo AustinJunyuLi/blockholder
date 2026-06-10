@@ -30,7 +30,10 @@ CSVS := $(DATA_DIR)/baseline_params.csv \
         $(DATA_DIR)/sensitivity_sigma_xi.csv \
         $(DATA_DIR)/sensitivity_delta.csv \
         $(DATA_DIR)/noisy_rumor.csv \
-        $(DATA_DIR)/welfare.csv
+        $(DATA_DIR)/welfare.csv \
+        $(DATA_DIR)/ge_decomposition.csv \
+        $(DATA_DIR)/ge_cellmap.csv \
+        $(DATA_DIR)/wedge_primitives.csv
 
 # PDF figures produced by pyfig (matplotlib)
 PDFS := $(OUTPUT_DIR)/fig_cutoff_structure.pdf \
@@ -45,7 +48,9 @@ PDFS := $(OUTPUT_DIR)/fig_cutoff_structure.pdf \
         $(OUTPUT_DIR)/fig_sensitivity_sigma_xi.pdf \
         $(OUTPUT_DIR)/fig_sensitivity_delta.pdf \
         $(OUTPUT_DIR)/fig_noisy_rumor_precision.pdf \
-        $(OUTPUT_DIR)/fig_welfare.pdf
+        $(OUTPUT_DIR)/fig_welfare.pdf \
+        $(OUTPUT_DIR)/fig_ge_decomposition.pdf \
+        $(OUTPUT_DIR)/fig_wedge_primitives.pdf
 
 .PHONY: all data figures venv clean
 
@@ -60,7 +65,7 @@ venv:
 # Step 1: Python computation -> CSV
 data: $(CSVS)
 
-$(CSVS): numerical/export_data.py numerical/model.py numerical/solver.py numerical/params.py
+$(CSVS): numerical/export_data.py numerical/model.py numerical/solver.py numerical/params.py numerical/takeover_game.py
 	$(PYTHON) -m numerical.export_data --output-dir $(OUTPUT_DIR)
 
 # Step 2: matplotlib visualization -> PDF

@@ -322,10 +322,98 @@ def fig13_welfare(data_dir, output_dir):
     style.save_fig(fig, os.path.join(output_dir, "fig_welfare.pdf"))
 
 
+# --------------------------------------------------------------------------
+# Figure 14: GE cutoff-shift channel decomposition + hump/trough map (App D8)
+# --------------------------------------------------------------------------
+def fig14_ge_decomposition(data_dir, output_dir):
+    import matplotlib.pyplot as plt
+    path = _csv(data_dir, "ge_decomposition.csv").dropna(subset=["chanA", "chanB"])
+    cells = _csv(data_dir, "ge_cellmap.csv").dropna(subset=["shape"])
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.0, 3.6))
+    style.despine(ax1)
+    style.despine(ax2)
+
+    path = path.sort_values("kappa")
+    ax1.axhline(0, color="black", linewidth=0.5)
+    ax1.plot(path["kappa"], path["chanA"], color="#4477aa", linestyle="-",
+             linewidth=1.3, label="Channel (A): posterior/pricing")
+    ax1.plot(path["kappa"], path["chanB"], color="#ee6677", linestyle="--",
+             linewidth=1.3, label="Channel (B): GE cutoff-shift")
+    ax1.plot(path["kappa"], path["total"], color="black", linestyle="-.",
+             linewidth=1.0, label=r"Total $\mathrm{d}\Delta^{\mathrm{min}}/\mathrm{d}\kappa$")
+    ax1.set_xlabel(KAPPA)
+    ax1.set_ylabel(r"$\mathrm{d}\Delta^{\mathrm{min}}/\mathrm{d}\kappa$")
+    ax1.set_title("Baseline decomposition", fontsize=11)
+    ax1.legend(fontsize=8, framealpha=1.0)
+
+    shape_style = {"hump": ("o", style.COL_PUBLIC, "Hump"),
+                   "trough": ("s", style.COL_EXIT, "Trough"),
+                   "flat": ("D", style.COL_HOLD, "Flat")}
+    seen = set()
+    for _, r in cells.iterrows():
+        m, c, lab = shape_style.get(r["shape"], ("x", "grey", r["shape"]))
+        ax2.scatter(r["S_bar"], r["sigma_xi"], marker=m, s=120, color=c,
+                    edgecolors="black", linewidths=0.4,
+                    label=lab if lab not in seen else None)
+        seen.add(lab)
+    ax2.set_xlabel(r"Baseline synergy $\bar{S}$")
+    ax2.set_ylabel(r"Bidder heterogeneity $\sigma_\xi$")
+    ax2.set_title("Hump/trough boundary (App. D8 counterexample)", fontsize=11)
+    ax2.legend(fontsize=8, framealpha=1.0, loc="center left")
+    ax2.set_yticks([0.20, 0.40, 0.60])
+    ax2.set_xticks([1.24, 1.44, 1.64])
+
+    fig.suptitle("The GE Cutoff-Shift Channel", fontsize=12)
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    style.save_fig(fig, os.path.join(output_dir, "fig_ge_decomposition.pdf"))
+
+
+# --------------------------------------------------------------------------
+# Figure 15: Minority gains under the microfounded wedge (Appendix D7)
+# --------------------------------------------------------------------------
+def fig15_wedge_primitives(data_dir, output_dir):
+    import matplotlib.pyplot as plt
+    df = _csv(data_dir, "wedge_primitives.csv")
+
+    fig, axes = plt.subplots(1, 2, figsize=(9.0, 3.6), sharey=True)
+    specs = [
+        ("gamma", r"Portability $\gamma$ (fringe intensity $q$ fixed)",
+         axes[0], lambda v: rf"$\gamma = {v:.1f}$"),
+        ("q", r"Fringe intensity $q$ (portability $\gamma$ fixed)",
+         axes[1], lambda v: rf"$q = {v:.1f}$"),
+    ]
+    for sweep, subtitle, ax, lab in specs:
+        style.despine(ax)
+        sub_all = df[df["sweep"] == sweep]
+        for i, value in enumerate(sorted(sub_all["value"].unique())):
+            sub = (sub_all[sub_all["value"] == value]
+                   .dropna(subset=["Delta_min"]).sort_values("kappa"))
+            if sub.empty:
+                continue
+            lam = sub["lambda"].iloc[0]
+            ax.plot(sub["kappa"], sub["Delta_min"],
+                    color=style.SENS_COLORS[i % 4],
+                    linestyle=style.SENS_LINESTYLES[i % 4],
+                    marker=style.SENS_MARKERS[i % 4],
+                    markersize=3.5, linewidth=1.2,
+                    label=lab(value) + rf"  ($\lambda = {lam:.2f}$)")
+        ax.set_xlabel(KAPPA)
+        ax.set_title(subtitle, fontsize=11)
+        ax.legend(framealpha=1.0, fontsize=8)
+    axes[0].set_ylabel(r"$\Delta^{\mathrm{min}}$")
+    fig.suptitle("Minority Gains under the Microfounded Wedge "
+                 r"$m_1 - m_0 = (1-\theta)\,\lambda\,\rho\,\Delta_{\mathrm{eng}}$",
+                 fontsize=12)
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    style.save_fig(fig, os.path.join(output_dir, "fig_wedge_primitives.pdf"))
+
+
 ALL_FIGURES = [
     fig01_cutoff_structure, fig02_nonmonotone, fig03_decomposition,
     fig04_prices, fig05_cutoffs_kappa, fig06_disclosure,
     fig07_sensitivity_C0, fig08_sensitivity_wedge, fig09_sensitivity_rho,
     fig10_sensitivity_sigma_xi, fig11_sensitivity_delta,
     fig12_noisy_rumor, fig13_welfare,
+    fig14_ge_decomposition, fig15_wedge_primitives,
 ]

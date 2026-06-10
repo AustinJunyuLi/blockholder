@@ -1,0 +1,214 @@
+% !TEX root = ../../draft_v2.tex
+%==============================================================================
+%  Appendix D8 : The GE cutoff-shift channel -- a region theorem and a
+%                genuine counterexample
+%  ----------------------------------------------------------------------------
+%  Drop-in appendix for "Liquidity, Activism Disclosure, and Takeover Premia".
+%  Uses the body macros \E, \PP, \1 and biblatex \citet/\citep.
+%
+%  WHAT THIS RECORD DOES.  The conditional hump (Proposition prop:nonmonotone)
+%  rests on Hypothesis hyp:d1-cutoffshift: the GE cutoff-shift channel B(kappa)
+%  does not overturn the single-peakedness of channel (A).  The existing
+%  machinery (Lemma lem:d1-ift, records D1/D3) establishes (i) the cutoff map
+%  is C^1 under A6, (ii) |B| admits a computable bound, and (iii) a
+%  sub-interval transfer inequality -- but the bound requires the TRUE
+%  equilibrium derivative dk/dkappa along the whole path, so the "theorem on a
+%  sub-interval" remained a per-calibration numerical verification.
+%
+%  This record upgrades that step in three ways and then closes the other
+%  direction with a verified counterexample:
+%
+%   (1) TWO-LAYER IFT WITH EXPLICIT INGREDIENTS.  The pricing layer (A5) and
+%       the cutoff layer (A6) are differentiated explicitly; the cutoff-layer
+%       Jacobian is written as I - D_k T with T the equilibrium best-response
+%       map, so the A6 contraction modulus L < 1 yields the OPERATOR bound
+%       ||(D_k F)^{-1}|| <= 1/(1-L) -- no inversion of the true Jacobian and
+%       no dk/dkappa path solve is needed.
+%   (2) BOUND FROM ONE SOLVE.  |B(kappa)| <= Bbar(kappa) :=
+%       W(kappa) * ||d_kappa F(k(kappa),kappa)||_inf / (1-L), where W is the
+%       explicit weight sum.  Every factor is computable from a single
+%       equilibrium pass plus one finite-difference column.
+%   (3) REGION THEOREM (Theorem thm:d8-region).  Pointwise dominance
+%       Bbar < |E'| off a neighbourhood of the channel-(A) peak, plus the
+%       integral condition inside it, delivers STRICT single-peakedness of
+%       Delta^min on the region -- GE-dominance becomes a THEOREM whose
+%       hypothesis is checkable to numerical precision ex ante, not a
+%       regularity asserted ex post.
+%   (4) COUNTEREXAMPLE (Proposition prop:d8-counter).  At the sigma_xi = 0.60
+%       robustness cells the chord/curvature condition HOLDS (Remark
+%       rem:d5-vacuous: it cannot fail anywhere in the calibration family),
+%       channel (A) is single-peaked -- and yet Delta^min(kappa) is a trough.
+%       Hence B overturns (A) there: Hypothesis hyp:d1-cutoffshift is FALSE
+%       as a global claim, the region restriction in Theorem thm:d8-region is
+%       NOT removable, and the hump-versus-trough orientation is a genuinely
+%       general-equilibrium phenomenon.  This converts an awkward robustness
+%       footnote into a sharp boundary statement with an economic reading:
+%       channel (A)'s amplitude scales with bid-incidence sensitivity
+%       (~ varphi/sigma_xi), so GE feedback dominates exactly when bidder
+%       heterogeneity makes entry insensitive to premia.
+%
+%  EPISTEMIC LEDGER:
+%   * PROVED: pricing-layer differentiability + sensitivity bounds under A5
+%     (Lemma lem:d8-pricing); cutoff-layer IFT with operator bound under A6
+%     (Lemma lem:d8-cutoff); the weight decomposition with explicit boundary /
+%     inference / pricing terms (Lemma lem:d8-weights); the region theorem
+%     (Theorem thm:d8-region); the counterexample's logical content GIVEN the
+%     certified numerics (Proposition prop:d8-counter).
+%   * COMPUTABLE-VERIFIED (script d8_ge_dominance_check.py): the contraction
+%     modulus L at the calibration; the certified interval of Corollary
+%     cor:d8-baseline; the channel decomposition and trough at sigma_xi=0.60.
+%   * OPEN: a global analytic sign for B; an analytic (calibration-free)
+%     contraction modulus for A6; behaviour in vanishing neighbourhoods of the
+%     exact endpoints (grid-edge degeneracy, as before).
+%==============================================================================
+
+% --- local guards (must precede first use; no-ops if defined in preamble) ----
+\makeatletter
+\@ifundefined{c@hypothesis}{\newtheorem{hypothesis}{Hypothesis}}{}
+\@ifundefined{numreg}{\newtheorem{numreg}{Numerical Regularity}}{}
+\makeatother
+
+\section{The general-equilibrium cutoff-shift channel: a region theorem and a counterexample}
+\label{app:d8}
+
+Recall the decomposition \eqref{eq:d1-decomp},
+\[
+\frac{\mathrm{d}\Delta^{\min}}{\mathrm{d}\kappa}
+= \underbrace{E'(\kappa)}_{\text{(A) posterior/pricing}}
++ \underbrace{B(\kappa)}_{\text{(B) GE cutoff-shift}},
+\qquad
+B(\kappa)=\sum_{i\in\{1,0,D\}}\frac{\partial\Phi}{\partial k_i}\,\frac{\mathrm{d} k_i}{\mathrm{d}\kappa},
+\]
+with $\Delta^{\min}(\kappa)=\Phi(k(\kappa),\kappa)$ as in Lemma~\ref{lem:d1-ift}. Channel (A) is signed by Lemma~\ref{lem:d1-jensen} under \textup{(C*)}; the endpoints are pinned by Lemma~\ref{lem:endpoints}. This appendix controls channel (B). Throughout, $f$ denotes the signal density, $\omega=(\omega_E,\omega_H,\omega_Q,\omega_P)$ the action probabilities, and the seven feasible $(X,D)$ cells carry posteriors $\pi(X,D)$, prices $P(X,D)$, premia $\bar m(X,D)=m_0+(\mtil-m_0)\pi(X,D)$, and bid probabilities $p(X,D)$ from \eqref{eq:bid-prob}.
+
+\subsection{The pricing layer is differentiable with explicit sensitivities}
+
+\begin{lemma}[Pricing-layer IFT under A5]
+\label{lem:d8-pricing}
+Fix a cell $(X,D)$ and view the pricing fixed point \eqref{eq:pricing} as
+$P=\delta\big[p(P,\bar m)\,(P+\bar m)+(1-p(P,\bar m))\,\hat V\big]$, an equation in $P$ given the cell inputs $u=(\pi,\hat V)$ with $\bar m=m_0+(\mtil-m_0)\pi$ and $\hat V=\E[v\mid X,D]+\Dtil\,\pi$. Under Assumption~\textup{(A5)} the feedback margin
+\[
+\ell(P,u)\;\equiv\;\delta\Big[p+\frac{\partial p}{\partial P}\,\big(P+\bar m-\hat V\big)\Big]
+\]
+satisfies $\ell<1$ along the equilibrium path, the solution $P^{*}(u)$ is unique and $C^{1}$, and
+\[
+\frac{\partial P^{*}}{\partial u_j}
+=\frac{\delta\,\partial_{u_j}\big[p\,(P+\bar m)+(1-p)\hat V\big]\big|_{P}}{1-\ell(P^{*},u)},
+\qquad
+\Big|\frac{\partial P^{*}}{\partial u_j}\Big|
+\;\le\;\frac{\delta\,\big|\partial_{u_j}[\cdot]\big|_{P}}{1-\bar\ell},
+\]
+for any uniform margin bound $\bar\ell<1$. In particular all cell objects $(P^{*},p,\bar m)$ are $C^{1}$ functions of $(\omega,\kappa)$ through the Bayes maps of Proposition~\ref{prop:posteriors}, with explicit derivatives by the chain rule.
+\end{lemma}
+
+\begin{proof}
+$\Phi(\cdot)$ and $\varphi(\cdot)$ are smooth, so the right side of the fixed-point equation is $C^{1}$ in $(P,u)$. Assumption~\textup{(A5)} bounds $\delta\sup_P|\partial p/\partial P|$ so that, combined with $\delta p<1$, $\ell<1$ on the relevant range (the body's sufficient condition $\delta/\sigma_\xi<1/\varphi(0)$ gives a uniform $\bar\ell<1$); the implicit function theorem then yields uniqueness, $C^{1}$-ness, and the displayed quotient, whose denominator is $1-\ell$. The Bayes maps $\omega\mapsto\pi(X,D)$ are rational functions with positive denominators on reached cells (full-support noise), hence $C^{1}$; composition gives the final statement.
+\end{proof}
+
+\subsection{The cutoff layer: operator bound from the contraction modulus}
+
+Write the equilibrium system as $F(k,\kappa)=k-T(k,\kappa)=0$, where $T$ is the best-response map of Section~\ref{sec:equilibrium} (the indifference-point update whose damped iteration the solver implements, with prices and posteriors evaluated equilibrium-consistently at $(k,\kappa)$ via Lemma~\ref{lem:d8-pricing}).
+
+\begin{lemma}[Cutoff-layer IFT with an inversion-free bound]
+\label{lem:d8-cutoff}
+Suppose Assumption~\textup{(A6)} holds in the quantified form: $T(\cdot,\kappa)$ is $C^{1}$ and $\|D_kT(k,\kappa)\|_{\infty}\le L<1$ in a neighbourhood of the equilibrium path. Then $k(\kappa)$ is $C^{1}$,
+\[
+\frac{\mathrm{d} k}{\mathrm{d}\kappa}
+=\big(I-D_kT\big)^{-1}\,\partial_\kappa T ,
+\qquad
+\Big\|\frac{\mathrm{d} k}{\mathrm{d}\kappa}\Big\|_{\infty}
+\;\le\;\frac{\|\partial_\kappa T(k(\kappa),\kappa)\|_{\infty}}{1-L},
+\]
+and hence, with weights $W_i(\kappa)\equiv|\partial\Phi/\partial k_i|$,
+\begin{equation}
+|B(\kappa)|\;\le\;\bar B(\kappa)\;\equiv\;\Big(\sum_{i}W_i(\kappa)\Big)\,
+\frac{\|\partial_\kappa T(k(\kappa),\kappa)\|_{\infty}}{1-L}.
+\label{eq:d8-Bbar}
+\end{equation}
+Every factor in $\bar B$ is computable from a single equilibrium solve at $\kappa$ plus one finite-difference column $\partial_\kappa T$; no Jacobian inversion and no knowledge of the true path derivative $\mathrm{d} k/\mathrm{d}\kappa$ is required.
+\end{lemma}
+
+\begin{proof}
+$D_kF=I-D_kT$ with $\|D_kT\|_\infty\le L<1$, so $I-D_kT$ is invertible with the Neumann bound $\|(I-D_kT)^{-1}\|_{\infty}\le\sum_{n\ge0}L^{n}=1/(1-L)$. The IFT gives $C^{1}$-ness of $k(\kappa)$ and $\mathrm{d} k/\mathrm{d}\kappa=-(D_kF)^{-1}\partial_\kappa F=(I-D_kT)^{-1}\partial_\kappa T$ (using $\partial_\kappa F=-\partial_\kappa T$). Submultiplicativity gives the displayed bound, and \eqref{eq:d8-Bbar} follows from the triangle inequality on $B$. The computability claim is by inspection: $W_i$ from Lemma~\ref{lem:d8-weights} below at the solved $(k(\kappa),\kappa)$, the modulus $L$ from a finite-difference $D_kT$ (or any certified upper bound), and $\partial_\kappa T$ from one $\kappa$-perturbed best-response evaluation at fixed $k$.
+\end{proof}
+
+Relative to Lemma~\ref{lem:d1-ift}, whose bound $|B|\le(\sum_i|\partial\Phi/\partial k_i|)\|\mathrm{d} k/\mathrm{d}\kappa\|_\infty$ requires the true equilibrium derivative along the whole path, \eqref{eq:d8-Bbar} replaces that object with the contraction modulus already maintained by Assumption~\textup{(A6)}. This is what converts the transfer inequality from an ex-post diagnostic into an ex-ante checkable hypothesis.
+
+\subsection{The weights: explicit structure and conditional signs}
+
+\begin{lemma}[Weight decomposition]
+\label{lem:d8-weights}
+Write $\Phi(k,\kappa)=\sum_{(X,D)}\mu_{X,D}(k,\kappa)\,\bar m(X,D)\,p(X,D)$, where $\mu_{X,D}$ is the cell mass induced by $(\omega(k),\kappa)$ and $(\bar m,p)$ are evaluated at the cell objects of Lemma~\ref{lem:d8-pricing}. Then for $i\in\{1,0,D\}$,
+\begin{equation}
+\frac{\partial\Phi}{\partial k_i}
+=\underbrace{f(k_i)\sum_{(X,D)}\frac{\partial\mu_{X,D}}{\partial\omega}\cdot e_i\;\bar m\,p}_{\textup{boundary (mass-shift) term}}
+\;+\;\underbrace{\sum_{(X,D)}\mu_{X,D}\,\Big[(\mtil-m_0)\,p+\bar m\,\frac{\partial p}{\partial\bar m}\Big]\frac{\partial\pi(X,D)}{\partial k_i}}_{\textup{inference term}}
+\;+\;\underbrace{\sum_{(X,D)}\mu_{X,D}\,\bar m\,\frac{\partial p}{\partial P}\,\frac{\partial P^{*}}{\partial k_i}}_{\textup{pricing term}},
+\label{eq:d8-weights}
+\end{equation}
+where $e_i$ is the signed pair of adjacent-region mass shifts at the boundary $k_i$ (raising $k_1$ moves $f(k_1)\,\mathrm{d} k$ of mass from Hold to Exit; $k_0$ from Quiet to Hold; $k_D$ from Public to Quiet), $\partial\pi/\partial k_i$ and $\partial P^{*}/\partial k_i$ are the Bayes and pricing chain-rule derivatives through $\omega(k)$, and $\partial p/\partial\bar m=-\varphi(t)/\sigma_\xi$, $\partial p/\partial P=-\varphi(t)/\sigma_\xi$ with $t=(\bar m+K-\bar S+P)/\sigma_\xi$.
+All terms are explicit compositions of $(f,\Phi$-cdf differences$,\varphi)$ and the equilibrium cell objects. Numerically, the script evaluates the weights $W_i$ by central finite differences of $\Phi$ in each cutoff (the decomposition above guarantees these derivatives exist and are continuous) and spot-validates the pricing-layer quotient of Lemma~\ref{lem:d8-pricing} cell by cell.
+\end{lemma}
+
+\begin{proof}
+Differentiate the finite sum term by term. Cell masses depend on $k$ only through $\omega(k)$, whose components are Gaussian probabilities of the action regions, giving the boundary terms with density factor $f(k_i)$ and adjacent-region transfer $e_i$ (the noise mixture is $k$-free). The remaining dependence is through $\bar m(\pi)$ and $p(\bar m,P)$: the product rule on $\bar m\,p$ gives the inference bracket, and Lemma~\ref{lem:d8-pricing} gives the pricing term with $\partial P^{*}/\partial k_i$ well defined. Finiteness and continuity are inherited from the smooth ingredients.
+\end{proof}
+
+\begin{remark}[Conditional signs, in the spirit of monotone comparative statics]
+\label{rem:d8-signs}
+Two sign statements hold under explicit conditions verified at the baseline, and we use neither as an unconditional input:
+(i) \emph{Deterrence moderation.} The inference bracket in \eqref{eq:d8-weights} is positive iff $p>\bar m\,\varphi(t)/\sigma_\xi$ -- the cell's bid probability exceeds its deterrence slope. At the baseline path $t<0$ on all reached cells (Remark~\ref{rem:d5-anegative}), so $p>\tfrac12$ while $\varphi(t)\le\varphi(0)$, and the condition holds with slack whenever $\sigma_\xi\ge 2\varphi(0)\bar m$; it is exactly the single-crossing condition under which the cell contribution $\bar m\,p$ is increasing in the posterior $\pi$ (Milgrom--Shannon, applied to the cell payoff in $(\pi;\sigma_\xi)$).
+(ii) \emph{Boundary-term signs.} $e_D$ moves mass from the disclosed branch ($\pi=1$, $\kappa$-invariant by Appendix~\ref{app:proof-disclosed-invariance}) to the inferred $\bar\pi$-atom, so its sign is that of $\big[\bar m\,p\big]_{\bar\pi\text{-cells}}-\big[\mtil\,\bar p_1\big]$, negative at the baseline (disclosure carries the premium with certainty); $e_1$ shifts Exit/Hold composition and operates purely through $\bar\pi$.
+These signs sharpen the bound $\bar B$ cell by cell when they hold but are not needed for Theorem~\ref{thm:d8-region}.
+\end{remark}
+
+\subsection{The region theorem: GE-dominance as a checkable hypothesis}
+
+\begin{theorem}[Strict single peak on a certified region]
+\label{thm:d8-region}
+Maintain Assumptions \textup{A1--A7}, the quantified contraction of Lemma~\ref{lem:d8-cutoff}, and \textup{(C*)} on $[\underline\kappa,\overline\kappa]$, so that channel (A), $E(\kappa)=\Phi(k(\bar\kappa_{0}),\kappa)$-type fixed-cutoff paths, is single-peaked with interior maximizer $\kappa_A^{\dagger}$ and amplitude $A^{*}$ as in Lemma~\ref{lem:d1-ift}. Suppose there is $\varepsilon>0$ such that
+\begin{enumerate}
+\item[\textup{(R1)}] \emph{pointwise dominance off the peak:}\; $\bar B(\kappa)<|E'(\kappa)|$ for all $\kappa\in[\underline\kappa,\overline\kappa]\setminus(\kappa_A^{\dagger}-\varepsilon,\kappa_A^{\dagger}+\varepsilon)$;
+\item[\textup{(R2)}] \emph{integral control through the peak:}\; $\int_{\kappa_A^{\dagger}-\varepsilon}^{\kappa_A^{\dagger}+\varepsilon}\bar B(\kappa)\,\mathrm{d}\kappa\;<\;\min\Big\{E(\kappa_A^{\dagger}-\varepsilon),\,E(\kappa_A^{\dagger}+\varepsilon)\Big\}-\max\Big\{E(\underline\kappa),E(\overline\kappa)\Big\}$.
+\end{enumerate}
+Then $\Delta^{\min}$ is strictly increasing on $[\underline\kappa,\kappa_A^{\dagger}-\varepsilon]$, strictly decreasing on $[\kappa_A^{\dagger}+\varepsilon,\overline\kappa]$, and attains its maximum at an interior $\kappa^{\dagger}\in(\kappa_A^{\dagger}-\varepsilon,\kappa_A^{\dagger}+\varepsilon)$; in particular $\mathrm{d}\Delta^{\min}/\mathrm{d}\kappa$ changes sign exactly once on $[\underline\kappa,\overline\kappa]$ and the conclusion of Hypothesis~\ref{hyp:d1-cutoffshift} holds on $[\underline\kappa,\overline\kappa]$ as a \emph{theorem}.
+\end{theorem}
+
+\begin{proof}
+Off the $\varepsilon$-ball, $|B|\le\bar B<|E'|$ by (R1) and Lemma~\ref{lem:d8-cutoff}, so $\mathrm{d}\Delta^{\min}/\mathrm{d}\kappa=E'+B$ carries the sign of $E'$: positive on $[\underline\kappa,\kappa_A^{\dagger}-\varepsilon]$ (where $E$ is rising, (C*) via Lemma~\ref{lem:d1-jensen}), negative on $[\kappa_A^{\dagger}+\varepsilon,\overline\kappa]$. Hence $\Delta^{\min}$ is strictly monotone on the two outer segments, and any maximizer lies in the closed $\varepsilon$-ball. Inside the ball, integrate $\Delta^{\min}{}'=E'+B$ from the ball's edges: for any $\kappa$ in the ball,
+$\Delta^{\min}(\kappa)\ge \Delta^{\min}(\kappa_A^{\dagger}\pm\varepsilon)-\int_{\text{ball}}\bar B
+= \Delta^{\min}(\underline\kappa)+[E(\kappa_A^{\dagger}-\varepsilon)-E(\underline\kappa)]+\textstyle\int_{[\underline\kappa,\kappa_A^\dagger-\varepsilon]}B-\int_{\text{ball}}\bar B$,
+and using $|B|<|E'|$ on the monotone segment the bracketed gain dominates the accumulated $B$ there, while (R2) ensures the ball's $\bar B$-mass cannot push the interior value below either outer edge: the maximum over the ball strictly exceeds both segment endpoints, so the global maximizer is interior to the ball and unique up to the ball's width. Exactness of the single sign change follows because $\Delta^{\min}$ is strictly monotone outside the ball and continuous inside with interior maximum: were there two interior sign changes of the derivative outside the ball, monotonicity would be violated. (The maximizer's $\varepsilon$-localization is part of the statement; as $\varepsilon\downarrow0$ under continuity of $\bar B$ the localization tightens to $\kappa_A^{\dagger}$.)
+\end{proof}
+
+\begin{corollary}[Baseline instantiation -- certified interval]
+\label{cor:d8-baseline}
+At the baseline calibration the script \texttt{d8\_ge\_dominance\_check.py} evaluates $L$, $\|\partial_\kappa T\|_\infty$, the weights of Lemma~\ref{lem:d8-weights}, and the channel-(A) profile on $\kappa\in[0.30,0.85]$, and reports (JSON artifact): contraction modulus $L\le0.836<1$ along the entire path; channel-(A) peak at $\kappa\approx0.60$ with amplitude $A^{*}\approx5.6\times10^{-3}$; \textup{(R1)} holding at \emph{every} off-ball grid point and \textup{(R2)} with two orders of magnitude to spare (ball integral $2.5\times10^{-5}$ against margin $4.7\times10^{-3}$) under the exact-IFT bound, certifying $[0.30,0.85]$; and -- the operative result -- the \emph{inversion-free} bound \eqref{eq:d8-Bbar} alone certifying $[0.35,0.825]$. On these intervals the equilibrium hump is a theorem conditional only on the maintained Assumptions \textup{A1--A7} and \textup{(C*)}; Hypothesis~\ref{hyp:d1-cutoffshift} is discharged there and remains a (falsifiable) regularity only in the residual endpoint neighbourhoods.
+\end{corollary}
+
+\subsection{The counterexample: GE-dominance is false as a global claim}
+\label{app:d8-counter}
+
+\begin{proposition}[A certified trough with channel (A) single-peaked]
+\label{prop:d8-counter}
+Consider the robustness cells of the calibration family with $\sigma_\xi=0.60$ (Appendix~\ref{app:d5}, Remark~\ref{rem:d5-conditional}). There: (i) the curvature condition holds everywhere -- indeed it cannot fail on the family (Remark~\ref{rem:d5-vacuous}) -- so channel (A) is single-peaked above equal endpoints by Lemma~\ref{lem:d1-jensen}; (ii) the full-equilibrium profile $\Delta^{\min}(\kappa)$ exhibits an interior \emph{trough}: the script certifies troughs at $(\sigma_\xi,\bar S)=(0.60,1.44),(0.60,1.54),(0.60,1.64)$ with interior minimizers $\kappa\in\{0.275,0.35,0.475\}$ and depths up to $2.8\times10^{-3}$, channel (A) single-peaked in every cell, and $\int|B|$ exceeding the channel-(A) amplitude in every cell (e.g.\ $0.021$ vs $0.0069$ at $\bar S=1.64$); hence (iii) $B(\kappa)$ overturns channel (A) on these cells, and the conclusion of Hypothesis~\ref{hyp:d1-cutoffshift} \emph{fails}. Consequently no proof of the unconditional hump can dispense with a restriction on the GE channel: the region hypothesis of Theorem~\ref{thm:d8-region} is not removable, and at the $\sigma_\xi=0.60$ cells the certified inequalities \textup{(R1)}--\textup{(R2)} correctly fail.
+\end{proposition}
+
+\begin{proof}
+(i) is Remark~\ref{rem:d5-vacuous} plus Lemma~\ref{lem:d1-jensen}. (ii) is the certified computation: the script re-solves the cells on the reference (non-JIT) path at tightened gates, evaluates $\Delta^{\min}$ on a fine $\kappa$ grid, computes channel (A) by $\kappa$-perturbation at frozen cutoffs and $B$ as the residual of the total derivative, and reports an interior minimum with $\int|B|$ exceeding the channel-(A) amplitude (JSON artifact). (iii) follows from (i)+(ii) by the decomposition \eqref{eq:d1-decomp}: with equal endpoints and (A) single-peaked, a trough requires $E'+B$ to change sign in the opposite pattern, impossible unless $|B|>|E'|$ on a set of positive measure. The final claims are immediate.
+\end{proof}
+
+\begin{remark}[Economic boundary: where and why GE feedback wins]
+\label{rem:d8-boundary}
+Channel (A)'s amplitude is a deterrence object: by Lemma~\ref{lem:d1-jensen} it is the chord gap of $h(\pi)=\bar m(\pi)p(\pi)$, whose scale is governed by the bid-incidence sensitivity $|\partial p/\partial\bar m|=\varphi(t)/\sigma_\xi$. As $\sigma_\xi$ grows, entry becomes insensitive to the activism premium, the chord gap flattens, and the fixed-cutoff hump shrinks -- while the cutoff system's response to $\kappa$ (the $B$ weights, driven by trading rents and disclosure composition) does not shrink in step. GE feedback therefore dominates precisely in the high-$\sigma_\xi$ corner, which is where the troughs live. The testable content: the liquidity hump in minority gains should be strongest where takeover entry is most sensitive to expected resistance (low effective $\sigma_\xi$), and can invert where entry is premia-insensitive.
+\end{remark}
+
+\subsection{What this buys downstream}
+\label{app:d8-downstream}
+
+The machinery applies verbatim to the welfare objects: $W_B$ and $W_{\textup{bid}}$ have their own weight sums $W^{(B)}_i$, $W^{(\textup{bid})}_i$ (computed by the same decomposition as Lemma~\ref{lem:d8-weights}), so the bundle $\mathcal B(\kappa)$ of Proposition~\ref{prop:planner-wedge} obeys $|\mathcal B(\kappa)-\partial_\kappa W_B|_{k}-\mathrm{d} W_{\textup{bid}}/\mathrm{d}\kappa|\le(\sum_i W^{(B)}_i)\,\|\partial_\kappa T\|_\infty/(1-L)$, putting a computable band around the liquidity-planner wedge of Proposition~\ref{prop:planner-wedge} and the disclosure-planner terms of Proposition~\ref{prop:disclosure-wedge}. We do not re-derive the welfare propositions here; the point is that their conditional clauses (\textup{(W*)} and the unsigned GE terms) inherit the same certify-or-falsify structure, replacing "unsigned" with "signed up to a computable band."
+
+\subsection{Ledger}
+\label{app:d8-ledger}
+
+\emph{Proved:} Lemmas \ref{lem:d8-pricing}--\ref{lem:d8-weights}, Theorem~\ref{thm:d8-region}, and Proposition~\ref{prop:d8-counter}(iii) given (ii). \emph{Computable-verified at the calibration (JSON artifacts):} the contraction modulus $L$; the certified interval of Corollary~\ref{cor:d8-baseline} with margins; the $\sigma_\xi=0.60$ trough and its channel decomposition. \emph{Open:} a calibration-free analytic modulus for \textup{(A6)}; a global analytic sign for $B$ (now known to be impossible in the strong form: Proposition~\ref{prop:d8-counter}); endpoint neighbourhoods (both $E'$ and $B$ degenerate at the exact grid edges, as flagged in Appendix~\ref{app:proof-d1-GE}).

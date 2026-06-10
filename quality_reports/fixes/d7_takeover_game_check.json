@@ -1,0 +1,628 @@
+{
+  "checks": [
+    {
+      "name": "mc_game_vs_closed_forms",
+      "pass": true,
+      "worst_abs_err": 0.0005024225078149591,
+      "tol": 0.004,
+      "n": 2000000
+    },
+    {
+      "name": "bounds_and_monotonicity",
+      "pass": true,
+      "lambda_in_01": true,
+      "decreasing_in_q": true,
+      "increasing_in_gamma": true,
+      "pivotal_ge_nonpivotal": 1.0,
+      "psi_in_01": true,
+      "pivotality_jump_at_q08_g03": 0.21262379077981775
+    },
+    {
+      "name": "thm_A3_iff_boundary",
+      "pass": true,
+      "n_cells": 48
+    },
+    {
+      "name": "calibration_consistency",
+      "pass": true,
+      "theta": 0.5,
+      "rho": 0.9,
+      "q": 0.5,
+      "gamma": 0.6,
+      "pivotal": true,
+      "phi": 0.12,
+      "mu_S": 0.6,
+      "Delta_eng": 0.5159288344168262,
+      "lambda": 0.8614452513529636,
+      "wedge_m1_minus_m0": 0.19999999999999998,
+      "mtil_minus_m0": 0.18
+    },
+    {
+      "name": "afs_measured_premium_reversal",
+      "pass": true,
+      "M_decreasing_at_lambda0": true,
+      "lambda_crit_numeric": 0.07,
+      "note": "M' < 0 for all interior pi at every lambda <= lambda_crit"
+    }
+  ],
+  "n_fail": 0,
+  "iff_cells": [
+    {
+      "q": 0.0,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 0.0,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 0.7,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 0.7,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 0.8333517395653696,
+      "F1F2F3": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 0.7,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 0.8200000000000001,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 0.8200000000000001,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 0.884027638256834,
+      "F1F2F3": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 0.8200000000000001,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 0.3,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 0.30000000000000004,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 0.30000000000000004,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 0.6111540589858624,
+      "F1F2F3": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 0.30000000000000004,
+      "F1F2F3": [
+        false,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 0.5800000000000001,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 0.5800000000000001,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 0.7293978225992792,
+      "F1F2F3": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 0.5800000000000001,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 0.7,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        false,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 0.0,
+      "F1F2F3": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 0.0,
+      "F1F2F3": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 0.44450579855123207,
+      "F1F2F3": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 0.0,
+      "F1F2F3": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 0.4,
+      "F1F2F3": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.4,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 0.4,
+      "F1F2F3": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 0.6134254608561133,
+      "F1F2F3": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 0.4,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 0.4,
+      "F1F2F3": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 1.0,
+      "pivotal": false,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.0,
+      "lambda": 1.0,
+      "F1F2F3": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "q": 1.0,
+      "gamma": 1.0,
+      "pivotal": true,
+      "s_min": 0.67,
+      "lambda": 1.0,
+      "F1F2F3": [
+        true,
+        false,
+        true
+      ]
+    }
+  ],
+  "all_pass": true
+}
