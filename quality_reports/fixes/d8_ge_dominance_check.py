@@ -272,6 +272,16 @@ def check_baseline_path():
     Ep = np.array([r["chanA"] for r in rows])
     E_path = np.concatenate([[0.0], np.cumsum(0.5 * (Ep[1:] + Ep[:-1]) * np.diff(ks))])
     i_peak = int(np.argmax(E_path))
+
+    # (R0): channel-A single-peakedness in the single-crossing sense --
+    # E' positive then negative with exactly one sign change on the grid
+    signs = np.sign(Ep)
+    signs = signs[signs != 0]
+    crossings = int(np.sum(signs[1:] != signs[:-1])) if len(signs) > 1 else 0
+    record("chanA_single_crossing_R0",
+           crossings == 1 and len(signs) > 0 and signs[0] > 0,
+           {"sign_changes_of_Eprime": crossings,
+            "first_sign_positive": bool(len(signs) > 0 and signs[0] > 0)})
     Astar = float(E_path[i_peak] - 0.5 * (E_path[0] + E_path[-1]))
     eps = 2 * float(np.mean(np.diff(ks)))
     ball = np.abs(ks - ks[i_peak]) <= eps
@@ -296,14 +306,22 @@ def check_baseline_path():
             lo -= 1
         while hi + 1 < len(ks) and (ball[hi + 1] or bvals[hi + 1] < abs(Ep[hi + 1])):
             hi += 1
+        # D8-8: the R2 margin must use the bound's own certified-interval
+        # endpoints, not the full-grid endpoints
+        margin_sub = (min(E_path[max(i_peak - 2, 0)],
+                          E_path[min(i_peak + 2, len(ks) - 1)])
+                      - max(E_path[lo], E_path[hi]))
         cert[bound_name] = {
             "R1_fraction_off_ball": r1_frac,
             "R2_integral_lt_margin": bool(r2),
             "ball_integral": int_ball, "margin": margin,
+            "R2_margin_subinterval": float(margin_sub),
+            "R2_integral_lt_margin_subinterval": bool(int_ball < margin_sub),
             "certified_interval": [float(ks[lo]), float(ks[hi])],
         }
     ok_cert = cert["exact_Bift"]["R2_integral_lt_margin"] and \
-        cert["exact_Bift"]["certified_interval"][0] < ks[i_peak] < cert["exact_Bift"]["certified_interval"][1]
+        cert["exact_Bift"]["certified_interval"][0] < ks[i_peak] < cert["exact_Bift"]["certified_interval"][1] and \
+        cert["loose_sumW_dT_over_1mL"]["R2_integral_lt_margin_subinterval"]
     record("region_certification", ok_cert,
            {"channelA_peak_kappa": float(ks[i_peak]), "Astar": Astar,
             "eps": eps, **{k: v for k, v in cert.items()}})
@@ -343,11 +361,17 @@ def check_counterexample():
         interior_min = 0 < i_min < len(v) - 1
         depth = float(min(v[0], v[-1]) - v[i_min])
         is_trough = interior_min and depth > 1e-4
-        # channel A path and amplitude
+        # channel A path and amplitude; single-peaked in the single-crossing
+        # sense of (R0): E' positive then negative, exactly one sign change
         Ep = np.array(EpL)
         E_path = np.concatenate([[0.0], np.cumsum(0.5 * (Ep[1:] + Ep[:-1]) * np.diff(k_arr))])
         Astar = float(np.max(E_path) - 0.5 * (E_path[0] + E_path[-1]))
-        chanA_singlepeak = bool(np.max(E_path) > max(E_path[0], E_path[-1]))
+        sg = np.sign(Ep)
+        sg = sg[sg != 0]
+        n_cross = int(np.sum(sg[1:] != sg[:-1])) if len(sg) > 1 else 0
+        chanA_singlepeak = bool(
+            np.max(E_path) > max(E_path[0], E_path[-1])
+            and n_cross == 1 and len(sg) > 0 and sg[0] > 0)
         # B residual integral
         tot = np.gradient(v, k_arr)
         B = tot - Ep

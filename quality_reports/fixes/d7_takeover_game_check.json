@@ -8,6 +8,22 @@
       "n": 2000000
     },
     {
+      "name": "topup_deviation_exists_and_pays_reservation",
+      "pass": true,
+      "topup_raid_share_a1": 0.0313615,
+      "topup_raid_share_a0": 0.0440095,
+      "mean_raider_profit_on_topups": 0.03925666979711285,
+      "note": "floor-only policy is not a best response (D7-1); corrected equilibrium leaves d(a) unchanged"
+    },
+    {
+      "name": "phi_two_edged_both_signs",
+      "pass": true,
+      "min_dlambda_dphi": -0.4958716065872614,
+      "max_dlambda_dphi": 0.061044916388475194,
+      "argmin_phi": 0.02,
+      "argmax_phi": 0.92
+    },
+    {
       "name": "bounds_and_monotonicity",
       "pass": true,
       "lambda_in_01": true,

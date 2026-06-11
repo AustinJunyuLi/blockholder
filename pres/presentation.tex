@@ -1,7 +1,8 @@
 % ============================================================================
 % presentation.tex
 % Beamer deck for: Liquidity, Activism Disclosure, and Takeover Premia
-% 14 core slides + 27 backup slides with bidirectional hyperlinks
+% 40-minute research talk: 18 core slides + backup slides with
+% bidirectional hyperlinks (technical material lives in the backups)
 % ============================================================================
 %
 % ── AUDIENCE CALIBRATION NOTE ──────────────────────────────────────────────
@@ -109,7 +110,7 @@
 }
 
 % Graphics path
-\graphicspath{{figures/}}
+\graphicspath{{figures/}{../empirics/output/}}
 
 % Title
 \title[Liquidity, Activism, Takeover Premia]{\textbf{Liquidity, Activism Disclosure, and Takeover Premia:}\\[0.2em]
@@ -191,13 +192,13 @@ No model links all three: how does market liquidity, through its effect on infor
 \hypertarget{main:positioning}{}
 \small
 \begin{itemize}\itemsep0.35em
-  \item \textbf{\citealp{JohnsonSwem2021}} (JFE): dynamic \emph{reputation}; accumulation is a reduced-form cost draw; owns the 13D-window $\leftrightarrow$ $\sigma^2 T$ lever (2024 acceleration).
-  \item \textbf{\citealp{AlbuquerqueFosSchroth2022}} (JFE): structural 13D-vs-13G choice; engagement cost a \emph{scalar}; estimate activism \emph{lowers} bid premia by $13.7\%$.
-  \item \textbf{\citealp{CelentanoLevine2025}} (R\&R RFS): equilibrium activism $+$ takeovers $+$ managerial discipline; no market microstructure.
+  \item \textbf{\citealp{JohnsonSwem2021}} (JFE): dynamic \emph{reputation} --- the model's only state variable; accumulation collapsed to a lognormal cost draw; no trading, no disclosure margin.
+  \item \textbf{\citealp{AlbuquerqueFosSchroth2022}} (JFE): structural 13D-vs-13G choice; engagement cost a \emph{scalar}; 13D returns $\approx 3/4$ treatment --- the market \emph{capitalizes} activism at disclosure.
+  \item \textbf{\citealp{CelentanoLevine2025}}: equilibrium activism $+$ takeovers $+$ discipline; estimate activism \emph{lowers} bid premia $13.7\%$ via board bargaining; no market microstructure.
 \end{itemize}
 
 \begin{block}{This paper's lane}
-\small Liquidity, order-flow inference, and the disclosure rule are the trio's \textbf{missing state variables}. The premium they estimate as a constant is here an \textbf{equilibrium object of tender mechanics} ($\lambda = 1-q(1-\gamma)\psi$) --- and the AFS negative sign is the low-$\lambda$ region of our model, not a contradiction.
+\small Liquidity, order-flow inference, and the disclosure rule are the trio's \textbf{missing state variables}. The premium they estimate as a constant is here an \textbf{equilibrium object of tender mechanics} ($\lambda = 1-q(1-\gamma)\psi$) --- and the negative activism--premium estimate is the low-$\lambda$ region of our model, with cross-sectional content ($q,\gamma,\psi,\kappa$) their board-bargaining channel cannot index.
 \end{block}
 \end{frame}
 
@@ -208,7 +209,8 @@ No model links all three: how does market liquidity, through its effect on infor
 \column{0.54\textwidth}
 \textbf{Institutional facts:}
 \begin{itemize}\itemsep0.1em
-  \item \textbf{US:} 5\% threshold, 10-day filing window (Schedule 13D)
+  \item \textbf{US:} 5\% threshold (Schedule 13D); window cut
+        \textbf{10 calendar $\to$ 5 business days} (eff.\ Feb 2024)
   \item \textbf{UK:} 3\% threshold, 2-day window (FCA TR-1)
   \item Creates two observability regimes:
 \end{itemize}
@@ -520,7 +522,7 @@ $\Delta^{\min}(\kappa)$ is \textbf{hump-shaped}: moderate $\kappa$ uniquely maxi
 \vspace{-0.2em}
 \end{block}
 
-{\scriptsize\textbf{Status upgrade (new):} the GE clause is now a \emph{theorem} on a certified region $+$ a certified counterexample at its boundary (Theorem B slide).}
+{\scriptsize\textbf{Scope:} the GE clause holds as a \emph{theorem} on a certified region, with a certified counterexample at its boundary (Theorem B).}
 
 \vspace{0.1em}
 {\footnotesize\textbf{Decomposition:}
@@ -577,8 +579,8 @@ $\Delta^{\min}(\kappa)$ is \textbf{hump-shaped}: moderate $\kappa$ uniquely maxi
 \backuplink{backup:decomposition_proof}{Decomposition proof}
 \end{frame}
 
-% ── SLIDE 10c: NEW Theorem A — the wedge from tender mechanics ───────────
-\begin{frame}{New Theorem A: The Premium Wedge from Tender Mechanics}
+% ── SLIDE 10c: Theorem A — the wedge from tender mechanics ───────────────
+\begin{frame}{Theorem A: The Premium Wedge from Tender Mechanics}
 \hypertarget{main:thmA}{}
 \begin{columns}[T,onlytextwidth]
 \column{0.55\textwidth}
@@ -599,12 +601,14 @@ $\Delta^{\min}(\kappa)$ is \textbf{hump-shaped}: moderate $\kappa$ uniquely maxi
 {\small $m_1{-}m_0 = (1{-}\theta)\lambda\rho\Delta_{\text{eng}}$. \;A3 fails \textbf{only if} fringe raids are certain, fully superseding, and unblockable.}
 
 \vspace{0.2em}
-{\footnotesize\textbf{AFS reconciled:} measured premium $\bar m/P$ \emph{falls} in activism evidence when $\lambda$ is small --- the price capitalizes activism faster than the wedge grows.}
+{\footnotesize\textbf{Negative premium estimates} (\citealp{CelentanoLevine2025}) \textbf{reconciled}: $\bar m/P$ falls in activism evidence when $\lambda$ is small.}
+
+\backuplink{backup:tender_game}{The tender game}
 \end{columns}
 \end{frame}
 
-% ── SLIDE 10d: NEW Theorem B — certified region + counterexample ─────────
-\begin{frame}{New Theorem B: When Is the Hump a Theorem?}
+% ── SLIDE 10d: Theorem B — certified region + counterexample ─────────────
+\begin{frame}{Theorem B: When Is the Hump a Theorem?}
 \hypertarget{main:thmB}{}
 \begin{columns}[T,onlytextwidth]
 \column{0.58\textwidth}
@@ -619,6 +623,8 @@ $\Delta^{\min}(\kappa)$ is \textbf{hump-shaped}: moderate $\kappa$ uniquely maxi
 
 \vspace{0.3em}
 {\footnotesize The boundary is economic: GE feedback wins exactly where bid entry is insensitive to premia.}
+
+\backuplink{backup:region_method}{How the region is certified}
 \end{columns}
 \end{frame}
 
@@ -690,6 +696,64 @@ $C_0$ high: deterrence dominates.}
 \backuplink{backup:PE_vs_GE}{PE vs GE distinction}
 \end{frame}
 
+% ── SLIDE E1: Evidence I — the 2024 acceleration bit (Fact 1) ────────────
+\begin{frame}{Evidence I: The 2024 Acceleration Bit}
+\hypertarget{main:fact1}{}
+\begin{columns}[T,onlytextwidth]
+\column{0.55\textwidth}
+\centering
+\includegraphics[width=0.96\linewidth]{fact1_delay.pdf}
+
+\column{0.43\textwidth}
+{\small\textbf{Rule change:} SEC release 33-11253 cut the Schedule 13D
+initial deadline from \textbf{10 calendar days} to \textbf{5 business days}
+(compliance 2024-02-05).}
+
+\vspace{0.3em}
+\begin{block}{Fact 1: Filing delays compressed}
+{\small Median event-to-filing delay falls \textbf{7 $\to$ 5} business days;
+the share filed within 5 business days more than doubles:
+\textbf{36\% $\to$ 76\%}.}
+\end{block}
+
+\vspace{0.2em}
+{\footnotesize EDGAR originals, 2023Q2--Q3 vs.\ 2024Q3--Q4 --- the model's
+quiet-trading cover, shortened by law.}
+
+\backuplink{backup:fact_methods}{Data \& methods}
+\end{columns}
+\end{frame}
+
+% ── SLIDE E2: Evidence II — 13D announcement returns (Fact 2) ────────────
+\begin{frame}{Evidence II: Returns on the Modeled Margin}
+\hypertarget{main:fact2}{}
+\begin{columns}[T,onlytextwidth]
+\column{0.55\textwidth}
+\centering
+\includegraphics[width=0.96\linewidth]{fact2_car.pdf}
+
+\column{0.43\textwidth}
+{\small\textbf{Design:} market-model CARs around original 13D filings,
+2022--2025; 1{,}513 events (843 pre, 670 post); \emph{Post} $=$
+5-business-day regime.}
+
+\vspace{0.2em}
+\begin{block}{Fact 2: What the data say}
+{\small Mean $\mathrm{CAR}[-1,+1]$ \textbf{doubles}: $0.85\% \to 1.71\%$
+($\beta > 0$ as predicted; $t \approx 1.1$, n.s.).\\[0.2em]
+Surprises concentrate in \textbf{liquid} names:
+$\partial\mathrm{CAR}/\partial\ln\mathrm{Amihud} = -1.4$pp
+($t = -3.7$) --- the camouflage margin is first-order.\\[0.2em]
+Post$\times$illiquidity interaction: precise null.}
+\end{block}
+
+\vspace{0.2em}
+{\footnotesize Two-way clustered (firm, month); table in backup.}
+
+\backuplink{backup:fact_methods}{Data \& methods}
+\end{columns}
+\end{frame}
+
 % ── SLIDE 13: Summary & Conclusion ───────────────────────────────────────
 \begin{frame}{Summary}
 \hypertarget{main:summary}{}
@@ -712,11 +776,11 @@ bid incidence rises but the activism premium erodes.
 \textbf{\textcolor{brightblue}{Contribution}}\\[-0.2em]
 {\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}}\\[0.1em]
 Unifies exit/voice, informed trading, and takeover literatures.
-Disclosure policy implicitly governs the liquidity-premia relationship.
-\textbf{New:} premium wedge derived from a free-rider tender game
-($\lambda = 1-q(1-\gamma)\psi$; rationalizes AFS's negative premium estimate);
-GE clause of the hump certified as a theorem on $[0.35,0.825]$ with a genuine
-counterexample at $\sigma_\xi = 0.60$.
+Disclosure policy implicitly governs the liquidity--premia relationship.
+The premium wedge is derived from a free-rider tender game
+($\lambda = 1-q(1-\gamma)\psi$; rationalizes the estimated negative
+activism--premium effect), and the GE clause of the hump is certified as a
+theorem on $[0.35,0.825]$ with a genuine counterexample at $\sigma_\xi = 0.60$.
 
 \vspace{0.2em}
 
@@ -995,6 +1059,86 @@ $\Rightarrow$ $\kappa^{\dagger} \in (0,1)$: the hump is \textbf{strict} with an 
 {\footnotesize\textbf{Note on shape:} The Weierstrass argument guarantees at least one interior peak but does not rule out multiple local maxima (W-shape). The baseline calibration confirms a well-behaved single-peaked hump, demonstrating that the fundamental economic trade-off dominates.}
 
 \returnlink{main:result}{Slide 10: Main Result}
+\end{frame}
+
+% ── BACKUP 6e: The tender game behind Theorem A (D7) ───────────────────
+\begin{frame}{What game pins the premium wedge?}
+\hypertarget{backup:tender_game}{}
+\small
+\textbf{Disagreement-node tender game.} Players: fringe raider (entry cost
+$c_F \sim H$, synergy $S_F \sim G$), bloc (stake $\alpha$, strategic),
+atomistic float (measure $1-\alpha$); charter permits dilution $\varphi$ of
+non-tendering shareholders (Grossman--Hart exclusion device).
+
+\vspace{0.25em}
+\textbf{Timing:} raider enters and posts a uniform unrestricted offer
+$\hat b$ for control threshold $\tau$ $\to$ float tenders atomistically
+(free-rides) $\to$ control transfers iff tenders $\ge \tau$; post-raid
+per-share value $w + \gamma\, a\,\Delta_{\text{eng}} + S_F$.
+
+\vspace{0.25em}
+\textbf{Equilibrium} (with $\alpha < \tau$: the bloc alone cannot deliver
+control): free-rider floor $\hat b^* = w + \gamma a \Delta_{\text{eng}} + S_F
+- \varphi$; a \emph{pivotal} bloc ($1-\alpha < \tau$) blocks floor raids
+unless $S_F - \varphi \ge (1-\gamma)\,a\,\Delta_{\text{eng}}$. On the
+blocking set the raider can still top up to the bloc's reservation --- but
+such raids pay the bloc \emph{exactly} its outside option, so the threat
+point (and $\lambda$) is unchanged.
+
+\vspace{0.25em}
+\begin{block}{Appropriability as an equilibrium output}
+\vspace{-0.4em}
+\[
+\lambda = 1 - q\,(1-\gamma)\,\psi, \qquad
+\psi = \tfrac{1}{(1-\gamma)\Delta_{\text{eng}}}
+\textstyle\int_0^{(1-\gamma)\Delta_{\text{eng}}}
+\PP(S_F - \varphi \ge t)\,dt \in [0,1]
+\]
+\vspace{-0.9em}
+\end{block}
+
+{\footnotesize ($\psi = 1$ when non-pivotal.) $\lambda > 0$ fails \textbf{only if}
+$q=1$, $\gamma=0$, and blocking is impossible or worthless --- so A3 is a
+theorem, not an assumption. Wedge: $m_1 - m_0 = (1-\theta)\lambda\rho
+\Delta_{\text{eng}}$. Residue: one-shot fringe, exogenous $(\varphi,\tau)$.}
+
+\returnlink{main:thmA}{Theorem A}
+\end{frame}
+
+% ── BACKUP 6f: How the GE region is certified (D8) ─────────────────────
+\begin{frame}{How is the certified region actually certified?}
+\hypertarget{backup:region_method}{}
+\small
+\textbf{Problem:} the hump needs the GE cutoff-shift channel $B(\kappa)$ not
+to overturn the fixed-cutoff channel (A). Bounding $B$ requires
+$\|\mathrm{d}k/\mathrm{d}\kappa\|$ --- normally the \emph{unknown} equilibrium path derivative.
+
+\vspace{0.3em}
+\textbf{Inversion-free bound:} the cutoff map $F = I - T$ inherits the
+A6 contraction modulus $L$ of the best-response map $T$, so by the Neumann series
+\[
+\left\|(I - D_k T)^{-1}\right\|_\infty \le \frac{1}{1-L}
+\quad\Longrightarrow\quad
+\left\|\frac{\mathrm{d}k}{\mathrm{d}\kappa}\right\|_\infty \le
+\frac{\|\partial_\kappa T\|_\infty}{1-L},
+\]
+computable from \emph{one} equilibrium solve plus one finite-difference column
+--- no Jacobian inversion, no path knowledge.
+
+\vspace{0.3em}
+\textbf{At the baseline:} $L \le 0.836 < 1$ along the whole path; channel-(A)
+peak at $\kappa \approx 0.60$; certification margins hold at every off-ball
+grid point (ball integral $2.5\times10^{-5}$ vs.\ margin $4.7\times10^{-3}$)
+$\Rightarrow$ exact-IFT region $[0.30, 0.85]$, inversion-free region $[0.35, 0.825]$.
+
+\vspace{0.3em}
+{\footnotesize\textbf{And the counterexample is certified too:} at
+$\sigma_\xi = 0.60$, troughs at interior $\kappa \in \{0.275, 0.35, 0.475\}$
+with channel (A) single-peaked in every cell and $\int |B|$ exceeding the
+(A)-amplitude (e.g.\ $0.021$ vs.\ $0.0069$) --- GE dominance is genuinely
+non-removable.}
+
+\returnlink{main:thmB}{Theorem B}
 \end{frame}
 
 % ── CATEGORY DIVIDER: Sensitivity & Comparative Statics ──────────────────
@@ -1398,21 +1542,21 @@ $\sigma_\xi$ (shock vol) & 0.40 & Bidder heterogeneity \\
 \toprule
 $D$ & $X$ & $P(X,D)$ & $\pi(X,D)$ & $p(X,D)$ & $\bar{m}(X,D)$ \\
 \midrule
-0 & $-2$ & 0.65 & 0.00 & 0.58 & 0.10 \\
-0 & $-1$ & 0.72 & 0.09 & 0.55 & 0.12 \\
-0 & $0$  & 0.89 & 0.52 & 0.48 & 0.19 \\
-0 & $1$  & 1.04 & 0.78 & 0.43 & 0.24 \\
+0 & $-2$ & 0.84 & 0.00 & 0.81 & 0.10 \\
+0 & $-1$ & 1.06 & 0.41 & 0.55 & 0.17 \\
+0 & $0$  & 1.23 & 0.74 & 0.33 & 0.23 \\
+0 & $1$  & 1.39 & 1.00 & 0.17 & 0.28 \\
 \midrule
-1 & $0$  & 1.14 & 1.00 & 0.39 & 0.28 \\
-1 & $1$  & 1.14 & 1.00 & 0.39 & 0.28 \\
-1 & $2$  & 1.14 & 1.00 & 0.39 & 0.28 \\
+1 & $0$  & 1.90 & 1.00 & 0.01 & 0.28 \\
+1 & $1$  & 1.90 & 1.00 & 0.01 & 0.28 \\
+1 & $2$  & 1.90 & 1.00 & 0.01 & 0.28 \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \vspace{0.1em}
 
-\textbf{Key:} (i) $D{=}1$: $\pi = 1$, flat prices; (ii) $D{=}0$: inference gradient; (iii) $D{=}1$ has \emph{lower} bid probability ($\tilde{m} > m_0$).
+\textbf{Key:} (i) $D{=}1$: $\pi = 1$, flat prices; (ii) $D{=}0$: inference gradient; (iii) $D{=}1$ has \emph{much lower} bid probability --- disclosure deters bids through the price run-up and the full premium $\tilde m$.
 
 \returnlink{main:prop3}{Slide 9: Price Decomposition}
 \end{frame}
@@ -1468,6 +1612,46 @@ A7 & Bidder observes $(P, D)$ but not $(X, s, v, a)$ & Information structure, en
 \textbf{Note:} A5 is verifiable ex ante from primitives. A6 is verified numerically (following \citealp{EdmansGoldsteinJiang2015}). All other assumptions are standard.
 
 \returnlink{main:timeline}{Slide 5: Model Timeline}
+\end{frame}
+
+% ── CATEGORY DIVIDER: Data & Evidence ────────────────────────────────────
+\begin{frame}{}
+\centering
+\vspace{2cm}
+{\Large\textbf{Backup: Data \& Evidence}}
+\end{frame}
+
+% ── BACKUP 21: Facts 1–2 data & methods ─────────────────────────────────
+\begin{frame}{How are the two facts constructed?}
+\hypertarget{backup:fact_methods}{}
+\footnotesize
+\textbf{Sample.} All \emph{original} Schedule 13Ds on EDGAR (amendments
+excluded), full-text indexes 2022Q1--2025Q4. Form-type matching is
+boundary-aware: EDGAR renamed the form \texttt{SC 13D} $\to$
+\texttt{SCHEDULE 13D} in Dec.\ 2024, and naive fixed-width reads conflate
+originals with amendments (and would drop 2025 entirely).
+
+\vspace{0.25em}
+\textbf{Fact 1 (delays).} Event date from the cover-page label (or the
+structured XML tag in the post-2024 regime); delay $=$ business days from
+event to filing; windows 2023Q2--Q3 vs.\ 2024Q3--Q4 straddle the 2024-02-05
+compliance date.
+
+\vspace{0.25em}
+\textbf{Fact 2 (CARs).} Subject CUSIP parsed from cover pages with
+check-digit validation and label-proximity voting ($\approx$80--90\%
+coverage); filings accepted after 16:00 ET shift to the next trading day.
+Market-model abnormal returns (CRSP daily; estimation 220 trading days
+ending 30 before the event, min.\ 100 obs); $\mathrm{CAR}[-1,+1]$ and
+$\mathrm{CAR}[-10,+1]$.
+
+\vspace{0.25em}
+\textbf{Covariates \& inference.} Amihud illiquidity over $[-250,-30]$,
+run-up $[-60,-11]$, $\ln$ market cap at $-30$; US common stock only
+(CIZ share-class filter); OLS with CGM two-way clustered SEs (firm $\times$
+calendar month); year-quarter FE absorb \emph{Post} in the saturated spec.
+
+\returnlink{main:fact2}{Evidence II}
 \end{frame}
 
 \end{document}

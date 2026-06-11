@@ -98,7 +98,7 @@ The model yields two main results. First, liquidity has a nonmonotone effect on 
 
 These theoretical mechanisms speak directly to active policy debates. The United States Schedule 13D threshold of 5\% and the United Kingdom FCA threshold of 3\% create meaningfully different information environments. The framework provides a rigorous way to evaluate how such cross-country differences affect takeover outcomes and minority shareholder welfare, revealing that liquidity regulation operates implicitly as governance policy.
 
-The model's predictions are motivated by well-documented empirical patterns. \citet{BravJiangPartnoyThomas2008} show that hedge fund activism often targets firms that subsequently receive acquisition offers. \citet{GreenwoodSchor2009} find that a substantial fraction of activist returns is attributable to takeover outcomes. The free-rider problem that \citet{GrossmanHart1980} identified in tender offers makes takeover premia the natural welfare object for dispersed minority shareholders, underscoring the importance of understanding how liquidity shapes these outcomes. The same free-rider logic does double duty here: solving the tender game at the bargaining disagreement node is what pins the engagement premium wedge from primitives (Appendix~\ref{app:d7}), and the resulting appropriability coefficient predicts \emph{where} activism raises premia and where --- as \citet{AlbuquerqueFosSchroth2022} estimate on average --- measured premia fall.
+The model's predictions are motivated by well-documented empirical patterns. \citet{BravJiangPartnoyThomas2008} show that hedge fund activism often targets firms that subsequently receive acquisition offers. \citet{GreenwoodSchor2009} find that a substantial fraction of activist returns is attributable to takeover outcomes. The free-rider problem that \citet{GrossmanHart1980} identified in tender offers makes takeover premia the natural welfare object for dispersed minority shareholders, underscoring the importance of understanding how liquidity shapes these outcomes. The same free-rider logic does double duty here: solving the tender game at the bargaining disagreement node is what pins the engagement premium wedge from primitives (Appendix~\ref{app:d7}), and the resulting appropriability coefficient predicts \emph{where} activism raises premia and where --- as \citet{CelentanoLevine2025} estimate on average --- measured premia fall.
 
 The paper proceeds as follows. Section~\ref{sec:lit} reviews the literature. Section~\ref{sec:model} presents the model, and Section~\ref{sec:equilibrium} characterizes the equilibrium. Section~\ref{sec:numerical} develops comparative statics with numerical analysis. Section~\ref{sec:testable} presents testable implications. Sections~\ref{sec:welfare} and~\ref{sec:extensions} analyze welfare and disclosure extensions. Section~\ref{sec:conclusion} concludes.
 \section{Related Literature}
@@ -127,7 +127,7 @@ Microstructure models explain how prices aggregate private information through t
 
 Empirical evidence firmly links activism to corporate control. \citet{BravJiangPartnoyThomas2008} document foundational stylized facts regarding activist target selection and subsequent acquisition offers. \citet{GreenwoodSchor2009} show that a substantial fraction of activist returns traces to these takeover outcomes. \citet{CorumLevit2019} model this control channel directly, showing that activists hold a comparative advantage over bidders in pressuring entrenched incumbents to sell; relative to their static contracting focus, the present paper embeds the activist's governance choice in a market-microstructure setting where order-flow inference and disclosure shape bidder entry. The canonical \citet{GrossmanHart1980} model establishes the free-rider problem that makes the takeover premium the relevant welfare metric for dispersed minority shareholders.
 
-A rapidly maturing structural literature quantifies activism along complementary margins, and the present paper's positioning is sharpest against it. \citet{Gantchev2013} estimates the sequential costs of campaigns; \citet{AlbuquerqueFosSchroth2022} structurally estimate the binary 13D-versus-13G choice jointly with announcement returns, decomposing activist returns into treatment, stock-picking, and selection --- and estimate that activism \emph{lowers} takeover bid premia relative to a no-activist counterfactual, a finding Proposition~\ref{prop:d7-afs} rationalizes through the price channel without reversing the engagement wedge; \citet{JohnsonSwem2021} estimate a dynamic reputation model of activism in which the pre-disclosure accumulation window plays the role of cumulative noise-trading cover, the lever the 2024 acceleration of the 13D deadline moves; and \citet{CelentanoLevine2025} estimate an equilibrium model of activism, takeovers, and managerial discipline. None of these models the trading-and-disclosure environment itself --- liquidity, order-flow inference, and the stake-triggered disclosure rule are this paper's state variables, and the premium those papers treat as an estimated constant is here an equilibrium object of tender mechanics (Appendix~\ref{app:d7}) whose sign and size vary in observable primitives. \citet{CollinDufresneFos2015} provide the reduced-form complement, showing measured price impact falls exactly when informed blockholders trade against liquidity.\footnote{\citet{BackEtAl2018} embed an activist in a continuous-time Kyle model to study liquidity and efficiency, but they do not incorporate the feedback loop between order-flow inference and bidder entry conditional on disclosure. \citet{CetemenCisternasKolbViswanathan2026} study a dynamic complement in which sophisticated activists time their trades sequentially and use market signals to coordinate, generating leader-follower dynamics among blockholders; this paper instead focuses on a single blockholder's static choice among exit, quiet voice, and threshold-triggering public voice, and how disclosure partitions order-flow inference that feeds bidder entry.}
+A rapidly maturing structural literature quantifies activism along complementary margins, and the present paper's positioning is sharpest against it. \citet{Gantchev2013} estimates the sequential costs of campaigns; \citet{AlbuquerqueFosSchroth2022} structurally estimate the binary 13D-versus-13G choice jointly with announcement returns, decomposing activist returns into treatment, stock-picking, and selection --- direct evidence that prices \emph{capitalize} activism at disclosure, the denominator channel of Proposition~\ref{prop:d7-afs}; \citet{JohnsonSwem2021} estimate a dynamic reputation model of activism whose single state variable is the activist's reputation, the accumulation stage collapsed into a lognormal campaign-cost draw standing in for price impact and trading costs; and \citet{CelentanoLevine2025} estimate an equilibrium model of activism, takeovers, and managerial discipline --- finding that activism \emph{lowers} bid premia by 13.7\% relative to a no-activist counterfactual through board bargaining, a finding Proposition~\ref{prop:d7-afs} rationalizes through the price channel without reversing the engagement wedge, with cross-sectional content ($q,\gamma,\psi$) that a presence-only channel does not carry. None of these models the trading-and-disclosure environment itself --- liquidity, order-flow inference, and the stake-triggered disclosure rule are this paper's state variables, and the premium those papers treat as an estimated constant is here an equilibrium object of tender mechanics (Appendix~\ref{app:d7}) whose sign and size vary in observable primitives. \citet{CollinDufresneFos2015} provide the reduced-form complement, showing measured price impact falls exactly when informed blockholders trade against liquidity.\footnote{\citet{BackEtAl2018} embed an activist in a continuous-time Kyle model to study liquidity and efficiency, but they do not incorporate the feedback loop between order-flow inference and bidder entry conditional on disclosure. \citet{CetemenCisternasKolbViswanathan2026} study a dynamic complement in which sophisticated activists time their trades sequentially and use market signals to coordinate, generating leader-follower dynamics among blockholders; this paper instead focuses on a single blockholder's static choice among exit, quiet voice, and threshold-triggering public voice, and how disclosure partitions order-flow inference that feeds bidder entry.}
 
 %
 \subsection{Relation to This Paper}
@@ -265,7 +265,7 @@ C(s) = C_0 \exp\!\left(-\chi \frac{s - \mu}{\sigma_s}\right),
 \]
 where $C_0 > 0$ is the cost at the prior mean and $\chi \geq 0$ controls cost sensitivity to signal quality (Assumption~\textup{(A2)}). The assumption that engagement costs are decreasing in the signal reflects the economic mechanics of persuasion. A blockholder with more favorable private information about fundamentals finds it easier to build a compelling case for change. With a strong underlying asset, the activist can point to concrete operational improvements, favorable peer comparisons, or verifiable evidence of undervaluation, substantially lowering the friction of persuading the board or rallying fellow institutional shareholders. The exponential form is chosen for analytical convenience to ensure non-negativity, but the qualitative results require only strict positivity and a monotone decrease in $s$. This monotonicity assumption is economically substantive. If costs were instead increasing in $s$ (for example, because high-value firms feature entrenched managers who are harder to dislodge), the cutoff ordering would potentially invert, pushing the blockholder toward exit on good news and voice on bad news. The decreasing cost structure captures the standard paradigm where a strong fundamental thesis is required for a viable activist campaign.
 
-The decreasing-cost assumption~\textup{(A2)} is \emph{sufficient but not necessary} for the model's qualitative architecture. As shown in Appendix~\ref{app:d5}, the four-action threshold ordering $k_1\le k_0\le k_D$ survives \emph{any} cost profile in the \emph{persuasion regime} $C'(s)<\Lambda(s)$, where $\Lambda(s)$ is the gross (pre-cost) Quiet-over-Hold value slope (Proposition~\ref{prop:d5-a2}); this includes a flat cost ($\chi=0$), under which all existence, ordering, and comparative-statics results go through unchanged and only the \emph{level} of the Hold/Quiet boundary $k_0$ shifts. The ordering can invert only under an \emph{entrenchment regime} ($C'(s)\ge\Lambda(s)$ on a nondegenerate set, e.g.\ better-informed blockholders facing harsher managerial entrenchment precisely when their case is strong), which carries the opposite, falsifiable empirical signature (Definition~\ref{def:d5-regimes}, Remark~\ref{rem:d5-mech}). The single role of $\chi>0$ is therefore not qualitative existence but \emph{magnitude}: a decreasing cost tilts engagement toward higher-signal types. The interior peak of $\Delta^{\min}(\kappa)$ likewise survives a flat cost, with endpoint symmetry $\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$ derived from the noise law (Appendix~\ref{app:d5}).
+Appendix~\ref{app:d5} makes the role of Assumption~\textup{(A2)} exact. At fixed prices the gross (pre-cost) Quiet-over-Hold value gap is \emph{signal-free} --- Hold and Quiet generate the same order flow and disclosure flag, so their payoffs differ only through the engagement lottery, whose value depends on the cell objects, not on $s$ (eq.~\eqref{eq:UH-UQ}); the gross slope is $\Lambda(s)\equiv0$. The Hold/Quiet margin therefore single-crosses precisely in the \emph{persuasion regime} $C'(s)<\Lambda(s)\equiv0$ --- that is, exactly under \textup{(A2)} (Proposition~\ref{prop:d5-a2}). A flat cost ($\chi=0$) makes the Hold/Quiet gap constant in $s$, and the equilibrium sits on the two-cutoff collapse face (footnote below); the four-action architecture, existence, and comparative statics survive, but the interior Hold/Quiet boundary degenerates. The ordering can invert under an \emph{entrenchment regime} ($C'(s)\ge0$ on a nondegenerate set, e.g.\ better-informed blockholders facing harsher managerial entrenchment precisely when their case is strong), which carries the opposite, falsifiable empirical signature (Definition~\ref{def:d5-regimes}, Remark~\ref{rem:d5-mech}). The role of $\chi>0$ is thus the interior Hold/Quiet margin and the tilt of engagement toward higher-signal types. The interior peak of $\Delta^{\min}(\kappa)$ survives a flat cost, with endpoint symmetry $\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$ derived from the noise law (Appendix~\ref{app:d5}).
 
 This monotone, strictly positive specification ensures that neither engagement nor passivity is always optimal when the blockholder holds her initial stake, yielding an interior cutoff structure (Assumption~\textup{(A1)}).%
 \footnote{Sufficient conditions for interior cutoffs include $C(\mu) < \delta(\tilde{\Delta} + (\tilde{m}-m_0))$ (engagement is worthwhile at the prior mean) and $\lim_{s\to-\infty} C(s) > \delta(\tilde{\Delta} + (\tilde{m}-m_0))$ (engagement is dominated for sufficiently low signals), together with the monotonicity of $C(s)$. I also assume that stake building (Public Voice) is not always dominated when engagement occurs, so that disclosure is triggered for sufficiently high signals. When $\chi > 0$, cost heterogeneity supports an interior Hold region; when $\chi = 0$, costs are constant and the equilibrium collapses to the two-cutoff case.}
@@ -287,7 +287,7 @@ Then engagement ($a=1$) yields expected standalone improvement $\tilde{\Delta}$ 
 \[
 \lambda \;=\; 1-q\,(1-\gamma)\,\psi\;\in\;[0,1],
 \]
-where $q$ is the equilibrium fringe-raid probability, $\gamma\in[0,1]$ the portability of the activist's improvement under an alternative acquirer, and $\psi$ a pivotality factor (Proposition~\ref{prop:d7-lambda}). Assumption~\textup{(A3)} then holds \emph{except on a characterized boundary}: it fails only when fringe raids are certain, fully supersede the activist's improvement, and cannot be blocked (Theorem~\ref{thm:d7-A3}). The same appendix shows that the \emph{measured} bid premium --- the offer over a market price that already capitalizes activism --- declines in activism evidence whenever $\lambda$ is small even though $m_1\ge m_0$ throughout (Proposition~\ref{prop:d7-afs}), reconciling the model with the negative premium effect estimated by \citet{AlbuquerqueFosSchroth2022}. The reduced form used in the body is the constant-$\theta$, $\lambda$-at-baseline special case.
+where $q$ is the equilibrium fringe-raid probability (the symbol is local to this tender-game discussion and to Appendix~\ref{app:d7}; it is unrelated to the blockholder's trade direction $q$ of Section~\ref{sec:model}), $\gamma\in[0,1]$ the portability of the activist's improvement under an alternative acquirer, and $\psi$ a pivotality factor (Proposition~\ref{prop:d7-lambda}). Assumption~\textup{(A3)} then holds \emph{except on a characterized boundary}: it fails only when fringe raids are certain, fully supersede the activist's improvement, and cannot be blocked (Theorem~\ref{thm:d7-A3}). The same appendix shows that the \emph{measured} bid premium --- the offer over a market price that already capitalizes activism --- declines in activism evidence whenever $\lambda$ is small even though $m_1\ge m_0$ throughout (Proposition~\ref{prop:d7-afs}), reconciling the model with the negative premium effect estimated by \citet{CelentanoLevine2025}. The reduced form used in the body is the constant-$\theta$, $\lambda$-at-baseline special case.
 
 %
 \subsection{Bidder Entry and Bidding Terms}
@@ -352,7 +352,7 @@ P(X,D) = \delta \, \E[Y \mid X, D].
 \end{equation}
 
 Equation~\eqref{eq:pricing} is the key equilibrium discipline: the price reflects the possibility of takeover and the premium wedge, and takeover decisions depend on that same price. I assume that for each information set $(X,D)$ and each feasible posterior $\pi(X,D)$, the competitive pricing fixed point admits a unique solution $P^*(X,D)$, and that takeover entry is not too sensitive to prices: $\delta\cdot\sup_P|\partial p/\partial P|<1$ (Assumption~\textup{(A5)}).%
-\footnote{Assumption~\textup{(A5)} bounds the strength of the price-to-entry feedback loop and ensures that comparative statics are well-defined. Under the Gaussian bidding rule, a sufficient condition is $\delta/\sigma_\xi < 1/\phi(0)$, where $\phi(\cdot)$ is the standard normal density.}
+\footnote{Assumption~\textup{(A5)} bounds the strength of the price-to-entry feedback loop and ensures that comparative statics are well-defined. Under the Gaussian bidding rule, a sufficient condition \emph{for the sensitivity clause} is $\delta/\sigma_\xi < 1/\phi(0)$, where $\phi(\cdot)$ is the standard normal density; the uniqueness clause is the separate inner-price contraction stated as Assumption~\textup{(A5a)} below, whose baseline margins are discussed in Remark~\ref{rem:A5margins}.}
 
 %
 \subsection{Blockholder Payoff and Equilibrium Concept}
@@ -583,7 +583,7 @@ where, writing $\beta=\sv^2/\sigma_s^2\in(0,1]$ for the posterior-mean slope and
 B(E)\;=\;0,\qquad B(H)\;=\;1,\qquad B(Q)\;=\;1,\qquad B(P)\;=\;1+\eta,
 \quad \eta>0,
 \end{equation}
-the extra slope $\eta$ on Public Voice arising from the trading term $q[\Vhat-P]$ with $q=+1$ (the price-taking blockholder takes $P$ as given, so trading contributes a slope of $+1$ in $\vhat$) and from the takeover term, which is nondecreasing in $\vhat$ (Lemma~\ref{lem:BP-BQ}). The component $\Tmap_1$ ($\Tmap_2$, $\Tmap_3$) is the Exit/Hold (Hold/Quiet, Quiet/Public) indifference signal.
+the extra slope $\eta$ on Public Voice arising from the extra share held into the terminal date and from the takeover term, which is nondecreasing in $\vhat$. Because the per-share slope in \eqref{eq:U-affine} is $\deltaliq\,h\,\E_z[1-p(X,D)]$ (slopes here are normalized by the common Hold/Quiet factor), the second share contributes $2\,\E_z[1-p(X,1)]$ against $\E_z[1-p(X,0)]$, so $\eta>0$ is \emph{conditional}: it holds whenever the disclosed bid probability satisfies $\bar p_1\equiv\E_z\,p(X,1)\le\tfrac12$ --- Lemma~\ref{lem:BP-BQ}'s condition, which holds with a wide margin at the baseline (disclosure deters bids: $\bar p_1\approx0.013$). The component $\Tmap_1$ ($\Tmap_2$, $\Tmap_3$) is the Exit/Hold (Hold/Quiet, Quiet/Public) indifference signal.
 
 \begin{lemma}[Boundedness of best responses]
 \label{lem:bounded}
@@ -602,7 +602,7 @@ The intercepts $A(\cdot)$ are bounded uniformly over $\kvec\in\Theta$: prices li
 
 \begin{lemma}[Self-map and ordering preservation]
 \label{lem:selfmap}
-Under Assumptions~\textup{(A1)}, \textup{(A2)}, \textup{(A4)} the map $\Tmap$ is continuous and maps $\Theta$ into itself, $\Tmap(\Theta)\subseteq\Theta$, including the collapse faces.
+Under Assumptions~\textup{(A1)}, \textup{(A2)}, \textup{(A4)}, \textup{(A5a)} (so that the cell-level price is single-valued) and the slope ordering $\eta>0$ of Lemma~\ref{lem:BP-BQ}, the map $\Tmap$ is continuous and maps $\Theta$ into itself, $\Tmap(\Theta)\subseteq\Theta$, including the collapse faces.
 \end{lemma}
 
 \begin{proof}
@@ -615,7 +615,7 @@ Under Assumptions~\textup{(A1)}, \textup{(A2)}, \textup{(A4)} the map $\Tmap$ is
 
 \begin{proposition}[Existence of Monotone Equilibrium]
 \label{prop:existence}
-Under Assumptions~\textup{(A1)}, \textup{(A2)}, \textup{(A4)}, an equilibrium in (weakly ordered) cutoff strategies exists.
+Under Assumptions~\textup{(A1)}, \textup{(A2)}, \textup{(A4)}, \textup{(A5a)} and the slope ordering $\eta>0$ of Lemma~\ref{lem:BP-BQ}, an equilibrium in (weakly ordered) cutoff strategies exists.
 \end{proposition}
 
 \begin{proof}
@@ -632,13 +632,14 @@ Public Voice is strictly more sensitive to the signal than Quiet Voice, $B(P)>B(
 \end{lemma}
 
 \begin{proof}
-The payoff slopes in $\vhat$ differ between Public and Quiet Voice through two channels. (1) \emph{Trading:} Public Voice carries $q=+1$, contributing $+1$ to the slope (the price is taken as given by the price-taking blockholder), against $0$ for Quiet Voice. (2) \emph{Takeover:} both carry the engagement term $(\mt-m_0)\,p$; under disclosure ($D=1$ for Public Voice) the takeover probability is $p(X,1)=1-\Phi(\mathcal{T})$ with $\mathcal{T}=(\bar{m}(X,1)+\Kcost-\Sbar+P(X,1))/\sigxi$, and $\bar{m}(X,1)$ rises with the disclosed posterior, which rises with $s$. Hence $\partial p/\partial\vhat=\phi(\mathcal{T})(\partial\bar{m}/\partial\vhat)/\sigxi\ge0$, so the takeover channel adds a nonnegative amount to the Public slope. Therefore
+The payoff slopes in $\vhat$ differ between Public and Quiet Voice through two channels. (1) \emph{Holdings:} by \eqref{eq:U-affine} the slope of action $(q,a)$ in $\vhat$ is $\deltaliq\,(1+q)\,\E_z[1-p(X,D)]$; Public Voice holds two shares into the terminal date against Quiet Voice's one, contributing $\deltaliq\bigl[2\,\E_z(1-p(X,1))-\E_z(1-p(X,0))\bigr]$, which is strictly positive whenever $\bar p_1\equiv\E_z\,p(X,1)\le\tfrac12$ (then $2(1-\bar p_1)\ge1\ge1-\bar p_Q$, strictly unless both bind). (2) \emph{Takeover:} both carry the engagement term $(\mt-m_0)\,p$; under disclosure ($D=1$ for Public Voice) the takeover probability is $p(X,1)=1-\Phi(\mathcal{T})$ with $\mathcal{T}=(\bar{m}(X,1)+\Kcost-\Sbar+P(X,1))/\sigxi$, and $\bar{m}(X,1)$ rises with the disclosed posterior, which rises with $s$. Hence $\partial p/\partial\vhat=\phi(\mathcal{T})(\partial\bar{m}/\partial\vhat)/\sigxi\ge0$, so the takeover channel adds a nonnegative amount to the Public slope. Therefore
 \[
-\eta=\underbrace{1}_{\text{trading}}
+\eta=\underbrace{\deltaliq\bigl[2(1-\bar p_1)-(1-\bar p_Q)\bigr]}_{>0\text{ iff }\bar p_Q>2\bar p_1-1}
 +\underbrace{(\mt-m_0)\,\frac{\phi(\mathcal{T})}{\sigxi}\,
-\frac{\partial\bar{m}}{\partial\vhat}}_{\ge0}\;>\;0,
+\frac{\partial\bar{m}}{\partial\vhat}}_{\ge0}\;>\;0
+\quad\text{when }\bar p_1\le\tfrac12,
 \]
-giving $B(P)=1+\eta>1=B(Q)$ from the trading channel alone. The condition $p(X,1)\le\tfrac12\iff \mathcal{T}\ge0\iff$ \eqref{eq:BPBQ-suff} (using $\bar{m}(X,1)=\mt$ on the disclosed branch) additionally places the takeover channel on the rising part of $\Phi$, making the slope gap robust to perturbations of the disclosed price.\footnote{The unconditional part ($\eta\ge1$) is all the ordering arguments require; \eqref{eq:BPBQ-suff} is the transparent primitive bound and holds at the baseline, where the disclosed takeover probability is $p^\star=0.8473$ ($\mathcal{T}=-1.025$ at $P$ normalized to zero), so the trading channel secures $\eta>0$ regardless.}
+giving $B(P)>B(Q)$ under the displayed condition. The condition $p(X,1)\le\tfrac12\iff \mathcal{T}\ge0\iff$ \eqref{eq:BPBQ-suff} (using $\bar{m}(X,1)=\mt$ on the disclosed branch) additionally places the takeover channel on the rising part of $\Phi$, making the slope gap robust to perturbations of the disclosed price.\footnote{\eqref{eq:BPBQ-suff} is the transparent primitive bound and holds comfortably at the baseline, where the disclosed takeover probability is $p^\star=0.0131$ ($\mathcal{T}=+2.22$): disclosure \emph{deters} bids ($p(X,1)<p(X,0)$ at every reached cell; cf.\ the bid-incidence discussion in Section~\ref{sec:comp-statics}), so $2(1-\bar p_1)\approx1.97$ and the holdings channel secures $\eta>0$ with a wide margin.}
 \end{proof}
 
 \begin{lemma}[Global monotone best response]
@@ -694,12 +695,12 @@ The induced prices are Lipschitz in the cutoffs with a modulus small enough that
 
 \begin{remark}[Baseline margins for (A5a), stated honestly]
 \label{rem:A5margins}
-Term (ii) of \eqref{eq:A5a}---the feedback of the price on the bidder's probability and hence on $\E[Y]$---is bounded at the baseline by $0.9474$. But the sufficient rule \eqref{eq:A5a} \emph{also} contains the direct term $\deltaliq\,p^\star$, and at the baseline disclosed posterior the bidder probability is $p^\star\approx0.847$, so $\deltaliq\,p^\star\approx0.805$. Adding the two terms, $\deltaliq[p^\star+(\text{ii})]\approx0.805+0.947>1$, so the displayed feedback number does \emph{not} by itself establish $|\Psifp'|<1$. \textbf{We therefore state Assumption~\textup{(A5a)} as a maintained assumption}, not a derived inequality: it holds whenever $\deltaliq[p^\star+|P+\bar{m}-\Vhat|\phi(0)/\sigxi]<1$, which the baseline does not satisfy under this conservative sufficient rule. The assumption is nonetheless mild---the rule bounds $\phi(\mathcal{T})$ by $\phi(0)$ and treats both channels as additive at their worst case---and the inner fixed point is found numerically without difficulty at every $\kp$ (residuals $\sim10^{-10}$ at fully converged points; Remark~\ref{rem:numreg}). The reader should read \eqref{eq:A5a} as the transparent primitive condition and $p^\star=0.847$ as the actual baseline slack on the direct channel.
+The sufficient rule \eqref{eq:A5a} must hold cell by cell, and the binding cell at the baseline is the \emph{Exit} cell $(X,D)=(-2,0)$, where the bid probability is largest: $p^\star=0.806$, so the direct term is $\deltaliq\,p^\star\approx0.766$, and the worst-case feedback term (ii) adds $\deltaliq\,|P+\bar m-\Vhat|\,\phi(0)/\sigxi\approx0.27$, for a sum $\approx1.04>1$. So the conservative sufficient rule does \emph{not} certify $|\Psifp'|<1$ at every cell. \textbf{We therefore state Assumption~\textup{(A5a)} as a maintained assumption}, not a derived inequality. It is nonetheless mild: the rule bounds $\phi(\mathcal{T})$ by $\phi(0)$ and treats both channels as additive at their worst case; on every \emph{other} reached cell the sum is well below one (on the disclosed branch, where $p^\star=0.013$, it is $\approx0.18$); and the inner fixed point is found numerically without difficulty at every $\kp$ (residuals $\sim10^{-10}$ at fully converged points; Remark~\ref{rem:numreg}). The reader should read \eqref{eq:A5a} as the transparent primitive condition, binding only on the high-$p$ Exit cell under worst-case bounds.
 \end{remark}
 
 \begin{remark}[Uniqueness as a numerical regularity, not a proposition]
 \label{rem:numreg}
-We do not claim global uniqueness as a theorem. Assumption~\textup{(A6)} (contraction of $\Tmap$) would deliver it, but we cannot derive $\|D\Tmap\|_\infty<1$ from primitives without further structure on the cross-cutoff Jacobian. At the baseline calibration the equilibrium located by the solver is numerically unique: a multistart search with $30$ random ordered seeds at $\kappa\in\{0.2,0.5,0.8\}$ converges in all $30/30$ cases to a single fixed point per $\kappa$ (residuals $\sim4\times10^{-10}$), and at the hump peak $\kappa^\star=0.59$ the cold-start and both warm-started solves agree to $\Dmin$-spread $6.9\times10^{-9}$. We label this a \emph{numerical regularity} at the calibration, not a uniqueness theorem; the comparative statics below are shown to hold across all fixed points the multistart locates, following the methodological precedent of \citet{EdmansGoldsteinJiang2015}.
+We do not claim global uniqueness as a theorem. Assumption~\textup{(A6)} (contraction of $\Tmap$) would deliver it, but we cannot derive $\|D\Tmap\|_\infty<1$ from primitives without further structure on the cross-cutoff Jacobian. At the baseline calibration the equilibrium located by the solver is numerically unique: a multistart search with $30$ random ordered seeds at $\kappa\in\{0.2,0.5,0.8\}$ converges in all $30/30$ cases to a single fixed point per $\kappa$ (residuals $\sim4\times10^{-10}$), and at the hump peak $\kappa^\dagger=0.59$ the cold-start and both warm-started solves agree to $\Dmin$-spread $6.9\times10^{-9}$. We label this a \emph{numerical regularity} at the calibration, not a uniqueness theorem; the comparative statics below are shown to hold across all fixed points the multistart locates, following the methodological precedent of \citet{EdmansGoldsteinJiang2015}.
 \end{remark}
 
 %
@@ -894,7 +895,7 @@ Second, the factors $\mathrm{d} k_i/\mathrm{d}\kappa$ are themselves unsigned: t
 path is non-monotone (the equilibrium $k_1=k_0$ runs
 $0.657\!\to\!0.822\!\to\!0.743$ at $\kappa=0.2,0.5,0.8$), and the
 \emph{conditional} mean of the $D=0$ law drifts in full equilibrium
-($\E[\pi\mid D=0]$ traces $0.85\to0.58\to0.85$ across $\kappa$, because
+($\E[\pi\mid D=0]$ traces $0.68\to0.58\to0.63$ at $\kappa=0.2,0.5,0.8$, and back up toward the endpoints, because
 $\PP(D=0)$ drifts) even though the \emph{unnormalized} moment
 $\E[\pi\,\1\{D=0\}]=\omega_Q$ is invariant. The fixed-cutoff invariance used in
 Lemma~\ref{lem:d1-jensen} therefore does not transfer mechanically to
@@ -920,8 +921,9 @@ a \emph{theorem} rather than a regularity (Appendix~\ref{app:proof-d1-GE}).
 Suppose the primitive secant-concavity condition \textup{(C*)} of
 \eqref{eq:d1-Cstar} holds along the equilibrium path and the cutoff-shift
 dominance Hypothesis~\ref{hyp:d1-cutoffshift} holds. Then the minority's
-expected disciplining gain $\Delta^{\min}(\kappa)$ is single-peaked on $[0,1]$:
-it is symmetric at the endpoints, $\Delta^{\min}(0)=\Delta^{\min}(1)$
+expected disciplining gain $\Delta^{\min}(\kappa)$ is single-peaked on $(0,1)$:
+it is symmetric at the endpoints in the limit sense,
+$\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$
 (Lemma~\ref{lem:endpoints}), strictly increasing then strictly decreasing, with
 a unique interior maximizer $\kappa^{\dagger}\in(0,1)$. Conversely, if
 \textup{(C*)} fails---$h$ secant-convex on the chord $[0,\bar\pi]$---the same
@@ -953,9 +955,11 @@ Appendix~\ref{app:d8} sharpens this division in both directions. In one
 direction, Theorem~\ref{thm:d8-region} bounds the GE channel by an
 \emph{inversion-free} quantity $\bar B(\kappa)$ computable from a single
 equilibrium solve (the contraction modulus of Assumption~\textup{(A6)} replaces
-the unknown path derivative), and certifies single-peakedness as a
-\emph{theorem} on the interior region where $\bar B$ is dominated --- at the
-baseline, $\kappa\in[0.35,0.825]$ under the inversion-free bound and
+the unknown path derivative), and certifies single-peakedness, up to
+$\varepsilon$-localization of the peak, as a \emph{theorem} on the interior
+region where $\bar B$ is dominated: strictly monotone on either side of a
+small ball around the channel-(A) peak, global maximum interior to the ball
+--- at the baseline, $\kappa\in[0.35,0.825]$ under the inversion-free bound and
 $[0.30,0.85]$ under the exact implicit-function bound, comfortably containing
 $\kappa^{\dagger}$ (Corollary~\ref{cor:d8-baseline}, Figure~\ref{fig:ge-decomposition}).
 In the other direction, Proposition~\ref{prop:d8-counter} certifies that
@@ -990,10 +994,17 @@ Hold the blockholder's strategy constant: fix the cutoffs $(k_1,k_0,k_D)$ and he
 \[
 \Delta^{\textup{act}}(\kappa) = \underbrace{(\tilde{m}-m_0)\omega_P \cdot \bar{p}_1}_{\text{disclosed component}} + \underbrace{(\tilde{m}-m_0)\E\big[\pi(X,0)\cdot p(X,0) \mid D=0\big]\PP(D=0)}_{\text{inferred component}},
 \]
-where $\bar{p}_1 \equiv p(P^*(X,1),1)$ is the (constant) bid probability on the disclosed branch. Only the inferred component depends on $\kappa$ through the posteriors $\pi(X,0)$. Consequently, $|\partial \Delta^{\textup{act}}(\kappa)/\partial\kappa|$ is decreasing in $\omega_P$: shifting probability mass toward disclosed engagement attenuates the liquidity sensitivity of the activism-driven premium.
+where $\bar{p}_1 \equiv p(P^*(X,1),1)$ is the (constant) bid probability on the disclosed branch. Only the inferred component depends on $\kappa$ through the posteriors $\pi(X,0)$, and it carries the weight $\PP(D=0)=1-\omega_P$. Consequently
+\[
+\Bigl|\frac{\partial \Delta^{\textup{act}}}{\partial\kappa}\Bigr|
+=(1-\omega_P)\,(\tilde m-m_0)\,
+ \Bigl|\frac{\partial}{\partial\kappa}\,
+ \E\bigl[\pi(X,0)\,p(X,0)\mid D=0\bigr]\Bigr| :
+\]
+the liquidity sensitivity is proportional to the undisclosed mass $1-\omega_P$. \emph{Holding the conditional sensitivity of the inferred component fixed}, shifting probability mass toward disclosed engagement (larger $\omega_P$) attenuates the liquidity sensitivity of the activism-driven premium.
 \end{proposition}
 
-\textit{Proof sketch.} In disclosed states, $\pi(X,1)=1$ and all pricing objects are $\kappa$-invariant (Appendix~\ref{app:proof-disclosed-invariance}), so the disclosed component contributes zero to $\partial\Delta^{\textup{act}}/\partial\kappa$. The inferred component is a convex combination of $\kappa$-sensitive posteriors weighted by $\PP(D=0)=1-\omega_P$. As $\omega_P$ increases, weight shifts from the $\kappa$-sensitive component to the $\kappa$-invariant component, reducing the overall sensitivity. \hfill$\square$
+\textit{Proof sketch.} In disclosed states, $\pi(X,1)=1$ and all pricing objects are $\kappa$-invariant (Appendix~\ref{app:proof-disclosed-invariance}), so the disclosed component contributes zero to $\partial\Delta^{\textup{act}}/\partial\kappa$, and the display follows by differentiating the decomposition. The qualifier is substantive: a configuration change that raises $\omega_P$ moves $k_D$, which also alters the conditional term $\E[\pi(X,0)p(X,0)\mid D=0]$; the proposition signs only the weight channel, which is the mechanical and dominant effect in the calibrated region (Figure~\ref{fig:disclosure}). \hfill$\square$
 
 %==============================================================================
 \section{Comparative Statics and Numerical Analysis}
@@ -1142,7 +1153,9 @@ Two cautions frame the whole section, both forced by the corrected positive
 theory. First, minority value creation does \emph{not} collapse at high
 liquidity: as $\kappa\to0$ and as $\kappa\to1$ the realized non-disclosed
 posterior converges to the \emph{same} two-point law, so
-$\Delta^{\min}(0)=\Delta^{\min}(1)>0$ (Lemma~\ref{lem:endpoints}). The interior
+$\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$ (Lemma~\ref{lem:endpoints}; strict
+positivity of the common limit is a numerical fact at the calibration,
+$\approx0.067$). The interior
 hump in $\Delta^{\min}$---and in $W$---is therefore not a collapse phenomenon but
 a \emph{conditional} curvature property, which can invert to a trough off the
 baseline calibration. Second, nothing below presumes that more liquidity or more
@@ -1448,12 +1461,17 @@ equilibrium section.
 
 Now hold $\kappa$ fixed and let the planner influence the disclosure threshold,
 which the blockholder's strategy turns into the equilibrium cutoff $k_D$. Crossing
-$k_D$ flips the disclosure flag, and a takeover arrives only after a public-voice
-disclosure. The marginal type therefore undergoes a discrete change in its
-takeover option even though the planner's objective varies smoothly with $k_D$.
+$k_D$ flips the disclosure flag. Bids arrive on \emph{both} branches of the model
+(eq.~\eqref{eq:bid-prob} assigns interior bid probability to every reached cell),
+but at very different rates and prices: disclosure \emph{deters} bids --- at the
+baseline the disclosed bid probability is $p_1^{\ast}=0.013$ against an average
+$\bar p_Q\approx0.35$ on the quiet branch --- while raising the threshold a
+successful bid must clear. The marginal type therefore undergoes a discrete
+switch between two different bid lotteries even though the planner's objective
+varies smoothly with $k_D$.
 
 \paragraph{The blockholder's $k_D$, derived.}
-By Proposition~\ref{prop:cutoffs} the difference $U_P(s)-U_Q(s)$ is strictly
+By the monotone best-response structure (Lemmas~\ref{lem:BP-BQ} and~\ref{lem:monotone}) the difference $U_P(s)-U_Q(s)$ is strictly
 increasing in $s$, so a unique $k_D$ solves the indifference condition
 \eqref{eq:kD}, $U_Q(k_D)=U_P(k_D)$. Her value as a function of the threshold is
 \begin{equation}
@@ -1493,49 +1511,60 @@ blockholder under Quiet and Public Voice, read from \eqref{eq:welfare-net-d2};
 neither contains $P$ (it netted out in Lemma~\ref{lem:transfer-netting}), so the
 reclassification term is in real units.
 
-\begin{lemma}[The reclassification jump is a discrete control-option term]
+\begin{lemma}[The reclassification jump is a bid-screening term]
 \label{lem:reclass-jump}
 Assume the bidder synergy shock is mean-zero Gaussian, $\xi\sim N(0,\sigma_\xi^2)$,
 with $\bar S$ the synergy \emph{net of} $\E[\xi]=0$ (so $\bar S$ does not
-double-count the truncation term below). Under both Quiet and Public Voice the
+double-count the truncation terms below). Under both Quiet and Public Voice the
 blockholder engages ($a=1$), so the standalone improvement $\tilde\Delta$ and the
 cost $C(k_D)$ are common to $\Sigma_Q,\Sigma_P$ and cancel in the difference. What
-does not cancel is the takeover option, available only on the disclosed branch:
+does not cancel is the \emph{bid lottery}, which differs across the two branches:
 \begin{equation}
 \Sigma_P(k_D)-\Sigma_Q(k_D)
- =p_1^{\ast}\Big(\bar S-K-\E[v\mid s{=}k_D]-\tilde\Delta\Big)
-   +\sigma_\xi\,\phi(T_1),
+ =\bigl(p_1^{\ast}-\bar p_Q\bigr)\Big(\bar S-K-\E[v\mid s{=}k_D]-\tilde\Delta\Big)
+   +\sigma_\xi\Bigl(\phi(T_1)-\E_z\,\phi(T_{X,0})\Bigr),
 \label{eq:reclass-real}
 \end{equation}
-where $p_1^{\ast}=1-\Phi(T_1)$ is the disclosed-branch bid probability and
-$T_1=(\tilde m+K-\bar S+P^{\ast}(\cdot,1))/\sigma_\xi$ is the standardized bid
-threshold (eq.~\eqref{eq:bid-prob} with $\pi=1$, $\bar m(\cdot,1)=\tilde m$).
+where $p_1^{\ast}=1-\Phi(T_1)$ is the disclosed-branch bid probability with
+$T_1=(\tilde m+K-\bar S+P^{\ast}(\cdot,1))/\sigma_\xi$ (eq.~\eqref{eq:bid-prob}
+with $\pi=1$, $\bar m(\cdot,1)=\tilde m$), and $\bar p_Q=\E_z\,p(X,0)$,
+$T_{X,0}$ are the quiet-branch analogues: a Quiet type generates $X=z$ with the
+noise law, and each cell $(X,0)$ carries its own bid probability and threshold.
 \end{lemma}
 
 \begin{proof}
 By \eqref{eq:welfare-net-d2} an engaging type contributes $v+\tilde\Delta-C(s)$
-with no bid and $\bar S+\xi-K-C(s)$ with a consummated bid. Under Quiet Voice
-$D=0$ no raider is summoned, so $\Sigma_Q=v+\tilde\Delta-C(k_D)$. Under Public
-Voice $D=1$ a raider bids with probability $p_1^{\ast}$ and, when it does, the
-real social value is $\bar S+\xi-K$ (price nets out,
-Lemma~\ref{lem:transfer-netting}) replacing $v+\tilde\Delta$; hence
-$\Sigma_P=(1-p_1^{\ast})(v+\tilde\Delta)
- +p_1^{\ast}\E[\bar S+\xi-K\mid\text{bid}]-C(k_D)$. Subtracting, $\tilde\Delta$
-and $C(k_D)$ cancel and, with $v=\E[v\mid s{=}k_D]$,
-$\Sigma_P-\Sigma_Q=p_1^{\ast}(\bar S-K-v-\tilde\Delta)
- +p_1^{\ast}\E[\xi\mid\text{bid}]$. A bid occurs iff $\xi\ge\sigma_\xi T_1$; by
-the mean-zero Gaussian truncation identity
-$\E[\xi\mid\xi\ge\sigma_\xi T_1]\,p_1^{\ast}=\sigma_\xi\phi(T_1)$ (which uses
-$\xi\sim N(0,\sigma_\xi^2)$), giving \eqref{eq:reclass-real}.
+with no bid and $\bar S+\xi-K-C(s)$ with a consummated bid; prices and premia net
+out (Lemma~\ref{lem:transfer-netting}). Under Quiet Voice ($q=0$, $D=0$) the
+order flow is $X=z$ and a bid arrives at cell $(X,0)$ with probability $p(X,0)$;
+hence
+\[
+\Sigma_Q=v+\tilde\Delta-C(k_D)
+ +\E_z\Bigl[p(X,0)\bigl(\bar S-K-v-\tilde\Delta\bigr)
+ +\sigma_\xi\,\phi(T_{X,0})\Bigr],
+\]
+using the mean-zero Gaussian truncation identity
+$\E[\xi\mid\xi\ge\sigma_\xi T]\,(1-\Phi(T))=\sigma_\xi\phi(T)$ cell by cell.
+Under Public Voice ($D=1$) the disclosed branch is order-flow invariant
+(Appendix~\ref{app:proof-disclosed-invariance}), so the same computation gives
+$\Sigma_P=v+\tilde\Delta-C(k_D)
+ +p_1^{\ast}(\bar S-K-v-\tilde\Delta)+\sigma_\xi\,\phi(T_1)$. Subtracting, with
+$v=\E[v\mid s{=}k_D]$, gives \eqref{eq:reclass-real}.
 
 The planner objective $W(k_D)$ is itself \emph{smooth} in $k_D$: the term
 $f_s(k_D)[\Sigma_Q-\Sigma_P]$ in \eqref{eq:foc-planner-d2} is the ordinary
 continuous-cutoff Leibniz boundary term. What changes \emph{discretely} across the
-threshold is the marginal type's takeover \emph{option}: crossing $k_D$ flips $D$,
-summoning the raider and switching the marginal type between the certain
-standalone value (Quiet, $D{=}0$) and the bid lottery (Public, $D{=}1$), so
-$\Sigma_P-\Sigma_Q\neq0$ even as the cutoff varies continuously. The discrete
-object is this option value, not the objective.
+threshold is the marginal type's bid \emph{lottery}: crossing $k_D$ flips $D$,
+switching the type from the frequent, low-threshold quiet-branch bids
+($\bar p_Q$) to the rare, high-threshold disclosed bids ($p_1^{\ast}<\bar p_Q$:
+deterrence), so $\Sigma_P-\Sigma_Q\neq0$ even as the cutoff varies continuously.
+At the baseline the jump is positive ($\approx+0.064$): the bids that disclosure
+deters are value-\emph{destroying} at the margin (the marginal type's standalone
+value $\E[v\mid k_D]+\tilde\Delta\approx1.86$ exceeds the raider's mean creation
+$\bar S-K=1.29$, contributing $+0.19$), and this screening gain exceeds the
+foregone $\xi$-selection ($-0.12$). Disclosure is socially valuable for the
+marginal type because it \emph{screens out} low-quality control transactions, not
+because it summons them.
 \end{proof}
 
 \begin{proposition}[Disclosure wedge]
@@ -1593,20 +1622,23 @@ reclassification jump (i), signed from primitives in
 Lemma~\ref{lem:reclass-jump}.
 
 \paragraph{Reading (i) from primitives.}
-By \eqref{eq:reclass-real}, the jump is positive iff
+By \eqref{eq:reclass-real}, with deterrence ($\bar p_Q>p_1^{\ast}$, the baseline
+configuration) the jump is positive iff
 \begin{equation}
-\bar S-K-\E[v\mid s{=}k_D^{\textup{eq}}]-\tilde\Delta
-   +\sigma_\xi\,\frac{\phi(T_1)}{1-\Phi(T_1)}>0,
+\bigl(\bar p_Q-p_1^{\ast}\bigr)
+ \Bigl(\E[v\mid s{=}k_D^{\textup{eq}}]+\tilde\Delta-(\bar S-K)\Bigr)
+ \;>\;\sigma_\xi\Bigl(\E_z\,\phi(T_{X,0})-\phi(T_1)\Bigr),
 \label{eq:jump-positive}
 \end{equation}
-i.e.\ when the truncation-adjusted real control gain
-$\bar S+\E[\xi\mid\text{bid}]-K$ exceeds the standalone value $\E[v\mid k_D]
-+\tilde\Delta$ a takeover would displace. Under Assumption~\textup{(A4)} bids
-occur with interior probability and the marginal control transaction is
-value-creating for high signals, so \eqref{eq:jump-positive} holds in the
-calibrated region; it fails if $\tilde m$ is so large that disclosed takeovers are
-almost always blocked, in which case disclosure no longer creates takeover surplus
-and the conclusion is correctly suspended.
+i.e.\ when the value destroyed by the quiet-branch bids that disclosure deters
+--- the marginal type's standalone value $\E[v\mid k_D]+\tilde\Delta$ net of the
+raider's mean creation $\bar S-K$, weighted by the deterred mass --- exceeds the
+foregone $\xi$-selection. At the baseline both sides are computable from
+\texttt{prices.csv}: $0.19$ against $0.12$, so \eqref{eq:jump-positive} holds.
+It fails when the marginal control transaction is value-\emph{creating}
+($\bar S-K$ large relative to the standalone value), in which case deterring
+bids destroys surplus, the jump turns negative, and the conclusion is correctly
+suspended.
 
 \paragraph{Numerical support (partial probe, verified).}
 A full general-equilibrium planner over $k_D$ requires re-solving the lower
@@ -1635,39 +1667,46 @@ strategy. The first-best lets the planner dictate the action pointwise.
 \begin{proposition}[First-best action rule]
 \label{prop:firstbest-d2}
 Maintaining $\xi\sim N(0,\sigma_\xi^2)$, a surplus-maximizing planner who observes
-$s$ and dictates $(q,a)$ subject only to feasibility engages ($a=1$) iff
+$s$ and dictates $(q,a)$ subject only to feasibility engages quietly ($a=1$,
+$D=0$) rather than not at all iff
 \begin{equation}
-\tilde\Delta-C(s)+p_1^{\ast}\big(\bar S+\E[\xi\mid\textup{bid}]-K-\tilde m
-   -\E[v\mid s]-\tilde\Delta\big)\ge0,
+\bigl(1-\bar p_Q\bigr)\,\tilde\Delta-C(s)\;\ge\;0,
 \label{eq:fb-engage}
 \end{equation}
-and prefers public disclosure to quiet engagement iff the jump
-\eqref{eq:reclass-real} is positive. The first-best disclosure cutoff
-$k_D^{\textup{FB}}$ solves $\Sigma_P(k_D^{\textup{FB}})=\Sigma_Q(k_D^{\textup{FB}})$,
-i.e.\ the zero of the jump.
+(the improvement is realized only when no bid displaces the firm; premia are
+transfers and do not enter), and prefers public disclosure to quiet engagement
+iff the jump \eqref{eq:reclass-real} is positive. The first-best disclosure
+cutoff $k_D^{\textup{FB}}$ solves
+$\Sigma_P(k_D^{\textup{FB}})=\Sigma_Q(k_D^{\textup{FB}})$, i.e.\ the zero of the
+jump.
 \end{proposition}
 
 \begin{proof}
 The objective \eqref{eq:welfare-net-d2} is additively separable across types once
 prices net out (Lemma~\ref{lem:transfer-netting}), so the planner optimizes
-pointwise in $s$. Engagement raises the no-bid payoff by $\tilde\Delta-C(s)$ and,
-on the disclosed branch, replaces the standalone value by the bid lottery; using
-$\E[\xi\mid\text{bid}]p_1^{\ast}=\sigma_\xi\phi(T_1)$ gives \eqref{eq:fb-engage}.
-Among engaging types, disclosure is preferred iff $\Sigma_P(s)\ge\Sigma_Q(s)$; by
-single-crossing of $\Sigma_P-\Sigma_Q$ in $s$ (it inherits monotonicity from
-$\E[v\mid s]$ entering with a negative sign in \eqref{eq:reclass-real}, and from
-$T_1$) the optimum is a cutoff at the zero of the jump.
+pointwise in $s$. For a quiet type, engagement raises the no-bid branch by
+$\tilde\Delta$ at cost $C(s)$ and leaves the bid-branch surplus $\bar S+\xi-K$
+unchanged (the improvement is displaced by the control transfer; the premium is
+a transfer by Lemma~\ref{lem:transfer-netting} and does not enter), giving
+\eqref{eq:fb-engage}. Among engaging types, disclosure is preferred iff
+$\Sigma_P(s)\ge\Sigma_Q(s)$; by single-crossing of $\Sigma_P-\Sigma_Q$ in $s$
+--- under deterrence ($\bar p_Q>p_1^{\ast}$) the term $\E[v\mid s]$ enters
+\eqref{eq:reclass-real} with the positive coefficient
+$(\bar p_Q-p_1^{\ast})\beta$, so the jump is strictly \emph{increasing} in $s$
+--- the optimum is a cutoff at the zero of the jump.
 \end{proof}
 
 \begin{corollary}[Constrained versus first-best disclosure]
 \label{cor:cons-vs-fb}
 Suppose the jump is positive at the equilibrium threshold (hypothesis (i) of
-Proposition~\ref{prop:disclosure-wedge}). Then:
+Proposition~\ref{prop:disclosure-wedge}) and deterrence holds
+($\bar p_Q>p_1^{\ast}$). Then:
 \begin{enumerate}[label=\textup{(\alph*)},leftmargin=2em]
 \item $k_D^{\textup{FB}}<k_D^{\textup{eq}}$: the first-best discloses strictly
 more than the equilibrium.
-\item If in addition (ii) $G(k_D^{\textup{eq}})\ge0$ holds and $W$ is
-single-peaked, then $k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$.
+\item If in addition (ii$'$) $G\ge0$ on $[k_D^{\textup{FB}},k_D^{\textup{eq}}]$
+and $W$ is single-peaked, then
+$k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$.
 \end{enumerate}
 \end{corollary}
 
@@ -1676,9 +1715,10 @@ single-peaked, then $k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$.
 (eq.~\eqref{eq:kD}), which omit the takeover externality on minority and bidder
 surplus; the first-best cutoff equates the \emph{social} surpluses,
 $\Sigma_P=\Sigma_Q$. By (i) the jump $\Sigma_P-\Sigma_Q$ is strictly positive at
-$k_D^{\textup{eq}}$, and by the single-crossing of $\Sigma_P-\Sigma_Q$ in $s$
-(Proposition~\ref{prop:firstbest-d2}) its zero $k_D^{\textup{FB}}$ lies at a
-strictly lower signal, $k_D^{\textup{FB}}<k_D^{\textup{eq}}$.
+$k_D^{\textup{eq}}$, and since the jump is strictly \emph{increasing} in $s$
+under deterrence (Proposition~\ref{prop:firstbest-d2}) its zero
+$k_D^{\textup{FB}}$ lies at a strictly lower signal,
+$k_D^{\textup{FB}}<k_D^{\textup{eq}}$.
 
 \emph{(b)} We must show the \emph{constrained} optimum $k_D^{\star}$ lies between
 the two, $k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$, and reconcile the
@@ -1691,7 +1731,9 @@ negative (it equals $-f_s[\Sigma_P-\Sigma_Q]<0$ by (i)) and $G\ge0$, so the tota
 $dW/dk_D<0$ and the constrained optimum lies to the \emph{left}, below
 $k_D^{\textup{eq}}$ (this is Proposition~\ref{prop:disclosure-wedge}). At
 $k_D^{\textup{FB}}$, by contrast, the reclassification term vanishes
-($\Sigma_P=\Sigma_Q$), so $dW/dk_D|_{k_D^{\textup{FB}}}=G(k_D^{\textup{FB}})\ge0$;
+($\Sigma_P=\Sigma_Q$), so $dW/dk_D|_{k_D^{\textup{FB}}}=G(k_D^{\textup{FB}})\ge0$
+by (ii$'$), which supplies non-negativity of $G$ at this point (this is why the
+hypothesis is stated on the interval rather than at $k_D^{\textup{eq}}$ alone);
 the constrained objective is still weakly increasing at the first-best cutoff, so
 the constrained maximizer lies weakly to the \emph{right} of $k_D^{\textup{FB}}$.
 Combining, $k_D^{\textup{FB}}\le k_D^{\star}<k_D^{\textup{eq}}$. The economics:
@@ -1796,7 +1838,7 @@ Let $\tau$ parameterize the strictness of the disclosure regime, and let the equ
 = \underbrace{\frac{\partial \Delta^{\textup{act}}}{\partial \tau}\bigg|_{\omega}}_{\text{Transparency effect}}
 \;+\; \underbrace{\sum_{j\in\{E,H,Q,P\}} \frac{\partial \Delta^{\textup{act}}}{\partial \omega_j}\,\frac{d \omega_j}{d \tau}}_{\text{Deterrence effect}} .
 \end{equation}
-The transparency effect---the partial derivative holding the equilibrium masses fixed---is nonnegative: shifting mass to observable states ($D=1$) removes the inference discount, and is the general-equilibrium counterpart of the partial-equilibrium attenuation result (Proposition~\ref{prop:disclosure-attenuation}). The deterrence channel collects the indirect terms: a stricter threshold forces earlier disclosure, raising bid deterrence and lowering the expected return to quiet engagement, which contracts the engagement mass $\omega_Q+\omega_P$; this channel is nonpositive whenever the premium is increasing in the engagement mass and $d(\omega_Q+\omega_P)/d\tau\le 0$. The \emph{net} sign is therefore indeterminate and governed by primitives. As with the liquidity comparative static, the indirect (cutoff-shift) terms admit no general closed-form sign---they require inverting the blockholder's cutoff Jacobian---so the trade-off is stated as an exact decomposition with signed channels rather than a signed net effect.
+The decomposition itself is definitional (chain rule). The channel signs are carried as conditional readings, not theorems: the transparency effect---the partial derivative holding the equilibrium masses fixed---is nonnegative \emph{in the calibrated region}, where shifting mass to observable states ($D=1$) removes the inference discount (the general-equilibrium counterpart of the weight channel in Proposition~\ref{prop:disclosure-attenuation}); the deterrence channel collects the indirect terms---a stricter threshold forces earlier disclosure, raising bid deterrence and lowering the expected return to quiet engagement, which contracts the engagement mass $\omega_Q+\omega_P$---and is nonpositive \emph{whenever} the premium is increasing in the engagement mass and $d(\omega_Q+\omega_P)/d\tau\le 0$. The \emph{net} sign is indeterminate and governed by primitives. As with the liquidity comparative static, the indirect (cutoff-shift) terms admit no general closed-form sign---they require inverting the blockholder's cutoff Jacobian---so the trade-off is stated as an exact decomposition with conditionally signed channels rather than a signed net effect; no formal proof of the channel signs is claimed beyond the stated conditions.
 \end{proposition}
 
 The net welfare impact on minority shareholders is therefore ambiguous and depends on primitives. Under sufficient conditions where engagement costs $C_0$ are low and liquidity $\kappa$ is moderate, the blockholder's constraint is slack. The transparency effect dominates, and strict disclosure unambiguously aids minority shareholders. Conversely, if $C_0$ is high, the blockholder is at the margin of indifference. Imposing strict disclosure destroys the Quiet Voice region without proportionally expanding Public Voice. In this regime, the deterrence effect dominates, and strict disclosure paradoxically harms minority shareholders by deterring the very activism that generates takeover premia.
@@ -2657,13 +2699,13 @@ with $\lambda_{\mathrm{sd}}\in\{-0.4,-0.2,0,+0.2,+0.4\}$, and re-solve for the e
 
 \begin{numreg}[Single peak survives a state-dependent wedge --- at the baseline calibration]
 \label{nr:bg-statedep}
-This is a \emph{numerically verified regularity at the baseline calibration, not a theorem.} In the baseline, with the \emph{constant} wedge ($\lambda_{\mathrm{sd}}=0$), $\Delta^{\min}(\kappa)$ is single-peaked over $\kappa\in[0.01,0.99]$ with interior maximizer $\kappa^{\ast}\approx0.59$, peak $\approx0.0776$, and amplitude $\approx0.0107$ ($\approx14\%$ of level). Under the state-dependent wedge \eqref{eq:bg-statedep-form}, the interior maximizer stays at $\kappa^{\ast}\approx0.60$ and the profile remains single-peaked for \emph{every} $\lambda_{\mathrm{sd}}\in\{-0.4,-0.2,0,+0.2,+0.4\}$; the peak rises/falls monotonically with $\lambda_{\mathrm{sd}}$ from $\approx0.0722$ to $\approx0.0829$. All re-solves pass the solver's residual gate. The headline single-hump orientation is \emph{conditional} on the chord-curvature condition of the nonmonotonicity analysis; when that condition fails the profile inverts to a trough.
+This is a \emph{numerically verified regularity at the baseline calibration, not a theorem.} In the baseline, with the \emph{constant} wedge ($\lambda_{\mathrm{sd}}=0$), $\Delta^{\min}(\kappa)$ is single-peaked over $\kappa\in[0.01,0.99]$ with interior maximizer $\kappa^{\dagger}\approx0.59$, peak $\approx0.0776$, and amplitude $\approx0.0107$ ($\approx14\%$ of level). Under the state-dependent wedge \eqref{eq:bg-statedep-form}, the interior maximizer stays at $\kappa^{\dagger}\approx0.60$ and the profile remains single-peaked for \emph{every} $\lambda_{\mathrm{sd}}\in\{-0.4,-0.2,0,+0.2,+0.4\}$; the peak rises/falls monotonically with $\lambda_{\mathrm{sd}}$ from $\approx0.0722$ to $\approx0.0829$. All re-solves pass the solver's residual gate. The headline single-hump orientation is \emph{conditional} on the chord-curvature condition of the nonmonotonicity analysis; when that condition fails the profile inverts to a trough.
 \end{numreg}
 
 \subsection{What is proved, what is conditional, and what is open}
 \label{app:bg-ledger}
 
-For transparency: \emph{proved} are the closed-form Nash rent and participation (Lemma~\ref{lem:bg-split}), the $\xi$-invariance of the wedge \eqref{eq:bg-wedge}, the reduced-form nesting and converse (Proposition~\ref{prop:bg-reduced}), the $\rho^{2}$ event tree (Lemma~\ref{lem:bg-tree}), the level-shape decomposition (Proposition~\ref{prop:bg-levelshape}), and A3 \emph{conditional on} Condition~\ref{cond:bg} (Theorem~\ref{thm:bg-A3}). \emph{Conditional / numerical:} the threat-point shift is \emph{stated} as Condition~\ref{cond:bg} and only \emph{motivated} by the free-rider heuristic; $\theta$ is set-identified (Remark~\ref{rem:bg-ident}); and the single interior peak is a numerical regularity (Numerical Regularity~\ref{nr:bg-statedep}). \emph{Open:} the appropriability coefficient $\lambda\in(0,1]$ is not derived from a complete tender-game equilibrium; a full derivation would solve the post-engagement tender/holdup game (a \citet{GrossmanHart1980} free-rider auction or a private-benefit holdup stage), which is orthogonal to this paper's disclosure mechanism.
+For transparency: \emph{proved} are the closed-form Nash rent and participation (Lemma~\ref{lem:bg-split}), the $\xi$-invariance of the wedge \eqref{eq:bg-wedge}, the reduced-form nesting and converse (Proposition~\ref{prop:bg-reduced}), the $\rho^{2}$ event tree (Lemma~\ref{lem:bg-tree}), the level-shape decomposition (Proposition~\ref{prop:bg-levelshape}), and A3 \emph{conditional on} Condition~\ref{cond:bg} (Theorem~\ref{thm:bg-A3}). \emph{Conditional / numerical:} the threat-point shift is \emph{stated} as Condition~\ref{cond:bg} and only \emph{motivated} by the free-rider heuristic; $\theta$ is set-identified (Remark~\ref{rem:bg-ident}); and the single interior peak is a numerical regularity (Numerical Regularity~\ref{nr:bg-statedep}). \emph{Resolved since this record was written:} the appropriability coefficient $\lambda$ \emph{is} now derived from a complete tender-game equilibrium --- Appendix~\ref{app:d7} solves the disagreement-node game and delivers $\lambda=1-q(1-\gamma)\psi$ from primitives (Corollary~\ref{cor:d7-BG}), discharging what this ledger originally listed as open; the residual open margins of that derivation (bidder--fringe competition, repeated arrival, endogenous charter terms) are catalogued in \S\ref{app:d7-ledger}.
 
 
 % --- local guards (no-ops if already defined in the preamble) ----------------
@@ -2699,26 +2741,26 @@ Because $C$ enters only $G_{HQ}$, A2 acts only on the Hold/Quiet margin. Define 
   \Lambda(s) := \delta\,\frac{\mathrm d}{\mathrm d s}\,\E_z[\,Y_Q - Y_H \mid s\,],
   \qquad W(s):=\Lambda(s)-C'(s).
 \end{equation}
-Under A2, $C'(s)=-(\chi/\sigma_s)\,C(s)<0$, so $-C'(s)>0$ \emph{adds} to the slope: decreasing cost reinforces single-crossing. The substantive question is how large $|C'|$ may be---or how it may be signed---before the architecture breaks.
+At fixed prices $\Lambda(s)\equiv0$: Hold and Quiet share the trade ($q=0$) and the disclosure flag ($D=0$), so $Y_Q-Y_H$ is the engagement lottery, whose value is a cell-level object independent of the individual signal (eq.~\eqref{eq:UH-UQ}). The wedge therefore reduces to $W(s)=-C'(s)$. Under A2, $C'(s)=-(\chi/\sigma_s)\,C(s)<0$, so $W(s)>0$: the decreasing cost \emph{is} the single-crossing force on this margin. The substantive question is how the architecture behaves when $C'$ is flat or positive.
 
 \subsection{The ordering proposition}
 \label{app:d5-ordering}
 
-\begin{proposition}[A2 robustness of the action ordering]\label{prop:d5-a2}
-Suppose \textup{(A1)}, \textup{(A3)}--\textup{(A7)} hold and $P(\cdot)$ is fixed. Let $\Lambda(s)$ be as in \eqref{eq:d5-wedge}; it is strictly positive on the relevant range under \textup{(A1)}, \textup{(A3)}--\textup{(A7)}. Then:
+\begin{proposition}[The exact role of A2 on the Hold/Quiet margin]\label{prop:d5-a2}
+Suppose \textup{(A1)}, \textup{(A3)}--\textup{(A7)} hold and $P(\cdot)$ is fixed. Let $\Lambda(s)$ be as in \eqref{eq:d5-wedge}; at fixed prices $\Lambda(s)\equiv0$ (eq.~\eqref{eq:UH-UQ}: the gross Hold/Quiet gap is signal-free). Then:
 \begin{enumerate}
 \item[\textnormal{(a)}] \textbf{(Threshold).} If $W(s)=\Lambda(s)-C'(s)>0$ for all $s$ in the Quiet cell, then $G_{HQ}$ is strictly increasing there, so it crosses zero at most once; with the strict monotonicity of $G_{EH}$ and $G_{QP}$ (\textup{(A4)}, \textup{(A5)}) this yields the threshold structure Exit/Hold/Quiet/Public.
 \item[\textnormal{(b)}] \textbf{(Placement of $k_0$).} If in addition the Quiet cell is nonempty and $G_{HQ}(k_1)<0<G_{HQ}(k_D)$, then the unique zero $k_0$ of $G_{HQ}$ lies strictly in $(k_1,k_D)$, so $k_1<k_0<k_D$.
-\item[\textnormal{(c)}] \textbf{(Sufficient primitive condition).} A sufficient condition for (a) is the pointwise bound $C'(s)<\Lambda(s)$ on the Quiet cell, which holds automatically under A2 ($C'<0\le\Lambda$). Hence A2 is \emph{sufficient but not necessary}: the ordering survives any cost profile---increasing, flat, or decreasing---as long as $C'(s)<\Lambda(s)$ pointwise.
+\item[\textnormal{(c)}] \textbf{(Exactness).} Since $\Lambda\equiv0$, the threshold condition $W=\Lambda-C'>0$ is exactly $C'(s)<0$: at fixed prices, A2 is \emph{necessary and sufficient} for strict single-crossing on the Hold/Quiet margin. With a flat cost ($C'\equiv0$) the gap $G_{HQ}$ is constant in $s$ --- no single crossing --- and the equilibrium sits on the two-cutoff collapse face (the body's interiority footnote); with $C'>0$ on a nondegenerate set the margin can invert (Definition~\ref{def:d5-regimes}). What this appendix delivers is therefore not dispensability of A2 but its \emph{exact location}: A2 acts on one margin only, and the wedge $W(s)=-C'(s)$ makes the margin transparent and falsifiable.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-\emph{(a)} By \textup{(A4)}, \textup{(A5)}, $G_{EH}$ and $G_{QP}$ are strictly monotone in $s$, hence each has at most one zero. For $G_{HQ}$, $G_{HQ}'(s)=\Lambda(s)-C'(s)=W(s)$, the wedge \eqref{eq:d5-wedge}; the threshold hypothesis gives $W(s)>0$, so $G_{HQ}$ is strictly increasing and crosses zero at most once. Single-crossing of all three gaps delivers the ordered partition. \emph{(b)} Since $G_{HQ}$ is strictly increasing and continuous on $[k_1,k_D]$, the intermediate value theorem applied to the boundary signs yields a unique $k_0\in(k_1,k_D)$. \emph{(c)} Immediate: $C'(s)<\Lambda(s)$ is exactly $W(s)>0$; under A2, $C'<0\le\Lambda$, so the inequality is slack and the ordering holds for all $\chi\ge0$ and for mildly increasing cost provided $C'(s)<\Lambda(s)$ does not fail.
+\emph{(a)} By the slope structure of \eqref{eq:payoff-affine} ($B(H)-B(E)>0$ and $\eta>0$ under Lemma~\ref{lem:BP-BQ}'s condition), $G_{EH}$ and $G_{QP}$ are strictly monotone in $s$, hence each has at most one zero. For $G_{HQ}$, $G_{HQ}'(s)=\Lambda(s)-C'(s)=W(s)$, the wedge \eqref{eq:d5-wedge}; the threshold hypothesis gives $W(s)>0$, so $G_{HQ}$ is strictly increasing and crosses zero at most once. Single-crossing of all three gaps delivers the ordered partition. \emph{(b)} Since $G_{HQ}$ is strictly increasing and continuous on $[k_1,k_D]$, the intermediate value theorem applied to the boundary signs yields a unique $k_0\in(k_1,k_D)$. \emph{(c)} Immediate: $C'(s)<\Lambda(s)$ is exactly $W(s)>0$; under A2, $C'<0\le\Lambda$, so the inequality is slack and the ordering holds for all $\chi\ge0$ and for mildly increasing cost provided $C'(s)<\Lambda(s)$ does not fail.
 \end{proof}
 
 \paragraph{What survives flat cost ($\chi=0$).}
-Setting $\chi=0$ gives $C(s)\equiv C_0$, $C'\equiv0$, so the threshold condition reduces to $\Lambda(s)>0$, which holds under the Standing Assumptions. With a flat cost the entire ordering, the existence of all four cells (when nonempty), and the comparative-statics machinery go through unchanged; only the \emph{level} of the Quiet/Hold boundary shifts (a constant $C_0$ raises $k_0$).
+Setting $\chi=0$ gives $C(s)\equiv C_0$, $C'\equiv0$, so $W\equiv\Lambda\equiv0$: the Hold/Quiet gap is constant in $s$ and there is \emph{no} single crossing on this margin --- consistent with the body's interiority footnote, the equilibrium collapses to the two-cutoff case (the Hold and Quiet cells are not separately identified). The Exit/engage and Quiet/Public margins, existence, and the comparative-statics machinery go through unchanged, since neither uses A2 beyond the Hold/Quiet split.
 
 \subsection{When the ordering can invert: a cost taxonomy}
 \label{app:d5-taxonomy}
@@ -2726,8 +2768,8 @@ Setting $\chi=0$ gives $C(s)\equiv C_0$, $C'\equiv0$, so the threshold condition
 \begin{definition}[Cost regimes]\label{def:d5-regimes}
 Call the engagement cost
 \begin{itemize}
-\item \textbf{persuasion-type} if $C'(s)<\Lambda(s)$ for all $s$ in the Quiet cell (A2 is the leading special case, $C'<0$): the marginal cost of a louder voice does not outrun its marginal informational benefit. The ordering of Proposition~\ref{prop:d5-a2} holds.
-\item \textbf{entrenchment-type} if $C'(s)\ge\Lambda(s)$ on a nondegenerate subset: the cost of engaging \emph{increases} steeply in the signal (e.g.\ better-informed blockholders face harsher managerial entrenchment, litigation, or reputational retaliation precisely when their case is strong). Here $G_{HQ}$ can be non-monotone and the Hold/Quiet ordering may invert locally, producing a non-threshold (possibly disconnected) Quiet cell.
+\item \textbf{persuasion-type} if $C'(s)<\Lambda(s)$ for all $s$ in the Quiet cell --- at fixed prices $\Lambda\equiv0$, so this is exactly $C'<0$, i.e.\ A2: the marginal cost of a louder voice falls with the strength of the case. The ordering of Proposition~\ref{prop:d5-a2} holds.
+\item \textbf{entrenchment-type} if $C'(s)\ge\Lambda(s)\equiv0$ on a nondegenerate subset: the cost of engaging is flat or \emph{increases} in the signal (e.g.\ better-informed blockholders face harsher managerial entrenchment, litigation, or reputational retaliation precisely when their case is strong). Here $G_{HQ}$ can be non-monotone and the Hold/Quiet ordering may invert locally, producing a non-threshold (possibly disconnected) Quiet cell.
 \end{itemize}
 \end{definition}
 
@@ -2758,10 +2800,10 @@ At the baseline ($m_0=0.10$, $\tilde m=0.28$, so $\nu=0.18$; $K=0.15$, $\bar S=1
 \end{remark}
 
 \begin{lemma}[Two-point representation of the $D=0$ block]\label{lem:d5-twopoint}
-Let $\Phi^{D0}(\kappa)$ denote the $D=0$ contribution to $\Delta^{\min}$. Under the two-point law $\{0,\bar\pi\}$ with masses $\{\omega_H,\omega_Q\}$, $\Phi^{D0}(\kappa)=\omega_H\,g(0)+\omega_Q\,g(\bar\pi)$, and the full minority object is $\Delta^{\min}=\Phi^{D0}+R(\kappa)$ with $R$ the $D=1$ (Public Voice) block. Separately, the tower identity $\E[\pi(a)\,\1\{D=0\}]=\omega_Q$ holds, where $\pi(a)=\1\{a=1\}$; it certifies the \emph{mass} $\omega_Q$ but not the integrand value $g(\bar\pi)$, and in general $\omega_Q\,g(\bar\pi)\neq\omega_Q$.
+Let $\Phi^{D0}(\kappa)$ denote the $D=0$ contribution to $\Delta^{\min}$. Under the two-point law $\{0,\bar\pi\}$, the $\pi=0$ atom carries the \emph{Exit} mass and the $\bar\pi$ atom the pooled $q=0$ mass: $\Phi^{D0}(\kappa)=\omega_E\,g(0)+(\omega_H+\omega_Q)\,g(\bar\pi)$, and the full minority object is $\Delta^{\min}=\Phi^{D0}+R(\kappa)$ with $R$ the $D=1$ (Public Voice) block. Separately, the tower identity $\E[\pi(a)\,\1\{D=0\}]=\omega_Q$ holds, where $\pi(a)=\1\{a=1\}$; it certifies the \emph{mass} $\omega_Q$ but not the integrand value $g(\bar\pi)$, and in general $(\omega_H+\omega_Q)\,g(\bar\pi)\neq\omega_Q$.
 \end{lemma}
 \begin{proof}
-The $D=0$ event partitions into the Hold atom ($\pi=0$) and the Quiet atom ($\pi=\bar\pi$), with masses $\omega_H$ and $\omega_Q$; the mass-weighted sum of $g$ gives $\Phi^{D0}$. By the tower rule $\E[\pi(a)\,\1\{D=0\}]=\PP(\textup{Quiet})=\omega_Q$. The two objects coincide only if $g(\bar\pi)=1$, which fails since $g(\bar\pi)=\bar m(\bar\pi)\,p(\bar\pi)\le\bar m(\bar\pi)<1$ at the calibration.
+At the $\kappa$ limits the realized $D=0$ cells separate by trade direction: the Exit trade ($q=-1$) produces the $\pi=0$ atom with mass $\omega_E$, while Hold and Quiet ($q=0$) pool at the $\bar\pi=\omega_Q/(\omega_H+\omega_Q)$ atom with mass $\omega_H+\omega_Q$ (Lemma~\ref{lem:d5-endpoints}; Table~\ref{tab:example}'s cell map). The mass-weighted sum of $g$ gives $\Phi^{D0}$. By the tower rule $\E[\pi(a)\,\1\{D=0\}]=\PP(\textup{Quiet})=\omega_Q$ --- consistent, since $(\omega_H+\omega_Q)\,\bar\pi=\omega_Q$. The premium object and the mass do not coincide: $g(\bar\pi)=\bar m(\bar\pi)\,p(\bar\pi)\le\bar m(\bar\pi)<1$ at the calibration.
 \end{proof}
 
 \paragraph{Curvature of $g$ across the realized chord.}
@@ -2836,7 +2878,7 @@ Three points must be kept distinct. (1) The single-peak \emph{engine} is (GE-dom
 \item \textbf{Ordering (Proposition~\ref{prop:d5-a2}).} The four-action threshold structure survives any cost profile in the persuasion regime $C'(s)<\Lambda(s)$; A2 ($\chi>0$) is sufficient, not necessary, with $k_0\in(k_1,k_D)$ pinned by the boundary signs.
 \item \textbf{Flat cost ($\chi=0$).} All existence, ordering, and comparative-statics results survive; only the level of $k_0$ shifts.
 \item \textbf{Inversion.} The ordering can invert only under entrenchment-type cost, which carries the opposite, falsifiable empirical signature (Remark~\ref{rem:d5-mech}).
-\item \textbf{Interior peak (Lemma~\ref{lem:d5-endpoints}, Proposition~\ref{prop:d5-peak}, Conditional Claim~\ref{claim:d5-singlepeak}).} Endpoint symmetry $\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$ is derived from the noise law plus cutoff convergence; the existence of an interior maximizer is unconditional (Weierstrass); strict single-peakedness is governed by the GE cutoff-shift channel (GE-dom): Appendix~\ref{app:d8} now certifies it as a theorem on an interior region at the baseline ($\kappa^{\dagger}\approx0.59$, amplitude $\approx14$--$16\%$) and certifies its failure at the $\sigma_\xi=0.60$ cells (Proposition~\ref{prop:d8-counter}).
+\item \textbf{Interior peak (Lemma~\ref{lem:d5-endpoints}, Proposition~\ref{prop:d5-peak}, Conditional Claim~\ref{claim:d5-singlepeak}).} Endpoint symmetry $\Delta^{\min}(0^+)=\Delta^{\min}(1^-)$ is derived from the noise law plus cutoff convergence; the existence of an interior maximizer is unconditional (Weierstrass); strict single-peakedness is governed by the GE cutoff-shift channel (GE-dom): Appendix~\ref{app:d8} now certifies it as a theorem, up to $\varepsilon$-localization of the peak, on an interior region at the baseline ($\kappa^{\dagger}\approx0.59$, amplitude $\approx14$--$16\%$) and certifies its failure at the $\sigma_\xi=0.60$ cells (Proposition~\ref{prop:d8-counter}).
 \end{enumerate}
 
 %==============================================================================
@@ -3014,7 +3056,8 @@ optima nearly coincide.}
 Left: decomposition of $\mathrm{d}\Delta^{\min}/\mathrm{d}\kappa$ into the
 posterior/pricing channel (A) and the GE cutoff-shift channel (B) along the
 baseline equilibrium path; channel (A) dominates throughout the certified
-region of Corollary~\ref{cor:d8-baseline}, so the hump is a theorem there.
+region of Corollary~\ref{cor:d8-baseline}, so the hump is a theorem there
+(up to $\varepsilon$-localization of the peak, Theorem~\ref{thm:d8-region}).
 Right: hump/trough classification over the $(\bar S,\sigma_\xi)$ robustness
 family. The troughs at $\sigma_\xi=0.60$ are the certified counterexamples of
 Proposition~\ref{prop:d8-counter}: channel (A) is single-peaked in every cell,

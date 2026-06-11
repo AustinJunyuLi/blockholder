@@ -63,6 +63,18 @@ class TenderGameParams:
     theta: float = 0.5
     Delta_eng: float = 0.5159288344168262  # calibrated: wedge = 0.20 at baseline
 
+    def __post_init__(self) -> None:
+        # Domain restriction of the D7 game: the bloc alone cannot deliver
+        # control. With alpha >= tau_c the raider's bloc-only lowball holds
+        # the bloc at its reservation in every raid and lambda = 1
+        # identically; the closed form below would be wrong there.
+        if self.alpha >= self.tau_c:
+            raise ValueError(
+                f"TenderGameParams requires alpha < tau_c "
+                f"(got alpha={self.alpha}, tau_c={self.tau_c}); "
+                f"outside this domain lambda = 1 identically (D7 ledger)."
+            )
+
     # -- Derived quantities ------------------------------------------------
 
     @property

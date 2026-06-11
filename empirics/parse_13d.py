@@ -102,6 +102,104 @@ def parse_event_date(text: str) -> Optional[dt.date]:
 RE_PERCENT = re.compile(
     r"PERCENT\s+OF\s+CLASS\s+REPRESENTED.*?([0-9]{1,2}(?:\.[0-9]+)?)\s*%", re.I | re.S)
 
+# -- entity names (header blocks) --------------------------------------------
+
+RE_SUBJECT_NAME = re.compile(
+    r"SUBJECT COMPANY:.*?COMPANY CONFORMED NAME:\s*([^\r\n]+)", re.S)
+RE_FILER_NAME = re.compile(
+    r"FILED BY:.*?COMPANY CONFORMED NAME:\s*([^\r\n]+)", re.S)
+
+# -- acceptance datetime (after-hours filings hit the tape next session) ------
+
+RE_ACCEPTANCE = re.compile(r"<ACCEPTANCE-DATETIME>\s*(\d{14})")
+
+
+def parse_acceptance(text: str) -> Optional[dt.datetime]:
+    m = RE_ACCEPTANCE.search(text)
+    if not m:
+        return None
+    try:
+        return dt.datetime.strptime(m.group(1), "%Y%m%d%H%M%S")
+    except ValueError:
+        return None
+
+
+# -- CUSIP (Fact 2: links the subject security to CRSP) -----------------------
+#
+# Cover pages print the class CUSIP near a "CUSIP No./Number" label, in
+# layouts like "037833100", "037833 10 0", or "037833-10-0"; the label often
+# repeats once per cover page, so we vote across occurrences. Structured XML
+# (mandatory from 2024-12-18) carries an explicit tag.
+
+XML_CUSIP = re.compile(
+    r"<(?:issuer)?cusip>\s*([0-9A-Za-z][0-9A-Za-z\s\-]{4,16}[0-9A-Za-z])\s*"
+    r"</(?:issuer)?cusip>", re.I)
+CUSIP_LABEL = re.compile(r"CUSIP\s*(?:No\.?|Number|NUMBER|#)?", re.I)
+CUSIP_TOKEN = re.compile(
+    r"\b([0-9A-Z]{6})[\s\-]{0,2}([0-9A-Z]{2})[\s\-]{0,2}([0-9A-Z])?\b")
+
+_CUSIP_CHARVAL = {c: i for i, c in enumerate("0123456789")}
+_CUSIP_CHARVAL.update({c: 10 + i for i, c in
+                       enumerate("ABCDEFGHIJKLMNOPQRSTUVWXYZ")})
+_CUSIP_CHARVAL.update({"*": 36, "@": 37, "#": 38})
+
+
+def cusip_check_digit_ok(cusip9: str) -> bool:
+    """Validate the 9th (check) character of a CUSIP."""
+    if len(cusip9) != 9 or cusip9[8] not in "0123456789":
+        return False
+    total = 0
+    for i, ch in enumerate(cusip9[:8]):
+        v = _CUSIP_CHARVAL.get(ch)
+        if v is None:
+            return False
+        if i % 2 == 1:
+            v *= 2
+        total += v // 10 + v % 10
+    return (10 - total % 10) % 10 == int(cusip9[8])
+
+
+def _normalize_cusip(raw: str) -> Optional[str]:
+    s = re.sub(r"[\s\-]", "", raw.upper())
+    if len(s) not in (8, 9):
+        return None
+    if sum(ch.isdigit() for ch in s) < 4:      # reject prose tokens
+        return None
+    if len(set(s)) == 1:                       # reject 000000000-style junk
+        return None
+    return s
+
+
+def parse_cusip(text: str) -> Optional[str]:
+    """Subject-class CUSIP: XML tag if present, else vote near cover labels.
+
+    Returns 9 characters when a check-digit-valid 9-char CUSIP is found,
+    otherwise the best 8/9-char candidate (or None).
+    """
+    xm = XML_CUSIP.search(text)
+    if xm:
+        c = _normalize_cusip(xm.group(1))
+        if c:
+            return c
+    votes: dict = {}
+    for lab in CUSIP_LABEL.finditer(text):
+        for window in (text[max(0, lab.start() - 120):lab.start()],
+                       text[lab.end():lab.end() + 120]):
+            for m in CUSIP_TOKEN.finditer(window.upper()):
+                raw = "".join(g for g in m.groups() if g)
+                c = _normalize_cusip(raw)
+                if c is None:
+                    continue
+                weight = 2 if (len(c) == 9 and cusip_check_digit_ok(c)) else 1
+                votes[c] = votes.get(c, 0) + weight
+    if not votes:
+        return None
+    # prefer check-valid 9-char candidates, then vote count
+    best = max(votes.items(),
+               key=lambda kv: (len(kv[0]) == 9 and cusip_check_digit_ok(kv[0]),
+                               kv[1]))
+    return best[0]
+
 
 def parse_filing(text: str) -> dict:
     """Extract the Fact-1 fields from one master submission text."""
@@ -122,4 +220,18 @@ def parse_filing(text: str) -> dict:
     except ValueError:
         out["pct_of_class"] = None
     out["has_xml"] = bool(XML_EVENT.search(text))
+    return out
+
+
+def parse_filing_fact2(text: str) -> dict:
+    """Fact-1 fields plus the Fact-2 extras (CUSIP, names, acceptance)."""
+    out = parse_filing(text)
+    out["cusip"] = parse_cusip(text)
+    m = RE_SUBJECT_NAME.search(text)
+    out["subject_name"] = m.group(1).strip() if m else None
+    m = RE_FILER_NAME.search(text)
+    out["filer_name"] = m.group(1).strip() if m else None
+    acc = parse_acceptance(text)
+    out["accepted"] = acc.isoformat(sep=" ") if acc else None
+    out["accepted_after_4pm"] = (acc.time() >= dt.time(16, 0)) if acc else None
     return out

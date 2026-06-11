@@ -68,11 +68,17 @@ def list_filings(idx_path: str, form_types: tuple = ("SC 13D", "SC 13G")) -> lis
     """Parse a form.idx into rows for exactly the requested form types.
 
     Returns dicts: form, company, cik, date_filed, edgar_path.
-    (Amendments 'SC 13D/A' are distinct form strings and excluded unless
-    requested explicitly.)
+
+    Form matching is boundary-aware (the requested type must be followed by
+    whitespace), NOT fixed-width: from Dec 2024 EDGAR renamed the schedules
+    to ``SCHEDULE 13D`` / ``SCHEDULE 13D/A``, which overflow the legacy
+    12-character form column (a ``line[:12]`` read truncates the amendment
+    string into the original's). Amendments stay excluded unless requested
+    explicitly.
     """
     import re
     tail = re.compile(r"(\d+)\s+(\d{4}-\d{2}-\d{2})\s+(edgar/\S+?\.txt)\s*$")
+    wanted = sorted(form_types, key=len, reverse=True)
     rows = []
     with open(idx_path, "r", encoding="latin-1") as fh:
         in_body = False
@@ -82,14 +88,16 @@ def list_filings(idx_path: str, form_types: tuple = ("SC 13D", "SC 13G")) -> lis
                 continue
             if not in_body or line.startswith("---"):
                 continue
-            form = line[:12].strip()
-            if form not in form_types:
+            form = next((ft for ft in wanted
+                         if line.startswith(ft)
+                         and line[len(ft):len(ft) + 1].isspace()), None)
+            if form is None:
                 continue
             m = tail.search(line)
             if not m:
                 continue
             cik, date_filed, path = m.group(1), m.group(2), m.group(3)
-            company = line[12:m.start()].strip()
+            company = line[len(form):m.start()].strip()
             rows.append({"form": form, "company": company, "cik": cik,
                          "date_filed": date_filed, "edgar_path": path})
     return rows

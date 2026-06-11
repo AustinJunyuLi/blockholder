@@ -70,7 +70,11 @@ This appendix replaces the \emph{stated} threat-point condition of Appendix~\ref
 with $q$ the equilibrium probability of a fringe raid, $\gamma$ the portability of the activist's improvement under a fringe acquirer, and $\psi$ a pivotality factor. Condition~\ref{cond:bg} becomes a corollary (its functional form is \emph{derived}), and Assumption~\textup{(A3)} becomes a theorem whose failure region is characterized by primitives rather than excluded by assumption. The honest residue is stated in \S\ref{app:d7-ledger}: what remains assumed are \emph{institutional} primitives of the tender environment (equal-treatment offers, the standard tie-breaking selection, charter parameters), not any condition on the endogenous threat point itself.
 
 \paragraph{Notation.}
-Throughout this appendix $\alpha\in(0,1)$ denotes the control bloc's stake and $\tau_{c}\in(0,1]$ the control threshold (fraction of all shares needed for control); these are local to the tender game.\footnote{The symbol $\alpha$ is unrelated to the completion-probability robustness device $\alpha(P,D)$ mentioned in passing in the body; $\tau_{c}$ is unrelated to the discounting horizon $\tau$. We write $\varphi$ for the standard normal density (as in Appendix~\ref{app:bg}) and reserve $\phi$ for the dilution parameter below, flagging the departure from the body's occasional use of $\phi(\cdot)$ for the density.} We write $\Gbar(x)\equiv\PP(S_{F}\ge x)$ for the survival function of the fringe synergy distribution $G$, assumed atomless on its support.
+Throughout this appendix $\alpha\in(0,1)$ denotes the control bloc's stake and $\tau_{c}\in(0,1]$ the control threshold (fraction of all shares needed for control); these are local to the tender game.\footnote{The symbol $\alpha$ is unrelated to the completion-probability robustness device $\alpha(P,D)$ mentioned in passing in the body; $\tau_{c}$ is unrelated to the discounting horizon $\tau$. We write $\varphi$ for the standard normal density (as in Appendix~\ref{app:bg}) and reserve $\phi$ for the dilution parameter below, flagging the departure from the body's occasional use of $\phi(\cdot)$ for the density.} We write $\Gbar(x)\equiv\PP(S_{F}\ge x)$ for the survival function of the fringe synergy distribution $G$, assumed atomless on its support and with finite mean. We maintain throughout that
+\[
+\alpha\;<\;\tau_{c}:
+\]
+the bloc \emph{alone} cannot deliver control (satisfied at the baseline calibration, $\alpha=0.30<\tau_{c}=0.75$). Without it the raider's cheapest successful coalition is a bloc-only lowball at the bloc's reservation, the bloc is held at $y(a)$ in \emph{every} raid, and $\lambda=1$ identically --- the closed form below would not apply (see \S\ref{app:d7-ledger}).
 
 \subsection{Environment}
 \label{app:d7-env}
@@ -102,37 +106,49 @@ The parameter $\gamma$ is the fraction of the activist's improvement that \emph{
 
 \subsection{The tendering subgame and the free-rider floor}
 
-\begin{lemma}[Free-rider floor]
+\begin{lemma}[Optimal offers: the free-rider floor and the reservation top-up]
 \label{lem:d7-floor}
-Fix an entered raider and the state $a$. In every subgame-perfect tendering outcome under the stated selection in which the raid succeeds with positive probability, the equilibrium offer is
+Fix an entered raider and the state $a$, and define the \emph{acquiescence region} as all of the support of $S_F$ when the bloc is non-pivotal, and $\{S_{F}\ge\phi+(1-\gamma)a\delta_{e}\}$ when it is pivotal (Lemma~\ref{lem:d7-bloc}); its complement (pivotal only) is the \emph{blocking region}. In every subgame-perfect tendering outcome under the stated selection:
+\begin{enumerate}
+\item[\textup{(i)}] On the acquiescence region the optimal offer is the \emph{free-rider floor}
 \[
 \hat b^{\ast}(a)\;=\;Z(a)-\phi ,
 \]
-and at this offer the entire float tenders. The raider's payoff per share it does \emph{not} acquire is the dilution $\phi$, and its payoff per share it \emph{does} acquire is $Z(a)-\hat b^{\ast}(a)=\phi$; hence its gross payoff from a successful raid is $\phi$ on the full share register, independently of the tendered mass, and net of cost its payoff is $\phi-c_{F}$.
+at which the entire float tenders. The raider's payoff per share it does \emph{not} acquire is the dilution $\phi$, and per share it \emph{does} acquire is $Z(a)-\hat b^{\ast}(a)=\phi$; its gross payoff from a successful floor raid is $\phi$ on the full register, independently of the tendered mass, and net of cost $\phi-c_{F}$.
+\item[\textup{(ii)}] On the blocking region the floor offer fails (the pivotal bloc refuses), and the raider's best successful offer is the \emph{reservation top-up} $\hat b=y(a)>Z(a)-\phi$: the float strictly tenders, the indifferent bloc tenders under the selection, the raider acquires the full register and nets
+\[
+Z(a)-y(a)-c_{F}\;=\;S_{F}-(1-\gamma)\,a\,\delta_{e}-c_{F},
+\]
+undertaking the raid iff this is nonnegative. In every top-up raid the bloc is paid \emph{exactly} its reservation $y(a)$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-An atomistic float member is never pivotal, so conditional on the raid succeeding her choice is $\hat b$ (tender) against $Z(a)-\phi$ (retain a diluted share); conditional on failure the conditional offer lapses and both choices give $y(a)$. She therefore tenders iff $\hat b\ge Z(a)-\phi$, with the selection resolving indifference toward tendering. If $\hat b<Z(a)-\phi$ no float member tenders and the raid can succeed only with bloc shares alone, impossible since $\alpha<1\le\tau_{c}+(1-\alpha)$ would require $\alpha\ge\tau_{c}$ and even then yields the raider a strictly negative margin on every acquired share ($Z-\phi>\hat b$ means retaining is worth more than the price paid covers; formally the raider's problem at $\hat b<Z-\phi$ is dominated by $\hat b=Z-\phi$, which weakly enlarges the success set and strictly raises nothing it pays --- see next sentence). If $\hat b>Z(a)-\phi$, lowering the offer to $Z(a)-\phi$ keeps the entire float tendering (indifference selection) and strictly reduces the price paid on every tendered share, leaving the success event unchanged; so any $\hat b>Z(a)-\phi$ is strictly dominated. Hence $\hat b^{\ast}=Z(a)-\phi$. At $\hat b^{\ast}$: each acquired share costs $Z(a)-\phi$ and is worth $Z(a)$ to the controlling raider, margin $\phi$; each non-acquired share is diluted by $\phi$, which accrues to the raider. Summing over the register of measure one gives gross payoff $\phi\cdot 1$ and net payoff $\phi-c_{F}$, independent of the tendered mass and of $a$.
+An atomistic float member is never pivotal, so conditional on the raid succeeding her choice is $\hat b$ (tender) against $Z(a)-\phi$ (retain a diluted share); conditional on failure the conditional offer lapses and both choices give $y(a)$. She therefore tenders iff $\hat b\ge Z(a)-\phi$, with the selection resolving indifference toward tendering.
+
+(i) On the acquiescence region the floor succeeds: the float tenders, and (pivotal case) the bloc tenders by Lemma~\ref{lem:d7-bloc}(ii). Any $\hat b<Z(a)-\phi$ loses the entire float, and with $\alpha<\tau_{c}$ bloc shares alone cannot deliver control, so the raid fails. Any $\hat b>Z(a)-\phi$ keeps the success event unchanged while strictly raising the price on every tendered share, hence is dominated. At the floor: each acquired share costs $Z(a)-\phi$ and is worth $Z(a)$, margin $\phi$; each non-acquired share is diluted by $\phi$, accruing to the raider; summing over the unit register gives $\phi$ gross, $\phi-c_{F}$ net, independent of the tendered mass and of $a$.
+
+(ii) On the blocking region $y(a)>Z(a)-\phi$. Offers $\hat b\in[Z(a)-\phi,\,y(a))$ attract the float but not the bloc, delivering mass $1-\alpha<\tau_{c}$: failure. The top-up $\hat b=y(a)$ exceeds the float's reservation (strict tendering) and meets the bloc's (indifference resolved toward tendering): mass one, success. Raising $\hat b$ above $y(a)$ only pays more on every share. At $\hat b=y(a)$ the raider buys the whole register at $y(a)$ per share, each worth $Z(a)$ under its control, with no minority left to dilute: net payoff $Z(a)-y(a)-c_{F}=S_{F}-(1-\gamma)a\delta_{e}-c_{F}$. Entry on the blocking region therefore occurs exactly when this is nonnegative; the bloc, tendering at its reservation, receives $y(a)$.
 \end{proof}
 
-The floor is the free-rider result: the raider's synergy $S_{F}$ passes \emph{entirely} to the shareholders through the offer price; the raider's only rent is the charter dilution $\phi$.
+The floor is the free-rider result: the raider's synergy $S_{F}$ passes \emph{entirely} to the shareholders through the offer price; the raider's only rent on floor raids is the charter dilution $\phi$. Top-up raids exist precisely because a reluctant pivotal bloc can be bought out at its outside option --- but for that very reason they transfer \emph{no} surplus to the bloc, which is what keeps the threat point below clean of them.
 
 \subsection{Entry}
 
-\begin{lemma}[Entry is dilution-financed and state-blind]
+\begin{lemma}[Floor raids are dilution-financed and state-blind]
 \label{lem:d7-entry}
-The raider enters iff $c_{F}\le\phi$ and, if the bloc is pivotal, additionally iff the bloc will acquiesce (Lemma~\ref{lem:d7-bloc}). The entry-feasibility event $\{c_{F}\le\phi\}$ has probability
+Floor raids --- raids at the offer $\hat b^{\ast}(a)=Z(a)-\phi$, which are the only raids in which the bloc earns more than its reservation --- occur iff $c_{F}\le\phi$ (and, if the bloc is pivotal, the acquiescence event of Lemma~\ref{lem:d7-bloc} holds). The floor-feasibility event $\{c_{F}\le\phi\}$ has probability
 \[
 q\;\equiv\;H(\phi)\;\in\;[0,1],
 \]
-independent of the engagement state $a$ and of the synergy draw $S_{F}$.
+independent of the engagement state $a$ and of the synergy draw $S_{F}$. Top-up raids (Lemma~\ref{lem:d7-floor}(ii)) occur on a state-dependent set --- engagement \emph{shrinks} it --- but pay the bloc exactly $y(a)$ and therefore do not enter the threat-point shift.
 \end{lemma}
 
 \begin{proof}
-By Lemma~\ref{lem:d7-floor} a successful raid pays $\phi-c_{F}$ regardless of $(a,S_{F})$ and of the tendered mass; an unsuccessful or unattempted raid pays $0$ (the offer is conditional). Entry is therefore profitable exactly on $\{c_{F}\le\phi\}$ intersected with the success event, and the success event is governed by the bloc's behavior alone (the float always tenders at the floor). Probability: $\PP(c_{F}\le\phi)=H(\phi)$ by definition, with independence from $a$ and $S_{F}$ immediate since neither enters the event.
+By Lemma~\ref{lem:d7-floor}(i) a floor raid pays $\phi-c_{F}$ regardless of $(a,S_{F})$ and of the tendered mass; not entering pays $0$ (the offer is conditional). On the acquiescence region the floor is the raider's best offer, so floor raids occur exactly on $\{c_{F}\le\phi\}$ intersected with acquiescence, and $\PP(c_{F}\le\phi)=H(\phi)$ with independence from $(a,S_{F})$ immediate. On the blocking region the optimal offer is the top-up of Lemma~\ref{lem:d7-floor}(ii), profitable on $\{S_{F}-(1-\gamma)a\delta_{e}\ge c_{F}\}$ --- a set decreasing in $a\delta_{e}$ --- in which the bloc receives its reservation $y(a)$ exactly.
 \end{proof}
 
-State-blindness of entry is the economically important part: engagement does \emph{not} deter or attract fringe raids through the raider's profit (which is always $\phi-c_{F}$); it operates only through the bloc's willingness to part with an improved firm. This is what keeps the threat-point shift below clean of entry-selection terms.
+The economically important part is that the \emph{bloc-surplus-relevant} raid margin is state-blind: on floor raids the raider's profit is $\phi-c_{F}$ whatever the engagement state, so engagement affects the bloc's takeover option only through its own willingness to part with an improved firm --- not through raider selection. Total raid incidence \emph{is} state-dependent (engagement deters some top-up raids), but those raids hold the bloc at its outside option and so contribute nothing to the shift $d(1)-d(0)$. This is what keeps the threat-point shift below clean of entry-selection terms.
 
 \subsection{The bloc at the node: blocking and acquiescence}
 
@@ -147,13 +163,13 @@ Consider an entered raider offering the floor $\hat b^{\ast}(a)=Z(a)-\phi$.
 \quad\Longleftrightarrow\quad
 S_{F}\;\ge\;\phi+(1-\gamma)\,a\,\delta_{e}.
 \]
-On the acquiescence set the bloc's per-share payoff is $Z(a)-\phi$; off it, the raid fails and the bloc's payoff is $y(a)$.
+On the acquiescence set the bloc's per-share payoff is $Z(a)-\phi$; off it, the \emph{floor} raid fails, and the bloc receives $y(a)$ --- either because no raid occurs, or because the raider switches to the reservation top-up of Lemma~\ref{lem:d7-floor}(ii), which pays the bloc exactly $y(a)$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-(i) With $1-\alpha\ge\tau_{c}$ the float alone delivers control (Lemma~\ref{lem:d7-floor}: all of it tenders at the floor). The bloc tendering yields $\hat b^{\ast}=Z(a)-\phi$; retaining yields the diluted value $Z(a)-\phi$. Identical.
-(ii) With $1-\alpha<\tau_{c}$ the success event requires bloc shares. If the bloc tenders, it receives $\hat b^{\ast}(a)$; if it refuses, the conditional offer lapses and it receives $y(a)$. It tenders iff $Z(a)-\phi\ge y(a)$, i.e.\ $w+\gamma a\delta_{e}+S_{F}-\phi\ge w+a\delta_{e}$, i.e.\ $S_{F}\ge\phi+(1-\gamma)a\delta_{e}$. (Indifference, an event of $G$-measure zero, is resolved toward tendering.) Could the raider instead raise $\hat b$ above the floor to win over a reluctant pivotal bloc? Under uniform equal-treatment offers it would have to overpay the entire float as well; by Lemma~\ref{lem:d7-floor}'s domination argument the raider's payoff is strictly decreasing in $\hat b$ above the floor for fixed success set, and raising $\hat b$ to the bloc's reservation $y(a)$ changes its payoff to $Z(a)-y(a)$ per acquired share $=S_{F}-(1-\gamma)a\delta_{e}-\,$(per-share concession to the float), which a one-line computation shows is dominated by not entering whenever the floor fails the bloc, given the dilution rent is already collected at the floor; we record the equal-treatment institution and this domination in \S\ref{app:d7-ledger} rather than belabor it.
+(i) With $1-\alpha\ge\tau_{c}$ the float alone delivers control (Lemma~\ref{lem:d7-floor}(i): all of it tenders at the floor). The bloc tendering yields $\hat b^{\ast}=Z(a)-\phi$; retaining yields the diluted value $Z(a)-\phi$. Identical.
+(ii) With $1-\alpha<\tau_{c}$ the success event requires bloc shares. If the bloc tenders at the floor, it receives $\hat b^{\ast}(a)$; if it refuses, the conditional floor offer lapses and it retains a share worth $y(a)$ (or is bought out at $y(a)$ in a top-up raid). It tenders at the floor iff $Z(a)-\phi\ge y(a)$, i.e.\ $w+\gamma a\delta_{e}+S_{F}-\phi\ge w+a\delta_{e}$, i.e.\ $S_{F}\ge\phi+(1-\gamma)a\delta_{e}$. (Indifference, an event of $G$-measure zero, is resolved toward tendering.) Off the acquiescence set the raider's optimal response is characterized by Lemma~\ref{lem:d7-floor}(ii): the top-up succeeds when profitable, and in it the bloc --- tendering at its reservation under the selection --- receives exactly $y(a)$. In every branch off the acquiescence set the bloc's payoff is therefore $y(a)$.
 \end{proof}
 
 \subsection{The threat point and the appropriability coefficient}
@@ -187,7 +203,7 @@ d(a)=(1-q)(w+a\delta_{e})+q\,(w+\gamma a\delta_{e}+\E[S_{F}]-\phi),
 \]
 which rearranges to \eqref{eq:d7-dNP}. Differencing: $d(1)-d(0)=(1-q)\delta_{e}+q\gamma\delta_{e}=\delta_{e}\,[1-q(1-\gamma)]$.
 
-\emph{Pivotal.} By Lemma~\ref{lem:d7-bloc}(ii) the raid occurs on $\{c_{F}\le\phi\}\cap\{S_{F}\ge\phi+(1-\gamma)a\delta_{e}\}$ and pays the bloc $Z(a)-\phi$; otherwise the bloc has $y(a)$. Hence
+\emph{Pivotal.} By Lemmas~\ref{lem:d7-floor}--\ref{lem:d7-bloc}, the bloc earns more than its reservation only in \emph{floor} raids, which occur on $\{c_{F}\le\phi\}\cap\{S_{F}\ge\phi+(1-\gamma)a\delta_{e}\}$ and pay it $Z(a)-\phi$; in every other branch --- no entry, failed floor, or a top-up raid that buys the bloc out at its outside option --- the bloc has exactly $y(a)$ (the outside-option principle: marginal raids extract the bloc's full surplus). Hence
 \[
 d(a)=y(a)+q\,\E\bigl[\bigl(Z(a)-\phi-y(a)\bigr)\,\1\{S_{F}\ge\phi+(1-\gamma)a\delta_{e}\}\bigr]
 =y(a)+q\,\E\bigl[(S_{F}-\phi-(1-\gamma)a\delta_{e})^{+}\bigr],
@@ -250,10 +266,10 @@ From $\lambda=1-q(1-\gamma)\psi$ with $q=H(\phi)$:
 (iv) Dilution $\phi$ is two-edged in the pivotal regime: $\partial\lambda/\partial\phi=-(1-\gamma)\psi\,H'(\phi)+q\,\frac{1}{\delta_{e}}\bigl[\Gbar(\phi)-\Gbar(\phi+(1-\gamma)\delta_{e})\bigr]\cdot$ $(\text{sign depends on } H' \text{ vs the } G\text{-mass on }(\phi,\phi+(1-\gamma)\delta_{e}])$: easier dilution invites more raids ($q\uparrow$, eroding $\lambda$) but also lowers the floor relative to the bloc's reservation, thinning the acquiescence set ($\psi\downarrow$, protecting $\lambda$). We leave $\phi$ unsigned and verify both directions numerically.
 \end{remark}
 
-\subsection{Measured premia: rationalizing the Albuquerque--Fos--Schroth sign}
+\subsection{Measured premia: rationalizing the estimated negative activism--premium effect}
 \label{app:d7-afs}
 
-\citet{AlbuquerqueFosSchroth2022} estimate that activism \emph{lowers} takeover bid premia by 13.7\% (5.2pp) relative to a no-activist counterfactual. At face value this contradicts $m_{1}>m_{0}$. The model says otherwise: the empirical object is not the wedge. Bid premia are measured against a market price that \emph{already capitalizes} activism beliefs --- the body's Proposition~3 prices in both the expected standalone improvement $\Dtil\,\pi(X,D)$ and the activism premium $(\mtil-m_{0})\pi(X,D)$ --- so activism moves the \emph{denominator} as well as the numerator. When appropriability is low, the denominator wins.
+\citet{CelentanoLevine2025} estimate that bid premia are 13.7\% (5.2pp) lower when an activist is present in takeover negotiations, relative to a no-activist counterfactual.\footnote{In their structural model the channel is bargaining: the activist lowers the board's entrenchment cost, which lowers the price the board demands. The mechanism developed here is complementary and differently indexed --- see Remark~\ref{rem:d7-afs-comp}. \citet{AlbuquerqueFosSchroth2022} contain no takeover-premium estimate; their role in this section is different and essential: they quantify the \emph{capitalization} of activism in prices at disclosure (a 6.34\% announcement return, roughly three-quarters of it anticipated treatment), which is precisely the denominator effect the proposition below exploits.} At face value a negative activism--premium relation contradicts $m_{1}>m_{0}$. The model says otherwise: the empirical object is not the wedge. Bid premia are measured against a market price that \emph{already capitalizes} activism beliefs --- the body's Proposition~\ref{prop:price-decomp} prices in both the expected standalone improvement $\Dtil\,\pi(X,D)$ and the activism premium $(\mtil-m_{0})\pi(X,D)$ --- so activism moves the \emph{denominator} as well as the numerator. When appropriability is low, the denominator wins.
 
 \begin{proposition}[Measured-premium reversal under low appropriability]
 \label{prop:d7-afs}
@@ -261,20 +277,21 @@ Fix the blockholder's cutoffs and an information state $(X,D)$ as in Proposition
 \[
 M(\pi)\;\equiv\;\frac{\bar m(\pi)}{P(\pi)} ,
 \]
-the expected offer over the prevailing market price, net of one. Maintain Assumption~\textup{(A5)}. Then $P'(\pi)>0$ whenever $\Dtil>0$, and
+the expected offer over the prevailing market price, net of one. Maintain Assumption~\textup{(A5a)} and $m_{0}>0$. Then
 \[
-\operatorname{sgn} M'(\pi)\;=\;\operatorname{sgn}\Bigl[(\mtil-m_{0})\,P(\pi)\;-\;\bar m(\pi)\,P'(\pi)\Bigr].
+\operatorname{sgn} M'(\pi)\;=\;\operatorname{sgn}\Bigl[(\mtil-m_{0})\,P(\pi)\;-\;\bar m(\pi)\,P'(\pi)\Bigr],
 \]
+and in the $\lambda\to0$ limit $P'(\pi)>0$ whenever $\Dtil>0$.\footnote{At general $\lambda$ the sign of $P'$ is ambiguous: the deterrence term $p_{\pi}\,(P+\bar m-\E[v|X,D]-\Dtil\pi)$ can dominate $(1-p)\Dtil$ when the wedge is large relative to $\Dtil$, so the clause is claimed only in the limit, which is all the conclusion below requires. A sufficient condition at general $\lambda$ is $p\,(\mtil-m_{0})+(1-p)\,\Dtil>\varphi(t)\,(\mtil-m_{0})\,(P+\bar m-\E[v|X,D]-\Dtil\pi)/\sigma_{\xi}$.}
 Since $\mtil-m_{0}=\rho^{2}(1-\theta)\lambda\Delta_{\mathrm{eng}}\to0$ as $\lambda\to0$ while $\bar m(\pi)\to m_{0}>0$ and
 \[
 P'(\pi)\;\longrightarrow\;\frac{\delta\,(1-p)\,\Dtil}{1-\delta p-\delta\,\frac{\partial p}{\partial P}\,\bigl(P+m_{0}-\E[v\mid X,D]-\Dtil\pi\bigr)}\;>\;0
 \qquad(\lambda\to0),
 \]
-there exists $\lambda_{\mathrm{crit}}>0$ such that for all $\lambda<\lambda_{\mathrm{crit}}$ the measured premium is \emph{strictly decreasing} in activism evidence, $M'(\pi)<0$ for all interior $\pi$ --- even though $m_{1}\ge m_{0}$ throughout. Activism then lowers measured bid premia exactly as in \citet{AlbuquerqueFosSchroth2022}, through the price channel, with the wedge's sign intact.
+there exists $\lambda_{\mathrm{crit}}>0$ such that for all $\lambda<\lambda_{\mathrm{crit}}$ the measured premium is \emph{strictly decreasing} in activism evidence, $M'(\pi)<0$ for all interior $\pi$ --- even though $m_{1}\ge m_{0}$ throughout. Activism then lowers measured bid premia as \citet{CelentanoLevine2025} estimate, through the price channel, with the wedge's sign intact.
 \end{proposition}
 
 \begin{proof}
-Differentiate $M=\bar m/P$: $M'=[(\mtil-m_{0})P-\bar m P']/P^{2}$, giving the sign display. For $P'$: the fixed point is $P=\delta[\,p(P,\pi)\,(P+\bar m(\pi))+(1-p(P,\pi))\,(\E[v\mid X,D]+\Dtil\pi)\,]$. The implicit function theorem (the denominator $1-\delta p-\delta\,p_{P}\,(P+\bar m-\E[v|X,D]-\Dtil\pi)$ is positive by Assumption~\textup{(A5)}, which bounds $\delta\,|p_{P}|$ away from the feedback singularity, and $\delta p<1$) gives
+Differentiate $M=\bar m/P$: $M'=[(\mtil-m_{0})P-\bar m P']/P^{2}$, giving the sign display. For $P'$: the fixed point is $P=\delta[\,p(P,\pi)\,(P+\bar m(\pi))+(1-p(P,\pi))\,(\E[v\mid X,D]+\Dtil\pi)\,]$. The implicit function theorem applies: the denominator $1-\delta p-\delta\,p_{P}\,(P+\bar m-\E[v|X,D]-\Dtil\pi)$ is bounded below by $1-\delta\bigl[p+|P+\bar m-\E[v|X,D]-\Dtil\pi|\,\varphi(0)/\sigma_{\xi}\bigr]>0$ under the contraction bound of Assumption~\textup{(A5a)} (see also Remark~\ref{rem:A5margins} in the body: at the baseline calibration the conservative sufficient form of A5a is not met, so the numerical $\lambda_{\mathrm{crit}}$ below rests on the solver's observed contraction rather than the maintained bound), and it gives
 \[
 P'(\pi)=\frac{\delta\bigl[p\,(\mtil-m_{0})+(1-p)\,\Dtil+p_{\pi}\,\bigl(P+\bar m-\E[v|X,D]-\Dtil\pi\bigr)\bigr]}{1-\delta p-\delta\,p_{P}\,\bigl(P+\bar m-\E[v|X,D]-\Dtil\pi\bigr)} .
 \]
@@ -283,7 +300,7 @@ As $\lambda\to0$: $\mtil-m_{0}\to0$ directly, and $p_{\pi}=-\varphi(\cdot)\,(\mt
 
 \begin{remark}[Composition reinforces the reversal; what would distinguish the stories]
 \label{rem:d7-afs-comp}
-Two further forces push the same way in the cross-section. First, deterrence: $\partial p/\partial\pi<0$ when $\mtil>m_{0}$ (body, \S Bid Incidence), so high-$\pi$ states select toward deals that clear a higher hurdle --- fewer, not richer, marginal deals. Second, heterogeneity in $\lambda$: by Theorem~\ref{thm:d7-A3}, campaigns at targets whose natural acquirers are \emph{superseding} (strategic buyers re-optimizing wholesale: $\gamma\approx0$) in hot deal markets ($q\approx1$) carry $\lambda\approx0$ and hence near-zero wedges; if such targets are over-represented among consummated takeovers, the estimated average effect tilts negative. The model's distinguishing prediction, testable against \citet{AlbuquerqueFosSchroth2022}: the activism effect on premia should be \emph{less negative} (i) where improvements are portable (financial acquirers, asset redeployability), (ii) where the activist's stake is pivotal relative to control thresholds, and (iii) in cold fringe markets --- because these are exactly the high-$\lambda$ cells.
+Two further forces push the same way in the cross-section. First, deterrence: $\partial p/\partial\pi<0$ when $\mtil>m_{0}$ (body, \S Bid Incidence), so high-$\pi$ states select toward deals that clear a higher hurdle --- fewer, not richer, marginal deals. Second, heterogeneity in $\lambda$: by Theorem~\ref{thm:d7-A3}, campaigns at targets whose natural acquirers are \emph{superseding} (strategic buyers re-optimizing wholesale: $\gamma\approx0$) in hot deal markets ($q\approx1$) carry $\lambda\approx0$ and hence near-zero wedges; if such targets are over-represented among consummated takeovers, the estimated average effect tilts negative. The model's distinguishing prediction --- against \citet{CelentanoLevine2025}'s board-bargaining channel, in which the premium effect moves only with activist presence: the activism effect on premia should be \emph{less negative} (i) where improvements are portable (financial acquirers, asset redeployability), (ii) where the activist's stake is pivotal relative to control thresholds, and (iii) in cold fringe markets --- because these are exactly the high-$\lambda$ cells. Cross-sections in $(q,\gamma,\psi)$ separate the two mechanisms for the same average sign.
 \end{remark}
 
 \begin{remark}[Empirical content of the primitives]
@@ -296,8 +313,8 @@ Unlike the reduced-form $\lambda$, the derived coefficient is indexable: $q$ by 
 
 \emph{Solved (no residual condition on endogenous objects):} the tendering subgame and free-rider floor (Lemma~\ref{lem:d7-floor}); entry (Lemma~\ref{lem:d7-entry}); the blocking rule (Lemma~\ref{lem:d7-bloc}); the threat point, $\lambda=1-q(1-\gamma)\psi$, and the exact recovery of Condition~\ref{cond:bg}'s form (Proposition~\ref{prop:d7-lambda}, Corollary~\ref{cor:d7-BG}); A3's iff boundary (Theorem~\ref{thm:d7-A3}); the fold (Remark~\ref{rem:d7-fold}); the measured-premium reversal at fixed cutoffs (Proposition~\ref{prop:d7-afs}).
 
-\emph{Institutional primitives (transparent and discussed, in the tradition of taking the tender institution as given):} uniform equal-treatment conditional offers (discriminatory offers would let the raider pay the pivotal bloc its reservation while holding the float at the floor; this enlarges the raid set and lowers $\lambda$ toward its non-pivotal value --- the equal-treatment rule is thus \emph{conservative} for A3's failure region, and it is the empirically relevant institution under Williams-Act-type equal treatment); the \citet{GrossmanHart1980} indifference-tendering selection, with \citet{BagnoliLipman1988} as its finite-shareholder foundation and \citet{HolmstromNalebuff1992}'s mixed equilibria not selected; exogenous charter objects $(\phi,\tau_{c})$; one-shot fringe arrival with type $(c_{F},S_{F})\sim H\otimes G$ independent; the engagement state observable at the node.
+\emph{Institutional primitives (transparent and discussed, in the tradition of taking the tender institution as given):} uniform equal-treatment conditional offers (discriminatory offers would let the raider pay the pivotal bloc exactly its reservation in \emph{every} raid while holding the float at the floor; the bloc would then be held at $y(a)$ throughout, giving $\lambda=1$ --- its maximum. Equal treatment thus yields the \emph{smallest} $\lambda$ and is conservative for A3's failure region; it is also the empirically relevant institution under Williams-Act-type equal treatment); the maintained domain restriction $\alpha<\tau_{c}$ (if the bloc alone delivers control, the raider's bloc-only lowball holds it at reservation in every raid and $\lambda=1$ identically --- A3 then holds trivially, so the restriction is conservative as well); the \citet{GrossmanHart1980} indifference-tendering selection, with \citet{BagnoliLipman1988} as its finite-shareholder foundation and \citet{HolmstromNalebuff1992}'s mixed equilibria not selected; exogenous charter objects $(\phi,\tau_{c})$; one-shot fringe arrival with type $(c_{F},S_{F})\sim H\otimes G$ independent; the engagement state observable at the node.
 
-\emph{Open (stated plainly):} competition between the incumbent bidder and the fringe (a takeover auction in the spirit of \citet{BulowHuangKlemperer1999}, in which the engagement stake may also confer a toehold advantage); repeated fringe arrival and option-value timing at the disagreement node; endogenous design of $(\phi,\tau_{c})$. None of these touches the \emph{sign} architecture: each would alter the level of $d(a)$ and potentially the magnitude of $\lambda$, but the linear-in-$a$ form of Corollary~\ref{cor:d7-BG} and the boundary logic of Theorem~\ref{thm:d7-A3} (raids must be certain, superseding, and unblockable to kill the wedge) are robust to them in the obvious directions.
+\emph{Open (stated plainly):} competition between the incumbent bidder and the fringe (a takeover auction in the spirit of \citet{BulowHuangKlemperer1999}, in which the engagement stake may also confer a toehold advantage); repeated fringe arrival and option-value timing at the disagreement node; endogenous design of $(\phi,\tau_{c})$; and the economic identification of the second fold draw $B_{2}$ of Lemma~\ref{lem:bg-tree} (``premium-state arrival'') as an event distinct from campaign success --- under a single-event reading the wedge folds once, $\mtil-m_{0}=\rho(1-\theta)\lambda\Delta_{\mathrm{eng}}$, and the calibrated $\Delta_{\mathrm{eng}}$ shifts from $\approx0.516$ to $\approx0.46$ with all signs and the architecture unchanged. None of these touches the \emph{sign} architecture: each would alter the level of $d(a)$ and potentially the magnitude of $\lambda$, but the linear-in-$a$ form of Corollary~\ref{cor:d7-BG} and the boundary logic of Theorem~\ref{thm:d7-A3} (raids must be certain, superseding, and unblockable to kill the wedge) are robust to them in the obvious directions.
 
 % (local guards are at the top of this file, before first use)

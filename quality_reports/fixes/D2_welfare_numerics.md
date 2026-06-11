@@ -1,3 +1,5 @@
+
+> **SUPERSEDED (2026-06-11).** This file records attempt 4's exploratory numbers (kappa* = 0.29, old W_bid definition). The final, verified results live in D2_welfare_planner.tex and the current welfare.csv (both argmaxes ~= 0.58-0.59, wedge ~= 0). Do not cite numbers from this file.
 # D2 Welfare/Planner -- Verified Numerics (attempt 4)
 
 Solver: numerical.solver.solve_valid(params, prev_cutoffs, residual_tol=1e-5).

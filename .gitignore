@@ -48,3 +48,8 @@ Thumbs.db
 
 # Empirics raw data (large, regenerable from EDGAR)
 empirics/data/
+
+# downloaded papers (copyrighted; keep local)
+lit/*.pdf
+# pptx build assets (regenerable via pres/make_pptx.py)
+pres/pptx_assets/

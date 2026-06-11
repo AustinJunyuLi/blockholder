@@ -96,16 +96,76 @@ def d_closed(a: int, q: float, gamma: float, pivotal: bool, w: float, delta_e: f
 
 def mc_game(a: int, q: float, gamma: float, pivotal: bool, w: float, delta_e: float,
             phi: float, mu_S: float, n: int, cF: np.ndarray, SF: np.ndarray) -> float:
-    """Simulate the solved equilibrium path of the tender game."""
+    """Simulate the corrected equilibrium path of the tender game.
+
+    Floor raids on the acquiescence set pay the bloc Z(a) - phi; on the
+    pivotal blocking set the raider's optimal offer is the reservation
+    top-up b = y(a) (Lemma D7.1(ii)), undertaken when S_F - (1-gamma) a
+    delta_e >= c_F -- those raids pay the bloc *exactly* y(a), so the
+    bloc-value closed forms are unchanged (outside-option principle).
+    """
     c_max = phi / q if q > 0 else float("inf")  # uniform c_F on [0, c_max]
-    enter = (cF * c_max) <= phi if np.isfinite(c_max) else np.ones(n, bool)
+    cost = cF * c_max if np.isfinite(c_max) else np.full(n, np.inf)
+    enter_floor = cost <= phi
     if pivotal:
         acquiesce = SF >= phi + (1.0 - gamma) * a * delta_e
-        raid = enter & acquiesce
+        floor_raid = enter_floor & acquiesce
+        # top-up raids exist but hold the bloc at reservation y(a):
+        # payoff identical to the no-raid branch, so they need no branch here.
     else:
-        raid = enter
-    payoff = np.where(raid, w + gamma * a * delta_e + SF - phi, w + a * delta_e)
+        floor_raid = enter_floor
+    payoff = np.where(floor_raid, w + gamma * a * delta_e + SF - phi,
+                      w + a * delta_e)
     return float(payoff.mean())
+
+
+def check_best_response():
+    """D7-1/D7-9: the top-up deviation exists, is profitable on the documented
+    set, and pays the bloc exactly its reservation (so d(a) is unchanged)."""
+    n = 2_000_000
+    w, delta_e, phi, mu_S = 1.0, 0.5, 0.12, 0.6
+    q, gamma, a = 0.5, 0.6, 1
+    c_max = phi / q
+    cF = RNG.random(n) * c_max
+    SF = RNG.exponential(mu_S, n)
+    block = SF < phi + (1.0 - gamma) * a * delta_e          # floor fails here
+    topup_profit = SF - (1.0 - gamma) * a * delta_e - cF
+    topup_raid = block & (topup_profit >= 0.0)
+    share = float(topup_raid.mean())
+    mean_profit = float(topup_profit[topup_raid].mean()) if share > 0 else 0.0
+    # raid incidence is state-dependent (engagement shrinks the top-up set) ...
+    topup_raid_a0 = (SF < phi) & (SF - cF >= 0.0)
+    # ... but the bloc is paid exactly y(a) in top-ups: d(a) closed forms hold
+    # for the *corrected* equilibrium (mc_game above), checked in check_mc.
+    ok = (share > 0.0) and (mean_profit >= 0.0) and (
+        float(topup_raid_a0.mean()) >= share)
+    record("topup_deviation_exists_and_pays_reservation", ok, {
+        "topup_raid_share_a1": share,
+        "topup_raid_share_a0": float(topup_raid_a0.mean()),
+        "mean_raider_profit_on_topups": mean_profit,
+        "note": "floor-only policy is not a best response (D7-1); corrected "
+                "equilibrium leaves d(a) unchanged"})
+
+
+def check_phi_two_edged():
+    """D7-8: dilution phi moves lambda in both directions (Remark D7 compstat iv).
+
+    With H uniform on [0, c_max] (q = phi/c_max) and exponential G: at small
+    phi the raid-invitation force dominates (lambda falls in phi); at phi
+    above mu_S the acquiescence-thinning force dominates (lambda rises).
+    """
+    c_max, mu_S, gamma, delta_e = 1.0, 0.6, 0.3, 0.5
+    h = 1e-5
+    grads = []
+    for phi in np.linspace(0.02, 0.92, 46):
+        lam = lambda p: lam_closed(q_of(p, c_max), gamma, True, delta_e, p, mu_S)
+        grads.append((phi, (lam(phi + h) - lam(phi - h)) / (2 * h)))
+    gmin = min(g for _, g in grads)
+    gmax = max(g for _, g in grads)
+    record("phi_two_edged_both_signs", (gmin < 0.0) and (gmax > 0.0), {
+        "min_dlambda_dphi": gmin, "max_dlambda_dphi": gmax,
+        "argmin_phi": min(grads, key=lambda t: t[1])[0],
+        "argmax_phi": max(grads, key=lambda t: t[1])[0]})
 
 
 def check_mc():
@@ -281,6 +341,8 @@ def check_afs_reversal():
 
 def main() -> int:
     check_mc()
+    check_best_response()
+    check_phi_two_edged()
     check_bounds_monotonicity()
     check_iff_boundary()
     check_calibration()
