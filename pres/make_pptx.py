@@ -33,11 +33,15 @@ OUT_PPTX = os.path.join(HERE, "blockholder_seminar_40min.pptx")
 
 SLIDE_W, SLIDE_H = Inches(13.333), Inches(7.5)
 
-# ── palette (Paul Tol muted, matching the figure layer) ────────────────────
-INK = RGBColor(0x1A, 0x1A, 0x1A)
-GREY = RGBColor(0x5A, 0x5A, 0x5A)
-FAINT = RGBColor(0xF2, 0xF2, 0xF2)
-BLUE = RGBColor(0x44, 0x77, 0xAA)
+# ── palette: strategy-consulting navy/charcoal chrome; Paul Tol muted
+#    accents retained where they key to the figure layer ────────────────────
+INK = RGBColor(0x21, 0x21, 0x21)     # charcoal body text
+GREY = RGBColor(0x5A, 0x5A, 0x5A)    # support text
+FAINT = RGBColor(0xF3, 0xF4, 0xF6)   # panel fill (cool light grey)
+HAIR = RGBColor(0xC9, 0xCD, 0xD2)    # hairline rules
+NAVY = RGBColor(0x1F, 0x3A, 0x5F)    # primary accent (kickers, bars, chips)
+BLUE = NAVY                          # structural accent alias (legacy name)
+DATABLUE = RGBColor(0x44, 0x77, 0xAA)  # series blue used inside figures
 ROSE = RGBColor(0xEE, 0x66, 0x77)
 TEAL = RGBColor(0x44, 0xAA, 0x99)
 SAND = RGBColor(0xDD, 0xCC, 0x77)
@@ -47,15 +51,17 @@ WHITE = RGBColor(0xFF, 0xFF, 0xFF)
 FONT = "Helvetica Neue"
 
 # figure PDFs to rasterize: (source path relative to ROOT, asset name)
+# Shared manuscript figures come from numerical_output/ (canonical); the four
+# slide-only variants from pres/figures/ (pyfig.slide_figures).
 FIGS = [
-    ("pres/figures/fig_nonmonotone.pdf", "nonmonotone"),
-    ("pres/figures/fig_decomposition.pdf", "decomposition"),
-    ("pres/figures/fig_wedge_primitives.pdf", "wedge"),
-    ("pres/figures/fig_ge_decomposition.pdf", "ge_decomp"),
+    ("numerical_output/fig_nonmonotone.pdf", "nonmonotone"),
+    ("numerical_output/fig_decomposition.pdf", "decomposition"),
+    ("numerical_output/fig_wedge_primitives.pdf", "wedge"),
+    ("numerical_output/fig_ge_decomposition.pdf", "ge_decomp"),
     ("pres/figures/fig_disclosure_slopes.pdf", "slopes"),
-    ("pres/figures/fig_welfare.pdf", "welfare"),
-    ("pres/figures/fig_cutoff_structure.pdf", "cutoffs"),
-    ("pres/figures/fig_cutoffs_kappa.pdf", "cutoffs_kappa"),
+    ("numerical_output/fig_welfare.pdf", "welfare"),
+    ("numerical_output/fig_cutoff_structure.pdf", "cutoffs"),
+    ("numerical_output/fig_cutoffs_kappa.pdf", "cutoffs_kappa"),
     ("pres/figures/fig_sensitivity_panel1.pdf", "sens1"),
     ("pres/figures/fig_sensitivity_panel2.pdf", "sens2"),
     ("pres/figures/fig_noisy_rumor.pdf", "rumor"),
@@ -137,23 +143,39 @@ class Deck:
         s = self.prs.slides.add_slide(self.blank)
         self.n += 1
         if kicker:
-            tb = self._text(s, Inches(0.55), Inches(0.32), Inches(11), Inches(0.32))
+            tb = self._text(s, Inches(0.55), Inches(0.34), Inches(11), Inches(0.3))
             p = tb.paragraphs[0]
             r = p.add_run(); r.text = kicker.upper()
-            f = r.font; f.name = FONT; f.size = Pt(13); f.bold = True
-            f.color.rgb = BLUE
+            f = r.font; f.name = FONT; f.size = Pt(12); f.bold = True
+            f.color.rgb = NAVY
         if headline:
-            tb = self._text(s, Inches(0.52), Inches(0.62), Inches(12.3), Inches(1.05))
+            tb = self._text(s, Inches(0.52), Inches(0.64), Inches(12.3), Inches(1.0))
             p = tb.paragraphs[0]
             r = p.add_run(); r.text = headline
-            f = r.font; f.name = FONT; f.size = Pt(30); f.bold = True
+            f = r.font; f.name = FONT; f.size = Pt(27); f.bold = True
             f.color.rgb = INK
+        if kicker or headline:
+            self.hairline(s, Inches(0.55), Inches(1.68), Inches(12.23))
         if footer:
-            tb = self._text(s, Inches(12.45), Inches(7.05), Inches(0.6), Inches(0.3))
+            self.hairline(s, Inches(0.55), Inches(7.02), Inches(12.23))
+            tb = self._text(s, Inches(0.55), Inches(7.08), Inches(9), Inches(0.3))
+            p = tb.paragraphs[0]
+            r = p.add_run()
+            r.text = "Liquidity, Activism Disclosure, and Takeover Premia"
+            f = r.font; f.name = FONT; f.size = Pt(8.5); f.color.rgb = GREY
+            tb = self._text(s, Inches(12.45), Inches(7.08), Inches(0.6), Inches(0.3))
             p = tb.paragraphs[0]; p.alignment = PP_ALIGN.RIGHT
             r = p.add_run(); r.text = str(self.n)
             f = r.font; f.name = FONT; f.size = Pt(10); f.color.rgb = GREY
         return s
+
+    def hairline(self, s, x, y, w, color=HAIR):
+        # thin filled rectangle (not a connector: shadow-proof in all renderers)
+        ln = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, x, y, w, Pt(0.75))
+        ln.fill.solid(); ln.fill.fore_color.rgb = color
+        ln.line.fill.background()
+        ln.shadow.inherit = False
+        return ln
 
     @staticmethod
     def _text(s, x, y, w, h):
@@ -260,7 +282,6 @@ def build() -> None:
 
     # 1 ── title ────────────────────────────────────────────────────────────
     s = d.slide(footer=False)
-    d.panel(s, 0, 0, SLIDE_W, SLIDE_H, fill=WHITE)
     bar = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, Inches(2.10),
                              Inches(0.18), Inches(2.6))
     bar.fill.solid(); bar.fill.fore_color.rgb = BLUE
@@ -304,10 +325,10 @@ def build() -> None:
         d.panel(s, x, Inches(1.85), Inches(4.0), Inches(4.6))
         d.chip(s, x + Inches(0.25), Inches(2.10), Inches(0.55), Inches(0.55),
                num, fill=col, size=20, shape=MSO_SHAPE.OVAL)
-        d.body(s, x + Inches(0.22), Inches(2.85), Inches(3.6), Inches(1.0),
-               [(head, {"bold": True, "size": 18})])
-        d.body(s, x + Inches(0.22), Inches(3.65), Inches(3.6), Inches(2.6),
-               [(body, {"size": 14.5})], color=INK)
+        d.body(s, x + Inches(0.22), Inches(2.80), Inches(3.6), Inches(1.15),
+               [(head, {"bold": True, "size": 16.5})])
+        d.body(s, x + Inches(0.22), Inches(3.95), Inches(3.6), Inches(2.35),
+               [(body, {"size": 13.5})], color=INK)
         x += Inches(4.22)
 
     # 3 ── why care ─────────────────────────────────────────────────────────
@@ -403,6 +424,40 @@ def build() -> None:
         ("A single equilibrium framework: a blockholder who can exit, hold, or "
          "engage — quietly or publicly — a market pricing order flow, and a "
          "bidder reading both.", {"size": 16, "color": GREY}),
+    ])
+
+    # 6b ── positioning vs the literature (mirrors the Beamer positioning
+    #       frames: three strands + the structural activism trio) ───────────
+    s = d.slide("Positioning", "Three literatures, one missing piece")
+    cols = [
+        ("EXIT vs VOICE", "Blockholder governance: liquidity both "
+         "disciplines (cheap accumulation) and tempts exit.\n"
+         "Hirschman 1970; Maug 1998; Edmans 2009", ROSE),
+        ("INFORMED TRADING", "Microstructure: order flow moves prices; "
+         "noise is camouflage.\nKyle 1985; Glosten–Milgrom 1985", CYAN),
+        ("TAKEOVER FEEDBACK", "Prices feed back into real decisions — "
+         "including bids.\nGrossman–Hart 1980; Edmans–Goldstein–Jiang 2015",
+         TEAL),
+    ]
+    x = Inches(0.7)
+    for head, body_txt, col in cols:
+        d.chip(s, x, Inches(2.0), Inches(3.9), Inches(0.55), head, fill=col,
+               color=INK if col in (SAND, CYAN) else WHITE, size=14)
+        main, _, cites = body_txt.partition("\n")
+        d.body(s, x + Inches(0.05), Inches(2.75), Inches(3.8), Inches(2.2), [
+            (main, {"size": 14.5, "space": 8}),
+            (cites, {"size": 11.5, "color": GREY}),
+        ])
+        x += Inches(4.05)
+    d.panel(s, Inches(0.7), Inches(5.15), Inches(12.0), Inches(1.5), fill=FAINT)
+    d.body(s, Inches(0.95), Inches(5.35), Inches(11.5), Inches(1.2), [
+        ("Closest trio: Ordóñez-Calafí & Bernhardt 2022 (threshold design), "
+         "Corum & Levit 2019 (activists as bidder catalysts), Cetemen et al. "
+         "2026 (dynamic trade timing).", {"size": 14, "color": GREY,
+                                          "space": 6}),
+        ("**This paper:** stake-triggered disclosure partitions order-flow "
+         "inference into disclosed and nondisclosed branches — and that "
+         "inference feeds endogenous bidder entry.", {"size": 15.5}),
     ])
 
     # 7 ── framework in one picture ─────────────────────────────────────────
@@ -512,7 +567,7 @@ def build() -> None:
 
     # 11 ── result 1: the hump ──────────────────────────────────────────────
     s = d.slide("Results · 1", "Liquidity has a sweet spot")
-    d.picture(s, "nonmonotone", Inches(0.55), Inches(1.9), w=Inches(7.0))
+    d.picture(s, "nonmonotone", Inches(0.55), Inches(1.9), w=Inches(6.2))
     d.body(s, Inches(7.9), Inches(2.0), Inches(4.9), Inches(4.4), [
         ("Expected takeover gains to minority shareholders are "
          "**hump-shaped** in liquidity.", {"size": 17, "space": 10}),
@@ -528,7 +583,7 @@ def build() -> None:
 
     # 12 ── why: decomposition ──────────────────────────────────────────────
     s = d.slide("Results · 1", "Why: cover vs camouflage, in one split")
-    d.picture(s, "decomposition", Inches(0.55), Inches(1.9), w=Inches(7.0))
+    d.picture(s, "decomposition", Inches(0.55), Inches(1.9), w=Inches(6.2))
     d.body(s, Inches(7.9), Inches(2.0), Inches(4.9), Inches(4.4), [
         ("Split the gains into two books:", {"size": 16, "space": 8}),
         ("**Base book** — premium that arrives regardless of activism. "
@@ -787,11 +842,14 @@ def build() -> None:
 
     # ── BACKUPS ─────────────────────────────────────────────────────────────
     s = d.slide(footer=False)
-    tf = d._text(s, Inches(0.9), Inches(3.2), Inches(11.5), Inches(1.2))
-    p = tf.paragraphs[0]
+    band = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, SLIDE_W, SLIDE_H)
+    band.fill.solid(); band.fill.fore_color.rgb = NAVY
+    band.line.fill.background(); band.shadow.inherit = False
+    tf = d._text(s, Inches(0.9), Inches(3.3), Inches(11.5), Inches(1.2))
+    p = tf.paragraphs[0]; p.alignment = PP_ALIGN.CENTER
     r = p.add_run(); r.text = "Backup"
     r.font.name = FONT; r.font.size = Pt(40); r.font.bold = True
-    r.font.color.rgb = GREY
+    r.font.color.rgb = WHITE
 
     # B1 calibration
     s = d.slide("Backup", "Baseline calibration")

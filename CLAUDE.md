@@ -16,10 +16,11 @@ Set up the environment once with `make venv` (creates `.venv/` from `requirement
 # Full pipeline (data export + figure generation)
 make all
 
-# Step 1 only: Python model → 13 CSV files in numerical_output/data/
+# Step 1 only: Python model → 16 CSV files in numerical_output/data/
 make data
 
-# Step 2 only: matplotlib → 13 PDF figures in numerical_output/
+# Step 2 only: matplotlib → 15 PDF figures in numerical_output/
+#              + 4 slide-only variants in pres/figures/
 make figures
 
 # Remove all generated CSVs and PDFs
@@ -34,8 +35,9 @@ make clean && make all
 # Python data export
 .venv/bin/python -m numerical.export_data --output-dir numerical_output
 
-# Python figure rendering
+# Python figure rendering (manuscript + slide-only variants)
 .venv/bin/python -m pyfig.render_all --data-dir numerical_output/data --output-dir numerical_output
+.venv/bin/python -m pyfig.slide_figures --data-dir numerical_output/data --output-dir pres/figures
 
 # Compile manuscript
 xelatex draft_v2.tex && biber draft_v2 && xelatex draft_v2.tex
@@ -68,8 +70,9 @@ params.py → model.py → solver.py → export_data.py
 ### Python visualization (`pyfig/`)
 
 - **`pyfig/style.py`**: Shared matplotlib house style, Paul Tol colourblind-friendly palette, and helpers (`apply_style`, `new_ax`, `legend_outside`, `save_fig`). Editorial-minimal, with Computer-Modern math typography matching the manuscript
-- **`pyfig/figures.py`**: One function per figure (`fig01_*` … `fig15_*`; fig14 = GE channel decomposition, fig15 = microfounded wedge), each taking `(data_dir, output_dir)`; `ALL_FIGURES` lists them in render order
-- **`pyfig/render_all.py`**: Master orchestrator (`python -m pyfig.render_all`) that applies the style and calls all 13 figures
+- **`pyfig/figures.py`**: One function per figure (`fig01_*` … `fig15_*`; fig14 = GE channel decomposition, fig15 = microfounded wedge), each taking `(data_dir, output_dir)`; `ALL_FIGURES` lists them in render order. House rule: no in-figure titles (LaTeX captions and slide titles carry them); multi-panel figures use `(a)/(b)` panel labels
+- **`pyfig/render_all.py`**: Master orchestrator (`python -m pyfig.render_all`) that applies the style and calls all 15 manuscript figures
+- **`pyfig/slide_figures.py`**: Four slide-only variants written to `pres/figures/` (`fig_disclosure_slopes`, `fig_sensitivity_panel1/2`, `fig_noisy_rumor`), used by the Beamer deck and the PPTX build
 
 **Color palette** (Paul Tol muted, used consistently across all figures):
 - Exit: `#cc6677` (rose), Hold: `#ddcc77` (sand), Quiet Voice: `#88ccee` (cyan), Public Voice: `#44aa99` (teal)
@@ -89,8 +92,9 @@ D-series pattern: each derivation lands as `DN_*.tex` (spliced into `draft_v2.te
 
 ### LaTeX
 
-- **`draft_v2.tex`**: Main manuscript (XeLaTeX + biblatex/biber). References figures from `numerical_output/`
-- **`pres/presentation.tex`**: Beamer slides with UCL institutional theme (`beamerthemeucl.sty`)
+- **`draft_v2.tex`**: Main manuscript (XeLaTeX + biblatex/biber). References figures from `numerical_output/`. Abstract is capped at 150 words
+- **`pres/presentation.tex`**: Beamer slides, Metropolis theme with paper-palette accents (no local `.sty` files; theme ships with TeX Live). Pulls shared figures from `numerical_output/` via `\graphicspath`
+- **`pres/make_pptx.py`**: Business-format PPTX twin of the Beamer deck (navy/charcoal consulting style); rasterizes the same PDFs into `pres/pptx_assets/`
 - **`bibliography.bib`**: Manuscript bibliography; `pres/slides.bib`: separate presentation bibliography
 
 ## Key Model Concepts

@@ -340,9 +340,8 @@ def main(argv=None) -> int:
     ax.axvline(0, color="black", linestyle="--", linewidth=0.6)
     ax.axhline(0, color="black", linewidth=0.4)
     ax.set_xlabel("Trading day relative to 13D filing")
-    ax.set_ylabel("Mean cumulative abnormal return (%)")
-    ax.set_title("Fact 2: 13D Announcement Returns, Pre vs Post Acceleration")
-    ax.legend(fontsize=8)
+    ax.set_ylabel("Cumulative abnormal return (%)")
+    ax.legend(fontsize=8, loc="lower right")
     style.save_fig(fig, os.path.join(OUT_DIR, "fact2_car.pdf"))
     print(f"\nwrote {OUT_DIR}/fact2_summary.csv, fact2_regressions.csv, "
           f"fact2_car.pdf")

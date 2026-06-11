@@ -40,14 +40,32 @@
 % economist who will ask "what does this mean for SEC policy?" (Gorbenko).
 % ============================================================================
 
-\documentclass[aspectratio=169,11pt]{beamer}
+\documentclass[aspectratio=169,10pt]{beamer}
 
-\usetheme{ucl}
-\useoutertheme[small]{ucltitlebanner}
+% ── Theme: Metropolis (modern, minimal), accents matched to the paper's
+%    figure palette (Paul Tol muted; see pyfig/style.py) ──────────────────
+\usetheme[progressbar=frametitle, numbering=fraction, block=fill]{metropolis}
 
-% Title page style
-\setbeamercolor{title}{fg=black,bg=}
+% Palette
+\definecolor{accentblue}{HTML}{4477AA}   % sensitivity blue (pyfig)
+\definecolor{accentteal}{HTML}{44AA99}   % Public Voice teal (pyfig)
+\definecolor{accentrose}{HTML}{CC6677}   % Exit rose (pyfig)
+\definecolor{inkdark}{HTML}{23373B}      % metropolis dark slate
+\colorlet{brightblue}{accentblue}        % legacy alias used throughout the deck
+
+\setbeamercolor{progress bar}{fg=accentblue, bg=accentblue!25}
+\setbeamercolor{title separator}{fg=accentblue}
+\setbeamercolor{alerted text}{fg=accentrose}
+\setbeamercolor{example text}{fg=accentteal}
+\setbeamercolor{frametitle}{bg=inkdark, fg=black!2}
+
+% Title page / frametitle typography
 \setbeamerfont{frametitle}{series=\bfseries}
+\metroset{titleformat frame=regular, titleformat title=regular}
+% Tighter frame-title bar (reclaims vertical space on dense frames)
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{1.5ex}
+\makeatother
 
 % Packages
 \usepackage{amsmath,amssymb,amsfonts}
@@ -88,36 +106,20 @@
   \par\vspace{0.2em}\hfill{\scriptsize\hyperlink{#1}{\textcolor{brightblue}{$\leftarrow$\,#2}}}%
 }
 
-% Beamer cosmetics
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}[author title date]
-
-% Block style
-\setbeamercolor{block title}{fg=brightblue,bg=}
-\setbeamercolor{block body}{fg=black,bg=}
+% Beamer cosmetics (metropolis already drops navigation symbols and sets a
+% clean frame-number footer via numbering=fraction)
 \setbeamerfont{block title}{series=\bfseries}
-\setbeamertemplate{block begin}{%
-  \par\vskip\smallskipamount%
-  {\usebeamerfont*{block title}\usebeamercolor[fg]{block title}\insertblocktitle\par}%
-  \vspace{0.2ex}%
-  {\usebeamercolor[fg]{block title}\rule{\linewidth}{0.4pt}\par}%
-  \begin{beamercolorbox}[wd=\linewidth,sep=0.6ex]{block body}%
-    \usebeamerfont{block body}%
-}
-\setbeamertemplate{block end}{%
-  \end{beamercolorbox}%
-  \vskip\smallskipamount%
-}
 
-% Graphics path
-\graphicspath{{figures/}{../empirics/output/}}
+% Graphics path: slide-only variants in figures/, canonical manuscript
+% figures in ../numerical_output/, empirical facts in ../empirics/output/
+\graphicspath{{figures/}{../numerical_output/}{../empirics/output/}}
 
 % Title
-\title[Liquidity, Activism, Takeover Premia]{\textbf{Liquidity, Activism Disclosure, and Takeover Premia:}\\[0.2em]
-\large A Theory of Exit, Voice, and Corporate Control}
+\title{Liquidity, Activism Disclosure,\\ and Takeover Premia}
+\subtitle{A Theory of Exit, Voice, and Corporate Control}
 \author[Austin Li]{Austin Li}
-\institute[]{University College London}
-\date[]{}
+\institute{University College London}
+\date{}
 
 \begin{document}
 
@@ -810,10 +812,8 @@ Dynamic multi-round trading, multiple blockholders, endogenous information acqui
 \appendix
 
 % ── CATEGORY DIVIDER: Mathematical Foundations ────────────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Mathematical Foundations \& Equilibrium Robustness}}
+\begin{frame}[standout]
+Backup: Mathematical Foundations \&\\ Equilibrium Robustness
 \end{frame}
 
 % ── BACKUP 1: Proof sketch of Proposition 1 ──────────────────────────────
@@ -1142,10 +1142,8 @@ non-removable.}
 \end{frame}
 
 % ── CATEGORY DIVIDER: Sensitivity & Comparative Statics ──────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Sensitivity \& Comparative Statics}}
+\begin{frame}[standout]
+Backup: Sensitivity \& Comparative Statics
 \end{frame}
 
 % ── BACKUP 6: Sensitivity Panel 1 (delta + sigma_xi) ───────────────────
@@ -1280,10 +1278,8 @@ $\Rightarrow$ $\pi(x,1) = 1$, $\E[v \mid x, 1] = \mu_P$ for all $x$.
 \end{frame}
 
 % ── CATEGORY DIVIDER: Disclosure Extensions ──────────────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Disclosure Extensions \& Information Regimes}}
+\begin{frame}[standout]
+Backup: Disclosure Extensions \&\\ Information Regimes
 \end{frame}
 
 % ── BACKUP 12: Full disclosure / No disclosure benchmarks ────────────────
@@ -1423,10 +1419,8 @@ $\Rightarrow$ $|\partial\Delta^{\text{act}}/\partial\kappa|$ \textbf{decreases} 
 \end{frame}
 
 % ── CATEGORY DIVIDER: Welfare ────────────────────────────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Welfare}}
+\begin{frame}[standout]
+Backup: Welfare
 \end{frame}
 
 % ── BACKUP 15: Welfare decomposition ────────────────────────────────────
@@ -1476,10 +1470,8 @@ $\Rightarrow$ $\kappa^* \neq \kappa^{\dagger}$.
 \end{frame}
 
 % ── CATEGORY DIVIDER: Calibration & Numerical Details ────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Calibration \& Numerical Details}}
+\begin{frame}[standout]
+Backup: Calibration \& Numerical Details
 \end{frame}
 
 % ── BACKUP 17: Baseline parameter values ────────────────────────────────
@@ -1615,10 +1607,8 @@ A7 & Bidder observes $(P, D)$ but not $(X, s, v, a)$ & Information structure, en
 \end{frame}
 
 % ── CATEGORY DIVIDER: Data & Evidence ────────────────────────────────────
-\begin{frame}{}
-\centering
-\vspace{2cm}
-{\Large\textbf{Backup: Data \& Evidence}}
+\begin{frame}[standout]
+Backup: Data \& Evidence
 \end{frame}
 
 % ── BACKUP 21: Facts 1–2 data & methods ─────────────────────────────────

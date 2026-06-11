@@ -73,22 +73,32 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Fact 1: 13D delay compression.")
     ap.add_argument("--per-window", type=int, default=150)
     ap.add_argument("--seed", type=int, default=20260610)
+    ap.add_argument("--replot", action="store_true",
+                    help="rebuild summary + figure from the committed "
+                         "fact1_filings.csv (no EDGAR fetching)")
     args = ap.parse_args(argv)
 
     os.makedirs(OUT_DIR, exist_ok=True)
-    os.makedirs(DATA_DIR, exist_ok=True)
-    rng = np.random.default_rng(args.seed)
 
-    parsed = []
-    for label, quarters in WINDOWS.items():
-        parsed.extend(sample_window(label, quarters, args.per_window, rng))
+    if args.replot:
+        df = pd.read_csv(os.path.join(OUT_DIR, "fact1_filings.csv"),
+                         low_memory=False)
+        df["event"] = pd.to_datetime(df.get("event"), errors="coerce")
+        df["filed"] = pd.to_datetime(df.get("filed"), errors="coerce")
+    else:
+        os.makedirs(DATA_DIR, exist_ok=True)
+        rng = np.random.default_rng(args.seed)
 
-    df = pd.DataFrame(parsed)
-    df["event"] = pd.to_datetime(df.get("event"), errors="coerce")
-    df["filed"] = pd.to_datetime(df.get("filed"), errors="coerce")
-    df["delay_bdays"] = [business_delay(e, f) for e, f in zip(df["event"], df["filed"])]
-    df["delay_cdays"] = (df["filed"] - df["event"]).dt.days
-    df.to_csv(os.path.join(OUT_DIR, "fact1_filings.csv"), index=False)
+        parsed = []
+        for label, quarters in WINDOWS.items():
+            parsed.extend(sample_window(label, quarters, args.per_window, rng))
+
+        df = pd.DataFrame(parsed)
+        df["event"] = pd.to_datetime(df.get("event"), errors="coerce")
+        df["filed"] = pd.to_datetime(df.get("filed"), errors="coerce")
+        df["delay_bdays"] = [business_delay(e, f) for e, f in zip(df["event"], df["filed"])]
+        df["delay_cdays"] = (df["filed"] - df["event"]).dt.days
+        df.to_csv(os.path.join(OUT_DIR, "fact1_filings.csv"), index=False)
 
     ok = df.dropna(subset=["delay_bdays"])
     ok = ok[(ok["delay_bdays"] >= 0) & (ok["delay_bdays"] <= 60)]  # filter parse junk
@@ -117,11 +127,18 @@ def main(argv=None) -> int:
         ax.hist(sub["delay_bdays"], bins=bins, density=True, alpha=0.55,
                 color=color, label=f"{label} (n={len(sub)})")
     ax.axvline(5, color="black", linestyle="--", linewidth=0.6)
-    ax.text(5.2, ax.get_ylim()[1] * 0.95, "5 business days", fontsize=8, va="top")
-    ax.set_xlabel("Disclosure delay: filing date − event date (business days)")
+    # annotation left of the rule line, right-aligned, with headroom so it
+    # cannot collide with the upper-right legend
+    ymax = ax.get_ylim()[1]
+    ax.set_ylim(0, ymax * 1.08)
+    ax.text(4.7, ymax * 1.05, "5 business days", fontsize=8,
+            ha="right", va="top")
+    # Two-line label: the single-line version is wider than the axes and
+    # matplotlib's tight bbox does not expand to include the x-label overflow,
+    # so it was clipped on the right. Wrapping keeps every word at full size.
+    ax.set_xlabel("Disclosure delay: filing date − event date\n(business days)")
     ax.set_ylabel("Density")
-    ax.set_title("Fact 1: 13D Disclosure-Delay Compression (2024 acceleration)")
-    ax.legend(fontsize=8)
+    ax.legend(fontsize=8, loc="upper right")
     style.save_fig(fig, os.path.join(OUT_DIR, "fact1_delay.pdf"))
     return 0
 

@@ -15,7 +15,7 @@ from matplotlib.lines import Line2D
 from . import style
 
 KAPPA = r"Liquidity $\kappa$"
-DMIN = r"Expected Minority Takeover Gains $\Delta^{\mathrm{min}}$"
+DMIN = r"Minority takeover gains $\Delta^{\mathrm{min}}$"
 
 
 def _csv(data_dir, name):
@@ -91,7 +91,6 @@ def fig02_nonmonotone(data_dir, output_dir):
             color=style.REF_GREY, fontsize=12, va="top")
     ax.set_xlabel(KAPPA)
     ax.set_ylabel(DMIN)
-    ax.set_title("Non-Monotonic Effect of Liquidity on Takeover Gains")
     style.save_fig(fig, os.path.join(output_dir, "fig_nonmonotone.pdf"))
 
 
@@ -115,8 +114,7 @@ def fig03_decomposition(data_dir, output_dir):
     ax.text(kpk + 0.015, total.max() * 0.98, r"$\kappa^{\dagger}$",
             color=style.REF_GREY, fontsize=12, va="top")
     ax.set_xlabel(KAPPA)
-    ax.set_ylabel("Expected Minority Takeover Gains")
-    ax.set_title("Decomposition of Minority Takeover Gains")
+    ax.set_ylabel("Minority takeover gains")
     ax.legend(loc="upper left", framealpha=1.0)
     style.save_fig(fig, os.path.join(output_dir, "fig_decomposition.pdf"))
 
@@ -135,9 +133,9 @@ def fig04_prices(data_dir, output_dir):
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
     for ax, d, col, ttl, ylab, pis in (
-        (axes[0], d0, style.COL_QUIET, r"Non-Disclosed States ($D=0$)",
+        (axes[0], d0, style.COL_QUIET, r"(a) Non-disclosed states ($D=0$)",
          r"Price $P(X, D=0)$", d0["pi"]),
-        (axes[1], d1, style.COL_EXIT, r"Disclosed States ($D=1$)",
+        (axes[1], d1, style.COL_EXIT, r"(b) Disclosed states ($D=1$)",
          r"Price $P(X, D=1)$", None),
     ):
         style.despine(ax)
@@ -180,8 +178,7 @@ def fig05_cutoffs_kappa(data_dir, output_dir):
     ax.text(df["kappa"].max() - 0.02, mu + 0.03, r"$\mu$",
             color=style.REF_GREY, fontsize=11)
     ax.set_xlabel(KAPPA)
-    ax.set_ylabel("Signal Cutoff")
-    ax.set_title("Equilibrium Cutoffs vs. Liquidity")
+    ax.set_ylabel("Signal cutoff")
     style.legend_outside(ax)
     style.save_fig(fig, os.path.join(output_dir, "fig_cutoffs_kappa.pdf"))
 
@@ -199,8 +196,7 @@ def fig06_disclosure(data_dir, output_dir):
             marker="s", markersize=3.5, linewidth=1.3,
             label="No disclosure (counterfactual)")
     ax.set_xlabel(KAPPA)
-    ax.set_ylabel(r"Activism-Driven Minority Gains $\Delta^{\mathrm{act}}$")
-    ax.set_title("Disclosure Attenuation of Liquidity Sensitivity")
+    ax.set_ylabel(r"Activism-driven minority gains $\Delta^{\mathrm{act}}$")
     ax.legend(loc="upper right", framealpha=1.0)
     style.save_fig(fig, os.path.join(output_dir, "fig_disclosure.pdf"))
 
@@ -208,8 +204,7 @@ def fig06_disclosure(data_dir, output_dir):
 # --------------------------------------------------------------------------
 # Figures 7-11: Sensitivity panels (shared helper)
 # --------------------------------------------------------------------------
-def _sensitivity(data_dir, output_dir, csv, param_col, legend_fmt, title,
-                 filename):
+def _sensitivity(data_dir, output_dir, csv, param_col, legend_fmt, filename):
     df = _csv(data_dir, csv)
     fig, ax = style.new_ax()
     vals = sorted(pd.unique(df[param_col].dropna()))
@@ -227,7 +222,6 @@ def _sensitivity(data_dir, output_dir, csv, param_col, legend_fmt, title,
         plotted += 1
     ax.set_xlabel(KAPPA)
     ax.set_ylabel(DMIN)
-    ax.set_title(title)
     if plotted:
         style.legend_outside(ax)
     style.save_fig(fig, os.path.join(output_dir, filename))
@@ -236,35 +230,30 @@ def _sensitivity(data_dir, output_dir, csv, param_col, legend_fmt, title,
 def fig07_sensitivity_C0(data_dir, output_dir):
     _sensitivity(data_dir, output_dir, "sensitivity_C0.csv", "C0",
                  lambda v: f"$C_0 = {v:.2f}$",
-                 r"Sensitivity to Engagement Cost $C_0$",
                  "fig_sensitivity_C0.pdf")
 
 
 def fig08_sensitivity_wedge(data_dir, output_dir):
     _sensitivity(data_dir, output_dir, "sensitivity_wedge.csv", "wedge",
                  lambda v: f"$m_1 - m_0 = {v:.2f}$",
-                 r"Sensitivity to Premium Wedge $(m_1 - m_0)$",
                  "fig_sensitivity_wedge.pdf")
 
 
 def fig09_sensitivity_rho(data_dir, output_dir):
     _sensitivity(data_dir, output_dir, "sensitivity_rho.csv", "rho",
                  lambda v: f"$\\rho = {v:.1f}$",
-                 r"Sensitivity to Engagement Success $\rho$",
                  "fig_sensitivity_rho.pdf")
 
 
 def fig10_sensitivity_sigma_xi(data_dir, output_dir):
     _sensitivity(data_dir, output_dir, "sensitivity_sigma_xi.csv", "sigma_xi",
                  lambda v: f"$\\sigma_\\xi = {v:.2f}$",
-                 r"Sensitivity to Bidder Heterogeneity $\sigma_\xi$",
                  "fig_sensitivity_sigma_xi.pdf")
 
 
 def fig11_sensitivity_delta(data_dir, output_dir):
     _sensitivity(data_dir, output_dir, "sensitivity_delta.csv", "delta",
                  lambda v: f"$\\delta = {v:.2f}$",
-                 r"Sensitivity to Discount Factor $\delta$",
                  "fig_sensitivity_delta.pdf")
 
 
@@ -288,7 +277,6 @@ def fig12_noisy_rumor(data_dir, output_dir):
                 markersize=4, linewidth=1.3, label=leg)
     ax.set_xlabel(KAPPA)
     ax.set_ylabel(DMIN)
-    ax.set_title("Disclosure Attenuation via Noisy Rumors")
     style.legend_outside(ax)
     style.save_fig(fig, os.path.join(output_dir, "fig_noisy_rumor_precision.pdf"))
 
@@ -310,14 +298,15 @@ def fig13_welfare(data_dir, output_dir):
     ax.plot(df["kappa"], df["W_min"], color="#228833", linestyle="-.",
             linewidth=1.3, label=r"Minority Gains $W_{\mathrm{min}}$")
     ax.axvline(k_dagger, color="#228833", linestyle=":", linewidth=0.5, alpha=0.7)
-    ax.text(k_dagger + 0.015, df["W_min"].min(), r"$\kappa^{\dagger}$",
-            color="#228833", fontsize=12)
     ax.axvline(k_star, color="#4477aa", linestyle=":", linewidth=0.5, alpha=0.7)
-    ax.text(k_star - 0.015, df["W_tot"].max() * 0.95, r"$\kappa^{*}$",
-            color="#4477aa", fontsize=12, ha="right")
+    # cutoff labels pinned to the axis frame (clear of all three curves)
+    ylo, yhi = ax.get_ylim()
+    ax.text(k_dagger + 0.012, ylo + 0.30 * (yhi - ylo), r"$\kappa^{\dagger}$",
+            color="#228833", fontsize=12, ha="left", va="center")
+    ax.text(k_star - 0.012, ylo + 0.82 * (yhi - ylo), r"$\kappa^{*}$",
+            color="#4477aa", fontsize=12, ha="right", va="center")
     ax.set_xlabel(KAPPA)
-    ax.set_ylabel("Expected Welfare / Surplus")
-    ax.set_title("Welfare Decomposition")
+    ax.set_ylabel("Expected welfare / surplus")
     ax.legend(loc="center right", framealpha=1.0)
     style.save_fig(fig, os.path.join(output_dir, "fig_welfare.pdf"))
 
@@ -344,7 +333,7 @@ def fig14_ge_decomposition(data_dir, output_dir):
              linewidth=1.0, label=r"Total $\mathrm{d}\Delta^{\mathrm{min}}/\mathrm{d}\kappa$")
     ax1.set_xlabel(KAPPA)
     ax1.set_ylabel(r"$\mathrm{d}\Delta^{\mathrm{min}}/\mathrm{d}\kappa$")
-    ax1.set_title("Baseline decomposition", fontsize=11)
+    ax1.set_title("(a) Baseline decomposition", fontsize=11)
     ax1.legend(fontsize=8, framealpha=1.0)
 
     shape_style = {"hump": ("o", style.COL_PUBLIC, "Hump"),
@@ -359,13 +348,16 @@ def fig14_ge_decomposition(data_dir, output_dir):
         seen.add(lab)
     ax2.set_xlabel(r"Baseline synergy $\bar{S}$")
     ax2.set_ylabel(r"Bidder heterogeneity $\sigma_\xi$")
-    ax2.set_title("Hump/trough boundary (App. D8 counterexample)", fontsize=11)
-    ax2.legend(fontsize=8, framealpha=1.0, loc="center left")
+    ax2.set_title("(b) Hump/trough boundary", fontsize=11)
+    # legend outside the data region so no grid cell marker is covered
+    ax2.legend(fontsize=8, framealpha=1.0, loc="center left",
+               bbox_to_anchor=(1.02, 0.5), borderaxespad=0.0)
     ax2.set_yticks([0.20, 0.40, 0.60])
     ax2.set_xticks([1.24, 1.44, 1.64])
+    ax2.set_xlim(1.14, 1.74)
+    ax2.set_ylim(0.10, 0.70)
 
-    fig.suptitle("The GE Cutoff-Shift Channel", fontsize=12)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig.tight_layout()
     style.save_fig(fig, os.path.join(output_dir, "fig_ge_decomposition.pdf"))
 
 
@@ -378,9 +370,9 @@ def fig15_wedge_primitives(data_dir, output_dir):
 
     fig, axes = plt.subplots(1, 2, figsize=(9.0, 3.6), sharey=True)
     specs = [
-        ("gamma", r"Portability $\gamma$ (fringe intensity $q$ fixed)",
+        ("gamma", "(a) Portability $\\gamma$ (fringe intensity $q$ fixed)",
          axes[0], lambda v: rf"$\gamma = {v:.1f}$"),
-        ("q", r"Fringe intensity $q$ (portability $\gamma$ fixed)",
+        ("q", "(b) Fringe intensity $q$ (portability $\\gamma$ fixed)",
          axes[1], lambda v: rf"$q = {v:.1f}$"),
     ]
     for sweep, subtitle, ax, lab in specs:
@@ -402,10 +394,7 @@ def fig15_wedge_primitives(data_dir, output_dir):
         ax.set_title(subtitle, fontsize=11)
         ax.legend(framealpha=1.0, fontsize=8)
     axes[0].set_ylabel(r"$\Delta^{\mathrm{min}}$")
-    fig.suptitle("Minority Gains under the Microfounded Wedge "
-                 r"$m_1 - m_0 = (1-\theta)\,\lambda\,\rho\,\Delta_{\mathrm{eng}}$",
-                 fontsize=12)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig.tight_layout()
     style.save_fig(fig, os.path.join(output_dir, "fig_wedge_primitives.pdf"))
 
 

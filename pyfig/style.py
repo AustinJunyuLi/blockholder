@@ -70,7 +70,7 @@ def apply_style() -> None:
         "figure.dpi": 110,
         "savefig.dpi": FIG_DPI,
         "savefig.bbox": "tight",
-        "savefig.pad_inches": 0.03,
+        "savefig.pad_inches": 0.05,
         "pdf.fonttype": 42,
         "ps.fonttype": 42,
     })

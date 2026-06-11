@@ -52,6 +52,13 @@ PDFS := $(OUTPUT_DIR)/fig_cutoff_structure.pdf \
         $(OUTPUT_DIR)/fig_ge_decomposition.pdf \
         $(OUTPUT_DIR)/fig_wedge_primitives.pdf
 
+# Slide-only figure variants (Beamer deck + PPTX build)
+SLIDE_DIR  := pres/figures
+SLIDE_PDFS := $(SLIDE_DIR)/fig_disclosure_slopes.pdf \
+              $(SLIDE_DIR)/fig_sensitivity_panel1.pdf \
+              $(SLIDE_DIR)/fig_sensitivity_panel2.pdf \
+              $(SLIDE_DIR)/fig_noisy_rumor.pdf
+
 .PHONY: all data figures venv clean
 
 all: data figures
@@ -69,12 +76,16 @@ $(CSVS): numerical/export_data.py numerical/model.py numerical/solver.py numeric
 	$(PYTHON) -m numerical.export_data --output-dir $(OUTPUT_DIR)
 
 # Step 2: matplotlib visualization -> PDF
-figures: $(PDFS)
+figures: $(PDFS) $(SLIDE_PDFS)
 
 $(PDFS): $(CSVS) pyfig/style.py pyfig/figures.py pyfig/render_all.py
 	$(PYTHON) -m pyfig.render_all --data-dir $(DATA_DIR) --output-dir $(OUTPUT_DIR)
 
+$(SLIDE_PDFS): $(CSVS) pyfig/style.py pyfig/slide_figures.py
+	$(PYTHON) -m pyfig.slide_figures --data-dir $(DATA_DIR) --output-dir $(SLIDE_DIR)
+
 clean:
 	rm -f $(CSVS)
 	rm -f $(PDFS)
+	rm -f $(SLIDE_PDFS)
 	rm -f $(OUTPUT_DIR)/table_example.tex $(OUTPUT_DIR)/table_disclosure_extensions.tex
