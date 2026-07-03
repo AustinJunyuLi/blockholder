@@ -7,7 +7,11 @@ Two parallel 40-minute decks sharing one narrative spine:
 - **`presentation.tex`** — academic Beamer deck (Metropolis theme; 18 core
   slides + backup slides with bidirectional hyperlinks for Q&A).
 - **`make_pptx.py`** → **`blockholder_seminar_40min.pptx`** — business-format
-  deck (navy/charcoal consulting style, action headlines, figure-led).
+  deck (strategy-consulting design system: navy full-bleed cover, agenda,
+  tracked small-caps kickers, accent-edged white cards, stat callouts;
+  action headlines, figure-led). Display mathematics is typeset by
+  **`eq_render.py`** (xelatex + `preview` → transparent 600-dpi Computer
+  Modern PNGs) so equations match the manuscript and figures.
 
 ## Structure
 
@@ -16,13 +20,14 @@ pres/
 ├── presentation.tex                 # Beamer deck (Metropolis theme)
 ├── slides.bib                       # Beamer bibliography
 ├── make_pptx.py                     # PPTX generator (python-pptx)
+├── eq_render.py                     # LaTeX equation rasterizer for the PPTX
 ├── blockholder_seminar_40min.pptx   # generated business deck
 ├── figures/                         # slide-only figure variants (pyfig)
 │   ├── fig_disclosure_slopes.pdf
 │   ├── fig_sensitivity_panel1.pdf
 │   ├── fig_sensitivity_panel2.pdf
 │   └── fig_noisy_rumor.pdf
-└── pptx_assets/                     # 300-dpi PNGs rasterized at build time
+└── pptx_assets/                     # 300-dpi figure PNGs + eq/ equation PNGs
 ```
 
 Shared manuscript figures are **not** duplicated here: the Beamer
@@ -39,7 +44,11 @@ with TeX Live. Accent colors match the paper's figure palette
 Fira Sans is used automatically when installed; otherwise Metropolis falls
 back to the default sans family. The PPTX uses a navy/charcoal consulting
 palette (`NAVY #1F3A5F`, charcoal ink, hairline rules) with the same Tol
-accents for action-coded chips.
+accents for action-coded card edges, plus a four-color "action ladder"
+motif strip (exit/hold/quiet/public) on the cover and Backup divider.
+Equations are rendered images (Computer Modern at a 10pt base, scaled to
+the slide point size); the equation set lives in `eq_render.EQS` and is
+re-rasterized automatically when it changes.
 
 ## Compilation
 
@@ -62,7 +71,7 @@ xelatex presentation.tex
 ### Step 3: Build the PPTX deck
 
 ```bash
-.venv/bin/python pres/make_pptx.py    # requires python-pptx + pdftocairo
+.venv/bin/python pres/make_pptx.py    # requires python-pptx, xelatex, pdftocairo
 ```
 
 Fact 1/2 headline numbers are read from `empirics/output/*.csv` at build
