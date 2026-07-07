@@ -125,3 +125,29 @@ Defined in `params.py` — do not change without understanding downstream effect
 - The `figures/` directory (if present) holds archived PDFs superseded by `numerical_output/*.pdf`
 - Solver may produce NA rows at extreme `kappa` values (edge-case non-convergence) — this is expected and the figure functions drop NA rows gracefully
 - No formal test suite; verification is via `make clean && make all` + visual inspection of output PDFs and CSV row counts
+
+## Operating Procedures (the Fable Way)
+
+Condensed from Austin's global operating manual (`~/.claude/rules/fable-way.md`,
+synced via `AustinJunyuLi/claude-config`); kept in-repo so every clone gets
+it. Hard constraints — when a procedure conflicts with speed, the procedure
+wins.
+
+- Classify the request before acting: question/assessment → analyze and
+  stop, change nothing; change request → the edit plus evidence it works.
+- Re-derive every number you produce or review: percentages and comparative
+  statics from both endpoints, directional claims ("conservative",
+  "understates") by writing the inequality and tracing the bias sign,
+  claimed counts (CSVs, figures, slides) by counting.
+- Derivations are verified numerically, not just algebraically: any D-series
+  change re-runs the paired `dN_*_check.py` and recomputes at least one
+  concrete numeric instance.
+- A "done" claim must trace to an artifact produced in this session
+  (compile log, check-script JSON, diff); otherwise say "not yet verified".
+  Keep verified / believed / unknown distinct. Never fabricate citations or
+  bibkeys — check `bibliography.bib` / `pres/slides.bib` before citing.
+- Verification gates before any completion claim:
+  - `make data` → 16 CSVs in `numerical_output/data/`; `make figures` → 15
+    manuscript PDFs + 4 slide variants in `pres/figures/`.
+  - Both compiles (`draft_v2.tex`, `pres/presentation.tex`) finish with zero
+    errors, zero undefined references, zero citation warnings.
