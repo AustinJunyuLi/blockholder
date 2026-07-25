@@ -1,101 +1,29 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code and other agents when working with code in this repository.
 
 ## Project Overview
 
-Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an economic theory model studying blockholder behavior (exit, voice, corporate control). The codebase has three layers: numerical computation (Python), visualization (Python/matplotlib), and manuscript/presentation (LaTeX/Beamer).
+Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an economic theory model studying blockholder behavior (exit, voice, corporate control). Three layers: numerical computation (Python, `numerical/`), visualization (Python/matplotlib, `pyfig/`), and manuscript/presentation (LaTeX/Beamer). Build entry point is the Makefile; compile commands live in the verify-blockholder skill.
 
-## Build Pipeline
+## Host environment (RHEL10 build host — not universal)
 
-The pipeline flows (Python end-to-end): **Python → CSV → matplotlib → PDF figures → LaTeX manuscript**.
+- `biber` requires `libxcrypt-compat` (RHEL10): `sudo dnf install libxcrypt-compat` if citation resolution fails with a `libcrypt.so.1` error.
+- TeX Gyre fonts are exposed to fontconfig via `~/.config/fontconfig/fonts.conf`.
 
-Set up the environment once with `make venv` (creates `.venv/` from `requirements.txt`).
+## Architecture gotchas
 
-```bash
-# Full pipeline (data export + figure generation)
-make all
-
-# Step 1 only: Python model → 16 CSV files in numerical_output/data/
-make data
-
-# Step 2 only: matplotlib → 15 PDF figures in numerical_output/
-#              + 4 slide-only variants in pres/figures/
-make figures
-
-# Remove all generated CSVs and PDFs
-make clean
-
-# Full rebuild
-make clean && make all
-```
-
-**Individual commands** (when Make isn't needed):
-```bash
-# Python data export
-.venv/bin/python -m numerical.export_data --output-dir numerical_output
-
-# Python figure rendering (manuscript + slide-only variants)
-.venv/bin/python -m pyfig.render_all --data-dir numerical_output/data --output-dir numerical_output
-.venv/bin/python -m pyfig.slide_figures --data-dir numerical_output/data --output-dir pres/figures
-
-# Compile manuscript
-xelatex draft_v2.tex && biber draft_v2 && xelatex draft_v2.tex
-
-# Compile presentation
-cd pres && xelatex presentation.tex && biber presentation && xelatex presentation.tex
-```
-
-## Architecture
-
-### Python numerical package (`numerical/`)
-
-All modules import from `params.py` (the foundational module). Dependencies flow one way:
-
-```
-params.py → model.py → solver.py → export_data.py
-                                  ↗
-              accel.py (optional Numba JIT)
-```
-
-- **`params.py`**: `ModelParams` dataclass (baseline calibration), `Action` enum (EXIT/HOLD/QUIET/PUBLIC), `Cutoffs` and `MinorityGains` named tuples, tolerance constants
-- **`takeover_game.py`**: Disagreement-node tender game (Appendix D7) — derives the appropriability coefficient `lambda = 1 - q(1-gamma)psi` and the microfounded premium wedge; `params_with_endogenous_wedge` maps game primitives into `ModelParams` (opt-in; exogenous `(m0, m1)` remains the default)
-- **`model.py`**: Core economic functions — posteriors, prices, payoffs, welfare, information regimes. Sections of the paper are cited in comments
-- **`solver.py`**: Equilibrium solver using damped fixed-point iteration with `scipy.optimize.brentq`. Multi-start search with collapsed-hold fallback
-- **`export_data.py`**: Sweeps parameter grids and writes 13 CSV files — this is the interface contract between the model and the figure layer (`pyfig/`)
-- **`accel.py`**: Optional Numba JIT layer. Performance optimization only; `solver.py` is the reference implementation
-
-**Conventions**: Pure functions throughout, full type hints, all functions take `params: ModelParams` argument, immutable return types (NamedTuples).
-
-### Python visualization (`pyfig/`)
-
-- **`pyfig/style.py`**: Shared matplotlib house style, Paul Tol colourblind-friendly palette, and helpers (`apply_style`, `new_ax`, `legend_outside`, `save_fig`). Editorial-minimal, with Computer-Modern math typography matching the manuscript
-- **`pyfig/figures.py`**: One function per figure (`fig01_*` … `fig15_*`; fig14 = GE channel decomposition, fig15 = microfounded wedge), each taking `(data_dir, output_dir)`; `ALL_FIGURES` lists them in render order. House rule: no in-figure titles (LaTeX captions and slide titles carry them); multi-panel figures use `(a)/(b)` panel labels
-- **`pyfig/render_all.py`**: Master orchestrator (`python -m pyfig.render_all`) that applies the style and calls all 15 manuscript figures
-- **`pyfig/slide_figures.py`**: Four slide-only variants written to `pres/figures/` (`fig_disclosure_slopes`, `fig_sensitivity_panel1/2`, `fig_noisy_rumor`), used by the Beamer deck and the PPTX build
-
-**Color palette** (Paul Tol muted, used consistently across all figures):
-- Exit: `#cc6677` (rose), Hold: `#ddcc77` (sand), Quiet Voice: `#88ccee` (cyan), Public Voice: `#44aa99` (teal)
-- Sensitivity: `#4477aa`, `#ee6677`, `#228833`, `#ccbb44`
-
-### CSV interface contract
-
-The CSV files in `numerical_output/data/` (16 as of 2026-06: the original 13 plus `ge_decomposition.csv`, `ge_cellmap.csv`, `wedge_primitives.csv`) are the stable boundary between the model and the figure layer. Column names match paper notation. When modifying the model, update both the export logic and the corresponding figure function in `pyfig/figures.py`.
-
-### Empirics layer (`empirics/`)
-
-Stdlib-only EDGAR pipeline for the de-risk data leg: `edgar_fetch.py` (quarterly form.idx enumeration, throttled fetcher), `parse_13d.py` (event/filed dates, CIKs), `facts.py` (Fact 1: 13D disclosure-delay compression around the 2024-02-05 five-business-day rule). Raw data in `empirics/data/` is gitignored; summaries committed in `empirics/output/`. See `empirics/README.md`.
-
-### Derivation records (`quality_reports/fixes/`)
-
-D-series pattern: each derivation lands as `DN_*.tex` (spliced into `draft_v2.tex` via `\input` for D7/D8) plus a paired `dN_*_check.py` verification script with JSON output. D7 = tender-game microfoundation of the premium wedge; D8 = GE cutoff-shift region theorem + counterexample.
-
-### LaTeX
-
-- **`draft_v2.tex`**: Main manuscript (XeLaTeX + biblatex/biber). References figures from `numerical_output/`. Abstract is capped at 150 words
-- **`pres/presentation.tex`**: Beamer slides, Metropolis theme with paper-palette accents (no local `.sty` files; theme ships with TeX Live). Pulls shared figures from `numerical_output/` via `\graphicspath`
-- **`pres/make_pptx.py`**: Business-format PPTX twin of the Beamer deck (navy/charcoal consulting style); rasterizes the same PDFs into `pres/pptx_assets/`
-- **`bibliography.bib`**: Manuscript bibliography; `pres/slides.bib`: separate presentation bibliography
+- Import order is one-way: `params.py` → `model.py` → `solver.py` → `export_data.py` (`accel.py` is an optional Numba mirror of `solver.py`, not on the critical path).
+- `numerical/` code convention: pure functions with full type hints; every function takes `params: ModelParams` as first argument and returns immutable NamedTuples.
+- `takeover_game.py`'s microfounded premium wedge (`params_with_endogenous_wedge`) is **opt-in**; the exogenous `(m0, m1)` wedge remains the default everywhere else.
+- CSV interface contract: `numerical_output/data/*.csv` is the stable boundary between the model and the figure layer. Changing the model requires updating both `export_data.py` and the matching function in `pyfig/figures.py` together — they drift silently otherwise. Column names match paper notation.
+- `pyfig/figures.py` house rule: no in-figure titles (LaTeX captions / slide titles carry them); multi-panel figures use `(a)/(b)` panel labels.
+- `pres/presentation.tex` uses the Beamer Metropolis theme with no local `.sty` file — it ships with TeX Live, don't go hunting for a missing style file.
+- Two separate bibliographies: `bibliography.bib` (manuscript) and `pres/slides.bib` (deck). `pres/slides.bib` is a real file, not a symlink — an older setup symlinked it to the manuscript bibliography; do not recreate that symlink. Verify a bibkey exists in the right file before citing; a wrong/invented key fails the compile gates.
+- `draft_v2.tex`'s abstract is capped at 150 words — nothing enforces this at compile time, so re-count after any abstract edit.
+- Figures are written as vector PDF with embedded fonts (`pdf.fonttype = 42`) and matplotlib `mathtext` (Computer Modern) to match manuscript typography.
+- Derivation records in `quality_reports/fixes/`: each lands as `DN_*.tex` (spliced into `draft_v2.tex` via `\input` for D7/D8) plus a paired `dN_*_check.py` verification script emitting JSON. Never weaken the honesty labels (proved / conditional / numerically-verified) in these files or the draft.
+- Empirics layer (`empirics/`): stdlib-only EDGAR pipeline. See `empirics/README.md` for the fetch/parse/facts workflow.
 
 ## Key Model Concepts
 
@@ -115,39 +43,13 @@ Defined in `params.py` — do not change without understanding downstream effect
 - `TOL_REGION = 1e-4`: cutoff collapse detection
 - `TOL_PROB = 1e-10`: near-zero probability threshold
 
-## Python Dependencies
-
-`numpy`, `scipy`, `pandas`, `matplotlib` (pinned in `requirements.txt`; install via `make venv`). Figures are written as vector PDF with embedded fonts (`pdf.fonttype = 42`) and matplotlib `mathtext` (Computer Modern) for math labels.
-
 ## Working Notes
 
-- The active visualization pipeline is Python/matplotlib (`pyfig/`); the earlier R/ggplot2 layer (`R/`) was removed in favour of an end-to-end Python pipeline
-- The `figures/` directory (if present) holds archived PDFs superseded by `numerical_output/*.pdf`
-- Solver may produce NA rows at extreme `kappa` values (edge-case non-convergence) — this is expected and the figure functions drop NA rows gracefully
-- No formal test suite; verification is via `make clean && make all` + visual inspection of output PDFs and CSV row counts
+- The active visualization pipeline is Python/matplotlib (`pyfig/`); the earlier R/ggplot2 layer (`R/`) was removed in favour of an end-to-end Python pipeline.
+- The `figures/` directory (if present) holds archived PDFs superseded by `numerical_output/*.pdf`.
+- Solver may produce NA rows at extreme `kappa` values (edge-case non-convergence) — this is expected and the figure functions drop NA rows gracefully.
+- No formal test suite.
 
-## Operating Procedures (the Fable Way)
+## Verification
 
-Condensed from Austin's global operating manual (`~/.claude/rules/fable-way.md`,
-synced via `AustinJunyuLi/claude-config`); kept in-repo so every clone gets
-it. Hard constraints — when a procedure conflicts with speed, the procedure
-wins.
-
-- Classify the request before acting: question/assessment → analyze and
-  stop, change nothing; change request → the edit plus evidence it works.
-- Re-derive every number you produce or review: percentages and comparative
-  statics from both endpoints, directional claims ("conservative",
-  "understates") by writing the inequality and tracing the bias sign,
-  claimed counts (CSVs, figures, slides) by counting.
-- Derivations are verified numerically, not just algebraically: any D-series
-  change re-runs the paired `dN_*_check.py` and recomputes at least one
-  concrete numeric instance.
-- A "done" claim must trace to an artifact produced in this session
-  (compile log, check-script JSON, diff); otherwise say "not yet verified".
-  Keep verified / believed / unknown distinct. Never fabricate citations or
-  bibkeys — check `bibliography.bib` / `pres/slides.bib` before citing.
-- Verification gates before any completion claim:
-  - `make data` → 16 CSVs in `numerical_output/data/`; `make figures` → 15
-    manuscript PDFs + 4 slide variants in `pres/figures/`.
-  - Both compiles (`draft_v2.tex`, `pres/presentation.tex`) finish with zero
-    errors, zero undefined references, zero citation warnings.
+Before any commit or completion claim, run the **verify-blockholder** skill (data / figures / both LaTeX compiles / D7 / D8 gates). Don't restate its gates here — it's the single source of truth for what "done" means.
