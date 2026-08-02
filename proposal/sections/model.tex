@@ -1,0 +1,438 @@
+%==============================================================================
+%  Section: Model -- a deadline theory of activist stake formation
+%  Outline fragment; \input into the master. Executes the "neutralized
+%  specification" of the 2026-08-02 decision record (Q2b) and the T2 repair
+%  list. The model is a LENS on the reform evaluation, not the paper's claim.
+%==============================================================================
+
+\section{Model: A Deadline Theory of Activist Stake Formation}
+\label{sec:model}
+
+This section builds the lens through which the empirical evaluation is read. It is
+deliberately small. Its job is to (i) \emph{derive} the exposure variable
+$\mathrm{RTD}_i$ that the empirical design uses, rather than assert it; (ii) deliver a
+signed prediction for how a shortening of the filing window moves the undisclosed stake
+an activist can accumulate before filing; (iii) state the entry response as a testable inequality rather than a
+sign; and (iv) supply the exact measurement content of the gain decomposition, so that
+the second-act anatomy has a restriction to test and not merely an accounting identity
+to report. The capitalization interpretation of a compressed measured premium is
+\emph{not} claimed here as a contribution: \textcite{celentanolevine2025} state and
+quantify that mechanism, and \textcite{bett2014} own the run-up/markup substitution
+evidence. What is new is the time margin. Neither \textcite{celentanolevine2025} (no
+disclosure rule) nor \textcite{ordonezcalafibernhardt2022} (a \emph{size} threshold)
+models the window as a deadline in an accumulation problem. Target: 10--14 pages in the
+paper; results are numbered R1--R6.
+
+\subsection{Environment and timeline}
+\label{sec:model-env}
+
+A single risk-neutral activist faces a single target firm $i$ with $S_{\mathrm{out}}$
+shares outstanding and liquidity $L_i$, measured empirically by average daily volume
+$\mathrm{ADV}_i$ over the six months ending 60 trading days before the trigger ---
+lagged so the untimed toehold phase does not mechanically inflate the measure, aligned
+with the $P^{0}$ anchor --- (or, equivalently in the cross-section, by
+Amihud illiquidity). All agents discount at $\delta \in (0,1)$ per period. Dates:
+
+\begin{enumerate}
+\item[$t_0$.] \textbf{Opportunity arrival.} The activist privately draws an intervention
+opportunity $\theta \ge 0$: the per-share value improvement available if the campaign
+succeeds. The market price at a fixed horizon of $k$ trading days before the trigger
+date $t_1$ is $P^{0}$, the reference price. Dating $P^{0}$ at trigger-minus-$k$, not at
+filing-minus-$k$, keeps the anchor outside the statutory window, whose accumulation moves
+the price; because the pre-trigger toehold phase is untimed, purchases inside
+$(t_1-k,\,t_1)$ can still contaminate $P^{0}$ --- mechanically so where
+$\mathrm{RTD}_i > k$ --- so the empirical section diagnoses pre-trigger own-trading in the
+anchor window from the Item~5(c) sixty-day transaction tables and reports the
+120-trading-day anchor as robustness.
+\item[$t_1$.] \textbf{Trigger and accumulation window.} The activist first accumulates a
+toehold up to the statutory five-per-cent threshold at its own pace --- the pre-trigger
+phase carries no deadline. Crossing the threshold is the \emph{trigger date} (the
+adopting release's own anchor) and starts the statutory clock: over the following $d$
+business days the activist buys the undisclosed increment $x$ (a fraction of shares
+outstanding beyond the threshold stake). Pre-reform $d \approx 7$ business days (ten
+calendar days); post-reform $d = 5$.
+\item[$t_2$.] \textbf{Mandatory filing} at $\min\{$deadline, voluntary filing$\}$. Early
+voluntary filing is permitted and is sometimes optimal; the legal deadline is therefore a
+constraint that binds on a model-generated subset, not on everyone. The post-filing price
+is $P^{F}$ and $G_{\mathrm{fil}} \equiv \log(P^{F}/P^{0})$.
+\item[$t_3$.] \textbf{Bidder entry.} Potential acquirers search and evaluate; the bid-eve
+price is $P^{B}$ and $G_{\mathrm{run}} \equiv \log(P^{B}/P^{F})$.
+\item[$t_4$.] \textbf{Bargaining and resolution.} A final offer $B$ is agreed or the firm
+remains freestanding; $G_{\mathrm{mkp}} \equiv \log(B/P^{B})$.
+\end{enumerate}
+
+\paragraph{One type dimension.} The activist's type is the scalar $\theta$. We do
+\emph{not} carry a second, operational-versus-sale type dimension. This is a deliberate
+restriction, and the reason is stated plainly: a two-dimensional type with a
+two-dimensional signal $(x,\text{Item 4 purpose})$ generically separates, $P^{F}$
+collapses to the full-information price, and the noise the rest of the model needs
+disappears. The operational-versus-sale distinction enters this paper only through the
+\emph{empirical} Item 4 classification, where it indexes heterogeneity in the entry
+elasticities of R4 --- it is not a second signalling dimension. See
+\S\ref{sec:model-omitted}.
+
+\subsection{Accumulation technology}
+\label{sec:model-cost}
+
+The activist trades against a competitive dealer sector with linear price impact
+$\lambda_L(L)$, decreasing in liquidity $L$ (empirically, $\lambda_L \propto 1/\mathrm{ADV}$
+or $\propto$ Amihud). Detection risk and the dealer's inventory limit impose a
+participation cap: at most a fraction $\phi$ of $\mathrm{ADV}$ may be bought per day.
+Buying at daily rate $r$ against linear impact costs $(\lambda_L/2)\,r^{2}$ per day in
+excess of the prevailing price; a constant rate $r = x/d$ is optimal under a convex
+per-day cost, so the total accumulation cost over the window is
+
+\begin{lemma}[R1: Accumulation cost from a dealer participation cap]
+\label{lem:R1}
+Under linear dealer price impact $\lambda_L(L)$ and a constant-rate purchase of $x$ over
+$d$ days,
+\begin{equation}
+C(x;d,L) \;=\; \frac{\lambda_L(L)}{2}\,\frac{x^{2}}{d},
+\label{eq:cost}
+\end{equation}
+and therefore, for $x>0$ and $d>0$,
+\begin{equation}
+C_x = \frac{\lambda_L x}{d} > 0, \qquad
+C_{xx} = \frac{\lambda_L}{d} > 0, \qquad
+C_{xd} = -\,\frac{\lambda_L x}{d^{2}} < 0,
+\label{eq:cost-derivs}
+\end{equation}
+with the exact horizon scaling $C(x;\kappa d, L) = \kappa^{-1} C(x;d,L)$ for any
+$\kappa > 0$.
+\end{lemma}
+
+\begin{proof}[Derivation sketch]
+Per-day excess cost at rate $r$ is $\int_{0}^{r}\lambda_L u\,du = (\lambda_L/2) r^{2}$.
+Minimizing $\sum_{t=1}^{d}(\lambda_L/2) r_t^{2}$ subject to $\sum_t r_t = x$ is a convex
+problem with symmetric constraint, so $r_t = x/d$; substituting gives
+$d\cdot(\lambda_L/2)(x/d)^2 = (\lambda_L/2)x^{2}/d$. The derivatives and the degree
+$-1$ homogeneity in $d$ follow by differentiation. \qedhere
+\end{proof}
+
+Three consequences matter. First, the cross-partial $C_{xd}<0$ --- the object on which
+the paper's only theoretical novelty rests --- is now a \emph{theorem}, not an
+assumption. Second, the cost is monotone in liquidity through $\lambda_L(L)$, and the
+liquidity object in the model is the same object the regressions use. Third, the horizon
+scaling is quantitative: the reform's move from $d\approx 7$ to $d=5$ business days
+raises the quadratic component of accumulation cost, at any fixed post-trigger increment,
+by the factor $7/5 = 1.4$, i.e.\ by $40\%$. The same mechanism delivers, for free, an
+endogenous pre-filing run-up whose magnitude scales with $\lambda_L x/d$ --- a sharper
+cross-sectional prediction about the split between leakage and filing CAR than a
+reduced-form cost can generate.
+
+\paragraph{What this shortcuts.} Equation~\eqref{eq:cost} is a static reduced form for a
+dynamic problem. A full deadline-Kyle treatment in the manner of
+\textcite{collindufresnefos2016} would endogenize the intensity path, let the activist
+trade off impact against information leakage over the window, and generate a
+non-constant rate near the deadline; \textcite{back2018} is the corresponding strategic
+benchmark with an endogenous informed trader. What that machinery would add is the
+\emph{shape} of the within-window trading path, not the sign of $C_{xd}$ or the $1/d$
+scaling, both of which survive as long as per-period impact is convex.
+\textcite{collindufresnefos2015} establish that informed trading inside the 13D window is
+a real and measurable phenomenon, which is what licenses treating the window as a
+binding trading horizon at all; \textcite{kyle1985} supplies the linear-impact primitive.
+
+\subsection{The deadline and who it binds}
+\label{sec:model-corner}
+
+The participation cap converts the legal window into a feasibility constraint. Over the
+$d$ post-trigger days the activist can add at most $\phi\,\mathrm{ADV}_i\,d$ shares,
+i.e.\ an increment
+\begin{equation}
+\bar{x}_i(d) \;=\; \frac{\phi\,\mathrm{ADV}_i\,d}{S_{\mathrm{out},i}} .
+\label{eq:cap}
+\end{equation}
+Define the target's \emph{required trading days} per five percentage points of
+ownership at the participation cap,
+\begin{equation}
+\mathrm{RTD}_i \;\equiv\; \frac{0.05 \times S_{\mathrm{out},i}}{\phi \times \mathrm{ADV}_i},
+\qquad\text{so that}\qquad
+\bar{x}_i(d) \;=\; 0.05\,\frac{d}{\mathrm{RTD}_i}.
+\label{eq:rtd}
+\end{equation}
+
+\begin{proposition}[R2: Corner-solution heterogeneity and the derived exposure measure]
+\label{prop:R2}
+Let $x^{u}(d)$ denote the unconstrained optimum of the activist's problem
+$\max_{x} \; b(x,d)\,-\,C(x;d,L)\,-\,F$, where $x$ is the post-trigger increment (the
+untimed toehold is fixed at the threshold), $b$ is the gross benefit of a stake and
+$F$ a fixed campaign cost. Then the activist's increment is
+$x^{\ast}_i(d) = \min\{x^{u}(d),\,\bar{x}_i(d)\}$, and:
+\begin{enumerate}
+\item[\textup{(i)}] $\bar{x}_i(d) \ge 0.05 \iff \mathrm{RTD}_i \le d$: the window permits
+an undisclosed post-trigger increment of at least another five percentage points --- a
+doubling of the threshold stake --- if and only if $\mathrm{RTD}_i \le d$. The maximum
+stake acquirable before disclosure, $0.05 + \bar{x}_i(d)$, is decreasing in
+$\mathrm{RTD}_i$.
+\item[\textup{(ii)}] Under the five-percentage-point benchmark increment, the constrained
+set is $\{i : \mathrm{RTD}_i > d\}$ (in general, $\{i : \bar{x}_i(d) < x^{u}_i(d)\}$); it is
+increasing (in the set-inclusion sense) as $d$ falls, and the shadow value of the
+constraint, $b_x(\bar{x}_i(d),d) - C_x(\bar{x}_i(d);d,L)\ \ge 0$, is increasing in
+$\mathrm{RTD}_i$ on that set.
+\item[\textup{(iii)}] Hence treatment intensity is a model object: the reform's dose at
+target $i$ is a monotone function of $\mathrm{RTD}_i/d$, and the binary treated
+indicator is $\mathbf{1}\{\mathrm{RTD}_i > d\}$.
+\end{enumerate}
+\end{proposition}
+
+Part~(i) is the model's reading of the accumulation ladder tabulated in the adopting
+release \parencite{sec2023modernization}: the large majority of filers who complete
+accumulation within five business days of the trigger, and the near-universal share who
+complete within ten, sit where the window's capacity exceeds their desired increment ---
+the deadline is slack for them. That
+ladder is therefore not an empirical caveat bolted onto the design; it is the model's
+own prediction about which targets the reform can possibly bind on. Part~(iii) is the
+point of the whole subsection: the empirical exposure variable is \emph{derived} from
+\eqref{eq:cap}--\eqref{eq:rtd}, uses only pre-trigger, target-level, price-free inputs,
+and is defined for one-time filers --- which is what makes activist$\times$quarter fixed
+effects feasible in the empirical section.
+
+\begin{proposition}[R3: The window comparative static]
+\label{prop:R3}
+Suppose $b(\cdot,d)$ is $C^{2}$ and the objective is strictly concave in $x$
+($b_{xx} - C_{xx} < 0$). Then on the interior (unconstrained) region
+\begin{equation}
+\frac{dx^{\ast}}{dd} \;=\; -\,\frac{b_{xd} - C_{xd}}{\,b_{xx} - C_{xx}\,}
+\;>\;0
+\qquad\Longleftrightarrow\qquad
+b_{xd} \;>\; C_{xd} \;=\; -\,\frac{\lambda_L x^{\ast}}{d^{2}} .
+\label{eq:sc}
+\end{equation}
+On the constrained region $x^{\ast}_i = \bar{x}_i(d)$ and
+$dx^{\ast}_i/dd = \phi\,\mathrm{ADV}_i/S_{\mathrm{out},i} > 0$ unconditionally.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Monotone comparative statics on a concave objective: the sign of $dx^{\ast}/dd$ is the
+sign of the cross-partial of the objective, $b_{xd} - C_{xd}$, by the implicit function
+theorem applied to the first-order condition, the second-order condition supplying the
+negative denominator. The constrained case is immediate from \eqref{eq:cap}. \qedhere
+\end{proof}
+
+\paragraph{Honesty condition (SC).} Condition~\eqref{eq:sc} is not automatic and we
+flag it as the model's load-bearing single-crossing requirement. The benefit $b$ depends
+on $d$ through the entry margin: a longer window means a later filing, hence later
+certification and a possibly lower probability that a bid arrives while the activist is
+still positioned, so $b_{xd}$ may be negative. The condition states that the marginal
+benefit of stake must not fall too fast in $d$ --- specifically, $|b_{xd}| <
+\lambda_L x^{\ast}/d^{2}$ whenever $b_{xd}<0$. It is a genuine restriction, it is
+weakest exactly where the accumulation friction is largest (high $\lambda_L$, low $d$,
+high $x$ --- the constrained targets), and it holds vacuously on the corner. We state it
+as a condition rather than assume it away.
+
+\subsection{Bidder entry: certification against deterrence}
+\label{sec:model-entry}
+
+Potential acquirers are ex ante identical and free to enter: each pays a search and
+evaluation cost $s$ to learn its own valuation, and enters until expected profit is
+zero. Two forces run in opposite directions, and the paper's earlier companion model
+carried only the second.
+
+\emph{Certification.} A 13D filing is a public, costly-to-fake signal that a large,
+sophisticated holder has identified the target and will not defend the incumbent
+management, which lowers $s$: the filing does part of the acquirer's screening for it.
+This is the solicitation-and-search technology of \textcite{corumlevit2019} and the
+activist-as-intermediary/brokerage technology of \textcite{burkartlee2022}; we take both
+as given rather than rebuild them.
+
+\emph{Deterrence.} Disclosure raises the price the acquirer expects to pay: the
+disclosed stake $x$ and the engagement it implies are capitalized into $P^{F}$, and a
+larger, better-informed bloc bargains harder. This is the preemption channel of
+\textcite{fishman1988} and the empirical toehold/disclosure-reform finding of
+\textcite{bonettiduroormazabal2020}, and it is the force that produced $\partial p /
+\partial \pi < 0$ in the author's companion model. That result is nested here, not
+renounced: it is the $\varepsilon_{\mathrm{det}}$ term below.
+
+Let $h(s, B^{e})$ be the free-entry bid hazard, decreasing in both arguments, and let
+$e$ denote the \emph{earliness} of disclosure (minus the filing lag), holding the
+campaign fixed.
+
+\begin{proposition}[R4: Certification versus deterrence]
+\label{prop:R4}
+Define the two nonnegative elasticities
+\[
+\varepsilon_{\mathrm{cert}} \;\equiv\;
+\Bigl(-\tfrac{\partial \log h}{\partial \log s}\Bigr)\Bigl(-\tfrac{\partial \log s}{\partial e}\Bigr),
+\qquad
+\varepsilon_{\mathrm{det}} \;\equiv\;
+\Bigl(-\tfrac{\partial \log h}{\partial \log B^{e}}\Bigr)\Bigl(\tfrac{\partial \log B^{e}}{\partial e}\Bigr).
+\]
+Then $\dfrac{d \log h}{d e} = \varepsilon_{\mathrm{cert}} - \varepsilon_{\mathrm{det}}$,
+so the bid hazard rises after earlier disclosure if and only if
+$\varepsilon_{\mathrm{cert}} > \varepsilon_{\mathrm{det}}$.
+\end{proposition}
+
+The sign is therefore an empirical question with named heterogeneity. Certification
+should dominate where search is expensive and the counterparty set is not obvious:
+opaque or hard-to-value assets, few natural strategic buyers, cold industry M\&A
+markets, and Item 4 language expressing sale or strategic-alternatives intent.
+Deterrence should dominate where acquirers are already searching --- hot industry M\&A
+intensity, an obvious short list of strategic buyers --- so that the certification
+elasticity is small while the price effect is not. One complication is worth stating
+now: the reform does not move $e$ alone. Through R3 it also lowers $x^{\ast}$, which
+lowers $B^{e}$ and therefore \emph{raises} entry, a third term partially offsetting
+deterrence. The empirical design must not attribute the composite to certification.
+
+\subsection{Bargaining and appropriability}
+\label{sec:model-bargain}
+
+If a bid arrives, the final offer splits the surplus between the acquirer's standalone
+valuation $V_a$ and the improved value $Y$ under a successful campaign:
+\begin{equation}
+B \;=\; V_a \;+\; \beta(x)\,\bigl(Y - V_a\bigr),
+\qquad
+\beta(x) \;=\; \bar{\beta}\,\lambda_{\mathrm{app}},
+\qquad \lambda_{\mathrm{app}} \in [0,1].
+\label{eq:bargain}
+\end{equation}
+The discipline on $\beta$ is the point. An unrestricted increasing $\beta(x)$ would
+assume away the free-rider structure of \textcite{grossmanhart1980freerider}, which is
+exactly the circularity the companion paper's appendix was written to remove. We
+therefore import that appendix's \emph{conclusion} and none of its primitives:
+$\lambda_{\mathrm{app}} = 1 - q(1-\gamma)\psi$, where $q$ is the probability that a
+fringe raider appears at the disagreement node, $\gamma \in [0,1]$ is the portability of
+the activist's improvement under a different owner, and $\psi \in [0,1]$ is a pivotality
+factor. Appropriability falls with the fringe-raid probability and rises with
+portability. Two remarks port directly and become the cross-sectional heterogeneity
+table of the empirical section: (a) the primitives are \emph{indexable} --- $q$ by
+fringe M\&A intensity in the target's industry-year, $\gamma$ by the
+strategic-versus-financial composition of likely acquirers and by asset redeployability,
+the charter dilution parameter by state and charter antitakeover provisions, and
+pivotality by the bloc's stake against control thresholds; and (b)
+$\lambda_{\mathrm{app}}$ \emph{jumps up discontinuously} as the bloc's stake crosses the
+blocking threshold $1-\tau_c$, a testable stake-size threshold effect that is directly
+about $x$ and therefore directly about the deadline. We do \emph{not} import the tender
+game itself: the entry-cost distribution, the synergy distribution, charter dilution and
+the control threshold are four new primitives a fourteen-page model cannot afford. (Note
+the symbol clash: charter dilution in that appendix was $\phi$; here $\phi$ is the
+participation cap. The paper renames the former $\phi_c$.)
+
+\subsection{Measurement lemma}
+\label{sec:model-measurement}
+
+Total target gain from the unaffected price to the final offer decomposes exactly:
+\begin{equation}
+G_{\mathrm{tot}} \;\equiv\; \log\!\frac{B}{P^{0}}
+\;=\; \underbrace{\log\!\frac{P^{F}}{P^{0}}}_{G_{\mathrm{fil}}}
+\;+\; \underbrace{\log\!\frac{P^{B}}{P^{F}}}_{G_{\mathrm{run}}}
+\;+\; \underbrace{\log\!\frac{B}{P^{B}}}_{G_{\mathrm{mkp}}} .
+\label{eq:decomp}
+\end{equation}
+This is an identity, and we label it as one. Its non-trivial content is the following.
+
+\begin{lemma}[R5: Markup floor and the invariance restriction]
+\label{lem:R5}
+Let the bid-eve price be the discounted expectation of resolution, $P^{B} = \delta\,[\,
+\varrho B + (1-\varrho) P^{\mathrm{fail}}\,]$, where $\varrho \in (0,1]$ is the
+completion probability and $P^{\mathrm{fail}} < B$ the freestanding value. Then:
+\begin{enumerate}
+\item[\textup{(a)}] \textbf{Floor.}
+$G_{\mathrm{mkp}} = \log(1/\delta) \;-\; \log\!\bigl(\varrho + (1-\varrho)
+P^{\mathrm{fail}}/B\bigr) \;\ge\; \log(1/\delta) > 0$,
+i.e.\ in simple returns the measured markup is bounded below by $(1-\delta)/\delta$ plus
+a strictly positive deal-risk term. \emph{A fully anticipated deal still shows a positive
+markup}; a shrinking measured markup is therefore not, by itself, evidence of anything.
+\item[\textup{(b)}] \textbf{Invariance.} Holding the transaction fixed ($B$ and $P^{0}$
+unchanged), \eqref{eq:decomp} implies
+$dG_{\mathrm{mkp}} = -\,\bigl(dG_{\mathrm{fil}} + dG_{\mathrm{run}}\bigr)$.
+\end{enumerate}
+\end{lemma}
+
+Part~(b) is the only thing in the neighbourhood that distinguishes capitalization from
+value destruction in data: under pure capitalization the three components reshuffle and
+$G_{\mathrm{tot}}$ is invariant; under value destruction $G_{\mathrm{tot}}$ falls.
+\textcite{celentanolevine2025} assert the capitalization reading for their structural
+counterfactual; \textcite{bett2014} document run-up/markup substitution once run-ups are
+value-adjusted --- \textcite{schwert1996} found little substitution without that
+adjustment, and the difference is precisely the invariance test. Our lemma states the
+exact testable content of the claim, and the empirical section implements it in
+\emph{event-time-invariant} form, because the naive calendar-window version carries a
+truncation artifact running opposite to its own prediction.
+
+\subsection{The policy sufficient statistic}
+\label{sec:model-policy}
+
+\begin{result}[R6: Welfare derivative for target shareholders]
+\label{res:R6}
+Let $W(d)$ be expected target-shareholder gain. On the interior region the envelope
+theorem kills the indirect effect of $d$ through $x^{\ast}$ on the \emph{activist's own}
+payoff, so every $dx^{\ast}/dd$ term surviving in $W'(d)$ is a pure externality; on the
+constrained set the window's shadow value enters the activist's own payoff first-order,
+with the constrained response $dx^{\ast}/dd = \phi\,\mathrm{ADV}_i/S_{\mathrm{out},i}$
+itself part of term (iii)'s comparative static. In both regions,
+\begin{equation}
+\frac{dW}{dd}
+= \underbrace{\frac{\partial \Prob(\mathrm{bid})}{\partial d}\;
+   \E\bigl[G_{\mathrm{tot}} \mid \text{marginal deal}\bigr]}_{\text{(i) entry margin}}
+\;+\; \underbrace{\frac{\partial \Prob(\mathrm{camp})}{\partial d}\;
+   \E\bigl[G_{\mathrm{tot}} \mid \text{marginal campaign}\bigr]}_{\text{(ii) campaign-supply margin}}
+\;+\; \underbrace{\Prob(\mathrm{bid})\,
+   \frac{\partial \E[G_{\mathrm{mkp}}]}{\partial \beta}\,\beta'(x^{\ast})\,
+   \frac{dx^{\ast}}{dd}}_{\text{(iii) stake-bargaining margin}} .
+\label{eq:welfare}
+\end{equation}
+\end{result}
+
+Term~(i) has the sign of R4 and is therefore an estimand, not an assumption. Term~(ii)
+is nonnegative --- a longer window supports more campaigns --- so it enters the reform's
+welfare change ($\Delta d < 0$) with a minus sign: this is the chilling term, and it is
+the paper's headline object. Term~(iii) is the channel T2 flagged as omitted and it runs
+through R3 and \S\ref{sec:model-bargain}: a shorter window lowers $x^{\ast}$, which
+lowers $\beta(x^{\ast})$, which lowers the conditional markup independently of both
+other margins.
+
+The measurability claim needs one further step, and it is the step that makes the
+formula usable rather than aspirational. Both conditional expectations in
+\eqref{eq:welfare} are \emph{marginal}, not average, objects --- marginal deals are by
+construction absent from the counterfactual regime, and deterred campaigns are
+unobserved. Substituting the average observed premium would be exactly the
+LATE-versus-ATE substitution the identification section rejects elsewhere. The resolution
+is that the reform's \emph{compliers are the marginal units}: an
+intensity design identified off $\mathrm{RTD}_i$ recovers the behaviour of campaigns at
+the margin of being deterred. The exposure-based estimands are therefore the objects the
+welfare weights require, and the model and the regressions are estimating the same
+thing. This also disciplines the accounting: because accumulation moves the price,
+part of $G_{\mathrm{fil}}$ is a transfer from selling shareholders to the activist rather
+than a gain, and the welfare object in \eqref{eq:welfare} is defined over a fixed
+shareholder cohort dated at trigger-minus-$k$, with the transfer term separated
+explicitly.
+
+\subsection{What version 1 deliberately omits}
+\label{sec:model-omitted}
+
+\paragraph{The signalling block.} $P^{F}$ is treated as a Bayes update against an
+\emph{exogenously garbled} filing: nature adds noise to the disclosed
+$(x,\text{purpose})$ pair, and misstatement of Item 4 purpose carries an exogenous
+securities-liability cost. We do not solve the game in which an informed activist chooses
+$x$ as a signal. The reason is worth stating rather than hiding, because a referee will
+find it either way. A continuous signal chosen by a privately informed type admits
+pooling, partial-pooling and separating equilibria; without a stated refinement and a
+uniqueness claim, $P^{F}$ is not a well-defined object and the mapping from the filing
+CAR to a model quantity is not identified. Worse, there is a genuine dilemma at the
+closure point: if $B$ in \eqref{eq:bargain} is independent of $P^{F}$, the capitalization
+proposition is a tautology (the denominator moves and the numerator cannot); if $B$
+depends on $P^{F}$ through a market-price floor on offers, then $P^{F} \to B \to P^{F}$
+is a fixed point requiring a contraction condition. We choose the first horn
+\emph{explicitly}, which is precisely why R5 is labelled a measurement lemma and why
+capitalization is not this paper's headline. Endogenizing the filing price is the natural
+follow-on paper, not a footnote in this one.
+
+\paragraph{Not modelled, by design.} The operational-versus-sale split as a second type
+dimension (\S\ref{sec:model-env}); the tender game underlying $\lambda_{\mathrm{app}}$
+(\S\ref{sec:model-bargain}); bidder competition and repeated fringe arrival; the
+within-window trading path (\S\ref{sec:model-cost}); and cash-settled derivative
+positions, which the empirical Item 6 substitution test treats as an outside option
+without pricing it. This last omission is the one we are least comfortable with, since
+the substitution margin is a headline empirical result; the model's role there is to
+supply the constrained set $\{\mathrm{RTD}_i > d\}$ that predicts \emph{who} substitutes,
+not the price at which they do.
+
+\paragraph{Mechanism budget.} The specification above is the neutralized one: a scalar
+type, a quadratic accumulation cost, an exogenously garbled filing, a free-entry bidder
+cutoff, and a bargaining share restricted by a single appropriability parameter. Ten to
+fourteen pages is feasible for \emph{this} model and is not feasible for the version with
+a two-dimensional type, an endogenous informative stake, endogenous purpose, endogenous
+entry, endogenous $\beta$, and three endogenous prices --- that specification is
+eighteen to twenty-two pages plus appendix, which is how the companion draft reached its
+current length. We therefore adopt a standing rule: \emph{any mechanism added after the
+model is drafted requires deleting another.}

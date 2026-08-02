@@ -1,0 +1,67 @@
+\section{The Next Eight Weeks: Gates and Cut Order}
+\label{sec:workplan}
+
+The schedule below is deliberately gate-first. The model section of this outline is a
+provisional lens, already drafted to generate the exposure measure and the MDE arithmetic; it
+is frozen as-is until Gate 2. No \emph{further} model investment and no price-dependent work is
+scheduled before the gates that decide whether those investments pay. March 2027 is a
+\emph{milestone talk} (first-stage facts, the exposure measure, the model skeleton, an anatomy
+pilot), not a draft deadline; the full draft targets summer 2027.
+
+\subsection*{Gate 0 (week 1): advisor ratification}
+A two-page decision memo (compressed from the verified decision record) and a supervision
+meeting. Every other gate is conditional on this one. The memo states plainly what is being
+abandoned (the liquidity-hump headline as the job-market paper), what is being frozen (the
+current 92-page draft, as a separate working paper after a bounded hygiene pass), and what is
+being built.
+
+\subsection*{Gate 1 (weeks 1--2): access and hygiene, in parallel}
+\begin{enumerate}
+\item \textbf{WRDS/CRSP go/no-go.} Account request submitted in week 1, calendar-booked. CRSP
+gates the exposure denominator (ADV), all return-based outcomes, and the anatomy leg. If access
+fails, the paper degrades along the published cut order below --- it does not stall.
+\item \textbf{Bloomberg terminal inventory} (\texttt{lit/bloomberg\_checklist.md}): M\&A deal
+fields, premia, export caps, academic terms of use. Decides the M\&A-outcomes route (Bloomberg
+vs.\ hand-built EDGAR deal universe).
+\item \textbf{Hygiene pass on the frozen draft} (bounded, $\le$2 weeks, parallel work): the
+enumerated line-level corrections from the technical verification (cross-country threshold
+claims removed; the $\kappa \to 1$ narrative corrected; welfare units rescaled; the two
+misattributed citations fixed), then freeze.
+\item \textbf{Gaussian-noise falsification} of the old model's hump (one week, closes the
+question the pivot memo raised; result goes in the frozen draft's appendix, not this paper).
+\end{enumerate}
+
+\subsection*{Gate 2 (weeks 2--4): the pre-registered EDGAR pass (price-free)}
+Stake-at-filing distributions (untrimmed, split by corporate-action status), entry counts and
+composition by the coarse required-trading-days proxy, Item~6 derivative-language rates,
+13G$\to$13D switching, each with a minimum detectable effect computed \emph{ex ante} from the
+SEC's own tables. \textbf{Rule:} filing-delay compression and post-deadline pre-filing
+accumulation are mechanical identities and cannot pass this gate. If at least one
+non-mechanical margin moves, proceed to the full build; if none moves, the model shrinks to the
+accounting lemma plus the corner condition, and the paper re-aims at the anatomy and the
+well-measured policy null.
+
+\subsection*{Weeks 5--8: conditional build (critical path only)}
+Critical path: the exposure measure on CRSP ADV (or the EDGAR proxy if CRSP is delayed) and the
+trigger-date parser fix with hand-verification against Item~5(c) tables --- the data map's own
+component estimates for these are 1--2 and 2--3 weeks. The Item~4 purpose codebook on the
+200-filing validated subset (3--5 weeks by the same map) and the anatomy pilot on the
+hand-collected acquired-target subsample \emph{start} in this block only if the parser clears
+early, and otherwise roll past week 8: the eight-week promise covers the first-stage facts and
+a locked exposure design, not the codebook. Refinement of the model section beyond the frozen
+Section~\ref{sec:model} specification proceeds \emph{only if} Gate 2 passed on a behavioral
+margin.
+
+\subsection*{Published cut order (if the schedule slips)}
+(1) merger-background chronologies stay out (no tooling exists in this repository --- revisit
+only if tooling exists elsewhere); (2) the signaling block stays out (accounting lemma + corner
+model ship without it); (3) the full deal-universe anatomy shrinks to the hand-collected
+acquired-target subsample; (4) the 2010--2021 backfill is dropped (the SEC's published tables
+anchor the pre-period); (5) if CRSP is still unresolved at week 4, the EDGAR-only configuration
+(stake, timing, composition, derivatives) is the paper.
+
+\subsection*{Scoop defense}
+The novelty scan of 2026-08-02 found no realized-outcome study of the reform; the field is
+attentive and the data are public. First-stage facts and the design go up as an SSRN working
+paper as soon as the exposure design is locked (target: month 4--5), and the novelty scan and
+the Celentano--Levine publication status are re-checked at every revision.
