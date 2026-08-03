@@ -1,0 +1,37 @@
+\appendix
+\section{Model Derivations}
+\label{app:model-derivations}
+
+\subsection{Accumulation cost}
+
+At daily rate $r$, the dealer's excess cost is
+\[
+\int_0^r\lambda_Lu\,du=\frac{\lambda_L}{2}r^2.
+\]
+The activist minimises
+$\sum_{t=1}^d(\lambda_L/2)r_t^2$ subject to
+$\sum_{t=1}^dr_t=x$. Convexity and the symmetric constraint imply
+$r_t=x/d$. Hence
+\[
+d\frac{\lambda_L}{2}\left(\frac{x}{d}\right)^2
+=\frac{\lambda_L}{2}\frac{x^2}{d}.
+\]
+Differentiation gives equation~\eqref{eq:cost-derivs} and the degree-minus-one
+homogeneity in $d$.
+
+\subsection{Stake comparative static}
+
+In the unconstrained region, the first-order condition is $b_x-C_x=0$.
+Applying the implicit function theorem gives
+\[
+\frac{d\,\Delta x^\ast}{dd}
+=-\frac{b_{xd}-C_{xd}}{b_{xx}-C_{xx}}.
+\]
+Strict concavity makes the denominator negative, so the derivative is positive
+if and only if $b_{xd}>C_{xd}$. At the constrained corner,
+$\Delta x_i^\ast=\phi\,\mathrm{ADV}_i d/S_{\mathrm{out},i}$, and direct
+differentiation gives
+\[
+\frac{d\,\Delta x_i^\ast}{dd}
+=\frac{\phi\,\mathrm{ADV}_i}{S_{\mathrm{out},i}}>0.
+\]

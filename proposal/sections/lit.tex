@@ -1,299 +1,173 @@
 \section{Literature and Position}
 \label{sec:lit}
 
-This section positions the paper in four literatures --- disclosure-threshold
-theory, the theory of activism and the market for corporate control, the
-structural quantification of activism, and the measurement of takeover gains ---
-and then states the reform and the novelty claim. The characterizations below
-are disciplined by a machine-checked reading of the full texts; where a claim
-rests on a verbatim quotation, the quotation is logged in the accompanying
-verification report. The through-line is that the activist-as-intermediary
-position is occupied at the theory level, while two margins are open: the filing
-\emph{window} as a time margin of stake formation, and \emph{realized} evidence
-on the February 2024 acceleration.
-
-\subsection{Disclosure-threshold theory}
+\subsection{Disclosure rules and stake accumulation}
 \label{sec:lit-threshold}
 
-\textcite{grossmanhart1980disclosure} is the classical antecedent: mandatory
-disclosure of a building position raises the acquirer's cost of stealth and so
-trades off the protection of target shareholders against the disciplining of
-management. The modern theoretical treatment is
-\textcite{ordonezcalafibernhardt2022}, who study a blockholder disclosure
-threshold as a \emph{static stake-size cap}: in a one-shot Kyle-style dealership
-trade, a competitive market maker posts prices against net order flow, and the
-activist chooses a single position once. Their policy instrument is an ownership
-level --- a shareholder must disclose once holdings reach a given fraction of
-voting rights --- not a time margin. There is no accumulation period, no filing
-deadline, and no second agent representing a potential bidder; the welfare result
-is the familiar transparency-versus-discipline trade-off, in which uninformed
-investors favor lower thresholds when their trading losses against the informed
-activist are small relative to the activist's disciplining benefit. Critically
-for us, their Section~V explicitly gestures at objective-specific thresholds ---
-that the right disclosure rule may depend on what the activist is trying to do,
-including sale-seeking campaigns --- but leaves this as an open question. Answering
-it, with the filing window rather than the stake level as the lever, is part of
-what this paper does.
+Mandatory disclosure affects both the cost of acquiring a position and the
+incentive to monitor or seek control. \textcite{grossmanhart1980disclosure}
+identify the basic trade-off: disclosure protects target shareholders but makes
+stealth acquisition more costly. \textcite{ordonezcalafibernhardt2022} analyse
+an ownership threshold in a one-shot Kyle-style setting. Their policy instrument
+is a static stake-size trigger, not the period between threshold crossing and
+mandatory filing. Their discussion of objective-specific thresholds, including
+sale-seeking campaigns, leaves open the corresponding question for filing
+deadlines.
 
-\textcite{bonettiduroormazabal2020} is the structurally closest \emph{design}
-paper, and it is empirical rather than theoretical. Using the staggered
-country-level implementation of the E.U.\ Transparency Directive (2007--2009) as a
-difference-in-differences shock, they show that tighter ownership disclosure
-\emph{shrinks toeholds, reduces the number of control acquisitions, and moves
-announcement returns in opposite directions for target and acquirer}. Their
-setting is ordinary corporate bidders building pre-bid toeholds, not hedge-fund
-activist 13D campaigns, and their reform bundles a lower ownership threshold with a
-shorter notification deadline, so it is not an isolated window shock the way the
-2024 Schedule~13D change is. The reason to engage them head-on is the
-\emph{sign} of the bidder-side channel. Building on \textcite{fishman1988}, their
-bidding-competition mechanism has disclosure \emph{deterring} rival bidders: once
-alerted, competitors can make competing bids that raise the acquirer's cost. That
-is the opposite sign from the certification channel this paper emphasizes, in
-which earlier disclosure \emph{attracts} bidders by signaling that an
-activist-flagged target is available for sale. The two signs are not
-contradictory; they are the two sides of a single elasticity. Our
-certification-versus-deterrence result (Proposition~R4) nests both: the bid
-hazard rises after earlier disclosure if and only if the certification elasticity
-exceeds the deterrence elasticity, and the observable heterogeneity that signs it
-(sale-intent filings, opaque assets with few natural buyers, high industry
-merger intensity) is precisely what separates an activist-flagged sale from the
-ordinary toehold acquisitions \textcite{bonettiduroormazabal2020} study.
+\textcite{bonettiduroormazabal2020} provide the closest empirical disclosure
+design. They exploit the staggered implementation of the E.U.\ Transparency
+Directive from 2007 to 2009 and find that tighter disclosure reduces toeholds
+and control acquisitions, while moving target and acquirer announcement returns
+in opposite directions. Their setting concerns ordinary corporate bidders, not
+activist Schedule~13D campaigns, and combines a lower ownership threshold with a
+shorter notification period. It therefore does not isolate the filing window.
+Their bidding-competition mechanism emphasises deterrence: disclosure can invite
+competing bids and increase an acquirer's cost \parencite{fishman1988}. In the
+present setting, disclosure may instead facilitate bidder search by identifying
+a target as available for sale. Whether certification or deterrence dominates
+is an empirical question, with implications for heterogeneity by sale intent,
+asset opacity, the set of natural buyers, and industry merger activity.
 
-\subsection{Activism and the market for corporate control}
+The strategic-trading literature supplies the basis for the reduced-form
+accumulation cost. \textcite{back2018} endogenise activist trading and liquidity,
+while \textcite{collindufresnefos2016} model trading on long-lived information
+against stochastic liquidity. A quadratic cost captures their level prediction
+that a longer trading horizon and greater liquidity reduce the marginal cost of
+a given position. It abstracts from endogenous intra-window timing and
+path-dependent liquidity. \textcite{collindufresnefos2015} show that Schedule~13D
+filers trade on days when measured price impact is almost 30 per cent below its
+sample average, cautioning against treating conventional pre-filing liquidity
+measures as uncontaminated. The broader literature on exit, voice, and liquidity
+provides the background \parencite{maug1998,kahnwinton1998,edmansfangzur2013,
+edmansholderness2017}, but does not study a disclosure window or the timing of
+takeover gains.
+
+\subsection{Activism, control, and structural evidence}
 \label{sec:lit-activism-theory}
 
-The theoretical position this paper builds on --- the activist as an intermediary
-between an underperforming target and the takeover market --- is already occupied,
-and we say so plainly. \textcite{burkartlee2022} make it their headline: in their
-words, ``activism is most efficient when it brokers, rather than substitutes for,
-takeovers.'' Their activist runs a proxy-style campaign for control of the board
-and then uses the board's merger authority to sell the whole firm to a
-third-party bidder, mitigating both the Grossman--Hart and Jensen--Meckling
-free-rider problems. But the toehold is exogenous and the model is entirely
-post-disclosure: there is no stake accumulation and no window. Their concluding
-remarks explicitly defer ``the acquisition of the toehold in anonymous,
-predisclosure markets'' to future work --- the margin we open.
+\textcite{burkartlee2022} model activism as intermediation between an
+underperforming target and the market for corporate control. Their activist
+brokers a sale after a proxy-style campaign, using board control to mitigate the
+Grossman--Hart and Jensen--Meckling free-rider problems. The toehold is
+exogenous, however, and the model is entirely post-disclosure. The acquisition
+of the toehold in anonymous predisclosure markets is left to future work.
 
-\textcite{corumlevit2019} occupy the bidder-discovery side of the same position.
-In their model bidders ``interpret the presence of an activist as a signal that
-the target is available for sale,'' so the activist's presence puts the target in
-play and raises the probability of a takeover. It is important to be precise
-about what they do and do not model, because an earlier draft overstated this.
-They \emph{do} model secondary-market inference: the activist builds a position
-by trading against a \textcite{kyle1985} market maker who learns from order flow,
-and the activist's ownership then becomes public through a Schedule~13D
-publication step. What they do \emph{not} model is a disclosure \emph{regime} ---
-the publication step is instantaneous, with no threshold design and no filing
-window or deadline to vary. Our contribution relative to them is therefore narrow
-and honest: the window-as-deadline time margin, and the realized reform, not the
-claim that they ignore trading. Their footnote~29 also already delivers the sign
-often credited to later structural work: when the activist's proxy threat is
-credible, a takeover is more likely but the bidder pays a lower conditional
-premium, because the activist weakens the board's negotiating position.
+\textcite{corumlevit2019} model secondary-market inference and disclosure of
+activist ownership. An activist trades against a \textcite{kyle1985} market maker,
+and ownership becomes public through a Schedule~13D publication step. That step
+is instantaneous and is not governed by a disclosure threshold or filing
+deadline. Their model nevertheless supplies the bidder-discovery mechanism used
+here: an activist can signal that a target is available for sale. It also shows
+that a credible proxy threat can raise takeover probability while reducing the
+conditional premium through weaker board bargaining. The present paper studies
+the filing window, which their model does not vary.
 
-\textcite{cetemen2026} is a continuous-time leader--follower model of how a
-leader activist's trades tacitly coordinate followers, producing wolf-pack
-accumulation without formal agreement. It is pure theory about coordination
-through trading, and it is \emph{not} silent on the reform --- a footnote cites
-the February 2024 acceleration (ten calendar days to five business days) as
-institutional background --- but it does not incorporate the window as a variable
-or analyze it. The honest claim is therefore that no theory paper gives the window
-\emph{analytical} treatment, not that the reform goes unmentioned.
-
-Two strategic-trading papers are the benchmarks our reduced-form accumulation cost
-shortcuts. \textcite{back2018} endogenize the activist's optimal trading and
-liquidity, and \textcite{collindufresnefos2016} solve the problem of an informed
-trader with long-lived private information revealed at a known date, trading
-against stochastic liquidity. A static quadratic cost
-$C(x;d,L)=(\lambda_L(L)/2)\,x^{2}/d$ is a fair reduced-form summary of the
-\emph{level} effects these models deliver --- more liquidity and a longer horizon
-lower the marginal cost of a given accumulation --- but it collapses away their
-two dynamic contributions: endogenous intra-window timing (the insider trades more
-aggressively when noise trading is high) and stochastic, path-dependent
-liquidity. We use the reduced form to generate the exposure measure and
-organizing predictions, and we are explicit that a full dynamic treatment would
-add a timing margin the static cost cannot represent. The empirical reality that
-motivates a reduced form is \textcite{collindufresnefos2015}: on an average day
-when Schedule~13D filers trade, measured price impact is almost 30\% lower than
-the sample average, so standard liquidity proxies do not cleanly detect informed
-window trading --- a caution for any design that uses pre-filing liquidity as a
-control.
-
-The older blockholder literature supplies the background on exit, voice, and
-liquidity. \textcite{maug1998} shows that liquidity raises the value of the
-exit option and so trades off against monitoring; \textcite{kahnwinton1998}
-argue that liquid markets can substitute speculation for intervention;
-\textcite{edmansfangzur2013} document that liquidity shifts blockholders away from
-voice and toward governance through exit; and \textcite{edmansholderness2017}
-survey the theory and evidence on blockholders. None speaks to a disclosure
-window or to takeover-gain timing.
-
-\subsection{Quantifying activism: structural evidence}
-\label{sec:lit-structural}
-
-The structural literature quantifies campaigns but does not exploit disclosure
-timing. \textcite{johnsonswem2021} estimate a dynamic reputation model in which
-an activist's track record for proxy fighting shapes targets' responses across a
-sequence of campaigns. Accumulation is collapsed into a single reduced-form
-lognormal campaign-cost draw --- round-trip liquidity costs are named as a verbal
-component of that one scalar but never separately estimated --- and the filing
-window appears exactly once, in an institutional footnote describing the SEC's
-ten-day rule. There is no mapping of the window to a noise or variance parameter
-and no counterfactual that varies filing delay; the model in fact has no
-separable disclosure-timing choice, because filing the 13D is definitionally
-simultaneous with campaign initiation.
-
-\textcite{albuquerquefosschroth2022} study the choice between Schedule~13D and
-Schedule~13G and decompose the average 13D announcement return of 6.34\% into
-treatment (75.2\%), stock-picking (12.2\%), and sample-selection (12.6\%)
-components --- a capitalization-at-disclosure result at the filing leg. Their
-activism cost is a single scalar held constant across filings, and they offer no
-takeover-premium counterfactual; an earlier project document misattributed the
-premium result below to them, and we correct that attribution here.
+\textcite{cetemen2026} analyse leader-follower trading and wolf-pack
+accumulation in continuous time. They mention the February 2024 acceleration as
+institutional background, but do not make the window a choice or policy
+variable. The structural literature likewise quantifies campaigns without
+varying disclosure timing. \textcite{johnsonswem2021} estimate a dynamic
+reputation model in which accumulation is subsumed in a lognormal campaign-cost
+draw and filing coincides with campaign initiation. \textcite{albuquerquefosschroth2022}
+decompose the average Schedule~13D announcement return of 6.34 per cent into
+treatment, stock-picking, and sample-selection components of 75.2, 12.2, and
+12.6 per cent. Their activism cost is a fixed scalar, and they do not study
+takeover premia.
 
 \textcite{celentanolevine2025} estimate a simulated-method-of-moments model on
-2001--2019 data and report that, in takeovers with an activist present, ``the bid
-premium is 13.7 percent (5.2 percentage points) lower than if the activist had
-not been present,'' with the mechanism that the activist ``lowers the negotiating
-position and price demanded by the board in negotiations'' --- reduced board
-bargaining leverage, not a liquidity or disclosure channel. Crucially, they
-themselves assert the capitalization reading of their own number: ``the
-pre-announcement share price used to calculate the bid premium incorporates the
-activist's signal about a potential acquirer.'' Because the premium's denominator
-already capitalizes the campaign, a lower measured premium need not mean less
-value to target shareholders. This is exactly why we treat capitalization as a
-measurement lemma rather than a headline: \textcite{celentanolevine2025} own the
-interpretation, and their model treats the activist's decision and information as
-instantaneously common knowledge, with no disclosure timing anywhere, leaving the
-window and the realized reform open.
+2001--2019 data. They report that activist presence reduces the conditional bid
+premium by 13.7 per cent, or 5.2 percentage points, because it weakens the
+board's bargaining position. They also argue that the pre-announcement price
+incorporates the activist's signal about a potential acquirer. A lower measured
+premium therefore need not imply a lower total gain to target shareholders.
+Their model treats the activist's decision and information as instantaneously
+public and contains no disclosure timing. Finally, \textcite{gantchev2013}
+estimate an average campaign cost of about \$10.5 million, roughly half in the
+proxy stage. Those legal, advisory, and proxy-fight expenditures differ from
+the market-impact cost of building a predisclosure stake used here.
 
-\textcite{gantchev2013} estimates that the average activist campaign costs about
-\$10.5 million, roughly half of it in the proxy stage. These are the costs of
-contested campaign \emph{tactics} --- proxy-fight, legal, and advisory
-expenditure --- and are conceptually distinct from the accumulation cost this
-paper's model represents, the market-impact cost of quietly building a
-pre-disclosure stake. We cite the figure for scale, not as a calibration of our
-cost object.
-
-\subsection{Takeovers, run-ups, and the measurement of gains}
+\subsection{Takeover gains}
 \label{sec:lit-measurement}
 
-The gain anatomy borrows the standard run-up/markup decomposition.
-\textcite{schwert1996} writes the premium as the sum of a pre-bid run-up,
-measured as the target's cumulative abnormal return from day $-42$ to day $-1$,
-and a post-announcement markup. His headline finding, however, runs
-\emph{against} substitution: he reports ``little substitution between the runup
-and the markup,'' with at least two-thirds of any run-up \emph{added} to the total
-price the bidder pays. The substitution evidence our measurement lemma actually
-needs comes from \textcite{bett2014}: once the run-up is adjusted for the target's
-own stand-alone value change, isolating the deal-synergy component, the slope
-moves from $-0.09$ (following Schwert's unadjusted method) to $-0.39$, indicating
-``a substantially greater degree of substitution'' and rejecting the mechanical
-costly-feedback loop. The run-up/markup window convention is standardized in the
-survey of \textcite{eckbomalenkothorburn2025}, which uses a run-up window of day
-$-41$ to day $-2$ and a separate three-day announcement window. Our three-part
-split --- filing, run-up, and markup --- adds an activist-filing-triggered leg
-that has no counterpart in the two-part bid-anchored convention, and we justify it
-on its own terms.
+The standard takeover decomposition separates a pre-bid run-up from an
+announcement markup. \textcite{schwert1996} measures the run-up from day $-42$
+to day $-1$ and finds little substitution between the run-up and markup, with at
+least two-thirds of the run-up added to the total price. \textcite{bett2014}
+find materially stronger substitution after adjusting the run-up for changes in
+the target's stand-alone value: the estimated slope changes from $-0.09$ under
+the unadjusted method to $-0.39$. \textcite{eckbomalenkothorburn2025} summarise
+the conventional event windows, including a run-up from day $-41$ to day $-2$
+and a separate three-day announcement window. The decomposition in this paper
+adds the activist filing as a distinct event and tests the joint movement of the
+filing return, run-up, and markup.
 
-The activism--takeover link is a stylized fact. \textcite{greenwoodschor2009}
-show that the large abnormal returns to 13D activism are ``largely explained by
-the ability of activists to force target firms into a takeover'': announcement
-and long-run returns are high only for targets ultimately acquired and
-indistinguishable from zero otherwise, and activism raises takeover probability by
+Activism is closely associated with takeovers. \textcite{greenwoodschor2009}
+show that acquisition outcomes account for much of the abnormal return to
+Schedule~13D activism and estimate that activism raises takeover probability by
 about eleven percentage points. \textcite{brav2008} report that selling the
-company is a stated objective in roughly 14--18\% of campaigns and that about
-15\% of activist targets are ultimately acquired. \textcite{boysongantchevshivdasani2017}
-study activism mergers directly and find that activist targets are far more likely
-to receive bids and to merge; our characterization rests on an author-posted
-summary rather than the primary text, so we keep it to this one conservative
-sentence and do not build our sale-intent codebook on it. None of these papers
-touches disclosure timing.
+company is an objective in roughly 14--18 per cent of campaigns and that about
+15 per cent of activist targets are acquired. \textcite{boysongantchevshivdasani2017}
+find that activist targets are more likely to receive bids and merge. That last
+characterisation rests on an author-posted summary rather than the primary text,
+so it is used only for this narrow point and does not support the sale-intent
+codebook. None of these studies examines disclosure timing.
 
-\subsection{The reform and the novelty claim}
+\subsection{The 2024 reform and the paper's position}
 \label{sec:lit-reform}
 
-The institutional shock is the SEC's modernization of beneficial-ownership
-reporting \parencite{sec2023modernization}. The final rule shortens the initial
-Schedule~13D filing deadline from ten calendar days to five business days,
-effective February~5, 2024; requires amendments within two business days of a
-material change; and mandates XML-structured filing from December~18, 2024. Two
-features matter for the design. First, the rule \emph{dropped} proposed Rule
-13d-3(e): the Commission declined to deem holders of cash-settled derivative
-securities beneficial owners of the reference class, issuing guidance and an
-Item~6 disclosure clarification instead. That decision leaves a substitution hole
---- activists can migrate economic exposure into cash-settled derivatives without
-triggering a 13D --- which is the second half of our chilling/substitution
-headline. Second, the SEC's own baseline shows the reform binds a minority of
-campaigns: roughly 29\% of 2022 initial filings (41\% of the timely ones) were already made
-within the five-business-day deadline, about 80\% of filers had completed
-accumulation by the new deadline, and 97\% of campaigns had reached 90\% of their
-reported stake by it.
-The staff also projected foregone shareholder value of about \$810 million per
-year under the five-day rule --- a projection this paper adjudicates with realized
-data. The February 2025 staff guidance \parencite{seccdi2025} clarifies when such
-engagement makes the shorter Schedule~13G unavailable (calls for a sale or
-restructuring, alternative director nominees, or conditional voting support),
-which bears on how sale-intent campaigns are routed between the two schedules.
+The SEC's modernisation of beneficial-ownership reporting shortened the initial
+Schedule~13D deadline, shortened amendment deadlines, and introduced structured
+XML filing \parencite{sec2023modernization}. It declined to adopt proposed
+Rule~13d-3(e), instead clarifying Item~6 derivative disclosure. February 2025
+guidance further addresses when calls for a sale or restructuring, alternative
+director nominees, or conditional voting support make the shorter Schedule~13G
+unavailable \parencite{seccdi2025}.
 
-The only prior study of the acceleration itself is \textcite{polk2024}, a
-pre-reform projection on 9,685 initial 13D filings from 2001--2022 that compares
-investors who voluntarily filed within five days against those who waited the full
-ten. Its outcomes are abnormal returns and trading volume around the trigger and
-filing dates only: it contains no takeover, premium, bidder-entry, or
-campaign-resolution variables, and its sample ends more than a year before the
-reform took effect. A systematic novelty scan run on 2026-08-02 --- spanning SSRN,
-NBER, arXiv, the SEC/DERA record, forthcoming top-journal pages, and author
-research pages --- found \emph{no} study of realized post-February-2024 Schedule
-13D outcomes. The closest adjacent work, \textcite{celentanolevine2025}, is not
-built around the reform and uses no post-reform data. The realized evaluation is
-genuinely open.
+The SEC's baseline indicates that the new deadline bound a minority of
+campaigns. Roughly 29 per cent of 2022 initial filings, or 41 per cent of timely
+filings, were made within five business days; about 80 per cent of filers had
+completed accumulation by then; and 97 per cent had reached 90 per cent of their
+reported stake. The SEC nevertheless projected approximately \$810 million in
+annual foregone shareholder value.
 
-\subsection{Position}
-\label{sec:lit-position}
+\textcite{polk2024} is the only prior study focused on the acceleration. It uses
+9{,}685 initial Schedule~13D filings from 2001--2022 and compares investors who
+filed voluntarily within five days with those who waited the full ten. Its
+outcomes are returns and trading volume around trigger and filing dates. The
+sample ends before the reform and contains no campaign-resolution, bidder-entry,
+takeover, or premium outcomes. A systematic search conducted on 2 August 2026
+across SSRN, NBER, arXiv, SEC and DERA materials, forthcoming journal pages, and
+author websites found no study of realised post-February-2024 Schedule~13D
+outcomes. The closest related work, \textcite{celentanolevine2025}, neither
+studies the reform nor uses post-reform data.
 
-The activist-as-intermediary position is taken at the theory level, and the
-capitalization reading of a lower conditional premium is asserted by its authors;
-we do not reclaim either as new. What remains open are two margins. The first is
-the filing window as a \emph{time margin} of stake formation: disclosure-threshold
-theory fixes a static stake-size cap, the brokerage and solicitation models take
-the toehold as given or publish it instantaneously, and the structural literature
-collapses accumulation into a scalar cost draw, so no paper makes the legal
-deadline $d$ a margin that binds only for a model-generated subset of targets.
-The second is \emph{realized} evidence on the February 2024 acceleration: the
-existing study is a pre-reform projection with returns and volume only. This
-paper supplies both --- a deadline-accumulation model used as a lens to generate
-the predetermined required-trading-days exposure
-$\mathrm{RTD}_i = (0.05 \times S_{\mathrm{out},i})/(\phi \times \mathrm{ADV}_i)$
-and to organize predictions, and a dose-response design on that exposure as the
-evidence. The event-time-invariant anatomy of target gains (filing, run-up,
-markup) is the measurement contribution that disciplines the capitalization
-lemma; the model is the lens, not the paper's claim. Table~\ref{tab:position}
-records where each paper sits.
+The paper's contribution is therefore specific. It treats the filing window as
+a time constraint on post-threshold stake formation and evaluates realised
+responses to the 2024 rule. The activist-as-intermediary mechanism and the
+capitalisation interpretation of lower conditional premia are established in
+the cited literature; they motivate, rather than constitute, the contribution.
+Table~\ref{tab:position} summarises the distinction.
 
 \begin{table}[t]
 \centering
-\small
-\caption{Positioning. Columns: (Window) the filing window as a time margin of
-stake formation, modeled or measured; (Realized) realized evidence on the February 2024
-Schedule~13D acceleration; (Anatomy) a decomposition of target gains into
-filing/run-up/markup; (13D) an activist Schedule~13D setting.}
+\footnotesize
+\caption{Position in the literature}
 \label{tab:position}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
- & Window & Realized & Anatomy & 13D \\
+ & Filing window & Realised reform & Gain anatomy & Schedule~13D \\
 \midrule\relax
-\textcite{ordonezcalafibernhardt2022} & no  & no  & no      & yes \\\relax
-\textcite{burkartlee2022}             & no  & no  & no      & yes \\\relax
-\textcite{corumlevit2019}             & no  & no  & no     & yes \\\relax
-\textcite{johnsonswem2021}            & no  & no  & no      & yes \\\relax
-\textcite{albuquerquefosschroth2022}  & no  & no  & partial & yes \\\relax
-\textcite{celentanolevine2025}        & no  & no  & partial & yes \\\relax
-\textcite{bonettiduroormazabal2020}   & partial & no & no    & no \\\relax
-\textcite{polk2024}                   & partial & no & no    & yes \\\relax
-\textcite{cetemen2026}                & no  & no  & no      & yes \\
+\textcite{ordonezcalafibernhardt2022} & no      & no  & no      & yes \\\relax
+\textcite{burkartlee2022}             & no      & no  & no      & yes \\\relax
+\textcite{corumlevit2019}             & no      & no  & no      & yes \\\relax
+\textcite{johnsonswem2021}            & no      & no  & no      & yes \\\relax
+\textcite{albuquerquefosschroth2022}  & no      & no  & partial & yes \\\relax
+\textcite{celentanolevine2025}        & no      & no  & partial & yes \\\relax
+\textcite{bonettiduroormazabal2020}   & partial & no  & no      & no  \\\relax
+\textcite{polk2024}                   & partial & no  & no      & yes \\\relax
+\textcite{cetemen2026}                & no      & no  & no      & yes \\
 \midrule
-\emph{This paper}                     & yes & yes & yes     & yes \\
+\emph{This paper}                     & yes     & yes & yes     & yes \\
 \bottomrule
 \end{tabular}
 \end{table}

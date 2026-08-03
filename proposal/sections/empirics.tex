@@ -1,347 +1,227 @@
-\section{Empirical Design and Data Acquisition}
+\section{Empirical Design}
+\label{sec:empirics}
 
-This design implements the identification matrix and data-feasibility findings of the E1 and
-E2 memos rather than the pivot memo's original activist-level designs. The headline test is the
-chilling/substitution result: entry and composition dose-response on a predetermined
-target-level exposure measure, paired with Item 6 cash-settled-derivative substitution through
-the hole the Commission left open when it declined to adopt proposed Rule 13d-3(e). The
-event-time-invariant anatomy of activist target gains is the second act. Capitalization is a
-measurement lemma inside that anatomy, not a headline: \textcite{celentanolevine2025} own the
-capitalization interpretation and \textcite{bett2014} own the substitution evidence this design
-adjudicates against realized post-reform data.
+\subsection{Exposure and estimating design}
+\label{sec:empirical-design}
 
-\subsection{Setting and Identification Stance}
+The reform has a single adoption date and no untreated group: every initial
+Schedule~13D filer became subject to the five-business-day deadline on
+5 February 2024 \parencite{sec2023modernization}. Identification therefore uses
+cross-sectional variation in how tightly the common deadline constrains each
+target, rather than a treated-versus-control comparison.
 
-The reform is a single adoption event. Rule 13d-1(a) was amended to shorten the initial
-Schedule 13D filing deadline from ten calendar days to five business days, effective February 5,
-2024 \parencite{sec2023modernization}. There are no never-treated units: every initial 13D
-filer is subject to the same deadline after that date, so identification runs entirely through
-continuous treatment intensity rather than a treated/control contrast. Let $x$ denote the
-activist's eventual stake (fraction of shares outstanding), $L$ target liquidity (average
-daily volume over the six months ending 60 trading days before the trigger, or its Amihud
-illiquidity companion), $\phi$ the maximum
-share of $L$ tradable per day without alerting the market, and $d$ the legal filing window in
-business days ($d \approx 7$ pre-reform, $d = 5$ post-reform). Define the exposure measure
+The required-trading-days measure in equation~\eqref{eq:rtd-intro} is constructed
+from shares outstanding and average daily volume over the six months ending
+60 trading days before the trigger. It is defined for every filing, including
+one-time filers, and does not use the campaign's realised stake or outcome. The
+lag reduces contamination from the activist's own trading. I will diagnose any
+remaining contamination using the Item~5(c) transaction tables and repeat the
+analysis with a 120-trading-day lag, following the concern in
+\textcite{collindufresnefos2015} that a filer's own trading can contaminate
+liquidity measures.
 
-\[
-\mathrm{RTD}_i \;=\; \frac{0.05 \times S_{\mathrm{out},i}}{\phi \times \mathrm{ADV}_i},
-\]
+Under the model, the post-threshold increment is capped at
+$0.05d/\mathrm{RTD}_i$. At the doubling calibration, in which the desired
+increment is five percentage points, the cap binds when
+$\mathrm{RTD}_i>d$. The continuous measure is the primary treatment intensity;
+the binary indicator is used only to interpret that calibration.
 
-the number of trading days required to add five percentage points of undisclosed ownership
---- five per cent of shares outstanding $S_{\mathrm{out},i}$ --- at the participation cap: a
-price-free, predetermined scale of how fast undisclosed ownership can grow in target $i$. The statutory clock starts only at the
-five-per-cent crossing, so the deadline does not limit reaching the threshold; it caps the
-\emph{undisclosed increment} beyond it at $0.05 \times d/\mathrm{RTD}_i$ percentage points.
-Under the model's doubling calibration (a desired increment of five percentage points beyond
-the trigger), the cap binds iff $\mathrm{RTD}_i > d$; the designs below use the continuous
-dose nonparametrically and treat the binary indicator as a calibration, not a claim. Because
-$\mathrm{RTD}_i$ is built from lagged pre-trigger target characteristics, it is
-defined for every filing, including one-time filers, and does not depend on the campaign's
-realized outcome. The ADV window is lagged because the untimed pre-trigger toehold phase can
-extend into any finite measurement window: we diagnose residual own-trading in the ADV window
-from the Item 5(c) sixty-day transaction tables and re-estimate with a 120-trading-day lag,
-extending the caution of \textcite{collindufresnefos2015} --- that 13D filers' own trading
-contaminates liquidity measures --- from controls to the exposure measure itself.
+The identifying assumption is that, absent the reform, outcomes at different
+levels of required trading days would have followed parallel paths and that the
+dose-response relationship would have remained stable over the estimation
+window. A linear specification provides a summary:
+\begin{equation}
+Y_{i,q}
+=\alpha_{a(i),q}+\gamma_{\ell(i),q}
++\beta\,\text{Post}_q\times\mathrm{RTD}_i+\varepsilon_{i,q},
+\label{eq:dose-linear}
+\end{equation}
+where $\alpha_{a(i),q}$ denotes activist-by-quarter fixed effects and
+$\gamma_{\ell(i),q}$ denotes liquidity-decile-by-quarter fixed effects. The
+full specification also includes size-decile-by-quarter fixed effects. Since
+$\beta$ is a weighted average when responses are heterogeneous, the primary
+estimates are non-parametric across exposure bins:
+\begin{equation}
+Y_{i,q}
+=\alpha_{a(i),q}+\gamma_{\ell(i),q}
++\sum_k\beta_k\mathbf{1}[\text{RTD-bin}_i=k]\times\text{Post}_q
++\varepsilon_{i,q}.
+\label{eq:dose-bins}
+\end{equation}
+Activist-by-quarter effects absorb fund flows and changes in an activist's
+strategy. Liquidity- and size-decile-by-quarter effects absorb time-varying
+differences across the target distribution.
 
-\begin{assumption}[Continuous-dose parallel trends]
-In the absence of the reform, outcomes for targets at every level of $\mathrm{RTD}_i$ would have
-evolved along parallel paths, and the dose-response function is stable across the exposure
-distribution over the estimation window.
-\end{assumption}
+\subsection{Identification threats}
+\label{sec:identification-threats}
 
-Under this assumption a single interaction coefficient from
+\paragraph{Anticipation.}
+The amendments were proposed on 10 March 2022, the comment period reopened on
+28 April 2023, and the rule was adopted on 10 October 2023, four months before
+its effective date \parencite{sec2023modernization}. The main analysis excludes
+the period from October 2023 through February 2024 from the pre-reform sample.
+Robustness tests also exclude windows around the March 2022 proposal and the
+April 2023 reopening.
 
-\[
-Y_{i,q} \;=\; \alpha_{a(i),q} + \gamma_{\ell(i),q} + \beta \,\text{Post}_q \times \mathrm{RTD}_i +
-\varepsilon_{i,q}
-\]
+\paragraph{Bundled rule changes.}
+Release 33-11253 shortened the initial Schedule~13D deadline, shortened the
+deadline for Schedule~13D amendments to two business days, restructured
+Schedule~13G deadlines, and required structured XML filing from 18 December
+2024 \parencite{sec2023modernization}. It also declined to adopt proposed
+Rule~13d-3(e) and clarified Item~6 derivative disclosure without expanding its
+scope. The amendment rule
+mechanically changes post-filing accumulation, so that outcome is excluded from
+the behavioural tests. The primary outcomes are trigger-to-filing accumulation,
+stake at filing, campaign entry and composition, and Item~6 derivative language.
+I will also report switching between Schedules~13G and 13D among holders near
+five per cent. A contemporaneous shift in that rate would indicate that the
+Schedule~13G changes, rather than the initial Schedule~13D deadline, affect
+outcomes defined over the pooled population.
 
-identifies an average causal response only if the dose-response is homogeneous; if it is not,
-$\beta$ is a weighted average of heterogeneous responses whose weights need not be
-well-behaved. We therefore treat $\beta$ as a summary statistic only and report the primary
-result nonparametrically,
+\paragraph{Exposure and target characteristics.}
+Required trading days depend on target size and liquidity by construction. The
+SEC's Table~6 shows why realised accumulation cannot substitute for predetermined
+exposure. Campaigns that had accumulated less than 90 per cent of their reported
+stake by the amended deadline involved larger and more prominent activists and
+larger, more liquid targets. Their average target market capitalisation was
+\$1.8 billion rather than \$916 million; their Amihud ratio was 0.09 rather than
+0.13; the prominent-activist share was 43.6 rather than 29.8 per cent; their
+filing-window cumulative abnormal return was 17.2 rather than 5.7 per cent; and
+their average increase in shareholder value was \$222 million rather than
+\$36 million \parencite{sec2023modernization}. I will report covariate balance
+across exposure bins before presenting estimates and include the fixed effects
+described above \parencite{collindufresnefos2015,collindufresnefos2016,
+edmansfangzur2013}.
 
-\[
-Y_{i,q} \;=\; \alpha_{a(i),q} + \gamma_{\ell(i),q} +
-\sum_{k} \beta_k \,\mathbf{1}[\text{RTD-bin}_i = k]\times \text{Post}_q + \varepsilon_{i,q},
-\]
+An activist-level exposure measure based on past campaigns is retained only as
+a heterogeneity split. It cannot identify the main effect because most filers
+appear too rarely. \textcite{polk2024} report 9{,}685 initial filings by 5{,}863
+entities from 2001--2022, or 1.65 filings per entity. In the project's initial
+300-filing sample, 259 filer CIKs are unique, only 29 filers appear at least
+twice, and only three appear at least three times. Requiring pre- and post-reform
+campaigns would therefore restrict the analysis to a small group of repeat
+activists that are unusually able to pre-position or use derivatives.
 
-across exposure bins, with $\alpha_{a(i),q}$ an activist$\times$quarter fixed effect and
-$\gamma_{\ell(i),q}$ a liquidity-decile$\times$quarter fixed effect (subsection 2).
+\subsection{Outcomes and statistical power}
+\label{sec:outcomes}
 
-\paragraph{Anticipation and the double donut.} Anticipation predates the effective date by two
-years: the amendments were proposed and published at 87 FR 13846 (Mar.\ 10, 2022), the comment
-period was reopened Apr.\ 28, 2023, and the release was adopted (dated) October 10, 2023, four
-months before the February 5, 2024 effective date \parencite{sec2023modernization}. We donut
-out the October 2023--February 2024 window from any pre-period, and separately test robustness
-to donuts around the March 2022 proposal and the April 2023 reopening, since either could have
-partially treated behavior ahead of the effective date.
+The SEC's own tables imply a small population-average treatment. Only 3 per cent
+of non-corporate-action campaigns, about seven per year, had accumulated less
+than 90 per cent of their reported stake by the amended deadline; 1 per cent,
+about one per year, had accumulated less than 75 per cent
+\parencite{sec2023modernization}. Among the 20 per cent that continued to
+accumulate after the deadline, only 5.9 per cent of the reported stake was
+acquired within the filing window on average. Together, these figures imply an
+average accumulation effect on the order of one tenth of a percentage point of
+shares outstanding. The interpretation of any estimate will remain bounded by
+that scale.
 
-\paragraph{Bundling defense.} Release 33-11253 moved four things at once: it shortened the
-initial 13D deadline to five business days; it shortened Schedule 13D amendments to two
-business days; it restructured every Schedule 13G filing and amendment deadline; and it
-mandated XML-based structured filing for Schedules 13D and 13G, with compliance not required
-until December 18, 2024 \parencite{sec2023modernization}. Separately, and centrally to the
-substitution channel, the release declined to adopt proposed Rule 13d-3(e) on cash-settled
-derivative securities, instead amending Item 6 to clarify (without expanding) disclosure of
-derivative interests \parencite{sec2023modernization}. The two-business-day amendment rule
-directly moves "post-filing accumulation" \emph{independent of the initial-deadline change}, so
-that outcome is dropped as a first-stage margin. We restrict tier-1 outcomes (subsection 3) to
-those only the initial-deadline change can move: trigger-to-filing accumulation share, stake at
-filing, entry counts and composition, and Item 6 derivative-language rates. As a composition
-test for the simultaneous 13G restructuring, we tabulate the switching rate of near-5\%
-holders between Schedule 13G and Schedule 13D filings in the quarters surrounding the reform;
-a level shift in that rate is evidence the 13G bundling, not the 13D deadline, is doing the
-work on any outcome defined over the pooled 13D/13G population.
-
-\subsection{Exposure: From Activist History to a Predetermined Target-Level Measure}
-
-The pivot's original exposure variable was a leave-one-out mean of the activist's own historical
-accumulation behavior, with activist fixed effects $\gamma_j$ absorbing the between-activist
-variation the measure needs to identify anything. That design is infeasible at the relevant
-population. \textcite{polk2024} report 9{,}685 initial Schedule 13D filings by 5{,}863 reporting
-entities over 2001--2022, or 1.65 filings per entity. This project's own 300-filing sample tells
-the same story directly: 259 unique filer CIKs, 29 filers with two or more filings, and exactly
-3 filers with three or more. A leave-one-out mean needs at least two pre-2024 campaigns per
-activist, and $\gamma_j$ additionally restricts identification to activists observed both before
-and after February 2024 -- on the order of a few dozen funds. External validity then narrows
-from "13D filers" to "Sharkwatch-50-type funds," precisely the population for which the
-accumulation constraint binds least, since these are the filers best able to pre-position and
-substitute into derivatives.
-
-We therefore adopt $\mathrm{RTD}_i$ (subsection 1) as the primary exposure measure and retain
-activist-history exposure only as a secondary heterogeneity cut (an indicator for activists
-observed in at least two pre-2024 non-corporate-action campaigns), not as the identifying
-variable. Because $\mathrm{RTD}_i$ is defined at the target level, it makes
-activist$\times$quarter fixed effects estimable: identification runs within an activist across
-targets and quarters, which absorbs activist-level shocks that a target-industry$\times$time
-fixed effect cannot reach -- fund flows, a manager's strategy shift, or the differential ramp-up
-of universal-proxy-card-driven board-contest returns across 2023--2024.
-
-\paragraph{Covariate imbalance and the FE response.} Realized accumulation behavior is not a
-clean proxy for the legal constraint: the Commission's own Table 6 shows that non-corporate-action
-campaigns under 90\% accumulated by the amended deadline differ sharply from campaigns
-that finished on time. Average target market capitalization is \$1.8B versus \$916M; the Amihud
-illiquidity ratio is 0.09 versus 0.13 (lower Amihud means higher liquidity, so the under-90\%
-group sits in \emph{more} liquid targets, consistent with its larger market capitalization:
-realized deadline-busting selects large campaigns by prominent activists at large, liquid
-targets, not campaigns mechanically stuck in illiquid ones); the
-prominent-activist share is 43.6\% versus 29.8\%; the filing-window cumulative abnormal return is
-17.2\% versus 5.7\%; and the average increase in shareholder value per campaign is \$222M versus
-\$36M \parencite{sec2023modernization}. $\mathrm{RTD}_i$, built from liquidity and size rather than
-realized accumulation, is designed to avoid mechanically encoding "large campaign by a large
-activist," but it will still correlate with target size and illiquidity by construction. We
-therefore saturate every specification with liquidity-decile$\times$quarter and
-size-decile$\times$quarter fixed effects in addition to activist$\times$quarter, and report the
-covariate balance of targets across $\mathrm{RTD}_i$ bins as a standing diagnostic table before any
-point estimate is presented, following the logic of stealth-trading detection-avoidance
-constraints on accumulation speed \parencite{collindufresnefos2015,collindufresnefos2016} and
-the liquidity-governance tradeoff that motivates using $L$ as a covariate rather than an outcome
-\parencite{edmansfangzur2013}.
-
-\subsection{Outcome Hierarchy and the MDE-Honesty Table}
-
-Before any regression is run, we state the population magnitude the design can hope to detect.
-By the Commission's own Table 3, the accumulation window binds materially (under 90\% completed
-by the amended deadline) on 3\% of non-corporate-action campaigns, about 7 per year; only 1\%
-fall under 75\% completed, about 1 per year \parencite{sec2023modernization}. Table 6 row 8 shows
-that the 20\% of campaigns that continue accumulating past the deadline acquire, on average,
-only 5.9\% of their reported stake inside the window \parencite{sec2023modernization}. Combined,
-the population-average treatment intensity of the accumulation channel is on the order of a
-tenth of a percentage point of shares outstanding. No result below is credited as more than this
-magnitude can support.
-
-Table~\ref{tab:outcome-hierarchy} sets the outcome hierarchy. Tier 1 outcomes are near-term,
-extensive-margin or predetermined, and powered at the realistic post-reform sample size (roughly
-540--700 non-corporate-action campaigns over 2024--2026, before any repeat-activist
-restriction). Tier 2 outcomes require price data and are moderately powered. Tier 3 is reported
-descriptively, with confidence intervals, and is never presented as a headline test: the
-Post$\,\times\,$RTD$\,\times\,$SaleIntent triple interaction on bid hazard has an ex-ante minimum
-detectable effect of 17--31 percentage points on a roughly 17-percentage-point base rate, and the
-materially-exposed post-reform cell (the SEC's own under-90\% margin) contains on the order of
-three bids over the sample window. A test that cannot distinguish a null from a doubling of the
-base rate is not a test.
+The expected post-reform sample contains roughly 540--700 non-corporate-action
+campaigns from 2024--2026, before any repeat-activist restriction.
+Table~\ref{tab:outcome-hierarchy} separates outcomes that this sample can
+reasonably inform from outcomes that are descriptive.
 
 \begin{table}[htbp]
 \centering
-\caption{Outcome hierarchy and MDE honesty}
+\small
+\caption{Outcome hierarchy and statistical power}
 \label{tab:outcome-hierarchy}
-\begin{tabular}{p{0.10\linewidth}p{0.28\linewidth}p{0.19\linewidth}p{0.33\linewidth}}
+\begin{tabular}{@{}p{0.26\linewidth}p{0.16\linewidth}p{0.48\linewidth}@{}}
 \toprule
-Tier & Outcome & Level & Power / status \\
+Outcome & Role & Interpretation and power \\
 \midrule
-1 (headline) & Entry counts \& composition & liquidity-decile $\times$ quarter & extensive
-margin, unselected by conditional-on-filing treatment; best powered \\
-1 & Stake at filing & campaign & powered; predicted to fall under a deterrence channel \\
-1 & Trigger-to-filing accumulation share & campaign & powered; only the initial-deadline change
-can move it \\
-1 & Item 6 derivative-language rate & campaign & powered; the substitution channel through the
-dropped 13d-3(e) hole \\
-1 & Filing timing (delay) & campaign & mechanical -- reported, not credited as behavioral
-evidence \\
-2 & Filing-date $[-1,+1]$ CAR, share of total gain & campaign & event-time-invariant; moderately
-powered, requires CRSP \\
-2 & Pre-filing informed-bystander drift & campaign & moderately powered, requires CRSP \\
-3 (descriptive) & 6- and 12-month bid hazard & campaign & CIs only; triple interaction excluded
-(MDE 17--31pp on a $\sim$17pp base; $\sim$3 bids in the materially-exposed post-reform cell) \\
+Entry and target composition & primary & Best-powered extensive margin; not
+selected by conditioning on a filing outcome. \\
+Stake at filing and trigger-to-filing accumulation & primary & Campaign-level
+tests of the deadline's accumulation effect. \\
+Item~6 derivative language & primary & Campaign-level test of substitution
+through the rule's treatment of cash-settled derivatives. \\
+Filing delay & descriptive & Mechanical compliance outcome; not evidence of a
+behavioural response. \\
+Filing return and pre-filing drift & secondary & Moderately powered and dependent
+on CRSP access. \\
+Six- and twelve-month bid hazard & descriptive & Confidence intervals only. The
+sale-intent triple interaction has a minimum detectable effect of 17--31
+percentage points on a base rate of about 17 percentage points, with roughly
+three bids in the materially exposed post-reform cell. \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{First-Stage Battery: EDGAR-Only, Price-Free, Pre-Registered}
+\subsection{EDGAR first-stage analysis}
+\label{sec:first-stage}
 
-Before any model investment, we run a first-stage battery that requires no price data and is
-pre-registered against ex-ante minimum detectable effects computed from the Commission's own
-Tables 3, 5, and 6, not from the realized sample. Five components:
-
+The first-stage analysis uses only EDGAR data and will be pre-registered against
+minimum detectable effects calculated from the SEC's Tables~3, 5, and 6. It
+contains five components:
 \begin{enumerate}
-\item \textbf{Untrimmed delay distributions, split by corporate-action status.} This project's
-own fact1 pipeline reports a post-reform (2024Q3--Q4) median delay of 5.0 business days versus
-7.0 pre-reform (2023Q2--Q3), and a within-5-business-day share of 75.6\% post versus 35.7\% pre.
-The 75.6\% figure depends on an undocumented trim: it drops observations above 60 business days,
-and recomputing directly from the full set of 96 non-missing post-period delay observations in
-this project's own filing-level data gives a within-5-business-day share of 70.8\% (68 of 96),
-not 75.6\%. The pooled sample also mixes corporate-action and non-corporate-action filings,
-which the Commission finds have very different late-filing rates (34\% versus 11\%)
-\parencite{sec2023modernization}. Both defects are fixed here: we report the untrimmed
-compression statistic with the trim as a footnoted robustness check, and we split every delay
-statistic by tabular-Item-5(c)-history status once that classifier exists (subsection 7).
-\item \textbf{Stake-at-filing distributions}, pre/post, to test the deterrence prediction
-directly on a predetermined outcome.
-\item \textbf{Entry and composition counts by a coarse, price-free RTD proxy} (e.g. pre-trigger
-share turnover deciles), since the full $\mathrm{RTD}_i$ measure requires ADV data whose access is
-gated (subsection 7); this proxy lets the first-stage pass run before that gate resolves.
-\item \textbf{Item 6 derivative-language rates}, pre/post, as the direct test of substitution
-through the derivative-disclosure hole \parencite{sec2023modernization}.
-\item \textbf{13G-to-13D switching}, as the composition test described in subsection 1.
+\item untrimmed filing-delay distributions, reported separately for
+corporate-action and non-corporate-action filings;
+\item pre- and post-reform distributions of the stake reported at filing;
+\item entry and target composition by a coarse, price-free proxy for required
+trading days until CRSP-based average daily volume is available;
+\item the prevalence of Item~6 cash-settled-derivative language; and
+\item switching between Schedules~13G and 13D near the five-per-cent threshold.
 \end{enumerate}
+Filing-delay compression and accumulation after the legal deadline are
+mechanical consequences of compliance and cannot establish a behavioural
+response.
 
-The gate rule: filing-delay compression and post-deadline pre-filing accumulation are mechanical
-identities under the reform and cannot be used to pass any decision gate, because a merely
-compliant world produces both with zero behavioral content.
+\subsection{Inference and falsification}
+\label{sec:inference}
 
-\subsection{Inference Battery}
+The principal threat is a continuous-dose estimate driven by a particular
+placebo date, exposure assignment, or macroeconomic cycle. I will compare the
+estimated reform effect with distributions generated from placebo reform dates
+between 2015 and 2023 and from permutations of required trading days across
+activists. Quarterly event studies by exposure bin begin in 2019, and a joint
+pre-trend test is required before a causal interpretation. A non-US activist
+block sample based on UK DTR5 and E.U.\ Transparency Directive notifications
+provides a control for the global merger and interest-rate cycle. It will not be
+used as a legal-threshold comparison because the disclosure regimes are not
+otherwise comparable.
 
-With one adoption date, continuous dose, and no staggered-timing structure, the applicable
-threat is not negative-weighting in a staggered design but a fragile continuous-dose estimate
-that could be an artifact of the specific placebo date, the specific exposure assignment, or the
-2023--2025 M\&A and rate cycle. The battery:
-\begin{itemize}
-\item at least 500 placebo reform dates drawn from 2015--2023, re-estimating the full
-specification at each and reporting the realized estimate's percentile in the placebo
-distribution;
-\item at least 500 permutations of $\mathrm{RTD}_i$ across activists, holding the panel structure
-fixed, for the same percentile test;
-\item exposure-bin quarterly event studies from 2019 onward, with a joint pre-trend F-test as a
-precondition for any causal claim;
-\item a non-US activist-block sample (UK DTR5 / EU Transparency Directive notifications) over the
-same calendar window, used strictly as a control for the global M\&A and rate cycle and never as
-a legal-threshold comparison, since the disclosure regimes are not otherwise comparable.
-\end{itemize}
+\subsection{The timing of target gains}
+\label{sec:gain-anatomy}
 
-\subsection{Anatomy of Target Gains (Second Act)}
+Total target gain is divided into the filing return
+$G_{\mathrm{fil}}=\log(P^F/P^0)$, the post-filing run-up
+$G_{\mathrm{run}}=\log(P^B/P^F)$, and the bid markup
+$G_{\mathrm{mkp}}=\log(B/P^B)$. The unaffected price $P^0$ is measured
+60 trading days before the trigger in both reform periods, with robustness at
+30 and 120 days. Fixing this anchor prevents the treatment from moving the
+starting point of the decomposition.
 
-The second act decomposes total target gains into filing, run-up, and markup components:
-$G_{\text{fil}} = \log(P^F/P^0)$, $G_{\text{run}} = \log(P^B/P^F)$, and
-$G_{\text{mkp}} = \log(B/P^B)$, where $P^0$ is the unaffected price, $P^F$ the post-filing price,
-$P^B$ the bid-eve price, and $B$ the final offer. We fix $P^0$ at a common horizon of 60 trading
-days before the trigger date in both the pre- and post-reform cohorts (robustness at 30 and 120
-trading days), so that the anchor is not itself shifted by treatment.
+The reform shortened the median trigger-to-filing interval from seven to five
+business days in the project's initial data. This mechanically shortens the
+calendar span in the filing return and lengthens the span in the run-up, even if
+behaviour does not change. The primary filing measure is therefore the
+filing-date $[-1,+1]$ cumulative abnormal return as a share of total gain, with
+the trigger-to-bid horizon held fixed. A mechanical placebo recuts pre-reform
+campaigns as though they had filed under a five-business-day rule. A behavioural
+placebo restricts the sample to campaigns that already filed within five
+business days under the old rule, for which the reform did not change the legal
+window in practice.
 
-The reform compresses the trigger-to-filing interval by roughly two business days in this
-project's own data (median delay 7.0 to 5.0 business days), which mechanically shrinks the
-calendar span inside $G_{\text{fil}}$ and lengthens the span inside $G_{\text{run}}$ with zero
-behavioral content -- and does so in the direction opposite the reform's naive prediction that
-earlier disclosure should raise $G_{\text{fil}}$'s share of total gain. Every prediction here is
-therefore restated on event-time-invariant objects: the filing-date $[-1,+1]$ cumulative abnormal
-return as a share of total gain, with the trigger-to-bid horizon held fixed, rather than on
-calendar-spanning segments. Two placebos separate the mechanical artifact from any behavioral
-effect. The \emph{mechanical placebo} recuts pre-reform campaigns as if they had filed under a
-five-business-day rule, which isolates the pure truncation artifact directly from pre-period
-data. The \emph{behavioral placebo} restricts to already-fast filers -- campaigns that filed
-within five business days even under the old ten-calendar-day rule -- for whom the reform changes
-nothing mechanically, so any measured shift in their gain decomposition is a pure cycle or
-composition effect, not a deadline effect.
+If an M\&A outcomes database is unavailable, I will hand-collect the
+acquired-target subsample from Forms~8-K and DEFM14A using standard conventions
+for toeholds, premia, and deal outcomes
+\parencite{bett2014,eckbomalenkothorburn2025}. Cross-sectional tests use industry
+M\&A intensity as a proxy for fringe-bidder arrival, the strategic-buyer share
+as a proxy for the portability of activist improvements, and a discontinuity
+check around the five-per-cent ownership threshold
+\parencite{corumlevit2019,burkartlee2022,brav2008}. The capitalisation
+interpretation remains a measurement restriction, not a separate contribution
+\parencite{celentanolevine2025}.
 
-Where an M\&A outcomes database is unavailable (subsection 7), the acquired-target subsample is
-hand-collected from 8-K and DEFM14A filings, following measurement conventions from the M\&A
-literature on toeholds, premia, and deal outcomes \parencite{bett2014,eckbomalenkothorburn2025}.
-Capitalization -- completion probability up, conditional premium down through weakened target
-resistance -- is treated throughout as a measurement lemma inside this anatomy, with the
-interpretation credited to \textcite{celentanolevine2025} and the resistance-weakening mechanism
-to \textcite{corumlevit2019}, not restated as this paper's own headline finding. Heterogeneity is
-explored through the appropriability remnants of the disclosure-timing channel: industry M\&A
-intensity as a proxy for fringe-raid probability, strategic-buyer share as a proxy for the
-portability of the activist's information rents to a bidder (the broker/intermediary framing of
-\textcite{burkartlee2022}), and a regression-discontinuity-style check around the 5\% stake
-threshold itself. The classic activist-return decomposition of \textcite{brav2008} anchors the
-overall magnitude of gains against which this design's event-time-invariant restatement is
-compared.
+\subsection{Data feasibility}
+\label{sec:data-feasibility}
 
-\subsection{Data-Acquisition Map}
-
-Table~\ref{tab:data-map} inventories what exists in this project's pipeline against what the
-design above requires, following the E2 memo's build inventory. Two hard access gates dominate
-the schedule: CRSP/WRDS access is unconfirmed, and no M\&A outcomes database is currently held.
-Both are resolved at week 1--2, not discovered at week 7. Merger-background chronology
-extraction is excluded from the critical path entirely -- no chronology code, corpus, or design
-note exists anywhere in this repository, so any claimed comparative advantage there does not
-carry into this design.
-
-\begin{table}[htbp]
-\centering
-\caption{Data-acquisition map}
-\label{tab:data-map}
-\begin{tabular}{p{0.22\linewidth}p{0.10\linewidth}p{0.14\linewidth}p{0.16\linewidth}p{0.24\linewidth}}
-\toprule
-Component & Exists now & Build est.\ (wks, solo part-time) & Gate & Blocking risk \\
-\midrule
-13D + amendment enumeration & partial & 1--2 & none (running today) & low--medium \\
-Item 5(c) transaction-table extraction & none & 4--8+ & pre-estimation &high; SEC itself used
-programmatic extraction plus significant manual review of heterogeneous tables \\
-Item 4 purpose classification + blinded validation & none & 3--5 & 95\% auto-vs-manual agreement
-on the 200-filing validated subset (not the raw universe) & medium--high \\
-Trigger-date parser fix + hand-verification against Item 5(c) tables & partial (parse rate
-0.64--0.68) & 2--3 & pre-estimation &medium \\
-Post-Dec-2024 XML ingestion & partial & 1--2 & none & low mechanically; window only $\sim$18
-months, cannot carry the sample alone \\
-CRSP/WRDS access & un\-confirmed & 1--2 once access lands & week-1 go/no-go & gates price-based
-legs; EDGAR-only fallback per cut order \\
-Amihud / ADV construction & none & 1--2 after CRSP & gated on CRSP/WRDS & high \\
-M\&A outcomes & none & 4--8 (EDGAR 8-K/DEFM14A route) & week-2 source decision (Bloomberg
-checklist vs.\ EDGAR route) & high \\
-Merger-background chronologies & none & excluded from critical path & appendix / second paper
-only & n/a -- descoped \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\paragraph{Sample.} The core estimation sample is 2022--2026, bracketing the reform symmetrically
-while limiting exposure to the Item 5(c) extraction backlog; the Commission's own published
-2011--2021 tables serve as a pre-period anchor without requiring this project to re-extract that
-history. A 2010--2021 backfill is undertaken only after Item 5(c) extraction quality is proven at
-scale on the core sample.
-
-\subsection{Gates, Cut Order, and Scoop Defense}
-
-\textbf{Gate 0 (week 1): advisor ratification.} \textbf{Gate 1 (weeks 1--2): access.}
-CRSP/WRDS and the Bloomberg M\&A checklist are resolved as a hard go/no-go, since every
-price-based tier-2/tier-3 outcome and the anatomy of gains depend on one or the other and
-neither has been confirmed to date. \textbf{Gate 2 (weeks 2--4): pre-registered EDGAR-only
-first-stage pass}, using the battery in subsection 4 and the non-mechanical margin rule stated
-there. If at least one non-mechanical margin moves at its pre-registered MDE, further
-investment in the deadline-accumulation model (beyond the frozen provisional lens of
-Section~\ref{sec:model}) proceeds as the disciplining frame for the headline result; if none moves, the
-paper is re-aimed at the accounting lemma, the corner-solution model, and a well-measured policy
-null, with the anatomy of gains carrying the paper rather than the chilling result.
-
-\textbf{Published cut order} if the schedule slips: merger chronologies (already excluded) $\to$
-the signaling block $\to$ the full deal-universe anatomy (shrinking to the hand-collected
-acquired-target subsample) $\to$ the 2010--2021 backfill $\to$ an EDGAR-only fallback carrying
-only the first-stage facts and the exposure-composition results.
-
-\textbf{Scoop defense.} The first-stage facts and the exposure design are posted to SSRN once
-the exposure measure locks, at approximately month 4--5, ahead of the full anatomy-of-gains
-work. The novelty sweep and the publication status of \textcite{celentanolevine2025} are
-re-checked at every subsequent revision, since that paper's own capitalization interpretation is
-the one this design's measurement lemma must continue to cite rather than re-derive.
+The core sample spans 2022--2026. This window brackets the reform while limiting
+the Item~5(c) extraction burden; the SEC's published 2011--2021 tables provide a
+pre-period benchmark. EDGAR supports the first-stage analysis. CRSP or WRDS
+access is required for average daily volume and return-based outcomes, and an
+M\&A source is required for the full gain decomposition. These access decisions
+govern the price-based extensions, not the EDGAR analysis. The companion
+execution plan records the acquisition schedule, validation thresholds, and
+fallbacks.
