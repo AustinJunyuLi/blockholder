@@ -75,6 +75,29 @@ Ticket bodies are in `.scratch/v4-reposition/issues/` and are not repeated here:
    accepted output, compiles with xelatex, commits.
 8. **T3 (ticket 07):** Thread 4, or one Opus agent — it commits the paper to nothing.
 
+## The courier loop (how a thread actually runs)
+
+GPT Pro cannot see files and Claude cannot see ChatGPT; the author carries text between them.
+Claude must therefore build **every** message as one file, and ingest **every** answer as one file:
+
+1. Claude writes `research/model_v4/threads/thread<N>_msg<k>.md` — the complete message, in
+   order, nothing left for the author to assemble. The author opens it, selects all, pastes it
+   into the ChatGPT thread (inside the Project). A long bundle may be attached as a file instead,
+   but message 1 is pasted, not attached.
+2. The author copies GPT's whole answer and pastes it into the Claude Code session with one line
+   ("Thread 1 answer, turn 1:"). Claude saves it verbatim to
+   `research/model_v4/threads/thread<N>_turn<k>_answer.md`, then: checks NOTATION DELTA, greps
+   every lemma/ref/citation name, writes and runs the check scripts, and writes the next
+   `thread<N>_msg<k+1>.md` — with the **raw** check output pasted in.
+3. Repeat inside the same ChatGPT thread until Claude declares the thread done (every claim has
+   a verdict or a check). Expect 4–8 round trips per thread.
+4. Threads 2 and 3 start fresh ChatGPT threads; Claude prepares message 1 again. Thread 2's
+   message 1 carries statements only — no proofs — until it has re-derived.
+
+One-time ChatGPT setup: create a Project; upload `CONTEXT.md`, and later `MODEL_CARD.md` (replace
+it whenever Claude regenerates it); start every thread inside the Project; still paste the card at
+the top of message 1. Commit the `threads/` directory — it is the lane's primary-source record.
+
 ## The GPT Pro protocol
 
 **The Project.** One ChatGPT Project holding the standing files, re-pasted at the top of every
