@@ -1,0 +1,1304 @@
+                                                       Journal of Financial Economics 133 (2019) 1–17
+
+
+
+                                                      Contents lists available at ScienceDirect
+
+
+                                              Journal of Financial Economics
+                                                 journal homepage: www.elsevier.com/locate/jfec
+
+
+
+
+Corporate control activismR
+Adrian Aycan Corum a, Doron Levit b,∗
+a
+ Samuel Curtis Johnson Graduate School of Management, Cornell University, Sage Hall, 114 East Ave, Ithaca, NY 14853, USA
+b
+ Wharton School, Finance Department, University of Pennsylvania, 3620 Locust Walk, 2322 Steinberg Hall/Dietrich Hall, Philadelphia,
+PA 19104-6367, USA
+
+
+
+
+a r t i c l e          i n f o                        a b s t r a c t
+
+Article history:                                      This paper studies the role of activist investors in the market for corporate control. Our
+Received 24 August 2017                               theory proposes that activist investors have an inherent advantage relative to bidders in
+Revised 29 May 2018
+                                                      pressuring entrenched incumbents to sell. As counterparties to the acquisition, bidders
+Accepted 11 June 2018
+                                                      have a fundamental conﬂict of interests with target shareholders from which activist in-
+Available online 6 February 2019
+                                                      vestors are immune. Therefore, unlike activists, the ability of bidders to win proxy ﬁghts
+JEL classiﬁcation:                                    is very limited. This result is consistent with the large number of activist campaigns that
+D74                                                   have resulted with the target’s sale to a third party and the evidence that most proxy
+D83                                                   ﬁghts are launched by activists, not by bidders.
+G23
+                                                                                                                 © 2019 Elsevier B.V. All rights reserved.
+G32
+G34
+
+Keywords:
+Acquisition
+Corporate governance
+Proxy ﬁght
+Shareholder activism
+Takeover
+
+
+
+
+                                                                                       “I’d like to thank these funds [Carl Icahn, Nelson Peltz,
+                                                                                       Jana Partners, Third Point] for teeing up deals because
+                                                                                       they’re coming in there and shaking up the management
+ R
+                                                                                       and many times these companies are being driven into
+    For helpful comments, we thank Ron Kaniel (editor), the anony-
+mous referee, Anat Admati, Lucian Bebchuk, Mitchell Berlin (dis-
+                                                                                       some form of auction.” Thomas H. Lee, a private equity
+cussant), Patrick Bolton (discussant), Alex Edmans, Vyacheslav Fos                     fund manager.1
+(discussant), Simon Gervais, Vincent Glode, Itay Goldstein, Samuel Lee
+(discussant), Andrey Malenko (discussant), Nadya Malenko, Richmond                 1. Introduction
+Mathews (discussant), Gregor Matvos, Ernst Maug (discussant), Christian
+Opp, Bilge Yilmaz, the participants at the 7th Summer Finance Confer-
+                                                                                      Corporate boards have the power to resist a takeover
+ence at the IDC Herzliya, Summer School on Financial Intermediation and
+Contracting at Washington University in St. Louis, Ackerman Conference             of their company, for example, by issuing a shareholder
+on Corporate Governance 2015, 11th Annual Mid-Atlantic Research Con-               rights plan (“poison pill”).2 In principle, directors should
+ference in Finance, Young Scholars Finance Consortium 2016, Third Ed-              use this power to negotiate a higher takeover premium or
+inburgh Corporate Finance Conference in 2016, 2016 FIRS meetings, 2016
+WFA meetings, WUSF 2016, and seminar participants at Wharton, Frank-
+furt School of Finance and Management, Norwegian School of Economics,                1
+                                                                                       The New York Times, “Will credit crisis end the activists’ run?,” Au-
+Indiana University, and Harvard Law School.                                        gust 27, 2007.
+  ∗                                                                                  2
+    Corresponding author.                                                              Under most jurisdictions, including Delaware, merger proposals can
+    E-mail      addresses:    corum@cornell.edu       (A.A.     Corum),            be brought to a vote for a shareholder approval only by the board of di-
+dlevit@wharton.upenn.edu (D. Levit).                                               rectors. Alternatively, tender offers do not require a vote, but they are
+
+https://doi.org/10.1016/j.jﬁneco.2019.02.001
+0304-405X/© 2019 Elsevier B.V. All rights reserved.
+2                                          A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+to reject coercive bids. However, the separation of owner-                         corporate control is making corporate assets available for
+ship and control creates agency conﬂicts (Berle and Means,                         sale.6 This result holds even if bidders and activists have
+1932): there is a risk that this power would be abused                             similar expertise and can use similar techniques to chal-
+to protect insiders’ private beneﬁts of control and block                          lenge incumbents.
+takeovers that would otherwise create a shareholder value.                             In Section 2, we formalize our key argument. We an-
+In those cases, the resistance to takeovers can be overcome                        alyze a simple dynamic bargaining model in which the
+only if the majority of directors are voted out in a con-                          identity of the target board, who is negotiating an acqui-
+tested election (“proxy ﬁght”). In fact, the power of share-                       sition agreement on behalf of target shareholders, is en-
+holders to unseat directors is often used by the courts as                         dogenized by an interim proxy ﬁght stage. The incumbent
+the basis for allowing boards to block takeovers in the ﬁrst                       board, who has private beneﬁts from controlling the tar-
+place (Gilson, 2001).                                                              get, can at least partially resist a takeover. A proxy ﬁght
+    Shareholders, however, cannot vote out the incumbent                           to oust the resisting incumbent can be initiated by the
+directors unless an alternative slate is put on the ballot.                        bidder or the activist, but its success requires the vote of
+Empirically, bidders rarely launch proxy ﬁghts to replace                          target shareholders. Crucially, a proxy ﬁght is not a ref-
+all or part of the resisting target board.3 Most proxy ﬁghts                       erendum on the terms of the takeover but rather a vote
+are launched by activist hedge funds (Fos, 2017), who of-                          on the composition of the board. We show that once the
+ten demand from companies they invest in to sell all or                            bidder’s nominees are elected, the bidder will be tempted
+part of their assets (Brav et al., 2008; Becht et al., 2017).                      to abuse his control of the target board, exploit its ac-
+Greenwood and Schor (2009) and Boyson et al. (2017) doc-                           cess to the target’s proprietary information, and lowball
+ument hundreds of activist campaigns that resulted with                            the takeover premium. Indeed, as their counterparty, the
+a takeover bid by a third party and argue a causal link.                           bidder has the opposite preferences of target shareholders.
+For example, in 2014, the board of PetSmart agreed to be                           In other words, a buyer cannot be expected to act in the
+bought out for $8.7 billion after facing months-long pres-                         best interests of the seller. This is the fundamental con-
+sure, which included the threat of a proxy ﬁght from one                           ﬂict of interests between the bidder and target sharehold-
+of its largest shareholders, the activist hedge fund Jana                          ers. Since this conﬂict cannot be easily solved, target share-
+Partners.4 As another example, in 2013, the private eq-                            holders cannot trust the bidder; they will vote against his
+uity ﬁrm KKR acquired Gardner Denver for $3.7 billion af-                          nominees, and the proxy ﬁght will fail. By contrast, ac-
+ter the activist hedge fund ValueAct Capital accumulated                           tivist investors buy shares with the expectation that the
+a 5% stake in the company, ﬁled a schedule 13D, and agi-                           target will be acquired. Unlike bidders, activists are typ-
+tated for its sale. Highlighting the activist’s role in the deal,                  ically on the sell side of the negotiating table and have
+KKR’s co-CEO, George Roberts, said, “We wouldn’t have                              incentives to bargain the highest takeover premium pos-
+bought Gardner Denver had not an activist shown up. They                           sible. Since activists enjoy a higher credibility when cam-
+are a nicer form of what in the old days the green mailers                         paigning against incumbents, they are also more successful
+and the hostile raiders used to do. They were great for our                        in winning proxy ﬁghts. As a result, the threat of activists
+business.”5                                                                        to launch a proxy ﬁght and replace the incumbent is suf-
+    In principle, both bidders and activist investors can use                      ﬁcient to induce the latter to accept takeover offers that
+proxy ﬁghts to pressure companies to sell, but the evi-                            they would have otherwise rejected.
+dence suggests that this tactic is mostly employed by ac-                              As a whole, our theory proposes that activist investors
+tivists, not bidders. Why? What is the relative advantage of                       have an inherent advantage relative to bidders in pressur-
+activists, if any? In this paper, we propose a novel theory                        ing entrenched incumbents to sell. Importantly, our key
+that answers these questions and explains the unique role                          observation is in relative terms. It does not imply that bid-
+of activist investors in the market for corporate control. In                      ders can never use proxy ﬁghts to pressure incumbents
+the spirit of Occam’s razor, our main argument is simple.                          to sell the ﬁrm, but it does suggest that these events are
+We argue that, as counterparties to the acquisition, bidders                       less frequent than campaigns in which an activist pushes
+have a fundamental conﬂict of interests with target share-                         for the sale of the target company. This prediction is sup-
+holders from which activist investors are immune, and as                           ported by the empirical evidence that bidders rarely run
+a result, the ability of bidders to win proxy ﬁghts is very                        proxy ﬁghts (Fos, 2017), while activist investors frequently
+limited. Since activist investors have a relative advantage                        launch campaigns with the objective of selling the tar-
+in pressuring corporate boards to relinquish control, our                          get company (Greenwood and Schor, 2009; Boyson et al.,
+theory proposes that their unique role in the market for                           2017). In addition, our analysis emphasizes the beneﬁt
+                                                                                   from separating the capacity to disentrench boards from
+                                                                                   the capacity to increase ﬁrm value through acquisitions;
+vulnerable to poison pills, which can be adopted on short notice and
+                                                                                   one party cannot combine two roles that rely on oppos-
+make a takeover virtually impossible.
+   3
+     Fos (2017) ﬁnds that only 5% of all proxy ﬁghts between 2003 and
+                                                                                   ing preferences. The complementarity between the activist
+2012 were sponsored by corporations (i.e., potential bidders).                     and the bidder suggests that the role of activist investors
+   4
+     See the New York Times, “Under pressure from Jana, PetSmart says it           in the market for corporate control is unique.
+will explore potential sale,” August 19, 2014; the New York Times, “Elliott
+and Jana, activist investors, are behind 2 big buyouts,” December 15, 2014;
+and the Deal Pipeline, “Jana unveils potential board slate for PetSmart,”
+November 21, 2014.
+   5                                                                                 6
+     Reuters, “Activism, economy weighed on M&A in 2013, issues could                  We focus on takeovers, but our theory can be applied to divestitures
+linger,” December 19, 2013.                                                        and assets sales as well.
+                                    A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                            3
+
+
+    To further study the implications of activist interven-                 will face a weaker opposition to the takeover. We refer to
+tions on mergers and acquisitions (M&A), we consider two                    these cases as “treatment,” since the activist’s investment
+extensions to the baseline model. In Section 3, we con-                     in the target directly affects the probability of a takeover
+sider the possibility that the activist would start a proxy                 and its terms.
+ﬁght in anticipation of a takeover offer. Why would an ac-                      While the aforementioned empirical literature ﬁnds ev-
+tivist start a proxy ﬁght before a speciﬁc bidder arrives?                  idence that is consistent with the treatment effect (e.g.,
+Intuitively, overcoming the resistance of the incumbent re-                 the probability of a takeover is several times higher when
+quires the bidder to offer the target a hefty takeover pre-                 an activist hedge fund is a shareholder of the target), it is
+mium. Knowing that a takeover is likely to be pricey dis-                   hard to rule out the possibility of a selection effect, espe-
+courages the bidder from performing due diligence of the                    cially when a proxy ﬁght is not observed. We show that
+target. By replacing the entrenched incumbent, the ac-                      the model’s comparative statics with respect to the in-
+tivist and other shareholders effectively incentivize poten-                cumbent’s private beneﬁts of control and the cost of run-
+tial bidders to perform due diligence by assuring them that                 ning a proxy ﬁght are sensitive to the existence of the
+they will be able to negotiate a “fair” deal with the new                   treatment effect in equilibrium. Importantly, this feature
+board. Unlike the baseline model, here, proxy ﬁghts are not                 can be used to create identiﬁcation strategies for empir-
+only used as threats, they are actually initiated and com-                  ical research. For example, if only the selection effect is
+pleted by the activist on the equilibrium path.                             in play, the volume of M&A decreases with the severity
+    The analysis offers a number of interesting empirical                   of the agency problems in target ﬁrms. This is intuitive,
+implications. First, it predicts a nonmonotonic relation be-                as with more private beneﬁts of control, the incumbents
+tween the frequency of proxy ﬁghts and board entrench-                      are more likely to resist takeover bids. However, when the
+ment. Intuitively, if the incumbent is not entrenched, then                 treatment effect is in play, more resistance of incumbents
+a proxy ﬁght is not needed; the bidder will be able to                      to takeovers can result in a higher volume of M&A. Intu-
+reach an agreement even without the activist’s interven-                    itively, the resistance of incumbents to takeovers provides
+tion (or threat to do so). However, if the incumbent is                     activist investors with opportunities to facilitate transac-
+highly entrenched, then all parties involved correctly an-                  tions that otherwise would not have taken place. The ex-
+ticipate the strong incentives of the activist to intervene,                pectation that incumbents would be pressured to accept
+and as a result, the threat of a proxy ﬁght is suﬃcient                     their takeover offers increases the incentives of poten-
+to pressure the incumbent to sell. In all other cases, the                  tial bidders to approach these companies, thereby increas-
+activist launches a proxy ﬁght, since the threat of doing                   ing the overall probability of a takeover. Based on this
+so is not strong enough to encourage the bidder to en-                      logic, the treatment effect can be identiﬁed in data by a
+gage with the target. Second, the model predicts that proxy                 positive relation between the severity of agency problems
+ﬁghts with a stated objective of selling the target should be               in the cross-section of target ﬁrms and the likelihood of a
+observed before a speciﬁc bidder arrives. Moreover, when                    takeover.
+such a proxy ﬁght is taking place, it is expected to increase                   Our paper contributes to the literature on takeovers
+the probability that the target receives a takeover offer af-               and shareholder activism (for surveys, see Becht et al.,
+terwards, and as a result, the expected shareholder value                   2003; Edmans, 2014, respectively). Unlike studies in which
+should be higher. As we discuss in Section 3, this predic-                  the bidder is also a target shareholder (e.g., Shleifer and
+tion is consistent with the empirical evidence: announce-                   Vishny, 1986; Hirshleifer and Titman, 1990; Kyle and Vila,
+ments of proxy ﬁghts with a stated goal of selling the ﬁrm                  1991; Burkart, 1995; Maug, 1998; Singh, 1998; Bulow et al.,
+to a third party generate positive abnormal stock returns                   1999), our analysis emphasizes the beneﬁt from separat-
+for the target ﬁrm, and these target ﬁrms are signiﬁcantly                  ing the capacity to disentrench boards from the capac-
+more likely to be acquired within two years after the proxy                 ity to increase ﬁrm value through acquisitions and high-
+ﬁght.                                                                       lights the complementarity between shareholder activism
+    In Section 4, we endogenize the decision of the activist                and takeovers. The interaction between bidders and tar-
+to become a target shareholder. In general, activists invest                get blockholders was also studied by Burkart et al. (20 0 0),
+either because they believe the company is likely to be-                    Cornelli and Li (2002), Gomes (2012) and Burkart and Lee
+come a takeover target or because they can facilitate its                   (2017). Different from these papers, however, we focus on
+takeover by putting the company into play. In the former                    agency problems within the target ﬁrm and on the abil-
+case, the activist uses her private information to speculate                ity of activists to relax the resistance of incumbents to
+on the possibility of a takeover, but her investment has no                 takeovers. Finally, models in which the target board can re-
+real effect on the target. We refer to these cases as “selec-               sist a takeover offer were studied by Bagnoli et al. (1989),
+tion,” since the activist’s investment in the target is corre-              Baron (1983), Berkovitch and Khanna (1990), Hirshleifer
+lated with a higher probability of a takeover, but the link                 and Titman (1990), Harris and Raviv (1988) and Ofer and
+is not causal. By contrast, in the latter case, the activist                Thakor (1987). Proxy ﬁghts as a mechanism to transfer cor-
+uses her private information to identify ﬁrms that could                    porate control were studied by Shleifer and Vishny (1986),
+be a takeover target, and by doing so, the activist increases               Harris and Raviv (1988), Bhattacharya (1997), Maug (1999),
+the probability of a takeover. Essentially, bidders interpret               Yı lmaz (1999), Bebchuk and Hart (2001), and Gilson and
+the presence of an activist as a signal that the target is                  Schwartz (2001). We add to these two strands of the litera-
+available for sale, and as a result, they are more likely to                ture by identifying the advantage of activist investors rela-
+start takeover negotiations with the target. In other words,                tive to bidders in utilizing proxy ﬁghts to relax managerial
+the activist is soliciting offers by assuring bidders that they             resistance.
+4                                    A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+
+                    Target remains                 no                Bidder performs due diligence and
+                     independent                                        identifies positive synergies
+
+                                                                                          yes
+
+
+                                                                      Takeover negotiations - round I:
+                                                                        bidder vs. incumbent board
+                                                    agreement                             disagreement
+
+
+                   shareholders        reject
+                                                                               Proxy fight:
+                       vote                          1. bidder and activist decide whether to launch a proxy fight
+                                                     2. shareholders elect directors
+                          approve
+
+
+
+                                                                      Takeover negotiations - round II:
+                                                                          bidder vs. elected board
+
+                                                                agreement                 disagreement
+
+
+                     Target is      approve      shareholders       reject     Target remains
+                     acquired                        vote                       independent
+
+                                              Fig. 1. The sequence of events in the baseline model.
+
+
+
+
+2. Baseline model                                                            scrutiny from regulators, but only rarely do they create sig-
+                                                                             niﬁcant synergies to the buyer. Assuming x can be suf-
+2.1. Setup                                                                   ﬁciently negative guarantees that the bidder will never
+                                                                             acquire the target without ﬁrst performing due diligence
+   We consider a model with a bidder, an activist investor,                  about x. Speciﬁcally, the bidder can pay a cost c ≥ 0 and
+passive shareholders, and one public ﬁrm, the target. The                    privately learn the exact value of x. The cost c, which is
+target is run by its incumbent board of directors. We                        independent of x, is drawn from a continuous density dis-
+do not distinguish between the manager and other board                       tribution f with full support on [0, ∞). If the bidder did
+members; we treat them as one. At the outset, the bid-                       not perform due diligence or if he learned that x = −∞, he
+der decides whether to perform due diligence of the target                   would walk away from the deal, and the target remains in-
+and start takeover negotiations with its board. There are                    dependent. However, if the bidder performed due diligence
+two rounds of negotiations that are separated by a proxy                     and learned that x = , he would start takeover negotia-
+ﬁght stage. All agents are risk neutral and have a zero dis-                 tions with the target as we describe below. Notice that by
+count rate. As we describe below, the fundamental conﬂict                    construction, the bidder’s decision to start takeover nego-
+of interests among the bidder, the incumbent, and target                     tiations reveals that x = .
+shareholders will play a central role in the analysis. Fig. 1                    The bidder negotiates with the target board a cash of-
+describes the sequence of events.                                            fer to acquire all target shares. The bidder cannot bypass
+   A successful acquisition of the target ﬁrm requires at                    the target board and make a tender offer directly to target
+least 50% of its voting rights. Each target share carries                    shareholders, possibly because the target board can block
+one vote. We normalize the number of shares to one and                       these attempts using poison pills,7 or because overcoming
+assume that they are perfectly divisible. The standalone                     the free rider problem of Grossman and Hart (1980) is too
+value of the target is normalized to zero. The expected                      costly. In Appendix B, we show that the only important
+value of the target post acquisition is x ∈ {, −∞}, where
+ > 0 and Pr [x = ] = τ ∈ (0, 1 ). The bidder is initially un-                7
+                                                                                  Corporate boards can adopt a poison pill on a short notice; it does
+informed about x. If x = , then the acquisition is ex-                      not have to be in place prior to the takeover to deter bidders (“shadow
+pected to create value. For example,  is an operational                     pills”). Triggering a poison pill by moving forward with a tender offer
+or ﬁnancial synergy from a strategic merger, or operational                  signiﬁcantly dilutes the bidder and is therefore extremely costly. Virtu-
+improvements from a going private transaction. If x = −∞,                    ally all tender offers are conditioned on the redemption of a poison pill
+                                                                             exactly for this reason (nonredeemable pills are illegal in most states, in-
+then the acquisition destroys value. Intuitively, acquisitions               cluding New York and Delaware). Moreover, a poison pill has never been
+often involve transaction costs, distraction to manage-                      intentionally triggered, which is consistent with the pill being a powerful
+ment and employees, higher uncertainty, and heightened                       takeover deterrent.
+                                            A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                                          5
+
+
+assumption is that the incumbent can at least partially                             the target remains independent, and its standalone value
+resist a takeover. There are two rounds of negotiations                             is realized.
+that are separated by a proxy ﬁght stage. In each round,
+the proposer is decided randomly and independently. With
+                                                                                    2.1.1. Payoffs
+probability s ∈ (0, 1), the proposer is the target board, and
+                                                                                        Incumbent: The incumbent board owns n ≥ 0 target
+with probability 1 − s, the proposer is the bidder. The pro-
+                                                                                    shares and has private beneﬁts of control B > 0. These
+poser makes a take-it-or-leave-it offer to the other party,
+                                                                                    private beneﬁts, which are lost if the ﬁrm is acquired
+and so, s represents the bargaining power of the target
+                                                                                    or if shareholders elect a new board, may include ex-
+ﬁrm.8 Any acquisition agreement must be approved by a
+                                                                                    cessive salaries, perquisites, investment in “pet” projects,
+majority of the target shareholders in a vote. At any voting
+                                                                                    access to private information, pleasure of command, pres-
+stage, target shareholders do not play weakly dominated
+                                                                                    tige, or publicity. We assume that compensation contracts,
+strategies. If target shareholders approve the agreement,
+                                                                                    including golden parachutes, cannot fully align the incen-
+each shareholder receives the agreed upon takeover pre-
+                                                                                    tives of the incumbent board with the shareholders, which
+mium for each share he owns, and the target is acquired
+                                                                                    is consistent with the evidence by Jenter and Lewellen
+by the bidder.
+                                                                                    (2015) who show that managers are reluctant to relinquish
+    If no agreement is reached at the ﬁrst round or if
+                                                                                    control due to career concerns.11 We denote the incum-
+shareholders vote down a proposed agreement, the bid-
+                                                                                    bent’s private beneﬁts per share by b ≡ B/n.
+der and the activist decide simultaneously whether to start
+                                                                                        Activist: The activist owns α ≥ 0 shares of the target,
+a proxy ﬁght to replace the incumbent board.9 If a proxy
+                                                                                    which we endogenize in Section 4. The activist cannot af-
+ﬁght is initiated, the challenger incurs a non-reimbursable
+                                                                                    fect the standalone value of the target or make a takeover
+campaigning cost κ > 0. Target shareholders then decide
+                                                                                    bid. These assumptions are discussed in Section 2.3.2 and
+whether to vote for the incumbent or one of the rival
+                                                                                    relaxed in Appendix C. While the activist is a target share-
+teams. The team that receives the largest number of votes
+                                                                                    holder, she may be conﬂicted with other shareholders: the
+is elected and takes control of the target board. If share-
+                                                                                    activist obtains private beneﬁts γ ≥ 0 from controlling the
+holders are indifferent between electing the rival (the bid-
+                                                                                    target board as an independent ﬁrm. We assume γ < κ . In-
+der or the activist) and retaining the incumbent, they
+                                                                                    tuitively, γ is not large enough to fully compensate the ac-
+choose the latter.10
+                                                                                    tivist for the cost of launching a proxy ﬁght. While we do
+    Winning a proxy ﬁght gives the rival team the right to
+                                                                                    not rule out γ ≥ B, activists are likely to have fewer private
+negotiate on behalf of the target shareholders an acquisi-
+                                                                                    beneﬁts than incumbents.12 Activists are also likely to own
+tion agreement with the bidder in the second round. That
+                                                                                    a larger stake in the target (α ≥ n).13 Therefore, we focus
+is, the newly elected directors can redeem the poison pill,
+                                                                                    the analysis on cases where γ /α < b.
+if such exists, and resume negotiations. The newly elected
+                                                                                        Bidder: The bidder initially does not own any shares of
+directors maximize the value of the party with which they
+                                                                                    the target. Allowing the bidder to have a toehold will not
+are aﬃliated, even if it conﬂicts with maximizing target
+                                                                                    change the main results. Apart from increasing the value of
+shareholder value. In other words, the enforcement of di-
+                                                                                    the target by x, the bidder does not have additional bene-
+rectors’ ﬁduciary duties is limited, and the bidder and the
+                                                                                    ﬁts from the acquisition.
+activist cannot commit to act in the best interests of tar-
+                                                                                        Passive target shareholders: Passive investors do not
+get shareholders. Once the proxy ﬁght stage ends, a sec-
+                                                                                    have private beneﬁts from control or any ability (or incen-
+ond round of negotiations between the bidder and the tar-
+                                                                                    tives) to start a proxy ﬁght. We assume that collectively
+get board (which may now be populated with the newly
+                                                                                    these investors hold more than 50% of the target voting
+elected directors) takes place. The second round has the
+                                                                                    rights.
+same protocol as the ﬁrst round, with the exception that
+if no agreement is reached or shareholders reject the deal,
+                                                                                      11
+                                                                                         Compensation contracts cannot perfectly undo the incumbent’s pri-
+                                                                                    vate beneﬁts if, for example, these private beneﬁts are unknown at
+   8
+     The Nash bargaining protocol can be microfounded using Rubinstein              the time the contract is set. For additional evidence, see Walkling and
+(1982) model of alternating offers.                                                 Long (1984), Martin and McConnell (1991), Agrawal and Walkling (1994),
+   9                                                                                Hartzell et al. (2004) and Wulf and Singh (2011).
+     We implicitly assume that the majority of directors stand for reelec-
+                                                                                      12
+tion. In 2013, only 11% of the S&P 500 companies had a classiﬁed board,                  Activists often stay on the board of a portfolio company for less than
+down from 57% in 2003 (see sharkrepellent.net: “Governance activists set            a year (partly because insider trading rules put restrictions on activists,
+their sights on Netﬂix’s annual meeting” and “2003 year end review”).               who ultimately seek to exit and pursue other investment opportunities).
+Alternatively, winning a short slate proxy ﬁght is suﬃcient to change the           A short tenure on the board limits the ability of activist hedge fund man-
+dynamic in the board and the ability of the incumbents to protect their             agers to consume private beneﬁts from keeping the ﬁrm independent
+private beneﬁts of control. Since taking control of a staggered board re-           (e.g., perquisites, publicity, prestige). Moreover, executives and directors
+quires winning two proxy ﬁghts, staggered boards can also be viewed as              of public companies, whose human capital is often ﬁrm speciﬁc, are un-
+a mechanism to increase the cost of a proxy ﬁght. See Bebchuk et al.                likely to ﬁnd a comparable job if they are ﬁred following a takeover (e.g.,
+(2002) for a discussion on staggered board.                                         Harford, 2003). By contrast, activist hedge fund managers hold a portfo-
+  10                                                                                lio of 10–15 ﬁrms, and their reputation depend on the aggregate perfor-
+     Intuitively, if the target ﬁrm were to remain independent under the
+control of the rival team, the rival team would divert corporate resources,         mance of their portfolio.
+                                                                                      13
+for example, by exploiting the privileged access of directors to the target’s            Activists typically own 8%-9% of the target ﬁrm when they run a cam-
+proprietary information or through self-dealing transactions. See Atanasov          paign (e.g., Brav et al., 2008), while managers and non-CEO executives
+et al. (2014) for a discussion on the various forms of tunneling and                own much less (e.g., Murphy, 2013). Moreover, directors typically earn
+Atanasov et al. (2010), Bates et al. (2006) and Gordon et al. (2004) for            annually no more than $250,0 0 0, a large portion of which is in ﬁxed
+evidence on tunneling in the US.                                                    salaries.
+6                                       A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+2.2. Analysis                                                                       Third, if the bidder somehow was able to win a proxy
+                                                                                ﬁght, then the dynamic above changes. The control of
+    We study Subgame Perfect Equilibria in pure strategies                      the target board gives the bidder the authority to nego-
+and solve the game backward. All proofs not in the main                         tiate on behalf of target shareholders. Effectively, the bid-
+text are in Appendix A. Suppose the bidder performed due                        der is sitting on both sides of the negotiating table. Un-
+diligence and learned that x = . Deﬁne                                         like the activist, the bidder is interested in acquiring the
+                                                                                target for the lowest price possible. Therefore, whether
+πz ≡ [s + (1 − s )z] · 1z≤ .                                      (1)         the proposer is the target board or the bidder, the bidder
+The ﬁrst result describes the outcome of the second round                       would be tempted to offer target shareholders their reser-
+of negotiations.                                                                vation price, zero.15 This discussion completes the proof of
+                                                                                Lemma 1.
+Lemma 1. Suppose the ﬁrst round of negotiations failed. Then,                       Target shareholders, who have rational expectations, ex-
+the expected target shareholder value in the second round of                    pect the bidder to abuse the power of the board once
+negotiations is                                                                 given to him. Therefore, they never elect the bidder to
+                                                                               their board. Since running a proxy ﬁght is both costly and
+ πb    if the incumbent retains control                                         ineﬃcacious, the bidder does not run a proxy ﬁght in any
+ πγ /α if the activist controls the board                           (2)         equilibrium of the subgame.
+    0     if the bidder controls the board.
+                                                                                Proposition 1. The bidder never starts a proxy ﬁght.
+    Lemma 1 can be understood in three steps. First, sup-
+                                                                                    Notice that Proposition 1 holds regardless of the gains
+pose the incumbent is reelected. Since it is the second and
+                                                                                from the takeover (), the cost of running a proxy ﬁght
+last round of negotiations, the incumbent can block the
+                                                                                (κ ), the incumbent board’s private beneﬁts of control (b),
+takeover. Therefore, he would agree to sell the ﬁrm only
+                                                                                the activist’s private beneﬁts of control (γ ), the size of the
+if the offer embeds a premium larger than b, his private
+                                                                                activist’s stake (α ), and whether or not the activist is also
+beneﬁts per share. On the other hand, the bidder makes a
+                                                                                running a proxy ﬁght.
+proﬁt of  − π if he acquires the target by paying a pre-
+                                                                                    Deﬁne
+mium of π . Therefore, the highest premium the bidder can
+afford to pay is . There are two subcases to consider.                         δ ≡ γ + (κ − γ )/s.                                                    (3)
+First, suppose b ≤ . If the incumbent is the proposer, then
+                                                                                The next result describes the circumstances under which
+he would demand a premium of . If the bidder is the
+                                                                                the activist launches a proxy ﬁght.
+proposer, then he would offer the lowest premium that is
+acceptable to the incumbent board and target sharehold-                         Proposition 2. Suppose the ﬁrst round of negotiations failed.
+ers, which is b. Indeed, target shareholders approve any                        The activist starts a proxy ﬁght if and only if πγ /α − πb ≥
+agreement that offers them more than the target stan-                           κ /α , which is equivalent to
+dalone value. Note that the bidder overcomes the incum-
+                                                                                δ /α ≤  < b.                                                          (4)
+bent’s resistance to the takeover by compensating him for
+the loss of his private beneﬁts of control. In this case, the                   If the activist starts a proxy ﬁght, she wins the control of the
+entrenchment of the incumbent beneﬁts target sharehold-                         target board and then sells the ﬁrm for an expected takeover
+ers (at least ex-post), since it forces the bidder to offer a                   premium of π γ /α > 0.
+higher premium without endangering the deal. Overall, if
+                                                                                    Proposition 2 establishes our observation that although
+b ≤ , then the incumbent and the bidder reach an agree-
+                                                                                both bidders and activists can launch a proxy ﬁght and face
+ment, and the expected takeover premium is s + (1 − s )b.
+                                                                                the same costs of doing so, only activists can relax the re-
+Second, if  < b, then the bidder cannot afford to com-
+                                                                                sistance of incumbents and facilitate a takeover. To under-
+pensate the incumbent for the loss of his private bene-
+                                                                                stand this result, notice that unlike the bidder, sharehold-
+ﬁts of control. The bidder walks away from the takeover
+                                                                                ers expect the activist to negotiate a premium of π γ /α if
+negotiations, no agreement is reached, and the target re-
+                                                                                they elect her to the board. Being on the sell side gives
+mains independent under the incumbent’s control. In this
+                                                                                the activist an advantage relative to the bidder when cam-
+case, the entrenched incumbent blocks a takeover that was
+                                                                                paigning against the incumbent. Nevertheless, sharehold-
+expected to increase target shareholder value.14 This ten-
+                                                                                ers elect the activist only if she is expected to outperform
+sion between the incumbent and target shareholders is at
+                                                                                the incumbent, that is, π γ /α > π b .16 The activist, however,
+the core of our analysis. Overall, the expected shareholder
+                                                                                does not necessarily start a proxy ﬁght even if she ex-
+value under the incumbent’s control is π b .
+                                                                                pects to win it; a proxy ﬁght has to increase the activist’s
+    Second, if the activist is elected to the target board,
+then the expected shareholder value is π γ /α . The only dif-
+                                                                                 15
+ference from the case in which the incumbent is reelected                           Notice that this argument does not imply that if a bidder wins a
+is that under the activist’s control, the target board has pri-                 proxy ﬁght, the offered takeover premium should necessarily drop. If the
+                                                                                bidder believes that he can win a proxy ﬁght and capture the target board
+vate beneﬁts per share of γ /α instead of b.
+                                                                                even without committing to act in the best interests of target share-
+                                                                                holders, he would lowball the takeover premium in advance (in the ﬁrst
+                                                                                round), anticipating his ability to abuse the power of the target board
+ 14
+    If n < B <  then a takeover is the eﬃcient outcome under the in-          once elected.
+cumbent’s control even when the incumbent’s private beneﬁts are taken            16
+                                                                                    Note that even though we assume γ /α < b, the indicator function in
+into account.                                                                   expression (1) implies that π γ /α > π b is satisﬁed whenever γ /α ≤  < b.
+                                             A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                                7
+
+
+net expected payoff. If the activist launches a proxy ﬁght                               To understand Proposition 3, suppose the bidder per-
+and wins   control 
+                    of the board, then her net payoff would                          formed due diligence and learned that x = . If  < δ /α or
+be max απγ /α , γ − κ . Indeed, if the activist reaches an                           b ≤ , then the activist has no effect on the outcome of
+agreement with the bidder, then the takeover premium is                              the takeover. Without the intervention of the activist, the
+π γ /α . Otherwise, the target remains independent, and the                          bidder and the incumbent expect to reach an agreement in
+activist can consume her private beneﬁts γ . In the proof                            the second round of negotiations if and only if b ≤ , and
+of Proposition 2, we show that if shareholders are will-                             if they reach an agreement, then the expected takeover
+ing to elect the activist to the board, it must be both fea-                         premium is π b . By contrast, if δ /α ≤  < b, then all par-
+sible and in the best interest of the activist to sell the                           ties involved correctly anticipate that if the ﬁrst round of
+ﬁrm rather than keep it independent, that is, π γ /α > π b                           negotiations fails, the activist will start a proxy ﬁght, win
+implies π γ /α ≥ γ /α . Therefore, the activist starts a proxy                       control of the target board, and then negotiate an acqui-
+ﬁght if and only if απγ /α − κ ≥ απb , which is equivalent                           sition agreement with an expected premium of π γ /α > 0.
+to πγ /α − πb ≥ κ /α .                                                               Since the activist’s threat of running a proxy ﬁght is cred-
+    Proposition 2 also shows that πγ /α − πb ≥ κ /α is equiv-                        ible, any ﬁrst round offer below π γ /α is rejected by share-
+alent to δ /α ≤  < b. Since γ ≤ δ , this observation implies                        holders, and any offer above π γ /α is rejected by the bidder.
+that the activist’s threat to run a proxy ﬁght is credi-                             The incumbent board understands that the takeover is in-
+ble only if the activist is less biased than the incum-                              evitable and therefore accepts any offer higher than π γ /α
+bent against the takeover, that is, γ /α < b. Intuitively, if                        to avoid the adverse consequences of losing the proxy ﬁght
+γ /α ≤  < b, then shareholders expect the incumbent to                              (e.g., embarrassment or loss of reputation). Overall, the ac-
+block the takeover, but at the same time, they expect the                            tivist does not need to launch a proxy ﬁght on the equi-
+activist to sell the target for a strictly positive premium                          librium path; her threat to do so is suﬃcient to facilitate
+if she is given the opportunity to do so. Thus, sharehold-                           the takeover. Indeed, in equilibrium, the bidder and the in-
+ers will support the activist if she decides to run a proxy                          cumbent board reach an acquisition agreement in the ﬁrst
+ﬁght. The activist has incentives to run a proxy ﬁght only                           round of negotiations, and under this agreement, the target
+if the expected premium she can negotiate with the bid-                              is sold for a premium π γ /α .
+der is suﬃciently high to compensate her for the cost of                                 Proposition 3 shows that conditional on performing
+running a proxy ﬁght, which is captured by the additional                            due diligence, the bidder acquires the target and makes
+condition δ /α ≤ . Overall, the activist starts a proxy ﬁght                        a positive proﬁt if and only if x =  and either b ≤ 
+if and only if δ /α ≤  < b.17                                                       or δ /α ≤  < b. In the former case, the bidder’s expected
+    Given the analysis of the proxy ﬁght stage, we turn to                           proﬁt (gross of the due diligence cost) is τ ( − πb) =
+characterizing the equilibrium of the game. To that end, we                          τ (1 − s )( − b), and in the latter case it is τ  − πγ /α =
+denote by π ∗ the expected takeover premium the bidder                               τ (1 − s )( − γ /α ). Therefore, if min {b, δ /α } ≤ , then the
+pays in equilibrium, conditional on reaching an acquisition                          bidder performs due diligence as long as the cost is
+agreement with the target.                                                           lower than the expected proﬁt, that is, c ≤ τ ( − π ∗ ). If
+                                                                                      < min {b, δ /α }, then the bidder expects the takeover to
+Proposition 3. A unique equilibrium exists. In equilibrium, the                      fail even if x = , and therefore, he has no incentives to
+bidder performs due diligence if and only if min {b, δ /α } ≤                       perform due diligence irrespective of the cost c.
+and c ≤ τ ( − π ∗ ), where                                                              Let θ ∗ and h∗ be the probability of a takeover and the
+                                                                                    expected shareholder value in equilibrium, respectively.
+           πb    if b ≤                                                             Since the standalone value of the target is zero, h∗ is the
+π∗ =                                                                      (5)
+           πγ /α if δ /α ≤  < b.                                                    probability of a takeover times the premium the bidder
+                                                                                     pays to target shareholders conditional on reaching an ac-
+If the bidder performs due diligence and x = , then the bid-                        quisition agreement, that is, h∗ = θ ∗ π ∗ . The next corollary
+der and the incumbent board reach an acquisition agreement                           follows immediately from Proposition 3.
+in the ﬁrst round of negotiations. Under this agreement, the
+bidder pays a premium of π ∗ > 0 for the target shares. In all                       Corollary 1. In equilibrium, the probability of a takeover is
+other cases, no proxy ﬁght is initiated, and the target remains                      given by
+independent under the incumbent’s control.                                              
+                                                                                         τ F (τ (1 − s ) ( − b ) )    if b ≤ 
+                                                                                     θ = τ F (τ (1 − s )( − γ /α ) ) if δ /α ≤  < b
+                                                                                      ∗
+
+                                                                                         0                            if  < min {b, δ /α}.
+  17
+     If b < γ /α ≤ , then π γ /α > π b > 0, and shareholders would like to re-
+place the incumbent with the activist to receive a higher takeover pre-                                                                            (6)
+mium. However, as we show in the proof of Proposition 2, the assump-
+tion γ < κ implies that the activist does not have incentives to launch              Moreover, θ ∗ increases in α and h∗ (α ) ≥ h∗ (0) for every α > 0.
+a proxy ﬁght in those cases; the premium she is expected to negotiate
+is not high enough to compensate her for the cost of launching a proxy                  Intuitively, the probability of a takeover increases with
+ﬁght. If instead we assume b + κ1−s  /α
+                                        < γ /α ≤ , then the activist can cred-      the size of the activist’s stake, as a larger stake increases
+ibly threaten the incumbent with a proxy ﬁght if the incumbent does not              the credibility of her threat to launch a proxy ﬁght if the
+demand a higher premium from the bidder (Jiang et al., 2018). This case              incumbent does not reach an agreement with the bidder.
+can also apply to situations in which the incumbent is too motivated
+to sell the ﬁrm, e.g., in management buyouts or when incumbents are
+                                                                                     The effect of α on h∗ is more nuanced, since a higher α
+promised large bonuses if the takeover succeeds (Grinstein and Hribar,               also implies that the activist puts less weight on her pri-
+2004; Hartzell et al., 2004).                                                        vate beneﬁts from controlling the target as an independent
+8                                            A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+ﬁrm, which harms her ability to bargain a higher takeover                            doomed to fail: target shareholders know that if they reject
+premium (π γ /α decreases in α ). Nevertheless, the expected                         the offer, the bidder will inevitably use the power of the
+shareholder value in equilibrium is always higher when                               board to maximize the value of his own (minority) stake
+the activist is a target shareholder than when she is not,                           in the target, e.g., by implementing a value-increasing pro-
+that is, h∗ (α ) ≥ h∗ (0).                                                           posal. In other words, unlike the bidders in the baseline
+                                                                                     model, here the bidder can successfully acquire the tar-
+2.3. Discussion                                                                      get after winning a proxy ﬁght only if the offered takeover
+                                                                                     premium is fair. As a result, in this case, the fundamental
+2.3.1. The relative advantage of activist investors                                  conﬂict of interests between the bidder and target share-
+    Our theory proposes that activist investors have an                              holders is weaker. Since shareholders would not fear elect-
+inherent advantage relative to bidders in pressuring en-                             ing bidders in this category to their board, their threat to
+trenched incumbents to sell. Importantly, our key ob-                                replace the target board is more credible.
+servation is in relative terms: since the bidder is the                                  Incidentally, activist hedge funds who often make pro-
+counterparty to the takeover and the activist is not, the                            posals to improve the governance or the operations of their
+conﬂict of interests between the bidder and target share-                            target ﬁrms ﬁt this category. Clearly, an activist’s threat to
+holders is stronger than the conﬂict they may have with                              remove an entrenched incumbent is more credible if the
+the activist. In practice, the conﬂict between the bidder                            only goal of the activist is to control the operations of the
+and target shareholders can be alleviated but only imper-                            target and implement value-increasing proposals. However,
+fectly. For example, enforcement of directors’ ﬁduciary du-                          the discussion above suggests that because an activist in-
+ties to target shareholders requires litigation that is often                        vestor can act as an alternative manager to the ﬁrm, her
+costly, uncertain, and limited to veriﬁable outcomes. Since                          threat to remove the incumbent board is credible even if
+this intrinsic conﬂict cannot be easily solved,18 activist in-                       the activist has the ability and will to make a takeover bid
+vestors, who suffer from this problem to a lesser extent,                            for the target. In this regard, activist hedge funds have a
+maintain their advantage in pressuring ﬁrms to sell.19 No-                           weaker conﬂict of interests with target shareholders rela-
+tice that our argument does not necessarily imply that bid-                          tive to bidders who can only create value by acquiring a
+ders can never use proxy ﬁghts to exert pressure on their                            majority stake of the target.20
+target. Instead, it suggests that these events are signiﬁ-
+                                                                                     3. Proxy ﬁght in anticipation of a takeover bid
+cantly less frequent than campaigns in which the activist
+pressures the company to sell, a prediction that is consis-
+                                                                                         In practice, activist investors start proxy ﬁghts with the
+tent with the empirical evidence of Greenwood and Schor
+                                                                                     objective of selling the target even before a speciﬁc bidder
+(2009) and Boyson et al. (2017).
+                                                                                     arrives. To account for this possibility, we extend our anal-
+                                                                                     ysis by allowing the activist to launch a proxy ﬁght before
+2.3.2. The role of a majority stake                                                  the bidder decides whether to perform due diligence and
+    Our model assumes that bidders cannot create value                               start takeover negotiations with the target. As we demon-
+unless they acquire at least 50% of the target’s voting                              strate below, this extension does not alter our main con-
+rights. For example, a strategic bidder can realize a synergy                        clusion that bidders cannot win a proxy ﬁght while ac-
+only if the target is merged into the acquiring ﬁrm’s as-                            tivists can, but it adds structure to the model that is both
+sets, and a private equity fund can execute its operational                          realistic and yields new empirical predictions.
+improvements only if the target is taken private, insulating                             Speciﬁcally, when the activist decides whether to start
+it from public markets. Our main result emphasizes that                              a proxy ﬁght before the bidder arrives, she does not know
+these bidders cannot help target shareholders to disentrech                          c, and therefore, she faces uncertainty about the bidder’s
+their incumbent board by threatening to launch a proxy                               incentives to perform due diligence. If the activist decides
+ﬁght. However, in Appendix C, we show that if the bidder                             not to start a proxy ﬁght or if shareholders reelect the in-
+has the ability (and incentives) to increase the value of the                        cumbent, the game unfolds as in the baseline model. In-
+target even without acquiring a majority stake, then he can                          stead, if the activist starts a proxy ﬁght and wins the con-
+make such credible threats. Intuitively, while these bidders                         trol of the board, then the bidder can expect to negotiate
+may still be tempted to lowball the takeover offer once                              with the activist. In both cases, the bidder and the activist
+they get control of the target board, these attempts are                             have the option to launch a proxy ﬁght if the ﬁrst round of
+                                                                                     negotiations fails. To ease the exposition, let
+ 18
+     Bebchuk and Hart (2001) propose amending the existing rules gov-                θz ≡ τ F (τ (1 − s )( − z ) ),                                         (7)
+erning mergers to allow acquirers to bring a merger proposal directly to
+a shareholder vote without the approval of the board of directors. Under
+                                                                                     which is the probability of a takeover if the bidder expects
+this rule, the bidder can effectively commit to a certain acquisition price.         to pay a premium of π z when learning x = . The next
+Our analysis suggests that under this proposed rule, the role of activist            result follows.
+investors in the M&A market would be diminished.
+ 19
+     Notice that the incentives of activists to negotiate a high takeover pre-       Proposition 4. A unique equilibrium exists. In equilibrium, the
+mium could be distorted by derivatives, ownership in the bidding ﬁrm,                activist starts a proxy ﬁght before the bidder’s arrival if and
+or explicit and implicit agreements with the bidder. However, in most
+jurisdictions, these arrangements have to be disclosed when votes are
+                                                                                      20
+solicited. According to Securities and Exchange Commission (SEC) Rule                    Consistent with this argument, Boyson et al. (2017) ﬁnd that in 15%
+14a-9, activists are required to disclose their net economic exposure to             of the events in their sample, the activist is also making a takeover bid to
+the target and the bidding ﬁrm as part of the proxy solicitation process.            the target company.
+                                      A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                                9
+
+
+only if  ≥ b and                                                             not too entrenched (i.e., b ≤ ), the bidder can reach an
+                                                                            agreement with the incumbent once the takeover negoti-
+θγ /α πγ /α + 1 − θγ /α γ /α − θb πb ≥ κ /α .                     (8)
+                                                                              ations start. However, since the incumbent is not free of
+   (i) If the activist starts a proxy ﬁght before the bidder’s                agency problems either (i.e., γ /α < b), the bidder will have
+       arrival, then she wins the control of the target board,                to compensate the incumbent for the loss of his private
+       and the
+              bidder performs due diligence if and only if                  beneﬁts of control, which could be pricey to do. While
+       c ≤ τ  − πγ /α . If the bidder performs due diligence                 the bidder expects to make a positive proﬁt whenever he
+       and x = , then the bidder and the activist reach an                   learns that x = , the expected proﬁt is too small to jus-
+       acquisition agreement in the ﬁrst round of negotia-                    tify incurring the cost of the due diligence. The activist
+       tions. Under this agreement, the bidder pays a pre-                    launches a proxy ﬁght to assure the bidder that he will
+       mium of π γ /α ∈ (0, ] for the target shares. In all                  face a weaker opposition to the takeover. Since the bidder
+       other cases, the target remains independent under the                  expects to pay a lower expected premium when the ac-
+       activist’s control.                                                    tivist controls the target board, the likelihood that the bid-
+  (ii) If the activist does not start a proxy ﬁght before the                 der will approach the target following a successful proxy
+       bidder’s arrival, then the equilibrium of the game un-                 ﬁght is higher. Indeed, the activist starts a proxy ﬁght only
+       folds as described by Proposition 3.                                   if it increases the incentives of the bidder to perform due
+    To understand Proposition 4 and its implications, sup-                    diligence. In this case, a proxy ﬁght can be considered as a
+pose ﬁrst that  < b. Since in this case the incumbent                        solicitation of a takeover offer, an observation that implies
+blocks the takeover unless he is pressured to do other-                       the following prediction.
+wise, target shareholders support the activist whenever
+she starts a proxy ﬁght. The activist, however, has differ-                   Prediction 2. Everything else held equal, proxy ﬁghts in
+ent considerations. Note that regardless of the timing at                     which the activist’s stated goal is selling the target to a
+which the activist takes control of the target board, the                     third party increase the probability that the target receives
+expected shareholder value is θ γ /α π γ /α . Indeed, if the ac-              a takeover offer afterward.
+tivist controls the board prior to the bidder’s arrival, the
+                                                                                  Prediction 2 is consistent with the data. Using the Fact-
+bidder will negotiate directly with the activist. Otherwise,
+                                                                              set Shark Watch Database, we identify 232 proxy ﬁghts
+the bidder will negotiate with the incumbent under the ac-
+                                                                              from 1994–2015 in which the activist’s stated goal was to
+tivist’s pressure to sell. Since shareholders will support the
+                                                                              sell the target company to a third party. Using Center for
+activist if she chooses to start a proxy ﬁght, the threat to
+                                                                              Research in Security Prices (CRSP) data, we ﬁnd that in 36%
+do so is suﬃcient to pressure the incumbent to negotiate
+                                                                              of these cases, the target ﬁrm is delisted due to an M&A
+a takeover with exactly the same terms that the activist
+                                                                              event in the 24-month period that follows the announce-
+would. However, since the threat of a proxy ﬁght is as ef-
+                                                                              ment of the proxy ﬁght, which is signiﬁcantly larger than
+fective as the proxy ﬁght itself, the activist is strictly better
+                                                                              5%, the unconditional probability of a takeover of a public
+off saving the cost κ and not starting a proxy ﬁght before
+                                                                              US ﬁrm (Doidge et al., 2017).
+the bidder arrives.
+                                                                                  Proposition 4 also has implications on the market re-
+    This dynamic changes when  ≥ b. According to
+                                                                              action to the announcement of a proxy ﬁght. Speciﬁcally,
+Proposition 3, if the incumbent still retains control after
+                                                                              once a proxy ﬁght is started, the target share price is ex-
+the bidder arrives, then the activist would have no effect
+                                                                              pected to jump upward from θ b π b to θ γ /α π γ /α . Intuitively,
+on the outcome of the takeover. In these cases, the bid-
+                                                                              a proxy ﬁght increases the expected shareholder value by
+der would reach an agreement with the incumbent, and
+                                                                              increasing the probability that the target will receive a
+the expected shareholder value is θ b π b . By contrast, if the
+                                                                              takeover bid. Indeed, the activist launches a proxy ﬁght
+activist wins control of the target board before the bid-
+                                                                              only if doing so increases the expected share price. If fol-
+der arrives, then
+                 the activist’s
+                                  expected payoff (per share)
+                                                                              lowing the proxy ﬁght the target is acquired, then its share
+is θγ /α πγ /α + 1 − θγ /α γ /α − κ /α . The comparison be-
+                                                                              price is expected to further jump upward from θ γ /α π γ /α
+tween this payoff and θ b π b gives condition (8). Therefore,
+                                                                              to π γ /α , reﬂecting the realization of the takeover. How-
+if  ≥ b and condition (8) holds, then a proxy ﬁght is on
+                                                                              ever, if the target remains independent after the proxy
+the equilibrium path. The contrast between this result and
+                                                                              ﬁght (since the bidder decided not to perform due dili-
+Proposition 3 yields the following prediction.
+                                                                              gence or he learned that the synergy is negative), then the
+Prediction 1. Proxy ﬁghts with a stated objective of sell-                    share price should jump downward to zero, the standalone
+ing the target to a third party are launched by activist in-                  value of the target. These observations are summarized in
+vestors before a speciﬁc bidder arrives.                                      the following prediction.
+    Importantly, if  ≥ b and condition (8) hold, then a                      Prediction 3. The announcement of a proxy ﬁght in which
+proxy ﬁght is on the equilibrium path, although the incum-                    the activist’s stated goal is selling the ﬁrm to a third party
+bent is expected to sell the target when a bidder arrives,                    generates positive abnormal returns for the target share.
+and for a premium that is higher than what the activist                       Following such a proxy ﬁght, the share price experiences
+could negotiate. Indeed, in the proof of Proposition 4, we                    additional positive abnormal returns if the target is ac-
+show that if condition (8) holds, then γ /α < b, which im-                    quired and negative abnormal returns otherwise.
+plies π γ /α < π b . In fact, it is precisely for this reason that
+shareholders and the activist would like to replace the in-                     Consistent with Prediction 3, Fos (2017) ﬁnds that the
+cumbent. Intuitively, since in this region the incumbent is                   cumulative abnormal returns (CARs) of the target stock
+10                                          A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+price around the announcement date of a proxy ﬁght in                               with a risk-neutral, competitive, and uninformed market
+which the activist’s stated goal is to sell the company is                          maker. The share price, denoted by p, is set equal to the
+10% in a one-year event window. Moreover, the CARs are                              expected value of the target conditional on the total or-
+positive for any event window that starts 6 months before                           der ﬂow. For simplicity, we assume that the market maker
+the announcement date and up to 24 months afterwards.21                             can condition the price on the order ﬂow if and only if the
+These positive CARs are consistent with the prediction that                         order is strictly larger than α ∈ (0, 1 ). That is, the stock
+these proxy ﬁghts create shareholder value.22                                       is perfectly liquid (illiquid) for small (large) orders.23 Pa-
+    Finally, notice that Proposition 4 reveals a nonmono-                           rameter α can also be interpreted as a disclosure thresh-
+tonic relation between the frequency of proxy ﬁghts and                             old (e.g., regulation 13D). Moreover, buying up to α shares
+the private beneﬁts of the incumbent from keeping the                               does not trigger a poison pill if such exists. Empirically,
+ﬁrm private, i.e., parameter b. Indeed, if  < b, then a proxy                      α ∈ [5%, 10%]. After trading, the activist’s ownership in the
+ﬁght is not observed, since the threat of doing so is suﬃ-                          target becomes public. The bidder observes the number of
+ciently credible to pressure the entrenched incumbent to                            shares own by the activist, signal y, and the cost c. Given
+sell. If b has an intermediate value (i.e., γ /α < b ≤ ), then                     all of this information, the bidder decides whether to per-
+for the aforementioned reasons, a proxy ﬁght is on the                              form due diligence and start takeover negotiations with
+equilibrium path as long as condition (8) holds. However,                           the target, as in the baseline model.24 , 25
+if b is relatively small (i.e., b ≤ min {γ /α , }), then a proxy
+                                                                                    Proposition 5. A unique equilibrium always exists.26 In equi-
+ﬁght is not observed, since it is not needed; the incum-
+                                                                                    librium,
+bent has enough incentives to voluntarily sell the ﬁrm to
+the bidder when the latter arrives. While challenging, pa-                              (i) The activist buys α ∗ target shares where
+rameter b can be proxied by a low managerial ownership                                            
+in the target, distance of the CEO from retirement, strength                                       α if y = 1, and either δ /α ≤  < b or b < 
+of anti-takeover defenses, and low independence of the
+                                                                                        α∗ =
+                                                                                                   0   else.
+board. The next prediction follows.
+                                                                                                                                                             (9)
+Prediction 4. The frequency of proxy ﬁghts with a stated
+                                                                                       (ii) Given order ﬂow α ≥ 0, the market maker sets the tar-
+objective of selling the target to a third party has an in-
+                                                                                            get share price to be
+verted U-shape as a function of the private beneﬁts of the                                              
+incumbent board.                                                                                            μh∗ (α ∗ ) if α ≤ α
+                                                                                            p (α ) =
+                                                                                              ∗
+                                                                                                                                                           (10)
+                                                                                                            h∗ ( α ∗ ) if α > α .
+4. Position building in anticipation of a takeover
+                                                                                      (iii) If y = 0, then the bidder does not perform due dili-
+    In this section, we endogenize the decision of the ac-                                  gence, and the target remains independent under the
+tivist to become a target shareholder. Our goal is to iden-                                 incumbent control. If y = 1 and the activist owns α
+tify patterns that can differentiate between cases in which                                 shares of the target, then the bidder’s decision to per-
+the activist buys target shares because she expects the tar-                                form due diligence and the takeover negotiations un-
+get to be acquired and cases in which the presence of the                                   fold as described by Proposition 3.
+activist on its own affects the takeover.                                              To understand Proposition 5, ﬁrst notice that to con-
+    For this purpose, we extend the model as follows. At                            ceal her position from the market maker, the activist never
+the outset, the activist does not own any shares of the tar-                        buys more than α shares of the target. Recall that accord-
+get, but she privately observes signal y ∈ {0, 1} on the pos-                       ing to Proposition 3, if  < min {b, δ /α}, then the target
+sibility of a takeover. Speciﬁcally, if y = 1, then the syn-                        will never be acquired even if the activist buys α shares.
+ergy from a takeover is x ∈ {, −∞}, where Pr [x = ] = τ ,                         In those cases, the entrenched incumbent will not sell
+as in the baseline model. If y = 0, then the synergy is                             the ﬁrm voluntarily, and the activist’s ownership is not
+−∞ for sure. We assume that y is independent of x and                               high enough to make the threat of a proxy ﬁght credible.
+Pr [y = 1] = μ ∈ (0, 1 ). Given y, the activist submits an or-                      Moreover, if  = b, then by Corollary 1, the bidder will
+der to buy α ≥ 0 shares of the target. Short sales are not                          never perform due diligence, since he cannot proﬁt from
+allowed. If the activist is indifferent between investing and
+not, we assume that she does not invest. The activist trades
+                                                                                      23
+                                                                                         A previous version of the paper assumed the existence of liquidity
+                                                                                    traders a la Kyle (1985) and showed that similar results hold under this
+ 21
+    See Panel B of Fig. 5 in Fos (2017).                                            alternative formulation.
+                                                                                      24
+ 22
+    Note that our interpretation is different from Fos (2017). Fos                       Assuming that the bidder’s decision to perform due diligence is made
+(2017) ﬁnds that the CARs are zero over a four-year event window and                after the activist’s position is revealed is consistent with Boyson et al.
+interprets this ﬁnding as an evidence that proxy ﬁghts in this category             (2017), who ﬁnd that in 70% of the events in their sample, a takeover
+create little or no value on average. However, the zero CARs in a four-             bid is announced within two years of a hedge fund initiating an activist
+year event window could also be explained by an unavoidable survival                campaign.
+                                                                                      25
+bias: over time, the only ﬁrms that are left in the sample are those that                Assuming that the activist cannot launch a proxy ﬁght before the
+were not acquired. As our evidence above suggests, around 36% of the                bidder arrives is for simplicity. Identifying the activist’s effect on the
+ﬁrms are eventually delisted due to an M&A event in the 24-month pe-                takeover, which is the focus of this section, is challenging when a proxy
+riod that follows the announcement of the proxy ﬁght. Since takeovers,              ﬁght is only used as a threat.
+                                                                                      26
+on average, create value to target shareholders (e.g., Andrade et al., 2001),            We focus on Perfect Bayesian Equilibrium in pure strategies. The equi-
+the post announcement CARs could be biased downward if they exclude                 librium is unique if h∗ (α ) is non-decreasing in α , which is satisﬁed under
+the returns of ﬁrms that were acquired.                                             an additional technical assumption that we specify in the proof.
+                                           A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                                11
+
+
+a takeover. Therefore, if y = 0,  < min {b, δ /α}, or  = b,                      a takeover is higher when the activist is present as a tar-
+then the activist expects any takeover to fail for sure, and                       get shareholder than when she is not. This observation is
+since the activist cannot proﬁt from investing in the target,                      the reason why identifying a causal link between activist
+she does not buy any of its shares, that is, α ∗ = 0. By con-                      investors’ presence and the likelihood of a takeover is chal-
+trast, if y = 1 and δ /α ≤  < b or b < , then a takeover                         lenging, especially when a proxy ﬁght with an objective to
+is possible, and investing in the target can be proﬁtable.                         sell the ﬁrm is not observed. Notice that the probability of
+To fully exploit her private information, the activist buys                        a takeover in equilibrium is θ ∗∗ ≡ μθ ∗ (α ∗ ). In what follows,
+the maximum stake that keeps her trade concealed, that is,                         we show that the comparative statics of θ ∗∗ with respect
+α ∗ = α . The market maker, who is uninformed about y but                          to b and κ are different when the equilibrium exhibits se-
+has rational expectations, sets the price at μh∗ (α ∗ ) as long                    lection and when it exhibits treatment. These differences
+as α ≤ α , which is the fair value of the target shares.27 This                    provide predictions that can help distinguish between the
+explains Proposition 5.                                                            selection and the treatment effects in data.
+
+                                                                                   Corollary 2.
+4.1. Selection versus treatment
+                                                                                       (i) If b ≤ , then θ ∗∗ is strictly decreasing in b, where
+    If b ≤ , then the equilibrium exhibits selection.                                     θ ∗∗ = 0 when b = . If b > , then θ ∗∗ is invariant to
+Namely, the activist invests in ﬁrms that are likely to re-                                b, where θ ∗∗ > 0 if and only if δ /ᾱ ≤  .
+ceive a takeover offer, but her investment has no real ef-                            (ii) If b ≤ , then θ ∗∗ is invariant to κ , and if  < b, then
+fect on the outcome. In other words, knowing the target is                                 θ ∗∗ is decreasing in κ .
+likely to receive a takeover offer when y = 1 gives the ac-
+tivist informational advantage relative to the market maker                            If the equilibrium exhibits selection (b ≤ ), then the
+that makes the purchase of these shares a proﬁtable in-                            probability of a takeover is strictly decreasing in b. Intu-
+vestment. While the activist’s presence as a target share-                         itively, in this region, the bidder can reach an acquisition
+holder is correlated with a higher probability of a takeover,                      agreement with the incumbent. However, higher b implies
+the link is not causal.                                                            that the bidder has to pay a higher premium to acquire the
+    By contrast, if  < b and α ≥ δ /, then the equilibrium                       target, which weakens his incentives to perform due dili-
+exhibits treatment. Namely, the activist invests in ﬁrms                           gence in the ﬁrst place. This can be seen in the left panel
+that could be a target for a takeover, and by doing so,                            of Fig. 2 by the fact that at any point left to the dashed
+the activist increases the probability that the takeover hap-                      vertical line, which marks the border of the selection re-
+pens. In those cases, the link is causal. The activist buys a                      gion, the curve is downward slopping. However, the prob-
+stake that is suﬃciently large to make her threat to start a                       ability of a takeover can increase with b when the equilib-
+proxy ﬁght credible. There are two effects. First, as in the                       rium also exhibits treatment. In fact, if γ = 0 (the activist
+baseline model, once the bidder arrives, the activist can                          is unbiased), then the probability of a takeover when b > 
+pressure the incumbent to accept an offer that he would                            is the highest possible. Intuitively, when b > , the bidder
+otherwise reject. Second, the activist increases the likeli-                       cannot afford to pay a premium high enough to convince
+hood that a takeover offer is made by soliciting a deal:                           the incumbent to forgo his private beneﬁts and sell. In
+the presence of the activist as a target shareholder signals                       those cases, the activist can leverage the support of share-
+the bidder that the incumbent is likely to be pressured by                         holders to pressure the incumbent to sell. In other words,
+its shareholders to sell the ﬁrm, and therefore, the bidder                        the threat of launching a proxy ﬁght is credible. Since the
+has stronger incentives to perform due diligence and start                         incumbent is negotiating under the activist’s pressure in
+takeover negotiations. In other words, activist investors not                      this range, the bidder expects to pay a smaller takeover
+only facilitate takeovers once the offer is on the table, but                      premium as determined by the activist’s bargaining power.
+they can also increase the likelihood that a company be-                           As a result, the bidder has stronger incentives to perform
+comes a takeover target in the ﬁrst place.28 This observa-                         due diligence, and the probability of a takeover is higher.
+tion has the following implication.                                                This result highlights that, contrary to the common wis-
+                                                                                   dom, the probability of a takeover can increase with the
+Prediction 5. Policies and regulations that undermine                              private beneﬁts that incumbents obtain from keeping their
+shareholder activism, but do not directly affect bidders,                          ﬁrm independent. This comparative static implies that the
+will still have a negative effect on takeovers.                                    treatment effect can be identiﬁed in the data if in the
+                                                                                   cross-section of ﬁrms there is a positive association be-
+    For example, the legalization of two-tier “anti-activism”
+                                                                                   tween b (which can be proxied as described in Section 3)
+poison pills will adversely affect M&A even if standard pills
+                                                                                   and the probability of a takeover. The next prediction sum-
+that prevent takeovers are already prevalent.
+                                                                                   marizes these observations.
+    The discussion above suggests that whether the equi-
+librium exhibits selection or treatment, the probability of                        Prediction 6. The probability of a takeover has a U-shape as
+                                                                                   a function of the private beneﬁts of the incumbent board.
+                                                                                   Moreover, a positive association is an indication of the
+ 27
+    Off equilibrium, if α > α , then the market maker assumes y = 1 and
+sets p = h∗ (α ).                                                                  treatment effect.
+ 28
+    Similarly, if the activist were to acquire a stake after the bidder ap-
+proaches the target, the anticipation that an activist would show up and
+                                                                                       According to Corollary 2 part (ii), the comparative stat-
+pressure the target board to accept the takeover offer can also increase           ics with respect to κ can also help identify the treatment
+the bidder’s incentives to engage in takeover negotiations.                        effect in the data. Indeed, κ should have no effect on the
+12                                           A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+
+
+                                         Selecon
+                                                                                                                    Selecon
+
+
+
+
+                                                               Treatment                    Treatment
+
+
+
+                                 0                                                     0
+
+Fig. 2. The left (right) panel shows the effect of b (κ ) on the probability of a takeover θ ∗∗ , where γ = 0, c ∼ U[0, c], and c ≥ τ (1 − s ). In addition, the left
+(right) panel assumes δ /α < ( < b).29
+
+
+
+
+probability of a takeover in the selection region, as in this                          with the fact that most proxy ﬁghts are launched by ac-
+region, the activist has no effect on the takeover. However,                           tivists and not by bidders, with the large number of ac-
+in the treatment region, the incumbent sells the ﬁrm only                              tivist campaigns that have resulted in a takeover bid by a
+if the activist can pressure him to do so. Since a higher κ                            third party, with the positive market reaction to announce-
+(which implies a higher δ ) reduces the credibility of the                             ments of proxy ﬁghts by activists whose stated goal is sell-
+activist’s threat to run a proxy ﬁght, her ability to pres-                            ing the target ﬁrm to a third party, and with a higher prob-
+sure the incumbent to sell decreases with κ . As a result,                             ability of a takeover following such proxy ﬁghts. Moreover,
+the probability of a takeover decreases with κ . Therefore,                            the model provides novel predictions on the circumstances
+the treatment effect can be identiﬁed in the data if in the                            under which proxy ﬁghts of this sort are likely to be ob-
+cross-section of ﬁrms there is a negative association be-                              served.
+tween κ and the probability of a takeover, especially when                                 Our analysis emphasizes the beneﬁt of separating
+b is large. Parameter κ can be proxied by the dispersion of                            the capacity to disentrench boards from the capacity to
+ownership of the target ﬁrm, the diﬃculty of proxy access,                             increase ﬁrm value through acquisitions; one party can-
+the existence of a staggered board, or low governance ex-                              not combine two roles that rely on opposing prefer-
+pertise of the activist. The next prediction summarizes this                           ences. Moreover, the analysis highlights the complemen-
+observation.                                                                           tarity between shareholder activism and takeovers: activist
+                                                                                       investors beneﬁt from the possibility that companies in
+Prediction 7. The probability of a takeover is weakly de-                              which they invest will become a takeover target, while bid-
+creasing in the cost of a proxy ﬁght. Moreover, a negative                             ders, who interpret the presence of an activist as a sig-
+association is an indication of the treatment effect.                                  nal that the target will show weaker resistance, are more
+                                                                                       likely to start takeover negotiations when the target has an
+                                                                                       activist as a shareholder. We show that the model’s com-
+5. Conclusion
+                                                                                       parative statics (of the probability of a takeover) with re-
+                                                                                       spect to the incumbent’s private beneﬁts of control and
+    This paper studies the role of activist investors in the
+                                                                                       the activist’s cost of running a proxy ﬁght are sensitive to
+M&A market. We identify a conﬂict of interests between
+                                                                                       the existence of the treatment effect in equilibrium, a fea-
+bidders and the shareholders of their target ﬁrms that
+                                                                                       ture that can be used to create identiﬁcation strategies for
+prevents bidders from unseating the resisting incumbent
+                                                                                       the treatment effect of shareholder activism in takeovers.
+directors of these ﬁrms through proxy ﬁghts. Unlike bid-
+                                                                                       As a whole, the analysis sheds light on the interaction be-
+ders, activists are on the same side of the negotiating ta-
+                                                                                       tween M&A and shareholder activism.
+ble as other shareholders of the target and hence enjoy
+higher credibility when campaigning against the incum-
+bent board. Building on this insight, we demonstrate that
+although both bidders and activists can use similar tech-                              Appendix A. Proofs of main results
+niques to challenge corporate boards (i.e., proxy ﬁghts), ac-
+tivists are more effective in relaxing the resistance of in-                           Proof of Proposition 2. We ﬁrst prove that π γ /α > π b im-
+cumbent directors to takeovers. Our model is consistent                                plies π γ /α ≥ γ /α . To see why, note that π γ /α > π b and
+                                                                                       π b ≥ 0 imply π γ /α > 0. According to Eq. (1), π γ /α > 0 re-
+ 29
+    Note that b is the incumbent’s private beneﬁts per share, κ is the                 quires  ≥ γ /α . Since π γ /α is a weighted average of  and
+cost of running a proxy ﬁght, α is the activist’s stake in the target, s is the        γ /α ,  ≥ γ /α implies π γ /α ≥ γ /α . Therefore, π γ /α > π b
+probability that the target board is the proposer of the acquisition price             implies π γ /α ≥ γ /α .
+at the negotiations with the bidder,  is the synergy from the takeover                    Next, we prove that πγ /α − πb ≥ κ /α is equivalent to
+when it is positive, τ is the probability that the synergy from the takeover
+is positive, γ is the activist’s private beneﬁts from controlling the target
+                                                                                       δ /α ≤  < b. Note that if  < γ /α , then πγ /α = 0. Since
+ﬁrm as an independent ﬁrm, c is the bidder’s cost of performing due dili-              κ > 0,  < γ /α implies that πγ /α − πb ≥ κ /α does not
+gence, and δ is given by Eq. (3).                                                      hold. Suppose γ /α ≤ . If in addition b ≤ , then πγ /α −
+                                    A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                               13
+
+
+πb ≥ κ /α is equivalent to                                                  the target remains independent. Since the bidder cannot
+                                                                            expect to acquire the target and make any proﬁt from the
+[s + (1 − s )γ /α ] − [s + (1 − s )b] ≥ κ /α
+                                                                            acquisition even if x = , the bidder never performs a due
+  ⇔ (1 − s )(γ /α − b) ≥ κ /α ,                               (11)          diligence.                                                      
+                                                                            Proof of Proposition 4. Suppose the activist wins a proxy
+which never holds, since γ < κ . Instead, suppose γ /α ≤ 
+                                                                            ﬁght before the bidder arrives. Since Lemma 1 continues
+and  < b. In this case, πγ /α − πb ≥ κ /α is equivalent to
+                                                                            to hold and the bidder cannot win a proxy ﬁght, the ex-
+s + (1 − s )γ /α ≥ κ /α ⇔ γ /α + (κ /α − γ /α )/s ≤ ,                     pected shareholder value if the ﬁrst round of negotiations
+                                                                            fails is π γ /α . Therefore, if γ /α > , then πγ /α = 0, and the
+                                                              (12)
+                                                                            target will remain independent under the activist’s control.
+which is the same as δ /α ≤ . Since γ ≤ δ , πγ /α − πb ≥                   If γ /α ≤ , then π γ /α > 0, and similar to Proposition 3, the
+κ /α is equivalent to δ /α ≤  < b, as required. The rest of                bidder and the activist will reach an acquisition agreement
+the proposition follows from the discussion in the main                     in the ﬁrst round of negotiations in which the takeover
+text.                                                                      premium is π γ /α . Since the expected proﬁt of the bidder
+                                                                                                              
+Proof of Proposition 3. Suppose the bidder performed due                    in this case is τ  − πγ /α , the probability of a takeover
+diligence and x = . We consider several cases. First, sup-                 is θ γ /α . Therefore, if the activist wins a proxy ﬁght be-
+pose δ /α ≤  < b. Based on Proposition 2, if the ﬁrst round                fore the bidder arrives, the expected shareholder value is
+of the negotiations fails, then the activist will run and win               θ γ /α π γ /α , and the activist’s expected payoff per share is
+a proxy ﬁght. Moreover, based on Lemma 1, in the second
+                                                                                                  
+                                                                            θγ /α πγ /α + 1 − θγ /α γ /α − κ /α .
+round of the negotiations, the activist and the bidder will                     At the same time, if the incumbent retains control be-
+reach an agreement in which the bidder is expected to pay                   fore the bidder arrives, then according to Corollary 1, the
+π γ /α . Therefore, in the ﬁrst round of negotiations, the in-              expected shareholder value is θ ∗ π ∗ . There are three cases
+cumbent board will reject any offer lower than π γ /α . Sim-                to consider. First, if  < min {b, δ /α }, then θ ∗ = 0, but
+ilarly, the bidder will not agree to pay more than π γ /α per
+share, since he can always wait for the second round of
+                                                                             activist
+                                                                            the          never starts a proxy ﬁght, since θγ /α πγ /α +
+                                                                              1 − θγ /α γ /α − κ /α < 0. Note that this inequality holds,
+negotiations and pay π γ /α ∈ (0, ] after the activist wins                since either πγ /α = 0 and γ < κ , or πγ /α = s + (1 −
+the proxy ﬁght. Overall, if there are arbitrarily small wait-               s )γ /α and  < δ /α . Second, if δ /α ≤  < b, then θ ∗ π ∗ =
+ing costs to either the bidder or the incumbent board, they                 θγ /α πγ /α . Since γ < κ , θγ /α πγ /α + 1 − θγ /α γ /α − κ /α <
+will reach an agreement in the ﬁrst round of negotiations                   θγ /α πγ /α , and the activist never starts a proxy ﬁght. Third,
+in which the bidder pays a premium of π γ /α . Second, sup-                 if  ≥ b, then θ ∗ π ∗ = θb πb . The activist starts a proxy ﬁght
+pose b ≤ . Based on Proposition 2, if the ﬁrst round of
+the negotiations fails, the activist will not run a proxy ﬁght.
+                                                                             and only
+                                                                            if           if she is expected to be elected and θγ /α πγ /α +
+                                                                              1 − θγ /α γ /α − κ /α ≥ θb πb . The latter condition is equiv-
+Therefore, if the ﬁrst round of the negotiations fails, the in-             alent to condition (8). Note that in those circumstances,
+cumbent retains control of the board. Based on Lemma 1, if                  shareholders prefer the activist over the incumbent if and
+b ≤ , then in the second round of the negotiations the in-                 only if θ γ /α π γ /α > θ b π b . However, if condition (8) holds,
+cumbent and the bidder will reach an agreement in which                     then γ < κ implies that θ γ /α π γ /α > θ b π b , and therefore
+the bidder is expected to pay π b ∈ (0, ]. Therefore, simi-                shareholders always elect the activist when she starts a
+lar to the argument above, the bidder and the incumbent                     proxy ﬁght. This completes the proof.
+board will reach an agreement in the ﬁrst round in which                        Finally, we show that if  ≥ b and condition (8) holds,
+the bidder pays a premium of π b .                                          then γ /α < b. Suppose, on the contrary, γ /α ≥ b. Since
+    The two cases above imply that if the bidder learns that                 ≥ b and γ < κ , condition (8) requires  ≥ γ /α . Condition
+x =  and min {b, δ /α } ≤ , then the target is acquired by                (8) can be rewritten as
+the bidder in the ﬁrst round of negotiations, and the bidder                                                     
+will pay a premium of π γ /α if δ /α ≤  < b and a premium                             θb         κ /α − 1 − θγ /α γ /α
+of π b if b ≤                                                               πγ /α −          πb ≥                       .                (13)
+              . Since Pr [x = ] = τ , the bidder’s expected                       θ γ /α              θ γ /α
+payoff is τ  − πγ /α in the former case and τ ( − πb ) in
+the latter case. In both cases, the premium is lower than                   Recall that in the baseline model (in the proof of
+, and therefore the expected proﬁt is nonnegative. The                     Proposition 2), we proved that if b ≤ γ /α ≤ , then πγ /α −
+bidder will therefore perform a due diligence if and only if                πb < κ /α . Since γ /α ≥ b, we have θγθb/α ≥ 1. Since κ ≥ γ , we
+c is smaller than the expected proﬁt.                                             κ /α −(1−θγ /α )γ /α
+    Finally,     suppose        < min {b,δ /α }.  Based     on             have           θγ /α       ≥ κ /α . Therefore, πγ /α− π < κ /α
+                                                                                                                                     b
+Proposition 2, the activist never runs a proxy ﬁght.                        implies that condition (8) cannot hold if γ /α ≥ b, yielding a
+Therefore, if the ﬁrst round of the negotiations fails, the                 contradiction. As a ﬁnal remark, note that condition (8) is
+incumbent retains control of the board. Based on Lemma 1,                   not vacuous; for example, as b  and κ γ , it holds if
+if  < b, then the incumbent board and the bidder will not                  γ / α ≤ .                                                  
+reach an agreement in the second round of negotiations,                     Proof of Proposition 5. We start by noting that part
+and the target will remain independent. Therefore, in the                   (iii) follows directly from observation that if y = 0, then
+ﬁrst round of negotiations, the incumbent board will reject                 the synergy is −∞, and a takeover can never take place.
+any offer lower than b, and the bidder will not agree to                    Since the share price cannot be smaller than the ﬁrm’s
+pay more than  per share. Since  < b, the parties will                    standalone value of zero, regardless of the beliefs of
+not reach an agreement in the ﬁrst round as well, and                       the market maker (on or off the equilibrium path), the
+14                                         A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+activist’s expected proﬁt from submitting any order α > 0                          We argue that the activist has a proﬁtable deviation to
+is nonpositive. Therefore, the activist does not invest. If                        buying α shares. First note that
+y = 1, then the game is reduced to the one in the baseline
+                                                                                   α ∗ (h∗ (α ∗ ) − μh∗ (α ∗ ) ) ≤ α ∗ (h∗ (α ) − μh∗ (α ∗ ) ),   (16)
+model. We let α ∗ be the number of shares the activist buys
+in equilibrium conditional on y = 1. The proof has several                         which follows from h∗ (α ) being nondecreasing in α . Sec-
+steps.                                                                             ond, note that
+    First, we prove α ∗ ≤ α . Suppose on the contrary α ∗ > α .
+Then, on the equilibrium path, the market maker observes
+                                                                                   α ∗ (h∗ (α ) − μh∗ (α ∗ ) ) < α (h∗ (α ) − μh∗ (α ∗ ) ).       (17)
+that the activist bought α ∗ shares before the price is set,                       Indeed, since δ /α ≤  < b or b < , it must be h∗      ( α ) > 0.
+and hence, the market maker sets the price to be h∗ (α ∗ ).                        Since α ∗ < α and h∗ (α ) is nondecreasing in α , it must be
+Indeed, since in any equilibrium y = 0 ⇒ α = 0 (the previ-                         h∗ (α ) ≥ h∗ (α ∗ ). Combined, it must be h∗ (α ) − μh∗ (α ∗ ) >
+ous step), the market maker infers that y = 1. However, in                         0. Therefore, this deviation is proﬁtable, yielding a contra-
+this case, the activist’s proﬁt is nonpositive, yielding a con-                    diction.
+tradiction.                                                                            Sixth, we prove that an equilibrium exists. Based on
+    Second, we prove that the price function is given by                           previous steps, if an equilibrium exists, then α ∗ is given by
+Eq. (10). Since the market maker expects the activist to                           Eq. (9). We show that no proﬁtable deviation exists for the
+buy no shares if y = 0 and α ∗ ≤ α shares if y = 1, the mar-                       activist. If the activist buys α > α shares, then the share
+ket maker sets the price at μh∗ (α ∗ ) if the activist buys                        price is h∗ (α ), and the activist’s proﬁt is nonpositive. If
+α shares or less. Indeed, the market maker expects the                             y = 0, min {b, δ /α} > , or b = , then the probability of
+takeover to take place only if y = 1 that happens with                             a takeover is zero if the activist buys less than α shares.
+probability μ. Conditional on y = 1, the expected takeover                         Since the share price cannot be less than the target’s stan-
+premium is h∗ (α ∗ ). If the activist buys more than α shares,                     dalone value, the activist’s proﬁt will be necessarily non-
+which is an off-equilibrium event, then the market maker                           positive if she buys α ∈ (0, α ] shares. Therefore, it is opti-
+observes α and sets the price to be μ(α )h∗ (α ), where μ(α )                      mal to buy no shares, as the equilibrium prescribes. Sup-
+is the off-equilibrium beliefs of the market maker about                           pose y = 1 and δ /α ≤  < b or b < . Consider a deviation
+y = 1, given that the activist decided to buy α > α shares.                        to α < α . Note that if the activist buys α shares, then her
+We assume μ(α ) = 1, which guarantees that such devia-                             proﬁt is α (h(α ) − μh(α ) ) > 0. It is strictly positive, since
+tion is not proﬁtable (i.e., the market maker assumes y =                          δ /α ≤  < b or b <  implies h(α ) > 0. Therefore, for any
+1), as the activist’s proﬁt would be nonpositive. This argu-                       α < α,
+ment proves part (ii).
+    Third, we prove that if min {b, δ /α} >  or b = , then
+                                                                                   α ( h ( α ) − μh ( α ) ) > α ( h ( α ) − μh ( α ) )            (18)
+α ∗ = 0. Based on the ﬁrst step, it cannot be α ∗ > α . Sup-                                                ≥ α (h(α ) − μh(α ) ).
+pose on the contrary α ∗ > 0. If b > , then the target is                         The ﬁrst inequality follows from h(α ) − μh(α ) > 0 and
+taken over only if δ /α ∗ ≤ . However, since δ /α >  and                         α < α , and the second inequality follows from h∗ (α ) being
+α ≥ α ∗ , it must be δ /α ∗ > . Therefore, the target is never                    nondecreasing in α . Therefore, such a deviation is always
+acquired, and the activist’s proﬁt must be nonpositive,                            suboptimal.                                                 
+yielding a contradiction. Similarly, if b = , then accord-                        Proof     of     Corollary  2.   If  b ≤ ,   then     θ ∗∗ =
+ing to Corollary 1, the target is never acquired (i.e., θ ∗ = 0).                  μτ F (τ (1 − s )( − b) ), which is decreasing in b, in-
+Since the activist’s proﬁt must be nonpositive, we get a                           variant to κ , and equal to zero when b = . If b > , then
+contradiction.
+                                                                                           
+    Fourth, we prove that h∗ (α ) is nondecreasing in α . In-                                  μτ F (τ (1 − s )( − γ /α ) ) if δ /α ≤ 
+deed, if b ≤ , then h∗ (α ) = θb πb ≥ 0, which is indepen-                        θ =
+                                                                                    ∗∗
+                                                                                                                                                  (19)
+                                                                                               0                                 else.
+dent of α . If b > , then
+                                                                                  Note that δ /α ≤  is more likely to hold for small κ . Also
+                                 v(α ) if δ / ≤ α
+h ∗ ( α ) = θ γ /α πγ /α =                                           (14)          note that if δ /α ≤ , then μτ F (τ (1 − s )( − γ /α ) ) > 0.
+                                 0     else,
+                                                                                   The two claims follow from these observations.              
+where    v(α ) = τ F (τ (1 − s )( − γ /α ) )[s + (1 − s )γ /α ].
+Note that if δ / < α , then                                                       Appendix B. Limited veto power
+
+v (α ) = τ f (τ (1 − s )( − γ /α ) )[s + (1 − s )γ /α ]                             Assuming that bidders can never bypass the target
+  × τ (1 − s )γ /α 2 − τ F (τ (1 − s )( − γ /α ) )(1 − s )γ /α 2 .                board and go straight to shareholders by making a ten-
+                                                                      (15)         der offer is not necessary for our main results. Our ar-
+                                                                                   guments only require that corporate boards can partially
+Hereafter, we assume either γ = 0 or s is suﬃciently close                         resist a takeover. To illustrate this point, we extend the
+to one, which guarantees v (α ) ≥ 0 and that θ γ /α π γ /α is                      baseline model as follows. We assume that if no acquisi-
+nondecreasing in α .                                                               tion agreement is reached at the second round of negotia-
+    Fifth, we prove that if δ /α ≤  < b or b < , then α ∗ =                      tions, then with probability λ ∈ [0, 1] the target remains in-
+α . Based on the ﬁrst step, it cannot be α ∗ > α . Suppose                         dependent, and whoever controls the target board can con-
+on the contrary α ∗ < α . Based on part (ii), the share price                      sume his private beneﬁts. With probability 1 − λ, the bid-
+must be μh∗ (α ∗ ) in this equilibrium, and the activist’s                         der can make a tender offer. In this case, whoever controls
+proﬁt when she buys α ∗ shares is α ∗ (h∗ (α ∗ ) − μh∗ (α ∗ ) ).                   the target cannot consume his private beneﬁts. Whether
+                                          A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                                       15
+
+
+a tender offer is possible is revealed at the beginning of                        the above dynamic would unfold. Therefore, if the bidder
+the second round of negotiations. For simplicity, we focus                        cannot make a tender offer, the outcome of the negotia-
+on conditional offers for all target shares. The possibility                      tions in this stage is identical to the baseline model. Sup-
+of making a tender offer affects the analysis of the base-                        pose that the bidder can make a tender offer. Since the
+line model only if the bidder can at least partly overcome                        bidder can buy the ﬁrm with a tender offer φ  if the sec-
+the free riding problem of Grossman and Hart (1980). That                         ond round of negotiations fails, the highest premium the
+is, the bidder must make some proﬁt; otherwise, the op-                           bidder would be willing to pay is φ . Similarly, the incum-
+tion of making a tender offer is never exercised. There-                          bent will not agree to sell the ﬁrm for a premium lower
+fore, we assume that the bidder can consume a fraction                            than φ . Therefore, the bidder and the incumbent will
+1 − φ ∈ (0, 1 ) of  as private beneﬁt.30 We prove the fol-                       reach an agreement in the second round with a premium
+lowing result.                                                                    of φ . This concludes part (iii) of the proposition. The ne-
+                                                                                  gotiations between the bidder and the activist in the sec-
+Proposition 6. Suppose the ﬁrst round of negotiations has
+                                                                                  ond round (if the latter controls the board) are the same
+failed. Then,
+                                                                                  as above, where b is replaced by γ /α .
+    (i) The bidder never runs a proxy ﬁght.                                          Next, suppose the bidder controls the target board.
+   (ii) The activist runs a proxy ﬁght if and only if                             When tender offer is possible, he cannot consume his pri-
+                                                                                  vate beneﬁts unless he takes over the ﬁrm, and hence he
+       πγ /α − πb ≥ (κ /α )/λ.                                      (20)
+                                                                                  will offer φ  to the shareholders, since this is the low-
+        where π γ /α and π b are given by Eq. (2). If the activist                est price that the shareholders accept. However, if ten-
+        runs a proxy ﬁght, she wins the control of the target                     der offer is not possible, then he will consume his pri-
+        board and then reaches an acquisition agreement with                      vate beneﬁts (including extracting ﬁrm value of η) and
+        an expected takeover premium of (1 − λ )φ  + λπγ /α .                    offer shareholders the lowest price that is acceptable to
+  (iii) If the activist does not run a proxy ﬁght, then the in-                   them, which is −η.31 For all of these reasons, in the sec-
+        cumbent retains control, and the target remains inde-                     ond round of negotiations, the expected target shareholder
+        pendent if and only if a tender offer is not feasible and                 value in Lemma 1 can be rewritten as (1 − λ )φ  + λπb
+        b> .                                                                     under the incumbent’s control, (1 − λ )φ  + λπγ /α under
+                                                                                  the activist’s control, and (1 − λ )φ  + λ(−η ) under the
+    Similar to the baseline model, the bidder never runs a
+                                                                                  bidder’s control. These observations imply that the bidder
+proxy ﬁght because of the conﬂict of interests with the tar-
+                                                                                  can never win a proxy ﬁght, which proves part (i). More-
+get shareholders. The activist runs a proxy ﬁght if and only
+                                                                                  over, they imply that the activist will run a proxy ﬁght if
+if the condition πγ /α − πb ≥ (κ /α )/λ holds. Intuitively, if λ
+                                                                                  and only if
+is low, then the bidder has an alternative mean by which
+he can overcome the resistance of the board, and there-                           (1 − λ )φ  + λπγ /α − (1 − λ )φ  + λπb ≥ κ /α
+fore, the activist has fewer incentives to run a proxy ﬁght
+to facilitate the takeover. In other words, there is substi-
+                                                                                    ⇔ πγ /α − πb ≥ (κ /α )/λ,                                         (21)
+tution between the bidder’s ability to bypass the target
+                                                                                  which concludes part (ii).
+board through tender offers and the activist’s ability or
+need to unseat the incumbent through a proxy ﬁght. Ce-
+teris paribus, one would expect activists to play a smaller                       Appendix C. The role of a majority stake
+role in the market for corporate control in jurisdictions in
+which boards have weaker power to block deals, such as                               Following the discussion in Section 2.3.2 in the main
+the US in the 1980s or the UK.                                                   text, in this appendix, we show that the ability of a bid-
+Proof of Proposition 6. Suppose the second round of ne-                           der to increase the standalone value of the target (as a
+gotiations failed. If the bidder cannot make a tender offer,                      substitute to a takeover) reduces its conﬂict of interests
+the target remains independent. If the bidder can make a                          with target shareholders, compared to bidders who need
+tender offer, because of the free rider problem, sharehold-                       to own majority of the target to realize synergies. For this
+ers tender their shares if and only if the offer is higher                        purpose, consider a variant of the baseline model where
+than φ  (shareholders are not playing weakly dominated                           there is no activist (or alternatively, there is no bidder, and
+strategies, and they cannot free ride on the private ben-                         the activist has the capacity to create value and make a
+eﬁt component of , which is (1 − φ )). Therefore, the                           takeover bid herself). The bidder owns α > 0 shares of the
+bidder makes a tender offer of φ  per share, target share-                       target (a toehold) prior to making a bid. The bidder has a
+holders tender their shares, and the bidder takes over the                        proposal to increase the target value by . The proposal
+target.                                                                           can be successfully implemented either by the incum-
+    Consider the second round of negotiations. All parties                        bent or by the bidder. If the proposal is implemented, the
+involved rationally expect that if the second round fails,
+
+  30                                                                                31
+     The free rider problems in takeovers effectively gives target share-              The bidder has no incentives to make a tender offer to shareholders
+holders a bargaining power. If b ≤ , then the target board might have            due to the free rider problem. Knowing this, shareholders will agree to
+incentives to leverage this a bargaining power by allowing a tender offer.        any price higher than −η if the bidder is already controlling their board.
+For simplicity, we assume this possibility away. This assumption would            Alternatively, if the bidder could completely freeze out target sharehold-
+not qualitatively change the main result, since the credibility of the ac-        ers and solve the free rider problem, shareholders cannot expect any pos-
+tivist arises only when  < b.                                                    itive premium once the bidder takes control of their board.
+16                                 A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17
+
+
+incumbent loses his private beneﬁts of control. The key as-                otherwise. Therefore, shareholders always elect the bidder
+sumption is that the proposal can be implemented even if                   if she runs a proxy ﬁght. The bidder’s payoff is α  − κ if
+the target remains independent after the failure of the sec-               he runs a proxy ﬁght, and zero otherwise. Therefore the
+ond round of negotiations.                                                 bidder runs a proxy ﬁght only if κ /α ≤ . Combining this
+                                                                                                yields condition (22).
+                                                                           condition with b > 1−                                    
+Proposition 7. Suppose the ﬁrst round of negotiations has                                        α
+failed and the bidder can increase the standalone value of the
+target. The bidder runs a proxy ﬁght if and only if
+                                                                           References
+κ /α    
+     ≤     < b,                                              (22)
+1−α    1−α                                                                 Agrawal, A., Walkling, R., 1994. Executive careers and compensation sur-
+                                                                               rounding takeover bids. J. Finance 49, 985–1014.
+and whenever the bidder runs a proxy ﬁght, she wins.                       Andrade, G., Mitchell, M., Stafford, E., 2001. New evidence and perspec-
+                                                                               tives on mergers. J. Econ. Perspect. 15, 103–120.
+Proof. If the second round of negotiations succeeded and                   Atanasov, V.A., Black, B.S., Ciccotello, C.S., 2014. Unbundling and measur-
+the target is acquired by the bidder, then the bidder im-                      ing tunneling. University of Illinois Law Review, 1697–1738.
+                                                                           Atanasov, V.A., Boone, A.L., Haushalter, D., 2010. Is there shareholder ex-
+plements his proposal if it has not been implemented yet.
+                                                                               propriation in the United States? an analysis of publicly traded sub-
+Therefore, the post takeover target value is . If the second                  sidiaries. J. Financ. Quant. Anal. 45, 1–26.
+round of negotiations failed and the ﬁrm remains indepen-                  Bagnoli, M., Gordon, R., Lipman, B.L., 1989. Stock repurchase as a takeover
+dent (that is, its ownership structure did not change), there                  defense. Rev. Financ. Stud. 2, 423–443.
+                                                                           Baron, D.P., 1983. Tender offers and management resistance. J. Finance 38,
+are two cases. First, if the bidder controls the target board,                 331–343.
+then he implements the proposal if it has not been im-                     Bates, T.W., Lemmon, M.L., Linck, J.S., 2006. Shareholder wealth effects
+plemented yet, and the target value is . Second, if the                       and bid negotiation in freeze-out deals: are minority shareholders left
+                                                                               out in the cold? J. Financ. Econ. 81, 681–708.
+incumbent board retains control, then he implements the                    Bebchuk, L.A., Coates IV, J.C., Subramanian, G., 2002. The powerful anti-
+proposal if and only if b ≤ , and hence, the target value is                  takeover force of staggered boards: theory, evidence, and policy. Stanf.
+1{b ≤ } .                                                                    Law Rev. 54, 887–951.
+                                                                           Bebchuk, L.A., Hart, O.D., 2001. Takeover bids vs. proxy ﬁghts in contests
+    Consider the second round of negotiations. There are                       for corporate control. In: Unpublished working paper. European Cor-
+two cases. First, suppose that either the bidder controls the                  porate Governance Institute and Harvard University.
+target board or the incumbent retains control and b ≤ .                   Becht, M., Bolton, P., Röell, A., 2003. Corporate governance and control. In:
+                                                                               Constantinides, G., Harris, M., Stulz, R. (Eds.), Handbook of the Eco-
+The bidder’s proposal is implemented whether or not the
+                                                                               nomics of Finance, Vol. 1A.. Elsevier Science North Holland, Amster-
+bid fails. For this reason, the bidder will not offer more                     dam, pp. 1–109.
+than  per share. Moreover, target shareholders will not                   Becht, M., Franks, J.R., Grant, J., Wagner, H.F., 2017. Returns to hedge fund
+accept offers lower than , since they can always reject                       activism: an international study. Rev. Financ. Stud. 30, 2933–2971.
+                                                                           Berkovitch, E., Khanna, N., 1990. How target shareholders beneﬁt from
+the bid and obtain a value of  once the proposal is im-                       value-reducing defensive strategies in takeovers. J. Finance 45,
+plemented. Therefore, whether or not target is acquired,                       137–156.
+the bidder’s payoff is α , and the shareholder value is                   Berle, A.A., Means, G.C., 1932. The Modern Corporation and Private Prop-
+                                                                               erty. Macmillan, New York.
+. Second, suppose the incumbent board retains control                     Bhattacharya, U., 1997. Communication costs, information acquisition, and
+and b > . If the negotiations fail, the proposal will not                     voting decisions. Rev. Financ. Stud. 10, 1065–1097.
+be implemented, and the bidder’s payoff would be zero.                     Boyson, N.M., Gantchev, N., Shivdasani, A., 2017. Activism mergers. J. Fi-
+                                                                               nanc. Econ. 126, 54–73.
+If the bidder acquires the ﬁrm, his payoff is  − (1 − α )π ,              Brav, A., Jiang, W., Partnoy, F., Thomas, R., 2008. Hedge fund activism, cor-
+where π is the offer made to target shareholders. There-                       porate governance, and ﬁrm performance. J. Finance 63, 1729–1775.
+fore, the bidder is willing to offer up to 1−   per share.                Bulow, J., Huang, M., Klemperer, P., 1999. Toeholds and takeovers. J. Polit.
+                                                 α                             Econ. 107, 427–454.
+The incumbent board and the bidder will reach an agree-                    Burkart, M., 1995. Initial shareholdings and overbidding in takeover con-
+ment if and only if b ≤ 1−   . If  < b, then the takeover
+                             α     1−α                                         tests. J. Finance 50, 1491–1515.
+fails, and the shareholder value is zero. If  < b ≤ 1−    ,              Burkart, M., Gromb, D., Panunzi, F., 20 0 0. Agency conﬂicts in public and
+                                                           α                   negotiated transfers of corporate control. J. Finance 55, 647–677.
+then the incumbent and the bidder reach an agreement                       Burkart, M., Lee, S., 2017. Activism and takeovers. unpublished work-
+in which π ≥ b > . Therefore, target shareholders approve                     ing paper. In: European Corporate Governance Institute and Swedish
+any agreement reached by the bidder and the incumbent,                         House of Finance.
+                                                                           Cornelli, F., Li, D., 2002. Risk arbitrage in takeovers. Rev. Financ. Stud. 15,
+and the target is acquired by the bidder. In this case, the                    837–868.
+                                    + 1 − s b.
+expected shareholder value is s 1−  α   (     )                            Doidge, C., Karolyi, G.A., Stulz, R.M., 2017. The US listing gap. J. Financ.
+    Consider the proxy ﬁght stage. There are three cases                       Econ. 123, 464–487.
+                                                                           Edmans, A., 2014. Blockholders and corporate governance. Ann. Rev. Fi-
+to consider. First, if b ≤ , then the bidder’s payoff is α                   nanc. Econ. 6, 23–50.
+whether or not she gets the control of the board. There-                   Fos, V., 2017. The disciplinary effects of proxy contests. Manag. Sci. 63,
+fore, he has no reason to run and incur the cost of a                          655–671.
+proxy ﬁght. Second, if  < b ≤ 1−    , then the bidder al-                Gilson, R.J., 2001. Unocal ﬁfteen years later (and what we can do about
+                                      α                                        it). Del. J. Corp. Law 26, 491–513.
+ways loses the proxy ﬁght if he decides to start one. The                  Gilson, R.J., Schwartz, A., 2001. Sales and elections as methods for trans-
+reason is that shareholders know that if they elect the bid-                   ferring corporate control. Theor. Inq. Law 2, 783–814.
+der, they will get , whereas if they reelect the incumbent,               Gomes, A., 2012. Takeovers, freezeouts, and risk arbitrage. University of
+                                                                               Pennsylvania Unpublished working paper.
+the bidder will take over the target and pay shareholders,                 Gordon, E.A., Henry, E., Palia, D., 2004. Related party transactions and cor-
+                + 1 − s b, which is strictly higher. Antic-
+on average, s 1−α     (      )                                                 porate governance. Adv. Financ. Econ. 9, 1–27.
+ipating his defeat, the bidder never runs a proxy ﬁght in                  Greenwood, R., Schor, M., 2009. Investor activism and takeovers. J. Financ.
+                          < b, then the shareholder value                     Econ. 92, 362–375.
+this region. Third, if 1−  α                                               Grinstein, Y., Hribar, P., 2004. CEO compensation and incentives: evidence
+is  if the bidder gets the control of the board, and zero                     from m&a bonuses. J. Financ. Econ. 73, 119–143.
+                                            A.A. Corum and D. Levit / Journal of Financial Economics 133 (2019) 1–17                                          17
+
+
+Grossman, S.J., Hart, O.D., 1980. Takeover bids, the free-rider problem, and        Maug, E., 1999. How effective is proxy voting? Information aggregation
+    the theory of the corporation. Bell J. Econ. 11, 42–64.                             and conﬂict resolution in corporate voting contests. Fuqua Business
+Harford, J., 2003. Takeover bids and target directors’ incentives: the im-              School Unpublished working paper.
+    pact of a bid on directors’ wealth and board seats. J. Financ. Econ. 69,        Murphy, K.J., 2013. Executive compensation: where we are, and how we
+    51–83.                                                                              got there. In: Constantinides, G., Harris, M., Stulz, R. (Eds.), Handbook
+Harris, M., Raviv, A., 1988. Corporate governance: voting rights and major-             of the Economics of Finance, Vol. 2A. Elsevier Science North Holland,
+    ity rules. J. Financ. Econ. 20, 203–235.                                            Amsterdam, pp. 211–356.
+Hartzell, J.C., Ofek, E., Yermack, D., 2004. What’s in it for me? CEOs whose        Ofer, A.R., Thakor, A.V., 1987. A theory of stock price response to alter-
+    ﬁrms are acquired. Rev. Financ. Stud. 17, 37–61.                                    native corporate disbursement methods: stock repurchases and divi-
+Hirshleifer, D., Titman, S., 1990. Share tendering strategies and the success           dends. J. Finance 42, 365–394.
+    of hostile takeover bids. J. Polit. Econ. 98, 295–324.                          Rubinstein, A., 1982. Perfect equilibrium in a bargaining model. Econo-
+Jenter, D., Lewellen, K., 2015. CEO preferences and acquisitions. J. Finance            metrica 50, 97–109.
+    70, 2813–2852.                                                                  Shleifer, A., Vishny, R.W., 1986. Large shareholders and corporate control.
+Jiang, W., Li, T., Mei, D., 2018. Inﬂuencing control: jawboning in risk arbi-           J. Polit. Econ. 94, 461–488.
+    trage. unpublished working paper. J. Finance 73 (6), 2635–2675.                 Singh, R., 1998. Takeover bidding with toeholds: the case of the owner’s
+Kyle, A.S., 1985. Continuous auctions and insider trading. Econometrica                 curse. Rev. Financ. Stud. 11, 679–704.
+    53, 1315–1335.                                                                  Walkling, R., Long, M., 1984. Agency theory, managerial welfare, and
+Kyle, A.S., Vila, J.L., 1991. Noise trading and takeovers. RAND J. Econ. 22,            takeover bid resistance. RAND J. Econ. 15, 54–68.
+    54–71.                                                                          Wulf, J., Singh, H., 2011. How do acquirers retain successful target CEOs?
+Martin, K., McConnell, J., 1991. Corporate performance, corporate                       the role of governance. Manag. Sci. 57, 2101–2114.
+    takeovers, and management turnover. J. Finance 46, 671–687.                     Yı lmaz, B., 1999. Strategic voting and proxy contests. University of Penn-
+Maug, E., 1998. Large shareholders as monitors: is there a trade-off be-                sylvania Unpublished working paper.
+    tween liquidity and control? J. Finance 53, 65–98.
+

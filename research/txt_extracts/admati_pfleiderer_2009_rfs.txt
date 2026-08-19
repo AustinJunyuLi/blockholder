@@ -1,0 +1,2646 @@
+The “Wall Street Walk” and Shareholder
+Activism: Exit as a Form of Voice
+Anat R. Admati
+Graduate School of Business, Stanford University
+
+
+
+
+                                                                                                                    Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+Paul Pfleiderer
+Graduate School of Business, Stanford University
+
+
+    We examine whether a large shareholder can alleviate conflicts of interest between managers
+    and shareholders through the credible threat of exit on the basis of private information. In
+    our model, the threat of exit often reduces agency costs, but additional private information
+    need not enhance the effectiveness of the mechanism. Moreover, the threat of exit can
+    produce quite different effects depending on whether the agency problem involves desirable
+    or undesirable actions from shareholders’ perspective. Our results are consistent with
+    empirical findings on the interaction between managers and minority large shareholders
+    and have further empirical implications. (JEL D53, D82, G10, G30, G34)
+
+
+
+
+The role of active large shareholders in improving corporate performance has
+been discussed extensively in the last two decades. Although large shareholders
+(including pension funds, mutual funds, hedge funds, and other investors) hold
+a substantial and increasing fraction of shares in public companies in the United
+States, most large shareholders play a limited role in overt forms of shareholder
+activism such as takeovers, proxy fights, strategic voting, shareholders’ pro-
+posals, etc. One likely reason for this is that active shareholders only realize a
+relatively small fraction of the benefits from their monitoring while bearing the
+full cost, which can be substantial. In other words, we have a classic “free rider”
+problem. In addition, legal barriers, agency problems affecting the incentives of
+the large shareholder, and the fact that many large shareholders are committed
+to being passive and not investing resources to monitor their portfolio firms
+
+
+
+
+An earlier version of this paper has been previously circulated under the title “The ‘Wall Street Walk’ as a form
+of Shareholder Activism.” We would like to thank Sugato Bhattacharyya, Jernej Copic, Bob Hall, Ken Judd,
+Gustavo Manso, Christine Parlour, Maureen O’Hara, Ben Polak, Chester Spatt, Matt Spiegel, Masako Ueda;
+seminar participants at Berkeley, MIT, Northwestern, Stanford, the University of Wisconsin at Madison, UBC,
+and Yale; and especially Andy Skrzypacz and Jeff Zweibel for helpful comments. Send correspondence to Anat
+Admati, Graduate School of Business, Stanford University, Stanford, CA 94305-5015; telephone: 650-723-4987.
+E-mail: admati@stanford.edu.
+
+ The Author 2009. Published by Oxford University Press on behalf of The Society for Financial Studies.
+C
+All rights reserved. For Permissions, please e-mail: journals.permissions@oxfordjournals.org.
+doi:10.1093/rfs/hhp037                                               Advance Access publication May 18, 2009
+    The Review of Financial Studies / v 22 n 7 2009
+
+
+
+    have also worked to limit activism.1 If a large shareholder is aware that a firm’s
+    management does not act in the best interest of shareholders, it may be rational
+    for the shareholder to follow the so-called “Wall Street Rule” or “Wall Street
+    Walk,” voting with his feet and selling his shares, rather than attempting to be
+    active.
+       Exit seems to be an alternative to activism, and as such appears to be incon-
+    sistent with it. This has led some (e.g., Bhide 1993; Coffee 1993) to argue that
+
+
+
+
+                                                                                                                          Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+    market liquidity impairs corporate governance. What seems to have not been
+    widely recognized is that the threat of exit itself can be a form of shareholder
+    activism. Palmiter (2002, pp. 1437–38) suggests that large shareholders may
+    be able to affect managerial decisions through the “threat (actual or implied)
+    of selling their holdings and driving down the price of the targeted company.”
+    Presumably, if managers’ compensation is tied to share prices, and if the exit
+    of a large shareholder has a negative price impact, then the presence of a large
+    shareholder who is potentially able to trade on private information may help
+    discipline management and improve corporate governance. In addition, the
+    threat of exit may be important in making “jawboning” activities and behind-
+    the-scenes negotiation with management effective.
+       A number of questions arise immediately as one considers the possibility
+    that the threat of exit can alleviate agency problems between managers and
+    shareholders. First, can the threat of exit be credible? Since the key to the
+    notion that the threat of exit has a disciplining effect is that exit drives the stock
+    price of the targeted firm down, it would appear that the large shareholder suffers
+    a loss when a threat to exit is carried out. This would seem to make the threat
+    not credible. Second, even if the threat to exit is shown to be credible, would
+    this threat always help align managerial incentives better with shareholders’
+    preferences, or might it interfere with other forms of managerial discipline?
+    Third, if the threat of exit on the basis of private information has a disciplinary
+    impact, would additional information improve the situation further? In other
+    words, is it always better if the large shareholder has more information? Fourth,
+    will the threat of exit remain effective in disciplining managers if the large
+    shareholder incurs additional costs in exiting (e.g., transactions costs)?
+       In this paper, we examine all of these issues within a simple model where a
+    manager’s incentives are not aligned with shareholders. In our model, a large
+    shareholder has private information about the manager’s actions and/or about
+    the consequences of these actions to the value of the firm, and can sell shares
+    based on this information. All agents are rational and prices perfectly reflect
+    all public information, including the large shareholder’s trading decisions. Our
+
+1
+    Many papers in the law and economics literature discuss the role of large shareholders in corporate governance,
+    and many focus on shareholder activism. With each taking a different perspective on the subject, Black (1990);
+    Grundfest (1993); Romano (1993); Black and Coffee (1994); Roe (1994); Macey (1997); Gillan and Starks
+    (1998); Romano (2001); Palmiter (2002); Bainbridge (2005); and Bebchuk (2005) discuss how shareholder
+    activism has been practiced, describe some of the barriers that have limited its use and effectiveness, and suggest
+    ways in which large shareholders can become more involved in corporate governance.
+
+
+
+
+    2646
+    Threat of Exit in Manager–Shareholder Interaction
+
+
+
+    model combines two common elements present in trading models and in models
+    of executive compensation, namely that (i) large shareholders often collect
+    information and use it for trading and (ii) explicit and implicit managerial
+    compensation contracts often lead managers to be sensitive to market prices of
+    their firms.
+       We will consider two distinct types of agency problems. In one case, the
+    manager can take an action that is undesirable from the shareholders’ perspec-
+
+
+
+
+                                                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+    tive, but which produces a private benefit to the manager. In the other case, the
+    action is desirable from the shareholders’ perspective, but it is privately costly
+    to the manager.2 The manager’s decision and its impact, which the manager
+    knows when a decision is made, will be observed publicly at the final date of
+    our model, but in the short run investors have less than complete information
+    about either the manager’s decision or the consequences of the action, if taken,
+    or both. The large shareholder observes some information privately before
+    other investors and may be able to sell shares on the basis of this information.
+    For each of the agency problems and for a number of different information
+    structures, we examine whether and to what extent the presence of the pri-
+    vately informed large shareholder reduces the agency costs associated with the
+    action.
+       We show that the ability of large shareholders to exit on the basis of private
+    information often helps in reducing agency costs and aligning managerial
+    decisions with shareholders’ preferences. However, the nature and effectiveness
+    of this mechanism can depend critically on the nature of the agency problem, as
+    well as on the information structure. While the two types of agency problems
+    described above (one with the “bad” action and one with the “good” action
+    from the shareholders’ perspective) may seem to be mirror images of each
+    other, we find that they can lead to dramatically different results. For example,
+    if we assume that the agency problem is one of discouraging the manager from
+    taking a “bad” action, then we find that the threat of exit by an informed large
+    shareholder generally disciplines the manager and reduces the agency cost, and
+    in no case makes the agency problem worse. The same is not true when the
+    agency problem is one of motivating the manager to take a “good” action. In
+    this case, it is possible that potential exit by an informed large shareholder does
+    not reduce the agency cost, and it may even exacerbate the agency problem and
+    increase the agency cost relative to a situation where the large shareholder is
+    not present. The differences in results for the “bad” action and “good” action
+    models are due to the fact that the inferences that can be made in equilibrium
+    regarding the value of the firm conditional on exit behave differently in the two
+    types of agency problems.
+
+2
+    We assume for most of the paper that investors are aware of which of these agency problems is present. (In
+    Section 6, we discuss “model uncertainty,” where this is not true.) Mature firms with large cash reserves (free
+    cash flow) may be more prone to a “bad action” type of agency problem. A “good action” problem may arise
+    when the manager is reluctant to take on risky projects that are beneficial to shareholders but which entail high
+    cost to the manager and carry the risk of failure and job loss.
+
+
+
+
+                                                                                                             2647
+    The Review of Financial Studies / v 22 n 7 2009
+
+
+
+       We also show that, while the threat of exit on the basis of private information
+    can have a disciplinary impact, more private information does not always lead
+    to a better outcome, and in fact in some situations it may reduce or eliminate
+    the disciplinary impact of the threat to exit. As discussed further below, our
+    model and results are generally consistent with empirical findings on the role
+    and impact of large shareholders in governance. In addition to noting the
+    general empirical support, we suggest some more direct empirical tests of the
+
+
+
+
+                                                                                                                  Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+    effectiveness of the threat of exit in resolving agency problems.
+       There is an extensive theoretical literature on shareholder activism and on the
+    role of large shareholders in corporate governance.3 The models in this literature
+    typically assume that the large shareholder can take a costly action, often
+    called “monitoring,” to affect the value of the firm. Monitoring is associated
+    with the ownership of shares, and inconsistent with exit. While the possibility
+    that the large shareholder trades is considered in a number of these papers,
+    the focus is generally on the incentives of the large shareholder to engage
+    in monitoring and/or on the ownership structures that arise endogenously. In
+    our model, by contrast, the ability of the large shareholder to exit is itself the
+    technology that may affect managerial decisions. While in most of our analysis
+    we take the information structure as given and do not incorporate the cost of
+    acquiring information, our results have several immediate implications for the
+    case where information acquisition by the large shareholder is endogenous.
+    This is discussed in Section 7.1.
+       The notion that stock prices may play a role in monitoring managerial per-
+    formance was discussed in Holmstrom and Tirole (1993). Their model and the
+    focus of their analysis differ from ours in several ways. In particular, Holmstrom
+    and Tirole focus on how the ownership structure of the firm affects the value of
+    market monitoring through its effect on liquidity and on the profits speculators
+    realize in trading on information. In our model, by contrast, we focus on the
+    disciplining impact of a large shareholder’s threat of exit and examine how the
+    effectiveness of this threat depends on the nature of the agency problem and
+    the information structure.
+       Gopalan (2005) and Edmans (2008) each consider the possibility that the
+    ability to exit can have a positive impact on the firm. In Gopalan’s study,
+    exit by an informed large shareholder creates value by encouraging another
+    bidder to acquire information and implement improvements through a takeover
+    mechanism. This mechanism for bringing about improvement is very different
+    from the one at work in our model, which focuses on managerial incentives,
+    and where the impact of large shareholder exit is due to its effect on managerial
+    compensation. The main difference between our model and that of Edmans is
+
+
+3
+    A partial list includes Huddart (1993); Admati, Pfleiderer, and Zechner (1994); Burkart, Gromb, and Panunzi
+    (1997); Bolton and Von Thadden (1998); Kahn and Winton (1998); Maug (1998); Katz and Owen (2001); Tirole
+    (2001); Noe (2002); Aghion, Bolton, and Tirole (2004); Faure-Grimaud and Gromb (2004); Hartzell and Starks
+    (2004); Mello and Repullo (2004); Yung (2005); and Attari, Banerjee, and Noe (2006).
+
+
+
+
+    2648
+    Threat of Exit in Manager–Shareholder Interaction
+
+
+
+    that our model addresses a fundamental agency problem that is most extreme
+    if the manager’s compensation is not sensitive to prices, while Edmans suggests
+    that there is no fundamental agency problem—the manager would always make
+    the optimal decision from the shareholders’ perspective if his compensation
+    were a fixed salary. The agency problem in Edmans arises because of the
+    combined assumptions that the manager’s compensation depends on short-
+    term prices (as in our model), and that the manager’s actions affect the price in
+
+
+
+
+                                                                                                                           Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+    a particular way, namely the more productive the action, the more unfavorable
+    the public signal that is generated in the short term.
+        Several empirical studies of the role and impact of large shareholders present
+    evidence that is consistent with our model.4 Carleton, Nelson, and Weisbach
+    (1998) suggest that large shareholders can affect firms’ values through private
+    negotiations. This is consistent with our model, because discipline through
+    exit requires that the manager knows that the large shareholder is informed,
+    and these private negotiations may be an effective means of communicating
+    this. Parrino, Sias, and Starks (2003) provide evidence to support both the
+    notion that large shareholders are better informed than other investors, as our
+    model assumes, and the fact that they sometimes use their private information
+    to “vote with their feet” prior to CEO turnover. They suggest that the price
+    impact of these trades may affect corporate decisions. Sias, Starks, and Titman
+    (2001) also suggest that large shareholder trading has a price impact that is
+    likely due to superior information, consistent with our model. More recently,
+    and consistent with our model, Massa and Simonov (2006) and Qiu (2006)
+    show that noncontrolling large shareholders can have meaningful impact on
+    managerial decisions, particularly in preventing managers from taking value-
+    reducing actions such as bad acquisitions.
+        A number of recent papers have focused attention on hedge fund activism,
+    and their findings are also consistent with our model. Using 13D and other
+    filings over various periods of time, Klein and Zur (2009) and Brav et al.
+    (2006) suggest that hedge funds help reduce agency costs and that their activism
+    increases firm value. Klein and Zur (2009) argue that hedge funds are able
+    to affect managerial decisions through the perceived threat of a proxy fight.
+    However, they find that the results of hedge fund activism do not seem to depend
+    on whether a proxy fight was explicitly mentioned in the 13D filing or whether
+    a proxy fight actually took place. Clifford (2008) also examines hedge fund
+    activism, comparing situations where hedge funds define themselves as activists
+    to those where the same funds define themselves as passive.5 The results of all
+    these papers are consistent with the notion that the (perceived) threat of exit
+    helps explain why certain large investors are able to affect managerial decisions.
+
+4
+    For a survey of the empirical literature, see Gillan and Starks (2007).
+5
+    The possibility of exit is explicitly mentioned in the example given by Clifford (2008, Appendix B), where Steel
+    Partners II states that among the possible actions it might take would be “selling some or all of its Shares.” Kahan
+    and Rock (2007) and Bratton (2007) discuss in detail various aspects of hedge fund activism.
+
+
+
+
+                                                                                                                2649
+  The Review of Financial Studies / v 22 n 7 2009
+
+
+
+  Indeed, our model assumes that the manager is aware of the fact that the
+  large shareholder is informed. The SEC filings made by the large shareholder,
+  which are studied empirically in these studies, may be one source of this
+  awareness.
+     In a recent paper, Brenner (2007) presents empirical evidence that is sup-
+  portive of our model and results. Brenner finds, using a global data set, that
+  liquidity and the share of CEO equity-related pay to total pay are comple-
+
+
+
+
+                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+  mentary. Moreover, he uses variables related to the legal and governance en-
+  vironments in different countries to identify situations where particular types
+  of agency problems (namely those with “bad action” versus those with “good
+  action”) are likely to be severe, and to show that the threat of exit seems to
+  be differentially effective across the different agency problems. In Section 8,
+  we discuss some unique features of our model that can be exploited in future
+  empirical studies to examine whether the threat of exit plays a role in corporate
+  governance.
+     The paper is organized as follows. We introduce our basic model and the
+  two agency problems in Section 1. Section 2 analyzes the case where the large
+  shareholder’s private information includes only the manager’s action and no
+  investor observes the effect of the action on the value of the firm until the final
+  period. In Section 3, we examine what happens when the large shareholder
+  privately observes both the manager’s decision and its impact on the firm’s
+  value. Section 4 considers the case where the manager’s action is observed by
+  all investors and the large shareholder’s private information includes only the
+  action’s implications. For completeness, we analyze in Section 5 the case in
+  which the impact of the action on the firm value is publicly known, and the
+  private information of the large shareholder only concerns whether the action
+  is taken or not. In Section 6, we consider various extensions and variations
+  on the model, such as the case where information acquisition is endogenous,
+  the case where the large shareholder’s trade is not completely observable but
+  masked by the trading of other liquidity traders, the case where exit by the large
+  shareholder is costly to the large shareholder and possibly to all shareholders,
+  and situations where investors have uncertainty about the manager’s private
+  cost or benefit or about the type of agency problem. Section 7 discusses the
+  empirical predictions of our analysis. Section 8 offers concluding remarks.
+
+
+1. The General Model
+  There are three periods in our model. In Period 0, the manager, whom we denote
+  by M, decides whether or not to take a particular action. An agency problem
+  arises because M and the shareholders of the firm have conflicting preferences
+  with respect to this action. We will analyze two distinct models using the same
+  notation. In one model, which we refer to as model B, the action available to M
+  is “bad” in the sense that it is undesirable from the shareholders’ perspective,
+  but the action produces a private benefit to M. In another model we analyze,
+
+
+
+  2650
+    Threat of Exit in Manager–Shareholder Interaction
+
+
+
+    model G, the action is “good” for shareholders in that it increases the value of
+    the firm, but it requires M to incur a private cost. We denote the value of the
+    firm if M does not take the action by ν. If M takes the action in model B, then
+    the value of the firm decreases by δ̃ ≥ 0 and becomes ν − δ̃, while M obtains
+    a private benefit of β > 0. If the action is taken in model G, then the value of
+    the firm increases by δ̃ ≥ 0 and becomes ν + δ̃, while M incurs a private cost
+    of β > 0. These two models may seem like mirror images of each other but, as
+
+
+
+
+                                                                                                                         Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+    we will see, in our setting they can produce dramatically different results.
+       Our basic assumptions regarding uncertainty and the information structure
+    are as follows. The status quo value of the firm ν is fixed and common knowl-
+    edge.6 In Period 0, investors assess that δ̃ has a continuous distribution f (·)
+    with support on [0, δ], where δ is positive and possibly infinite. M observes the
+    realization of δ̃ before making the decision whether to take the action or not.
+    We further assume that the private cost or benefit β is fixed and known to all
+    investors.7
+       Since M makes a decision regarding the action after observing δ̃, the strategy
+    can be described by a function a(δ̃), where a(δ̃) = 1 denotes the event in which
+    M takes the action and a(δ̃) = 0 denotes the event in which he does not take it.
+    In most of our analysis, investors will make inferences regarding the expected
+    change in the firm value, the magnitude of which is given by a(δ̃)δ̃. To simplify
+    the notation, we will use the shorthand ã to represent M’s action instead of
+    a(δ̃). We assume that in the final period, investors do observe the realizations of
+    both ã and δ̃. The value of the firm is therefore ν − ã δ̃ in model B and ν + ã δ̃
+    in model G.
+       We assume that the firm is owned by many small and passive investors, as
+    well as by a large shareholder, whom we denote by L. For expositional clarity,
+    we will from now on use female pronouns to refer to L. The exact ownership
+    structure will not matter to our results, since valuation will be done under risk
+    neutrality. We assume that L observes some private information regarding ã
+    and/or δ̃ in Period 1, and that she may be in a position to sell her shares on the
+    basis of this information. Because it generally reflects her private information,
+    L’s trading decision will have an impact on the firm’s price in Period 1. This in
+    turn has the potential to affect M’s decision if M cares about the market price
+    of the firm in Period 1.
+       The manager’s compensation is assumed to be linear in the realized mar-
+    ket price of the firm in Periods 1 and 2, P1 and P2 . Specifically, we assume
+    that M’s compensation is equal to ω1 P1 + ω2 P2 , where ω1 and ω2 are pos-
+    itive coefficients representing the dependence of the compensation on the
+
+
+6
+    We can assume more generally that ν is random but that no agent has private information about it. In fact, the
+    value of ν will not play any significant role in our analysis.
+7
+    As discussed in Section 6.3, our results cover the case where β is perfectly correlated with δ̃. If β is privately
+    known only to the manager, then inferences based on L’s information and based on her trade become more
+    complicated to analyze. Such a model is beyond the scope of this paper.
+
+
+
+
+                                                                                                              2651
+    The Review of Financial Studies / v 22 n 7 2009
+
+
+
+    firm’s short-term (“Period 1”) and long-term (“Period 2”) price performance,
+    respectively.8 The potential impact of L on M’s decision comes about through
+    the impact of her trading decisions on P1 . We assume that the prices, P1 and
+    P2 , are set by risk-neutral, competitive market makers and therefore reflect
+    all of the information publicly available. This means that P2 equals ν − ã δ̃ in
+    model B and equals ν + ã δ̃ in model G. In Period 1, P1 reflects the information
+    contained in L’s trading decision, as is described in more detail below.
+
+
+
+
+                                                                                                                            Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+       If M does not take the action, then his utility is simply his compensation,
+    ω1 P1 + ω2 P2 . If he takes the action in model B, M’s utility is equal to the sum
+    of his compensation and the private benefit β. Similarly, if M takes the action
+    in model G, then his utility is equal to the compensation minus the private cost
+    β. M chooses whether to take the action or not to maximize his expected utility
+    for every realization of δ̃.
+       We assume that L may be subject to a liquidity shock in Period 1. Specifically,
+    there is a probability 0 < θ < 1 that, independent of her private information, L
+    will need to sell her entire stake in Period 1. While the value of θ is common
+    knowledge, only L knows her actual motives for trading when she trades. We
+    generally assume that θ > 0, but our model is also well defined in the limit
+    case where θ = 0 (i.e., when L is never subject to a liquidity shock). As will
+    become clear, most of our results will apply to this case as well, and we will
+    often use it for illustration. The main complication for the θ = 0 case is that
+    additional equilibria can arise that are not the limit of any equilibrium for the
+    case θ > 0 as θ vanishes.9 The equilibria we analyze when θ > 0 always have
+    a well-defined limit as θ goes to zero, and these equilibria obtained in the limit
+    as θ vanishes are indeed equilibria of the model in which θ = 0. If she is not
+    subject to a liquidity shock, L chooses to sell her shares if the expected value
+    of the firm given all her information is smaller than P1 , the price at which she
+    would exit, where P1 incorporates the information communicated by the sale.
+       We will analyze the Bayesian-Nash equilibria of models B and G under var-
+    ious assumptions concerning what L and other investors observe in Period 1.
+    In such equilibria M, using his information, makes the optimal decision regard-
+    ing his action, taking L’s trading strategy as given. Similarly, L, based on her
+    information, determines whether to sell her shares in the event that she is not
+
+8
+    We take the form of M’s compensation as exogenous here. Presumably, M’s compensation balances risk sharing
+    and various agency considerations. If the agency problem considered in this paper were the only relevant
+    problem in the contracting environment between M and shareholders, then it would be reasonable to endogenize
+    the dependence of the compensation on prices. However, we believe that in reality M’s compensation is designed
+    to solve a more complex problem. We therefore limit ourselves to asking what disciplinary impact L can have
+    given any particular compensation function within our assumed structure. Note that if ω1 = 0, then L will not
+    affect M’s decision through her trade. The case ω2 = 0 is significantly more complicated to analyze and, in some
+    cases, it admits a large number of equilibria. For this special case, we have characterized the set of equilibria and
+    derived their properties for some versions of our model. Details are available upon request.
+9
+    For example, there may be equilibria in which L never sells and therefore never has an effect on M’s decisions
+    through her trading, or equilibria where L sells only some of her shares. Eliminating these equilibria would
+    require restrictions on out-of-equilibrium beliefs. This is not necessary when θ > 0 since in this case exit always
+    occurs with positive probability.
+
+
+
+
+    2652
+     Threat of Exit in Manager–Shareholder Interaction
+
+
+
+     subject to a liquidity shock.10 Both M and L take as given the fact that P1 will
+     reflect the conditional expectation of ã δ̃ based on the information available to
+     investors, including L’s trading decision, in Period 1.
+        For most of our analysis we will make the following tie-breaking assump-
+     tions: (i) if M is indifferent between taking the action and not taking the action,
+     then he takes the action; (ii) if L is indifferent between selling her shares and
+     not selling, she sells her shares. When we use these assumptions, they will
+
+
+
+
+                                                                                                                             Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     not change the set of equilibria, because δ̃ has a continuous distribution and
+     indifference will hold for at most one realization of δ̃.11
+        Given a particular realization of δ̃, M must decide whether to take the action.
+     It is easy to see that in the benchmark case in which L is not present and ã is
+     not observed by investors until Period 2, M will take the action if and only if
+     δ̃ ≤ β/ω2 in model B and if and only if δ̃ ≥ β/ω2 in model G. We assume that
+     β/ω2 < δ, i.e., that there is a positive probability that, even without L present,
+     M acts in the interests of the shareholders (refraining from taking the action in
+     model B and taking the action in model G).12 For a strategy of M that specifies
+     whether he takes the action or not as a function of δ̃, the ex ante expected value
+     of the firm in model B is ν − E(δ̃ã). Similarly, in model G, the ex ante value of
+     the firm given M’s strategy is ν + E(δ̃ã).
+        Note that the best outcome from the shareholders’ perspective in model B is
+     that M never takes the action, which means that the highest value of the firm in
+     this case is ν. Since the firm value is reduced by δ̃ whenever ã = 1 relative to this
+     best case, the ex ante expected agency cost associated with the action in model B
+     is E(δ̃ã). Analogously, the first best from the shareholders’ perspective in model
+     G is that M always takes the action, which increases the value of the firm from ν
+     to ν + δ̃. Since in this case the increase of δ̃ is not realized whenever ã = 0, the
+     ex ante expected agency cost in model G is equal to E(δ̃(1 − ã)) = E(δ̃) −
+     E(δ̃ã). Thus, in model B the ex ante expected agency cost is reduced if E(δ̃ã)
+     is made lower, while the opposite is true in model G. We are interested in the
+     impact that L’s presence has on the ex ante expected agency cost in the two
+     models, which from now on we will simply refer to as agency cost. This impact
+     is measured by the difference between the agency cost in the equilibrium where
+     L is not present and the agency cost in the equilibrium where L is present. We
+     use the following terms:
+
+
+
+10
+     We do not need to consider trades by L that cannot arise from a liquidity shock, since such trades will generally
+     lead to zero expected profits under reasonable assumptions about investors’ beliefs. However, when investors
+     cannot be sure whether L’s trade is based on private information or liquidity, L makes positive profits when she
+     trades on her information. See the discussion in Section 6.1 on the case where L trades anonymously.
+11
+     In a few cases the equilibrium will involve mixed strategies, and in those cases agents’ decisions, when indifferent,
+     will be determined by the equilibrium (rather than by an assumption). This occurs, for example, in the case where
+     δ̃ is publicly observable in Period 1, which is discussed in Section 5.
+12
+     This assumption, which holds trivially when δ is infinite, rules out extreme cases where the agency problem is
+     so severe that L cannot have any impact.
+
+
+
+
+                                                                                                                  2653
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     Definition. Consider the impact that L’s presence has on the agency cost
+     associated with the action.
+       (i) An equilibrium is disciplining if L’s presence has a positive impact (i.e.,
+           the agency cost is lower when L is present than when she is not present).
+      (ii) An equilibrium is nondisciplining if L’s presence has no impact on the
+           agency cost.
+
+
+
+
+                                                                                                                       Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     (iii) An equilibrium is dysfunctional if L’s presence has a negative impact
+           (i.e., the agency cost is higher when L is present than when she is not
+           present).
+
+         It is easy to see that in order for the equilibrium to be disciplining, L must have
+     some information about ã in Period 1, and that some of her information at that
+     point must be private. We will examine L’s impact under various information
+     structures that satisfy this condition. We will at times also compare, for the
+     same model specifications, L’s effectiveness in model B versus model G. To
+     distinguish the different information structures, we will use superscripts to
+     denote the information observed by L in Period 1, and subscripts to denote the
+     information (if any) that is publicly observed by all investors in Period 1. For
+     example, model Ba is model B where L observes ã in Period 1 and investors do
+     not observe either ã or δ̃ directly until Period 2; model Ga,δ   a is model G where
+     ã is observed publicly in Period 1, and, in addition, L observes δ̃ privately in
+     Period 1. Note that when there is no subscript, investors do not observe either
+     ã or δ̃ in Period 1. When there is no superscript, the model is the base or
+     benchmark model where L is not present.
+
+
+2. Action-only Monitoring
+     We start our analysis by assuming that L observes privately whether M has taken
+     the action (i.e., the realization of ã). However, neither L nor other investors
+     are assumed to observe the realization of δ̃ until Period 2. The models in this
+     section, therefore, are denoted by the superscript a (and no subscript).
+          Consider first model Ba . It is easy to see that, since the action reduces the
+     value of the firm, in every equilibrium of this model L sells her shares whenever
+     she observes that M has taken the action.13 Let E s be the expected value of
+     ã δ̃ conditional on L selling her shares and E ns be the expected value of ã δ̃
+     conditional on L not selling her shares. Then the price of the firm in Period 1,
+     P1 , can take on two possible values: ν − E s if L sells her shares, and ν − E ns
+     if she does not. Note that, when θ > 0, L might be forced to sell for liquidity
+     reasons even if M does not take the action, and this, together with the strategies
+     of L and M, will need to be incorporated into the determination of E s and E ns .
+
+13
+     It is immediate that L must weakly prefer to sell if the action is taken, and we can invoke the tie-breaking
+     assumption that she sells when she is indifferent. As we will see, in the unique equilibrium of our model, L in
+     fact strictly prefers to sell her shares when the action is taken.
+
+
+
+
+     2654
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+  If M takes the action for a particular δ, P2 is equal to ν − δ. Since L exits
+with probability 1 when M takes the action, P1 is equal to ν − E s . Thus, M’s
+expected utility is
+
+                                 β + ω1 (ν − E s ) + ω2 (ν − δ).                 (1)
+
+If M does not take the action, then P2 = ν, and P1 is equal to ν − E s with
+
+
+
+
+                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+probability θ and ν − E ns with probability 1 − θ, because L sells if and only
+if she is subject to a liquidity shock. Thus, M’s expected utility if he does not
+take the action is
+
+                             ω1 (ν − θE s − (1 − θ)E ns ) + ω2 ν.                (2)
+
+Comparing Equations (1) and (2), we conclude that M will take the action if
+and only if
+
+                           β − (1 − θ)ω1 (E s − E ns ) − ω2 δ ≥ 0.               (3)
+
+The potential impact of L’s presence comes about through the second term in
+the equation above, (1 − θ)ω1 (E s − E ns ). This term depends on the difference
+between the first-period price given a sale by L and the first-period price given
+that L retains her shares. To the extent that exit reflects negative information,
+this is negative. The absolute value of this difference measures the extent to
+which L exerts “punishment” on M by selling her shares and driving the price
+down when M takes the action.
+   Note that, since ω2 > 0, the left-hand side of Equation (3) is decreasing in
+δ. This implies that if M prefers to take the action for a given δ, then he must
+strictly prefer to take it for all smaller values. An equilibrium of model Ba will
+therefore be characterized by a cutoff point x such that the action is taken if
+and only if δ̃ ≤ x. Given such a strategy for M, and since L sells her shares if
+M takes the action or if she is subject to a liquidity shock, we have
+
+                                Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x)
+                   E s (x) =                             ;    E ns (x) = 0.      (4)
+                                θ + (1 − θ)Pr(δ̃ ≤ x)
+Note that we use the notation E s (x) to signify the dependence of E s on the
+cutoff point x. Since investors can infer that ã = 0 (the action was not taken)
+if L does not sell her shares, E ns (x) = 0 independent of x. The calculation of
+E s (x) takes into account that with probability θ, a sale by L is due to a liquidity
+shock and, therefore, is uninformative about ã δ̃, while with probability 1 − θ,
+a sale implies that ã = 1 and therefore, given M’s strategy, that δ̃ ≤ x. Note
+that for a given x, E s (x) is decreasing in θ, and in the limit case where θ = 1,
+E s (x) = Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x). Conversely, when θ vanishes, E s approaches
+E(δ̃ | δ̃ ≤ x), since in this case a sale conveys perfectly that ã = 1.
+   Now consider M’s decision whether or not to take the action. Since δ̃ has a
+continuous distribution, it is easy to see that in any disciplining equilibrium, M
+
+
+
+                                                                               2655
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     must be indifferent between taking and not taking the action at the equilibrium
+     cutoff δ̃ = x B .14 Thus, x B must satisfy
+
+                            β − (1 − θ)ω1 (E s (x B ) − E ns (x B )) − ω2 x B = 0.                                  (5)
+
+         Let us now turn to model Ga . Since the action increases the value of the
+     firm, in every equilibrium L sells her shares if the action is not taken (or if
+
+
+
+
+                                                                                                                            Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     she is subject to a liquidity shock), and retains her shares if the action is taken.
+     Let E s and E ns be the conditional expectations of ã δ̃ given sale and no sale by
+     L, respectively. If M takes the action for δ̃ = δ, then P2 = ν + δ, and, since L
+     sells if and only if she is subject to a liquidity shock, P1 is equal to ν + E s with
+     probability θ and ν + E ns with probability 1 − θ. Thus, M’s expected utility if
+     he takes the action is
+
+                      −β + ω1 (θ(ν + E s ) + (1 − θ)(ν + E ns )) + ω2 (ν + δ).                                      (6)
+
+     If M does not take the action, then P1 = ν + E s , since L sells with probability
+     1, and P2 = ν. Thus, M’s expected utility if he does not take the action is
+
+                                                ω1 (ν + E s ) + ω2 ν.                                               (7)
+
+     It follows that M prefers to take the action if and only if
+
+                                 −β + (1 − θ)ω1 (E ns − E s ) + ω2 δ ≥ 0.                                           (8)
+
+     The left-hand side of Equation (8) is increasing in δ, so an equilibrium for this
+     model involves a cutoff point x such that M takes the action if and only if
+     δ̃ ≥ x. Since L sells her shares if she is subject to a liquidity shock or if M does
+     not take the action, we have for model Ga , again using the notation E s (x) and
+     E ns (x) to signify the dependence of prices on M’s cutoff point,
+
+                               θPr(δ̃ ≥ x)E(δ̃ | δ̃ ≥ x)
+                 E s (x) =                               ;                 E ns (x) = E(δ̃ | δ̃ ≥ x).               (9)
+                                θ + (1 − θ)Pr(δ̃ < x)
+     In model Ga , no sale by L communicates to investors that the action was
+     definitely taken (ã = 1), and thus that δ̃ ≥ x. A sale by L communicates that
+     either the action was not taken (and therefore ã = 0 and δ̃ < x), or that L was
+     subject to a liquidity shock, which is uninformative about ã and δ̃. Fixing x,
+     E s (x) is increasing in θ. In the limit when θ = 1, a sale is uninformative about
+     ã δ̃ and thus E s (x) = Pr(δ̃ ≥ x)E(δ̃ | δ̃ ≥ x). As θ vanishes, however, a sale
+     implies that the action was definitely not taken, and thus in the limit E s (x) = 0.
+          An equilibrium for model Ga will be characterized by a cutoff x G such that
+     M is indifferent between taking and not taking the action when δ̃ = x G , and
+
+14
+     Our tie-breaking assumption is that M takes the action for δ̃ = x B , but of course with a continuous distribution
+     this does not matter to the calculation of E s (x B ) and E ns (x B ) and therefore does not affect the equilibrium.
+
+
+
+
+     2656
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+thus x G satisfies
+
+                   −β + (1 − θ)ω1 (E ns (x G ) − E s (x G )) + ω2 x G = 0.      (10)
+
+    As already observed, if L is not present, then the equilibrium cutoff point in
+both models is equal to β/ω2 . That is, in this benchmark case the action is taken
+for δ̃ ≤ x B = β/ω2 in model B and for δ̃ ≥ x G = β/ω2 in model G. Note also
+
+
+
+
+                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+that in both models, shareholders are better off the lower the equilibrium cutoff
+point, because when δ̃ is below the cutoff point in both models, M is not acting
+in their best interests. The discipline L is able to exert on M’s actions is thus
+measured in both models by how low the equilibrium cutoff is. The following
+result characterizes the equilibrium for both models and compares model Ba
+with model Ga in terms of L’s effectiveness in disciplining M. The proofs of
+this and other results are found in the Appendix.
+
+Proposition 1. In both model Ba and model Ga , there exists a unique equi-
+librium, and the equilibrium is always disciplining.
+  (i) In model Ba , equilibrium is characterized by a cutoff x B < β/ω2 such
+      that the manager takes the action if and only if δ̃ ≤ x B and the large
+      shareholder exits if the manager takes the action. The cutoff x B solves
+      Equation (5), where E s (·) and E ns (·) satisfy Equation (6).
+ (ii) In model Ga , equilibrium is characterized by a cutoff x G < β/ω2 such
+      that the manager takes the action if and only if δ̃ ≥ x G and the large
+      shareholder exits if the manager does not take the action. The cutoff x G
+      solves Equation (10), and E s (·) and E ns (·) satisfy Equation (9).
+(iii) Fixing β, ω1 , ω2 , and the distribution of δ̃, both x B and x G are increasing
+      in θ.
+(iv) Fixing β, θ, ω1 , ω2 , and the distribution of δ̃, x G < x B . That is, all else
+      equal, the large shareholder is more effective in disciplining the manager
+      in model Ga than in model Ba .
+
+   This proposition states that when L observes ã privately and no investor
+observes δ̃ until Period 2, the credible threat that L will exit if M does not
+act in shareholders’ interests is an effective disciplining tool and reduces the
+agency cost. L’s impact is decreasing in θ, the probability that she is subject to
+a liquidity shock, because a higher value of θ makes her trades less informative
+and reduces her ability to “punish” M for not acting in shareholders’ interests.
+   Perhaps surprisingly, since the two models appear as mirror images of each
+other, part (iv) of Proposition 1 states that, fixing all the model’s parameters,
+L is more effective in model Ga than she is in model Ba . To understand this
+result, consider how inferences differ across the two models for a fixed cutoff
+value x. In model Ba , the difference between the expected value of the firm
+when the manager takes the action and when he does not is E(δ̃ | δ̃ ≤ x),
+while in model Ga this difference is E(δ̃ | δ̃ ≥ x). Clearly, for every
+
+
+
+                                                                               2657
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     x, E(δ̃ | δ̃ ≤ x) < E(δ̃ | δ̃ ≥ x). Since L observes whether the action is taken,
+     the absolute difference between the prices when L exits and when she does
+     not will be larger in model Ga than in model Ba . This is easy to see when
+     θ = 0, since in this case L’s trade reveals perfectly whether the action was
+     taken or not. In this case |E ns (x) − E s (x)| = E(δ̃ | δ̃ ≥ x) in model G and
+     |E ns (x) − E s (x)| = E(δ̃ | δ̃ ≤ x), which is smaller, in model Ba . The price dif-
+     ference across L’s trading decision is in fact larger in model Ga than in model
+
+
+
+
+                                                                                                                                Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     Ba for any cutoff level x, and also when θ < 1. Since L has a larger impact
+     on M’s compensation in model Ga than she has in model Ba for any potential
+     cutoff level, it follows that the equilibrium cutoff levels satisfy x G < x B .
+        A related observation is that L’s disciplining tool, equal to the net price
+     impact of exit |E s (x) − E ns (x)|, behaves differently in the two models as the
+     cutoff x goes to zero (i.e., as we approach the best situation (in both models)
+     from the shareholders’ perspective). In model Ba , |E s (x) − E ns (x)| goes to
+     zero as x vanishes. Thus, as M’s preferences get better aligned with those of
+     shareholders, the tool that L can use to discipline M vanishes in model Ba . This
+     is not true in model Ga , where |E s (x) − E ns (x)| always has a positive lower
+     bound even as x vanishes.15 Thus, L is better able to exert discipline in model
+     Ga than in model Ba .
+        The reader may wonder whether the different results we obtain for models
+     Ba and Ga are driven by our assumption that L can only sell or hold her
+     shares, but is (in our model) precluded from buying shares. We have analyzed
+     the model under various assumptions about the types of trade L can make,
+     including the assumption that L can buy shares, and we have found that our
+     qualitative results do not change under different specifications of the possible
+     trading actions available to L: L is always more effective in model Ga than
+     in model Ba . Whatever is assumed about L’s “action space” (i.e., the possible
+     trades she can make), there will be a trade (e.g., buy if this is possible, or
+     hold) that is taken if the manager “does the right thing” from the shareholders’
+     perspective and a different trading decision (e.g., hold or sell) if the manager
+     does the “wrong thing.” What drives the difference between the models is the
+     fact that as discipline improves and the manager does less of the “wrong thing,”
+     L’s disciplining tool, captured by the difference in P1 across these two trades,
+     vanishes in model Ba but not in model Ga .16
+
+
+3. Is L More Effective with More Private Information?
+     We now assume that L is able to observe privately not only whether M has
+     taken the action, i.e., the realization of ã, but also the realization of δ̃. We
+
+15
+     If θ = 0, E ns (x) − E s (x) = E(δ̃ | δ̃ ≥ x) > E(δ̃) > 0. More generally, E ns (x) − E s (x) has a positive lower bound
+     that depends on θ.
+16
+     Details of the analysis of a variation of the model that allows L to potentially buy shares are available upon
+     request.
+
+
+
+
+     2658
+     Threat of Exit in Manager–Shareholder Interaction
+
+
+
+     continue to assume that neither ã nor δ̃ is observed by other investors until
+     Period 2. As will become clear, the resulting models, denoted by Ba,δ and Ga,δ ,
+     produce results dramatically different from each other with this information
+     structure, and we will therefore discuss them separately.
+        Consider model Ba,δ first. Note that, since ω2 > 0, any equilibrium must
+     still involve M taking the action only if δ̃ falls below a cutoff point. Again, it
+     is easy to see that in any equilibrium, L prefers not to sell her shares if M does
+
+
+
+
+                                                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     not take the action. However, when L observes δ̃, it is no longer the case that
+     she always prefers to sell when the action is taken. If δ̃ < E s , where E s is the
+     market’s conditional expectation of ã δ̃ given that L sells, then even if M takes
+     the action, the price response to the sale, measured by E s , is more severe than
+     the loss to the value of the firm that L will incur if she retains her shares, which
+     is equal to δ̃. Thus, L will not want to sell if δ̃ < E s .
+        The above implies that if M takes the action for δ̃ ≤ x, then we must have
+
+                 θPr(δ̃ ≤ x)E(δ̃ | δ̃ ≥ e) + (1 − θ)Pr(δ̃ ∈ [E s (x), x])E(δ̃ | δ̃ ∈ [E s (x), x])
+     E s (x) =                                                                                    ,
+                                        θ + (1 − θ)Pr(δ̃ ∈ [E s (x), x])
+                                                                                               (11)
+     and
+
+                                             Pr(δ̃ < E s (x))E(δ̃ | δ̃ < E s (x))
+                              E ns (x) =                                          .                            (12)
+                                                  1 − Pr(δ̃ ∈ [E s (x), x])
+
+     This implicitly assumes that E s (x) must be smaller than x, which can be seen
+     by noticing that E s (x) is a weighted average of Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x) and
+     E(δ̃ | δ̃ ∈ [E s (x), x]), both of which are smaller than x. (As discussed below,
+     this property does not hold in model Ga,δ .) A sale by L communicates that
+     either the action was taken and L chose to sell, i.e., ã = 1 and δ̃ ∈ [E s (x), x],
+     or L was subject to a liquidity shock. No sale by L communicates that either
+     the action was not taken, or that it was taken and δ̃ < E s (x). In equilibrium,
+     the cutoff point x B will satisfy the indifference condition for M given again by
+
+                           β − (1 − θ)ω1 (E s (x B ) − E ns (x B )) − ω2 x B = 0.                              (13)
+
+     The following result states that an equilibrium for model Ba,δ with the charac-
+     terization described above exists, and that L always has a disciplinary impact
+     in equilibrium.17
+
+     Proposition 2. There exists at least one equilibrium in model Ba,δ , and every
+     equilibrium is disciplining. For every equilibrium, there is a cutoff x B < β/ω2
+     such that the manager takes the action if and only if δ̃ ≤ x B , and the large
+
+
+17
+     The equilibrium in this model is not always unique. However, it is unique when δ̃ has a uniform distribution, as
+     in the example we use below.
+
+
+
+
+                                                                                                             2659
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     shareholder sells shares if the action is taken and δ̃ ≥ E s (x B ), where E s (·) and
+     E ns (·) are given by Equations (11) and (12) and x B solves Equation (13). The
+     probability that the large shareholder sells shares in equilibrium is positive
+     when θ > 0 and vanishes as θ goes to zero.
+
+        Note that L has a disciplinary impact in this model even though in equilibrium
+     an actual exit may be observed quite rarely. This is unlike model Ba , where L
+
+
+
+
+                                                                                                                               Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     sells her shares in equilibrium whenever δ̃ ≤ x B . In fact, when the probability
+     of a liquidity shock θ is very small, L is extremely unlikely to exit in the
+     equilibrium of model Ba,δ . Nevertheless, L can have a significant disciplinary
+     impact despite this low probability of exit. When L exits, the market concludes
+     that, except for the possibility of a liquidity shock, ã δ̃ ∈ [E s (x B ), x B ] and,
+     therefore, that not only was the action likely to have been taken, but that, if the
+     action was taken, then δ̃ is in the relatively more “harmful” range of values. In
+     the limit when θ vanishes, L only exits when δ̃ = x B , i.e., with probability zero.
+     A sale in this case communicates that the action was taken and that δ̃ is equal
+     to the worst value for which the action is taken in equilibrium, namely x B .18
+     Note, however, that while the price impact of a sale is more pronounced, the
+     information content of L not selling is diminished. In particular, in the limit
+     case when θ = 0, since L sells with probability zero, no information about ã δ̃ is
+     communicated if L does not exit, and thus E ns (x B ) is equal to the unconditional
+     expectation of ã δ̃ given M’s strategy of taking the action for δ̃ ≤ x B , namely
+     Pr(δ̃ ≤ x B )E(δ̃ | δ̃ ≤ x B ).
+        Since L has strictly more information in model Ba,δ than in model Ba , is it the
+     case that her impact is accordingly greater in model Ba,δ than in model Ba ? It
+     turns out that more information does not necessarily make L more effective. We
+     will consider first the limit case where θ = 0, and then discuss the general case
+     θ > 0. Let x be a candidate cutoff point for M’s strategy. If M takes the action
+     when δ̃ ≤ x, then in model Ba , E s (x) = E(δ̃ | δ̃ ≤ x) and E ns (x) = 0. As noted
+     above, in model Ba,δ , we have E s (x) = x, and E ns (x) = Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x).
+     This is summarized in the table below:
+
+                                                              E s (x)               E ns (x)
+
+                             Model B with θ = 0
+                                       a
+                                                          E(δ̃ | δ̃ ≤ x)              0
+                             Model Ba,δ with θ = 0               x          Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x)
+
+
+        M’s decision of whether to take the action depends on E s (x) − E ns (x). Note
+     that for any x, both E s (x) and E ns (x) are larger in model Ba,δ than they are in
+
+18
+     To understand this intuitively, note that when θ = 0, since L knows both ã and δ̃ and has no liquidity motivation
+     for trade, it is not possible that, in equilibrium, L sells for more than one realization of δ̃ since E s (x B ) would
+     have then had to be above one of the possible realizations of δ̃ for which L sells. This is a contradiction because
+     it entails L selling for some realizations below E s (x B ), which is suboptimal. When θ > 0, then it is possible
+     that E s (x B ) < x B and so there is an interval of realizations of δ̃ between E s (x B ) and x B for which L sells in
+     equilibrium.
+
+
+
+
+     2660
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+                 xB when L is not present
+    0.8
+
+
+    0.7
+
+                xB in Model Ba,δ
+    0.6
+
+
+
+
+                                                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+                                                                 xB in Model Ba
+    0.5
+δ
+
+    0.4
+                                                             Es(xB) in Model Ba,δ
+    0.3
+
+
+    0.2
+                                                       Es(xB) in Model Ba
+    0.1
+      0.0      0.1       0.2       0.3       0.4       0.5       0.6       0.7       0.8       0.9       1.0
+                                                        θ
+Figure 1
+Is more information better?
+An example of the equilibrium in models Ba and Ba,δ , assuming δ̃ (the loss to the firm due to the action being
+taken) has uniform distribution and for all possible values of θ (the probability of liquidity shock). In each
+equilibrium, the action is taken when δ̃ ≤ x B for the appropriate cutoff x B , and E s (·) measures the price impact
+of a sale by the large shareholder.
+
+
+
+model Ba . When L exits, the action is likely to be in a relatively more harmful
+range in model Ba,δ than in model Ba , but when L does not exit, the action
+may have still been taken in model Ba,δ but not in model Ba . Thus, it is not
+clear which of the models produces a larger difference E s (x) − E ns (x) at the
+equilibrium cutoff point. In fact, it can be shown that this difference depends
+on the distribution of δ̃, and that it is entirely possible that more information
+produces a worse outcome. That is, the equilibrium cutoff point might be higher
+in model Ba,δ than it is in model Ba .
+   Whether more information is better also depends on θ, the probability that
+L is subject to a liquidity shock. As an example, consider the case where δ̃ is
+distributed uniformly over [0, 1], β = 0.4, ω1 = 1, and ω2 = 0.5. If L is not
+present, then, for this example, M takes the action if and only if δ̃ ≤ β/ω2 = 0.8.
+Figure 1 shows the equilibrium cutoffs x B , as well as the price impact of exit,
+measured by E s (x B ) in the equilibrium of both models for all values of θ. When
+θ = 0, more information is clearly better. This is seen by noting that the cutoff
+x B is lower in model Ba,δ than it is in model Ba . We see that in both models
+x B is increasing in θ, which is intuitive. When θ is small, L is more effective
+in model Ba,δ than she is in model Ba . However, for values of θ above 0.25,
+the reverse is true (i.e, L is less effective when she has private information
+
+
+
+                                                                                                               2661
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     about δ̃ in addition to ã (the cutoff point is higher in model Ba,δ than in model
+     Ba )). The following proposition shows that for every distribution of δ̃, fixing
+     the model’s other parameters, model Ba always produces better discipline than
+     model Ba,δ as θ grows toward 1. In other words, for large enough values of θ,
+     more information is not better but actually makes things worse.
+
+     Proposition 3. For any given distribution of δ̃ and parameters β, ω1 , and ω2 ,
+
+
+
+
+                                                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     there exists θ̂ such that if θ > θ̂, then the large shareholder is more effective in
+     disciplining the manager, and thus the agency costs are lower, in the equilibrium
+     of model Ba than in any equilibrium of model Ba,δ .
+
+        To understand this result, it is useful to note that in both models as θ → 1,
+     E s (x) converges to E(δ̃ã) = Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x). This is because as the prob-
+     ability that L is subject to a liquidity shock grows to 1, a sale becomes less
+     informative about ã δ̃. However, in model Ba,δ , even as θ grows, E ns (x) remains
+     strictly positive, while in model Ba , E ns (x) is always equal to zero. Intuitively,
+     as θ becomes large, exit carries the same (diminishing) information in both
+     models, but the event in which L does not sell has very different information
+     content in the two models. In model Ba , it guarantees that the action was not
+     taken by M, while in model Ba,δ it is also consistent with the action being
+     taken but δ̃ < E s (x). This means that for θ sufficiently large, E s (x) − E ns (x)
+     is larger in model Ba than it is in model Ba,δ for all positive values of x, which
+     implies that L is more effective in model Ba , where she does not have the
+     private information about δ̃.
+        We now turn to the model Ga,δ . In contrast to the comparison between model
+     B and model Ba , we will show that L is never more effective in model Ga,δ
+       a,δ
+
+     than in model Ga and that, moreover, it is possible that the only equilibrium
+     in model Ga,δ is nondisciplining. (Recall that the equilibrium in model Ga is
+     always disciplining.) Thus, no additional disciplinary impact arises from the
+     additional information about δ̃, and the additional information may in fact make
+     L less effective or completely ineffective in disciplining M. The following result
+     characterizes the equilibrium; it is discussed and illustrated further below.19
+
+     Proposition 4. Model Ga,δ has a unique equilibrium. Equilibrium is charac-
+     terized by a cutoff point x G such that M takes the action if and only if δ̃ ≥ x G
+     and which satisfies exactly one of the following conditions:
+       (i) It is identical to the equilibrium cutoff in model Ga ;
+      (ii) It is strictly higher than the equilibrium cutoff in model Ga but smaller
+           than β/ω2 ; or
+     (iii) It is equal to β/ω2 .
+
+
+19
+     We are grateful to Andy Skrzypacz for helping us identify the appropriate equilibrium conditions for this model.
+
+
+
+
+     2662
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+  In cases (i) and (ii), the equilibrium is disciplining, while in case (iii) the
+equilibrium is nondisciplining.
+
+    The above results show that there is a major distinction between models
+Ba,δ and Ga,δ . In model Ba,δ , L always has a disciplinary impact, while this
+is not true in model Ga,δ . The key difference between the models lies in the
+possible relations between E s , the market expectation of ã δ̃ given a sale, and
+
+
+
+
+                                                                                          Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+x, the cutoff in the manager’s strategy. For L to have a disciplinary impact at
+the cutoff x, it is necessary in either model that when δ̃ = x, L sells when the
+manager makes the undesirable choice and holds otherwise. In both models,
+L will be willing to do this at δ̃ = x if and only if E s is less than or equal to
+the cutoff x. In model Ba,δ , it turns out that E s will always be strictly less than
+x (as long as θ > 0), so L always has a disciplinary impact. In model Ga,δ ,
+however, E s can be strictly above x, and in these cases L will not have any
+disciplinary impact.
+    To understand how the three possible types of equilibria described in Propo-
+sition 4 arise, first consider those cases where the equilibrium in model Ga
+would be one where E s (x G ) ≤ x G . Recall that in the equilibrium of model Ga ,
+where L only observes the manager’s action but not δ̃, she prefers to sell if
+the action is not taken and to hold otherwise. If, in addition to observing ã, L
+also observes the realization of δ̃, would she want to change her strategy? If
+E s (x G ) ≤ x G in model Ga , then the answer is no: for any realization of δ̃, L
+prefers to hold when the action is taken and sell when it is not taken. This is be-
+cause for any δ̃ for which the action is taken, L’s shares, whose value increases
+by δ̃, are worth at least as much as the selling price, since δ̃ ≥ x G ≥ E s (x G ). L,
+therefore, has no desire to change her trading decision based on learning about
+the realization of δ̃. It follows that when E s (x G ) < x G in the equilibrium of
+model Ga , then this is also the unique equilibrium in model Ga,δ . This explains
+case (i) in Proposition 4.
+    Now consider those cases where in the equilibrium of model Ga , E s (x G ) >
+x G . Assume again that L observes δ̃ in addition to the manager’s action choice.
+With this additional information, will L still be content to follow her equilibrium
+trading strategy in model Ga (i.e., to hold if the manager takes the action and
+sell otherwise)? To see that she will not, suppose that δ̃ = x G , where x G is the
+equilibrium cutoff in model Ga . If the manager takes the action and L observes
+this, and also that δ̃ = x G < E s (x G ), then clearly L will prefer to sell even
+though M has taken the action, because the price at which she will sell exceeds
+the value of the firm whenever δ̃ < E s (x). This means that if E s (x G ) > x G in
+the equilibrium of model Ga , then x G cannot be an equilibrium cutoff for model
+Ga,δ . We show in the Appendix that in those cases where E s (x G ) > x G in the
+equilibrium of model Ga , the equilibrium in model Ga,δ involves a higher cutoff
+level and thus less discipline by L. In some situations (corresponding to case
+(ii) in Proposition 4), the equilibrium is still disciplining, but less so than the
+equilibrium of model Ga (the cutoff is higher), and E s (x G ) = x G in equilibrium.
+
+
+
+                                                                                 2663
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+            δ                                                                 xG in non-disciplining
+                                                                                   equilibrium
+              0.40
+                                             Es (xG) = xG
+              0.35
+     β/ω2             xG in Model Ga
+              0.30
+
+
+
+
+                                                                                                                                 Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+              0.25                                                               xG in Model Ga
+              0.20
+
+              0.15
+
+              0.10
+
+              0.05
+
+              0.00
+                  0.0                 0.2               0.4                0.6                0.8
+                                                                                                                  θ
+                                A                       B                                 C
+     Figure 2
+     Equilibrium in model Ga,δ
+     This figure presents the equilibrium of model Ga,δ for all possible values of θ (the probability of liquidity shock)
+     in an example where δ̃ has a uniform distribution. In each equilibrium, the manager takes the action for δ̃ > x G .
+     For values of θ in intervals A, B, and C, the equilibrium is of type (i), (ii), and (iii) of Proposition 4, respectively.
+
+     In other cases (corresponding to case (iii) in Proposition 4), E s (x G ) > x G , and
+     the equilibrium is not disciplining (i.e., x G = β/ω2 ).20
+        We illustrate Proposition 4 with the following example. Suppose δ̃ is uni-
+     formly distributed on [0, 1], β = 0.33, ω1 = 0.25, and ω2 = 1. The bold line
+     in Figure 2 shows the equilibrium cutoffs for different values of θ. Note that for
+     small θ (interval A), E s (x G ) < x G in model Ga , and the equilibrium of model
+     Ga,δ is the same as that in model Ga . For an intermediate range of values of
+     θ (interval B), the equilibrium cutoff in this example satisfies E s (x G ) = x G .
+     This equilibrium is no longer the same as the equilibrium of model Ga , and
+     it involves less discipline (i.e., a higher cutoff). In this intermediate range, L
+     is indifferent between selling and not selling at the cutoff x G , but M strictly
+     prefers to take the action at the cutoff. This equilibrium exists for model Ga,δ
+     as long as the solution to E s (x) = x is smaller than β/ω2 . If this solution is
+     larger than β/ω2 , then the unique equilibrium becomes nondisciplining, which
+     occurs for relatively large values of θ (interval C) in this example.21
+
+20
+     Note that in this equilibrium L will typically use her private information about δ̃ to sell her shares when
+     δ̃ ∈ [β/ω2 , E s ] even though M takes the action.
+21
+     It should be noted that, while the equilibrium cutoff is always increasing in θ (indeed, strictly increasing as
+     long as the equilibrium is disciplining), the two types of disciplining equilibrium (those in parts (i) and (ii) of
+     Proposition 4 and intervals A and B in Figure 2) do not always appear in the same order as in this example. It is
+     possible that for relatively small values of θ, the equilibrium of model Ga,δ is of type (ii) in Proposition 4 (interval
+     B of Figure 2), while for higher values of θ, it is of type (i) (interval A). It is also possible that the equilibrium is
+     of type (i) both for very small and very large values of θ while it is of type (ii) for a range of intermediate values
+     of θ. Which type of equilibrium prevails depends on all the parameters, namely θ, β, ω1 , and ω2 , as well as on
+     the distribution of δ̃.
+
+
+
+     2664
+  Threat of Exit in Manager–Shareholder Interaction
+
+
+
+     In sum, we have seen that if, in addition to observing whether the action
+  is taken, L has private information about the consequences of the action, her
+  disciplinary impact may be weakened. In contrast to model Ba,δ , where L
+  always has a disciplinary impact and the additional δ̃ information can make
+  L more effective in disciplining the manager, in model Ga,δ the additional δ̃
+  information never makes L more effective and can in fact make her completely
+  ineffective.
+
+
+
+
+                                                                                          Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+4. Can L’s Presence Exacerbate the Agency Problem?
+  In the models we have analyzed to this point, we have shown that L’s presence
+  generally has a disciplinary impact on M and the worst equilibrium in terms of
+  the agency cost is one where L has no impact at all. We have not encountered a
+  dysfunctional equilibrium, one in which L’s impact is negative. In this section,
+  we will show that L’s presence can actually make things worse. We will
+  consider an information structure where ã is public in Period 1 (i.e., all investors
+  observe whether M takes the action), and L’s private information consists of
+  the realization of δ̃. Again, and quite dramatically, our two agency models will
+  produce very different results. We first show that the equilibrium of model
+  Ba,δ
+     a is disciplining; in fact, the agency cost in this model is lower than that
+  in either model Ba or model Ba,δ . By contrast, we show that in model Ga,δ          a
+  the equilibrium is dysfunctional, and L’s presence increases the agency cost
+  relative to the case where she is not present.
+      In the models analyzed so far, where ã is not observed by investors until
+  Period 2, if L is not present then discipline is only provided by the impact
+  of the action on P2 , and so the equilibrium of model B is that M takes the
+  action when δ̃ ≤ β/ω2 . Now consider model Ba , where L is not present and
+  ã is public. Since ω2 > 0, equilibrium must again involve a cutoff x such that
+  M takes the action if and only if δ̃ ≤ x. If M is observed taking the action,
+  investors conclude that δ̃ ≤ x. Without any additional information, the expected
+  value of ã δ̃ is E(δ̃ | δ̃ ≤ x), and thus P1 = ν − E(δ̃ | δ̃ ≤ x). Since P1 = ν if M
+  does not take the action, the equilibrium cutoff x B is determined by
+
+                                β − ω1 E(δ̃ | δ̃ ≤ x B ) − ω2 x B = 0.            (14)
+
+  Note that this is the same as the equilibrium cutoff in model Ba in the special
+  case of θ = 0, i.e., where L observes ã privately and she is never subject to a
+  liquidity shock (see Proposition 1). If θ = 0 in model Ba , then L exits if and
+  only if the action was taken, so in equilibrium investors know with certainty
+  whether or not the action was taken. This is the same situation as model Ba ,
+  where ã is publicly observed and L is not present.
+     Now consider model Ba,δ  a , where ã is public and L observes δ̃ privately. If
+  the action is not taken, then the price in Period 1 is ν independent of L’s trade,
+  and L sells only when she is subject to the liquidity shock. If the action is taken,
+  then, as in model Ba,δ , L sells whenever δ̃ ≥ E s (x), where x is the cutoff value
+
+
+                                                                                 2665
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     of δ̃ below which the action is taken. This means that when the action is taken,
+     we must have22
+                 θPr(δ̃ ≤ x)E(δ̃ | δ̃ ≥ e) + (1 − θ)Pr(δ̃ ∈ [E s (x), x])E(δ̃ | δ̃ ∈ [E s (x), x])
+     E s (x) =                                                                                    ,
+                                  θPr(δ̃ ≤ x) + (1−θ)Pr(δ̃ ∈ [E s (x), x])
+                                                                                               (15)
+     and
+
+
+
+
+                                                                                                                      Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+                                        E ns (x) = E(δ̃ | δ̃ < E s (x)).                                     (16)
+
+        In equilibrium, M must again be indifferent between taking and not taking
+     the action at the cutoff δ̃ = x B . This means that any equilibrium cutoff x B in
+     model Ba,δ
+              a must satisfy
+
+                                        β − ω1 E s (x B ) − ω2 x B = 0.                                      (17)
+
+          Note that E ns (x B ), which measures the price impact of no sale, does not
+     affect the determination of x B in this model, because if M takes the action when
+     δ̃ = x B , then L sells her shares for sure, while if M does not take the action,
+     P1 = ν independent of L’s trading. In other words, since M can be sure that
+     P1 = ν if he does not take the action, and since L always exits when δ̃ = x B ,
+     the inference investors would make if L retains her shares is irrelevant to M’s
+     decision when δ̃ = x B .
+         The next result confirms that there exists a unique equilibrium to model
+     Ba,δ
+        a and compares the agency cost associated with the action in this model to
+     the agency costs in the equilibria of models Ba and Ba,δ analyzed in previous
+     sections.
+
+     Proposition 5. There exists a unique equilibrium in model Ba,δ
+                                                                a and the equi-
+     librium is disciplining. In equilibrium
+       (i) The manager takes the action if and only if δ̃ ≤ x B , where x B is deter-
+           mined by Equation (17);
+      (ii) The large shareholder sells her shares if the action is taken and δ̃ ≥
+           E s (x B ), where E s (·) is determined by Equation (15); and
+     (iii) The agency cost is lower than the agency cost in the unique equilibrium
+           of model Ba and is also lower than the agency cost in any equilibrium
+           of model Ba,δ .
+
+        The key to understanding how L’s presence affects M’s behavior is to ex-
+     amine M’s incentives when δ̃ = x and x is assumed to be the manager’s cutoff.
+     These incentives depend on the difference between the (expected) first-period
+     price P1 when M takes the action and when he does not. While the short-term
+
+22
+     Note that these apply only if the action is taken. While our notation does not signify this fact, no confusion
+     should arise.
+
+
+
+
+     2666
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+compensation difference between taking and not taking the action is only a
+function of L’s trading decisions in models Ba and Ba,δ , this is no longer true
+when M’s action is publicly observable in Period 1. The following table shows
+the first-period price in the three models when M does and does not take the
+action. All prices are given as a function of the assumed cutoff point x and are
+based on the assumption that θ = 0.
+
+
+
+
+                                                                                                               Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+                                P1 if M does                P1 if M
+      Model                    not take action            takes action               Difference
+
+      Ba with θ = 0                   ν                 ν − E(δ̃ | δ̃ ≤ x)         E(δ̃ | δ̃ ≤ x)
+      Ba,δ with θ = 0    ν − Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x)        ν−x             x − Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x)
+       a with θ = 0
+      Ba,δ                            ν                      ν−x                          x
+
+
+   First consider the comparison between model Ba,δ and model Ba,δ          a . When
+θ = 0 and δ̃ is at the cutoff x, if M takes the action, L exits and this reveals
+perfectly that ã δ̃ = x in both models, since this is the only realization of δ̃ for
+which L exits. If M does not take the action, however, then in model Ba,δ          a ,
+P1 = ν since this will be observable to investors, but in model Ba,δ investors
+only observe that L is not selling, which provides no information about ã δ̃
+and the resulting first-period price is ν − E(δ̃ã) = ν − Pr(δ̃ ≤ x)E(δ̃ | δ̃ ≤ x).
+In other words, in both of these models M will suffer the “maximal hit” to his
+compensation when he takes the action at the cutoff point, but the consequences
+of not taking the action are quite different. In model Ba,δ investors do not learn
+anything from L not exiting, since they do not observe ã and since L only exits
+when δ̃ = x. However, since ã is public in model Ba,δ  a , the first-period price will
+reflect the fact that the action was not taken. This means that the consequences
+of taking the action are greater in model Ba,δ a and thus the agency cost in the
+equilibrium of model Ba,δ  a  is lower than that in any equilibrium of model Ba,δ .
+                                  a
+   We now compare model B , where L observes ã privately and no investor
+observes δ̃, and model Ba,δ  a , where ã is public and L observes δ̃ privately. In
+both of these models, although for different reasons, P1 = ν if M does not take
+the action. In model Ba this is because L retains her shares only if the action
+is not taken, while in model Ba,δ   a this is because it is publicly observed that
+the action was not taken. The difference in discipline comes about because if
+M takes the action at the cutoff δ̃ = x, then in model Ba L sells her shares
+and investors only know that δ̃ ≤ x, and thus P1 = ν − E(δ̃ | δ̃ ≤ x), while in
+model Ba,δa , investors know from the fact that L exits that δ̃ = x. It follows that
+at any possible cutoff point x, the difference between P1 when M does not take
+the action and when he does is again greater in model Ba,δ                      a
+                                                              a than it is in B . This
+                                                    a,δ
+implies the equilibrium cutoff point in model Ba is always lower than that in
+model Ba , and thus again that the agency cost is smaller.
+   The above discussion, with appropriate modifications, applies to the model
+with θ > 0. Model Ba,δ   a produces the best outcome from the shareholders’
+perspective among the models considered so far, because, as in model Ba , M is
+able to obtain the highest compensation when he does not take the action and at
+
+
+
+                                                                                                        2667
+The Review of Financial Studies / v 22 n 7 2009
+
+
+
+the same time, as in model Ba,δ , he suffers the most severe consequences when
+he does take the action at the cutoff point. Note, however, that this does not imply
+that L has a larger disciplinary impact in model Ba,δ a than she does in the other
+models, because the benchmark situation where L is not present is different
+when ã is public information than when ã is not public information in Period 1.
+In fact, it can be shown that L’s impact can be higher or lower in model Ba,δ     a
+relative to models Ba and Ba,δ .
+
+
+
+
+                                                                                             Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+   Let us now turn to model Ga,δ   a , and again we start with model Ga , where
+L is not present and ã is public. If M is observed taking the action and L is
+not present, the expected value of δ̃ will be E(δ̃ | δ̃ ≥ x), and thus the price in
+Period 1 will be ν + E(δ̃ | δ̃ ≥ x), where x is the cutoff such that M takes the
+action if and only if δ̃ ≥ x. Since the price if M does not take the action is ν,
+the equilibrium cutoff x G is determined by
+
+                             −β + ω1 E(δ̃ | δ̃ ≥ x G ) + ω2 x G = 0.                 (18)
+
+    Note that again this is the same as the equilibrium cutoff point in model Ga
+when θ = 0 (i.e., where L observes ã privately and is never subject to a liquidity
+shock). This is because, when θ = 0, L’s trading in model Ga communicates
+perfectly whether the action was taken. Now consider model Ga,δ    a . Since ã is
+publicly observed, P1 = ν if the action was not taken, and this is independent
+of whether L sells or not. If the action is taken for δ̃ ≥ x, then L exits when
+δ̃ ≤ E s (x). Note that we must have x ≤ E s (x) because if ã = 1 then it is
+publicly known that ã δ̃ ≥ x. This means that when the action is taken,
+
+         θPr(δ̃ ≥ x)E(δ̃ | δ̃ ≥ e) + (1−θ)Pr(δ̃ ∈ [x, E s (x)])E(δ̃ | δ̃ ∈ [x, E s (x)])
+ E s (x) =                                                                               .
+                       θPr(δ̃ ≥ x) + (1 − θ)Pr(δ̃ ∈ [x, E s (x)])
+                                                                                     (19)
+    The equilibrium cutoff x G in model Ga,δ
+                                           a must solve
+
+                                  −β + ω1 E s (x G ) + ω2 x G = 0.                   (20)
+
+Analogous to model Ba,δ    a , if the action is taken for δ̃ ≥ x, then E ns (x) =
+E(δ̃ | δ̃ > E s (x)), but E ns (·) does not affect the determination of the equi-
+librium cutoff x G .
+   The next result states the existence of a unique equilibrium for model Ga,δ a .
+Most interestingly, it shows that when ã is public information in Period 1,
+having L privately observe δ̃ and potentially trade on this information actually
+reduces the discipline placed on M. In other words, the agency cost in model
+Ga,δ
+  a is higher than that in model Ga , where L is not present, which means that
+the equilibrium of model Ga,δ   a is dysfunctional.
+
+
+Proposition 6. There exists a unique equilibrium in model Ga,δ
+                                                           a and the equi-
+librium is dysfunctional. In equilibrium:
+
+
+
+2668
+  Threat of Exit in Manager–Shareholder Interaction
+
+
+
+     (i) The manager takes the action if and only if δ̃ ≥ x G , where x G is deter-
+         mined by Equation (20);
+    (ii) The large shareholder sells her shares if the action is taken and δ̃ ≤
+         E s (x G ), where E s is determined by Equation (19); and
+   (iii) The agency cost is higher than that in model Ga (i.e., the large share-
+         holder’s impact on the agency costs is negative).
+
+
+
+
+                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     To understand why L’s presence is harmful in this model, consider again M’s
+  incentives at a candidate cutoff point x. When L is not present, if M takes the
+  action, he is rewarded by an increase in his first-period compensation equal to
+  ω1 E(δ̃ | δ̃ ≥ x), because investors have no information about δ̃ other than what
+  is revealed by the fact that M has chosen to take the action, which implies that
+  δ̃ ≥ x. In model Ga,δa , L exits when δ̃ = x, since the selling price, ν + E s (x),
+  is larger than the actual value of the firm given that M takes the action, which
+  is ν + x when δ̃ = x. Exit by L communicates that the realization is relatively
+  low among the values of δ̃ for which the action is taken, since L only chooses
+  to sell when δ̃ ∈ [x, E s (x)]. (In the extreme case in which θ = 0, L only sells
+  when δ̃ = x, and thus E s (x) = x.) Thus, when δ̃ = x, L’s trading causes the
+  market to revise downward its expectation of δ̃ relative to the expectation based
+  only on M’s willingness to take the action. For any potential cutoff x, this
+  lowers the difference between the compensation for M in model Ga,δ    a when he
+  takes the action and when he does not relative to the difference in model Ga . It
+  follows that L’s presence reduces M’s incentives to take the value-enhancing
+  action and shareholders would be better off if L were not present.
+     Note that this implies that for θ = 0, the agency cost in model Ga,δ
+                                                                       a is strictly
+  higher than that in model Ga , because in this case model Ga is identical to
+  model Ga . (In both of these models investors know perfectly when the action
+  is taken but nothing more about δ̃.) Since we already observed that model Ga,δ
+  produces the same or a worse outcome than model Ga , it follows that, for
+  θ = 0, model Ga (equivalently model Ga ) produces a strictly lower agency cost
+  than either model Ga,δ or model Ga,δ     a . When θ > 0, the comparison between
+  the agency cost in models Ga,δ   a    and Ga turns out to be ambiguous, since ã is
+                                    a,δ
+  publicly observed in model Ga , while this information is only communicated
+  with some noise in model Ga . The lowest agency cost for model G is obtained in
+  model Ga where ã is publicly observed and L is not present. Note the difference
+  between this result and Part (iii) of Proposition 4. The lowest agency cost for
+  model B is obtained in model Ba,δ    a .
+
+
+
+
+5. The Model with Action-only Uncertainty
+  For completeness, we now discuss an information structure in which all in-
+  vestors observe δ̃ in Period 1, while L observes, in addition, whether M has
+
+
+
+                                                                               2669
+The Review of Financial Studies / v 22 n 7 2009
+
+
+
+taken the action. In other words, there is no uncertainty about δ̃, but only L
+observes ã in Period 1. As we will show, this turns out to be the only informa-
+tion structure that we examine where model B and model G behave like mirror
+images of each other and, for the same parameters, produce the same type of
+results in terms of L’s impact.
+   When investors know the realization of δ̃, equilibrium will depend on the
+realized value of δ̃. The prior distribution of δ̃ will not play any role in deter-
+
+
+
+
+                                                                                      Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+mining the equilibrium. However, to the extent that δ̃ is drawn from a particular
+distribution, one can still discuss the ex ante expected agency costs by inte-
+grating over the possible values of δ̃ that investors observe in Period 1. The
+next result characterizes the equilibrium and the agency cost in models Ba,δ    δ
+and Ga,δ
+       δ . Note  that equilibrium involves a mixed   strategy for M for a range  of
+values of δ.
+
+Proposition 7. In each of model Ba,δ              a,δ
+                                     δ and model Gδ , there exists a unique
+equilibrium, which is always disciplining.
+  (i) In model Ba,δ
+                  δ , equilibrium is characterized by a function m B (δ), such that
+      for a given δ, the manager takes the action with probability m B (δ) and
+      the large shareholder sells her shares if the manager takes the action.
+      The mixing probability is given by
+                ⎧
+                ⎪                                                     β
+                ⎪
+                ⎪ 1,                                   if δ <
+                ⎪                                             (1 − θ)ω1 + ω2
+                ⎨                            
+      m B (δ) =       θ           β − ω2 δ                    β                 β
+                ⎪                                , if                   ≤δ≤ ω
+                ⎪
+                ⎪  1 −  θ    (ω 1 +  ω 2 )δ − β       (1 −  θ)ω 1 + ω 2          2
+                ⎪
+                ⎩
+                  0,                                          otherwise.
+                                                                              (21)
+
+ (ii) In model Ga,δ
+                  δ , equilibrium is characterized by a function m G (δ), such that
+      for a given δ, the manager takes the action with probability m G (δ) and the
+      large shareholder sells her shares if the manager does not take the action.
+      Furthermore, m G (δ) = 1 − m B (δ) where m B (δ) is given in Equation (21).
+(iii) Holding fixed θ, β, ω1 , ω2 , and the distribution of δ̃, the impact of the
+      large shareholder’s presence on the agency cost is equal in model Ba,δ     δ
+      and model Ga,δδ .
+
+
+   The information structure analyzed in this section can be thought of as the
+limit of the model with “action-only monitoring,” analyzed in Section 2, as
+the distribution of δ̃ becomes degenerate. Proposition 7 shows that with no
+uncertainty about δ̃, there is complete symmetry between model B and model
+G. It is therefore clear that the differing results for the two models in previous
+sections were driven by the inference investors must make in Period 1 about δ̃
+based on L’s trading behavior.
+
+
+
+2670
+     Threat of Exit in Manager–Shareholder Interaction
+
+
+
+6. Extensions and Variations of the Model
+
+     6.1 Endogenous information acquisition and anonymous trading
+     Our model has assumed that L is endowed with her private information, and
+     that L’s trade is observable (i.e., that she does not trade anonymously). It
+     follows that L’s ex ante expected trading profits in our model are zero. That
+     is, before L observes her private information and before it is known whether
+
+
+
+
+                                                                                                                     Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     she is subject to a liquidity shock, the expected trading profits L obtains when
+     she trades on private information are just offset by the expected losses she
+     suffers when she is subject to a liquidity shock. Thus, the value of any private
+     information acquired by L is only due to the increase in the value of her initial
+     share holdings brought about by her disciplinary impact (i.e., to any decrease in
+     the agency costs). This implies that if L can choose whether or not to become
+     informed, a nondisciplining or a dysfunctional equilibria would not arise.23 In
+     particular, if the agency problem is of the “good action” type, our results imply
+     that the large shareholder will not acquire information about the consequences
+     of the action (δ̃), since this will not lower the agency costs, and it may in fact
+     lead to an increase in those costs.
+        Recall that our results imply that the lowest agency costs across all informa-
+     tion structures for “bad action” agency problems are obtained in Ba,δ     a (where
+     investors observe the action and the large shareholder observes δ̃ privately),
+     while the lowest agency cost for “good action” agency problems is obtained in
+     Ga .24 This is suggestive of the type of information large shareholders are likely
+     to collect in the various settings. In model B, information about δ̃ is always
+     valuable if ã is publicly observed in Period 1. If ã is not publicly observable,
+     then L will collect information about ã, and sometimes she will also collect
+     information about δ̃. In model G, by contrast, L should never collect private
+     information about δ̃. If ã is publicly observable in Period 1, then improving
+     discipline through the threat of exit is not possible. If ã is not publicly observ-
+     able in period 1, then the threat of exit will have a disciplinary impact if L
+     collects information about ã and exits when the action is not taken. However,
+     collecting additional information about δ̃ will never reduce agency costs, and
+     it might eliminate L’s disciplinary impact.
+        The result that L’s ex ante expected trading profits are zero is sensitive to
+     our assumptions that L does not trade anonymously. If instead L trades anony-
+     mously in a market that includes other liquidity traders, then two seemingly
+     conflicting effects emerge. First, the direct impact of L’s trade on the price
+     would tend to be lower than when the price is based on L’s trade alone. Other
+     things equal, this would seem to reduce L’s ability to discipline M, since her
+23
+     An implicit assumption here is that if L acquires information, other investors, including the market maker,
+     become aware of the fact that L has become informed (i.e., they know that L has acquired information but do
+     not know its content). Disclosure requirements such as 13D filings may help bring this about.
+24
+     This statement holds under the assumption that investors have some uncertainty about δ̃ in Period 1. Thus, we
+     are not considering models Ba,δ     a,δ
+                                 δ and Gδ .
+
+
+
+
+                                                                                                           2671
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     trade would have less direct impact on the manager’s compensation. At the
+     same time, in the presence of other liquidity traders, L’s ex ante expected trad-
+     ing profits would be positive. This might increase L’s willingness to gather
+     information, especially when it is costly to do so, and this in turn may lead to
+     an increase in her disciplinary impact.
+        There are actually situations where L’s disciplinary impact would not neces-
+     sarily be reduced even if her trade has a lower price impact due to the presence
+
+
+
+
+                                                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     of other liquidity traders. For example, suppose M’s compensation is sensitive
+     to prices set after L makes her trading decision but before all of L’s informa-
+     tion becomes public. Further, suppose that L’s trade, and possibly the motive
+     for her trade, becomes public subsequent to the trade, due perhaps to trade
+     disclosure requirements. Then there will be further price impact at the time
+     when information about L’s trade becomes public, which would potentially
+     affect M’s compensation and this would generally have a disciplining impact.
+     Combining this with the fact that L would have stronger incentives to acquire
+     costly information when she trades in a more liquid market, we would expect
+     her overall disciplinary impact to be larger in this situation.
+        As an example, suppose that M’s short-term compensation is based on the
+     price prevailing at the end of the calendar year. If L exits anonymously in
+     October, and then in November it becomes known or is disclosed that she
+     has exited, then the price in December would fully reflect the fact that L has
+     exited and this would affect M’s compensation. At the same time, L is able
+     to benefit from her information advantage by trading anonymously in October,
+     potentially allowing her to recover the cost of information or any other costs
+     exit entails.25
+
+     6.2 Costly exit
+     Our model assumed that the large shareholder does not incur any costs in
+     exiting other than the price impact of her trade due to her private information.
+     However, if exit is costly in additional ways, then L’s decision whether to exit
+     might be affected, and this can change the potential impact of the threat of
+     exit on the manager. Two types of exit costs can be considered.26 The first is a
+     simple transaction cost that L would incur whenever she trades. Clearly, exit
+     can have a disciplining impact in the presence of such costs only if L’s trading
+     profits, when she chooses to trade, cover the transactions costs. Since L knows
+     whether her trade is due to a liquidity shock or is based on payoff-relevant
+     information, she has an informational advantage over other investors, and this
+     makes for positive expected trading profits when she is able to trade on the
+     basis of her information.
+
+25
+     Of course, when L trades anonymously, she generally imposes a trading cost on other investors who may be
+     subject to a liquidity shock. The additional cost on other investors should also be taken into account in a full
+     analysis of this case.
+26
+     A detailed analysis of model Ba with the two types of exit costs is available upon request.
+
+
+
+
+     2672
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+   It can be shown that when the transactions costs are not too high, disciplining
+equilibria still exist, but these may involve L mixing between exit and no
+exit. Not surprisingly, the presence of transactions costs generally weakens
+the disciplinary impact of the threat of exit. This implies that the disciplinary
+impact of the large shareholder will be lower when the market for the firm’s
+stock is less liquid to the extent that less liquid markets can be interpreted as
+those having higher transactions costs.
+
+
+
+
+                                                                                      Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+   Consider now the possibility that L’s exit per se may lower the value of
+the firm, for example, by eliminating the benefit of L’s future presence as
+an active shareholder. This would cause the price impact of exit to be larger.
+When L exits, the price drop would reflect the information about ã δ̃ that is
+revealed by her decision to sell (i.e., the effect we have analyzed), and also
+the loss in value brought about by the fact that L will no longer produce
+benefits for the firm in the future. Obviously, this increases the costs to L of
+selling and makes sale less desirable. However, unlike a simple transaction
+cost, which is borne only by L, a loss in the value of the firm due to L’s
+departure impacts M’s compensation directly. It is not intuitively clear whether
+L is more or less effective in the presence of such exit costs. On the one
+hand, to the extent that the exit “punishment” will be used less frequently
+(because it is more costly for L to exit), this would generally tend to reduce
+L’s disciplinary impact. However, when L does choose to exit, the negative
+effect on M’s compensation is larger in the presence of the loss in firm value,
+which would generally tend to increase L’s disciplinary impact. It can be
+shown that it is possible for the agency costs to be lower in the presence of
+exit costs that lower the value of the firm upon exit. In other words, these
+exit costs can have positive value in that in their presence the agency costs
+we consider are reduced by more than the loss in value associated with the
+exit.
+
+
+6.3 Additional uncertainty
+While our model assumed that there is no uncertainty regarding the cost or
+benefit of the action to the manager, our analysis actually covers a special case
+where the private cost/benefit is random. This is the case when the private
+cost/benefit is perfectly correlated with the consequences of the action, i.e.,
+when β̃ = γ0 + γ1 δ̃ with γ0 > 0. This is a natural model when the bad action
+involves perks and compensation or the good action’s consequences are in-
+creasing with the manager’s costly effort. To see how this maps into our model
+                      model B , and recall that when δ̃ = δ, M takes the action
+                                a
+consider, for example,
+when β − (1 − θ)ω1 E s − E ns − ω2 δ ≥ 0. If β = γ0 + γ1 δ, a manipulation of
+the equilibrium conditions shows that they are the same as those in Section 2
+for the case of fixed β, with γ0 playing the role of the “fixed” value of β of
+Section 2, and ω2 − γ1 playing the role of the coefficient ω2 in Section 2.
+Since our analysis in Section 2, as well as in the rest of the paper, relied on the
+
+
+
+                                                                             2673
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     assumption that ω2 > 0, the analysis applies fully to the model with β̃ =
+     γ0 + γ1 δ̃ if γ1 < ω2 .27
+        Another interesting extension of the model is to relax the assumption that the
+     nature of the agency problem is common knowledge. If investors are uncertain
+     about whether model B or model G is appropriate then, under the maintained
+     assumption that L can only exit or retain her shares, it can be shown that L can
+     only provide discipline for one of the two types of agency problems, but not
+
+
+
+
+                                                                                                                          Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     both.28 Interestingly, “model uncertainty” can enhance the disciplinary impact
+     of L in the sense that for the agency problem that L alleviates, the possibility
+     that the agency problem is of the other type can increase E s − E ns relative to
+     the case where it is common knowledge what the agency problem is.
+
+
+7. Empirical Predictions
+     In this section, we discuss some of the empirical implications of our model.
+     It should be noted that several implications of our models are consistent with
+     models that involve other mechanisms, typically referred to as “monitoring” or
+     “shareholder activism,” through which shareholders might exert control over
+     managers. For example, since the presence of the informed large shareholder
+     reduces the agency costs whenever the equilibrium is disciplining, our model
+     implies that in these cases there will be a favorable stock market reaction to
+     the (not fully anticipated) acquisition of a large block by a shareholder. This
+     implication is shared by any model that incorporates some mechanism for a
+     large shareholder to resolve agency problems. Our analysis also predicts that
+     the effectiveness of the threat to exit as a disciplinary device generally increases
+     when the large shareholder is less likely to be subject to a liquidity shock (i.e.,
+     θ is lower). Again, many models would have a similar prediction.
+        To detect empirically whether the threat of exit plays a meaningful role in
+     governance and to distinguish it from other forms of shareholder activism,
+     we must focus on the particular way the mechanism works, which crucially
+     depends on the interaction between the large shareholder’s information and
+     managerial compensation. To see how this can be done, recall that, in much of
+     our analysis, the cutoff value of δ̃ for which the manager is indifferent between
+     taking and not taking the action is equal to the x that solves
+
+                                 (1 − θ)ω1 |E s (x) − E ns (x)| + ω2 x = β.                                     (22)
+
+
+27
+     If γ1 > ω2 , then some of our results would be “switched,” because in model B the manager will now take the
+     action for all realizations of δ̃ above a cutoff, and in model G he will take the action for realizations below a
+     cutoff value. The general observations, however (e.g., that additional information may lead to lower disciplinary
+     impact and that L’s presence may exacerbate the agency problem), will not change.
+28
+     If L had a third possible trade (e.g., to increase her stake by buying more shares), then it would in principle be
+     possible for her to provide discipline in both model B and model G. A full examination of this is beyond the
+     scope of this paper.
+
+
+
+
+     2674
+     Threat of Exit in Manager–Shareholder Interaction
+
+
+
+          The disciplinary effect of potential exit on the manager’s decision is felt
+     through the first term on the left-hand side of Equation (22). In general, the
+     larger this term, the lower the cutoff level and thus the lower the agency cost.
+     As shown in Equation (22), the magnitude of this term depends on (i) the
+     probability that the large shareholder is not subject to a short-term liquidity
+     shock, 1 − θ, which we define as the “longevity” of the large shareholder; (ii)
+     the difference between the first-period price if the large shareholder exits and
+
+
+
+
+                                                                                                                        Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     the price if she does not, |E s − E ns |; and (iii) the importance to the manager
+     of short-term compensation, ω1 . While other models may also predict that the
+     longevity of the large shareholder would enhance her effectiveness in reducing
+     agency costs, Equation (22) suggests that when the threat of exit is effective
+     in disciplining the manager, there is a significant interaction between the large
+     shareholder’s longevity and the importance of short-term compensation, ω1 .
+     Specifically, if we hold everything else constant, the degree to which the large
+     shareholder’s longevity enhances her discipline on the manager is increasing
+     in the importance of the manager’s short-term compensation, ω1 . Loosely
+     speaking, longevity and short-term compensation are complements. Since such
+     an interaction is not directly predicted by other models, if it is found empirically
+     to hold, it would provide evidence that discipline through the threat of exit is
+     likely at play.
+        To see how this can be used in an empirical test, let Rblock be the abnormal
+     return experienced when a large shareholder acquires a large block. Consider
+     regressing Rblock on (i) some measure of the longevity of the large shareholder,
+     (ii) some measure of the importance of short-term compensation,29 and (iii) the
+     product of (i) and (ii). The critical coefficient in identifying the importance of
+     the threat of exit in disciplining managers is the one on the interaction term.
+     Other models of shareholder activism of which we are aware do not predict any
+     relation between Rblock and this interaction term, while our analysis predicts a
+     positive relation. A significant positive interaction effect would be an indication
+     that the “Wall Street Walk,” i.e., the threat of exit, plays a meaningful role in
+     corporate governance.
+        A similar test of our model can be constructed using measures of market
+     liquidity. We have shown that transactions costs generally reduce the effective-
+     ness of the large shareholder’s threat to exit (see again the discussion in 7.2).
+     This means that the large shareholder’s threat of exit is less effective in illiquid
+     markets, which are characterized by higher transactions costs. As was true for
+     longevity and ω1 , market liquidity and ω1 will be complements. Consider again
+     a regression with Rblock as the dependent variable and introduce as one of the
+     regressors the product of ω1 with a measure of market liquidity. Once again a
+
+
+
+29
+     Short-term stock-based compensation can include both unrestricted stock and options that have vested or will
+     vest within a short time horizon. A measure of the significance of this type of compensation can take the weight
+     of this component relative to total compensation.
+
+
+
+
+                                                                                                             2675
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     test of our model would be based on finding a significant positive coefficient
+     on this interaction term.
+        We have shown that the effectiveness of the threat of exit as a disciplining
+     device may be quite different depending on the nature of the agency prob-
+     lem and the type of private information that motivates the large shareholder’s
+     trades. To the extent that it is possible to make empirically identifiable distinc-
+     tions across firms and/or settings with respect to the type of agency problem and
+
+
+
+
+                                                                                                                      Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+     information structure that are likely to be present, our results will lead to pre-
+     dictions regarding the effectiveness of the threat of exit by a large shareholder.
+     For example, mature, cash-rich firms prone to “free cash flow” agency prob-
+     lems, whose managers might be inclined to initiate value-reducing mergers, are
+     probably those likely to be affected by a “bad action” type of agency problem.
+     In addition, in such situations it is more likely that the information structure is
+     one where the action is publicly observable but the large shareholder has pri-
+     vate information about the consequences of the action. In this case, our model
+     predicts that the threat of exit can be very effective in disciplining the manager.
+     In contrast, in a situation in which the shareholder would want to motivate the
+     manager to take a value-enhancing but privately costly action (such as a risky
+     investment that might fail and lead to job loss for the manager), the presence
+     of a large shareholder with private information about the consequences of the
+     action does not alleviate the agency costs. This implies, for example, that the
+     interaction effects discussed above would be smaller for firms more likely to
+     fall in the second category than in the first.30
+
+
+8. Summary and Conclusion
+     This paper has identified a simple mechanism, namely the ability to exit on
+     the basis of private information, by which large shareholders may be able
+     to impact managerial decisions. This mechanism is based on the interaction
+     between managers who care about their firm’s stock prices and the trading
+     decisions of a large shareholder who is able to affect the price through the
+     exit decision. In our model, the large shareholder does not engage in costly
+     monitoring or “shareholder activism” in the usual sense, but simply trades
+     optimally on the basis of her information. However, the threat of exit as a form
+     of activism does not necessarily rule out other forms of activism; indeed, it may
+     enhance their effectiveness.
+        Our model assumed that there are potentially two sources of uncertainty for
+     investors in the short run: (i) whether the manager has taken a particular action,
+     and (ii) the long-run consequences of the action (if taken) on the future value
+     of the firm. For the trading of the large shareholder to have any impact on
+     managerial decisions, it is necessary that the large shareholder has information
+
+30
+     Brenner (2007) identifies settings, based on legal systems in different countries, in which different types of
+     agency problems are likely to be relatively more severe.
+
+
+
+
+     2676
+     Threat of Exit in Manager–Shareholder Interaction
+
+
+
+     in the short run about whether the action is taken; otherwise the manager will
+     receive the same compensation whether he takes the action or not. It is also
+     necessary that the large shareholder is better informed than other investors, so
+     that her trading decision has a price impact (and thus an impact on managerial
+     compensation) that would not obtain otherwise. Our analysis shows that the
+     threat of exit is credible and that for the threat of exit to be effective, it is not
+     necessary that exit actually occurs frequently.
+
+
+
+
+                                                                                                                         Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+        We have found that the effectiveness of the “Wall Street Walk” in disciplining
+     management depends on the type of the agency problem creating a conflict
+     between management and shareholders. The two types of agency problems
+     we analyze (one that we termed B, where the manager might take a value-
+     reducing action that produces private benefits, and one that we termed G,
+     where the manager might take a value-enhancing action that entails a private
+     costs) produce quite different results. Some of these results are summarized in
+     the table below.31
+
+
+     Model B                                                  Model G
+     (i) Threat of exit by the large shareholder generally    (i) The presence of the large shareholder and the threat
+     has a disciplining impact. The presence of the large     of exit can actually make the agency problem worse.
+     shareholder never makes the agency problem worse.
+     (ii) Having private information about the conse-         (ii) Having private information about the conse-
+     quences of the action, in addition to having private     quences of the action never makes the large share-
+     information about whether the action was taken or        holder more effective and can make her completely
+     not, does not necessarily make the large shareholder     ineffective in disciplining the manager.
+     more effective and can make her less effective.
+     (iii) If all investors observe whether the action was    (iii) If all investors observe whether the action was
+     taken, then the large shareholder always reduces the     taken, then a large shareholder who can trade on private
+     agency costs by trading on private information re-       information regarding the consequences of the action
+     garding the consequences of the action.                  always increases the agency costs.
+     (iv) If the large shareholder observes whether the ac-   (iv) If the large shareholder observes whether the ac-
+     tion is taken and its potential consequences, then the   tion is taken and its potential consequences, then the
+     agency cost can be further reduced if other investors    agency costs would increase if other investors also
+     also observe whether the action is taken.                observe whether the action is taken.
+
+
+
+        When the agency problem is one of discouraging a “bad” action (model B),
+     the lowest agency costs among the models we considered occurs when investors
+     observe publicly whether the action is taken and the large shareholder has pri-
+     vate information about the consequences of the action. This would correspond
+     empirically to such actions as value-reducing mergers or to other situations in-
+     volving the abuse of “free cash flows.” As discussed in the introduction, there is
+     empirical support to the notion that large shareholders reduce the agency costs
+     in these situations. In contrast, when the problem is one of motivating a “good”
+     action (model G), the table above shows that having private information about
+     the consequences of the action in no case makes the large shareholder more
+     effective and in fact can lead to the large shareholder becoming dysfunctional.
+
+31
+     The discussion that follows assumes that for investors other than the large shareholder there is a residual
+     uncertainty about the consequences of an action (i.e., we do not consider models Ba,δ    a,δ
+                                                                                       δ and Gδ ).
+
+
+
+
+                                                                                                                2677
+The Review of Financial Studies / v 22 n 7 2009
+
+
+
+   Our results generally support the notion that liquidity need not interfere with,
+and in fact may enhance, corporate governance. Much of what is known about
+the interaction between large shareholders and managers is consistent with our
+model and results. In particular, our model is consistent with the “targeting” of
+firms and with behind-the-scene negotiations with managers, often referred to
+as “jawboning.” These activities have been shown to be successful in affecting
+managerial decisions, and the implicit or explicit threat of exit may be part of
+
+
+
+
+                                                                                                            Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+the explanation for why minority shareholders are able to have this impact.
+
+
+Appendix
+                                             δ̄                      x                    δ̄
+Proof of Proposition 1. Let A(x) = x δ dF(δ) , B(x) = 0 δ dF(δ) , and C(x)         = x dF(δ) . Con-
+sider first model B. If x B < δ̄ is an equilibrium cutoff, then β − (1 − θ)ω1 E sB (x B ) − E ns
+                                                                                              B
+                                                                                                 (x B ) −
+ω2 x B = 0, where
+
+                                              B(x)
+                         E sB (x) =                          ,             B
+                                                                         E ns (x) = 0.             (A1)
+                                      θ + (1 − θ) (1 − C(x))
+
+The equilibrium will be unique if E sB (x) − E ns
+                                               B (x) is nondecreasing in x. We have
+
+
+                                                     B(x)         1 − C(x)
+                           E sB (x) − E ns
+                                        B
+                                           (x) =                               .                   (A2)
+                                                   1 − C(x)    1 − (1 − θ)C(x)
+
+The first part of the product on the right-hand side of Equation (A2), namely B(x)/(1 − C(x)), is
+equal to E(δ̃ | δ ≤ x), which is nondecreasing in x. The second part is nondecreasing in x since
+C  (x) ≤ 0 and 0 < θ < 1. It is easy to see that x B < β/ω2 , which means that the equilibrium must
+be disciplining.
+     Now consider model Ga . If x G < δ̄ is an equilibrium cutoff, then
+                                        G
+                         −β + (1 − θ)ω1 E ns (x G ) − E sG (x G ) + ω2 x G = 0,                    (A3)
+
+where
+                                              θA(x)                              A(x)
+                         E sG (x) =                         ,         G
+                                                                    E ns (x) =        .            (A4)
+                                      θ + (1 − θ)(1 − C(x))                      C(x)
+                                                  G (x) − E G (x) is nondecreasing in x. We have
+In this case, the equilibrium will be unique if E ns       s
+
+                                                     A(x)        1 − C(x)
+                               G
+                             E ns (x) − E sG (x) =                            .                    (A5)
+                                                     C(x)     1 − (1 − θ)C(x)
+
+The first part of the product on the right-hand side of Equation (A5), namely A(x)/C(x), is equal
+to E(δ̃ | δ̃ ≥ x), which is nondecreasing in x. The second part is the same as the second part in
+Equation (A2) and is nondecreasing in x. To show that x G < x B whenever x B < δ̄, it is sufficient
+to show that for all x in the support of δ̃, E ns
+                                               G (x) − E G (x) > E B (x ) − E B (x ), or
+                                                        s         s    B     ns B
+
+                    A(x)         1 − C(x)                  B(x)         1 − C(x)
+                                                     >                               .             (A6)
+                    C(x)      1 − (1 − θ)C(x)            1 − C(x)    1 − (1 − θ)C(x)
+
+This follows immediately since A(x)/C(x) = E(δ̃ | δ̃ ≥ x), which is clearly greater than B(x)/(1 −
+C(x)) = E(δ̃ | δ̃ ≤ x).
+
+
+
+
+2678
+Threat of Exit in Manager–Shareholder Interaction
+
+
+                                                        
+Proof of Proposition 2. Let g(x) = β − (1 − θ)ω1 E s (x) − E ns (x) − ω2 x, where E s (x) and
+E s (x) are defined by Equations (11) and (12). Since we assume that δ̃ is continuously dis-
+tributed, it follows that E s (x) and E ns (x) are continuous functions of x. Moreover, for all
+x > 0, E s (x) − E ns (x) > 0. Since g(0) > 0 and g(β/ω2 ) < 0, there must be at least one
+x B ∈ (0, β/ω2 ) such that g(x B ) = 0, and this is an equilibrium cutoff for model Ba,δ . For any
+given value of x, E s (x) solves
+
+                          x                                           x
+
+
+
+
+                                                                                                                            Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+                  θ           δ dF(δ) − θE s (x) + (1 − θ)                      (δ − E s (x)) dF(δ) = 0.             (A7)
+                      0                                              E s (x)
+
+
+    As θ → 0, it is clear that E s (x) → x. Since L sells on the interval [E s (x), x], the probability
+of L selling vanishes as θ → 0.
+
+Proof of Proposition 3. Let x  = β/w2 < δ̄, x1 (θ) be the highest-type manager that takes the
+action in model Ba for a given θ, and x2 (θ) be the same for model Ba,δ . We want to show that
+for θ sufficiently close to 1, the gain produced by L in model Ba is greater than that produced in
+model Ba,δ . The gain is related to the size of the interval of δ̃ realizations that refrain from taking
+the action due to L’s presence. For model Ba this is
+
+                                 β    β − (1 − θ)w1 Q(x1 (θ), θ)   (1 − θ)w1 Q(x1 (θ), θ)
+             x  − x1 (θ) =         −                            =                        ,                          (A8)
+                                 w2              w2                        w2
+
+where
+                                                               x1 (θ)
+                                                                      δ dF(δ)
+                                     Q(x1 (θ), θ) =           0
+                                                                        x (θ)
+                                                                              .                                      (A9)
+                                                        θ + (1 − θ) 0 1 dF(δ)
+
+Note that
+
+                                                                           x
+                                          lim Q(x1 (θ), θ) =                    δ dF(δ) .                           (A10)
+                                          θ→1                         0
+
+
+For model Ba,δ this is
+
+                                 β    β − (1 − θ)w1 R(x2 (θ), θ)   (1 − θ)w1 R(x2 (θ), θ)
+             x  − x2 (θ) =         −                            =                        ,                         (A11)
+                                 w2              w2                        w2
+
+where
+                                x (θ)                              x (θ)
+                              θ 02      δ dF(δ) + (1 − θ) y(θ)
+                                                            2
+                                                               δ dF(δ)                          y(θ)
+                                                                                                     δ dF(δ)
+        R(x2 (θ), θ) =                                  x2 (θ)
+                                                                                       −       0
+                                                                                                   x2 (θ)
+                                                                                                                ,   (A12)
+                                        θ + (1 − θ)     y(θ) dF(δ)                          1 − y(θ)      dF(δ)
+
+and where y(θ) solves
+
+                                             x (θ)                                 x (θ)
+                                         θ 02        δ dF(δ) + (1 − θ) y(θ)
+                                                                         2
+                                                                            δ dF(δ)
+                               y(θ) =                                  x (θ)
+                                                                                                   .                (A13)
+                                                     θ + (1 − θ) y(θ)
+                                                                   2
+                                                                      dF(δ)
+
+Note that
+
+                                                            x                      y
+                                                                                   0 δ dF(δ)
+                              lim R(x2 (θ), θ) =                 δ dF(δ) −             x
+                                                                                               ,                    (A14)
+                              θ→1                       0                        1 − y  dF(δ)
+
+
+
+
+                                                                                                                    2679
+The Review of Financial Studies / v 22 n 7 2009
+
+
+
+                x
+where y  =                                                        
+               0 δ dF(δ) . We now take the limit of (x − x 1 (θ))/(x − x 2 (θ)) as θ → 1. This is
+
+                                                                                   x
+                                                                                        δ dF(δ)
+                  x  − x1 (θ)        Q(x1 (θ), θ)
+              lim               = lim               =                          0
+                                                                                            y
+                                                                                                         ,   (A15)
+              θ→1 x  − x 2 (θ)   θ→1 R(x 2 (θ), θ)                 x
+                                                                                           0 δ dF(δ)
+                                                                          δ dF(δ) −            x
+                                                                0                        1 − y  dF(δ)
+
+
+
+
+                                                                                                                     Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+which is strictly greater than 1 since y  > 0. This means that for θ sufficiently close to 1, the cutoff
+below which the action is taken in model Ba is strictly smaller than that in model Ba,δ .
+
+Proof of Proposition 4.        Define
+
+                                                           δ̄
+                                                         θ x δ dF(δ)
+                                     E s (x) =                                     .                         (A16)
+                                                                     δ̄
+                                                  θ + (1 − θ) x dF(δ)
+
+Let x G be the cutoff in model Ga and let z be the cutoff when there is no discipline, i.e., z = β/ω2 .
+Finally, define x ◦ to be the solution to E s (x) = x. It is easy to show that such a solution always
+exists and is unique since for all θ > 0, E s (0) = E(δ̃) > 0 and E s (x) is continuous and strictly
+decreasing in x. Consider the following three cases:
+ (1)    x G ≤ E s (x G ),
+ (2)    x G > E s (x G ) and x ◦ < z, and
+ (3)    x G > E s (x G ) and x ◦ ≥ z.
+Note that these cases are mutually exclusive and exhaustive. If Case 1 holds, then the equilibrium
+of model Ga is an equilibrium of model Ga,δ . If Case 2 holds, it is an equilibrium for M to take the
+action if and only if δ > x ◦ and (absent a liquidity shock) for L to sell either if δ < x ◦ or the action
+is not taken and otherwise holds. Finally, if Case 3 holds, there is a nondisciplining equilibrium,
+where M takes the action only if δ > z and L (absent a liquidity shock) sells if δ < y or the action
+is not taken, where y solves:
+
+                                          δ̄                               y
+                                        θ z δ dF(δ) + (1 − θ) z δ dF(δ)
+                                y=                              y                        .                   (A17)
+                                                θ + (1 − θ) 0 dF(δ)
+
+   Now we must show that the equilibrium is unique. The only possibility for more than one
+equilibrium to exist is for there to exist a disciplining equilibrium (with a cutoff x < z) and a
+nondisciplining equilibrium with a cutoff equal to z. Let θm be the minimum value of θ that is
+consistent with a nondisciplining equilibrium. At this value y = z and we have
+
+                                                         δ̄
+                                                    θm  z δ dF(δ)
+                                     z=                        z      .                                      (A18)
+                                               θm + (1 − θm ) 0 dF(δ)
+
+   This means that for a nondisciplining equilibrium to exist, θ must be such that
+                                                           z
+                                                       z 0 dF(δ)
+                                θ ≥ θm =                                  .                                  (A19)
+                                                 δ̄            z
+                                                z δ dF(δ) + z 0 dF(δ) − z
+
+   Now, since z > x, it follows that
+
+                          δ̄                      δ̄
+                       θ z δ dF(δ)             θ x δ dF(δ)
+                                 z      <              x      = E s (x) ≤ x < z.                             (A20)
+                 θ + (1 − θ)    0 dF(δ)   θ + (1 − θ) 0 dF(δ)
+
+
+
+
+2680
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+      This implies that
+                                                           z
+                                                      z 0 dF(δ)
+                               θ<                                             = θm ,                 (A21)
+                                        δ̄            z
+                                       z δ dF(δ) + z 0 dF(δ) − z
+
+which contradicts Equation (A19), which is necessary for the existence of a nondisciplining
+equilibrium. Thus we cannot have both types of equilibria.
+
+
+
+
+                                                                                                               Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+Proof of Proposition 5.       Let
+                                              x                           x
+                                       θ 0 δ dF(δ) + (1 − θ) Q a (x) δ dF(δ)
+                          Q a (x) =               x                       x            ;
+                                         θ 0 dF(δ) + (1 − θ) Q a (x) dF(δ)
+                                              x
+                                             0 δ dF(δ)
+                           Q b (x) =                x       ; and                                    (A22)
+                                       θ + (1 − θ) 0 dF(δ)
+                                          x                      x
+                                       θ 0 δ dF(δ) + (1 − θ) Q c (x) δ dF(δ)
+                           Q c (x) =                     x                   .
+                                             θ + (1 − θ) Q c (x) dF(δ)
+
+   To show that model Ba,δ a produces the highest ex ante value for the firm, it is sufficient to show
+that for all x in the support of the distribution of δ, Q a (x) is at least as large as Q b (x) and Q c (x).
+To see why this is sufficient, first note that any equilibrium cutoff x for model Ba,δ  a must solve
+
+                                          β − w2 x = w1 Q a (x),                                     (A23)
+
+while equilibrium cutoffs for model Ba and model Ba,δ solve respectively
+
+                                       β − w2 x = (1 − θ)w1 Q b (x),                                 (A24)
+
+and
+
+                               β − w2 x = (1 − θ)(w1 Q c (x) − E ns (x)).                            (A25)
+
+If Q a (x) is at least as large as Q b (x) and Q c (x), then there is an equilibrium cutoff solving Equation
+(A23) that is no greater than any solving Equations (A24) and (A25). Moreover, if Q a (x) is strictly
+larger than Q b (x) and Q c (x) (which will generally be the case), then there is an equilibrium cutoff
+solving Equation (A23) that is strictly less than any solving Equations (A24) and (A25).
+                                                                              b                    b
+   We will first show that Q a (x) ≥ Q b (x) for all x. Define ab = a dF(δ) and ab = a δ dF(δ) ,
+and let Q be shorthand for Q (x). It is straightforward to show that the sign of Q (x) − Q b (x) is
+            a                       a                                                        a
+
+the same as the sign of
+                                                            
+        θ2 1 − 0x 0x + θ(1 − θ) xQ a − xQ a 0x − (1 − θ)2 0x xQ a − xQ a 0x .               (A26)
+
+The first term in Equation (A26) is clearly nonnegative. Consider now the last term. Observe that
+                                                    a
+                                                                                    a
+                                                                                        
+            0x xQ a − xQ a 0x = xQ a xQ a + 0Q xQ a − xQ a xQ a + xQ a 0Q
+                                          a                       a
+                                    = 0Q xQ a − xQ a 0Q .                                        (A27)
+
+   Now, since x ≥ Q a ≥ 0, we have
+                                                  a                   a
+                                        0Q xQ a ≥ Q a 0Q xQ a
+                                                       a              a
+                                        xQ a 0Q ≤ Q a 0Q xQ a .                                  (A28)
+
+
+
+
+                                                                                                     2681
+     The Review of Financial Studies / v 22 n 7 2009
+
+
+
+     This means that the last expression in Equation (A26) is nonnegative (and strictly positive if
+     x > Q a > 0). It is easy to see that the nonnegativity of the last expression in Equation (A26) implies
+     that the second expression in Equation (A26) is also nonnegative. This is because xQ a ≥ 0x xQ a .
+                                                        x
+     Now consider Q c (x). First note that if θ = θ 0 dF(δ) , Q a (x) = Q c (x). We need only consider
+                               x                           x
+     the cases where θ > θ 0 dF(δ) , i.e., θ > 0 and 0 dF(δ) < 1. From the definition of Q c (x), we
+     know that Q c (x) is equal to y such that y solves
+                                                  x                            x
+                                           θ 0 δ dF(δ) + (1 − θ) y δ dF(δ)
+
+
+
+
+                                                                                                                       Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+                                   y−                                     x                      = 0.          (A29)
+                                                       θ + (1 − θ)        y dF(δ)
+
+     Using the definition of Q a (x), one can easily see that
+                                                   x                            x
+                                                θ 0 δ dF(δ) + (1 − θ) Q a (x) δ dF(δ)
+                              Q a (x) −                                   x                          > 0,      (A30)
+                                                            θ + (1 − θ)   Q a (x) dF(δ)
+
+                    x
+     when θ > θ 0 dF(δ) . To show that Q a (x) ≥ Q c (x), it is sufficient to show that there is a unique
+     solution to Equation (A29) and that the left-hand side of Equation (A29) is increasing in y at the
+     solution. Let S(y) be the left-hand side of Equation (A29). It is straightforward to show that
+
+                                                                   (1 − θ) f (y)
+                                      S  (y) = 1 +                          x     S(y).                       (A31)
+                                                               θ + (1 − θ) y dF(δ)
+
+     One can see from Equation (A31) that S(y) is increasing at all values of y that solve Equation
+     (A29). Since S(y) is continuous, this means that there is a unique y that solves Equation (A29).
+     From this and Equation (A30), it follows that Q a (x) ≥ Q c (x).
+
+     Proof of Proposition 6. First we prove that an equilibrium exists and is unique. To do this, we
+     first show that for all x in the support of the distribution of δ̃, there is a unique E s (x) that solves
+     the defining equation given by Equation (19) in Section 4, and that E s (x) is increasing in x. From
+     Equation (19), we see that E s (x) is any value of y that solves
+
+
+                                                       δ̄                              y
+                                                  θ x δ dF(δ) + (1 − θ) x δ dF(δ)
+                                      y=                                                                       (A32)
+                                                               δ̄        y
+                                                              x dF(δ) + x dF(δ)
+
+     or, equivalently, that solves
+
+                                           δ̄                                          y
+                           S(y) = θ             (y − δ)dF(δ) + (1 − θ)                     (y − δ)dF(δ) = 0.   (A33)
+                                       x                                           x
+
+
+        It is easy to see that S(x) < 0, S(δ̄) > 0, and S  (y) > 0 for all y ∈ (x, δ̄). This means that there is
+     a unique y > x that solves Equation (A33).32 Using the fact that Equation (A33) implicitly defines
+     y as a function of x, it is easy to show that
+
+                                                               (y(x) − x) f (x)
+                                   y  (x) =                                                     > 0.          (A34)
+                                                        δ̄                         y
+                                                   θ x dF(δ) + (1 − θ) x dF(δ)
+
+        Thus E s (x) is an increasing function of x. Now, for an interior equilibrium in model Ga,δ
+                                                                                                 δ (i.e.,
+     one for which 0 < x G < δ̄), we must have −β + ω1 E s (x G ) + ω2 x G = 0. Since we have shown that
+
+32
+     Note that we are assuming that θ > 0. In the limit case where θ = 0, we have y = x as a solution to Equation
+     (A33).
+
+
+
+
+     2682
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+E s (x) is monotone increasing in x, it follows that if there is an interior equilibrium, it is unique.
+(Otherwise, the equilibrium is not interior and either x G = 0 if −β + ω1 E s (0) > 0 or x G = δ̄ if
+−β + ω1 E s (δ̄) + ω2 δ̄ < 0.)
+    Define E a (x) = E(δ̃ | δ̃ ≥ x). As discussed in Section 4, when L is not present, the equilibrium
+cutoff x is determined by −β + ω1 E a (x) + ω2 x = 0, while if L is present, the equilibrium cutoff
+point is determined by −β + ω1 E s (x) + ω2 x = 0. To show that there is less discipline when L is
+present, it is sufficient to show that E a (x) > E s (x) for all x < δ̄. We have
+
+
+
+
+                                                                                                                             Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+                                δ̄                    δ̄                       E (x)
+                               x δ dF(δ)         θ x δ dF(δ) + (1 − θ) x s             δ dF(δ)
+     E a (x) − E s (x) =                    −
+                                  δ̄                        δ̄        E s (x)
+                                 x dF(δ)                   x dF(δ) + x        dF(δ)
+                                            E (x)
+                                                                   δ̄                  E s (x)
+                                                                                                          
+                                (1 − θ) x s          dF(δ)         x δ dF(δ)                    δ dF(δ)
+                        =                                                      −       x
+                                                                                                              > 0.   (A35)
+                                δ̄        E s (x)                     δ̄                 E s (x)
+                               x dF(δ) + x        dF(δ)              x dF(δ)            x        dF(δ)
+
+The inequality in Equation (A35) follows since E s (x) < δ̄ if x < δ̄ and
+            δ̄                E s (x)
+                                                 
+            x δ dF(δ)                  δ dF(δ)
+                        −     x
+                                                     = E(δ̃ | x ≤ δ̃) − E(δ̃ | x ≤ δ̃ ≤ E s (x)) > 0.                (A36)
+               δ̄               E s (x)
+              x dF(δ)          x        dF(δ)
+
+
+Proof of Proposition 7. Consider first model Ba,δ     δ . It is clear that in any equilibrium, L exits
+whenever M takes the action and retains them whenever M does not take the action (unless
+subjected to a liquidity shock). Let m B (δ) be the probability that M takes the action in model Ba,δ
+                                                                                                   δ
+when the realization of δ̃ is δ. This means that
+
+                                                m B (δ)δ
+                               E s (δ) =                      ;            E ns (δ) = 0.                             (A37)
+                                           θ + (1 − θ)m B (δ)
+
+
+   M is indifferent between taking the action and not taking it if and only if
+
+                            β − ω1 E s (δ) − ω2 δ = −ω1 (θE s (δ) + (1 − θ)E ns (δ))                                 (A38)
+
+
+   or
+
+                                                           m B (δ)δ
+                              β − (1 − θ)ω1                                − ω2 δ = 0.                               (A39)
+                                                      θ + (1 − θ)m B (δ)
+
+
+    Now consider model Ga,δ , and let m G (δ) be the probability that M takes the action for a given
+δ. In this case, in any equilibrium, L will retain her shares when M takes the action (unless she is
+subject to a liquidity shock) and sell if M does not take the action. This means that when δ̃ = δ,
+we have
+
+                                               θm G (δ)δ
+                            E s (δ) =                            ,              E ns (δ) = δ.                        (A40)
+                                        θ + (1 − θ)(1 − m G (δ))
+
+
+   It follows that in model Ga,δ
+                             δ , M is indifferent between taking the action and not taking it if and
+only if
+                                   
+                            −β + ω1 θE s (δ) + (1 − θ)E ns (δ) + ω2 δ = ω1 E s (δ)                                   (A41)
+
+
+
+
+                                                                                                                     2683
+The Review of Financial Studies / v 22 n 7 2009
+
+
+
+or
+
+                                                  (1 − m G (δ))δ
+                       −β + (1 − θ)ω1                                       + ω2 δ = 0.                    (A42)
+                                             θ + (1 − θ)(1 − m G (δ))
+
+   Note that Equation (A39) defines the function m B (δ) over the range of δ for which m B (δ) ∈ (0, 1)
+and Equation (A42) does the same for m G (δ).
+
+
+
+
+                                                                                                                     Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+References
+Admati, A. R., P. Pfleiderer, and J. Zechner. 1994. Large Shareholder Activism and Financial Market Equilibrium.
+Journal of Political Economy 102:1097–130.
+
+Aghion, P., P. Bolton, and J. Tirole. 2004. Exit Options in Corporate Finance: Liquidity versus Incentives. Review
+of Finance 8:327–53.
+
+Attari, M., S. Benerjee, and T. Noe. 2006. Crushed by Rational Stampede: Strategic Share Dumping and
+Shareholder Insurrections. Journal of Financial Economics 79:181–222.
+
+Bainbridge, S. 2005. Shareholder Activism and Institutional Investors. Law and Economics Research Paper No.
+05–20, UCLA School of Law.
+
+Bebchuk, L. A. 2005. The Case for Increasing Shareholder Power. Harvard Law Review 118:833–914.
+
+Black, B. S. 1990. Shareholder Passivity Reexamined. Michigan Law Review 89:520–608.
+
+Black, B. S., and J. C. Coffee. 1994. Hail Britannia? Institutional Investor Behavior under Limited Regulation.
+Michigan Law Review 92:1997–2087.
+
+Bolton, P., and E. L. von Thadden. 1998. Blocks, Liquidity, and Corporate Control. Journal of Finance 53:1–25.
+
+Bratton, W. W. 2007. Hedge Funds and Governance Targets. The Georgetown Law Journal 95:1375–433.
+
+Brav, A., W. Jiang, F. Partnoy, and R. Thomas. 2006. Hedge Fund Activism, Corporate Governance, and Firm
+Performance. Journal of Finance 63:1729–75.
+
+Brenner, S. 2007. Passive Shareholders and Active Manager: An Empirical Test of Admati and Pfleiderer’s
+Hypothesis. Working Paper, Humboldt University of Berlin, Germany.
+
+Burkart, M., D. Gromb, and F. Panunzi. 1997. Large Shareholder, Monitoring and the Value of the Firm. Quarterly
+Journal of Economics 112:693–728.
+
+Carleton, W. T., J. M. Nelson, and M. S. Weisbach. 1998. The Influence of Institutions on Corporate Governance
+through Private Negotiations: Evidence from TIAA-CREF. Journal of Finance 1135–362.
+
+Clifford, C. 2008. Value Creation or Destruction? Hedge Funds as Shareholder Activists. Journal of Corporate
+Finance 14:323–36.
+
+Coffee, J. C. 1991. Liquidity versus Control: The Institutional Investor as Corporate Monitor. Columbia Law
+Review 91:1277–368.
+
+Edmans, A. 2008. Blockholder Trading, Market Efficiency, and Managerial Myopia. Journal of Finance, Forth-
+coming.
+
+Faure-Grimaud, A., and D. Gromb. 2004. Public Trading and Private Incentives. Review of Financial Studies
+17:985–1014.
+
+Gillan, S. L., and Laura T. Starks. 1998. A Survey of Shareholder Activism: Motivation and Empirical Evidence.
+Contemporary Finance Digest 2:310–34.
+
+Gillan, S. L., and L. T. Starks. 2007. The Evolution of Shareholder Activism in the United States. Journal of
+Applied Corporate Finance 19:55–73.
+
+
+
+
+2684
+Threat of Exit in Manager–Shareholder Interaction
+
+
+
+Gopalan, R. 2006. Large Shareholder Trading and Takeovers: The Disciplinary Role of Voting with Your Feet.
+Working Paper, Ross School of Business, University of Michigan, November.
+
+Grundfest, J. 1993. Just Vote No: A Minimalist Strategy for Dealing with Barbarians Inside the Gates. Stanford
+Law Review 45:857–903.
+
+Hartzell, J. C., and L. T. Starks. 2003. Institutional Investors and Executive Compensation. Journal of Finance
+58:2351–74.
+
+
+
+
+                                                                                                                    Downloaded from academic.oup.com/rfs/article/22/7/2645/1601640 by Catherine Sharp user on 19 August 2026
+Holmstrom, B., and J. Tirole. 1993. Market Liquidity and Performance Monitoring. Journal of Political Economy
+101:678–709.
+
+Huddart, S. 1993. The Effect of a Large Shareholder on Corporate Value. Management Science 39:1407–21.
+
+Kahan, M., and E. Rock. 2007. Hedge Funds in Corporate Governance and Corporate Control. University of
+Pennsylvania Law Review 155:1021–93.
+
+Kahn, C., and A. Winton. 1998. Ownership Structure, Speculation, and Shareholder Intervention. Journal of
+Finance 53:99–129.
+
+Klein, A., and E. Zur. 2009. Entrepreneurial Shareholder Activism: Hedge Funds and Other Private Investors.
+Journal of Finance 64:187–229.
+
+Macey, J. R. 1997. Institutional Investors and Corporate Monitoring: A Demand-side Perspective. Managerial
+and Decision Economics 18:601–10.
+
+Massa, M., and A. Simonov. 2006. Shareholder Homogeneity and Firm Value: The Disciplining Role of Non-
+controlling Shareholders. Working Paper, INSEAD.
+
+Maug, E. 1998. Large Shareholders as Monitors: Is There a Trade-off between Liquidity and Control? Journal
+of Finance 53:65–98.
+
+Mello, A. S., and R. Repullo. 2004. Shareholders Activism Is Non-monotonic in Market Liquidity. Financial
+Research Letters 1:2–10.
+
+Noe, T. 2002. Investor Activism and Financial Market Structure. Review of Financial Studies 15:289–315.
+
+Palmiter, A. R. 2002. Mutual Fund Voting of Portfolio Shares: Why Not Disclose? Cardozo Law Review
+23(4):1419–91.
+
+Parrino, R., R. W. Sias, and Laura T. Starks. 2003. Voting with Their Feet: Institutional Ownership Changes
+around Forced CEO Turnover. Journal of Financial Economics 68:3–46.
+
+Qiu, L. 2006. Which Institutional Investors Monitor? Evidence from Acquisition Activity. Working Paper,
+Department of Economics, Brown University, June.
+
+Roe, M. J. 1994. Strong Managers, Weak Owners: The Political Roots of American Corporate Finance. Princeton,
+NJ: Princeton University Press.
+
+Romano, R. 1993. Public Pension Fund Activism in Corporate Governance Reconsidered. Columbia Law Review
+93:797–853.
+
+Romano, R. 2001. Less Is More: Making Institutional Investor Activism a Valuable Mechanism of Corporate
+Governance. Yale Journal on Regulation 18:174–252.
+
+Sias, R., L. T. Starks, and S. Titman. 2001. The Price Impact of Institutional Trading. Working Paper, Department
+of Finance, University of Texas, August.
+
+Tirole, J. 2001. Corporate Governance. Econometrica 69:1–35.
+
+Yung, C. 2005. Insider Trading with Private Information and Moral Hazard. Finance Research Letters 2:51–57.
+
+
+
+
+                                                                                                         2685
+

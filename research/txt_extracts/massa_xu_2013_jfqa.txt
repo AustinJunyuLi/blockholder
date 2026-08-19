@@ -1,0 +1,2022 @@
+                                                                                                     https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+JOURNAL OF FINANCIAL AND QUANTITATIVE ANALYSIS            Vol. 48, No. 5, Oct. 2013, pp. 1463–1497
+COPYRIGHT 2013, MICHAEL G. FOSTER SCHOOL OF BUSINESS, UNIVERSITY OF WASHINGTON, SEATTLE, WA 98195
+doi:10.1017/S0022109013000604
+
+
+
+
+The Value of (Stock) Liquidity in the M&A
+Market
+Massimo Massa and Moqi Xu∗
+
+
+
+
+Abstract
+We study the value of stock liquidity in the market for corporate control and show that the
+target firm’s liquidity has an impact on the transaction itself and on the resulting merged
+entity. We use a sample of U.S. merger and acquisition (M&A) transactions (1987–2007)
+to show that acquiring a more liquid firm makes the stock of the acquirer more liquid.
+This has consequences for M&A activity and pricing. Public acquirers are more likely
+than private acquirers to acquire more liquid targets. Liquidity also translates into a greater
+likelihood of completing the deal and higher compensation for the target.
+
+I.   Introduction
+      In mergers and acquisitions (M&As), target shareholders receive a substan-
+tial premium if the acquirer is a public rather than a private firm (Bargeron,
+Schlingemann, Stulz, and Zutter (2008)). This phenomenon is hard to reconcile
+with fundamental differences between the public and private acquirers. Moreover,
+it is puzzling that public firms agree to pay a higher premium. Yet, there is one
+characteristic that is of different interest to public versus private acquirers: the
+liquidity of the target’s stock.
+      Shareholders of public firms value the option to liquidate their position swiftly
+and without adverse effects on the price. For example, some institutional investors
+(e.g., mutual funds) may face investor withdrawals and therefore prefer stocks that
+guarantee them an exit from their investment that is fast and entails little capital
+loss: more liquid stocks. The lower exit costs also make liquid stocks more attrac-
+tive to blockholders who can increase firm value by monitoring. In taking over
+a firm with a more liquid stock (which we refer to as a “liquid firm”), the acquirer
+also takes over the underlying liquidity of its stock. High liquidity will likely ap-
+peal to a broader base of potential investors. A liquid target, by increasing the
+
+
+   ∗ Massa, massimo.massa@insead.edu, Finance Department, INSEAD, Boulevard de Constance,
+77300 Fontainebleau, France; Xu, m.xu1@lse.ac.uk, Finance Department, London School of
+Economics, Houghton St, WC2A 2AE London, United Kingdom. We thank Yakov Amihud, Hendrik
+Bessembinder (the editor), David Hunter, Diana Knyazeva, Christoph Schneider, James Weston
+(the referee), and the audience at the 2012 Financial Intermediation Research Society (FIRS) Con-
+ference, the 2011 China International Finance Conference (CIFC), and the 2010 German Finance
+Association (DGF) for their comments.
+                                             1463
+                                                                                          https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1464    Journal of Financial and Quantitative Analysis
+
+liquidity of the acquirer, will expand its shareholder base and therefore should be
+more attractive to public acquirers than otherwise equal deals in which the illiq-
+uidity of the target’s stock adversely affects the acquirer’s own stock liquidity.
+      If stock liquidity is valued, then a public acquirer should be willing to pay
+more for liquid target firms. That willingness should translate into a higher pre-
+mium paid and thus a greater probability of the bid’s success. In short, liquid
+targets can gain more from selling to public than to private acquirers and thus
+prefer the former, holding all other characteristics constant.
+      We test these hypotheses using 4,691 U.S. M&A transactions involving pub-
+licly listed target firms for the period 1987–2007. To ensure that our proxies for
+liquidity do not capture other firm characteristics, our estimations incorporate a
+set of firm-specific and industry controls, which include asset liquidity, size, and
+determinants related to information and adverse selection.
+      We begin by explaining the rationale for desiring liquidity, namely, the pos-
+itive effect of acquiring a liquid firm on the stock of the acquirer. Liquidity dif-
+ferences between target and acquirer affect the liquidity of the combined firm.
+Acquiring a more liquid firm makes the stock of the acquirer more liquid.
+An increase of 1 standard deviation in the target stock’s liquidity translates into a
+17% increase in the acquirer stock’s liquidity.
+      We then show that liquidity affects the attractiveness of a specific target in
+comparison to a pool of otherwise identical targets. Public acquirers prefer more
+liquid targets: The acquirer of a target firm whose stock is 1 standard deviation
+more liquid is 27% more likely to be a public firm. Among public firms, more
+liquid acquirers are more likely to buy more liquid targets. Liquidity is also asso-
+ciated with a greater probability of bid success. Public acquirers are 2.4% more
+likely to complete a transaction when the target firm’s liquidity is 1 standard
+deviation higher.
+      These findings indicate that the liquidity of the target firm’s stock plays a
+key role in the M&A matching process. We argue that this phenomenon is related
+to the presence of investors who appreciate liquidity. Liquid stocks appeal to spe-
+cific clienteles. As Uno and Kamiyama (2010) show, more liquid stocks attract
+shorter-horizon investors. An institutional investor prefers liquid stocks because
+it frequently needs to rebalance its portfolios to meet redemption claims (for a
+mutual fund) or capital requirement charges (for an insurance company). In line
+with this hypothesis, we find that higher institutional ownership predicts the ac-
+quisition of a more liquid target and a greater willingness to pay for the additional
+liquidity.
+      Also, although most private acquirers do not value liquidity, some private
+firms appreciate liquidity more than others. A typical case is that of a firm plan-
+ning to go public. We find that the acquisition of liquid targets is positively related
+to the probability of the private firm’s going public via an initial public offering
+(IPO).
+      Next, we look at the effect on the price of the deal. In the presence of a
+public acquirer, a 1-standard-deviation increase in the target’s stock liquidity cor-
+responds to a 10% higher offer premium, a 2% higher return with respect to a
+3-day announcement window, and a 5% higher return with respect to a 169-day
+window. In contrast, when the acquirer is private, the coefficient for both the
+                                                                                          https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                              Massa and Xu       1465
+
+premium and the target announcement returns is significantly smaller than in the
+case of a public acquirer.
+      Our results persist in subsamples that exclude toeholds or minor stakes as
+well as controlling for the choice of the fraction acquired and the means of pay-
+ment. There is no significant difference between cash- and stock-financed trans-
+actions. Also, Gopalan, Kadan, and Pevzner (2012) argue that more liquid assets
+(as measured by cash holdings) increase stock liquidity because they increase
+transparency. Acquiring a more liquid firm thus improves the transparency of a
+less liquid firm, and acquiring a more transparent firm reduces the dispersion of
+investor opinion regarding a less transparent buyer (Moeller, Schlingemann, and
+Stulz (2007), Chatterjee, John, and Yan (2011)). We therefore explicitly control
+for cash holdings and dispersion of opinion. Finally, we control for linear as well
+as nonlinear size effects. None of the controls change the main results.
+      Our findings contribute to different strands of literature. First, they relate to
+the literature on M&As and divestitures (Ritter (1984), Schlingemann, Stulz, and
+Walkling (2002), Harford (2005), Officer (2007), Celikyurt, Sevilir, and Shiv-
+dasani (2010), and Almeida, Campello, and Hackbarth (2011)), as well as firm
+exit decisions: divestitures, the exit of private companies and venture capital-
+ists, and equity placements (Hertzel and Smith (1993), Steiner (1997), Cumming
+and MacIntosh (2003), Poulsen and Stegemoller (2008), and Martos-Vila (2011)).
+We contribute by showing how market liquidity and firm-specific preferences for
+target-firm liquidity affect M&As.
+      Second, our findings relate to the literature on the “optimal way of selling
+a firm.” Zingales (1995) argues that the seller faces a trade-off between the liq-
+uidity premium of selling in a public market and the possibility of appropriating
+synergies by selling the majority stake to a privately owned firm. Bargeron et al.
+(2008) discuss the choice between public and private acquirers, and Boone and
+Mulherin (2008) analyze the negotiation or auction process from the target firm’s
+viewpoint. We contribute by showing how the selling decision involves a liquidity
+dimension.
+      Third, our results are related to the literature studying time-series variations
+in the demand for corporate assets. In the context of IPOs, Lowry (2003) shows
+the substantial fluctuation in demand as measured by transaction volume. On the
+supply side, general economic conditions influence aggregate capital needs; on
+the demand side, not only the availability of capital and investment opportu-
+nities but also the diversification needs of investors follow fluctuating business
+cycles. Hence, there are periods, or “waves,” during which certain investments
+will command higher prices (Lee, Shleifer, and Thaler (1991), Harford (2005)).
+We show that time-varying market-wide liquidity affects acquisition preferences
+and valuation.
+      Finally, because we describe the M&A transaction as an event in which
+firms can gain liquidity, we contribute to the growing literature on the inter-
+face between market microstructure and corporate finance. Gopalan et al. (2012)
+argue that asset liquidity can contribute to stock liquidity, and Ellul and Pagano
+(2006) link IPO underpricing to after-market liquidity. Stock splits constitute
+another policy that can heighten investor attention (Baker and Gallagher (1980),
+Muscarella and Vetsuypens (1996), and Mukherji, Kim, and Walker (1997)).
+                                                                                         https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1466    Journal of Financial and Quantitative Analysis
+
+Our focus on M&As enables us to study the effect of liquidity on corporate deci-
+sions and also on merger valuation.
+      The paper is structured as follows: In Section II, we lay out the testable hy-
+potheses and the approach we shall follow. Section III describes the data and how
+we construct an index of liquidity, and in Section IV we demonstrate that tar-
+get liquidity matters for the subsequently combined firm. In Section V, we assess
+the effect of liquidity on the acquirer–target matching decision, and Section VI
+explores the price implications in terms of the premiums and abnormal returns.
+Section VII discusses why liquidity may be preferred, and Section VIII presents
+robustness checks. We summarize our findings in a brief conclusion.
+
+II.    Hypotheses
+      In an acquisition, the acquirer buys the target firm and therefore inherits some
+of the target’s characteristics. We argue that one of them is liquidity. The mecha-
+nism of this process may be explained in terms of rational as well as behavioral
+theory.
+      Rational theory suggests that liquidity is directly related to fundamental char-
+acteristics of the firm such as the degree of information asymmetry. In this sense,
+merging with a less liquid firm means merging with a firm that is perceived to be
+less transparent by the market, perhaps because its business is harder to evaluate.
+This reduces the overall transparency of the firm and therefore lowers its liquidity.
+For example, if a stable cash flow firm with established technology merges with
+a high-tech firm with a new technology, the transparency of the former will be
+negatively affected by the uncertainty about the new technology of the latter. In a
+related argument, Gopalan et al. (2012) suggest that stock liquidity is also related
+to the liquidity and information structure of the underlying assets. Using this ar-
+gument, acquiring a firm with liquid underlying assets would make the combined
+firm’s overall assets more liquid—and increase the liquidity of its stock.
+      In the case of behavioral theory, this effect would be reinforced if liquidity
+is also related to investor attention. In economies populated by investors with
+limited attention, higher demand for stocks to which the market pays attention can
+generate liquidity and returns that cannot be fully explained by traditional asset
+pricing models (Merton (1987), Amihud, Mendelson, and Uno (1999), Hong and
+Stein (1999), Shapiro (2002), and Hirshleifer and Teoh (2003)). Merging with a
+more liquid firm may put a firm that was not previously considered by the market
+on the radar screen. This can make the overall new entity more in demand and
+therefore more liquid.
+      This effect is drastically reinforced in the case of investors’ evaluating
+stocks on the basis of some behavioral bias such as “categorical thinking”
+(e.g., Mullainathan, Schwartzstein, and Shleifer (2008), Barberis and Shleifer
+(2003)). Categorical thinking is a simplification of Bayesian thinking in which
+people can hold only a finite set of posteriors rather than every possible posterior
+(Mullainathan (2002)). People who “think categorically” hold coarser
+(than rational) beliefs. They condition their choices on a set of categories in
+which they partition posterior space. They choose in an optimal way, but form
+beliefs based on “the most likely category given the data received”
+                                                                                          https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                              Massa and Xu       1467
+
+(Mullainathan et al. (2008), p. 586). “An alternative way to model coarse think-
+ing . . . is to assume that the coarse thinker does not condition on the information
+received in weighting each situation, but instead uses constant weights” (p. 587).
+This theory is supported by empirical evidence (e.g., Mullainathan et al. (2008),
+Barberis and Shleifer (2003), and Massa and Zhang (2009)). If investors perceive
+more visible stocks as belonging to a different category with respect to the less
+visible ones, they will interpret any signal of the firm (dividend, cash flows, . . .)
+on the basis of the less visible category. This means that any cash flow-enhancing
+policy of the manager will fail to make the firm react in the same way as a more
+visible firm would do. However, the merger with a visible firm will shift the “cate-
+gory” used by the investors to evaluate the firm and will therefore make the market
+more reactive to the policies of the manager.
+       Overall, these considerations suggest that the target firm’s stock liquidity can
+affect the combined firm’s stock. This is our first hypothesis:
+Hypothesis 1. Acquiring a more liquid firm increases the liquidity of the ac-
+quirer’s stock.
+      If this is the case, then liquidity becomes an important variable in the choice
+of targets. Its value depends on the type of shareholders of the buyer. Public share-
+holders will give a high value to liquidity for two main reasons. First, higher
+liquidity allows shareholders to trade the stocks more easily, more quickly, and
+with less price impact. Liquidity thus gives public shareholders the ability to
+exit without much price impact (Kahn and Winton (1998), Maug (1998)) or to
+rebalance their portfolios cheaply. The second reason why stockholders value liq-
+uidity is that it renders stock prices more informative. Not only does this make it
+easier to assess the value of future investment opportunities, but it also increases
+the accuracy of management compensation and hence the alignment of incentives
+(Scharfstein and Stein (1990), Allen and Gorton (1993), and Dow and Gorton
+(1997)). Both motives are there only for public firms. Indeed, public firms have
+shareholders who have self-selected themselves there because they presumably
+value the ability to liquidate their stake. This is not the case for private firms,
+mostly owned by investors who trade less frequently. They usually own large frac-
+tions of the firm and therefore have less need for additional incentive alignment,
+which suggests that they should be less concerned about liquidity. Also, in private
+firms, the need of an alignment of incentives between managers and shareholders
+is lower as the shareholders are more likely to be the managers.
+      Given the attractiveness of liquidity for public acquirers, liquid target firms
+should be able to extract a premium, especially if selling to a public acquirer, and
+this should increase the probability of completion of the deal. This leads to our
+second hypothesis:
+Hypothesis 2. Public firms are more likely than private firms to acquire more liq-
+uid target firms, to complete acquisitions of more liquid targets, and to pay a
+higher premium for more liquid targets.
+     The attractiveness of more liquid target firms should depend on time-varying
+preferences for liquidity. In particular, liquidity may be more important if over-
+all market liquidity is low. Also, attractiveness of liquidity should be related to
+                                                                                                          https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1468      Journal of Financial and Quantitative Analysis
+
+the characteristics of the investors. Institutional investors who rotate their portfo-
+lios regularly have a stronger preference for liquidity because it facilitates turn-
+ing over a portfolio and selling to accommodate withdrawals without moving the
+market (Chan and Lakonishok (1995), Falkenstein (1996), Shleifer and Vishny
+(1997), and Gompers and Metrick (2001)). Also, these investors especially
+appreciate the exit option if they hold a big stake. Kyle and Vila (1991) and Maug
+(1998) argue that liquidity makes it easier to accumulate shares because of the
+discount associated with the presence of liquidity traders, thus circumventing the
+Grossman and Hart (1986) paradox. Bolton and Von Thadden (1998a), (1998b),
+Kahn and Winton (1998), and Noe (2002) link concentrated shareholdings
+(and therefore better monitoring) to stock liquidity. Falkenstein (1996) provides
+empirical evidence of mutual funds’ demand for liquidity. This leads us to our last
+hypothesis:
+Hypothesis 3. The effects suggested by Hypothesis 2 are higher in times of low
+market liquidity and for firms with high institutional ownership.
+
+
+III.    Data and Main Variables
+     Before looking at our test results, we describe our sample and the variables
+that will be used.
+
+A.     Data
+
+      The transactions data come from the Thomson Securities Data Company
+(SDC) M&A database. The base sample contains all completed transactions an-
+nounced between 1987 and 2007 (inclusive) in which a public firm was sold:
+4,691 acquisitions.1 Information on firm characteristics comes from the Center
+for Research in Security Prices (CRSP)/Compustat Merged (CCM) Database, and
+we use the Thomson Reuters (formerly known as CDA/Spectrum) Institutional
+Holdings (13F) Database for information on institutional ownership. We rely on
+the SDC equity issuance database for the identification of IPOs.
+      Following the M&A literature (see, e.g., Chen, Harford, and Li (2007),
+Bargeron et al. (2008)), we apply the following filters: i) we exclude self-tenders
+and other transactions in which acquirer and target are not distinguishable; ii) we
+exclude transactions announced on the same date as a share repurchase; and
+iii) we exclude reverse mergers (i.e., transactions in which the value of acquirer
+assets did not exceed half of the transaction value). We winsorize all nondiscrete
+and nontruncated variables at the 1% level—except for the market-to-book ratio,
+which we winsorize at the 5% level because it has more outliers. We consider data
+at the quarterly level when possible and at the annual level otherwise.
+      Table 1 presents summary statistics. The average transaction is worth $303
+million. Acquisitions of public firms average 37% of the acquiring firm’s
+
+    1 We exclude incomplete transactions from our analysis because they lack some information we
+need (e.g., fraction transacted). Our results are unchanged when we repeat the analysis while including
+incomplete transactions.
+                                                                                                                                        https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                                                Massa and Xu                  1469
+
+value.2 The average acquirer of a public firm is worth $3,944 million in book
+value (prior to the acquisition). Of all transactions involving a public acquirer,
+35% are paid for with cash, 29% with stock, and the rest with a mixture of both.
+Of all transactions involving a private acquirer, 71% are paid for with cash and
+2% with stock. These statistics are in line with values reported in the literature
+(e.g., Bargeron et al. (2008)). Panels C and D report the correlation coefficients
+between transaction and target characteristics, respectively. Note that the transac-
+tion characteristics are highly correlated with each other. In the robustness section,
+we address potential endogeneity issues.
+
+                                                             TABLE 1
+                                        Descriptive Statistics: Transactions
+
+Table 1 provides summary statistics for the baseline sample of completed transactions involving a public target ﬁrm and
+announced during 1987–2007. Panel A (Panel C) gives (correlations of) transaction and market characteristics; Panel
+B (Panel D) gives characteristics (correlations) of the acquirer and the target ﬁrm in the last year that ends before the
+announcement. The values reported in Panels A and B are the means (with medians in square brackets), before taking
+logarithms.
+Panel A. Transaction and Market Characteristics
+
+                                                                                           Acquirer Public Status
+
+            Variable                           All Transactions                  Private                            Public
+
+Acquirer public                          36.40%                             0.00%                        100.00%
+Transaction value (in USD mill.)        302.77             [14.06]        102.51           [4.99]        621.72          [112.12]
+% acquired                               36.90%            [10.87%]        17.75%          [5.89%]        70.35%         [100.00%]
+% owned after                            42.19%            [18.21%]        23.37%          [9.40%]        75.07%         [100.00%]
+All cash                                 57.57%                            70.60%                         34.82%
+All stock                                11.93%                             1.88%                         29.49%
+Tender offer                              5.47%                             2.28%                         11.06%
+Termination fees                         17.42%                             4.99%                         39.15%
+Toehold                                  34.85%                            46.12%                         15.16%
+# transactions (period)                   474                [314]          406             [269]            593              [437]
+Avg. premium                              4.83%             [3.83%]         4.78%          [3.76%]         4.92%              [4.07%]
+Econshock                                 0.23              [0.12]          0.15           [0.07]          0.37               [0.24]
+Spread                                    5.58%             [5.55%]         5.71%          [5.60%]         5.36%              [5.39%]
+Panel B. Target and Acquirer Characteristics
+
+                                                           Target
+
+    Variable           All Transactions          By a Private Acquirer       By a Public Acquirer                  Acquirer
+
+Assets                 1,354         [163]         1,192          [149]      1,637            [185]         3,944            [2,260]
+   (in USD mill.)
+Market cap ($)       4,122,252     [330,126]     713,786      [204,461]    10,200,000      [1,002,235]   20,700,000    [1,829,587]
+Market/book            3.50          [1.78]        3.17         [1.61]        4.07            [2.12]        4.87          [2.37]
+ROA                    6.99%         [1.62%]       6.81%        [8.88%]       7.32%           [9.49%]       1.10%         [3.26%]
+Leverage              33.98%       [38.88%]       34.26%      [39.46%]      33.48%          [36.32%]      32.23%        [31.29%]
+Institutional         25.61%       [18.20%]       23.27%      [15.76%]      28.95%          [21.78%]      25.77%        [21.90%]
+   ownership
+Insider                9.30%          [0]          5.80%           [0]      17.46%             [0]          3.35%             [0]
+   ownership
+Governance             9.05           [9]          8.95            [9]       8.92              [9]          8.84              [9]
+   index
+Liquidity              0.26         [0.23]         0.01        [0.15]        0.82            [0.37]         0.76             [0.42]
+   index
+Bid-ask spread         3.45%         [2%]          4.21%        [3%]         2.24%            [1%]          1.74%         [1%]
+Volume               622,595       [59,244]      253,490      [41,368]     1,276,394       [156,243]      2,428,454    [213,373]
+Turnover               6.75         [3.86]         6.43        [3.67]         7.32           [4.25]          6.90        [3.94]
+Amihud                 0.28         [0.00]         0.36        [0.00]         0.13           [0.00]          0.05        [0.00]
+Idiosyncratic risk     0.26%        [0.11%]        0.27%       [0.12%]       0.26%           [0.10%]        0.10%        [0.40%]
+                                                                                                         (continued on next page)
+
+
+
+
+    2 In Section VIII, we discuss potential biases due to the choice of the fraction transacted. The
+results are robust to the exclusion of minority stakes.
+                                                                                                                                                                                                                                                                                                                                                   https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1470        Journal of Financial and Quantitative Analysis
+
+                                                                                            TABLE 1 (continued)
+                                                              Descriptive Statistics: Transactions
+
+Panel C. Correlation Matrix: Transaction and Market Characteristics
+
+
+
+
+                                                                     Transaction Value                                                                                                                                                           # Transactions (period)
+                                            Acquirer Public                                                     % Owned After                                             Tender Offer             Termination Fees                                                                 Avg. Premium
+                          Liquidity                                                                % Acquired                   All Cash        All Stock                                                                   Toehold                                                                               Econshock   Spread
+
+Liquidity                —
+Acquirer public          24%
+Transaction value        26% 23%
+% acquired               17% 68% 31%
+% owned after            14% 68% 30% 96%
+All cash                 –7% –42% –16% –41% –38%
+All stock                 7% 44% 15% 55% 53% –48%
+Tender offer              9% 18%    6% 19% 23% 17% –9%
+Termination fees         23% 46% 31% 65% 62% –21% 30% 23%
+Toehold                 –20% –41% –16% –54% –40% 41% –28% –7% –33%
+# transactions (period) 10% 19%     3% 23% 21% –9% 22% 1% 14% –13%
+Avg. premium              8%   4%   2%   2%   2%  3% –1% 5%     3% –2%  6%
+Econshock                17% 12% 15% 19% 18% –5%       4% –3% 18% –12% 15% 5%
+Spread                  –30% –19% –16% –27% –26%  8% –6% –8% –29% 21% –19% –2% –38% —
+Panel D. Correlation Matrix: Target Characteristics
+
+
+
+
+                                                                                                                                                                                                                       Institutional Ownership                  Insider Ownership                   Governance Index          Idiosyncratic Risk
+                                Liquidity                                                 Market/Book                                Leverage               Cash/Assets                  Salesgrowth
+                                                              Size                                               ROA
+
+Liquidity                   —
+Size                        20%
+Market/book                 30%                                9%
+ROA                          7%                                5%                        –14%
+Leverage                   –23%                               –3%                         –9%                    19%
+Cash/assets                 13%                               –3%                          9%                     4%               –6%
+Salesgrowth                  4%                               –1%                         –2%                     3%                0%                 –1%
+Institutional ownership     41%                               12%                          6%                    31%               –5%                 10%                               –3%
+Insider ownership           43%                               20%                         16%                    24%               –1%                 13%                               –4%                           41%
+Governance index            33%                               24%                         10%                    21%                4%                  9%                               –7%                           43%                         55%
+Idiosyncratic risk          –3%                               –6%                         10%                   –19%               –7%                  0%                                0%                          –16%                        –10%                                             –11%                         —
+
+
+
+B.     Construction of a Liquidity Index
+
+      We use principal components analysis to create a composite quarterly in-
+dex of liquidity for each firm. We follow Baker and Wurgler (2006) and Bharath,
+Pasquariello, and Wu (2009). This approach maximizes the informational content
+and minimizes the potential spurious correlation with variables not related to liq-
+uidity. We proceed as follows. First, we identify variables that proxy for liquidity.
+We normalize these variables by subtracting their mean and then dividing by their
+standard deviation, which makes them homogeneous in terms of range of varia-
+tion. Next, we extract the principal components of the normalized variables.3 We
+provide a detailed description of all variables in the Appendix.
+
+    3 As in Baker and Wurgler (2006), the coefficients are chosen so as to capture the most possible
+joint variation across the series.
+                                                                                                         https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                         Massa and Xu          1471
+
+     The variables we use for the liquidity index are volume, turnover, the illiq-
+uidity ratio Amihud (based on Amihud (2002)), and the bid-ask spread. Each
+of these six variables is measured as a quarterly average of daily close prices.
+We define volume as the logarithm of the average daily number of shares traded,
+and turnover as the logarithm of volume standardized by the number of shares
+outstanding. These measures are direct proxies of trading activity and are there-
+fore directly related to liquidity. To measure the price impact of trade, we in-
+clude the bid-ask spread and the Amihud illiquidity ratio. These measures capture
+the “transaction costs.” The bid-ask spread directly measures the transaction cost,
+while the Amihud measures the indirect cost of moving the market as the trade is
+placed, as the absolute price movement compared to trading volume. More pre-
+cisely, the Amihud ratio aggregates (quarterly) the ratio of daily absolute return to
+daily dollar trading volume. For stock i during quarter t, it is as follows:
+                                           Mit                   
+                                        1        |Rid | 29.75
+(1)               Amihudit = min                        ,              .
+                                        Mit       dvid 0.3Ct−1
+                                                     d=1
+
+Here, Rid is the return of stock i during day d; dvid is stock i’s volume in millions
+of U.S. dollars, that is, the number of shares traded during day d multiplied by the
+stock’s price at the end of day d; Mit is the number of valid observations during
+quarter t; and Ct−1 is the total market capitalization at time t − 1 divided by the
+total market capitalization at the end of July 1962. The time-varying upper bound
+is aimed at avoiding the influence of days for which a stock has both a nonzero
+return and a very low but positive volume (Acharya and Pedersen (2005)). We
+control for the correlation between firm size and the index constituents by includ-
+ing size, its logarithm, and its square in all the regressions.
+      The first principal component captures a large part of the variation, 51%
+of the common variation with an eigenvalue of 2.05 (the next one is 1.07). We
+therefore follow Bharath et al. (2009) in focusing on the first component and
+ignore the other components. We call it the liquidity index supra. Table 2 gives
+the descriptive statistics and factor loadings of the index.4 The loadings are of
+the expected sign. The liquidity index increases with the volume measures and
+decreases with the price impact. The bid-ask spread and the Amihud lambda enter
+the index with a negative sign whereas volume and turnover enter with a positive
+sign. The liquidity index loads primarily on three of the four illiquidity measures:
+the bid-ask spread, volume, and turnover.
+      Panel C of Table 2 presents the correlations between the index and the con-
+stituents as well as the market capitalization. As indicated by the factor loadings,
+the liquidity index is heavily correlated (67%–86%) with the bid-ask spread, vol-
+ume, and turnover. The correlation with the Amihud measure is low. Correlations
+between the index constituents are low between Amihud and all other measures
+and high among all measures but Amihud, ranging from 29% to 76%. Because
+some of our index constituents can be related to size, we also check for their cor-
+relation with the market capitalization. Firm size is correlated particularly with
+
+    4 All the measures are de-meaned and then divided by their standard deviation before the factoriz-
+ing procedure.
+                                                                                                                              https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1472          Journal of Financial and Quantitative Analysis
+
+                                                         TABLE 2
+                                              Descriptive Statistics: Indices
+
+Table 2 provides summary statistics for the constituents of the liquidity index and its principal component loadings. The
+sample includes all Compustat ﬁrms with valid observations in the sample period. Panel A reports ﬁrm characteristics;
+Panel B reports the means and medians (before taking logarithms and standardization) and principal component loadings
+of the constituents of the liquidity index. In the index, all measures are normalized by subtracting their mean and then
+dividing by their standard deviation. Panel C reports correlations (without transformations).
+                                                                                                              Principal
+                                          No. of                                                             Component
+      Variable                            Obs.                  Mean                 Median                   Loadings
+
+Panel A. Firm Characteristics
+
+Assets (in USD mill.)                 661,408                   1,388                 [155]
+Market/book                           751,925                   1.48                  [1.48]
+Panel B. Liquidity Measures
+
+Bid-ask spread                        401,488                    3.66%               [2.20%]                   −0.33
+Volume                                506,952                  283,883              [29,806]                    0.43
+Turnover                              506,952                    5.11                [2.60]                     0.42
+Amihud                                534,165                    1.98                [0.00]                    −0.13
+                              Liquidity              Bid-Ask
+   Variable                    Index                 Spread              Volume            Turnover             Illiquidity
+
+Panel C. Correlation Matrix
+
+Bid-ask spread                −67.44%
+Volume                         86.33%               −38.82%
+Turnover                       83.00%               −32.29%              76.26%
+Amihud                         −0.12%                 4.82%              −0.03%            −0.03%
+Market cap                     17.25%                −8.50%              28.53%             4.79%              −0.45%
+
+
+
+volume (29%). Its correlation with the liquidity index is 17%. As reported in
+Panel D of Table 1, the correlation between size and liquidity is as high (20%) in
+the target firm sample. This makes it crucial to control for size subsequently. Liq-
+uidity is also highly correlated with the market/book ratio (30%). Finally, Panel D
+of Table 1 also shows that within the target firm sample, the liquidity index is
+highly correlated with institutional and insider ownership, consistent with the ar-
+gument that institutional owners and blockholders prefer more liquid investments.
+In Section VII, we discuss whether institutional ownership also motivates a more
+pronounced preference for more liquid acquisitions.
+
+C.     Other Variables
+
+     We now define a set of variables used to control for the other effects identi-
+fied by the literature. Given that public firms (when compared with private firms)
+tend to acquire a higher fraction of the target firm and to pay an overall higher
+amount for the acquisition, we control for the percentage of the target firm ac-
+quired and also for the size of the target firm (measured as its market value). The
+inclusion of the size control is important also because size is correlated with the
+liquidity index. In addition, to control for a potential nonlinear relationship be-
+tween liquidity and size, we include the logarithm and the square of size in our
+set of control variables. We also include the size difference between acquirer and
+target (and its square) among our control variables. This latter control cannot be
+used in the specifications that include private acquirers because size information
+is not available for private firms.
+     Chatterjee et al. (2011) describe the effects of dispersion of investor opin-
+ion on M&A transactions. Because dispersion of opinion is closely related to
+                                                                                                          https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                          Massa and Xu          1473
+
+information asymmetry and therefore liquidity, it is important to control for it.
+We use their main dispersion proxy, idiosyncratic risk, and measure it according
+to their definition as the standard deviation of acquirer excess returns on the value-
+weighted CRSP index. This variable has also been used by others as a measure
+of asymmetric information (Dierkens (1991)) and of demand elasticity (Wurgler
+and Zhuravskaya (2002)).
+      Next, we control for overall activity in the takeover market. We follow
+Schlingemann et al. (2002) in counting the number of corporate control trans-
+actions at the industry level per year.5 We take the natural logarithm of it and call
+this measure # transactions. We use a measure based on the number of transac-
+tions, not on their value, because we want to isolate the price effects of the av-
+erage transaction values. To control for those, we calculate the average takeover
+premium per quarter and call it avg. premium. Following Harford (2005), we also
+include an index of economic shocks (econshock index)6 and the spread between
+commercial and industrial loan rates.
+      Another group of controls are firm characteristics. Poulsen and Stegemoller
+(2008) argue that target firms with liquidity constraints, firms with high lever-
+age, and less profitable firms prefer public acquirers because they increase ac-
+cess to capital. To control for growth opportunities, we include the market/book,
+the leverage ratio, the return on assets, and the year-on-year salesgrowth. Barg-
+eron et al. (2008) point out that public acquirers might be more lax about agency
+problems. Therefore, to control for existing agency problems, we incorporate the
+cash/assets ratio into the regression. Cash also increases asset liquidity (Gopalan
+et al. (2012)); however, shareholders of dividend-paying firms might prefer future
+dividend payments to a one-time cash payment, leading to a prejudice against pri-
+vate acquirers. Hence, we include an indicator variable set equal to 1 if the target
+firm paid dividends in the previous year, and 0 otherwise. Targets in more con-
+centrated industries might be more constrained in their choice of acquirer because
+the number of potential acquirers from the same industry is limited; we therefore
+include the Herfindahl index.
+      All firm characteristics are defined in the year that ends before the announce-
+ment. For the analysis of offer premiums and announcement returns, we include
+several additional control variables. Because Moeller, Schlingemann, and Stulz
+(2004) argue that size is a major driver of acquisition gains, we control for the
+% acquired in addition to our size controls. We also include the market/book
+ratio, which could affect the announcement returns and offer premiums either
+because it indicates high growth potential, which could be fostered by a large ac-
+quirer’s available capital, or because it indicates a high current market valuation
+(Bargeron et al. (2008)). Leverage and profitability may indicate the potential for
+synergy from optimizing the combined firm’s financial leverage (Harford, Klasa,
+
+     5 They include all disclosed and completed leveraged buyouts, tender offers, spin-offs, exchange
+offers, minority stake purchases, acquisitions of remaining interest, privatizations, and equity carve-
+outs.
+     6 This is the principal component of the following economic shock variables, sorted by indus-
+try: net income over sales, asset turnover, research and development (R&D), capital expenditures,
+employee growth, return on assets (ROA), and sales growth. All market activity indices are measured
+in the quarter or year of the announcement.
+                                                                                          https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1474    Journal of Financial and Quantitative Analysis
+
+and Walcott (2009)); to control for this, we include the target’s leverage ratio
+and its ROA. Hartzell, Ofek, and Yermack (2004) show that governance problems
+can affect target management’s willingness to negotiate. We control for potential
+governance issues using the index of Gompers, Ishii, and Metrick (2003) and a
+dummy variable for an insider ownership larger than 5%.
+      We control for transaction-specific variables, such as the fraction of own-
+ership before the transaction (% owned before). To control for the negotiation
+dynamics (Betton, Eckbo, Thompson, and Thorburn (2013), Boone and Mulherin
+(2008)), we include dummy variables that indicate hostile transactions, compet-
+ing acquirers, tender offers, or a toehold. Officer (2003) shows that transaction-
+specific parameters (e.g., termination fees) affect target returns. Therefore, we in-
+clude an indicator variable for the existence of acquirer or target termination fees.
+Finally, we control for the means of payment because more liquid stock should
+make it easier to finance with equity. This issue is also addressed in Section VIII,
+where we separately consider equity- and cash-financed deals.
+      To address sample selection issues, we adopt a Heckman (1979) specifica-
+tion when focusing on the subsets of public or private acquirers only. In all the
+specifications, we include year fixed effects. Standard errors are corrected for het-
+eroskedasticity and are clustered at the industry level. Note that our set of control
+variables differs across specifications because, in regressions from the perspective
+of the target that depict the choice of the acquirer, we cannot include character-
+istics of the eventually chosen acquirer. Also, most acquirer characteristics are
+only available for public firms and so cannot be used to explain a choice between
+public and private acquirers.
+
+
+IV.    Liquidity as an Acquired Characteristic
+      In this section, we show how a target’s liquidity affects the liquidity of the
+merged firm. Hypothesis 1 suggests that acquiring a more liquid firm increases
+the liquidity of the acquirer. Is target liquidity indeed relevant for the combined
+firm, or does it disappear after the merger?
+      To test this hypothesis, we regress the change in the liquidity index of the
+acquirer (the difference between the acquirer’s liquidity 12 months after the effec-
+tive date and 12 months before the announcement date) on the difference between
+target and acquirer liquidity prior to the deal. To improve the readability of coef-
+ficients, we rescale the dependent variables into percentage points by multiplying
+them by 100. If the target’s liquidity affects the combined firm’s subsequent liq-
+uidity, then it should be positively related to the change in the acquirer’s liquidity.
+We control for acquirer liquidity before the transaction, transaction, acquirer, and
+market-specific characteristics (as described in Section III), and the difference
+between target and acquirer characteristics. To ensure that the effect is driven by
+liquidity and not by dispersion of opinions, we repeat our analysis controlling
+for idiosyncratic risk. Finally, we identify time-varying differences by splitting
+the sample into transactions announced during periods of low versus high market
+liquidity.
+      Table 3 reports the results. The change in liquidity is significantly related
+to the liquidity difference between the two parties. A 1-standard-deviation-higher
+                                                                                                                               https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                                         Massa and Xu                 1475
+
+                                                        TABLE 3
+                                Effects of Target Liquidity on the Combined Firm
+
+Table 3 reports results of cross-sectional regressions. The dependent variable is the change from the quarter 12 months
+before the transaction’s announcement to the quarter 12 months after its effective date for liquidity, in percentage points.
+*, **, and *** indicate signiﬁcance at the 5%, 1%, and 0.1% levels, respectively, using heteroskedasticity-robust standard
+errors clustered at the industry level; t-statistics are given in parentheses.
+                                                              Dependent Variable = Change in Liquidity
+
+                                                                  Dispersion         Low-Liquidity         High-Liquidity
+                                                                   Control              Period                 Period
+
+                                                   1                   2                    3                     4
+
+Liquidity difference (target − acquirer)          30.982***          31.140***            29.306***              38.886***
+                                                  (7.531)            (7.554)              (5.480)                (4.478)
+Liquidity (acquirer)                                0.452              0.675                3.009               −7.494
+                                                   (0.176)            (0.257)              (0.899)             (−1.261)
+Relative size                               −9,614.415          −9,636.708           −9,348.645*          −12,100.000
+                                               (−1.811)           (−1.806)             (−2.056)              (−1.018)
+(Relative size)2                                    0                  0                    0                         0
+                                                   —                  —                    —                      —
+Idiosyncratic risk (acquirer)                                     −640.432
+                                                                   (−0.77)
+% acquired                                       −0.623              −0.596               −1.973                   8.761
+                                                (−0.213)            (−0.206)             (−0.565)                 (1.054)
+Log # transactions (period)                    −586.782           −399.141             4,350.252              2,640.289
+                                                (−0.115)           (−0.078)               (0.777)                (0.109)
+Avg. premium                                      22.433*            22.769*              26.393*                15.33
+                                                  (2.427)            (2.475)              (2.208)                (1.149)
+Econshock                                        −5.908              −5.953             −13.740*                   0.228
+                                                (−1.525)            (−1.521)            (−2.499)                  (0.031)
+Spread                                           −3.615              −7.242              607.881           −1,076.874
+                                                (−0.01)             (−0.019)              (1.673)            (−0.811)
+Log assets (acquirer)                               2.036              1.737                1.914                  5.565
+                                                   (1.455)            (1.137)              (1.024)                (1.305)
+Assets2 (acquirer)                              −14.649            −13.126                  9.167             −134.168
+                                                (−0.36)            (−0.316)                (0.135)             (−1.181)
+Market/book (acquirer)                           −1.222***           −1.208***            −1.162*               −0.841
+                                                (−3.832)            (−3.734)             (−2.426)              (−1.926)
+Leverage (acquirer)                             −10.343            −10.148                −7.554               −13.659
+                                                (−1.414)           (−1.384)              (−0.764)              (−0.961)
+ROA (acquirer)                                    14.105             11.638               19.08                −14.801
+                                                  (1.213)            (1.101)              (1.393)              (−0.442)
+Cash/assets (target)                                2.138              2.142              −0.101                   6.491
+                                                   (0.476)            (0.481)            (−0.013)                 (1.362)
+Market/book (target − acquirer)                  −0.464              −0.455                 0.162               −0.863
+                                                (−0.662)            (−0.65)                (0.192)             (−0.613)
+Leverage (target − acquirer)                        1.936              1.925                9.516              −15.461
+                                                   (0.199)            (0.198)              (0.946)             (−0.721)
+ROA (target − acquirer)                         −14.734            −15.255              −11.563                −33.11
+                                                (−1.568)           (−1.66)              (−1.026)               (−1.979)
+Cash/assets (target − acquirer)                  −0.167              −0.170               −0.109                −0.362
+                                                (−1.065)            (−1.08)              (−0.56)               (−1.295)
+Constant                                        −33.308            −30.608              −81.733               −109.788
+                                                (−0.898)           (−0.83)              (−1.585)               (−0.654)
+Year ﬁxed effects                                 Yes                Yes                  Yes                    Yes
+Industry ﬁxed effects                             Yes                Yes                  Yes                    Yes
+R2                                                26.2%              26.2%                32.0%                  31.2%
+N                                                  1,033              1,033                  691                    342
+
+
+
+
+difference in liquidity corresponds to a 17% increase in the acquirer’s liquidity.
+The baseline result is significant and of similar magnitude when we control for
+idiosyncratic risk in periods of high or low liquidity. These findings are consistent
+                                                                                                                                   https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1476         Journal of Financial and Quantitative Analysis
+
+with our hypothesis: Target liquidity affects the subsequent liquidity of the com-
+bined firm.7
+
+V.      Acquirer’s Value of Liquidity
+      The main focus of this study is the effect of the expected liquidity “inheri-
+tance” on the M&A market. Does demand for liquid target firms differ as a func-
+tion of the public status and liquidity of potential acquirers? We expect that more
+liquid target firms are more attractive to public acquirers, holding everything else
+equal. We begin by testing for a relation between target liquidity and the acquirer’s
+being public; then we dig deeper, focusing on public acquirers, and examine how
+their liquidity affects the choice of target firms.
+
+A.     Target Liquidity and Type of Acquirer
+
+     First, we relate the probability of the acquirer’s being public to the target’s
+liquidity estimating a probit model. The dependent variable is an indicator vari-
+able set equal to 1 if the acquirer is public, and 0 otherwise. We include the set
+of control variables defined in Section III. Note that we cannot include acquirer
+characteristics/differences between target and acquirer because the acquirer is yet
+to be chosen.
+     Table 4 presents the results. They support our Hypothesis 2. More liquid
+target firms are more likely to have public acquirers. Increasing the liquidity index
+by 1 standard deviation raises the probability of having a public acquirer by 27%.
+The result is robust also to including the idiosyncratic risk. While the coefficient
+
+                                                         TABLE 4
+                                Choice Between Public and Private Acquirers
+
+Table 4 presents results of regressions in which the dependent variable is the acquirer’s public status. *, **, and *** indicate
+signiﬁcance at the 5%, 1%, and 0.1% levels, respectively, using heteroskedasticity-robust standard errors clustered at the
+industry level; t-statistics are given in parentheses.
+                                                           Dependent Variable = Acquirer Public Status
+
+                                                             Dispersion               Low-Liquidity              High-Liquidity
+                                                              Control                    Period                     Period
+
+                                          1                       2                         3                          4
+
+Liquidity (target)                      0.200***                0.201***                  0.183***                   0.219
+                                       (4.416)                 (4.410)                   (3.638)                    (1.95)
+Idiosyncratic risk (target)                                     5.307
+                                                               (0.611)
+% acquired                              2.021***                2.020***                  2.172***                   1.578***
+                                      (24.016)                (23.969)                  (23.27)                    (11.624)
+Size (target)                           0.039**                 0.037*                    0.057**                  −0.008
+                                       (2.595)                 (2.541)                   (3.011)                  (−0.28)
+Log size (target)                       0.093***                0.096***                  0.093**                    0.110*
+                                       (3.864)                 (4.117)                   (3.196)                    (2.155)
+Size2 (target)                        −1.043**                −1.017**                  −1.595***                    0.278
+                                     (−3.224)                (−3.183)                  (−3.592)                     (0.424)
+                                                                                                      (continued on next page)
+
+
+     7 In unreported tests, we also show that the acquisition of a liquid target firm is related to increases
+in the combined firm’s media visibility and investor attention. Greater target liquidity is also associated
+with lower fees paid and higher amounts raised in subsequent public offerings of equity.
+                                                                                                                    https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                                 Massa and Xu            1477
+
+                                              TABLE 4 (continued)
+                              Choice Between Public and Private Acquirers
+
+                                                     Dependent Variable = Acquirer Public Status
+
+                                                       Dispersion           Low-Liquidity          High-Liquidity
+                                                        Control                Period                 Period
+
+                                      1                    2                      3                      4
+
+Log # transactions (period)        −3.75                −5.022                31.513                  97.693
+                                  (−0.047)             (−0.063)               (0.308)                 (0.654)
+Avg. premium                         0.026***             0.026***              0.015                  0.040**
+                                    (4.857)              (4.624)               (1.661)                (2.884)
+Econshock                            0.229                0.230                 0.257                  0.072
+                                    (1.4)                (1.408)               (1.078)                (0.243)
+Spread                               0.188                0.187                 0.117                  0.199
+                                    (1.924)              (1.918)               (1.031)                (1.29)
+Market/book (target)                 2.497                2.384                 3.977                −3.209
+                                    (0.368)              (0.351)               (0.544)              (−0.154)
+Leverage (target)                    0.021                0.021                 0.053                −0.042
+                                    (0.268)              (0.26)                (0.629)              (−0.282)
+ROA (target)                       −0.037               −0.022                  0.018                −0.235
+                                  (−0.416)             (−0.26)                 (0.138)              (−1.227)
+Cash/assets (target)               15.454**             15.462**              21.387***                9.845
+                                   (2.811)              (2.802)               (4.353)                 (1.533)
+Salesgrowth (target)              −10.758             −10.771               −15.639*                  12.128
+                                  (−1.379)            (−1.378)              (−2.008)                  (0.624)
+Dividend payer dummy                 0.100                0.102                 0.074                  0.079
+                                    (1.494)              (1.512)               (1.021)                (0.606)
+Herﬁndahl                          −0.146               −0.144                −0.062                 −0.450
+                                  (−0.692)             (−0.676)              (−0.229)               (−0.87)
+% owned before                       1.381***             1.380***              1.489***               1.117***
+                                    (6.55)               (6.525)               (5.431)                (3.667)
+Constant                           −4.238***            −4.267***             −4.008***              −3.749**
+                                  (−5.521)             (−5.544)              (−4.976)               (−2.612)
+Year ﬁxed effects                   Yes                   Yes                   Yes                     Yes
+Industry ﬁxed effects               Yes                   Yes                   Yes                     Yes
+N                                   4,691                4,691                 3,372                   1,319
+
+
+
+
+for liquidity is significant at a 0.1% level in low-liquidity periods, it is only sig-
+nificant at a 10% level in high-liquidity periods. However, the coefficient is not
+significantly different between transactions announced in times of high versus
+low liquidity. This suggests that demand for more liquid target firms is marginally
+lower in times of high market liquidity, as suggested by Hypothesis 3.
+      Among the control variables, the fraction acquired has the highest statistical
+significance: A 5% higher stake in the target firm corresponds to a 10% higher
+probability that the acquirer is public. We will address the potential endogeneity
+problems related to this variable in Section VIII. Larger firms are also more likely
+to be acquired by a public acquirer, consistent with the argument that public ac-
+quirers are usually larger themselves and better able to finance larger transactions.
+The average market acquisition premium is positively related to choosing a public
+acquirer, in line with the findings of Bargeron et al. (2008) that public acquirers
+pay a higher premium. The cash/assets ratio is positively related to the choice of
+public acquirers. This is consistent with Bargeron et al. (2008), who suggest that
+public acquirers may be less concerned with agency problems. Finally, there is a
+significant and positive relation between the % owned before announcement and
+the choice of a public acquirer.
+                                                                                                                                    https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1478         Journal of Financial and Quantitative Analysis
+
+B.     Target and Acquirer Liquidity
+
+      The public status is a rather crude measure of liquidity preferences. If
+potential acquirers worry about lowering their current liquidity by acquiring a
+less liquid target, we should expect that more liquid acquirers are also more likely
+to take over more liquid target firms.
+      To see this, we repeat the regression presented in the previous section, by
+replacing the dependent variable (the choice between public or private acquirers)
+with the acquirer’s liquidity. Because we can only measure liquidity for public
+acquirers, we have to exclude the private ones and control for the selection of
+a public acquirer with a Heckman (1979) procedure. Table 5 reports the results.
+Consistent with the descriptive statistics and in line with our working hypothesis,
+more liquid acquirers buy more liquid targets. The effect is economically signif-
+icant. Each unit of target liquidity translates into 74% more (of the same unit)
+liquidity of the acquirer. Idiosyncratic risk is also associated with higher acquirer
+
+
+                                                          TABLE 5
+                              Choice Between High- and Low-Liquidity Acquirers
+
+Table 5 reports results of regressions in which the dependent variable is acquirer liquidity. *, **, and *** indicate signiﬁcance
+at the 5%, 1%, and 0.1% levels, respectively, using heteroskedasticity-robust standard errors clustered at the industry level;
+t-statistics are given in parentheses.
+                                                              Dependent Variable = Acquirer Liquidity
+
+                                                               Dispersion              Low-Liquidity             High-Liquidity
+                                                                Control                   Period                    Period
+
+                                             1                      2                        3                          4
+
+Liquidity (target)                         0.742***               0.743***                  0.843***                  0.702***
+                                         (14.35)                (14.523)                  (14.297)                  (11.085)
+Idiosyncratic risk (target)                                      14.713*
+                                                                 (1.993)
+% acquired                                  0.038                  0.037                    0.136                   −0.041
+                                           (0.664)                (0.635)                  (1.879)                 (−0.65)
+Size (target)                            −0.007                 −0.010                    −0.003                    −0.013
+                                        (−0.742)               (−1.103)                  (−0.298)                  (−0.822)
+Log size (target)                           0.022                  0.027                    0.006                     0.037
+                                           (1.557)                (1.948)                  (0.363)                   (1.804)
+Size2 (target)                              0.117                  0.172                    0.094                     0.202
+                                           (0.556)                (0.847)                  (0.443)                   (0.521)
+Log # transactions (period)             −34.983                −38.548                    50.589                  −38.335
+                                        (−0.903)               (−0.992)                   (0.782)                 (−0.645)
+Avg. premium                                0.010                  0.009                    0.005                     0.009
+                                           (1.788)                (1.738)                  (0.779)                   (1.323)
+Econshock                                   0.045                  0.041                  −0.229                      0.026
+                                           (0.657)                (0.59)                 (−1.67)                     (0.359)
+Spread                                      0.034                  0.029                    0.046                   −0.009
+                                           (0.925)                (0.789)                  (0.912)                 (−0.138)
+Market/book (target)                     −9.085*                −8.577                  −11.175                     −6.186
+                                        (−2.068)               (−1.921)                 (−1.563)                   (−1.226)
+Leverage (target)                        −0.036                 −0.036                      0.096                   −0.113
+                                        (−0.465)               (−0.467)                    (1.479)                 (−1.019)
+ROA (target)                             −0.009                    0.041                  −0.182                    −0.027
+                                        (−0.054)                  (0.274)                (−0.595)                  (−0.108)
+Cash/assets (target)                        0.055*                 0.050*                   0.050*                    0.013
+                                           (2.109)                (1.996)                  (2.414)                   (0.181)
+Salesgrowth (target)                     −0.582                 −0.296                    −1.599                      0.470
+                                        (−0.144)               (−0.072)                  (−0.197)                    (0.113)
+                                                                                                       (continued on next page)
+                                                                                                             https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                              Massa and Xu        1479
+
+                                           TABLE 5 (continued)
+                        Choice Between High- and Low-Liquidity Acquirers
+
+                                                  Dependent Variable = Acquirer Liquidity
+
+                                                  Dispersion            Low-Liquidity       High-Liquidity
+                                                   Control                 Period              Period
+
+                                  1                    2                      3                   4
+
+Dividend payer dummy           −0.047              −0.036                  −0.073              −0.037
+                              (−0.982)            (−0.774)                (−1.322)            (−0.619)
+Herﬁndahl                      −0.188              −0.167                  −0.312              −0.267
+                              (−0.69)             (−0.586)                (−0.602)            (−0.875)
+% owned before                 −0.053              −0.048                    0.104             −0.216
+                              (−0.347)            (−0.311)                  (0.83)            (−1.172)
+Mills public                    0.063                0.032                 −0.011                0.049
+                               (0.865)              (0.447)               (−0.125)              (0.492)
+Constant                       −2.065***           −2.127***                 0.685               0.125
+                              (−4.163)            (−4.203)                  (1.12)              (0.209)
+Year ﬁxed effects               Yes                  Yes                     Yes                 Yes
+Industry ﬁxed effects           Yes                  Yes                     Yes                 Yes
+R2                                72%                  73%                    79%                 69%
+N                               1,083                1,083                    380                 703
+
+
+
+liquidity. Since idiosyncratic risk is negatively related to liquidity, this shows that
+it is important to control for it. The coefficients for liquidity do not significantly
+differ across periods characterized by different degrees of market liquidity.
+
+
+VI.        Liquidity and the Transaction
+     Now we focus on the transaction itself. As we argue (Hypothesis 2), if more
+liquid targets are more attractive, acquirers (especially public acquirers) should
+have a greater incentive to complete and pay a higher price for them.
+
+A.     Transaction Completion
+
+      To test whether the preference for liquid firms affects the negotiation pro-
+cess, we regress the probability of completing the transaction on target liquidity
+separately for private and public acquirers and then compare the coefficients. For
+this analysis, we also include in the sample the 2,015 incomplete transactions.8
+We proceed as follows.
+      First, after dividing the sample between public and private acquirers, we
+regress an indicator variable for transaction completion separately for both groups
+on liquidity and a set of control variables (as defined in Section III). Note that
+we cannot control for acquirer characteristics or differences between target and
+acquirer characteristics because they are not available for private acquirers. We
+use the method of seemingly unrelated equations (Zellner (1962)) to control for
+error terms that are correlated across the equations. We then employ a Wald test
+
+    8 We exclude incomplete transactions from our main analysis because they do not contain some
+information that we need (e.g., fraction acquired, premium paid). However, we show in a robust-
+ness check that our main results hold also for a sample containing both complete and incomplete
+transactions.
+                                                                                                                                https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1480        Journal of Financial and Quantitative Analysis
+
+to check whether the sensitivity to the liquidity index statistically differs between
+the two groups.
+      Table 6 reports the results. When the acquirer is public (Panel A), there
+is a significant and positive relation between target liquidity and success of the
+transaction. A 1-standard-deviation increase in target liquidity corresponds to a
+2.4% higher success rate. In contrast, private acquirers are less likely to complete
+
+                                                        TABLE 6
+                                                   Deal Completion
+
+Table 6 presents regression results, where the dependent variable equals 1 if the transaction is completed successfully,
+using an extended sample of complete and incomplete transactions. Panel A (Panel B) reports the results for the subsample
+of transactions with a public (private) acquirer; t-statistics are given in parentheses. Panel C reports tests of differences
+between coefﬁcients (with χ2 statistics given in parentheses) for the regressions reported in Panel A and those reported in
+Panel B. *, **, and *** indicate signiﬁcance at the 5%, 1%, and 0.1% levels, respectively, using heteroskedasticity-robust
+standard errors clustered at the industry level.
+                                                               Dependent Variable = Success
+
+                                                                                             Low-                    High-
+                                                               Dispersion                  Liquidity                Liquidity
+                                                                Control                     Period                   Period
+
+                                        1                          2                          3                        4
+
+Panel A. Acquisitions by a Public Acquirer
+
+Liquidity                             0.028**                     0.029**                    0.029*                 0.017
+                                     (2.739)                     (2.834)                    (2.566)                (0.677)
+Idiosyncratic risk                                             −6.016***
+                                                              (−3.473)
+Size                                  0.009*                      0.011*                     0.016**              −0.010
+                                     (1.978)                     (2.488)                    (3.151)              (−1.221)
+Log size                              0.028***                    0.022***                   0.021**                0.054***
+                                     (4.734)                     (3.513)                    (3.159)                (4.097)
+       2
+Size                                −0.186                     −0.232*                     −0.376**                 0.225
+                                   (−1.79)                    (−2.211)                    (−3.001)                 (1.143)
+# transactions (period)           −25.796                     −23.133                    −22.173                 −33.362
+                                  (−1.432)                    (−1.283)                   (−1.034)                (−0.66)
+Market/book (target)                  0.006***                    0.006***                   0.005*                 0.007
+                                     (3.394)                     (3.664)                    (2.356)                (1.89)
+Avg. premium                          0.076*                      0.079*                     0.038                  0.203**
+                                     (2.187)                     (2.274)                    (0.966)                (2.618)
+Econshock                             0.047*                      0.046*                     0.021                  0.052
+                                     (2.397)                     (2.375)                    (0.854)                (1.352)
+Spread                                1.214                       1.115                      2.160                −2.739
+                                     (0.647)                     (0.595)                    (1.064)              (−0.454)
+Leverage (target)                   −0.017                     −0.017                      −0.013                 −0.007
+                                   (−0.886)                   (−0.892)                    (−0.619)               (−0.148)
+ROA (target)                          0.070*                      0.052                      0.032                  0.190*
+                                     (2.19)                      (1.594)                    (0.924)                (2.486)
+Cash/assets (target)                  0.363***                    0.359***                   0.722***               0.206**
+                                     (7.101)                     (7.014)                    (7.844)                (3.105)
+Salesgrowth (target)                −4.649**                   −4.402*                     −4.295*                −6.300
+                                   (−2.715)                   (−2.570)                    (−2.332)               (−1.456)
+Dividend payer dummy                  0.042**                     0.039**                    0.029                  0.077*
+                                     (3.146)                     (2.924)                    (1.936)                (2.452)
+Herﬁndahl                           −0.102                     −0.107*                     −0.114*                −0.118
+                                   (−1.912)                   (−2.000)                    (−1.977)               (−0.851)
+% owned before                        0.355***                    0.353***                   0.347***               0.423***
+                                     (6.451)                     (6.415)                    (5.599)                (3.548)
+Year ﬁxed effects                      Yes                        Yes                         Yes                     Yes
+Industry ﬁxed effects                  Yes                        Yes                         Yes                     Yes
+Constant                              0.200                       0.519                       0                        0
+                                     (0.477)                     (1.216)                      —                        —
+                                                                                                    (continued on next page)
+                                                                                                                https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                                    Massa and Xu     1481
+
+                                               TABLE 6 (continued)
+                                                  Deal Completion
+
+                                                           Dependent Variable = Success
+
+                                                                                    Low-              High-
+                                                         Dispersion               Liquidity         Liquidity
+                                                          Control                  Period            Period
+
+                                 1                               2                   3                 4
+
+Panel B. Acquisitions by a Private Acquirer
+
+Liquidity                     −0.021                             0                −0.02             −0.022
+                             (−1.795)                            —               (−1.433)          (−0.941)
+Control variables                Yes                         Yes                     Yes             Yes
+Panel C. Test of Differences in Coefﬁcients (Public − Private)
+
+Liquidity                       0.049**                     0.029***                0.049**          0.039
+χ2                             (6.58)                      (6.72)                  (4.9)            (0.79)
+N                               6,706                       6,706                   3,602            3,104
+
+
+the acquisition of liquid targets (Panel B). Panel C reports the differences
+between public and private acquirers. This amounts to a 4.2% higher probability
+of completion per 1 standard deviation of liquidity. The difference is statistically
+significant for all the specifications except in the case of acquisitions announced
+during high-liquidity times. This is consistent with our Hypothesis 3 and suggests
+that the demand for liquidity is lower in times of high overall liquidity. Then, pub-
+lic acquirers are not only less willing to acquire a more liquid target in general,
+but also less willing to close the deal once announced.
+      For a public acquirer, we find that deals are more likely to succeed when the
+target is larger and has more cash holdings. For both public and private acquirers,
+there is a positive relation between completion and any previous holding by the
+acquirer.
+B.     Target Announcement Returns and Offer Premium
+
+      This section analyses the potential value impact of target liquidity. So far,
+we find that target liquidity affects demand: Public acquirers are more likely than
+private acquirers to take over more liquid target firms, and they are more willing
+to complete such takeovers. As we argue above, such a preference should translate
+into a willingness to pay more for more liquid firms. We test for this possibility by
+relating both the offer premiums and the target’s market returns to liquidity and
+comparing the relation between transactions involving public acquirers with the
+corresponding values in transactions involving private acquirers. We construct the
+offer premium as the SDC transaction value over the target’s market value 63 days
+prior to the announcement. We calculate announcement returns as the cumulative
+abnormal returns (CAR) over the CRSP value-weighted market index, estimated
+over 255 trading days prior to the 46th day before the announcement (Schwert
+(1996)). To make it easier to read the coefficients, we multiply the dependent
+variables by 100 such that they are in percentage points.
+      Because we divide the sample into transactions involving a public versus a
+private acquirer, we must control for selection. For this purpose, we use the Heck-
+man (1979) procedure, as discussed previously. Because calculation of the avg.
+premium contains the respective offer premium, we exclude the former from the
+                                                                                                                                 https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1482           Journal of Financial and Quantitative Analysis
+
+first-stage specification (in which offer premium is the dependent variable). Our
+results show only marginal changes when avg. premium is added in the first stage.
+      Tables 7 and 8 report the results for the offer premium and announcement
+returns, respectively. We report results on acquisitions by public acquirers in
+
+                                                        TABLE 7
+                                                    Offer Premium
+
+Panel A (Panel B) of Table 7 reports regression results for acquisitions by public (private) acquirers. The dependent variable
+is offer premium, which is equal to the transaction value minus the product of the fraction acquired and the target ﬁrm’s
+market value 63 days prior to the announcement, divided by the latter, in percentage points; t-statistics are given in
+parentheses. Panel C reports on tests of differences between coefﬁcients (with χ2 statistics given in parentheses) for the
+regressions reported in Panel A and those reported in Panel B. *, **, and *** indicate signiﬁcance at the 5%, 1%, and 0.1%
+levels, respectively, using heteroskedasticity-robust standard errors clustered at the industry level.
+                                                             Dependent Variable = Offer Premium
+
+                                                          Dispersion               Low-Liquidity               High-Liquidity
+                                                           Control                    Period                      Period
+
+                                          1                    2                          3                           4
+
+Panel A. Acquisitions by a Public Acquirer
+
+Liquidity                             12.151***               12.450***                 8.694***                  27.976***
+                                      (8.832)                 (9.059)                  (6.558)                    (6.434)
+Idiosyncratic risk                                      −1,169.415***
+                                                           (−4.103)
+% acquired                          −19.635***             −18.787***                −20.550***                   −8.282
+                                    (−6.268)               (−6.000)                  (−6.238)                    (−1.001)
+Size (target)                        −2.361***               −1.983***                −2.505***                   −0.728
+                                    (−4.304)                (−3.575)                 (−4.18)                     (−0.586)
+Log size (target)                    −8.856***               −9.695***                −6.699***                 −15.242***
+                                    (−9.83)                (−10.539)                 (−7.29)                    (−6.424)
+Size2 (target)                        36.417**                28.990*                  52.612***                 −7.979
+                                      (2.818)                 (2.227)                  (3.657)                  (−0.284)
+Market/book (target)                    0.773***               0.831***                 0.209                       2.519***
+                                       (3.51)                 (3.778)                  (0.963)                     (4.016)
+Leverage (target)                    −1.46                   −1.886                   −1.663                      −4.553
+                                    (−0.583)                (−0.754)                 (−0.683)                    (−0.601)
+ROA (target)                          15.261***               11.840**                  7.827                     49.782***
+                                      (3.601)                 (2.75)                   (1.947)                    (3.48)
+Cash/assets (target)                −36.678***             −36.908***                −31.192**                  −29.172*
+                                    (−4.889)               (−4.932)                  (−3.074)                   (−2.195)
+Governance index                        0.676**                0.622**                  0.515*                      0.709
+                                       (3.169)                (2.919)                  (2.441)                     (1.168)
+Insider ownership                       4.185                  4.213                    4.213                       3.531
+                                       (1.908)                (1.926)                  (1.958)                     (0.551)
+Hostile                               35.166***               35.405***                 9.398                     94.499***
+                                      (3.832)                 (3.869)                  (0.935)                    (4.692)
+Competing bidders                     14.872*                 14.472*                  10.960                     36.081*
+                                      (2.413)                 (2.354)                  (1.783)                    (2.023)
+Tender offer                         −6.672                  −7.302*                  −8.679*                     −3.726
+                                    (−1.903)                (−2.087)                 (−2.151)                    (−0.506)
+Termination fees                      11.665***               11.233***                 8.341**                   16.529**
+                                      (4.520)                 (4.361)                  (2.949)                    (2.761)
+Toehold                                 2.100                  1.849                    1.231                       7.476
+                                       (1.132)                (1.000)                  (0.713)                     (1.043)
+All stock                            −8.227**                −8.279**                −13.486***                     1.553
+                                    (−3.078)                (−3.106)                 (−4.634)                      (0.257)
+Mills public                          15.738**                17.415**                 16.833**                   51.629**
+                                      (2.576)                 (2.844)                  (2.646)                    (3.095)
+Constant                                 0                    97.302*                    0                           0
+                                         —                    (2.203)                    —                           —
+Year ﬁxed effects                       Yes                   Yes                       Yes                          Yes
+Industry ﬁxed effects                   Yes                   Yes                       Yes                          Yes
+                                                                                                   (continued on next page)
+                                                                                                                                         https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                                                  Massa and Xu                1483
+
+                                                      TABLE 7 (continued)
+                                                        Offer Premium
+
+                                                             Dependent Variable = Offer Premium
+
+                                                             Dispersion                       Low-Liquidity             High-Liquidity
+                                                              Control                            Period                    Period
+
+                                  1                                2                                  3                       4
+
+Panel B. Acquisitions by a Private Acquirer
+
+Liquidity                       5.522***                           5.283***                        6.480***                 3.634
+                               (4.693)                            (4.514)                         (4.954)                  (1.369)
+Control variables                 Yes                             Yes                              Yes                       Yes
+Panel C. Test of Differences in Coefﬁcients (Public − Private)
+
+Liquidity                       6.629***                         7.167***                          2.214                   24.342***
+χ2                            (11.05)                          (15.48)                            (1.13)                  (20.06)
+R2                            33.44%                            33.81%                            33.47%                  46.21%
+
+
+
+Panel A of these tables. They show that offer premiums and announcement re-
+turns both increase with liquidity. A 1-standard-deviation increase in target liq-
+uidity translates into a 10% higher offer premium, a 2% higher return over the
+3-day window, and a 5% higher return over the 169-day window. The magnitude
+is similar regardless of whether we control for idiosyncratic risk. Contrary to the
+drop in demand that we found for times of greater market liquidity, the value im-
+pact is even greater when market liquidity is high (t = 4.24 for offer premium and
+
+
+                                                             TABLE 8
+                                             Target Announcement Returns
+
+Panel A (Panel B) of Table 8 reports regression results for acquisitions by public (private) acquirers. The dependent variable
+is the target ﬁrm’s CAR (in percentage points) over time windows of [−1, +1] (columns 1–4), [−42, +126] (column 5),
+[−42, 0] (column 6), and [0, +126] (column 7), where [ a, b] denotes the time window (in days) relative to the announcement
+event for which the abnormal return is measured; t-statistics are given in parentheses. Panel C reports on tests of differences
+between coefﬁcients (with χ2 statistics given in parentheses) for the regressions reported in Panel A and those reported in
+Panel B. *, **, and *** indicate signiﬁcance at the 5%, 1%, and 0.1% levels, respectively, using heteroskedasticity-robust
+standard errors clustered at the industry level.
+                                        Return Window (Dependent Variable = Target Announcement Returns)
+
+                                                 [−1, +1]                                 [−42, +126]       [−42, 0]       [0, +126]
+
+                                                           Low-                 High-
+                                         Dispersion      Liquidity            Liquidity
+                                          Control         Period               Period
+
+                          1                  2                3                  4            5                 6              7
+
+Panel A. Acquisitions by a Public Acquirer
+
+Liquidity                2.227***           2.210***         1.653***          5.207***      6.107*            6.503***      1.529
+                        (6.576)            (6.515)          (4.735)           (5.375)       (2.018)           (4.23)        (1.626)
+Idiosyncratic risk                         49.022
+                                           (0.701)
+% acquired               4.772***           4.731***         4.374***          6.050***     13.536*            5.398         9.665***
+                        (6.225)            (6.157)          (5.092)           (3.295)       (2.237)           (1.756)       (4.531)
+Size (target)          −0.309*            −0.326*        −0.271            −0.226            1.604             0.908       −0.729
+                      (−2.233)           (−2.323)       (−1.709)          (−0.761)          (1.746)           (1.944)     (−1.895)
+Log size (target)      −2.406***          −2.380***      −2.277***         −2.949***      −15.119***        −8.331***      −4.413***
+                     (−10.54)           (−10.2)         (−9.143)          (−5.332)        (−8.985)         (−9.753)       (−6.941)
+     2
+Size (target)            5.216              5.570            5.513             3.247      −18.328          −13.760          18.806*
+                        (1.591)            (1.681)          (1.445)           (0.476)     (−0.897)         (−1.324)         (2.064)
+                                                                                                           (continued on next page)
+                                                                                                                                https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1484           Journal of Financial and Quantitative Analysis
+
+                                                  TABLE 8 (continued)
+                                         Target Announcement Returns
+
+                                      Return Window (Dependent Variable = Target Announcement Returns)
+
+                                                  [−1, +1]                            [−42, +126]   [−42, 0]       [0, +126]
+
+                                                           Low-             High-
+                                        Dispersion       Liquidity        Liquidity
+                                         Control          Period           Period
+
+                            1                 2                3             4            5             6             7
+
+Panel A. Acquisitions by a Public Acquirer (continued)
+
+Market/book (target)       0.166**         0.162**            0.125*       0.273        −0.299         0.650**     −0.227
+                          (3.041)         (2.954)            (2.171)      (1.882)      (−0.636)       (2.726)     (−1.494)
+Leverage (target)          0.240           0.260         −0.136            2.311         9.500         7.331*        1.037
+                          (0.392)         (0.425)       (−0.213)          (1.368)       (1.664)       (2.526)       (0.61)
+ROA (target)               3.255**         3.382**            1.731        8.714**    −29.523**      −5.289        −1.396
+                          (3.137)         (3.199)            (1.642)      (2.723)     (−2.87)       (−1.012)      (−0.485)
+Cash/assets (target)     −4.018*         −4.063*         −2.771           −1.878      −24.003*       −3.302       −23.636***
+                        (−2.11)         (−2.134)        (−1.004)         (−0.600)     (−2.387)      (−0.647)      (−4.464)
+Governance index           0.256***        0.257***           0.205***     0.371**       0.549         0.149         0.305*
+                          (4.785)         (4.803)            (3.616)      (2.646)       (1.313)       (0.702)       (2.054)
+Insider ownership          1.218*          1.212*             1.288*       0.780        12.995**       3.707         5.965***
+                          (2.237)         (2.227)            (2.261)      (0.528)       (2.872)       (1.612)       (3.946)
+Hostile                    9.002***        8.995***           4.628       20.370***      9.149         0.943       10.147
+                          (3.816)         (3.813)            (1.681)      (4.180)       (0.690)       (0.140)      (1.517)
+Competing bidders          0.542           0.560         −2.581           13.524**      −1.865         2.505         0.553
+                          (0.331)         (0.342)       (−1.467)          (3.180)      (−0.187)       (0.493)       (0.12)
+Tender offer               4.740***        4.764***           4.076***     4.911**      −1.156         4.059       −1.392
+                          (5.073)         (5.095)            (3.656)      (2.576)      (−0.203)       (1.397)     (−0.537)
+Termination fees           1.691*          1.710*             1.439        2.809*        1.465         1.389         0.88
+                          (2.545)         (2.572)            (1.849)      (1.969)       (0.374)       (0.698)       (0.475)
+Toehold                  −0.397          −0.394          −0.488            1.352      −10.273        −7.531**        0.492
+                        (−0.888)        (−0.88)         (−1.098)          (0.809)     (−1.854)      (−2.674)        (0.396)
+All stock                  0.397           0.400              0.164        0.690        −3.486       −2.988        −1.524
+                          (0.582)         (0.588)            (0.21)       (0.468)      (−0.878)     (−1.479)      (−0.803)
+Mills public             −5.996***       −6.193***       −7.107***         1.304      −24.269*      −10.623*      −14.529**
+                        (−3.71)         (−3.821)        (−3.913)          (0.332)     (−2.283)      (−1.971)      (−3.216)
+Constant                 36.773***         0             42.253***         8.371          0         141.920***        0
+                         (4.161)           —             (4.609)          (0.527)         —          (4.378)          —
+Year ﬁxed effects          Yes             Yes                Yes           Yes          Yes           Yes           Yes
+Industry ﬁxed effects      Yes             Yes                Yes           Yes          Yes           Yes           Yes
+Panel B. Acquisitions by a Private Acquirer
+
+Liquidity                  1.151***        1.025***           1.038**      1.732*       −0.025         0.225         0.847
+                          (3.924)         (3.563)            (3.267)      (2.451)      (−0.037)       (0.656)       (0.802)
+Control variables          Yes             Yes                Yes           Yes          Yes           Yes           Yes
+Panel C. Test of Differences in Coefﬁcients (Public − Private)
+
+Liquidity                  1.076**         1.185**            0.615        3.475***      6.132*        6.278***      0.682
+χ2                        (5.20)          (6.38)             (1.53)       (7.54)        (3.83)       (15.35)        (0.23)
+    2
+R                        19.78%          19.79%          15.97%           33.32%        19.17%       23.17%         7.61%
+
+
+
+t = 3.39 for announcement returns). This suggests that in times of low overall
+liquidity, acquirers, even if they need it, cannot afford to pay more for target
+liquidity.
+     Panel B of Tables 7 and 8 reports the results for transactions involving private
+acquirers, and Panel C reports results of tests for differences between the transac-
+tions involving public versus private acquirers. Private acquirers pay a significant
+premium for more liquid target firms. However, this premium is significantly less
+than the one paid by public acquirers. This finding supports our hypothesis that
+                                                                                         https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                              Massa and Xu      1485
+
+public acquirers are willing to pay more than are private acquirers for target firms
+characterized by high stock liquidity. It is robust to the inclusion of idiosyncratic
+risk, which has a significantly negative relation with the offer premium, but no
+significant relation to the announcement returns.
+      Interestingly, private acquirers do not pay a significant liquidity premium
+(same for announcement returns) in times of high liquidity. Since these are the
+times of less demand for liquidity, this result indicates that the liquidity premium
+paid by private acquirers is driven by potential demand by other public bidders. In
+contrast, in low-liquidity times, the liquidity premium paid by private acquirers is
+not significantly different from the one paid by public acquirers. This is consistent
+with higher overall demand and bidding activity in such times. We revisit the topic
+of bidding activity in Section VIII.E.
+      The transaction-related control variables also display coefficients in line with
+our expectations. Larger target firms are associated with smaller premiums and
+returns. Target firms with a higher governance index command higher premiums
+and returns. These firms have more antitakeover provisions in place that make
+it more difficult (and costly) to acquire them. Hostile transactions lead to higher
+premiums and announcement returns, a finding that is also consistent with hostile
+acquirers paying more to convince the shareholders to sell. In the same spirit,
+tender offers lead to higher target announcement returns. Termination fees result
+in higher premiums and announcement returns. Stock-financed acquisitions are
+significantly and negatively related to the premium in most specifications.
+      In sum, this evidence is consistent with our Hypothesis 2 that acquirers, par-
+ticularly public acquirers, are willing to pay a premium for more liquid target
+firms. Offer premiums and announcement returns both increase with the target’s
+liquidity, especially so if the acquirer is public. The difference in the liquidity
+premium between public and private acquirers is particularly pronounced during
+times of low demand for liquidity.
+
+VII.     Determinants of the Liquidity Preference
+      In this section, we focus on the cases in which the marginal value of liquidity
+is likely to be higher. As we argue, liquidity should particularly be appreciated by
+firms with a high institutional ownership as well as by firms seeking to raise equity
+and planning to go public. We discuss each of these incentives in turn.
+
+A.     Institutional Shareholders
+
+      Institutional shareholders prefer more liquid stocks (Falkenstein (1996)), as
+they value the possibility of faster and cheaper exit. This should also affect their
+preferences in the context of acquisitions: We expect that the previous results (the
+likelihood of acquiring and the willingness to pay more for a more liquid target)
+are stronger if the acquirer is owned by a higher fraction of institutions.
+      We begin with an analysis of the preferences of institutional investors. In
+Panel A of Table 9, we present an investigation of the propensity to acquire a
+very liquid target (target firm’s liquidity is above the median), including the con-
+trol variables described in Section III. As hypothesized, institutional shareholders
+are associated with high-liquidity targets. Firms with institutional ownership 1
+                                                                                                                                   https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1486        Journal of Financial and Quantitative Analysis
+
+standard deviation (27%) higher are 17% times more likely to acquire highly liq-
+uid targets. In line with the other results, the effect is concentrated in times of low
+liquidity.
+
+                                                            TABLE 9
+                                  Institutional Investors and Investor Horizon
+
+Panel A of Table 9 reports a probit regression where the dependent variable is an indicator variable for targets with liquidity
+above median and independent variables include institutional ownership, liquidity, % acquired, the log # transactions,
+avg. premium, econshock, spread, and year ﬁxed effects as well as industry ﬁxed effects. Panel B (Panel C) reports the
+regression from Table 6 (Table 7) for subsamples of public acquirers with varying percentages of institutional ownership
+while including the level of that term as an additional independent variable. *, **, and *** indicate signiﬁcance at the 5%, 1%,
+and 0.1% levels, respectively, using heteroskedasticity-robust standard errors clustered at the industry level; t-statistics
+are given in parentheses.
+                                                                     Dispersion           Low-Liquidity          High-Liquidity
+                                                                      Control                Period                 Period
+
+                                                   1                      2                      3                    4
+
+Panel A. Dependent Variable = Target Liquidity above Median
+
+Institutional ownership (acquirer)                0.637**               0.693***              0.537*                  0.599
+                                                 (3.132)               (3.519)               (2.113)                 (1.299)
+Liquidity (acquirer)                              1.588***              1.602***              1.525***                2.313***
+                                                 (5.747)               (5.814)               (5.081)                 (5.553)
+Control variables                                  Yes                   Yes                   Yes                   Yes
+Panel B. Dependent Variable = Success (Coefﬁcient of Liquidity)
+
+Institutional ownership
+>25%                                              0.034***              0.034***              0.035***                0.020
+                                                 (4.342)               (4.392)               (4.295)                 (1.000)
+5%–25%                                         −0.025***              −0.025***             −0.027***              −0.028*
+                                              (−5.316)               (−5.298)              (−5.308)               (−2.257)
+<5%                                            −0.009                 −0.009                −0.004                 −0.014
+                                              (−0.735)               (−0.734)              (−0.32)                (−0.534)
+Panel C. Dependent Variable = Offer Premium (Coefﬁcient of Liquidity by Institutional Ownership)
+
+Institutional ownership
+>25%                                           850.479**             887.603**               52.568              2,183.443***
+                                                (2.877)               (2.995)                (0.162)                (3.906)
+5%–25%                                         639.854***            634.112***            731.734**               806.294*
+                                                (3.448)               (3.406)               (3.213)                 (2.381)
+<5%                                            583.352**             613.370**             784.513**             −254.834
+                                                (2.692)               (2.824)               (2.986)               (−0.693)
+
+
+
+      Next, we repeat the analysis regarding deal completion and premium fo-
+cusing on three subsamples: public acquirers with institutional ownership lower
+than 5%, between 5% and 25%, and higher than 25%. As expected, institutional
+owners drive the tendency to complete acquisitions with liquid targets (Panel B
+of Table 9). The coefficient for liquidity is positive and significant for acquirers
+with high institutional ownership, but negative for those with medium or low/no
+institutional ownership. These findings suggest that institutional shareholders
+have a preference for liquid targets. We see a similar pattern with the offer pre-
+mium (Panel C). An acquirer with either high or medium institutional ownership
+is willing to pay a higher premium for more liquid target firms. A 1-standard-
+deviation increase in target liquidity translates into a 7.3% (respectively, 5.5%
+and 5.0%) higher premium for firms with institutional ownership above 25%
+(respectively, 5%–25% and below 5%).
+      These results suggest that institutional investors show a higher preference for
+target liquidity than do other investors, while the results on completion and offer
+                                                                                                                                https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                                          Massa and Xu               1487
+
+premium even suggest that institutional shareholders are the main driving forces
+behind the willingness to complete and pay a premium for transactions involving
+more liquid target firms.
+
+B.     Going Public
+      So far, we argue that shareholders of private firms have less need for an exit
+option than do shareholders of public firms. However, this is not necessarily true
+for all private firms. In particular, any private firm that intends to go public via
+an IPO is more likely to care about liquidity than otherwise comparable private
+firms.
+      To test this hypothesis, we examine whether acquiring a liquid target has any
+relation to the likelihood or speed of the firm’s going public after that acquisition.
+We identify all private firms that make an acquisition (of either public or private
+targets) and then track whether they go public within the next 5 years.9 This yields
+a sample of 6,965 firm-years for all private acquirers and 970 firm-years for those
+that go public.
+      Panel A of Table 10 gives summary statistics. On average, firms in this sam-
+ple made 2.29 acquisitions per year that were worth $382 million. The average
+transaction size is $167 million, much smaller compared to the $303 million av-
+erage transaction size in our baseline sample of acquisitions (as of Table 1). Of
+the private acquirers’ transactions, 64% involve a public target firm. This sample
+therefore differs sharply from our main sample, which was restricted to public
+target firms. Although this sample is larger, the set of target firm characteris-
+tics for which we can control is smaller because some of them are not available
+for much of the sample. Also, the subsample of IPO firms made fewer acquisi-
+tions (1.93 annually, on average) and spent slightly less on them, with an average
+annual value of $348 million. The average IPO proceeds were $224 million.
+
+                                                       TABLE 10
+                                              Private Firms and IPOs
+
+Panel A of Table 10 provides statistics for private ﬁrms that acquire a public or private target during our sample period and
+for the subsample of acquirers that conduct an IPO in the 5 years after the last acquisition they made. Panel B reports the
+results of a regression in which the dependent variable is an indicator set equal to 1 when the ﬁrm goes public in that year,
+and 0 otherwise; columns 1–9 report results for the whole sample and columns 10–12 for the subsample. Standard errors
+are clustered by acquirer in columns 8 and 9. The target liquidity average is weighted by transaction value in all columns
+except for columns 6 and 7. All acquisition-related variables are as of the previous years indicated by the number of lags.
+*, **, and *** indicate signiﬁcance at the 5%, 1%, and 0.1% levels, respectively, using heteroskedasticity-robust standard
+errors; t-statistics are given in parentheses.
+Panel A. Descriptive Statistics
+                                                                       All Private
+               Variable                                                Acquirers                                IPO Sample
+
+# acquisitions                                                            2.29                                      1.93
+Thereof involving a public target ﬁrm                                     0.64                                      0.41
+Acquisition value (annual, in USD mill.)                                382.49                                    348.20
+IPO proceeds (in USD mill.)                                                                                       223.95
+N                                                                         6,965                                      970
+                                                                                                  (continued on next page)
+
+
+
+     9 To exclude reverse mergers, we delete all observations for which the target firm i) is still publicly
+listed 1 year after the effective date and ii) has increased its market capitalization by more than 50%
+between the announcement date and 1 year after the effective date.
+                                                                                          TABLE 10 (continued)                                                                                               1488
+                                                                                         Private Firms and IPOs
+
+
+
+
+                                                                                                                                                                                                             Journal of Financial and Quantitative Analysis
+Panel B. Probit Regressions (Dependent Variable = Acquirer Going Public)
+
+                                                                                     Private Acquirers                                                                     Acquirers with IPO
+
+       Data                  1              2             3                 4               5               6           7              8             9           10                11              12
+
+Cluster                    No             No             No                 No             No               No          No            Yes           Yes           No              No               No
+Weighted                   Yes            Yes            Yes                Yes            Yes              No          No            Yes           Yes           Yes             Yes              Yes
+Lags                        1              2              3                  4              5                3           5             3             5            1                2                5
+Liquidity (target)         1.643*         1.617*         1.643*             1.599*         1.598*          1.531*      1.474*        1.643**        1.654**     0.534**           0.526**         0.521**
+                          (2.484)        (2.44)         (2.491)            (2.421)        (2.422)         (2.263)     (2.193)       (3.228)        (3.271)     (2.772)           (2.739)         (2.714)
+Log # acquisitions         0.255          0.218          0.226          0.180              0.168           0.242*      0.224         0.226*         0.208*      0.330***          0.067          −0.011
+  (acquirer)              (1.722)        (1.708)        (1.851)        (1.543)            (1.478)         (1.972)     (1.92)        (1.984)        (1.964)     (3.835)           (0.915)        (−0.164)
+Log acquisition            0.109**        0.106**        0.105*             0.103*         0.103*          0.106**     0.106*        0.105**        0.105**     0.033             0.046           0.052
+  value                   (2.687)        (2.576)        (2.56)             (2.509)        (2.506)         (2.587)     (2.576)       (2.774)        (2.770)     (1.118)           (1.578)         (1.772)
+# public                 −0.400         −0.407         −0.413         −0.410             −0.409           −0.419      −0.416        −0.413*       −0.408*      −0.274***        −0.221**         −0.204**
+  acquisitions          (−1.700)       (−1.725)       (−1.749)       (−1.731)           (−1.732)         (−1.770)    (−1.762)      (−2.019)      (−1.989)     (−3.943)         (−3.209)         (−2.961)
+Log IPO proceeds                                                                                                                                               −0.302***        −0.307***        −0.306***
+                                                                                                                                                              (−7.368)         (−7.545)         (−7.513)
+Liquidity (acquirer      −0.112         −0.054         −0.093         −0.034             −0.037           −0.053      −0.014        −0.093        −0.091         0.790*           0.823*          0.817*
+  industry)             (−0.135)       (−0.065)       (−0.111)       (−0.041)           (−0.044)         (−0.062)    (−0.016)      (−0.161)      (−0.158)       (2.045)          (2.130)         (2.113)
+Log # transactions         0.302          0.295          0.304          0.291              0.291           0.317       0.319         0.304          0.299       0.038             0.081           0.102
+  (period)                (0.498)        (0.486)        (0.500)        (0.480)            (0.481)         (0.523)     (0.529)       (0.788)        (0.780)     (0.200)           (0.424)         (0.534)
+Avg. premium               0.300          0.318          0.318              0.303          0.300           0.312       0.303         0.318          0.310      −0.601*          −0.591*          −0.582*
+                          (0.480)        (0.514)        (0.513)            (0.488)        (0.483)         (0.498)     (0.482)       (0.832)        (0.804)    (−2.146)         (−2.114)         (−2.08)
+Econshock                  0.501          0.507          0.497              0.509          0.508           0.516       0.513         0.497*         0.495*      0.087             0.109           0.11
+                          (1.705)        (1.713)        (1.684)            (1.728)        (1.725)         (1.773)     (1.772)       (2.110)        (2.106)     (0.536)           (0.676)         (0.679)
+Constant                 −6.625         −6.655         −6.686         −6.604             −6.596           −6.735      −6.710        −6.686**      −6.650**       1.278            1.194           1.167
+                        (−1.703)       (−1.708)       (−1.712)       (−1.699)           (−1.698)         (−1.735)    (−1.737)      (−2.749)      (−2.755)       (1.177)          (1.103)         (1.076)
+Year ﬁxed effects          Yes            Yes            Yes                Yes            Yes             Yes         Yes           Yes            Yes           Yes             Yes              Yes
+Industry ﬁxed              Yes            Yes            Yes                Yes            Yes             Yes         Yes           Yes            Yes           Yes             Yes              Yes
+  effects
+N                          6,965          6,965          6,965             6,965           6,965           6,965       6,965         6,965         6,965          970              970              970
+
+
+
+
+                                                                                                                                https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                                           https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                               Massa and Xu       1489
+
+      To find out whether acquiring a liquid firm affects the likelihood and speed
+of going public, we regress the IPO decision on target liquidity. We use industry
+(rather than target) liquidity because individual information is not available for
+most target firms. We weight the target’s industry liquidity by the respective ac-
+quisition value to ensure that larger targets receive a greater weight than the series
+of small acquisitions.
+      Panel B of Table 10 reports the results. Acquiring a more liquid target firm
+is associated with a greater likelihood of going public. This finding is robust to
+whether we count acquisitions during the prior 5, 4, 3, or 2 years or only in the
+previous year. Moreover, it is significant both for the sample of all private acquir-
+ers and (in most of the specifications) for the subsample of all private acquirers
+that make an IPO afterward (“IPO firms”). In the sample of all private acquirers,
+1 standard deviation of target liquidity makes the acquirer 55% more likely to
+go public in the subsequent year. This result is robust to restricting the sample
+to IPO firms only. In that case, 1 standard deviation of target liquidity increases
+by 18% the acquirer’s likelihood of going public in the next year. Overall, these
+findings indicate that not all private firms are indifferent to liquidity. Private firms
+that acquire liquid targets are more likely than other private firms to go public in
+the subsequent years.
+
+
+VIII.    Robustness
+     We now consider some robustness checks.
+
+A.   The Fraction Transacted
+
+       It is easier to buy a large fraction of a very liquid stock than a large fraction
+of an illiquid stock. The fraction acquired, in turn, may affect how much liquidity
+is transferred from the target. This raises the issue of whether our results on the
+preference for liquidity are driven by this relation. We therefore explicitly control
+for the fraction that is acquired. In doing this, we employ two alternative method-
+ologies: a selection model (à la Heckman (1979)) and a two-stage simultaneous
+approach.
+       In the Heckman (1979) specification, we model the choice of the fraction
+exchanged in the first stage and adjust for selection bias in the second. We set a
+dummy variable equal to 1 if the target sells a significant stake (and to 0 other-
+wise). We define “significant stake” in terms of four different thresholds: a stake
+exceeding 20%, 25%, 40%, or 50%. In the interest of brevity, we only report the
+results based on the 50% stake. However, other thresholds provide the same re-
+sults, suggesting that our results are not sensitive to the size threshold used. In the
+first stage, we run a probit regression for our dummy variable on liquidity and the
+set of control variables described previously (see Panel A of Table 11). We find
+that the relation between liquidity and % acquired is not significant.
+       In the second stage, we repeat our main regressions for the transactions in
+which a significant stake percentage is acquired. To control for selection bias, we
+compute the inverse Mills ratio of the preceding probit regression and include it
+in these regressions. The results confirm our previous findings. Target liquidity is
+                                                                                                                                      https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1490          Journal of Financial and Quantitative Analysis
+
+
+                                                         TABLE 11
+                                                        Robustness
+
+Panels A–F of Table 11 report coefﬁcients of target liquidity. Panel A (Panel C) reports results for a Heckman (1979)
+model in which transactions are selected to the second stage if more than 50% are acquired (no toehold acquired).
+In the ﬁrst stage, the independent variables include liquidity, size, logarithm and square of size, # transactions, avg.
+premium, econshock, spread, target market/book, leverage, ROA, cash/assets, salesgrowth, dividend payer, Herﬁndahl,
+owned before, simultaneous earnings announcement, and year ﬁxed effects. Column 1 reports the results of the ﬁrst stage,
+columns 3 and 4 for the second stage, where the dependent variables are public acquirer (column 3) and offer premium
+(column 4). The control variables are as listed in Tables 4 and 7. Panel B reports results of an IV regression in which the
+ﬁrst stage dependent variable is 1 if at least 50% were acquired and the instruments are econshock and the Herﬁndahl
+index; the second stage is as described for Panel A. Panel D (Panel E) reports results for the subsamples of all-cash (all-
+stock) transactions, where the dependent variable is change in liquidity, public acquirer, and the offer premium (for public
+acquirers only), and the independent variables are as listed in Tables 3, 4, and 7. Columns 2 and 4 include idiosyncratic risk
+as an additional independent variable. Panel F reports regressions for the sample of all transactions (i.e., including those
+that are incomplete); the variables are as in the regression reported in Tables 4 and 7. *, **, and *** indicate signiﬁcance
+at the 5%, 1%, and 0.1% levels, respectively, using heteroskedasticity-robust standard errors clustered at the industry
+level; t-statistics are given in parentheses. Panel G reports univariate statistics for a sample of contested transactions.
+                                                 First Stage                                     Second Stage
+
+                                                                                                           Offer Premium
+                                 >50% Acquired              No Toehold          Public Acquirer        (public acquirers only)
+
+                                       1                           2                   3                            4
+
+Panel A. Heckman (Selection: >50% Acquired)
+
+First stage                          –0.087
+                                    (–1.39)
+Second stage                                                                         0.626***                 31.020***
+                                                                                    (4.118)                   (9.189)
+Panel B. Instrumented Variable (IV: >50% Acquired)
+
+Second stage                                                                         0.268**                  13.015*
+                                                                                    (2.672)                    (2.556)
+Panel C. Heckman (Selection: Subsample without Toehold)
+
+First stage                                                     0.216***
+                                                               (3.84)
+Second stage                                                                         0.310***                 11.790***
+                                                                                    (4.182)                   (4.057)
+                                                Panel D. Cash                                    Panel E. Stock
+
+                                                         Dispersion Control                              Dispersion Control
+
+  Dependent Variable                   1                           2                   3                            4
+
+Change in liquidity                  0.413***                    0.413***            0.359***                  0.364***
+                                    (5.984)                     (5.909)             (3.675)                   (3.781)
+Acquirer public status               0.177**                     0.175**            0.187***                   0.187***
+                                    (2.81)                      (2.792)            (3.379)                    (3.378)
+Offer premium                      22.094***                   22.701**            21.202***                  23.299**
+  (public acquirers only)          (3.788)                     (3.013)             (3.646)                    (3.081)
+Panel F. Robustness Checks: Including Incomplete Transactions
+
+                                                                Dispersion          Low-Liquidity                 High-Liquidity
+                                                                 Control               Period                        Period
+
+  Dependent Variable                       1                           2                   3                             4
+
+Acquirer public status                 0.154*                     0.153*                0.153*                       0.093
+                                      (2.527)                    (2.494)               (2.494)                      (1.761)
+Offer premium                         12.844***                 13.118***             13.118***                      9.610***
+  (public acquirers only)             (8.875)                   (9.08)                (9.08)                        (6.798)
+Panel G. Robustness Checks: Contested Deals
+
+                             N                  Low-Liquidity Targets           High-Liquidity Targets                  t-Statistic
+
+No. of bids                 312                         1.26                             1.37                            (1.46)
+% public bids               312                        46.2%                            71.0%                            (4.77)
+Acquirer public             232                        33.6%                            65.4%                            (5.06)
+Success                     312                        37.2%                            57.1%                            (3.58)
+                                                                                                            https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                           Massa and Xu           1491
+
+significantly and positively related to the choice of a public acquirer and the offer
+premium.
+      As a further robustness check, we perform a simultaneous two-stage regres-
+sion. In this specification we control for the fraction acquired as a continuous
+variable that is censored at 0 and 1. This allows us to control for effects of the
+% acquired beyond the 50% control threshold of the first specification. We instru-
+ment the fraction acquired with the Herfindahl index and the econshock variable
+of Harford (2005). These variables (which proxy for market structure and eco-
+nomic conditions) are significant for the choice of the fraction sold but irrelevant
+to the choice of acquirer type (public vs. private) in most specifications. We report
+the results in Panel B. They confirm the previous ones. All our results are robust
+to the instrumented two-stage regression. As before, the coefficients for the index
+of liquidity are significantly positive in the second stage. The F-test statistic of
+17.56 indicates that the instruments are not weak (Staiger and Stock (1997)).10
+
+B.    Toeholds
+
+      Another concern are toeholds. It is easier to acquire a toehold with a liquid
+target, which in turn makes it easier to ultimately gain ownership (Betton and
+Eckbo (2000)). That could be one reason why bidders prefer more liquid targets.
+On the other hand, acquirers may foresee difficulties in acquiring an illiquid firm
+and for that very reason start with a toehold first. To control for these possible
+forces, we repeat our main analysis on the subsample without a toehold. To con-
+trol for selection, we employ a Heckman (1979) specification similar to the one
+described in Section VIII.A. We model the choice of a toehold as the first stage
+and adjust for selection bias in the second stage.
+      In the first stage, we use a probit regression in which we regress an indica-
+tor variable for toehold on liquidity and the control variables already described
+(Panel C of Table 11). The relation between liquidity and toehold is significantly
+negative. It seems that acquirers do not acquire a toehold when it is easy to do so,
+but rather to preempt takeovers of less liquid firms.
+      In the second stage, we repeat our main regressions for the transactions with-
+out a toehold. The results are similar to our base results. Even for transactions
+without a toehold, target liquidity is positively related to the acquirer’s being pub-
+lic and also to the premium paid.
+
+C.    Payment Method
+      When the means of payment is equity, the new shareholder base will con-
+tain previous shareholders of both the acquirer and the target (Faccio and Masulis
+(2005)). If liquidity is a function of ownership, then stock-paid transactions may
+mechanically retain more of the target firm’s liquidity. However, if liquidity is
+
+
+   10 For transactions of minority stakes, we test for whether the results depend on the trading status
+of the target after the transaction. The results (available from the authors) are similar in the two sub-
+samples consisting of acquisitions after which the target firm either ceased or continued trading in the
+year after the transaction was completed.
+                                                                                          https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1492    Journal of Financial and Quantitative Analysis
+
+primarily a function of fundamental firm characteristics, then liquidity reten-
+tion should differ less across financing methods. To see which effect dominates,
+we compare the relation between target and post-transaction liquidity within two
+subsamples: stock-financed deals and cash-financed deals.
+      In Panel D of Table 11, we present the results on the subsequent liquidity
+and the choice between public and private acquirers for an all-cash sample of 368
+public acquirers (2,944 target firms). In Panel E, we present results on the same
+choice for an all-stock sample of 430 public acquirers (644 target firms). We con-
+trol for dispersion in columns 2 and 4. For the regression of subsequent liquidity,
+we report the coefficients for the target firm’s liquidity in excess of the acquirer’s.
+      The results do not differ from subsamples based on the payment method.
+As for the base sample, target liquidity is positively related to the consolidated
+firms’ liquidity, the choice of acquirer public status, and the offer premium in both
+subsamples. The t-statistic of difference between the two subsamples is 0.63, 0.02,
+and 0.12, respectively. This indicates that the liquidity transfer is not mechanical
+and driven by stock-paid deals.
+
+D.    Incomplete Transactions
+
+     Panel F of Table 11 reports results on the choice between public and private
+acquirers for all (i.e., including those not completed) 6,706 transactions and on
+the choice of target liquidity for all 1,476 transactions with a public acquirer. Our
+main results remain unchanged. The choice of acquirer public status as well as
+the offer premium significantly increases with liquidity.
+
+E.    Contested Transactions
+
+       The “choice” between private and public acquirers may be driven by the
+availability of either. Bidding contests between public and private acquirers pro-
+vide a setting in which we can isolate the choice between public and private ac-
+quirers from their availability. SDC provides data on 312 such transactions (as
+reported in Panel G of Table 11). Consistent with our base results, target liquidity
+changes bidder behavior. Target firms with liquidity above median, while not with
+significantly more bids in general, attract significantly more bids from public bid-
+ders. On average, 71% of all bids received by a liquid target are from a public firm
+(vs. 46% for less liquid targets). We observe the same pattern with bid outcomes:
+Of the contests for a more liquid target, 65% conclude with acquisition by a pub-
+lic firm (vs. 34% for less liquid targets). Contests for more liquid targets also have
+a greater probability of success, 57% versus 37% for less liquid targets. In short,
+the results are in line with our general findings. More liquid targets attract more
+bids from public than from private firms, public firms more often win the contest
+and become the acquirer, and the transaction is more likely to be concluded.
+
+IX.    Conclusion
+     We study the impact of stock liquidity in the market for corporate control.
+We argue that the liquidity of the target’s stock is appreciated differently by pub-
+lic and private acquirers. The shareholders of public firms (likely institutional
+                                                                                               https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                  Massa and Xu        1493
+
+and professional investors) value the option to liquidate their position swiftly and
+without adverse effects on the price. Hence, we claim that, everything else being
+equal, i) transactions are more attractive for public shareholders if the liquidity
+of the target’s stock does not adversely affect their own stock’s liquidity or, even
+better, actually increases it and ii) such shareholders are willing to pay more for
+“liquid” targets. These considerations argue for both a higher target premium and
+a greater likelihood of the bid’s success since liquid targets profit more when
+acquired by public than by private firms.
+      We test these hypotheses with reference to the U.S. M&A market for the pe-
+riod 1987–2007. We first show that differences in the degree of liquidity between
+the target and the acquirer affect the liquidity of the consolidated firm. Acquir-
+ing a more liquid target renders the acquirer’s stock more liquid and also affects
+other firm characteristics associated with liquidity. We document that liquidity
+affects the acquirer’s choice: Public acquirers (and especially the more liquid
+ones) are more likely to choose more liquid targets, all else being equal. Public
+acquirers are also more likely to complete a transaction if the target firm is more
+liquid. These effects are more pronounced in times of overall low market liquidity,
+indicating that the demand for liquidity is time varying.
+      These findings have implications for the price of the deal. We show that, in
+the presence of a public acquirer, greater target liquidity is related to a higher offer
+premium and target announcement return. Public acquirers are also willing to pay
+more than private acquirers for a more liquid target, in terms of both the premium
+and the target announcement returns.
+      We argue that these patterns are related to the presence of institutional
+investors. A greater proportion of institutions among the acquirer’s sharehold-
+ers is associated with increased odds of acquiring firms whose liquidity is above
+the median.
+      Although most private acquirers value liquidity less than do public firms,
+some private firms appreciate liquidity more than others. A typical case is a firm
+planning to go public. Indeed, we find that acquiring liquid targets is positively
+related to the private firm’s likelihood of going public.
+      Our findings also have implications for the optimal way of selling a firm
+(Zingales (1995)) in that they show how stock liquidity drives the choice of sell-
+off form (public vs. private) and thereby the “matching of firms” in the market.
+These results imply that the choice between a public versus private acquirer can
+be directly related to market fluctuations, not only because of valuation but also
+because the desired level of liquidity (and hence its value) fluctuates over time.
+As a consequence, investors are more willing to pay more for certain investment
+types in certain periods (Harford (2005)).
+
+
+
+Appendix. Definition of Variables
+# acquisitions: Count of acquisitions made by an acquirer.
+# institutional shareholders: Count of institutions who report in their Securities and
+   Exchange Commission (SEC) Form 13F filing that they hold shares of the focal firm.
+# public acquisitions: Count of acquisitions involving public target firms made by the focal
+   acquirer.
+                                                                                                   https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1494     Journal of Financial and Quantitative Analysis
+
+# transactions (period): The logarithm of the number of corporate control transactions at
+   the industry level in the year before the transaction. Corporate control transactions in-
+   clude all disclosed and completed leveraged buyouts, tender offers, spin-offs, exchange
+   offers, minority stake purchases, acquisitions of remaining interest, privatizations, and
+   equity carve-outs. Buybacks are excluded from the sample. Reported in thousands for
+   scaling reasons.
+% acquired: Fraction of the target firm exchanged in the transaction.
+% owned after: Fraction of the target firm owned by the acquiring firm after the transaction.
+% owned before: Fraction of the target firm owned by the acquiring firm before the trans-
+   action.
+acquirer public: Indicator set equal to 1 if the acquirer is listed on a stock exchange.
+acquisition value: Sum of values of the transactions made by an acquirer.
+all cash: Indicator set equal to 1 if the transaction is completely paid in cash.
+all stock: Indicator set equal to 1 if the transaction is completely paid in stock.
+Amihud: Illiquidity ratio from Amihud (2002); see equation (1) for details.
+assets: The book value of the target firm (in millions of U.S. dollars). Square assets is
+   reported in billions for scaling reasons.
+avg. premium: Average takeover premium across all acquisitions per quarter, where “pre-
+   mium” is the transaction value less the target’s market value (63 days prior to announce-
+   ment) divided by the latter.
+bid-ask spread: Difference between the bid and the ask price divided by the close price.
+cash/assets: The fraction of the cash over book assets (percentage).
+competing bidders: Indicator set equal to 1 if a third party launched an offer for the target
+   while the original bid was pending, and 0 otherwise.
+dividend payer: Indicator set equal to 1 if a firm pays dividends in the previous year.
+econshock: Principal component of the following economic shock variables, sorted by
+   industry: net income over sales, asset turnover, research and development (R&D) ex-
+   penditures, capital expenditures, employee growth, return on assets (ROA), and sales
+   growth.
+governance index: Index of Gompers et al. (2003).
+Herfindahl: Herfindahl index by sales.
+hostile: Indicator set equal to 1 if the board officially rejects the offer yet the acquirer
+   persists with the takeover, and 0 otherwise.
+idiosyncratic risk: Standard deviation of the acquirer excess returns on the value-weighted
+   market return, measured over a quarter.
+insider ownership: Indicator set equal to 1 if more than 5% of the firm’s shares are held by
+   insiders who must file SEC Form 3, 4, 5, or 144.
+institutional ownership: Fraction of ownership by institutions who file SEC Form 13F.
+IPO proceeds: Total proceeds of IPO (in millions of U.S. dollars).
+leverage: Ratio of net debt to assets.
+liquidity index: First principal component of the quarterly average of the bid-ask spread,
+   log of volume, log of turnover, and the Amihud illiquidity ratio (all measured per trading
+   day). For this index, all measures are normalized by subtracting their mean and then
+   dividing by their standard deviation.
+log assets: Natural logarithm of book assets.
+log market value: Natural logarithm of market value measured 63 days prior to the trans-
+   action.
+market cap ($): Closing price multiplied by the number of shares outstanding.
+market/book: Market value of equity plus book value of assets minus book value of equity
+   divided by book value of assets.
+Mills public: Inverse Mills ratio computed with the regression shown in column 1 of
+   Table 4.
+public acquisitions: For a given firm, the ratio of public acquisitions to all acquisitions (%).
+relative size: The ratio between target and acquirer assets. Reported × 103 for scaling rea-
+   sons. Square relative size is reported × 106 for scaling reasons.
+R&D/sales: Ratio of R&D expenses to sales.
+                                                                                                        https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                         Massa and Xu         1495
+
+R&D: Indicator set equal to 0 if R&D expenses are missing, or 1 otherwise.
+ROA: Earnings (before interest and taxes) divided by assets.
+salesgrowth: Year-on-year growth in sales, reported in thousands for scaling reasons.
+size: The target firm’s market value (in millions of U.S. dollars). Square size is reported in
+   quadrillions for scaling reasons.
+spread: Credit spread between commercial and industrial loan rates.
+tender offer: Indicator set equal to 1 when a tender offer is launched for the target (and 0
+   otherwise), where “tender offer” is defined as a formal offer (of specific duration) made
+   to the target’s equity holders to acquire their shares.
+termination fees: Indicator set equal to 1 only if the parties have made a termination fee
+   agreement whereby failure to consummate the transaction results in a payment made by
+   one party to the other.
+toehold: Indicator set equal to 1 if the acquirer owns more than 0.5% of the target prior to
+   the transaction.
+transaction value: Total value of consideration paid by the acquirer (in millions of U.S.
+   dollars), excluding fees and expenses. Includes the amount paid for all common stock
+   (equivalents), preferred stock, debt, options, assets, warrants, and stake purchases made
+   within 6 months of the transaction’s announcement date. Assumed liabilities are in-
+   cluded in the value if disclosed; preferred stock is included only if acquired as part of
+   a 100% acquisition. Common stock is valued based on the closing price on the last full
+   trading day prior to announcement or alteration date of the stock swap terms.
+turnover: Logarithm of trading volume divided by the number of shares outstanding.
+volume: Logarithm of trading volume.
+
+
+
+References
+Acharya, V., and L. H. Pedersen. “Asset Pricing with Liquidity Risk.” Journal of Financial Economics,
+   77 (2005), 375–410.
+Allen, F., and G. Gorton. “Churning Bubbles.” Review of Economic Studies, 60 (1993), 813–836.
+Almeida, H.; M. Campello; and D. Hackbarth. “Liquidity Mergers.” Journal of Financial Economics,
+   102 (2011), 526–558.
+Amihud, Y. “Illiquidity and Stock Returns: Cross-Section and Time-Series Effects.” Journal of Finan-
+   cial Markets, 5 (2002), 31–56.
+Amihud, Y.; H. Mendelson; and J. Uno. “Number of Shareholders and Stock Prices: Evidence from
+   Japan.” Journal of Finance, 54 (1999), 1169–1184.
+Baker, H., and P. Gallagher. “Management View of Stock Splits.” Financial Management, 9 (1980),
+   73–77.
+Baker, M., and J. Wurgler. “Investor Sentiment and the Cross-Section of Stock Returns.” Journal of
+   Finance, 61 (2006), 1645–1680.
+Barberis, N., and A. Shleifer. “Style Investing.” Journal of Financial Economics, 68 (2003), 161–199.
+Bargeron, L. L.; F. P. Schlingemann; R. M. Stulz; and C. J. Zutter. “Why Do Private Acquirers Pay So
+   Little Compared to Public Acquirers?” Journal of Financial Economics, 89 (2008), 375–390.
+Betton, S., and B. E. Eckbo. “Toeholds, Bid Jumps, and Expected Payoff in Takeovers.” Review of
+   Financial Studies, 13 (2000), 841–882.
+Betton, S.; B. E. Eckbo; R. Thompson; and K. S. Thorburn. “Merger Negotiations with Stock Market
+   Feedback.” Journal of Finance, forthcoming (2013).
+Bharath, S. T.; P. Pasquariello; and G. Wu. “Does Asymmetric Information Drive Capital Structure
+   Decisions?” Review of Financial Studies, 22 (2009), 3211–3243.
+Bolton, P., and E. L. von Thadden. “Blocks, Liquidity, and Corporate Control.” Journal of Finance,
+   53 (1998a), 1–25.
+Bolton, P., and E. L. von Thadden. “Liquidity and Control: A Dynamic Theory of Corporate Owner-
+   ship Structure.” Journal of Institutional and Theoretical Economics, 154 (1998b), 177–211.
+Boone, A. L., and J. H. Mulherin. “Do Auctions Induce a Winner’s Curse? New Evidence from the
+   Corporate Takeover Market.” Journal of Financial Economics, 89 (2008), 1–19.
+Celikyurt, U.; M. Sevilir; and A. Shivdasani. “Going Public to Acquire? The Acquisition Motive in
+   IPOs.” Journal of Financial Economics, 96 (2010), 345–363.
+Chan, L., and J. Lakonishok. “The Behavior of Stock Prices around Institutional Trades.” Journal of
+   Finance, 50 (1995), 1147–1174.
+                                                                                                       https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+1496     Journal of Financial and Quantitative Analysis
+
+Chatterjee, S.; K. John; and A. Yan. “Takeovers and Divergence of Investor Opinion.” Review of
+   Financial Studies, 25 (2011), 227–277.
+Chen, X.; J. Harford; and K. Li. “Monitoring: Which Institutions Matter?” Journal of Financial
+   Economics, 86 (2007), 279–305.
+Cumming, D. J., and J. G. MacIntosh. “Venture-Capital Exits in Canada and the United States.”
+   University of Toronto Law Journal, 53 (2003), 101–199.
+Dierkens, N. “Information Asymmetry and Equity Issues.” Journal of Financial and Quantitative
+   Analysis, 26 (1991), 181–199.
+Dow, J., and G. Gorton. “Noise Trading, Delegated Portfolio Management, and Economic Welfare.”
+   Journal of Political Economy, 105 (1997), 1024–1050.
+Ellul, A., and M. Pagano. “IPO Underpricing and After-Market Liquidity.” Review of Financial Stud-
+   ies, 19 (2006), 381–421.
+Faccio, M., and R. Masulis. “The Choice of Payment Method in European Mergers and Acquisitions.”
+   Journal of Finance, 60 (2005), 1345–1388.
+Falkenstein, E. “Preferences for Stock Characteristics as Revealed by Mutual Fund Portfolio Hold-
+   ings.” Journal of Finance, 51 (1996), 111–136.
+Gompers, P. A.; J. L. Ishii; and A. Metrick. “Corporate Governance and Equity Prices.” Quarterly
+   Journal of Economics, 118 (2003), 107–155.
+Gompers, P., and A. Metrick. “Institutional Investors and Equity Prices.” Quarterly Journal of Eco-
+   nomics, 116 (2001), 229–259.
+Gopalan, R.; O. Kadan; and M. Pevzner. “Asset Liquidity and Stock Liquidity.” Journal of Financial
+   and Quantitative Analysis, 47 (2012), 333–364.
+Grossman, S., and O. Hart. “The Costs and Benefits of Ownership: A Theory of Vertical and Lateral
+   Integration.” Journal of Political Economy, 94 (1986), 691–719.
+Harford, J. “What Drives Merger Waves?” Journal of Financial Economics, 77 (2005), 529–600.
+Harford, J.; S. Klasa; and N. Walcott. “Do Firms Have Leverage Targets? Evidence from Acquisi-
+   tions.” Journal of Financial Economics, 93 (2009), 1–14.
+Hartzell, J. C.; E. Ofek; and D. Yermack. “What’s in There for Me? CEOs Whose Firms Are
+   Acquired.” Review of Financial Studies, 17 (2004), 37–61.
+Heckman, J. J. “Sample Selection Bias as a Specification Error.” Econometrica, 47 (1979), 153–161.
+Hertzel, M., and R. L. Smith. “Market Discounts and Shareholder Gains for Placing Equity Privately.”
+   Journal of Finance, 48 (1993), 459–485.
+Hirshleifer, D., and S. Teoh. “Limited Attention, Information Disclosure, and Financial Reporting.”
+   Journal of Accounting and Economics, 36 (2003), 337–386.
+Hong, H., and J. Stein. “A Unified Theory of Underreaction, Momentum Trading, and Overreaction
+   in Asset Markets.” Journal of Finance, 54 (1999), 2143–2184.
+Kahn, C., and A. Winton. “Ownership Structure, Speculation, and Shareholder Intervention.” Journal
+   of Finance, 53 (1998), 99–129.
+Kyle, A., and J. L. Vila. “Noise Trading and Takeovers.” RAND Journal of Economics, 22 (1991),
+   54–71.
+Lee, C.; A. Shleifer; and R. Thaler. “Investor Sentiment and the Closed-End Fund Puzzle.” Journal of
+   Finance, 46 (1991), 75–109.
+Lowry, M. “Why Does IPO Volume Fluctuate So Much?” Journal of Financial Economics, 67 (2003),
+   3–40.
+Martos-Vila, M. “A Theory of Private vs. Public Placements in Public Firms.” Working Paper,
+   University of California at Los Angeles (2011).
+Massa, M., and L. Zhang. “Cosmetic Mergers: The Effect of Style Investing on the Market for Cor-
+   porate Control.” Journal of Financial Economics, 93 (2009), 400–427.
+Maug, E. “Large Shareholders as Monitors: Is There a Trade-Off Between Liquidity and Control?”
+   Journal of Finance, 53 (1998), 65–98.
+Merton, R. C. “A Simple Model of Capital Market Equilibrium with Incomplete Information.” Journal
+   of Finance, 42 (1987), 483–510.
+Moeller, S. B.; F. P. Schlingemann; and R. M. Stulz. “Firm Size and the Gains from Acquisitions.”
+   Journal of Financial Economics, 73 (2004), 201–228.
+Moeller, S. B.; F. P. Schlingemann; and R. M. Stulz. “How Do Diversity of Opinion and Information
+   Asymmetry Affect Acquirer Returns?” Review of Financial Studies, 20 (2007), 2047–2078.
+Mukherji, S.; Y. H. Kim; and M. C. Walker. “The Effect of Stock Splits on the Ownership Structure
+   of Firms.” Journal of Corporate Finance, 3 (1997), 167–188.
+Mullainathan, S. “A Memory-Based Model of Bounded Rationality.” Quarterly Journal of Economics,
+   117 (2002), 735–774.
+Mullainathan, S.; J. Schwartzstein; and A. Shleifer. “Coarse Thinking and Persuasion.” Quarterly
+   Journal of Economics, 123 (2008), 577–619.
+                                                                                                        https://doi.org/10.1017/S0022109013000604 Published online by Cambridge University Press
+                                                                         Massa and Xu         1497
+
+Muscarella, C. J., and M. R. Vetsuypens. “Stock Splits: Signaling or Liquidity? The Case of SDR
+   ‘Solo-Splits.’ ” Journal of Financial Economics, 42 (1996), 3–26.
+Noe, T. “Investor Activism and Financial Market Structure.” Review of Financial Studies, 15 (2002),
+   289–318.
+Officer, M. “Termination Fees in Mergers and Acquisitions.” Journal of Financial Economics, 69
+   (2003), 431–467.
+Officer, M. “The Price of Corporate Liquidity: Acquisition Discounts for Unlisted Targets.” Journal
+   of Financial Economics, 83 (2007), 571–598.
+Poulsen, A. B., and M. Stegemoller. “Moving from Private to Public Ownership: Selling Out to Public
+   Firms vs. Initial Public Offerings.” Financial Management, 37 (2008), 81–101.
+Ritter, J. “The ‘Hot Issue’ Market of 1980.” Journal of Business, 57 (1984), 215–240.
+Scharfstein, D., and J. Stein. “Herd Behavior and Investment.” American Economic Review, 80 (1990),
+   465–489.
+Schlingemann, F. P.; R. M. Stulz; and R. A. Walkling. “Divestitures and the Liquidity of the Market
+   for Corporate Assets.” Journal of Financial Economics, 64 (2002), 117–144.
+Schwert, G. “Markup Pricing in Mergers and Acquisitions.” Journal of Financial Economics, 41
+   (1996), 153–192.
+Shapiro, A. “The Investor Recognition Hypothesis in a Dynamic General Equilibrium: Theory and
+   Evidence.” Review of Financial Studies, 15 (2002), 97–141.
+Shleifer, A., and R. W. Vishny. “The Limits of Arbitrage.” Journal of Finance, 52 (1997), 35–55.
+Staiger, D., and J. H. Stock. “Instrumental Variables Regressions with Weak Instruments.” Economet-
+   rica, 65 (1997), 557–586.
+Steiner, T. L. “The Corporate Sell-Off Decision of Diversified Firms.” Journal of Financial Research,
+   20 (1997), 231–241.
+Uno, J., and N. Kamiyama. “Ownership Structure, Liquidity, and Firm Value.” Working Paper, Waseda
+   University (2010).
+Wurgler, J., and E. Zhuravskaya. “Does Arbitrage Flatten Demand Curves for Stocks?” Journal of
+   Business, 75 (2002), 583–608.
+Zellner, A. “An Efficient Method of Estimating Seemingly Unrelated Regressions and Tests for
+   Aggregation Bias.” Journal of the American Statistical Association, 57 (1962), 348–368.
+Zingales, L. “Insider Ownership and the Decision to Go Public.” Review of Economic Studies, 62
+   (1995), 425–448.
+

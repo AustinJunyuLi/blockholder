@@ -1,0 +1,1837 @@
+THE JOURNAL OF FINANCE • VOL. LXIV, NO. 6 • DECEMBER 2009
+
+
+
+
+         Blockholder Trading, Market Efficiency,
+                and Managerial Myopia
+
+                                        ALEX EDMANS∗
+
+
+                                          ABSTRACT
+      This paper analyzes how blockholders can exert governance even if they cannot inter-
+      vene in a firm’s operations. Blockholders have strong incentives to monitor the firm’s
+      fundamental value because they can sell their stakes upon negative information. By
+      trading on private information (following the “Wall Street Rule”), they cause prices
+      to ref lect fundamental value rather than current earnings. This in turn encourages
+      managers to invest for long-run growth rather than short-term profits. Contrary to
+      the view that the U.S.’s liquid markets and transient shareholders exacerbate myopia,
+      I show that they can encourage investment by impounding its effects into prices.
+
+
+
+
+     The nature of competition has changed, placing a premium on investment
+   in increasingly complex and intangible forms—the kinds of investment
+   most penalized by the U.S. [capital allocation] system.
+                                                            —Porter (1992)
+THIS PAPER ANALYZES how outside blockholders can induce managers to undertake
+efficient real investment through their informed trading of the firm’s shares.
+By gathering information about a firm’s fundamental value and impounding it
+into prices, they encourage managers to undertake investment that increases
+long-run value even if it reduces interim profits. The model therefore addresses
+two broad issues. First, it introduces a potential solution to managerial myopia.
+Second, it demonstrates that shareholders can add significant value even if they
+cannot intervene in a firm’s operations. This may explain the prevalence in the
+
+  ∗ Alex Edmans is at the Wharton School, University of Pennsylvania. I am deeply grateful to
+my advisors, Stewart Myers, Dirk Jenter, Gustavo Manso, and Xavier Gabaix, for their support
+and guidance. I am indebted to an anonymous referee for numerous comments that significantly
+improved the paper, as well as an associate editor and the editor, Cam Harvey. This paper has also
+benefited from input by Prasun Agarwal; Franklin Allen; Jack Bao; Indraneel Chakraborty; Florian
+Ederer; Isil Erel; Chris Evans; Carola Frydman; Itay Goldstein; Li He; Cliff Holderness; Adam
+Kolasinski; Pavitra Kumar; Robert Marquez; Anna Obizhaeva; Weiyang Qiu; Robert Ready;
+Michael Roberts; Steve Ross; Alan Schwartz; Jeremy Stein; Luke Taylor; Masako Ueda; Jialan
+Wang; Paul Yan; and seminar participants at the 2008 Penn/NYU Conference on Law and Finance,
+the 2007 WFA meetings, the 2006 CEPR European Summer Symposium in Financial Markets, the
+2006 FMA doctoral tutorial, Berkeley, Boston College, Dartmouth, Duke, Maryland, MIT, North-
+western, Notre Dame, NYU, UBC, UCLA, UNC, Wharton, and Yale. I acknowledge excellent re-
+search assistance from Qi Liu, and travel grants from the NYSE and the MIT Graduate Student
+Council. This paper was previously circulated as “Blockholders, Market Efficiency, and Managerial
+Myopia.”
+
+                                               2481
+                                                                                                     15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2482                             The Journal of FinanceR
+
+United States of small transient blockholders, who typically lack control rights
+and instead follow the “Wall Street Rule” of “voting with their feet”—selling
+their stock if dissatisfied.
+   Many academics and practitioners believe that myopia is a first-order prob-
+lem faced by the modern firm. In the last century, firms were predominantly
+capital-intensive, but nowadays competitive success increasingly depends on in-
+tangible assets such as human capital and R&D capabilities (Zingales (2000)).
+Building such competencies requires significant and sustained investment. In-
+deed, Thurow (1993) argues that investment is an issue of national importance
+that will critically determine the U.S.’s success in global competition.
+   However, managers may fail to invest if they are concerned with the firm’s
+short-term stock price. Because the benefits of intangible investment are only
+visible in the long run, the immediate effect of such investment is to depress
+earnings. Indeed, Graham, Harvey, and Rajgopal’s (2005) survey finds that
+78% of executives would sacrifice long-term value to meet earnings targets.
+Moreover, the recent rise in equity-based compensation1 (Murphy (2003)) and
+the sensitivity of CEO turnover to the stock price (Kaplan and Minton (2006))
+has likely increased managers’ myopic tendencies.
+   While previous papers have focused on various causes of myopia, this paper
+analyzes a solution: blockholders. A blockholder has strong incentives to gather
+costly information about the firm’s fundamental value, that is, to learn whether
+weak earnings result from low firm quality or desirable long-term investment.2
+If the cause is low quality, the blockholder profits by selling her stake, depress-
+ing the stock price. If the cause is desirable investment, she does not sell, which
+attenuates the stock price decline caused by weak earnings. In both cases, the
+blockholder causes stock prices to ref lect fundamental value rather than short-
+term earnings. This increased market efficiency improves real efficiency: The
+manager is willing to undertake investments that boost fundamental value
+even if they depress short-term earnings. The Wall Street adage that the “mar-
+ket sells first and asks questions later” does not apply to blockholders: Owing
+to their sizable holdings, they have the incentive to ask questions first and not
+automatically sell upon losses. A noted real-life example is Warren Buffett, who
+typically acquires blocks in companies with significant growth opportunities.
+His investment shields the firm from stock market concerns, helping it to focus
+on long-term value.
+   In sum, while the blockholder’s monitoring and trading is motivated by
+her private desire to earn profits at the expense of liquidity investors, these
+actions have real social benefits by inducing efficient investment. But why
+does such monitoring and trading have to be undertaken by blockholders?
+Many empirical studies use block size as a proxy for investor sophistication,
+
+   1
+     Equity compensation would not induce myopia if it had very long vesting periods. However,
+vesting periods are often short in practice (Kole (1997), Johnson, Ryan, and Tian (2009)), perhaps
+because very long vesting periods would subject the manager to high risk.
+   2
+     “Investment” can encompass any action that enhances firm value, but worsens outsiders’ per-
+ceptions in the short run. “Low investment” can therefore represent accounting manipulation to
+improve outsiders’ short-term perceptions. Blockholders can deter such manipulation as they can
+“see through” the numbers and will sell if high earnings are not backed up by strong fundamentals.
+                                                                                                      15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+        Blockholder Trading, Market Efficiency, and Managerial Myopia 2483
+
+assuming that large investors have greater incentives to become informed (see
+Rubin (2007) and Boehmer and Kelley (2009) for recent examples). Although
+this concept appears intuitive, it is not delivered in standard informed trad-
+ing models because an investor’s ability to trade on information is indepen-
+dent of her stake. The model introduces a short-sales constraint to provide a
+theoretical framework underpinning the assumed positive link between block
+size and information. If short sales are prohibited (or sufficiently costly), the
+only way to profit from bad news is to sell an existing position. The larger
+the initial holding, the more the blockholder can sell upon negative infor-
+mation, and so the greater the incentives to collect information in the first
+place.
+   The above result requires the ability to solve for the blockholder’s optimal
+trading volume upon information, as this determines how much information
+she will acquire. The Kyle (1985) model requires both normal liquidity trader
+demand and normal firm value to derive informed trades in closed form. Most
+corporate finance applications of the Kyle model use binary firm value and
+thus cannot solve for trading volumes endogenously; they therefore must re-
+strict them to exogenous amounts that are then necessarily independent of
+initial holdings. This paper makes the methodological contribution of introduc-
+ing exponential liquidity trader demand into a Kyle model to allow informed
+trades to be derived in closed form when firm value is discrete. It may be of use
+to future corporate finance applications of the Kyle model.
+   The role of blockholders in this paper differs from prior models, where they
+add value through direct intervention, such as forcing a restructuring or vetoing
+a pet project.3 This paper shows that blockholders can improve firm value even
+if they are unable to intervene (engage in “voice”) and can only trade (engage
+in “exit”). This departure from the literature is empirically motivated. Block-
+holders in the U.S. rarely intervene because they are typically small4 and face
+significant legal and institutional barriers.5 Existing models centered on con-
+trol have difficulty in explaining the role that such non-controlling blockholders
+
+
+   3
+     Examples include Shleifer and Vishny (1986), Burkart, Gromb, and Panunzi (1997), Pagano
+and Röell (1998), Kahn and Winton (1998), Bolton and von Thadden (1998), Maug (1998, 2002),
+Aghion, Bolton, and Tirole (2004), Faure-Grimaud and Gromb (2004), and Brav and Mathews
+(2008).
+   4
+     When blockholders are defined as 5% shareholders, Holderness (2009) finds that 96% of U.S.
+firms contain a blockholder. However, when the minimum ownership is defined as 20%, La Porta,
+Lopez-de-Silanes, and Shleifer (1999) document that 20% (10%) of large (medium) U.S. firms con-
+tain a blockholder. They estimate that a 20% stake gives effective control if the shareholder is
+an insider; the threshold is likely to be higher for outside shareholders. Hence, blockholders are
+prevalent in the United States, but tend to lack control rights. Holderness finds that concentrated
+blockholders with board seats tend to be families. This paper focuses on financial blockholders who
+typically hold smaller stakes and have less frequent board representation.
+   5
+     See Becht et al. (2009) and Black (1990) for details of such barriers. Armour et al. (2007)
+document that U.S. shareholders seldom engage in litigation, and rarely succeed if they do; the
+same is true for the proxy fight mechanism. As Lowenstein (1988 p. 91) writes: “[Institutional
+investors] implicitly praise or criticize management, by buying or selling, but seldom get involved
+more directly, even to the extent of a phone call. There is almost no dissent from the Wall Street
+Rule.”
+                                                                                                     15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2484                             The Journal of FinanceR
+
+play in corporate governance, and thus justifying why they are so prevalent.6
+Moreover, the lack of large blockholders and consequent rarity of interven-
+tion may suggest that U.S. firms are poorly governed and that policy action is
+desirable. This paper offers an alternative perspective—blockholders can still
+exert governance even if they lack control rights. In addition to evidence on the
+barriers to intervention, there is also research on the real-life importance of
+governance through trading. The survey evidence of McCahery, Sautner, and
+Starks (2008) finds that institutions use “exit” more frequently than any other
+governance mechanism, and Parrino, Sias, and Starks (2003) document direct
+evidence of this channel.
+   The analysis of different governance mechanisms (exit vs. voice) leads to
+different results regarding the optimal block size for firm value and the effect
+of liquidity on governance. In a number of theories of voice, a larger block is
+always desirable as it increases monitoring and intervention incentives. Here,
+block size has a nonmonotonic effect on firm value. Trading profits depend
+not on block size per se, but on the amount sold upon bad news. If the block
+becomes too large, market liquidity declines and the blockholder cannot sell
+her entire stake. Because her potential trading profits are lower, she acquires
+less information, so prices are less efficient. This finite optimum is consistent
+with the paucity of large blockholders in the United States (La Porta, Lopez-
+de-Silanes, and Shleifer (1999)). Large stakes may not only be unnecessary for
+a blockholder to exert governance, but also undesirable.
+   The second difference from prior research concerns the desirability of liq-
+uidity. Motivated by several intervention theories, Bhide (1993) argues that
+because blockholders add value through voice, and voice and exit are mutu-
+ally exclusive, liquidity is harmful as it allows a shareholder to leave rather
+than intervene. In this paper, the blockholder adds value through “loyalty” to a
+fundamentally sound firm that suffers weak short-term earnings. Loyalty and
+exit are similarly mutually exclusive and so it may seem that liquidity is again
+undesirable because it allows shareholders to sell easily upon weak earnings,
+causing managers to focus excessively on earnings. Indeed, Porter (1992) and
+Thurow (1993) argue that the U.S.’s liquid markets deter long-run investment,
+potentially endangering the U.S.’s future international competitiveness. They
+advocate policies to reduce liquidity and thus create unconditionally long-run
+shareholders who never sell.
+   However, this paper shows that the mutual exclusivity of loyalty and exit
+paradoxically leads to complementarities between them. If a blockholder has
+retained her stake despite low earnings, this is a particularly positive indi-
+cator of fundamental value if she could easily have sold instead. In short, the
+power of loyalty relies on the threat of exit. The result that blockholders promote
+long-run behavior does not stem from simply assuming that blockholders are
+unconditionally long-run investors who never sell. Indeed, an investor’s loy-
+alty upon bad news is uninformative if market illiquidity prevented her from
+
+    6
+      Similarly, intervention models would imply little role for holders of nonvoting shares, even
+if they have large stakes. This paper shows that such investors can improve firm value by their
+trading behavior.
+                                                                                                     15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+        Blockholder Trading, Market Efficiency, and Managerial Myopia 2485
+
+exiting anyway. Instead, conditional loyalty and the threat of short-term sell-
+ing can, surprisingly, promote long-term investment. Far from exacerbating
+myopia, the liquidity of the U.S. capital allocation system may be a strength.
+This implication may explain why the above fears for the U.S.’s global competi-
+tiveness have not been borne out. Consistent with the model, Fang, Noe and Tice
+(2009) document a causal relationship between liquidity and firm performance,
+which arises because liquidity leads to greater price efficiency.
+   This result builds on Maug (1998), who overturned earlier papers arguing
+that liquidity is undesirable in an intervention setting by pointing out that
+they assume an exogenous block size. Maug shows that when block size is en-
+dogenous, liquidity is beneficial because it encourages a larger block to form
+in the first place. In the present paper, liquidity has a second benefit—it leads
+to increased liquid trading by these blocks, once formed. While such trading
+is harmful in an intervention framework (and so the benefits of liquidity stem
+entirely from their effect on initial block size), in an exit model it is the very
+mechanism through which the blockholder adds value. Hence, increasing liq-
+uidity from low levels is beneficial even if block size is exogenous and does not
+rise in response to greater liquidity.7 Here, liquidity is desirable not only be-
+cause it leads to larger blocks (Maug’s result), but also because it leads to more
+liquid trading by these blocks. This conclusion is potentially important because
+disclosure requirements or regulation may restrict block size from rising in re-
+sponse to liquidity (see, for example, Roe (1994)) and prevent the first benefit
+from being obtained. Indeed, in the United States, ownership is fragmented
+despite high liquidity, suggesting that these forces may be important. Even if
+this is the case, liquidity can be valuable.
+   While the paper’s main result is that blockholders can encourage investment,
+the corollary is that a key cost of the U.S.’s dispersed ownership is myopia. This
+leads to an additional policy implication. Previous papers argue that the main
+problem with atomistic shareholders is that they lack the control rights to in-
+tervene and thus allow the manager to shirk (e.g., Roe (1994)). In this case,
+potential solutions to dispersed ownership are equity compensation and regu-
+lations against takeover defenses. However, if the main cost is that dispersed
+shareholders lack information on fundamental value, focus on current earn-
+ings, and thus induce myopia, these policies exacerbate the issue. The prob-
+lem with small shareholders may not be so much the “separation of ownership
+from control” (Berle and Means (1932)) as the “separation of ownership from
+information.”
+   The paper closes with empirical implications. One set concerns stock price
+effects, and is unique to a model in which blockholders trade rather than inter-
+vene. While block size does not matter in standard microstructure theories, here
+it is positively correlated with an investor’s private information, trading prof-
+its, and price efficiency. Existing empirical studies typically use institutional
+ownership as a measure of investor informativeness, but the model suggests
+   7
+     When block size is exogenous, the optimal liquidity is finite because too much liquidity cam-
+ouf lages the blockholder’s trades and reduces price informativeness. With endogenous stakes, in-
+creasing liquidity is desirable even at high levels because block size increases with liquidity to
+prevent such camouf lage.
+                                                                                       15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2486                        The Journal of FinanceR
+
+that block size may be more relevant, because concentrated stakes are nec-
+essary to incentivize investors to gather information. Bushee and Goodman
+(2007) and Parrino, Sias, and Starks (2003) indeed find that larger sharehold-
+ers are more informed. More generally, the model suggests a shift in focus in
+the way we think about blockholders that can give rise to new directions for
+empirical research. Previous studies have been primarily motivated by percep-
+tions of blockholders as controlling entities and thus analyze private benefits
+(e.g., Barclay and Holderness (1989, 1991)), but new research questions may
+be motivated by conceptualizing them as informed traders and thus analyzing
+their effect on financial markets. (See Gallagher, Gardner, and Swan (2008)
+and Brockman and Yan (2009) for two recent such papers.) A second set re-
+lates to real effects: Blockholders should increase firm investment (Cronqvist
+and Fahlenbrach (2009)), and deter earnings manipulation (Dechow, Sloan,
+and Sweeney (1996), Farber (2005), Burns, Kedia, and Lipson (2008)). These
+predictions distinguish the model from theories where the blockholder solves
+managerial shirking or the pursuit of pet projects, rather than myopia.
+   Admati and Pf leiderer (2009) also analyze a blockholder who can only en-
+gage in exit rather than voice. Our papers focus on fundamentally different
+agency problems: While Admati and Pf leiderer analyze effort (broadly defined
+to incorporate both shirking and free cash f low problems), I study investment,
+in particular, whether it is deterred by liquid trading as commonly believed.
+While the effort conf lict may have been attenuated by recent increases in the
+manager’s sensitivity to the stock price, such changes further exacerbate my-
+opia. A second difference is that Admati and Pf leiderer assume that the block-
+holder is exogenously informed, and so the level of monitoring is fixed. This
+paper endogenizes costly information gathering and generates testable predic-
+tions regarding the effect of block size on monitoring and trading, and in turn
+market efficiency, real investment, and firm value. By contrast, Admati and
+Pf leiderer focus on the nature of the agency problem and derive the interesting
+result that while the blockholder always attenuates free cash f low problems,
+she sometimes exacerbates shirking.
+   The beneficial effect of ex post monitoring on ex ante investment is shared by
+Edmans (2009a). Debt concentrates equityholders’ stakes, incentivizing them
+to discover the cause of interim losses. Thus, debt can allow liquidation of an
+incompetent manager who suffers short-term losses, without simultaneously
+deterring skilled managers from long-term projects that risk such losses. While
+Edmans (2009a) is a theory of capital structure that assumes intervention, this
+paper is a theory of ownership structure in which the blockholder can only
+trade.
+   In Holmstrom and Tirole (1993), increased market efficiency allows prices
+to more accurately ref lect managerial effort, increasing the optimal sensitivity
+of pay to the stock price. In their model, monitoring is performed by atomistic
+shareholders and they do not consider blockholders as potential monitors—
+hence, blocks reduce price efficiency via their negative effect on liquidity. I show
+that blockholders may be particularly important monitors as they have the
+strongest incentives to gather the intangible information that is especially rel-
+evant for long-term investment. Without blockholders, the stock price primarily
+                                                                                         15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+       Blockholder Trading, Market Efficiency, and Managerial Myopia 2487
+
+
+
+            t=1                 t=2                             t=3
+            Public signal s ∈   Blockholder exerts              V is publicly revealed
+            {sg, sb} released   monitoring effort µ,
+                                receives signal i ∈ {ig, ib},
+                                and sells b ∈ [0, α]
+                                Liquidity traders demand
+                                u ~ exp(λ)
+                                Market maker observes d
+                                = b + u and sets P =
+                                E[V | d, s]
+
+Figure 1. Timeline of the model.
+
+ref lects publicly available current earnings. Thus, tying the manager’s pay to
+the firm’s stock price can induce myopia.
+    A final strand of related literature concerns insider trading by management,
+which can also increase financial and real efficiency (e.g., Manne (1966)). The
+blockholder is likely to be significantly more effective than the manager at
+impounding information into prices for several reasons. First, managers are
+constrained by insider trading laws, personal wealth (limiting purchases), or
+lock-ups of stock as part of incentive packages (limiting sales). Second, the man-
+ager may be conf licted because the stock price is used to evaluate him, and so
+may choose not to reveal negative private information by selling shares. Third,
+conf licts may also arise because the manager has control over the information
+f low and investment decisions (Bernhardt, Hollifield, and Hughson (1995)). He
+may release false negative (positive) information and subsequently buy (sell)
+shares, or sell his shares and take the incorrect investment decision. One pa-
+per that does analyze insider trading by the blockholder is Maug (2002), who
+shows that legalizing such actions can induce her to exit rather than engage in
+value-enhancing intervention.
+    This paper is organized as follows. Section I introduces the basic model, which
+links block size to financial efficiency. Section II presents the core result of the
+paper by introducing managerial decisions and illustrating the impact on real
+efficiency. Section III discusses empirical predictions and Section IV concludes.
+The Appendix contains all proofs not in the main paper.
+
+                   I. Blockholders and Market Efficiency
+  This section analyzes the effect of block size on monitoring and stock prices.
+The real consequences are studied in Section II, where managerial decisions
+are introduced.
+  I consider a firm with one share outstanding. A blockholder (B) owns α
+units and atomistic shareholders collectively own the remaining 1 − α units.
+All agents are risk-neutral and the risk-free rate is normalized to zero. There
+are three periods, summarized in Figure 1. At t = 1, a public signal s ∈ {sg , sb },
+such as an earnings announcement, is released. The signal is imperfectly in-
+formative about the firm’s fundamental value V, which is revealed at t = 3. If
+                                                                                                    15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2488                             The Journal of FinanceR
+
+s = sg , V = X > 0 with certainty; if s = sb , V = 0 or X with equal probability.
+I refer to a firm with V = X(0) as a “high (low)-quality firm;” s = sg is a “good
+signal” and s = sb is a “bad signal” (also referred to in the text as “losses” or
+“low earnings”).
+   At t = 2, B exerts monitoring effort µ ∈ [0, 1] at cost 12 cµ2 . Monitoring gives
+B a private signal i ∈ {ig , ib } of V, the precision of which rises with µ as follows:
+                                                        1 1
+                            Pr(i g | X ) = Pr(ib | 0) =   + µ
+                                                        2 2
+                                                         1 1
+                             Pr(i g | 0) = Pr(ib | X ) = − µ.
+                                                         2 2
+The posterior probabilities that the firm is of high quality are thus given
+by
+                                              1+µ
+                                 Pr(X | i g ) =
+                                               2
+                                                                                             (1)
+                                              1−µ
+                                 Pr(X | ib) =     = πb.
+                                               2
+   If µ = 0, private information is completely uninformative and the posterior
+equals the prior 12 ; if µ = 1, B knows V with certainty. There is then a round
+of trading. The blockholder either demands nothing (b = 0) or sells β units
+(b = −β); she sells if she receives signal ib and holds otherwise.8 I assume β ≤ α
+owing to short-sales constraints because this paper’s focus is nonintervention-
+ist financial blockholders such as mutual funds, pension funds, and insurance
+companies, the vast majority of which are unable to sell short. The model’s
+results continue to hold under nontrivial short-sales costs, as discussed in
+Section I.A.
+   Also at t = 2, liquidity traders demand u, where u is exponentially dis-
+tributed, that is,
+                                       
+                                         0 if u ≤ 0
+                               f (u) =
+                                         λe−λu if u > 0,
+
+where λ = ν(1−α)
+              1
+                  and ν ≤ 1 is a liquidity parameter. The competitive market
+maker sees total demand d = b + u and sets a price P equal to the conditional
+expectation of V given d and s, similar to Kyle (1985).
+   The parameter ν captures factors other than free f loat (1 − α) that affect
+liquidity, such as transaction costs, taxes, disclosure requirements, and other
+regulations. Since the mean liquidity trade is E(u) = 1λ , we have the standard
+
+   8
+     The core analysis involves the blockholder selling or holding, because this paper’s focus is
+the Wall Street Rule: the shareholder exit that is widely believed to exacerbate myopia. The re-
+sults are unchanged by allowing the blockholder to buy a fixed amount regardless of her initial
+stake. While the incentives to buy are unaffected by α, the ability to sell remains (nonmonoton-
+ically) increasing in α. Hence, overall profits from information, and thus monitoring incentives,
+remain nonmonotonically increasing in α. The results are in the Internet Appendix, available at
+http://www.afajof.org/supplements.asp.
+                                                                                                     15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+        Blockholder Trading, Market Efficiency, and Managerial Myopia 2489
+
+feature that the volume of liquidity trades is increasing in the amount held by
+small shareholders (1 − α), because liquidity trades often emanate from cur-
+rent investors. While liquidity trades are literally modeled as purchases, all
+of the model’s results continue to hold if the distribution of liquidity trades is
+transposed downwards, so that the bulk of such trades are sales. Because only
+current shareholders can sell the stock, there is a clear connection between
+free f loat and liquidity. This linkage remains under the literal interpretation
+of liquidity trades as purchases. Current shareholders are likely to be more in-
+formed about a particular stock than nonshareholders, and thus more likely to
+be purchasers if there is ambiguity aversion, or if nonshareholders do not know
+about the stock’s existence—see Merton (1987) for a model in which investors
+are restricted to buy stocks that they know about. In Bolton and von Thadden
+(1998), Kahn and Winton (1998), and Holmstrom and Tirole (1993), liquidity
+purchases also stem from existing owners.
+   The exponential distribution of u is a methodological step that allows B’s
+sale volume to be derived in closed form.9 (The key idea that block size affects
+the ability to sell on negative information, and thus monitoring incentives,
+does not depend on the functional form for u). Kyle (1985) achieves tractability
+with normal liquidity trader demand as firm value is also normal. In most
+corporate finance models featuring the Kyle model, firm value is binary and so
+the informed trader’s order cannot be solved for; such papers therefore typically
+restrict her trade to exogenous amounts. The exponential distribution in this
+paper allows her trade to be endogenously derived as a function of block size.
+
+
+A. Market Equilibrium
+   If signal sg is emitted, the market maker knows that the firm is of high quality,
+and so sets P = X. Because the signal is fully revealing, B has no incentives to
+monitor or trade. The remainder of this section focuses on the interesting case
+of s = sb , and so “| sb ” notation is omitted for brevity. Because the signal is not
+fully revealing, B does monitor and trade, and the market maker tries to infer
+B’s information from total order f low d.
+   Lemma 1 below presents the Nash equilibrium, where B’s trading and mon-
+itoring decisions are optimal given the market maker’s pricing function, and
+the market maker’s pricing function earns him zero profit given B’s decisions.
+I assume X ≤ 8c to ensure that effort does not exceed the maximum of one.
+
+LEMMA 1: Upon observing sb and total demand d, the market maker sets the
+following prices:
+                                  
+                                      P = πb X    if d ≤ 0
+                                                                                              (2)
+                                      P = πm X     if d > 0,
+
+
+  9
+    Barlevy and Veronesi (2000) also use an exponential distribution, but not to solve for trading
+volumes since informed traders always trade the maximum amount in their model.
+                                                                                                           15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2490                               The Journal of FinanceR
+
+where
+                                                   1 + e−λβ + µ(1 − e−λβ )
+                      πm = Pr(X | d > 0) =                                 .                        (3)
+                                                        2(1 + e−λβ )
+The blockholder exerts monitoring effort
+                                                    βX
+                                              µ=       .                                            (4)
+                                                    4c
+If and only if she observes signal ib , B sells
+                                                 
+                                              1
+                                   β = min      ,α .                              (5)
+                                              λ
+   A full proof is in the Appendix; here I summarize the key intuition. If d ≤ 0,
+the market maker knows that B has sold and thus has received ib . He therefore
+sets prices according to the posterior πb = Pr(X | ib ) in equation (1). On the
+other hand, d > 0 is consistent with both selling and not selling. In this case
+the market maker sets prices according to the posterior πm = Pr(X | d > 0) in
+equation (3). This gives rise to equation (2).
+   If B receives signal ib , she wishes to sell. As in Kyle (1985), in the absence of
+short-sale constraints, her optimal trade is finite ( 1λ ) as she is concerned with
+excessive price impact. With short-sale constraints, B is unable to sell more
+than α, her initial holding. If α ≤ 1λ , then β = α: Liquidity is sufficiently high
+that B finds it optimal to sell her entire stake.
+
+LEMMA 2: The maximum sale volume β is given by
+                                                       ν
+                                         β = α∗ =         .                                         (6)
+                                                      ν+1
+Blockholder effort µ is also maximized when α = α ∗ . Both β and µ are increasing
+in α if α < α ∗ , and decreasing in α if α > α ∗ .
+   For α < α ∗ , a larger initial stake raises the amount that B can sell upon nega-
+tive information, and thus the incentives to become informed in the first place.
+Simply put, the benefits of information are higher as B can make greater use
+of it. Empirical studies frequently assume that incentives to monitor and trade
+are increasing in block size.10 While intuitive, such a result is not delivered by
+standard models of informed trading with no constraints (e.g., Kyle (1985) and
+its variants). In these models, monitoring is independent of initial holdings: If
+an investor uncovers negative information about a stock she does not own, she
+can short sell. Similarly, in typical applications of the Kyle model to corporate
+finance, the informed party’s trade is restricted to exogenous amounts and thus
+independent of her stake. These restrictions arise either from assumed trading
+or wealth constraints (e.g., in Boot and Thakor (1993) and Fulghieri and Lukin
+
+  10
+     For example, Boehmer and Kelley (2009 p. 3590) assume that “a given institution will only
+acquire information on large ownership stakes.” Rubin (2007 p. 224) posits that “the probability
+that a particular institution will incur the costs to do so is higher if it enjoys a comparatively large
+ownership share.”
+                                                                                                      15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+        Blockholder Trading, Market Efficiency, and Managerial Myopia 2491
+
+(2001), the investor can only trade one unit), or because liquidity trades are dis-
+crete, forcing the informed party to match liquidity traders’ volumes to avoid be-
+ing revealed (e.g. Maug (1998), Bolton and von Thadden (1998), Faure-Grimaud
+and Gromb (2004)). This paper generates a link between α and µ via the com-
+bination of continuous liquidity trader demand, endogenous informed trader
+demand, and short-sales constraints. It thus provides a theoretical framework
+underpinning the above empirical assumption.11
+   However, a second consequence of a higher stake is that it reduces liquidity.
+If α > α ∗ , liquidity is sufficiently low that B chooses to sell only 1λ if she receives
+signal ib . Further increases in α reduce liquidity and thus the optimal trading
+volume 1λ ; because B expects to trade less on information, she has fewer incen-
+tives to gather information. The optimal block size to maximize information
+acquisition is therefore finite at α ∗ .
+   If B can short-sell at a cost (as is the case for hedge funds), it remains the case
+that increasing α from zero augments β and µ, as long as the cost is sufficiently
+nontrivial that the reduction in short-sale costs that results from raising α out-
+weighs the negative effect on liquidity; the results are in the Internet Appendix.
+A higher initial stake increases the profits from selling on private information,
+because B can costlessly unwind a long position rather than engage in costly
+short-sales. Hence, B has greater incentives to acquire private information. As
+in the core model, once α is sufficiently large, further increases in α lower β
+and µ because the negative effect on liquidity dominates, so the relationship is
+again concave.
+   Equity analysts are also potential monitors and can move prices without
+trading. The activity of equity analysts (and other hedge funds) is captured
+in the parameter c. This is B’s cost of acquiring private information not al-
+ready in the market and is therefore inversely related to the firm’s information
+asymmetry. If analyst and hedge fund activity is high, most value-relevant in-
+formation is already in the market price and the cost of acquiring incremental
+information is large. Section II demonstrates that this reduces the blockholder’s
+value added.
+   It is straightforward to show that B does not sell (hold) upon receiving ig (ib ).
+Selling in the absence of negative private information would drive the price
+down and reduce her portfolio value at t = 2 as well as t = 3. Hence, even a
+blockholder concerned with interim performance (e.g., a fund manager evalu-
+ated by investors) will not sell purely on public information.
+
+
+B. Market Efficiency
+    This section analyzes the relationship between block size and price efficiency.
+A high-quality firm has a ( 12 + 12 µ) chance of emitting signal ig , in which case
+B does not sell and the price is πm X. It has a ( 12 − 12 µ) chance of emitting signal
+ib , in which case B sells. If u ≤ β (which occurs with probability 1 − e−λβ ), then
+  11
+     In Van Nieuwerburgh and Veldkamp (2009), monitoring does increase in the investor’s holding,
+but because she is risk-averse and wishes to reduce uncertainty, rather than because a larger block
+expands the set of feasible trading strategies.
+                                                                                                       15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2492                              The Journal of FinanceR
+
+d ≤ 0 and the price is πb X. Otherwise the price is πm X. Hence, the expected
+price of a high-quality firm is
+
+                                        E[P | X ] = X π X ,
+
+where the expectation is taken over the possible realizations of i and u, and
+                                                    
+               1 1          1 1        −λβ          1 1
+        πX =     + µ+         − µ e          πm +    − µ (1 − e−λβ )πb
+               2 2          2 2                     2 2
+                                 
+             1       1 − e−λβ
+           =      µ2          + 1   .                                        (7)
+             2       1 + e−λβ
+I use πX as a measure of market efficiency as it captures the closeness of ex-
+pected prices to fundamental value.12 If πX = 1, price equals fundamental value
+and the market is fully efficient. As πX declines, the expected price of the high-
+quality firm falls from its fundamental value of X.
+PROPOSITION 1 (Market Efficiency): Market efficiency πX is maximized at α = α ∗ .
+It is increasing in α for α < α ∗ , and decreasing in α for α > α ∗ .
+Proof: If α < α ∗ , then β = α. Differentiating equation (7) with respect to α
+gives
+                                             αλ −λα
+                                       µ2        e
+                 ∂π X     µ2 λe−λα         1 −α           1 − e−λα ∂µ
+                      =              +                + µ              .                        (8)
+                  ∂α    (1 + e−λα )2     (1 + e−λα )2    1 + e−λα ∂α
+                                           
+                            trading effect   camouflage effect     effort effect
+
+  The “trading effect” is the direct impact of α. It is positive if and only if
+α < α ∗ because an increase in α raises the amount sold by B upon negative
+information. Simply put, if B trades more, her trading (or nontrading) impounds
+more information into prices.
+  The “camouf lage effect” operates indirectly through α decreasing liquidity.
+Because liquidity camouf lages B’s trades, this effect is positive for all levels of
+α, as a fall in liquidity increases her effect on prices.
+  The “effort effect” operates indirectly through α affecting µ. This effect is
+positive if and only if ∂µ
+                         ∂α
+                             > 0, that is, α < α ∗ . Increased effort leads to B receiving
+a more informative signal. Her trades thus convey greater information about
+V. Overall, if α < α ∗ , all three effects are positive, and so an increase in α raises
+market efficiency.
+  If α > α ∗ , then β = 1λ . Differentiating with respect to α gives
+
+                                      ∂π X    1 − e−1 ∂µ
+                                           =µ            .                                      (9)
+                                       ∂α    1 +e ∂α
+                                                   −1
+
+                                                 effort effect
+
+
+   12
+      Note that the price is always efficient in the sense of equaling fundamental value conditional
+upon an information set. However, when α rises, this information set is richer and so prices are
+closer to (unconditional) fundamental value.
+                                                                                                           15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+         Blockholder Trading, Market Efficiency, and Managerial Myopia 2493
+
+   From Lemma 2, the trading effect is negative, as liquidity is sufficiently low
+that B only sells 1λ , which is decreasing in α. The negative trading effect exactly
+cancels out the positive camouf lage effect. This leaves the effort effect, which
+is negative from Lemma 2. Q.E.D.
+
+   Even considering only the benefits of blockholders and ignoring their costs,
+the optimal block size for market efficiency is a finite level, α ∗ . (Section II
+shows that the α that maximizes market efficiency also optimizes firm value.)
+This result contrasts with some intervention models such as Shleifer and
+Vishny (1986), Maug (1998), and Kahn and Winton (1998), where firm value is
+monotonically increasing in block size.13 In this model, it is not block size per
+se that matters, but the associated optimal trading volume: Prices are a func-
+tion not of α, but of min( 1λ , α). A large block increases information revelation
+only to the extent that there is sufficient market liquidity to allow it to be sold
+entirely. Put differently, the fact that B has not exited is less of a positive boost
+to the stock price if exit was difficult in the first place. This finite optimum is
+consistent with the finding that, while blockholders are common in the United
+States (Holderness (2009)), substantial blockholders are rare (La Porta, Lopez-
+de-Silanes, and Shleifer (1999)).
+   In reality, other market participants may be able to observe blockholders’
+sales with a lag by studying Section 13 filings. This would strengthen B’s impact
+on market efficiency. Because sales are only observed with a lag, B’s profits from
+informed selling are unchanged. However, her price impact is greater: After the
+filing is made, the price moves even closer to fundamental value because the
+market can now observe the trade directly.
+
+
+                  II. Blockholders and Long-Term Investment
+   The previous section links blockholders to increased financial market effi-
+ciency. This section demonstrates that the latter can in turn augment real effi-
+ciency by addressing the potentially important myopia issue. I thus illustrate a
+social benefit for information gathering that is motivated purely by the private
+desire to profit from informed trading.
+   The model is extended to allow for managerial decisions. The risk-neutral14
+manager (M) places weight ω on the t = 2 stock price and 1 − ω on the t =
+3 firm value, where 0 < ω < 1. Because this paper focuses on the solution to
+myopia rather than its cause, the concern with the current stock price (ω > 0)
+is taken as exogenous. This is a standard assumption in the literature and can
+
+   13
+      Holmstrom and Tirole (1993) and Bolton and von Thadden (1998) also derive a nonmonotonic
+effect of block size. In their models, market efficiency is maximized with a zero block. They de-
+rive finite optimal block sizes as they trade off market efficiency against, respectively, monitoring
+costs and intervention. In this paper, the optimal block size is finite even focusing on market ef-
+ficiency alone. Burkart, Gromb, and Panunzi (1997) derive a finite optimal block size as too large
+a block can erode managerial initiative. In Pagano and Röell (1998), too large a block can lead to
+overmonitoring.
+   14
+      Introducing managerial risk aversion would strengthen the results because the blockholder
+reduces the variance in the price of a high-quality firm that emits sb , as well as increasing its mean.
+                                                                                                            15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2494                               The Journal of FinanceR
+
+be motivated by a number of underlying factors, such as takeover threat (Stein
+(1988)), concern for managerial reputation (Narayanan (1985), Scharfstein and
+Stein (1990)), or the manager expecting to sell his own shares at t = 2 (Stein
+(1989)).15
+  At t = 0, the manager of a high-quality firm can invest in a long-term project
+that unambiguously increases fundamental value, but risks low interim earn-
+ings. The most natural example is intangible investment that is expensed and
+thus difficult to distinguish from losses made by a low-quality firm. Let θ ∈ [0, 1]
+denote the amount of investment. Investment of θ boosts the firm’s t = 3 value
+to V = X + gθ, but risks emitting sb at t = 1 with probability θ 2 (otherwise, sg is
+emitted). The parameter g measures the productivity of the investment project.
+The choice of θ does not involve a personal utility cost to M: There is no stan-
+dard effort conf lict. The availability of this investment project is not known to
+the market maker nor to B, to emphasize the fact that B can induce M to ex-
+ploit growth opportunities even if she is unaware of their existence (in contrast
+with intervention models). In reality, new investment opportunities that were
+previously unforeseen frequently become available to managers. The Internet
+Appendix shows that the results continue to hold if θ is anticipated.
+  At t = 0, the manager of a high-quality firm chooses θ to maximize
+
+                        (1 − ω)(X + g θ ) + ωθ 2 π X X + ω(1 − θ 2 )X .                            (10)
+
+  The first term is firm value, multiplied by its weight in the objective function.
+The stock price is X if sg is emitted, which occurs with probability (1 − θ 2 ), else
+πX X. This gives rise to the second and third terms.
+LEMMA 3: The manager chooses investment level θ given by
+                                                
+                                   1−ω g
+                     θ = min                  ,1 .                                                 (11)
+                               2ωX 1 − π X
+
+If θ < 1, it is increasing in g and πX , and decreasing in X and ω.
+   The amount of long-term investment is naturally increasing in its productiv-
+ity g, and decreasing with the cost of emitting sb . The latter is positively related
+to the difference in value between high- and low-quality firms X, and M’s con-
+cern for the current stock price ω. Note that myopia is rational: The stock price
+falls upon sb because it may have been emitted by a low-quality firm; given the
+risk of this decline, M optimally sets θ below its first-best level of one.
+   Investment increases with πX because greater market efficiency means that
+prices more closely ref lect fundamental value. Because πX in turn depends on
+α, investment depends on block size. Indeed, taking first-order conditions of
+equation (11) with respect to α and calculating cross-partials with respect to
+g, c, and ω leads to Proposition 2 below, the main result of the paper.
+
+  15
+    Even if the manager’s sole objective is to maximize long-run shareholder value, he will care
+about the stock price as it affects the terms at which the firm can raise equity at t = 2 (Stein (1996)).
+                                                                                             15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+       Blockholder Trading, Market Efficiency, and Managerial Myopia 2495
+
+                                                                              −1
+PROPOSITION 2 (Investment): Define X 1 = (1−ω)    ω
+                                                     g
+                                                         and X 2 = (1−ω)
+                                                                       ω
+                                                                         g 1+e
+                                                                            2e−1
+                                                                                 . For all
+X, investment θ is weakly increasing in πX . It is therefore maximized at α = α ∗ ,
+weakly increasing in α for α < α ∗ , and weakly decreasing in α if α > α ∗ . If
+X ≥ X2 , these directional effects are strict and θ is uniquely maximized at α = α ∗ .
+If X ≤ X1 , M invests efficiently (θ = 1) regardless of πX and thus α.
+                                                              ∂θ
+   The magnitude of the block-sensitivity of investment | ∂α     | is weakly increasing
+                                                     ∂ θ
+                                                       2
+                                                                 ∂2θ              ∂2θ
+in g and weakly decreasing in c and ω, that is, ∂α∂ g ≥ 0, ∂α∂c       ≤ 0, and ∂α∂ω   ≤0
+                   ∂ θ        ∂ θ            ∂ θ
+for α < α ∗ and ∂α∂                              ≥ 0 for α > α ∗ .
+                   2          2               2
+
+                      g
+                        ≤ 0, ∂α∂c ≥ 0, and ∂α∂ω
+   The central result of this paper is that blockholders can add value, even
+in the absence of an underlying effort conf lict and the ability to intervene.
+By engaging in informed trading to maximize their own speculative profit,
+they can promote long-term investment. For α < α ∗ , increasing block size raises
+market efficiency πX (Proposition 1) and thus makes the price more closely
+ref lect fundamental value. From equation (11), a higher πX in turn augments
+real efficiency: The manager is more willing to undertake positive-NPV long-
+term investment projects that risk interim turbulence because the stock price
+fall upon short-term losses is attenuated.
+   While Proposition 2 shows that sizable shareholders promote investment,
+the corollary is that a key cost of dispersed ownership is that it magnifies
+myopia. This cost contrasts with the shirking traditionally focused upon (e.g.,
+Roe (1994)) and has different policy implications. If effort is the main problem,
+equity compensation and a more active takeover market are potential solutions.
+However, if myopia is the principal issue, such measures make it worse.
+                                                             ∂θ
+   The beneficial effect of a blockholder on investment, ∂α     , is decreasing in c and
+thus increasing in information asymmetry. Where information asymmetry is
+high, there is more information for B to impound into prices so she has a greater
+incremental effect. The blockholder’s impact is also increasing in the profitabil-
+                                        ∂2θ
+ity of investment g up to a point ( ∂α∂    g
+                                             > 0): If the investment is unattractive,
+it will be little exploited even if B makes prices relatively efficient. However, if
+                                                       ∂θ
+g is sufficiently high that X ≤ X1 , θ = 1 ∀α and ∂α      = 0: The investment oppor-
+tunity is sufficiently attractive that M pursues it fully even in the absence of
+a blockholder. In a similar vein, the impact of higher block size is greatest for
+moderate levels of ω. If M is greatly concerned with interim performance, he
+                                                                       ∂2θ
+will still underinvest even in the presence of a blockholder ( ∂α∂ω        < 0). On the
+other hand, if the stock price is a minor concern (X ≤ X1 ), M invests efficiently
+in the first place.
+
+A. Does Liquidity Deter Investment?
+   The previous section studies the optimal α for firm value, holding liquidity
+constant. This section now examines the effect of liquidity ν on investment. I
+first assume that α is exogenous and show that increasing ν boosts investment
+at low levels, but reduces it at high levels. Next, I allow α to be endogenously
+chosen by the blockholder in response to liquidity, in order to maximize her
+total payoff. In this case, increasing ν always boosts investment.
+                                                                                                        15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2496                              The Journal of FinanceR
+
+                                 A.1. Exogenous Block Size
+PROPOSITION 3 (Liquidity, Exogenous Block Size): Holding α constant, market
+                                                  α
+efficiency and investment are maximized at ν ∗ = 1−α . They are increasing (de-
+                            ∗
+creasing) in ν for ν < (>) ν .
+
+   From Proposition 2, investment is increasing in market efficiency. Market
+efficiency in turn depends on two factors: how much information B gathers,
+and the extent to which this information is incorporated into prices. While liq-
+uidity increases information gathering by augmenting trading profits, it also
+camouf lages B’s trades and reduces their price impact. For low (high) levels of
+efficiency, the first (second) effect dominates. If there is zero liquidity, B does
+not trade or monitor; if liquidity is infinite, she does not affect prices. The non-
+monotonic effect of liquidity contrasts with previous papers such as Holmstrom
+and Tirole (1993) and Faure-Grimaud and Gromb (2004), where augmenting
+liquidity always increases stock price informativeness. There is no camouf lage
+effect in those papers as the informed investor’s trades are unbounded; here,
+B’s maximum sale is capped at α due to short-sales constraints.16
+   As summarized by Bhide (1993), liquidity is undesirable in most previous
+papers, where block size is exogenous and the blockholder chooses between in-
+tervention and intentional exit.17 In such papers, the blockholder adds value
+through voice; because voice and exit are mutually exclusive, liquidity hinders
+the former by facilitating the latter. Here, the blockholder adds value by re-
+taining her stake through interim turbulence, increasing investment ex ante.
+Because loyalty and exit are similarly mutually exclusive, it might seem that
+liquidity is again undesirable as it encourages exit and thus deters loyalty.
+This is indeed the conventional wisdom: Liquidity allows shareholders to sell
+upon weak earnings, and thus makes managers even more concerned with earn-
+ings. A number of commentators (e.g., Porter (1992), Thurow (1993)) argue that
+the U.S.’s liquid capital markets hinder long-term investment, and hence have
+called for policy intervention to reduce liquidity.
+   This paper shows that, even holding α exogenous, increasing liquidity from
+low levels can promote investment, and thus has very different policy impli-
+cations. Although loyalty and exit are indeed mutually exclusive, this leads
+to complementarities between them. The power of loyalty relies on the threat
+of exit. By making exit more feasible, increased liquidity renders loyalty more
+meaningful. In this model, the blockholder does not promote investment simply
+by being a “long-term” investor who never sells; by contrast it is the possibility
+
+   16
+      Some previous blockholder models (where α is not chosen by B) also conclude liquidity is
+not unambiguously desirable. In Kahn and Winton (1998), liquidity has no effect, rather than a
+nonmonotonic effect. Bolton and von Thadden (1998) do feature an optimal level of liquidity. This
+arises because greater liquidity means a lower stake: In their paper, liquidity is (1 − α), so higher
+liquidity can only be achieved by a lower α, which reduces intervention and thus firm value. In this
+paper, liquidity is ν(1 − α), where ν captures factors that affect liquidity unrelated to free float.
+The model shows that there is an optimal ν, even if α is constant.
+   17
+      Faure-Grimaud and Gromb (2004) demonstrate that liquidity encourages intervention as it
+allows the stock price to ref lect these value gains and thus the blockholder to earn a return if she
+has to exit unexpectedly, due to a liquidity shock. In their model, exit is not intentional.
+                                                                                                           15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+         Blockholder Trading, Market Efficiency, and Managerial Myopia 2497
+
+of selling in the short-run that encourages the manager to make long-term de-
+cisions. Indeed, if market illiquidity compelled the blockholder always to hold
+for the long run, she has no effect on stock prices and investment. The fact that
+she has not sold upon bad news is uninformative if she was unable to sell in
+the first place.
+   This result marks an important distinction from intervention models. If the
+blockholder has no control rights, allowing her to sell in the short term is benefi-
+cial for firm value as it can promote investment. By contrast, if the blockholder
+is interventionist, the possibility of short-term selling may induce her to step
+in and force the manager to undertake myopic decisions. Therefore, not only
+is it unnecessary for blockholders to have control rights in order to exert gov-
+ernance, but it may also be undesirable: To the extent that blockholders have
+short-term considerations, they may add more value to the firm if they lack
+control rights.
+   A short-term blockholder without control rights might try to induce myopia
+by threatening to punish the manager by selling her stake if earnings are low
+(because of investment). However, such a threat is not credible as it is dynami-
+cally inconsistent: Once the firm announces low earnings, they are immediately
+incorporated into the stock price, and so the blockholder cannot profit by selling.
+Opponents of liquidity argue that it allows shareholders to sell upon interim
+losses, but this view lacks a theoretical framework to explain why investors
+would sell upon weak earnings. In an efficient market, the stock price reacts
+immediately to public information such as low earnings, removing the incentive
+to exit. Since investors can only profit by trading on private information, trading
+is desirable as it impounds such information into the stock price—particularly
+if the trader has a sizable stake and so is likely to have engaged in fundamental
+analysis. Indeed, Yan and Zhang (2009) show empirically that investors who
+trade frequently are better informed than those who rarely trade. Moreover,
+the stocks that they own do not exhibit long-run reversals, which is inconsis-
+tent with the view that they encourage short-termism. The frequent trading
+observed in the United States may thus be a positive sign, as it suggests that
+information is being impounded into prices.
+
+                                 A.2. Endogenous Block Size
+   Thus far, the analysis has focused on the normative issue of the block size
+that maximizes firm value, α ∗ . I now turn to the positive question of which
+block size is most likely to be observed empirically. While the firm may be able
+to inf luence α temporarily (e.g., by privately placing equity with a blockholder),
+B can trade away from this initial stake. The only initial block size that is robust
+to re-trade is the private optimum, αP∗ , that maximizes B’s trading profits net
+of monitoring costs. This would also be the block size that B would choose if she
+bought shares at t = 0 and her purchase was unobserved.18 (After the purchase,
+α becomes publicly known through Section 13 filings.)
+   18
+      In Kyle and Vila (1991), the blockholder camouflages her purchase by trading with liquidity
+investors. In their model, this leads to an additional benefit of liquidity—it facilitates initial block
+acquisition.
+                                                                                                             15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2498                                The Journal of FinanceR
+
+  I now characterize this private optimum. If B owns α, her expected gross
+trading profits are given by
+                                            1
+                              (α) = Pr (sb) βe−λβ X (πm − πb) .
+                                            2
+The first term is the probability that sb is emitted19 and the second is the
+probability that B receives signal ib , in which case she sells β. With probability
+e−λβ , u > β and so B’s information is not revealed to the market; she earns
+X(πm − πb ) per unit. Her expected monitoring costs are given by
+
+                                                          β2 X 2
+                                       (α) = Pr (sb)            ,
+                                                           32c
+and so her objective function is
+                                                                            
+                                           Pr (sb) X 2 2          e−λβ     1
+                       (α) − (α) =                  β                  −     .                    (12)
+                                               8c               1 + e−λβ   4
+  Proposition 4 below states that both αP∗ and θ are monotonically increasing
+in ν.
+PROPOSITION 4 (Liquidity, Endogenous Block Size): The privately optimal block
+size αP∗ is strictly less than the firm value optimum α ∗ , and monotonically in-
+creasing in liquidity ν. Allowing for the endogeneity of block size, investment θ
+is monotonically increasing in ν.
+
+   Two forces reduce αP∗ below α ∗ . First, a larger block size augments monitoring
+costs, which the blockholder bears but are absent from the firm’s objective func-
+tion. Second, a larger block reduces liquidity and thus trading profits, which are
+also absent from the firm’s objective function. By contrast, a decrease in liquid-
+ity has a direct positive effect on firm value through weakening the camouf lage
+effect.
+   When α is exogenous, investment is concave in liquidity: Too high liquid-
+ity camouf lages B’s trade, which is capped at α. When α is endogenous, the
+camouf lage effect is attenuated because α rises with liquidity—higher ν allows
+B to trade more, and thus she chooses a higher block. Hence, investment is
+now monotonically increasing in liquidity. This result echoes Maug (1998), who
+also shows that liquidity is always desirable when α is endogenous. However,
+our results for exogenous α are different. In Maug (1998), if α is exogenously
+high20 , augmenting liquidity reduces firm value (even if liquidity is currently
+low), and so the benefits of liquidity operate entirely through its effect on initial
+
+    19
+       If q is the proportion of high-quality firms in the economy and r is the probability that a
+high-quality firm emits sb , then Pr(sb ) = 1 − q + qr. Because Pr(X | sb ) = 1−q+qr
+                                                                                qr
+                                                                                     = 12 , r = 1−q
+                                                                                                 q
+                                                                                                    and so
+Pr(sb ) = 2 − 2q.
+    20
+       In Maug (1998), liquidity is undesirable if α is exogenous and exceeds cM /(H − L), where cM
+is the cost of intervention, and H − L is the gain in firm value from intervening. This condition is
+independent of liquidity, and so if α is sufficiently high, raising liquidity can be harmful even if it
+is initially low. In this paper, raising liquidity from low levels is always beneficial.
+                                                                                        15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+       Blockholder Trading, Market Efficiency, and Managerial Myopia 2499
+                                                                                  α
+block formation. In this paper, increasing liquidity from low levels (if ν < 1−α    )
+unambiguously increases firm value, even if α is exogenous.
+   In sum, there are two effects of greater liquidity. First, as Maug (1998) shows,
+it leads to larger blocks. Second, it induces increased liquid trading by these
+blocks. In Maug’s model, when α is exogenously high, so liquidity only leads to
+liquid trading, increasing ν is undesirable because it deters blockholder inter-
+vention. By contrast, as discussed in Section II.A.1, in this paper liquid trading
+alone can be beneficial. Hence, liquidity has benefits other than its positive ef-
+fect on initial block size first shown by Maug. The key to this result is that liquid
+trading is the very mechanism through which the blockholder adds value, so it
+is not achieved in intervention models.
+   The result that liquidity can be desirable even when α is exogenous is po-
+tentially important because legal or institutional factors may deter B from
+endogenously changing α in response to greater liquidity, and thus the first
+benefit from being obtained (see, for example, Roe (1994)). For example, certain
+shareholders choose to hold fewer than 5% of a firm’s shares to avoid triggering
+a Section 13(d) filing, or hold fewer than 10% to avoid being classified as an
+insider. In the United States, ownership is fragmented despite high liquidity,
+suggesting that these forces may be important. This paper shows that liquidity
+can be desirable even if it does not lead to Maug’s advantage of more concen-
+trated ownership.
+
+
+B. Further Applications
+  In the general model, θ is any action that boosts fundamental value but risks
+emitting sb . Thus far, θ has been interpreted as intangible investment and sb
+as short-term losses, but there are many additional applications. Signal sb is
+any observable characteristic that reduces outsiders’ assessment of firm value
+because it is also consistent with a low-quality firm. Therefore, θ can represent
+fully observable investment for which the motive or quality is unknown. The
+fundamental problem with investment is that the associated expenditures are
+difficult to interpret, even if they are fully visible. While R&D can be reported
+separately on the income statement and atomistic shareholders can costlessly
+observe it, they do not know whether a rise in R&D results from managerial
+excess (bad news about agency costs), the need to compensate for failed past
+R&D efforts (bad news about operating costs), or efficient exploitation of new
+growth opportunities (good news). Upon observing significant investment for
+which the motive is unclear, B will gather information and trade accordingly.
+  Low θ can also represent the pursuit of myopic actions that temporarily
+boost outsiders’ perceptions, such as accounting manipulation, fraud, or “milk-
+ing” customer reputation through lowering product or service quality. Johnson,
+Ryan, and Tian (2009) document a significant correlation between corporate
+fraud and unrestricted stock compensation, and Peng and Röell (2008) find
+that vested options encourage executives to manipulate earnings. Because the
+manager can sell unrestricted stock and exercise vested options immediately,
+such compensation increases ω and thus reduces θ . Allowing the manager of a
+low-quality firm to undertake a value-destructive action that gives a probability
+                                                                                      15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2500                        The Journal of FinanceR
+
+of yielding sg (so that sg is also imperfectly informative) would reinforce the re-
+sults of the core model. The presence of a blockholder reduces the manager’s
+ability to deceive the market about his firm’s quality, even in the short run.
+
+
+                         III. Empirical Implications
+   This paper’s broad objective is to demonstrate that blockholders can add value
+even if they are unable to intervene, which potentially explains the prevalence
+of small blockholders in the United States. While the model also generates a
+number of more specific empirical implications, it must be stressed that there
+are significant challenges in testing them. First, the key variable (block size) is
+endogenous, as shown in Section II.A.2. Therefore, it is insufficient simply to
+document significant correlations between block size and an outcome variable.
+To show that blockholders have the effects predicted in the model, it is necessary
+to identify sources of exogenous variation in block size. Second, empirical tests
+will need to take into account the model’s specific setting, for example, exclude
+inside blockholders and blockholders who rarely trade on information (such as
+families or index funds), and focus on situations where short-sales costs are
+nontrivial.
+   The implications are divided into three broad themes: the effect of block-
+holders on financial markets, on firm behavior, and on firm value. I commence
+with the first category. In this model, blockholders exert governance by being
+informed traders, which in turn leads to four predictions—they have superior
+information; their trades impound information into market prices; they earn
+trading profits; and their presence increases market efficiency. Moreover, the
+magnitude of these effects should be concave in block size. These predictions are
+unique to a framework where blockholders add value through trading, rather
+than intervention, and where information acquisition depends endogenously
+on block size. In standard models of informed trading (e.g., Kyle (1985)), block
+size has no effect on information acquisition incentives. Blockholders thus gen-
+erate no excess returns, and their sales are no more informative than any other
+investor’s trades. Owing to the short-sales constraint introduced by this pa-
+per, private information is increasing in block size (up to a point). Bushee
+and Goodman (2007) find that the private information content of an institu-
+tional investor’s trade is indeed increasing in her stake, and Hef lin and Shaw
+(2000) and Rubin (2007) document that ownership concentration depresses liq-
+uidity as other market participants fear informed trading losses. More gen-
+erally, the paper suggests that ownership concentration may be a more accu-
+rate measure of investor informedness than total institutional ownership. The
+latter plausibly measures the potential to obtain information (because institu-
+tions have the expertise to conduct fundamental analysis), but concentrated
+stakes are necessary to incentivize them to undertake such analysis. If institu-
+tional ownership is high but dispersed, shareholders may not bear the costs of
+monitoring.
+   The second prediction is that, owing to blockholders’ superior information,
+their sales should convey negative news and depress the stock price (un-
+less these sales are motivated by noninformational reasons, considered later).
+                                                                                                          15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+         Blockholder Trading, Market Efficiency, and Managerial Myopia 2501
+
+Scholes (1972) and Mikkelson and Partch (1985) show that the negative stock
+price reaction to secondary block distributions is due to information, rather
+than a sudden increase in supply or a reduction in expected blockholder
+monitoring. Mikkelson and Partch (1985) further find that the negative price
+impact is increasing in the size of the block sold but not the blockholders’
+initial stake. This result supports the model’s prediction that it is the amount
+traded that matters, not α per se.21 Sias, Starks, and Titman (2006) show that
+the positive correlation between institutional ownership changes and stock
+returns is causal, rather than institutions predicting future returns, or follow-
+ing short-term momentum strategies and responding to past returns. Moreover,
+they demonstrate that the price changes result from information, rather than
+liquidity or supply effects. All of these papers therefore provide additional sup-
+port for the first prediction, that blockholders have superior information.
+   Although blockholders move prices, the third prediction is that they still earn
+trading profits as the stock price is only partially revealing. Indeed, Parrino,
+Sias, and Starks (2003) show that blockholders sell in advance of forced CEO
+turnover (a sign of low fundamental value), and that long-horizon returns are
+negative after such sales. Institutions with larger positions sell to a greater
+degree, implying they are better informed. Chen, Harford, and Li (2007) find
+that large shareholders sell in advance of value-destructive mergers. Gallagher,
+Gardner, and Swan (2008) demonstrate that frequent trading by blockholders
+is profitable. Again, these papers also provide support for the first prediction
+of superior information.
+   The fourth prediction is generated by Proposition 1, which predicts that price
+efficiency is concave in block size. Unlike the second prediction, this impli-
+cation concerns the mere presence of blockholders rather than their actual
+trades. Brockman and Yan (2009) find that stocks with higher block ownership
+contain greater firm-specific information, as evidenced by a higher probabil-
+ity of informed trading, higher idiosyncratic volatility, and low synchronicity
+with the market. Also consistent with the model, these effects do not exist for
+blockholders who are employee share ownership plans (ESOPs), which likely
+do not trade on information. Amihud and Li (2006) find that the price reac-
+tion to dividends is decreasing in institutional ownership (which is typically
+highly correlated with blockholdings); their interpretation is that institutional
+investors have already gathered and traded upon the information that would
+be conveyed by the dividend change. Event-drift is another measure of price
+efficiency: Bartov, Radhakrishnan, and Krinsky (2000) find that post-earnings
+announcement drift is lower in the presence of greater institutional ownership,
+which is consistent with the view that institutions impound earnings informa-
+tion faster into prices. Such correlations need not imply causation; inefficient
+prices could attract blockholders as the potential for trading profits is higher.
+Boehmer and Kelley (2009) document a causal positive relationship between
+institutional ownership and price efficiency. Both institutional trading and the
+
+   21
+      Block size per se would matter if blockholders’ superior information arises because their control
+rights grant them preferential access to information. In this paper, superior information arises from
+greater incentives to gather it, which depend on the expected amount traded.
+                                                                                                 15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2502                            The Journal of FinanceR
+
+level of institutional holdings (in the absence of trading) are associated with
+efficiency. This result is consistent with the model because blockholders can
+increase price efficiency either by trading on bad news, or not trading on good
+news.
+   The second category of predictions concerns the effect of blockholders on firm
+behavior, and are more challenging to test. Proposition 2 predicts that invest-
+ment is concave in block size. The primary interpretation of θ is intangible in-
+vestment, which presents empirical difficulties. Blockholders are particularly
+valuable in promoting unobservable investment, but such investment will also
+be invisible to the empiricist. A potential indirect measure is Tobin’s q, which
+measures the capitalized value of growth opportunities. Moreover, as explained
+in Section II.B, θ can also represent observable investment. While the total
+quantity of R&D and capital expenditure can be verifiably communicated in
+financial statements, its quality cannot be. Although CEOs can disclose the
+amount of investment, they still perceive strong disincentives to invest (Gra-
+ham, Harvey, and Rajgopal (2005)) because atomistic shareholders cannot dis-
+tinguish productive investment from wasteful expenditure. Even if the produc-
+tivity of investment is observable, it may not be incorporated by the market if it
+is intangible, as shown by Edmans (2009b). Indeed, Lee and O’Neill (2003) and
+Baysinger, Kosnik, and Turk (1991) find a positive correlation between own-
+ership concentration and R&D. While R&D is an input measure, patents are
+an output measure and thus more closely related to the quality of investment.
+Lee (2005) finds a positive correlation between ownership concentration and
+patents in the United States. Atanassov (2008) shows that blockholders reduce
+the negative impact of antitakeover legislation on patent citations.22 By con-
+trast, Anderson, Duru, and Reeb (2009) find that founder and heir blockholders,
+who unlikely to engage in exit, are associated with lower R&D.
+   However, α is endogenous and may itself be determined by R&D, or a third
+unobservable variable may have a causal effect on both variables. For example,
+a firm with high R&D may also have significant uncertainty, increasing the
+potential for informed trading profits and attracting blockholders. Thus, the
+above cross-sectional correlations can only be interpreted as tentative support
+for the model. Because the empirically chosen α is likely to be the one chosen
+by the blockholder, appropriate instruments will be those that shift the pri-
+vate optimum but are unrelated to R&D. Examples include a negative liquidity
+shock, a sudden increase in surplus cash (from the sale of other holdings or in-
+vestor inf lows), temporary stock underpricing, a change in management at the
+blockholder, or a change in regulation. Cronqvist and Fahlenbrach (2009) use a
+time-series approach, tracking the effect of changes in block ownership within
+a firm. They find that the appearance of certain blockholders in a corporation
+subsequently leads to a significant increase in investment. One potential argu-
+ment against their causal interpretation is that blockholders face substantial
+
+  22
+     Hansen and Hill (1991), Bushee (1998), and Wahal and McConnell (2000) show a positive
+association between R&D and institutional ownership; the latter is typically highly correlated
+with blockholdings. Bushee also finds that myopia is driven by momentum investors who trade on
+current earnings and have small holdings.
+                                                                                       15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+       Blockholder Trading, Market Efficiency, and Managerial Myopia 2503
+
+barriers to intervention (as stated in the introduction), rendering it difficult for
+them to actively change investment policy. This paper shows that causation is
+possible without intervention: The arrival of the blockholder allows the man-
+ager to pursue investment projects that he previously avoided owing to fears of
+interim turbulence. Becker, Cronqvist and Fahlenbrach (2008) use the density
+of wealthy individuals near a firm’s headquarters as a geographic instrument
+to identify α.
+   Section II.B notes that low θ can also be interpreted as the pursuit of actions
+that reduce value but improve investors’ short-term perceptions of the firm,
+such as accounting manipulation. Blockholders will “see through” such actions
+and thus deter them. Burns, Kedia, and Lipson (2008) find that ownership con-
+centration is correlated with fewer and less severe financial restatements. By
+contrast, diversified institutions are positively associated with restatements,
+likely because they trade on public earnings rather than study fundamental
+value. Dechow, Sloan, and Sweeney (1996) and Farber (2005) find that firms
+identified by the SEC as fraudulently manipulating earnings have lower block-
+holdings. Again, such cross-sectional correlations can only be interpreted as
+weak support of the model because earnings manipulation may deter block-
+holders. A definitive test of this prediction requires an instrument for block
+size.
+   Finally, I turn to the predicted relationship between block size and firm value.
+If block size is always at the firm value optimum, there should be no relationship
+(as noted by Demsetz and Lehn (1985) in the context of managerial ownership
+and firm value). However, as discussed earlier, the empirically observed block
+size will likely differ from the firm value optimum, thus generating the cross-
+sectional prediction that firm value is concave in the stake held by an outside
+blockholder. While other papers show that too large a block can be inefficient,
+in most of these papers the inefficiencies arise from the loss of private benefits
+(Pagano and Röell (1998)) or underdiversification, which do not affect the stock
+price. Therefore, these papers would not generate this prediction. However,
+Burkart, Gromb, and Panunzi (1997) do share the prediction that market value
+is concave in block size because too large a block reduces managerial initiative.
+   The time-series analog of the above prediction is that unanticipated block in-
+creases (decreases) in block size should generate positive (negative) event study
+reactions when initial block size is low, but the effects are reversed when ini-
+tial block size is high. Changes in block size may represent exogenous changes
+to the private optimum (e.g., liquidity shocks), which move it closer to or fur-
+ther from the firm value optimum. Moreover, the absolute magnitude of these
+changes should be increasing in information asymmetry and concave in growth
+opportunities. Models where firm value is monotonically increasing in block
+size would predict that increases in block size would always have a positive
+effect.
+   Testing this prediction requires identifying changes in block size not moti-
+vated by information. (As noted earlier, information-based trades should move
+prices in the same direction as the order, regardless of initial block size.) Wruck
+(1989) therefore focuses on private sales of equity: Because the purchaser is
+buying a large stake, he will undertake extensive due diligence to ensure he
+                                                                                                       15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2504                              The Journal of FinanceR
+
+is not trading against unreleased information. Wruck finds that increases in
+ownership concentration lead to increases (decreases) in firm value for low
+(moderate) levels of initial concentration, consistent with this paper (and also
+with Burkart, Gromb, and Panunzi (1997)).
+
+
+                                       IV. Conclusion
+   The traditional view of corporate governance is that it is exerted through di-
+rect intervention in a firm’s operations. Under such a view, concentrated share-
+holders are desirable as they have both the incentives and control rights to
+intervene. However, the dominant shareholding structure in the United States
+is one of small blockholders. Compounded with substantial legal and institu-
+tional impediments to intervention, it might appear that U.S. firms are poorly
+governed and their blockholders play a limited role.
+   This paper offers a different perspective. It shows that blockholders can sig-
+nificantly enhance firm value even if they lack control rights. By gathering
+and trading on intangible information, they cause prices to ref lect fundamen-
+tal value rather than current earnings. This can encourage managers to under-
+take long-term investment—arguably the primary challenge facing the modern
+firm.
+   In the 1980s and early 1990s, many commentators predicted that the U.S.
+economy would be surpassed by Japan, particularly in R&D-intensive indus-
+tries, arguing that the U.S.’s liquid capital markets are a deterrent to invest-
+ment. This paper shows that short-term trading may in fact support long-term
+investment, as it impounds its effects into stock prices. Thus, the U.S. capital
+allocation system may be significantly more investment-friendly than widely
+believed, potentially explaining why the above fears have not materialized.
+   While the core model focuses on the effect of blockholders on myopia, the
+trading mechanism in the paper can attenuate many other agency problems,
+such as shirking (see, for example, Admati and Pf leiderer (2009) and Edmans
+and Manso (2009)). The model can thus reconcile evidence on blockholders’
+low ability to intervene (Black (1990), La Porta, Lopez-de-Silanes, and Shleifer
+(1999), and Becht et al. (2009)) with studies that show that blockholders affect
+corporate decisions.23 The model can also be extended to demonstrate how any
+agent that gathers information about fundamental value and impounds it into
+prices can improve managers’ ex ante decisions and thus real efficiency. This
+implies a social benefit of short-sellers (such as hedge funds) and equity analysts
+(see also Knyazeva (2009)), although these actors also reduce the incremental
+role for blockholders.
+   More generally, this paper suggests a new way of thinking about the gov-
+ernance role of blockholders, giving rise to a number of potential avenues for
+
+   23
+      See, for example, Chen, Harford, and Li (2007) on the beneficial effect of institutions on M&A
+decisions, and Cronqvist and Fahlenbrach (2009) on their influence of corporate policies in general.
+Chen et al. show this benefit is increasing in block size and the absence of business ties (which is
+related to the threat of exit).
+                                                                                          15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+       Blockholder Trading, Market Efficiency, and Managerial Myopia 2505
+
+future research. Existing theories have modeled blockholders as controlling
+entities who add value through intervention, and, accordingly, most empiri-
+cal studies have focused on private benefits and control rights. By contrast, the
+model indicates that blockholders can be perceived as informed traders who ex-
+ert governance through inf luencing prices. Therefore, future corporate finance
+theories of blockholders could import more complex effects typically featured
+in asset pricing models of informed trading. For example, Edmans and Manso
+(2009) show that splitting a stake between multiple informed traders increases
+trading volumes, market efficiency, and consequently firm value. They therefore
+derive multiple blockholders as an optimal shareholding structure, consistent
+with empirical evidence. Similarly, new empirical directions may arise from
+perceiving blockholders as informed traders rather than controlling entities.
+They should therefore generate trading profits and augment price efficiency,
+and their value added should depend on liquidity.
+
+
+                                       Appendix
+Proof of Lemma 1: Let β̂ denote the market maker’s conjecture about the
+amount sold by B upon receiving ib , and µ̂ denote the conjectured monitoring
+effort. If d ≤ 0, the market maker knows that B has sold, and thus received, ib .
+If d > 0, the posterior probability that ig was received is
+
+                                                λe−λd Pr(i g )
+                  Pr(i g | d > 0) =                                         .
+                                      λe−λd Pr(i g ) + λe−λ(d +β̂) Pr(ib)
+
+  Using Pr(X | d > 0) = Pr(X | ig )Pr(ig | d > 0) + Pr(X | ib )Pr(ib | d > 0), we even-
+tually obtain
+
+                                          1 + e−λβ̂ + µ̂(1 − e−λβ̂ )
+                      Pr(X | d > 0) =                                  .
+                                                2(1 + e−λβ̂ )
+Hence, the market maker sets the following prices:
+                
+                
+                     1 − µ̂
+                 P = 2 X if d ≤ 0
+                
+
+                
+                     1 + e−λβ̂ + µ̂(1 − e−λβ̂ )
+                
+                P =                             X if d > 0.
+                             2(1 + e−λβ̂ )
+
+   If B has received ib , the firm is worth P = 1−µ   2
+                                                        X to her. Because the market
+maker’s conjecture is correct in equilibrium, µ̂ = µ and so B makes zero profit
+if d ≤ 0. She only makes a profit if d > 0, that is, u > β. Her objective function
+is therefore
+                      ∝                                     
+                            1 + e−λβ̂ + µ̂(1 − e−λβ̂ ) 1 − µ
+              max β X                                  −        λe−λu d u.
+              β≤α                 2(1 + e−λβ̂ )           2
+                       β
+                                                                                         15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2506                         The Journal of FinanceR
+
+The optimum is given by
+                                    
+                                    
+                                    
+                                                   1
+                                    α     if α ≤
+                                                   λ
+                               β=
+                                    
+                                    
+                                    1      if α >
+                                                   1
+                                      λ            λ
+as in equation (5). Because the market maker’s belief is correct in equilibrium,
+β̂ = β. This gives rise to equations (2) and (3).
+   Now consider B’s monitoring decision. Net of monitoring costs, B’s profits are
+given by
+                                                                     1
+  Pr(ib)β[Pr(u > β)(P | d > 0) + Pr(u ≤ β)(P | d ≤ 0) − E[V | ib]] − cµ2
+                                                                     2
+                                                                     
+                         −λβ            −λβ
+       1       −λβ 1 + e     + µ̂ 1 − e           −λβ 1 − µ̂    1−µ      1
+    = βX e                                  + 1−e            −          − cµ2 ,
+       2                 2 1 + e−λβ                     2          2     2
+                                                                           (A1)
+where the first 12 is the probability that ib is received and e−λβ is the probability
+that u > β. Differentiating with respect to µ and then setting µ̂ = µ derives the
+optimal µ as
+                                           βX
+                                     µ=       .                              Q.E.D.
+                                           4c
+
+
+Proof of Lemma 2: The blockholder’s trade is
+
+                               β = min(ν(1 − α), α).
+                                                 ν                 ν
+This is maximized at ν(1 − α) = α, that is, α = ν+1 . Because α = ν+1 maximizes
+                         βX
+β, it also maximizes µ = 4c . Q.E.D.
+
+Proof of Lemma 3: Taking first-order conditions of equation (10) with respect
+to θ yields
+
+                            (1 − ω) g − 2ωθ X (1 − π X ).                         (A2)
+
+The first term represents the increase in V that results from increased invest-
+ment, and the second term captures the lower expected stock price that results
+from the increased probability of emitting sb . Setting the first-order condition to
+zero and imposing the constraint θ ≤ 1 leads to equation (11). The comparative
+statics with respect to g, πX , X, and ω follow immediately. Q.E.D.
+
+                                                       (1−ω) g
+Proof of Proposition 2: From equation (11), θ = 1 if 2ωX (1−π X )
+                                                                  ≥ 1, that is,
+
+                                        (1 − ω) g
+                                 X ≤                .
+                                       2ω(1 − π X )
+                                                                                          15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+        Blockholder Trading, Market Efficiency, and Managerial Myopia 2507
+                                                         −λβ
+In turn, the minimum value of π X = 12 (µ2 1+e
+                                            1−e
+                                                −λβ + 1) is 2 (when α = 0) and the
+                                                            1
+
+maximum value is 1+e−1 (when ν = 1, α = 2 and X = 8c, so µ = 1). Hence, when
+                      1                     1
+
+X ≤ X1 , θ = 1 regardless of the value of πX , and thus α. Conversely, when X >
+X2 , θ < 1∀α. Differentiating (11) with respect to α yields
+
+                             ∂θ    ∂θ ∂π X
+                                =
+                             ∂α   ∂π X ∂α
+                                     (1 − ω) g   ∂π X
+                                =                     .                           (A3)
+                                  2ωX (1 − π X )2 ∂α
+                                                              ∂θ
+Hence, when X > X2 , θ is strictly increasing in πX and ∂α       has the same sign
+    ∂π X
+as ∂α . From Proposition 1, θ is therefore strictly increasing (decreasing) in
+α if α < (>) α ∗ . For X = X2 , θ = 1 for at most one value of α (α = α ∗ ), and so
+the directional relationships remain strict. For X1 < X < X2 , θ may be 1 for a
+continuum of values of α, so the relationship between θ and πX (and thus α) is
+no longer strict.
+      ∂θ                           ∂2θ       ∂2θ
+  If ∂α  = 0, the cross-partials ∂α∂ g
+                                        and ∂α∂ω are given by
+
+                           ∂ 2θ      1−ω         ∂π X
+                                =                     ,
+                          ∂α∂ g   2ωX (1 − π X )2 ∂α
+                           ∂ 2θ         g          ∂π X
+                                =− 2                    .
+                          ∂α∂ω    2ω X (1 − π X ) ∂α
+                                                 2
+
+
+If α < α ∗ , ∂π                ∂ θ           ∂ θ
+                                                 < 0. If α > α ∗ , all inequalities are
+                               2                 2
+
+              ∂α
+                X
+                  > 0, and so ∂α∂ g
+                                    > 0 and ∂α∂ω
+reversed. We also have
+
+              ∂ 2θ     (1 − ω) g     ∂ 2πX    (1 − ω) g ∂π X ∂π X
+                   =                       +                      ,
+             ∂α∂c    2ωX (1 − π X ) ∂α∂c
+                                   2         ωX (1 − π X )3 ∂c ∂α
+
+where
+                                                
+                   ∂π X      1 − e−λβ       µ2            −2π X + 1
+                          =−                         =              < 0,
+                    ∂c       1 + e−λβ       c                 c
+                   ∂ 2πX    ∂π X 2
+                         =−        .
+                   ∂α∂c      ∂α c
+
+If α < α ∗ , ∂π   > 0. Thus, ∂∂α∂c
+                                πX
+                                   < 0 and ∂π∂cX ∂π            ∂ θ
+                                   2
+                                                                   < 0. If α > α ∗ ,
+                                                                       2
+
+              ∂α
+                X
+                                                  ∂α
+                                                    X
+                                                      < 0, so ∂α∂c
+                                     ∂θ
+all inequalities are reversed. If ∂α = 0, all cross-partials are zero. Hence,
+Proposition 2 states the cross-partials in terms of inequalities. Q.E.D.
+
+Proof of Proposition 3: From equation (7), the measure of market efficiency is
+                                                 
+                               1     1 − e−λβ
+                          πX =    µ2          + 1   .                    (A4)
+                               2     1 + e−λβ
+                                                                                          15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2508                         The Journal of FinanceR
+                                                          α
+        ν
+If α ≤ ν+1 , then β = α and so µ = α4cX . Let J = e− ν(1−α) . The derivative with re-
+spect to ν is:
+
+                               ∂π X     µ2 J αλ
+                                              ν
+                                    =−           < 0,
+                                ∂ν     (1 + J )2
+which is the negative camouf lage effect. Thus, market efficiency is maximized
+                                  ν              α                                 α
+at the lowest possible ν. If α ≤ ν+1 , then ν ≥ 1−α , so the lowest possible ν is 1−α .
+          ν                                                                   ∂µ
+  If α > ν+1 , then β = λ and so µ = 4cλ , which is increasing in ν, that is, ∂ν > 0.
+                        1               X
+
+Differentiating (A4) with respect to ν gives
+
+                                        1 − e−1 ∂µ
+                                    µ              > 0,
+                                        1 + e−1 ∂ν
+                                                                       ν
+which ref lects the beneficial effects of liquidity on effort. If α > ν+1 , then ν <
+ α                                  α                        α
+1−α
+    , so the highest possible ν is 1−α
+                                       . In both cases, ν = 1−α
+                                                                 maximizes   market
+efficiency πX . From equation (11), increasing πX in turn augments θ . Q.E.D.
+
+Proof of Proposition 4: Dropping constants, B’s objective function (12) becomes
+                                  −λβ         
+                                    e        1
+                             β 2
+                                           −     .                          (A5)
+                                  1 + e−λβ   4
+                            ν              ν
+We first prove that α ∗P ≤ ν+1   . If α > ν+1 , then β = ν(1 − α) and λβ = 1. Hence,
+(A5) becomes
+                                          −1            
+                                              e        1
+                            ν 2 (1 − α)2            −      ,
+                                           1 + e−1     4
+                                                          ν            ν
+which is decreasing in α. Thus, B will never choose α > ν+1  . If α ≤ ν+1 , then
+β = α and the first-order condition of (A5) is
+                                                    
+                                           α            1
+                 F (ν, α) = K 2 −                      − = 0,               (A6)
+                                   ν(1 + J )(1 − α)2    2
+                                α
+where K = J J+1 and J = e− ν(1−α) as before. At α = ν+1
+                                                     ν
+                                                        , J = e−1 and so (A5) be-
+comes
+                                                
+                           e−1            ν+1       1
+                          −1
+                                     2 −      −1
+                                                   − ,
+                         e +1            1+e        2
+                                                                       ν
+which is negative for all ν ∈ [0, 1]. Thus, αP∗ is strictly less than ν+1 .
+  Returning to equation (A6), an increase in ν augments J and thus also K. In
+addition, the term in square brackets rises, so ∂∂νF > 0. An increase in α reduces
+J and thus also K. In addition, the term in square brackets falls, so ∂∂αF < 0.
+Because
+                                    ∂F   ∂ F ∂α
+                                       +        = 0,
+                                    ∂ν   ∂α ∂ν
+                                                                                        15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+       Blockholder Trading, Market Efficiency, and Managerial Myopia 2509
+
+         ∂α ∗
+we have ∂νP > 0.
+  From equation (11), investment θ is monotonic in market efficiency πX . In
+turn,
+                                              α ∗P        
+                                          − ν(1−α
+                          1  α ∗2
+                                                    ∗ )
+                                P X 1−e
+                                    2               P
+                    πX =                       α ∗P
+                                                        + 1 .         (A7)
+                          2    16c2       − ν(1−α   ∗ )
+                                      1+e           P
+
+
+
+In addition to its positive effect on πX through augmenting αP∗ , ν also has a
+direct negative effect, the camouf lage effect. We must therefore prove that the
+first effect dominates. For brevity, I write α instead of αP∗ in what follows. We
+drop constants in equation (A7) and define
+                                                              α
+                                                         − ν(1−α)
+                                                21 − e
+                               G(ν, α(ν)) = α                α      .
+                                                 1 + e− ν(1−α)
+  Differentiating G with respect to ν yields
+                                                                          
+      dG          1 − J ∂α          αJ           ∂α         αJ           α
+          = 2α             +                        −                        .
+       dν         1 + J ∂ν   ν(1 + J )2 (1 − α)2 ∂ν   ν(1 + J )2 (1 − α) ν
+
+From equation (A6) above, we calculate
+                                                     
+            ∂F         1     ∂J            α
+                =                2−
+            ∂ν     (1 + J )2 ∂ν     ν(1 + J )(1 − α)2
+                                   α           ∂J                α
+                        +K                         +K 2
+                           ν(1 + J )2 (1 − α)2 ∂ν        ν (1 + J )(1 − α)2
+                                                              
+                  ∂F        1     ∂J                α
+                −    =−                  2 −
+                  ∂α    (1 + J )2 ∂α         ν(1 + J )(1 − α)2
+                                     α          ∂J        1      1+α
+                        −K                         +K
+                             ν(1 + J ) (1 − α) ∂α
+                                      2       2       ν(1 + J ) (1 − α)3
+
+  The ratio of the first term of ∂∂νF to the first term of − ∂∂αF is
+
+                                     ∂ J ∂ J          α
+                                 −            = (1 − α) .                        (A8)
+                                     ∂ν ∂α             ν
+                                                                                α
+The ratio of the second terms is also (A8). The ratio of the third terms is 1−α
+                                                                            1+α ν
+                                                                                  .
+Therefore,
+                               ∂α    ∂F ∂F   1−αα
+                                  =−        >       .
+                               ∂ν    ∂ν ∂α    1+α ν
+Dropping the constant 2α, we have
+                                                                     
+          dG            α                                 α2 J
+              >                    (1 − J )(1 − α) −                    .
+          dν    (1 + J )(1 + α)ν                     ν(1 + J )(1 − α)
+                                                                                                        15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2510                              The Journal of FinanceR
+
+It is sufficient to prove that the term in square brackets is positive. By Taylor
+expansion,
+                                   α              α         α2
+                        J = e− ν(1−α) < 1 −            + 2          ,
+                                               ν(1 − α) 2ν (1 − α)2
+and so
+                                   α2 J
+              (1 − J )(1 − α) −
+                              ν(1 + J )(1 − α)
+                                          
+                        α          α2                       α2 J
+                 >           − 2             (1 − α) −                  .
+                     ν(1 − α) 2ν (1 − α)2              ν(1 + J )(1 − α)
+            α
+Dropping ν(1−α) , we obtain
+                                            
+                                       α                   αJ
+                         1−                    (1 − α) −          .                            (A9)
+                                   2ν(1 − α)             (1 + J )
+             ν                    α
+Because α < ν+1 ≤ 12 , we have 2ν(1−α) < 12 . Therefore,
+                                                   
+                            α                        1 1  1
+                  1−                (1 − α) > 1 −        = .
+                        2ν(1 − α)                    2 2  4
+
+In addition, because α < 12 and J ≤ 1, we also have
+                                            αJ      1
+                                                   < .
+                                          (1 + J )  4
+Hence, (A9) and thus ddGν are positive. Therefore, πX and θ are increasing
+in ν. Q.E.D.
+
+
+
+                                            REFERENCES
+Admati, Anat, and Paul Pf leiderer, 2009, The “Wall Street Walk” and shareholder activism: Exit
+    as a form of voice, Review of Financial Studies 22, 2645–2685.
+Aghion, Philippe, Patrick Bolton, and Jean Tirole, 2004, Exit options in corporate finance: Liquidity
+    versus incentives, Review of Finance 8, 327–353.
+Amihud, Yakov, and Kefei Li, 2006, The declining information content of dividend announcements
+    and the effects of institutional holdings, Journal of Financial and Quantitative Analysis 41,
+    637–660.
+Anderson, Ronald, Augustine Duru and David Reeb, 2009, Family preferences and investment
+    policy: Evidence from capital expenditures and R&D spending, Working paper, American Uni-
+    versity.
+Armour, John, Bernard Black, Brian Cheffins, and Richard Nolan, 2007, Private enforcement
+    of corporate law: An empirical comparison of the U.S. and U.K., Working paper, European
+    Corporate Governance Institute.
+Atanassov, Julian, 2008, Do hostile takeovers stif le innovation? Evidence from antitakeover legis-
+    lation and corporate patenting, Working paper, University of Oregon.
+Barclay, Michael, and Clifford Holderness, 1989, Private benefits from control of public corpora-
+    tions, Journal of Financial Economics 25, 371–395.
+                                                                                                     15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+        Blockholder Trading, Market Efficiency, and Managerial Myopia 2511
+
+Barclay, Michael, and Clifford Holderness, 1991, Negotiated block trades and corporate control,
+    Journal of Finance 46, 861–878.
+Barlevy, Gadi, and Pietro Veronesi, 2000, Information acquisition in financial markets, Review of
+    Economic Studies 67, 79–90.
+Bartov, Eli, Suresh Radhakrishnan, and Itzhak Krinsky, 2000, Investor sophistication and
+    patterns in stock returns after earnings announcements, The Accounting Review 75, 43–
+    63.
+Baysinger, Barry, Rita Kosnik, and Thomas Turk, 1991, Effects of board and ownership structure
+    on corporate R&D strategy, Academy of Management Journal 34, 205–214.
+Becht, Marco, Julian Franks, Colin Mayer, and Stefano Rossi, 2009, Returns to shareholder ac-
+    tivism: Evidence from a clinical study of the Hermes U.K. Focus Fund, Review of Financial
+    Studies 22, 3093–3129.
+Becker, Bo, Henrik Cronqvist, and Rüdiger Fahlenbrach, 2008, Estimating the effect of large
+    shareholders using a geographic instrument, Working paper, University of Illinois at Urbana-
+    Champaign.
+Berle, Adolf, and Gardner Means, 1932, The Modern Corporation and Private Property (MacMillan,
+    New York, NY).
+Bernhardt, Dan, Burton Hollifield, and Eric Hughson, 1995, Investment and insider trading, Re-
+    view of Financial Studies 8, 501–543.
+Bhide, Amar, 1993, The hidden costs of stock market liquidity, Journal of Financial Economics 34,
+    31–51.
+Black, Bernard, 1990, Shareholder passivity reexamined, Michigan Law Review 89, 520–608.
+Boehmer, Ekkehart, and Eric Kelley, 2009, Institutional investors and the informational efficiency
+    of prices, Review of Financial Studies 22, 3563–3594.
+Bolton, Patrick, and Ernst-Ludwig von Thadden, 1998, Blocks, liquidity, and corporate control,
+    Journal of Finance 53, 1–25.
+Boot, Arnoud, and Anjan Thakor, 1993, Security design, Journal of Finance 49, 1349–1378.
+Brav, Alon, and Richmond Mathews, 2008, Empty voting and the efficiency of corporate governance,
+    Working paper, Duke University.
+Brockman, Paul, and Xuemin (Sterling) Yan, 2009, Block ownership and firm-specific information,
+    Journal of Banking and Finance 33, 308–316.
+Burkart, Mike, Denis Gromb, and Fausto Panunzi, 1997, Large shareholders, monitoring, and the
+    value of the firm, Quarterly Journal of Economics 112, 693–728.
+Burns, Natasha, Simi Kedia, and Marc Lipson, 2008, Institutional ownership and monitoring:
+    Evidence from financial reporting practices, Working paper, University of Georgia.
+Bushee, Brian, 1998, The inf luence of institutional investors on myopic R&D investment behavior,
+    The Accounting Review 73, 305–333.
+Bushee, Brian, and Theodore Goodman, 2007, Which institutional investors trade based on pri-
+    vate information about earnings and returns? Journal of Accounting Research 45, 289–
+    321.
+Chen, Xia, Jarrad Harford, and Kai Li, 2007, Monitoring: Which institutions matter? Journal of
+    Financial Economics 86, 279–305.
+Cronqvist, Henrik, and Rüdiger Fahlenbrach, 2009, Large shareholders and corporate policies,
+    Review of Financial Studies, forthcoming.
+Dechow, Patricia, Richard Sloan, and Amy Sweeney, 1996, Causes and consequences of earnings
+    manipulation: An analysis of firms subject to enforcement actions by the SEC, Contemporary
+    Accounting Research 13, 1–36.
+Demsetz, Harold, and Kenneth Lehn, 1985, The structure of corporate ownership: Causes and
+    consequences, Journal of Political Economy 93, 1155–1177.
+Edmans, Alex, 2009a, Short-term termination without deterring long-term investment: A theory
+    of debt (not dividends), Working paper, University of Pennslyvania.
+Edmans, Alex, 2009b, Does the stock market fully value intangibles? Employee satisfaction and
+    equity prices, Working paper, University of Pennslyvania.
+Edmans, Alex, and Gustavo Manso, 2009, Governance through exit and voice: A theory of multiple
+    blockholders, Working paper, University of Pennslyvania.
+                                                                                                      15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+2512                             The Journal of FinanceR
+
+Fang, Vivian, Thomas Noe, and Sheri Tice, 2009, Stock market liquidity and firm value, Journal
+     of Financial Economics, forthcoming.
+Farber, David, 2005, Restoring trust after fraud: Does corporate governance matter? The Account-
+     ing Review 80, 539–561.
+Faure-Grimaud, Antoine, and Denis Gromb, 2004, Public trading and private incentives, Review
+     of Financial Studies 17, 985–1014.
+Fulghieri, Paolo, and Dmitry Lukin, 2001, Information production, dilution costs, and optimal
+     security design, Journal of Financial Economics 61, 3–42.
+Gallagher, David, Peter Gardner, and Peter Swan, 2008, Blockholder intervention versus threat of
+     exit, Working paper, University of New South Wales.
+Graham, John, Campbell Harvey, and Shivaram Rajgopal, 2005, The economic implications of
+     corporate financial reporting, Journal of Accounting and Economics 40, 3–73.
+Hansen, Gary, and Charles Hill, 1991, Are institutional investors myopic? A time-series study of
+     four technology-driven industries, Strategic Management Journal 12, 1–16.
+Hef lin, Frank, and Kenneth Shaw, 2000, Blockholder ownership and market liquidity, Journal of
+     Financial and Quantitative Analysis 35, 621–633.
+Holderness, Clifford, 2009, The myth of diffuse ownership in the United States, Review of Financial
+     Studies 22, 1377–1408.
+Holmstrom, Bengt, and Jean Tirole, 1993, Market liquidity and performance monitoring, Journal
+     of Political Economy 101, 678–709.
+Johnson, Shane, Harley Ryan, and Yisong Tian, 2009, Managerial incentives and corporate fraud:
+     The source of incentives matter, Review of Finance 13, 115–145.
+Kahn, Charles, and Andrew Winton, 1998, Ownership structure, speculation, and shareholder
+     intervention, Journal of Finance 53, 99–129.
+Kaplan, Steven, and Bernadette Minton, 2006, How has CEO turnover changed? Increasingly
+     performance sensitive boards and increasingly uneasy CEOs, Working paper, University of
+     Chicago.
+Knyazeva, Diana, 2009, Analysts and journalists: Firm policies and governance design, Working
+     paper, University of Rochester.
+Kole, Stacey, 1997, The complexity of compensation contracts, Journal of Financial Economics 43,
+     79–104.
+Kyle, Albert, 1985, Continuous auctions and insider trading, Econometrica 53, 1315–1335.
+Kyle, Albert, and Jean-Luc Vila, 1991, Noise trading and takeovers, RAND Journal of Economics
+     22, 54–71.
+La Porta, Rafael, Florencio Lopez-de-Silanes, and Andrei Shleifer, 1999, Corporate ownership
+     around the world, Journal of Finance 54, 471–517.
+Lee, Peggy, 2005, A comparison of ownership structures and innovations of U.S. and Japanese
+     firms, Managerial and Decision Economics 26, 39–50.
+Lee, Peggy, and Hugh O’Neill, 2003, Ownership structures and R&D investments of U.S. and
+     Japanese firms: Agency and stewardship perspectives, Academy of Management Journal 46,
+     212–225.
+Lowenstein, Louis, 1988, What’s Wrong with Wall Street? Short-Term Gain and the Absentee Share-
+     holder (Addison-Wesley, Reading, MA).
+Manne, Henry, 1966, Insider Trading and the Stock Market (Free Press, New York, NY).
+Maug, Ernst, 1998, Large shareholders as monitors: Is there a trade-off between liquidity and
+     control? Journal of Finance 53, 65–98.
+Maug, Ernst, 2002, Insider trading legislation and corporate governance, European Economic Re-
+     view 46, 1569–1597.
+McCahery, Joseph, Zacharias Sautner, and Laura Starks, 2008, Behind the scenes: The corporate
+     governance preferences of institutional investors, Working paper, University of Amsterdam.
+Merton, Robert, 1987, A simple model of capital market equilibrium with incomplete information,
+     Journal of Finance 42, 483–510.
+Mikkelson, Wayne, and Megan Partch, 1985, Stock price effects and costs of secondary distributions,
+     Journal of Financial Economics 14, 165–194.
+                                                                                                      15406261, 2009, 6, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.2009.01508.x by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+        Blockholder Trading, Market Efficiency, and Managerial Myopia 2513
+
+Murphy, Kevin, 2003, Stock-based pay in new economy firms, Journal of Accounting and Economics
+    34, 129–147.
+Narayanan, M. P., 1985, Managerial incentives for short-term results, Journal of Finance 40, 1469–
+    1484.
+Pagano, Marco, and Ailsa Röell, 1998, The choice of stock ownership structure: Agency costs, mon-
+    itoring, and the decision to go public, Quarterly Journal of Economics 113, 187–225.
+Parrino, Robert, Richard Sias, and Laura Starks, 2003, Voting with their feet: Institutional own-
+    ership changes around forced CEO turnover, Journal of Financial Economics 68, 3–46.
+Peng, Lin, and Ailsa Röell, 2008, Executive pay, earnings manipulation and shareholder litigation,
+    Review of Finance 12, 141–184.
+Porter, Michael, 1992, Capital disadvantage: America’s failing capital investment system, Harvard
+    Business Review 70, 65–82.
+Roe, Mark, 1994, Strong Managers, Weak Owners: The Political Roots of American Corporate Fi-
+    nance (Princeton University Press, Princeton, NJ).
+Rubin, Amir, 2007, Ownership level, ownership concentration and liquidity, Journal of Financial
+    Markets 10, 219–248.
+Scharfstein, David, and Jeremy Stein, 1990, Herd behavior and investment, American Economic
+    Review 80, 465–479.
+Scholes, Myron, 1972, The market for securities: Substitution versus price pressure and the effects
+    of information on share prices, Journal of Business 45, 179–211.
+Shleifer, Andrei, and Robert Vishny, 1986, Large shareholders and corporate control, Journal of
+    Political Economy 94, 461–488.
+Sias, Richard, Laura Starks, and Sheridan Titman, 2006, Changes in institutional ownership and
+    stock returns: Assessment and methodology, Journal of Business 79, 2869–2910.
+Stein, Jeremy, 1988, Takeover threats and managerial myopia, Journal of Political Economy 46,
+    61–80.
+Stein, Jeremy, 1989, Efficient capital markets, inefficient firms: A model of myopic corporate be-
+    havior, Quarterly Journal of Economics 104, 655–669.
+Stein, Jeremy, 1996, Rational capital budgeting in an irrational world, Journal of Business 69,
+    429–455.
+Thurow, Lester, 1993, Head to Head: The Coming Economics Battle Among Japan, Europe and
+    America (Warner Books, New York, NY).
+Van Nieuwerburgh, Stijn, and Laura Veldkamp, 2009, Information acquisition and under-
+    diversification, Review of Economic Studies, forthcoming.
+Wahal, Sunil, and John McConnell, 2000, Do institutional investors exacerbate managerial myopia?
+    Journal of Corporate Finance 6, 307–329.
+Wruck, Karen, 1989, Equity ownership concentration and firm value: Evidence from private equity
+    financings, Journal of Financial Economics 23, 3–28.
+Yan, Xuemin, and Zhe Zhang, 2009, Institutional investors and equity returns: Are short-term
+    institutions better informed? Review of Financial Studies.
+Zingales, Luigi, 2000, In search of new foundations, Journal of Finance 55, 1623–1653.
+

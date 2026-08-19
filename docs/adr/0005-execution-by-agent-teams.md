@@ -22,3 +22,10 @@ empirical/institutional papers get Sonnet readers with a batched Sonnet
 verifier. Evidence: in the 2026-08 review, checked Sonnet claims were refuted
 ~33% vs ~8% for Opus; a wrong "what is proved" reading forces a redo of the
 whole positioning stage.
+
+**Opus reads, Sonnet does mechanical work (author, 2026-08-19).** Supersedes the
+routing-by-difficulty paragraph above for reading: every paper — theory, empirical,
+survey, the author's own proposal — is read and carded by an Opus agent, in every
+circumstance. Sonnet is used for search, fetch, text extraction, file plumbing,
+formatting and other mechanical stages only. Having Sonnet read first and Opus
+re-read was judged wasteful; Sonnet is not trusted to deliver a reading.

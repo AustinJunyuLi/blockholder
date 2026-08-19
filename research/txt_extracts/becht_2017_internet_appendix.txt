@@ -1,0 +1,686 @@
+                                        Internet Appendix to
+                      “Returns to Hedge Fund Activism: An International Study”
+
+
+
+Becht, Marco, Julian Franks, Jeremy Grant, and Hannes F. Wagner, 2017, Internet Appendix to “Returns
+to Hedge Fund Activism: An International Study”, Review of Financial Studies, forthcoming.
+
+Appendix A1
+
+To identify hedge fund activist engagements, we rely on Factiva for press articles and regulatory filings
+unless a national register with more detailed information is available. For all countries, we search with a
+set of keywords that produces a large number of activist interventions. We record the names of the target
+company and the funds involved, and extend the case list iteratively by searching for the fund names.
+Press articles featuring high profile cases often include references to other interventions undertaken by
+the same fund.
+
+                                                Table 1
+                            Data sources for hedge fund engagements by country
+Data sources used for all countries:
+
+                 Hedge fund reports and webpages
+                 FACTIVA
+                 SDC
+                 Interviews with 12 of the top 20 funds by number of cases in Europe
+
+Specific data sources by country where available:
+
+Germany          Federal Financial Supervisory Authority (BaFin) database
+
+Italy            Commissione Nazionale per le Società e al Borsa (Consob) database
+
+Japan            EDINET database published by Japanese Financial Services Agency
+                 Nikkei Telecom 21
+
+Netherlands      Netherlands Authority for the Financial Markets (AFM) database
+
+South Korea      Data Analysis and Retrieval Transfer (DART) system published by Korean Financial Supervisory Service
+                 Korean Integrated News Database System (KINDS)
+
+U.S.             13D Monitor
+
+All data related to the potential outcomes of activist engagements are identified using FACTIVA and/or 13D Monitor.
+Appendix A2
+The table reports holding periods and exits. In Panel A, of the total of 1740, 1270 engagements have
+concluded as of 31 December 2010, the end of our sample period; for all other engagements the activist
+has not exited or has not reported an exit. The largest number of engagements is initiated between 2004-
+2008, with a peak in 2007. The largest number of exits is recorded in the period 2006-2009, with the
+peak in 2007/2008 and a drop-off in 2009 and 2010.
+       Panel B breaks down exits by holding period of the activist. As one would expect, for younger
+cohorts both the holding periods are shorter and the number of engagements without exit are higher,
+because a higher percentage of engagements are still ongoing. The average holding period is 1.7 years,
+or 624 days, and out of 1740 engagements, 470 have no reported exit by December 2010.
+                                                       Table 2
+                                           Activist engagements by entry and exit
+
+Panel A reports entries and non-exits for the full sample period 2000-2010. No exit by end of sample period indicates that the
+engagement is ongoing or no exit has been announced by the activist as of December 31, 2010.
+                                                 Panel A: Entry and non-exits
+ Year of initial regulatory           Number of engagements                                No exit by Dec 2010
+ filing or press disclosure
+
+2000                                             48                                                  3
+2001                                             63                                                 11
+2002                                             66                                                 10
+2003                                             91                                                 13
+2004                                            138                                                 22
+2005                                            231                                                 33
+2006                                            354                                                 79
+2007                                            369                                                 93
+2008                                            228                                                 93
+2009                                             93                                                 57
+2010                                             59                                                 56
+
+Total                                          1740                                                 470
+
+                                                      Panel B: Exits
+Year of initial regulatory    Number of                       % of which exit within                         % with no exit
+filing or press disclosure   engagements       1 year       2 years        3 years         4 or more years   by Dec 2010
+2000                              48            16.7          29.2           12.5                35.4             6.3
+2001                              63             7.9          33.3            6.3                34.9            17.5
+2002                              66             6.1          21.2           13.6                43.9            15.2
+2003                              91            18.7          26.4            7.7                 33             14.3
+2004                             138             13           23.2           11.6                36.2            15.9
+2005                             231            10.8           32            14.3                28.6            14.3
+2006                             354            20.1          26.3           15.5                15.8            22.3
+2007                             369            21.7          27.9           16.5                 8.7            25.2
+2008                             228            21.1          27.6            8.8                 1.8            40.8
+2009                              93            20.4          18.3            0.0                 0.0            61.3
+2010                              59             3.4            0             0.0                 0.0            96.6
+Appendix A3
+
+
+              Comparison of our sample with Brav, Jiang, Partnoy and Thomas (2008)
+
+          The aim of our sample construction process is to obtain a comprehensive listing of activist
+events in all 23 countries that we cover. Since there is no standardized database for hedge fund
+activism across countries, sampling criteria and coverage across samples will likely differ between
+studies. We have had access to the data in Brav, Jiang, Partnoy and Thomas (2008) (BJTP) and
+provide evidence below that i) the data in this paper and in BJTP do not overlap perfectly, and ii)
+differences between the samples appear to be economically insignificant.
+          For this comparison, from the combination of our sample (BFGW) and the sample in
+BJTP we select all engagements that involve U.S. targets and were started between 2001 and 2006,
+i.e. the subsample where theoretically the two samples should perfectly overlap. From this
+combined subsample we randomly select 40 engagements each that are included in one sample,
+but not the other. For these two subsamples of 40 engagements each, we manually determine the
+reasons for non-overlap between the two samples. The results are show in Table 13 below. In
+summary:
+     1. Engagements that we do not include, but that BJTP include, are mostly due to our sample
+         not including that particular activist (65%) and our sample including the activist, but
+         excluding this particular engagement (25%).
+     2. Engagements that BJTP do not include, but that we include, are mostly due to their sample
+         including the activist, but excluding this particular engagement (63%), and their sample not
+         including that particular activist (30%).
+     3. Disagreement about specific data items instead is in comparison very rare.
+         The main reason for non-overlapping samples is therefore roughly that the BJTP sample is
+relatively superior in its coverage of the universe of activists, and our sample is relatively superior
+in its coverage of all engagements of a given activist.
+         Next, using the combined data of U.S. engagements between 2001 and 2006 in both papers, we
+additionally require target firms to have non-missing data on CRSP. We sort all such engagements (991
+observations) into three categories: i) engagements that are in both samples, ii) engagements only in our
+sample, and iii) engagements only in the BJTP sample.
+         For these three categories, we repeat our analysis of abnormal announcement returns in response
+to the initial disclosure of the activist, i.e. in addition to the results for our sample, we also calculate
+abnormal returns, market-model adjusted, for the additional engagements in BJTP.
+         The results show that abnormal announcement returns for all three categories are very similar.
+For the (-20, 20) day event window, engagements that are in both samples have abnormal returns of
+7.5%, engagements that are in BJTP only have 7.3%, and engagements in our sample only have 8.7%.
+All abnormal returns are significantly different from zero at the 1% level, and none of the three
+subsamples are significantly different from each other. Combined with the previous analysis of reasons
+for non-overlapping samples, the evidence suggests that differences in coverage of the two samples is
+unlikely to meaningfully affect our conclusions.
+                                                 Table 3
+   Reasons for non-overlapping samples for 80 randomly selected engagements from the subsample of U.S.
+                 engagements during 2001-2006, combined samples of BJTP and our paper
+
+ Reason for non-overlapping samples                                                                           N     Percent
+                                             Engagement in BJTP sample only
+ Activist not included in BFGW sample                                                                         27     68%
+ Activist included in both samples, engagement not in BFGW                                                    10     25%
+ Activist and engagement in both samples, disagreement about target firm stock price series                   3       8%
+
+ Total                                                                                                        40    100%
+
+                                          Engagement in BFGW/our sample only
+ Activist included in both samples, engagement not in BJTP                                                    25     63%
+ Activist not included in BJTP sample                                                                         12     30%
+ Activist and engagement in both samples, disagreement about earliest announcement data                       2       5%
+ Activist and engagement in both samples, disagreement about target firm stock price series                   1       3%
+
+ Total                                                                                                        40    100%
+
+
+                                                  Table 4
+Abnormal returns from activist engagement announcements, subsample of U.S. engagements during 2001-2006
+
+
+ Sample                                                 Event window: (-10, 10)                  Event window: (-20, 20)
+                                                     Abn. Ret.    SE          N               Abn. Ret.    SE          N
+ Full                                                 6.34***       [0.51]     991             7.52***      [0.679]     991
+ Engagement in both samples                           6.97***      [0.875]     297             7.29***      [1.102]     297
+ Engagement in BJTP sample only                       5.65***      [0.708]     545             7.31***      [0.963]     545
+ Engagement in BFGW/our sample only                   7.65***      [1.305]     149             8.72***      [1.789]     149
+Appendix A4
+This table summarizes prior single-country studies of hedge fund activism reporting disclosure returns.
+Definitions of activists vary between papers.
+                                                     Table 5
+                         Prior U.S. and non-U.S. evidence on abnormal disclosure returns
+
+Country   Study                                    Time period      Number of         Abnormal
+                                                                   engagements    disclosure returns
+
+U.S.      Boyson and Mooradian (2011)              1994-2007           418          6.5% [-10,10]
+          Brav, Jiang, Partnoy and Thomas (2008)   2001-2006          1,059         7.2% [-20,20]
+          Greenwood and Schor (2009)               1994-2006           784          3.6% [-10,5]
+          Klein and Zur (2009)                     1995-2005           151          5.7% [-30,5]
+
+France    Bessière, Kaestner and Lafont (2011)     2006-2008            1            7.8% [-1,5]
+
+Germany   Bessler, Drobetz and Holler (2015)       2000-2006           231          4.4% [-15,15]
+
+Italy     Belcredi and Enriques (2014)             2000-2013           369              n.a.
+          Croci and Petrella (2015)                2000-2007           161           1.8% [-4,3]
+
+Japan     Uchida and Xu (2008)                     2001-2006            67           5.6% [-2,2]
+          Hamao, Kutsuna and Matos (2011)          1998-2009           774           1.8% [-5,5]
+
+U.K.      Becht, Franks, Mayer and Rossi (2009)    1998-2004       41, one fund      -1.9% [-5,5]
+Appendix A5
+                                                        Table 6
+                        Country Differences in Relation to Ownership and Activist Engagements
+
+Probit regressions where the dependent variable is whether a firm is engaged by an activist (1) or not (0) in a given year. All
+non-binary coefficients are reported as marginal effects. The sample includes all firms from the FactSet database from 2000-
+2010 with non-missing data and only countries in which we observe at least 5 engagements during the sample period (13
+countries, 13,479 firms, 68,157 firm-years). The main independent variables are institutional ownership by domestic
+institutions (IO_Domestic), by foreign U.S.-based institutions (IO_Foreign U.S.), and by foreign non-U.S.-based institutions
+(IO_Foreign Non-U.S.). The seven most frequent target countries are represented by dummy variables, and interacted with
+institutional ownership variables. Control variables are as in Table 4. All continuous variables are winsorized at the 1st and
+99th percentiles. White (1980) heteroskedasticity-robust standard errors are reported in brackets. ***, **, and * indicate
+significance at the 1%, 5%, and 10% level, respectively.
+             Sample: Only activist markets                              Coeff                                SE
+IO_Domestic                                                           0.059***                             [0.019]
+IO_Foreign U.S.                                                         0.066                              [0.044]
+IO_Foreign Non-U.S.                                                   0.203***                             [0.038]
+U.S.                                                                  0.014***                             [0.005]
+JAPAN                                                                 0.014***                             [0.004]
+U.K.                                                                    -0.003                             [0.007]
+GERMANY                                                                 0.009                              [0.006]
+ITALY                                                                 0.028***                             [0.008]
+CANADA                                                               -0.139***                             [0.014]
+FRANCE                                                               -0.031***                             [0.009]
+(U.S.) X (IO_Domestic)                                                  -0.003                             [0.019]
+... X (IO_Foreign U.S.)                                                    .                                   .
+... X (IO_Foreign Non-U.S.)                                          -0.375***                             [0.051]
+(JAPAN) X (IO_Domestic)                                              -0.121***                             [0.047]
+... X (IO_Foreign U.S.)                                                0.119*                              [0.064]
+... X (IO_Foreign Non-U.S.)                                             -0.004                             [0.076]
+(U.K.) X (IO_Domestic)                                                  -0.039                             [0.027]
+... X (IO_Foreign U.S.)                                                 0.038                              [0.082]
+... X (IO_Foreign Non-U.S.)                                             -0.004                             [0.079]
+(GERMANY) X (IO_Domestic)                                               -0.029                             [0.055]
+... X (IO_Foreign U.S.)                                                 0.091                              [0.065]
+... X (IO_Foreign Non-U.S.)                                             -0.041                             [0.055]
+(ITALY) X (IO_Domestic)                                               -0.371**                             [0.183]
+... X (IO_Foreign U.S.)                                                 -0.085                             [0.152]
+... X (IO_Foreign Non-U.S.)                                             0.020                              [0.092]
+(CANADA) X (IO_Domestic)                                                0.044                              [0.109]
+... X (IO_Foreign U.S.)                                                 -0.031                             [0.468]
+... X (IO_Foreign Non-U.S.)                                             -0.359                             [0.235]
+(FRANCE) X (IO_Domestic)                                                0.075                              [0.046]
+... X (IO_Foreign U.S.)                                                 0.048                              [0.085]
+... X (IO_Foreign Non-U.S.)                                             0.056                              [0.085]
+Observations                                                           68,157
+Control variables                                                        Yes
+Year FE                                                                  Yes
+Country FE                                                               Yes
+Pseudo R-squared                                                       0.0941
+Appendix A6
+Below we report raw annualized returns from the time of disclosure of an activist stake to exit, on an
+equal- and value-weighted basis. We separate engagements with at least one outcome from those
+without any outcomes.
+        As expected, returns are higher for engagements with outcomes compared with those with no
+outcomes. The differences are economically significant, although not always statistically significant.
+This applies to the full sample, and to the subsamples of Asia, Europe and North America, and to both
+equal- and value-weighted returns.
+        On an annualized basis, activism with outcomes generates value-weighted returns of 11.1
+percent, compared with 4 percent for activism without outcomes, although the annualized difference of
+7.1 percent is not statistically significant. With equal-weighting, returns are 8.3 percent with outcomes
+and -5.5 percent without, significant at the 1 percent level. We find results that are roughly constant
+across regions. Value-weighted, annualized returns of firms successfully targeted by activists versus
+unsuccessful ones are 15.4 versus 5.4 percent in Asia, 8.3 versus 4.6 percent in Europe, and 11 versus
+1.4 percent in North America. The long/short portfolio that holds the portfolio of engagements with
+outcomes and sells short the portfolio of engagements without outcomes has a positive return in all the
+regions, but it is not significant. With equal-weighting, returns overall decrease, but more so for
+engagements without outcomes. As a result, the long/short portfolio earns an annualized return of 12.7
+percent in Asia, 14.5 percent in Europe, and 13.1 percent in North America, always significant at the 5
+percent level or better.
+                                                        Table 7
+                               Returns from Activist Engagements, Announcement to Exit
+
+The table reports calendar time portfolio returns of all firms targeted by activists, using monthly return data (n=132). The
+portfolio is formed and rebalanced each month to include all firms that have been engaged by an activist within the event
+window. The event window for each deal begins in the month of the activist engagement (the initial filing date or the first
+press disclosure date) and ends in the month during which the activist ended the engagement or, if no exit date is known,
+December 2010. Returns are excess returns [net of the U.S. risk free rate], in annual percent. L/S is annual average return of a
+zero cost portfolio that holds the portfolio of engagements with outcomes and sells short the portfolio of engagements with no
+outcomes. Returns are winsorized at the 1st and 99th percentiles. t-statistics are in brackets. ***, **, and * indicate
+significance at the 1%, 5%, and 10% level, respectively.
+                       Annualized raw excess returns on engagements with outcomes vs no outcomes
+                                Engagements with                  Engagements with no                     L/S (Outcomes-
+                                    outcomes                            outcomes                           NoOutcomes)
+                               EW              VW                  EW             VW                    EW             VW
+ Full sample
+ Mean                          8.33          11.07**              -5.45           4.02               13.78***          7.05
+ t-statistic                 [1.33]           [2.19]             [-0.92]         [0.59]                [3.46]         [1.17]
+
+Std deviation               20.719         16.745               19.659          22.655               13.191          19.929
+Skewness                    -1.057         0.007                -0.796          -1.336               1.874           0.934
+
+Asia
+Mean                       14.94**        15.38**                 2.91            5.36               12.67**          11.15
+t-statistic                 [2.17]         [2.06]                [0.48]          [0.68]               [2.40]          [1.36]
+
+Std deviation               22.842         24.813               17.972          23.608               15.782          24.391
+Skewness                     0.687         0.782                 0.164          -1.164               -0.010          0.152
+
+Europe
+Mean                         5.67           8.26                 -8.83            4.61              14.49***           3.65
+t-statistic                 [0.97]         [1.36]               [-1.23]          [0.60]              [2.71]           [0.51]
+
+Std deviation               19.278         20.161               23.722          25.468               17.750          23.916
+Skewness                    -0.947         -0.374               -1.133          -1.304               1.528           0.367
+
+N. America
+Mean                         8.03          10.96*                -5.12            1.43              13.14***           9.53
+t-statistic                 [1.15]         [1.82]               [-0.70]          [0.17]              [2.98]           [1.10]
+
+Std deviation               23.050         19.936               24.377          28.662               14.643          28.672
+Skewness                    -1.085         -0.433               -0.511          -0.792               1.028           2.474
+Appendix A7
+
+In Table 8 in the paper we report the long-term stock performance of activist engagements, from entry to
+exit. Alternatively, we report for comparison the performance of activist engagements over fixed
+horizons. Specifically, we report performance over 12, 24, and 36 months, and compare these with the
+performance from entry to exit (Full).
+
+
+                                                        Table 8
+                                       Long-term performance for fixed time horizons
+
+The table reports calendar time portfolio returns of all firms targeted by activists, using monthly return data. The portfolio is
+formed and rebalanced each month to include all firms that have been engaged by an activist within the event window. The
+event window for each deal begins in the month of the activist engagement (the initial filing date or the first press disclosure
+date). The end of the event window is defined in four different ways: i) 12 months later, ii) 24 months later, iii) 36 months
+later and iv) the month during which the activist ended the engagement. Under i) to iii) if the activist exits the target prior to
+the fixed length window, the window is shortened accordingly. In all cases, engagements are assumed to end in December
+2010. Alpha is the intercept on a regression of monthly portfolio excess returns. The explanatory variables are the excess
+return of the market (MktModel) and the four Fama and French (1993) and Carhart (1997) mimicking portfolios (Carhart),
+based on U.S. return data. Alphas are in annual percent. Returns are winsorized at the 1st and 99th percentiles. Standard
+errors are in brackets. ***, **, and * indicate significance at the 1%, 5%, and 10% level, respectively.
+
+ Panel A: Equal-                         MktModel                                                    Carhart Alpha
+ weighted returns     12m          24m              36m          Full               12m            24m           36m        Full
+                                                          Engagements with outcomes
+
+
+ Annualized alpha    8.406**      6.681*        6.404            6.230*               0.767       -0.807       -0.802       -0.63
+                     [4.213]      [4.020]       [3.875]          [3.679]              [3.347]    [3.214]       [3.094]     [2.920]
+
+                                                               Engagements with no outcomes
+
+ Annualized alpha    -6.193      -6.554*        -6.236           -5.363          -11.511***     -11.359***   -10.933***   -9.652***
+                     [4.214]     [3.905]        [3.864]          [3.801]           [3.943]        [3.654]      [3.616]     [3.595]
+
+
+
+ Panel B: Value-                         MktModel                                                    Carhart Alpha
+ weighted returns                                         Engagements with outcomes
+                      12m          24m              36m           Full                 12m         24m          36m         Full
+
+
+ Annualized alpha   13.183***   11.750***     10.642***         9.047***          8.853**        7.686**      7.381**     6.255**
+                     [4.013]     [3.283]       [3.085]           [2.969]          [3.895]        [3.091]      [2.968]     [2.874]
+
+                                                               Engagements with no outcomes
+
+ Annualized alpha     8.148       4.585         7.205            4.616                4.704       2.766         5.713       2.787
+                     [4.934]      [4.530]       [4.710]          [5.199]              [4.841]    [4.566]       [4.741]     [5.313]
+Appendix A8
+We consider the engagement performance of the subsample of U.S. hedge funds which invest in targets
+both domestically and overseas, to provide evidence about the extent to which the success of a domestic
+engagement model translates into successful foreign engagements. There are 24 hedge funds in our
+sample which engage with both domestic and foreign targets, out of a sample of 261 U.S. hedge funds.
+These include some of the largest funds in the sample by number of engagements, Steel Partners,
+ValueAct Capital Partners, Carl Icahn, and Third Point. In Figure 4 we plot, for each such fund, the
+probability of achieving outcomes in foreign engagements to the probability of achieving outcomes in
+domestic engagements. The graph is strikingly downward sloping for the sample of 24 hedge funds,
+suggesting that success domestically does not translate into success overseas, and similarly success
+overseas does not translate into domestic success. The evidence shows that activists are not successful in
+both domestic and foreign markets; instead they are only successful where they specialize
+geographically.
+
+
+                                                                                            Figure 4
+                                                                           Foreign engagements and outcome probabilities
+
+The figure shows data for a subsample of 24 U.S. hedge funds that during the sample period engaged target firms both in the
+U.S. and abroad. We calculate the probability of achieving at least one outcome (calculated separately for all domestic and
+for all foreign engagements of each fund) during an engagement.
+
+
+                                                                                       Sample: 24 US funds w/mixed geography
+
+                                  .8
+                                                     Greenlight Capital
+
+
+
+
+                Pr(outcome) in domestic engagement
+                                                     Southeastern
+                                                                Carl Icahn
+                                                             Jana Partners
+                                                               Stillwell Value
+                                                         Third Point
+                                                                Pirate Capital
+                                                                      Pershing     Square
+                                                                   SAC Capital Advisors
+                                                         Harbinger Capital
+
+                                                               ValueAct Capital Partners
+
+
+
+
+                    .2         .4          .6
+                                                                                             Elliott Associates
+
+                                                                  Steel Partners
+                                                                                                                                     Cevian Capital
+                                                                              Cycladic Capital Management            Hermes Focus Funds
+
+                                                                                                                     Laxey Partners
+                                                                                      Audley Capital
+
+
+                                                                       Leonardo Capital Deminor                   Governance for Owners
+                                                                                                                                                           K Capital Partners
+                                                                                                                                           Wyser Pratte & Co
+                                                                                                                                                                        Centaurus Capital
+                                  0                                                               Sterling Investment Group
+
+
+                                                     0                                  .2                      .4                .6
+                                                                                                Pr(outcome) in foreign engagement
+Appendix A9
+
+In Table 9 in the paper we report engagement probabilities and short-term returns to activism across
+countries. In the table below, we additional consider the number of successful outcomes achieved by
+activists as dependent variables. The empirical specifications follow those in Table 9.
+
+
+
+                       Table 18: Determinants of engagement outcome probabilities across countries
+
+Dependent variables are the number of outcomes achieved by the activist, as indicated in column titles. The sample includes all
+engagements with coverage on FactSet and country-level data available. Country-level variables are as follows: Market cap/GDP (market
+capitalization of listed domestic firms over GDP), Rule of Law (the perception of the extent to which agents have confidence in and abide
+by the rules of society) are from the Worldbank as of 2000; Disclosure Threshold is the minimum regulatory disclosure threshold for
+blockholders; Common Law equals one for countries with common law, zero otherwise; the Revised Anti-Director index is from Djankov
+et al. (2008); Quality of Governance (the percentage of governance attributes for which an average firm meets or exceeds the minimum
+satisfactory standard on 44 governance attributes), Board Independence (whether or not an average firm’s board is controlled by more than
+50% independent outside directors), and Board Structure (whether or not an average firm’s board is annually elected/not staggered) are
+from Aggarwal et al. 2009). Institutional ownership variables include domestic and foreign institutional ownership, firm-level control
+variables include Market-to-book, Leverage, Cash, Dividend Yield, Payout, Investment, U.S. accounting standards, Index Membership, and
+Illiquidity, all as defined in Table 4. Firm-level explanatory variables are as of the year during which the engagement is announced. All
+non-binary variables are winsorized at the 1st and 99th percentiles. White (1980) heteroskedasticity-robust standard errors are reported in
+brackets. ***, **, and * indicate significance at the 1%, 5%, and 10% level, respectively.
+                          (1)         (2)       (3)      (4)        (5)       (6)        (7)         (8)        (9)       (10)      (11)        (12)      (13)    (14)     (15
+Dependent variable        N. all achieved outcomes          N .Board outcomes                  N. Payout outcomes          N. Restructuring outcomes      N. Takeover outcomes
+
+IO_Domestic             0.520*** 0.462**       0.136   0.301***   0.313**     0.133      0.036  -0.008        -0.143    0.230*** 0.225**     0.222***    -0.047 -0.069 -0.076
+                         [0.159]  [0.215]    [0.206]    [0.097]   [0.123]    [0.123]    [0.079] [0.099]       [0.105]    [0.060] [0.092]      [0.082]    [0.069] [0.079] [0.083]
+IO_Foreign_U.S.           3.147   5.225**    5.359**    2.452*    2.941**    3.258**    -0.191   0.564         1.152      1.051    1.389       0.881     -0.166 0.331       0.067
+                         [2.011]  [2.078]    [2.126]    [1.292]   [1.320]    [1.299]    [0.655] [0.687]       [0.832]    [0.786] [0.910]      [0.867]    [0.799] [0.735] [0.848]
+IO_Foreign Non-U.S.      -1.080    -0.789     -1.320     0.175     0.065      0.108     -0.418  -0.053        -0.056    -0.715** -0.709**   -1.043***    -0.122 -0.091 -0.329
+                         [0.898]  [0.950]    [0.945]    [0.602]   [0.597]    [0.610]    [0.497] [0.548]       [0.585]    [0.305] [0.306]      [0.346]    [0.477] [0.544] [0.488]
+Market cap/GDP          -0.005**                        -0.001                         -0.001**                         -0.003**                         -0.000
+                         [0.002]                        [0.001]                         [0.001]                          [0.001]                         [0.001]
+Rule of Law             1.076***                         0.291                         0.308***                          0.272*                         0.205**
+                         [0.326]                        [0.183]                         [0.110]                          [0.141]                         [0.103]
+Disclosure Threshold                0.048                           0.003                       0.077*                            -0.046                           0.015
+                                  [0.110]                          [0.057]                      [0.040]                           [0.048]                         [0.025]
+Common Law                         -0.047                          -0.058                       -0.001                            -0.003                           0.014
+                                  [0.188]                          [0.129]                      [0.087]                           [0.058]                         [0.054]
+Anti-Director Rights             -0.267***                        -0.117**                      -0.046                            -0.042                         -0.061**
+                                  [0.087]                          [0.056]                      [0.032]                           [0.026]                         [0.030]
+Quality of Governance                     -6.363**                          -2.358                            -1.220                          -1.334                       -1.451
+                                           [2.698]                          [1.842]                           [1.058]                        [0.824]                       [1.224]
+Board Independence                        1.894***                         0.677**                            0.332*                         0.430**                       0.454*
+                                           [0.526]                          [0.332]                           [0.191]                        [0.170]                       [0.267]
+Board Structure                             0.270                            0.302                           0.662**                        -0.520**                       -0.173
+                                           [0.649]                          [0.328]                           [0.311]                        [0.245]                       [0.152]
+Year FE                 Calendar Calendar Calendar     Calendar   Calendar Calendar    Calendar Calendar     Calendar   Calendar Calendar   Calendar    Calendar Calendar Calendar
+Firm-level controls       Yes      Yes       Yes         Yes        Yes       Yes        Yes      Yes           Yes       Yes      Yes          Yes        Yes      Yes      Yes
+Observations              741      732       730         741        732       730        741      732           730       741      732          730        741      732      730
+R-squared                0.139    0.124     0.157       0.083      0.083     0.099      0.077    0.076         0.117     0.106    0.094        0.111      0.050    0.049    0.061
+Controls                 None     None      None        None       None      None       None     None          None      None     None         None       None     None     None
+Appendix A10
+
+Country Case Studies
+
+        To provide greater insight we link the disclosure of activist stakes to actions and outcomes in
+different countries by providing a series of case studies from our data set. The case studies illustrate
+three main points: how the activist intervention can be linked directly to observable outcomes and
+consequent changes in firm value, the support the activist received from institutional investors and/or
+other hedge fund activists, how activist engagements follow certain identifiable patterns across countries
+and engagements, and the influence of local culture and institutions.
+
+France
+
+        France has many of the minority shareholder protection rules of other European jurisdictions
+including the right of 5% of the share capital to call an EGM, 0.5% to table a binding shareholder
+resolution and rights of access to the shareholder register. However, structural barriers exist to effective
+minority activism, primarily (family) blockholders who deploy control enhancing mechanisms (CEMs)
+including stock partnerships, shares with differential voting rights and voting caps on minority
+shareholders to enhance their control. The case of Lagardère illustrates the issues arising from a public
+activist engagement with a firm controlled by a family blockholder.
+
+        Wyser Pratte Management held 0.53% of the share capital of Lagardère (the sixth largest
+shareholder) and submitted two shareholder proposals one month ahead of the 2010 general meeting.
+These nominated the fund manager, Guy Wyser Pratte, to the board of directors, and called for a change
+to the control structure of the firm, which was incorporated as a French stock partnership which allows
+the General Partner, Arnaud Lagardère of the founding family, to veto decisions taken by the
+shareholder meeting. Under the rules of French board elections (qualified majority voting), Wyser Pratte
+needed 51 percent of the quorum to be nominated to the board. The fund engaged a proxy solicitation
+firm to bundle the votes of other minority shareholders. Neither of the resolutions passed with Wyser
+Pratte officially receiving 24% of the vote on a turn-out of 65% of the shareholders. Wyser Pratte later
+alleged voting irregularities, and an investigation by the French regulator Autorité des Marches
+Financiers (AMF) found that the votes of significant foreign shareholders had not been tallied correctly
+due to the custodians holding the shares in pooled nominee accounts. The AMF responded that as the
+intermediaries (including the custodians and Broadridge Financial Solutions) were outside of France, it
+would take no further action. The Lagardère case illustrates why hostile public engagements with family
+blockholder controlled firms are less frequent than private negotiations.
+
+         In France, activists have been more successful in engaging publicly with firms which have more
+dispersed ownership. Examples in which activists gained board seats include Atos Origin (see Bessière,
+Kaestner and Lafont (2011)), Accor (Colony Capital), Carrefour (Blue Capital), Valeo (Pardus) and
+Saint-Gobain (Wendel). In these cases board representation was negotiated behind-closed-doors on the
+basis that the activists’ agreed not to criticise the firm in public and not to seek “de facto control”. In
+most of the cases the fund managers were French nationals. Similarities can be drawn with unsolicited
+takeover bids in the French market. Hostile offers are rare in France, and they are seldom undertaken by
+a foreign acquirer. The case study evidence is consistent with institutional ownership statistics. Foreign
+institutional holdings are sizeable but France has a large fund industry itself with important domestic
+holdings. It appears difficult to engage in France without the support of French institutional
+shareholders.
+
+Germany
+
+        The German corporate governance system relies to a large extent on delegation from the
+shareholders to a supervisory board of non-executive directors. Shareholders have strong board election
+rights, but do not vote on many other corporate decisions. Like in the U.S. hedge fund activists have
+used board elections as the main lever of influence to affect change. Shareholders in German
+corporations can call an EGM and precipitate board elections with 5% of the shares, providing the shares
+have been held for a period of at least three months, similar to the U.K. However, the solicitation of
+proxies by shareholders calling the EGM is complicated by the use of bearer shares in Germany which
+permit anonymity, and even then share registers are not public documents. The threat of a contested
+board election can be so strong that board changes are triggered without a hostile vote.
+
+         This is illustrated by the case of Deutsche Börse AG (DB), which changed its entire supervisory
+board as a result of a landmark activist intervention. In 2004-2005 DB expressed an intention to acquire
+The London Stock Exchange, and accumulated a considerable amount of cash for this purpose. By 2005,
+German-based investors owned less than 1% of the shares in DB with the majority of shares owned by
+U.K. and U.S. investors, and board control had become contestable. The U.K.-based activist fund TCI
+expressed opposition to the acquisition. TCI wished DB to drop the bid and distribute the cash to
+shareholders. The supervisory board of DB refused. TCI had by then accumulated a 5% stake and was in
+a position to call an EGM to remove the directors of the supervisory board. When several foreign
+institutional investors, including Fidelity and the Capital Group, declared their support for TCI it became
+clear that the foreign activist coalition had a majority of the votes and the ability to replace the board.
+The CEO of DB resigned and the entire board was replaced at the next ordinary shareholders meeting.
+The bid was withdrawn and the cash distributed to shareholders.
+
+Sweden
+
+        Like in the U.K., the U.S. and Germany, in Sweden board elections are the main lever of activist
+power. However, this influence does not derive from the threat of a hostile proxy solicitation or
+requisitioning an extraordinary meeting, but operates through a nominations committee. The Swedish
+Corporate Governance Code requires that listed companies should have an external nomination
+committee composed of shareholders who propose candidates for the board including the chairman.
+Representatives of the four largest shareholders in the company are usually appointed to the committee.
+Our sample contains seven board related interventions in Sweden. In all cases, activists joined the
+nominations committee and succeeded in appointing directors sympathetic to their goals. In all these
+cases the observed outcomes are the direct consequence of the activist intervention. Plurality voting is
+used, where the candidate with the largest number of votes is elected, in contrast to majority voting in
+the U.K.
+
+        An illustrative example is Lindex AB, a leading Swedish retail clothing chain. It was identified as
+a target by Cevian Capital, a domestic Swedish activist fund. It viewed Lindex as an attractive
+restructuring candidate, as it traded at a ‘depressed valuation’ due to an unsuccessful expansion in
+Germany. In October 2003, Cevian acquired a 16% block holding, making it the largest shareholder;
+other investors were mostly institutional investors with small stakes. Cevian was a member of the board
+nominations committee and therefore could influence board appointments without the need to call a
+shareholders meeting. Its founder Christer Gardell was appointed as Chairman of Lindex and another
+manager of Cevian served as a non-executive director. The nominations committee also recruited four
+new board members and a CEO.
+
+The Netherlands
+
+        Corporate control in the Netherlands is firmly tilted against shareholder activists and the mere
+existence of hedge fund activist interventions in the country was somewhat surprising. The law on the
+books is relatively shareholder friendly, but Dutch law is very flexible. Corporations have put in place a
+broad variety of statutory provisions and devices that shield them from hostile takeovers and shareholder
+activists. For example, a widely used structural barrier exists in the form of tradable depository receipts.1
+On the other hand foreign institutional holdings are very high and many companies are widely held. The
+Dutch cases illustrate that support from other shareholders is crucial and when this condition is met
+hedge fund activists have managed to overcome formidable formal barriers imposed by law or the
+company statutes.
+
+        In Dutch corporate law, shareholder resolutions are not binding on the firm and its board of
+directors, although the shareholder meeting was temporarily given the power to dismiss the board in
+2004. An EGM can be requisitioned by 10% of the share capital, and 1% is required to submit a (non-
+binding) resolution. There are only two interventions involving the requisitioning of a hostile EGM.
+
+        In the case of Stork (engaged by Centaurus and Paulson), after failed private negotiations, the
+activists called an EGM to vote on a resolution proposing the break-up of the company. The dissidents
+received 86.5% of the vote. The firm ignored the resolution, leading the activists to propose a second
+EGM with a vote of no confidence in the board to remove it. At this point the board moved to trigger a
+“poison pill” by issuing new preference shares to a foundation. The activists countered by taking Stork
+to the Enterprise section of the Amsterdam Court of Appeal, demanding the withdrawal of the new share
+scheme and the dismissal of the Supervisory Board. Appeal to this court is a potentially powerful tool
+for shareholders. 2 The court reversed the share issue, although rather than dismissing the Supervisory
+Board, it appointed 3 additional independent directors to facilitate a negotiated outcome. 3
+
+        In the case of ASM International the Hermes European Focus Fund and Fursa in 2006 engaged
+with the intention of splitting up ASM International. After a long engagement, and attempts to
+requisition a hostile EGM, the funds undertook legal action which included the demand for a court
+ordered investigation into the affairs of the target, and received a favourable ruling in the Enterprise
+Court in 2009. In a ground breaking decision in 2010, the Dutch Supreme Court overturned the lower
+court’s ruling, stating that the board had the final responsibility for both company strategy and corporate
+governance. The Court concluded: "The management board has to judge for itself whether it is desirable
+to consult external shareholders on these matters, and it is not obliged to inform the annual general
+meeting beforehand" (Van Tartwijk, 2010). The higher court also ordered the funds to pay ASM
+
+
+1
+  Depository receipts separate cash flow rights from voting rights. The voting rights are retained by the firm’s administrative office which retains the control
+rights of the firm. The administrative office is “always friendly to the management board” (Cziraki, Renneboog and Szilagyi, 2009). 6 of 25 AEX firms had
+issued depository receipts as of 2010.
+2
+  Shareholders with Euro 225,000 invested in a firm can institute proceedings in the Enterprise Court requesting it investigate the mismanagement of the
+firm. As demonstrated in the Stork case, the court has far-reaching powers.
+3
+  Supreme Court 17 January 2007, JOR 2007/42
+International’s legal expenses. 4 The controversial series of decisions would seem to severely curtail
+investors’ ability to affect governance changes in the Netherlands.
+
+Japan
+
+        In theory, shareholder rights are stronger in Japan than in Europe and the U.S. 3% of outstanding
+shares with voting rights held for at least 6 months are required to requisition an EGM. Just 1% of
+outstanding shares are sufficient to propose a shareholder resolution at the AGM. If passed, the
+resolution is binding on the firm. All shareholders have the right to inspect the shareholder register upon
+request. However, “poison pill” defences were introduced in 2006, and over 80% of annual shareholder
+meetings in Japan are organized on the same day, creating practical barriers to shareholder voting.
+
+        However, the main obstacle to shareholder hedge fund activism in Japan appears to be the
+reluctance of institutional investors to support activists. A prominent example is NEC Electronics
+(NECE), an engagement documented by Foley, Greenwood and Quinn (2008). The case illustrates the
+unduly optimistic market reaction around the disclosure of an activist stake in Japan. NECE was the
+listed semi-conductor manufacturing subsidiary of the Japanese electronics conglomerate NEC, which
+held over 70% of the subsidiary. In late 2005 Perry Capital, a foreign hedge fund accumulated a 4.7%
+position in NECE. In a letter Perry proposed a restructuring plan including reducing expenditure and
+eventually exiting the communications division. The letter was released to the press and triggered a
+10.6% abnormal return. Perry failed to secure meetings with senior management at the parent NEC, who
+blocked the restructuring and instead campaigned for their own strategic plans with Japanese investors.
+“While many investors were privately sympathetic to Perry Capital’s plans for NECE, none were willing
+to help in a meaningful way … many investors were being careful not to offend NEC” (Foley,
+Greenwood and Quinn 2008, p.4).
+
+        In July 2007, Perry made an offer to purchase 25 percent of NEC’s stake in NECE at a 65%
+premium. The deal was rejected by NEC and Perry was unable to secure meetings with NEC’s senior
+management. In response, the fund increased its position in NECE to 6% and acquired a position in
+parent NEC of under 5%. It then undertook a wide-scale lobbying effort, arranging over 250 meetings
+with Japanese financial and government institutions over the next year. However, Perry was forced to
+divest both positions as the financial crisis worsened with the collapse of Lehman Brothers in September
+2008. The cumulative abnormal return to the fund on its investment in NECE calculated on public
+information was minus 38%.
+
+        Another example illustrating insufficient support from institutional shareholders is Japanese
+Electric Power Development Co. (J-Power). In 2007 The Children’s Investment Fund (TCI) became the
+company’s largest shareholder with a 9.4% stake, later raised to 9.9%. J-Power was Japan's largest
+electric-power wholesaler, and had accumulated significant cash balances driven by strong domestic
+demand for electricity, low interest payments (low leverage) and a lack of competition. The firm had yet
+to disclose a strategic plan as to how it planned to spend its cash. TCI tabled shareholder proposals for
+the AGM in June 2007, advocating a dividend increase. These were defeated by an 80% majority at the
+meeting. In a further setback to TCI’s strategy, the Japanese Ministry of Economy rejected TCI’s
+application to raise the stake in J-Power on the grounds of “energy security concerns”. In a final attempt
+to press its agenda, TCI tabled proposals for the 2008 AGM again and undertook a proxy contest.
+However, a majority of 60% of shareholders sided with management – on the face of it, a surprising
+4
+    9 June 2010, JOR 2010/228.
+outcome as 40% of J-Power shares were held by foreign investors. Faced with intractable opposition to
+their proposals, TCI divested its stake in October 2008 at a loss. The J-Power case, the related Bull-Dog
+Sauce case and hedge fund activism in Japan more generally based on interviews has been documented
+by Buchanan, Netter, Poulsen and Yang (2012).
+
+The U.K.
+
+        The U.K. is among the most shareholder activist friendly countries in the world (Black and
+Coffee 1994). Shareholder can easily requisition an extraordinary general meeting (EGM) and put
+forward binding resolutions that need majority approval to pass. As Becht, Franks, Mayer and Rossi
+(2009) show, the threat of an EGM is usually sufficient to facilitate a negotiated outcome in the U.K.
+and this is reflected in the low number of shareholder proposals: 496 binding proposals at 85 firms
+(2000-2006) of which 98% were related to the election/removal of specific directors (Buchanan, Netter,
+Poulsen and Yang 2012).
+        Proposals are used strategically and activists call EGMs to achieve their objectives when
+necessary. This is illustrated by the case of F&C Asset Management, one of the U.K.’s largest asset
+managers. In 2010 Sherborne, a U.K. domestic activist fund, requisitioned an EGM to restructure the
+board of F&C, so as to radically alter the strategy of the company. The vote resulted in the removal of
+F&C’s chairman and another director, and the appointment of three of Sherborne’s nominees, including
+their chairman. Sherborne held 18% of F&C prior to the vote and received 70% support in favour of
+their proposals. Ten institutional investors held stakes in F&C in excess of 3%, accounting for about
+48% of the outstanding shares. The company was subsequently acquired at a substantial premium in
+2013. The takeover was facilitated by the board changes initiated by the activist.
+

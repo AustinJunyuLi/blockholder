@@ -1,0 +1,2168 @@
+Governance Through Trading and
+Intervention: A Theory of Multiple
+Blockholders
+
+
+
+
+                                                                                                                 Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+Alex Edmans
+Wharton School, University of Pennsylvania
+
+Gustavo Manso
+MIT Sloan School of Management
+
+
+    Traditional theories argue that governance is strongest under a single large blockholder, as
+    she has high incentives to undertake value-enhancing interventions. However, most firms
+    are held by multiple small blockholders. This article shows that, while such a structure
+    generates free-rider problems that hinder intervention, the same coordination difficulties
+    strengthen a second governance mechanism: disciplining the manager through trading.
+    Since multiple blockholders cannot coordinate to limit their orders and maximize com-
+    bined trading profits, they trade competitively, impounding more information into prices.
+    This strengthens the threat of disciplinary trading, inducing higher managerial effort. The
+    optimal blockholder structure depends on the relative effectiveness of manager and block-
+    holder effort, the complementarities in their outputs, information asymmetry, liquidity,
+    monitoring costs, and the manager’s contract. (JEL D82, G14, G32)
+
+
+
+Corporate governance can have significant effects on firm value. Through en-
+suring that managers act in shareholders’ interest, it reduces the agency costs
+arising from the separation of ownership and control. In turn, traditional the-
+ories argue that concentrated ownership is critical for effective governance,
+since only large investors have incentives to monitor the manager and, if nec-
+essary, intervene to correct value-destructive actions.
+
+
+
+We thank an anonymous referee, the Editor (Paolo Fulghieri), Anat Admati, Itay Goldstein, Jay Hartzell, Robert
+Hauswald, Uli Hege, Cliff Holderness, Rich Mathews, Holger Mueller, Stew Myers, Tom Noe, Jun Qian, Charu
+Raheja, Rafael Repullo, Avanidhar Subrahmanyam, Alex Wagner, Jiang Wang, Yongxiang Wang, and seminar
+participants at the 2009 FIRS meetings, 2009 AFA meetings, 2008 EFA meetings, 2008 Texas Finance Festival,
+2008 China International Conference in Finance, 2008 European Winter Finance Conference, 2007 Confer-
+ence on Financial Economics and Accounting at NYU, Amsterdam, Columbia, Drexel, HKUST, Maastricht,
+MIT, Notre Dame, Securities and Exchange Commission, University of Illinois at Urbana-Champaign, Yale,
+and Wharton for helpful comments, and Qi Liu and Chong Huang for excellent research assistance. Edmans
+gratefully acknowledges the Goldman Sachs Research Fellowship from the Rodney White Center for Finan-
+cial Research. This article was previously circulated under the title “Governance Through Exit and Voice: A
+Theory of Multiple Blockholders.” Send correspondence to Alex Edmans, 3620 Locust Walk, Philadelphia, PA
+19104; telephone: (215) 746-0498. E-mail: aedmans@wharton.upenn.edu. Gustavo Manso, 100 Main Street,
+Cambridge, MA 02142; telephone: (617) 253-7218. E-mail: manso@mit.edu.
+
+ c The Author 2010. Published by Oxford University Press on behalf of The Society for Financial Studies.
+All rights reserved. For Permissions, please e-mail: journals.permissions@oup.com.
+doi:10.1093/rfs/hhq145                                          Advance Access publication December 14, 2010
+  The Review of Financial Studies / v 24 n 7 2011
+
+
+
+     However, many firms in reality have multiple small blockholders (Faccio
+  and Lang 2002; Maury and Pajuste 2005; Laeven and Levine 2007; Holderness
+  2009). Such a structure appears to be suboptimal for governance, as splitting
+  equity between numerous shareholders leads to a free-rider problem: Each in-
+  vestor individually has insufficient incentives to bear the cost of monitoring.
+  Should policymakers encourage more concentrated stakes, as suggested by ex-
+  isting models, or can such a structure in fact be efficient? The evidence also
+
+
+
+
+                                                                                                                 Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+  demonstrates heterogeneity in blockholder structures. What causes the number
+  of blockholders to vary across firms?
+     These questions are the focus of this article. We demonstrate that a multiple
+  blockholder structure can be efficient, and identify the factors that determine
+  the optimal blockholder structure. While splitting a block reduces the effec-
+  tiveness of direct intervention, it increases the power of a second governance
+  mechanism: trading. By trading on private information, blockholders move the
+  stock price toward fundamental value, and thus cause it to more closely reflect
+  the effort exerted by the manager to enhance firm value. If the manager shirks
+  or extracts private benefits, blockholders follow the “Wall Street Rule” of “vot-
+  ing with their feet” and selling to liquidity traders. This drives down the stock
+  price, reducing the manager’s equity compensation and thus punishing him ex
+  post. However, such a mechanism elicits effort ex ante only if it is dynami-
+  cally consistent. Once the manager has taken his action, blockholders cannot
+  change it and are concerned only with maximizing their trading profits. A sin-
+  gle blockholder will strategically limit her order to reduce the revelation of her
+  private information. By contrast, multiple blockholders trade aggressively to
+  compete for profits, as in a Cournot oligopoly. Total quantities (here, trading
+  volumes) are higher than under monopoly, so more information is impounded
+  in prices and they more closely reflect fundamental value and thus the man-
+  ager’s effort.1 Multiple blockholders therefore serve as a commitment device
+  to reward or punish the manager ex post for his actions.
+     We derive an interior solution for the optimal number of blockholders that
+  maximizes firm value. This optimum arises from a tradeoff between interven-
+  tion and trading: Fewer blocks maximize intervention, but more blocks in-
+  crease trading. Therefore, this optimum is increasing in the value created by
+  managerial effort and decreasing in the value created by blockholder interven-
+  tion. If blockholders are passive, such as mutual funds, they are more effective
+  at governing through trading than intervention, and so a large number is opti-
+  mal. By contrast, with activists and venture capitalists, concentrated ownership
+  is efficient. We show that the firm value optimum may differ from the social
+  optimum that maximizes total surplus (firm value net of effort costs), and the
+  private optimum that would be endogenously chosen by the blockholders if
+
+
+1 The 2007 hedge fund crisis is a prominent example of the substantial price changes that result from multiple
+  investors trading in the same direction.
+
+
+
+
+  2396
+Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+they retraded their stakes to maximize their combined net payoffs (which in-
+clude informed trading profits). However, the above comparative statics are the
+same for all three optima.
+   In the core model, blockholders are automatically informed about firm value.
+We extend the model to costly information acquisition. In equilibrium some
+blockholders may stay uninformed, because trading profits are insufficient to
+justify information gathering. Since uninformed blockholders do not trade, and
+
+
+
+
+                                                                                        Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+reduce intervention by diluting ownership, they lower firm value. Thus, the
+optimal number of blockholders is bounded above, to ensure that competition
+in trading is sufficiently low that trading profits are adequate to motivate all
+blockholders to acquire information. If net trading profits increase, this bound
+is loosened and so the number of blockholders rises. This in turn occurs if mar-
+ket liquidity and the blockholders’ informational advantage increase, and the
+cost of information falls.
+   The core model assumes that blockholder and manager efforts are substi-
+tutes, with independent effects on firm value. For example, the firm value im-
+pact of managerial effort to launch new products is unaffected by the extent
+to which blockholders extract private benefits or monitor managerial perks.
+However, in some cases there may be positive complementarities, where the
+marginal productivity of one party’s effort is increasing in the other party’s
+effort—for example, the blockholder formulates a strategy that the manager
+implements. We model positive complementarities by specifying that firm value
+depends only on the lower of the manager’s and blockholders’ output lev-
+els (where “output” is effort scaled by productivity). Since managerial ef-
+fort is productive only if it is accompanied by high blockholder effort (and
+vice versa), the optimal number of blockholders balances the output levels of
+both parties. The effect of effort productivity changes direction: The optimum
+is now decreasing (increasing) in the effectiveness of the manager’s (block-
+holders’) effort. If blockholder effort is ineffective, concentrated ownership is
+necessary to “boost” blockholder output so that it is at a similar level to the
+manager’s output.
+   The opposite case is negative complementarities, where the marginal pro-
+ductivity of one party’s effort is decreasing in the other party’s output. This
+occurs if blockholders correct managerial shirking: Blockholders are most ef-
+fective if the manager exerts low effort or consumes private benefits. We model
+negative complementarities by specifying that firm value depends only on the
+higher of the output levels of the two parties. The optimum is determined en-
+tirely by the more effective action, and ignores tradeoff considerations with the
+less effective action. The efficient number of blockholders is either very low
+(if blockholder effort is relatively effective) or very high (if managerial effort
+is relatively effective).
+   Finally, the optimal number of blockholders is also increasing in the man-
+ager’s and blockholders’ relative weighting on the stock price rather than long-
+run fundamental value (e.g., as a result of short vesting periods or liquidity
+
+
+
+                                                                                 2397
+  The Review of Financial Studies / v 24 n 7 2011
+
+
+
+  needs), since this augments the importance of stock price informativeness for
+  their effort choices.
+     We close by discussing empirical implications, which fall under two broad
+  themes. First, the model suggests a different way of thinking about the in-
+  teraction between multiple blockholders, which can give rise to new avenues
+  for empirical research. Prior models perceive blockholders as competing for
+  private benefits, and so existing empirical studies of multiple blockholders
+
+
+
+
+                                                                                                             Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+  typically focus on rent extraction (e.g., Laeven and Levine 2007). Our article
+  suggests that future research may be motivated by conceptualizing them as in-
+  formed traders, competing for trading profits. This link between blockholders
+  and the microstructure literature generates a new set of predictions relating to
+  informed trading and financial markets. The model predicts that blockholder
+  structure impacts price efficiency and consequently firm value, and their power
+  in exerting governance depends on microstructure factors such as liquidity and
+  the blockholders’ information advantage. One recent example of such a re-
+  search direction is Gallagher, Gardner, and Swan (2010), who show that an
+  increase in the number of blockholders reduces trading profits, augments price
+  efficiency, and leads to subsequent improvements in firm performance. Gorton,
+  Huang, and Kang (2010) find that price informativeness is increasing in the
+  number of blockholders; Boehmer and Kelley (2009) document that it is ris-
+  ing in ownership dispersion. Bharath, Jayaraman, and Nagar (2010) find that
+  liquidity improves firm value particularly in firms with multiple blockhold-
+  ers, and Smith and Swan (2008) show that trading by multiple blockholders
+  disciplines managerial compensation. More generally, these implications con-
+  tribute to the broader literature linking financial markets to corporate finance
+  and demonstrating the real effects of financial markets.2
+     Second, the theory implies that the number of blockholders is important
+  as both a dependent and an independent variable in empirical studies. Ex-
+  isting research often focuses on explaining total institutional ownership or
+  the size of the largest blockholder. This article suggests that the number of
+  blockholders is another important feature of governance structures. As a de-
+  pendent variable, the model generates testable predictions for the factors that
+  should cause blockholder structure to vary across firms, potentially explain-
+  ing the heterogeneity observed empirically. As an independent variable, the
+  number of blockholders is a driver of both market efficiency and the strength
+  of corporate governance. Empirical papers frequently use total institutional
+  ownership as a gauge of price efficiency, since institutions are typically more
+  informed than retail investors. However, market efficiency requires not only
+  that investors be informed, but also that they impound their information into
+  prices, and so the number of informed shareholders is a relevant additional
+
+2 See, for example, Fishman and Hagerty (1989); Holmstrom and Tirole (1993); Dow and Gorton (1997);
+  Subrahmanyam and Titman (1999); Fulghieri and Lukin (2001); Chen, Goldstein, and Jiang (2007); Goldstein
+  and Guembel (2008); Calcagno and Heider (2008); and Ferreira, Ferreira, and Raposo 2010.
+
+
+
+
+  2398
+   Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+   factor. Similarly, governance is typically proxied for using total institutional
+   ownership, or the holding of the largest shareholder, but the number of block-
+   holders is also important. See Bharath, Jayaraman, and Nagar (2010) and
+   Gorton, Huang, and Kang (2010) for recent empirical studies of the effect of
+   blockholder numbers.
+      This article is organized as follows. Section 1 reviews related literature. Sec-
+   tion 2 presents the model and analyzes the effect of blockholder structure on
+
+
+
+
+                                                                                           Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   both intervention and trading. Section 3 derives the optimal number of block-
+   holders that maximizes firm value, total surplus, and the blockholders’ payoff.
+   Section 4 considers extensions, Section 5 discusses empirical implications, and
+   Section 6 concludes. The Appendix contains all proofs not in the main text,
+   some extensions, and other peripheral material.3
+
+
+1. Related Literature
+   The vast majority of blockholder models involve the large shareholder adding
+   value through direct intervention, or “voice” as termed by Hirschman (1970).
+   This can involve implementing profitable projects or correcting managerial
+   inefficiency. In Shleifer and Vishny (1986); Admati, Pfleiderer, and Zechner
+   (1994); Maug (1998, 2002); Kahn and Winton (1998); and Mello and Repullo
+   (2004), a larger block is unambiguously more desirable as it reduces the free-
+   rider problem and maximizes incentives to intervene.
+      By contrast, Burkart, Gromb, and Panunzi (1997) show that the optimal
+   block size is finite if blockholder intervention can deter managerial initiative ex
+   ante. Bolton and von Thadden (1998) and Faure-Grimaud and Gromb (2004)
+   achieve a finite optimum through a different channel, as too large a block re-
+   duces free float. While these papers consider only a single shareholder, Pagano
+   and Röell (1998) point out that if the finite optimum is lower than the total
+   external financing required, the entrepreneur will need to raise funds from ad-
+   ditional shareholders. Although this leads to a multiple blockholder structure,
+   the extra blockholders play an entirely passive role: They are merely a “budget-
+   breaker” to provide the remaining funds. Replacing the additional blockholders
+   by creditors or dispersed shareholders would have the same effect. In this ar-
+   ticle, all blockholders play an active role. In Winton (1993), a multiple block-
+   holder structure arises as investors face wealth constraints, rather than from
+   price efficiency considerations.
+      Two recent papers by Admati and Pfleiderer (2009) and Edmans (2009)
+   analyze an alternative governance mechanism: trading (also commonly re-
+   ferred to as “exit”). Informed trading causes prices to more accurately re-
+   flect fundamental value, in turn inducing the manager to undertake actions that
+
+
+
+ 3 All appendices are available online at http://www.sfsrfs.org.
+
+
+
+
+                                                                                    2399
+  The Review of Financial Studies / v 24 n 7 2011
+
+
+
+  enhance value.4 The survey evidence of McCahery, Sautner, and Starks (2010)
+  finds that trading is the primary governance mechanism used by institutions;
+  Parrino, Sias, and Starks (2003) and Chen, Harford, and Li (2007) docu-
+  ment direct evidence of governance through trading. However, Admati and
+  Pfleiderer (2009) and Edmans (2009) both consider a single blockholder and
+  do not feature intervention.
+     Attari, Banerjee, and Noe (2006), Faure-Grimaud and Gromb (2004), and
+
+
+
+
+                                                                                                                         Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+  Aghion, Bolton, and Tirole (2004) feature a blockholder who can only inter-
+  vene and a speculative agent who can only trade. The blockholder does not
+  trade; even though the speculator does, such trading does not exert gover-
+  nance as there is no managerial decision. These theories thus consider inter-
+  vention only. Noe (2002) features multiple blockholders who both intervene
+  and trade. Since stock price informativeness has no effect on managerial ef-
+  fort, blockholder trading again does not exert governance.5 In Khanna and
+  Mathews (2010), blockholder trading does improve firm value, but through the
+  different channel of countering manipulation by a short-seller. In our model,
+  all blockholders engage in both intervention and trading; the latter affects the
+  manager’s incentives and thus exerts governance. Indeed, McCahery et al. find
+  that institutional blockholders use both governance mechanisms frequently.6
+  To our knowledge, this article is the first theory that analyzes both of these
+  major governance mechanisms and the tradeoffs between them.
+     Most existing multiple blockholder theories focus on the formation of coali-
+  tions to win voting contests (Dhillon and Rossetto 2009) or extract private ben-
+  efits (Zwiebel 1995; Bennedsen and Wolfenzon 2000; Mueller and Wärneryd
+  2001; Bloch and Hege 2003; Maury and Pajuste 2005; Gomes and Novaes
+  2006).7 This article derives a multiple blockholder structure through a quite
+  different channel—its effect on governance through trading, rather than con-
+  trol contests. By studying different blockholder actions, the model generates
+
+
+4 In Holmstrom and Tirole (1993), Calcagno and Heider (2008), and Ferreira, Ferreira, and Raposo (2010), price
+  efficiency is also desirable as it helps monitor management. In Fulghieri and Lukin (2001), efficient prices
+  reduce the cost of raising funds for a high-quality firm. In Fishman and Hagerty (1989), efficient prices improve
+  the manager’s investment decisions. These papers do not analyze the effect of blockholder structure on price
+  efficiency, and there is no blockholder intervention. In Fulghieri and Lukin (2001), price efficiency is enhanced
+  via security design; in Fishman and Hagerty (1989), it is enhanced by firms’ voluntary disclosures.
+5 Similarly, the single blockholder models of Maug (1998, 2002), Kahn and Winton (1998), Mello and Repullo
+  (2004), Brav and Mathews (2010), and Kalay and Pant (2010) allow the blockholder either to intervene or to sell
+  her stake (in the last two papers, the intervention occurs through voting). However, trading again does not exert
+  governance, and so these papers are theories of intervention only.
+6 While trading is the primary mechanism (undertaken by 80% of institutions), 66% vote against management
+  and 55% engage in discussions with the board. Six other channels of intervention are used by at least 10%
+  of respondents. Institutions can both trade freely on information and engage in intervention because the above
+  intervention mechanisms do not require them to have a board seat and become a firm insider.
+7 Another explanation is that regulation (e.g., Section 13(d) filing requirements upon acquisition of a 5% stake,
+  or becoming classified as an insider upon acquisition of a 10% stake) prevents investors from building large
+  blocks and thus forces firms to be held by multiple blockholders. Existing theories advocating a single large
+  blockholder would suggest that such institutional constraints lead to inefficient ownership structures; this article
+  reaches a different conclusion.
+
+
+
+
+  2400
+  Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+  Table 1
+  Frequency of multiple blockholders for 1,240 U.S. firms. This table reports the frequency of blockholder
+  structures for U.S. firms in 2001 using data from Dlugosz et al. (2006)
+
+                           All blockholders                                  Outside blockholders
+             Number of firms              % of firms with           Number of firms            % of firms with
+  N         with N blockholders          ≥ N blockholders          with N blockholders        ≥ N blockholders
+  0                 152                        100%                       249                       100%
+  1                 217                         88%                       289                        80%
+
+
+
+
+                                                                                                                   Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+  2                 287                         70%                       284                        57%
+  3                 264                         47%                       213                        34%
+  4                 170                         26%                       116                        17%
+  5                  88                         12%                        62                         7%
+  6                  40                          5%                        18                         2%
+  7                  17                          2%                         7                         1%
+  8                   4                          0%                         2                         0%
+  9                   1                          0%                         0                         0%
+
+
+
+  a new range of empirical predictions, in particular those relating to informed
+  trading and financial markets, and more broadly links together the previously
+  disparate literatures on blockholders and microstructure.
+     We now turn from related theories to the empirical facts that motivate our
+  model. Table 1 illustrates the prevalence of multiple blockholders using U.S.
+  data for 2001 from Dlugosz et al. (2006). They define a blockholder as a share-
+  holder with at least 5% of a firm’s equity. The table illustrates that 70% of
+  firms have multiple blockholders, and 26% of firms have at least four block-
+  holders. Focusing on outside blockholders, these figures remain sizable at 57%
+  and 17%. Hence, not only do most firms have multiple blockholders, but even
+  among such firms, the number of blockholders varies. Therefore, we seek not
+  only to show that a multiple blockholder structure can be optimal, but also to
+  explain why blockholder numbers vary across firms. Hand-collected data from
+  Holderness (2009) give consistent results, showing that 74% of firms have mul-
+  tiple blockholders and 26% have at least four blockholders.8
+     Turning to overseas, Laeven and Levine (2007) find that 34% of European
+  firms have more than one blockholder; Maury and Pajuste (2005) document a
+  figure of 48% for Finnish firms. Using Western European data made available
+  by Faccio and Lang (2002), we find a similar ratio of 39%. All these figures
+  are sizable but somewhat lower than the U.S. data, because the above papers
+  require an investor to have at least 10% of the voting rights to be a blockholder,
+  in part motivated by existing theories based on control contests. While a 10%
+  stake may be necessary to exert control, in our model a blockholder is simply
+  a shareholder who has greater information than the market, and so the lower
+  threshold of Dlugosz et al. (2006) is more appropriate. Even a stake below 5%
+  may be sufficient to gain access to management or give incentives to analyze
+
+
+
+8 The Holderness (2009) paper does not contain the frequency of multiple blockholders. We thank Cliff Holderness
+  for providing us with these figures using his underlying data.
+
+
+
+
+                                                                                                         2401
+   The Review of Financial Studies / v 24 n 7 2011
+
+
+
+
+                                                                                                                         Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   Figure 1
+   Timeline of the model
+
+
+
+
+   the firm in detail (for example, mutual funds typically hold under 5%). Under a
+   lower threshold, the prevalence of multiple blockholders and heterogeneity in
+   structures will be even greater. Our model does not assume that blockholders
+   have control rights; a blockholder is simply any party with a sufficient stake to
+   induce intervention, who also has private information and the ability to trade
+   on this information.9 It thus can apply to shareholders with less than 5% and
+   suggests that empirical studies of blockholders may wish to use data sources
+   other than 13d filings to identify sizable shareholders below the 5% threshold
+   (e.g., Gallagher, Gardner, and Swan 2010).
+
+
+2. Model and Analysis
+   Our model consists of a game between the manager, a market maker, and the
+   I blockholders of the firm. The game has two stages, and the timeline is given
+   in Figure 1.
+      In the first stage, the manager and blockholders take actions that affect firm
+   value. Firm value is given by
+                                                      P 
+                      ṽ = φa log (1 + a) + φb log 1 + i bi + η e,                (1)
+
+   where a ∈ [0, ∞) represents the action taken by the manager, bi ∈ [0, ∞) rep-
+   resents the action taken by blockholder i, and η̃ is normally distributed noise
+   with mean zero and variance ση2 . The manager incurs personal cost a when
+   taking action a, while each blockholder i incurs personal cost bi when taking
+
+
+
+ 9 For U.S. firms, insiders will typically not meet this definition of a blockholder since they are prohibited from
+   trading on material non-public information by insider trading laws; Table 1 therefore differentiates between
+   inside and outside blockholders. In countries where insider trading laws are weak or not enforced, and insiders
+   do not face other trading restrictions such as wealth constraints or risk aversion, both insiders and outsiders can
+   be considered blockholders in the model.
+
+
+
+
+   2402
+   Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+   action bi .10 The manager’s action is broadly defined to encompass any decision
+   that improves firm value but is personally costly, such as exerting effort or for-
+   going private benefits. We call these actions “initiative” and “managerial rent
+   extraction,” respectively. Similarly, the blockholder’s action can involve advis-
+   ing the manager (“advising”), inhibiting managerial perks (“perk prevention”),
+   or extracting private benefits for themselves (“blockholder rent extraction”).11
+   Section 5 discusses which types of action will likely be most important in a
+
+
+
+
+                                                                                                                          Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   given setting. The parameter φa (φb ) measures the productivity of manager
+   (blockholder) effort. We use the term “effort”P to refer to a and bi and “output”
+   to refer to φa log(1 + a) and φb log(1 + i bi ), i.e., effort scaled by its pro-
+   ductivity. To avoid having to deal with the boundary cases where a and/or bi
+   are zero and explicitly analyze non-negativity constraints, we impose techni-
+   cal restrictions on the parameters to guarantee that both are strictly positive.
+   Sufficient conditions are given in Appendix A.12
+      In the core model, the manager’s and blockholders’ actions are perfect sub-
+   stitutes, with independent effects on firm value. This benchmark case is appro-
+   priate in a number of settings. For example, if blockholders impact the firm
+   primarily through rent extraction, this erodes firm value regardless of the man-
+   ager’s initiative or rent extraction. If the key managerial action is initiative
+   (e.g., designing new products or building client relationships) and blockhold-
+   ers mainly block perks or consume private benefits themselves, these are also
+   independent. However, in some situations, there may be positive or negative
+   complementarities between the manager’s and blockholders’ actions. These
+   are analyzed in Section 4.2.
+      Action a is privately observed by the manager, as in any moral hazard prob-
+   lem. In the core model, we assume that bi is public. This assumption is made
+   only for tractability, since it allows the trading and effort decisions to be solved
+   separately. The key mechanism through which the article justifies multiple
+   blockholders, that a rise in I generates competition in trading, is unaffected
+   by whether bi is observable. In Section 4.4, we allow for bi to be private.
+      There is one share outstanding. The risk-neutral manager owns α shares, and
+   each risk-neutral blockholder holds β/I shares, where α +β < 1. Our analysis
+   focuses exclusively on the optimal number of blockholders (I ) among which a
+
+10 Firm value depends on the logarithm of the combined blockholder effort level, and the action has a linear
+   cost to each blockholder. This functional form ensures that adding blockholders does not change the available
+   technology (in addition, it leads to substantial tractability). The common assumption of a quadratic cost and a
+   linear effect of bi on ṽ is inappropriate here: With a convex cost function, the blockholders’ technology would
+   improve if there are multiple small blockholders, since each would be operating at the low marginal cost part of
+   the curve. A single blockholder would be able to reduce monitoring costs by dividing herself up into multiple
+   small “units,” and increase total effort. Instead, the linear cost means that the monitoring technology is constant,
+   and so there is no mechanical reduction in monitoring costs from splitting a block.
+11 See Barclay and Holderness (1989) for a description of the private benefits that blockholders can extract. Unlike
+   in earlier theories of multiple blockholders, here blockholders do not compete (with either each other or the
+   manager) to consume private benefits.
+12 The analysis of perfect negative complementarities (Proposition 10) does allow for a or P b to be zero, and
+                                                                                             i i
+   indeed shows that the optimum involves one of these terms being zero.
+
+
+
+
+                                                                                                               2403
+   The Review of Financial Studies / v 24 n 7 2011
+
+
+
+   given level of concentrated ownership is divided, and thus holds the amount of
+   concentrated ownership (β) constant. This separates our article from previous
+   literature that analyzes the optimal β. For example, Shleifer and Vishny (1986)
+   and Maug (1998, 2002) show that a higher β raises incentives to intervene, but
+   this must be traded off against the potential reduction in managerial initiative
+   (Burkart, Gromb, and Panunzi 1997) and free float (Bolton and von Thadden
+   1998). In this model, free float is fixed at 1 − α − β and plays no role. Endo-
+
+
+
+
+                                                                                                                         Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   genizing β and allowing liquidity (introduced shortly) to depend on free float
+   will lead to the same tradeoff as these earlier papers.13
+      In the second stage of the game, the blockholders, noise traders, and a
+   market maker trade the firm’s equity. As in Admati and Pfleiderer (2009),
+   each blockholder observes firm value ṽ perfectly, while noise traders are unin-
+   formed. Section 4.1 extends the model to costly information acquisition, and
+   Appendix B shows that our results are unchanged if each blockholder obtains
+   an imperfect signal of ṽ: We require only that blockholders have superior in-
+   formation to atomistic investors.14 This superior information can be motivated
+   by a number of underlying assumptions. Blockholders’ large stakes may give
+   them greater access to information: Given their voting power, management
+   is more willing to meet with them. In reality, managers meet large institu-
+   tional investors but not households. Even if blockholders have the same access
+   to information as other investors, they have stronger incentives to engage in
+   costly analysis of this information. For example, mutual funds undertake de-
+   tailed analysis of public information to form their own valuations. Edmans
+   (2009) microfounds this relationship between block size and informedness.
+   If there are short-sale constraints (or nontrivial short-sale costs), blockhold-
+   ers can sell more if information turns out to be negative. Since information
+   is more useful to them, they have a greater incentive to acquire it in the first
+   place. Several empirical studies indeed find that blockholders are better in-
+   formed than other investors and impound their information into prices through
+   trading. Parrino, Sias, and Starks (2003) and Chen, Harford, and Li (2007)
+   find that blockholders have superior information about negative firm prospects,
+   which they use to vote with their feet. Bushee and Goodman (2007) show that
+   blockholders trade on private rather than public information. Holthausen, Left-
+   wich, and Mayers (1990) and Sias, Starks, and Titman (2006) demonstrate that
+   such blockholder trading has a permanent effect on stock prices (suggesting
+   the price moves are due to information rather than liquidity), and Brockman
+
+
+13 We could also extend the model by introducing managerial risk aversion and endogenizing α . Then, the increased
+   price efficiency that results from a greater number of blockholders will lead to the optimal contract involving a
+   greater relative weight on equity compensation versus other performance measures: See Holmstrom and Tirole
+   (1993) and Calcagno and Heider (2008). As in the present article, managerial effort unambiguously rises (see
+   Chen and Swan 2010).
+14 Appendix C allows signal precision to be increasing in the blockholder’s individual stake and thus fall with I .
+   This does not change any results as long as signal precision does not decline so rapidly with I that this outweighs
+   the beneficial effect of greater I on competition in trading.
+
+
+
+
+   2404
+   Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+   and Yan (2009) find that blockholders impound firm-specific information into
+   prices.15
+      After observing ṽ, each blockholder submits a market order xi (ṽ). Noise
+              trade for exogenous liquidity reasons, submit a market order ˜ ∼
+   traders, who
+   N 0, σε2 , where ε and η are independent. We P use the term “liquidity” to refer
+   to σε . After observing total order flow ỹ = i x
+                                                   ei + ˜ , the competitive market
+   maker sets the price p̃ equal to expected firm value.
+
+
+
+
+                                                                                                                            Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+      The manager’s objective is to maximize the market value of his shares less
+   the cost of effort. Each blockholder maximizes her trading profits, plus the
+   fundamental value of her shares, less her cost of effort.16 In Section 4.3, we
+   allow the objective functions of all players to depend on both the stock price
+   and fundamental value.
+      We solve for the equilibrium of the game by backward induction.
+
+   2.1 The trading stage
+   To proceed by backward induction, we take the decisions a of the manager
+   and bi of the blockholders as given. (In equilibrium, these conjectures will
+   be correct and equal the actions derived subsequently in Proposition 3.) The
+   trading stage of the game is similar to Kyle (1985) and its extensions to mul-
+   tiple informed investors (Kyle 1984; Admati and Pfleiderer 1988; Holden and
+   Subrahmanyam 1992; Foster and Viswanathan 1993).
+   Proposition 1. (Trading Equilibrium) The unique linear equilibrium of the
+   trading stage is symmetric and has the form
+                                                         P 
+             xi (ṽ) = γ ṽ − φa log (1 + a) − φb log 1 + i bi  ∀i       (2)
+                                                    P 
+              p( ỹ) = φa log (1 + a) + φb log 1 + i bi + λ ỹ,          (3)
+   where
+                                                            √
+                                                         I ση
+                                                   λ=                                                               (4)
+                                                      I + 1 σ
+                                                       1 σε
+                                                   γ =√      ,                                                      (5)
+                                                        I ση
+
+15 Parrino, Sias, and Starks (2003), Sias, Starks, and Titman (2006), and Gallagher, Gardner, and Swan (2010)
+   document that blockholders typically trade on the market rather than using a negotiated block trade. This is
+   because only the former method allows them to trade on their information by camouflaging with noise traders
+   (as in Kyle 1985). Blockholders cannot trade on information in a negotiated trade because the counterparty
+   engages in extensive due diligence since she is trading a large stake. Indeed, Barclay and Holderness (1991) find
+   that negotiated block trades are rare and trades lead to stock price increases, inconsistent with the hypothesis that
+   the selling blockholder is exiting on negative information. The event-study returns are independent of whether
+   the block is traded at a premium or discount, rejecting the view that the trading parties have superior information
+   to the market.
+16 Each blockholder thus maximizes her individual objective function. The results are unchanged if blockholders
+   can coordinate (either to share the costs of intervention, or limit their trading volumes), but the cost is increasing
+   in the number of coordinating parties. An increase in I reduces the coordination costs for both intervention and
+   trading, with the same effects as in the core model.
+
+
+
+
+                                                                                                                 2405
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+and a and bi are the market maker’s and blockholders’ conjectures regarding
+the actions. Each blockholder’s expected trading profits are given by
+                                    1
+                              √            ση σ  .                     (6)
+                                 I (I + 1)
+
+   Trading profits are increasing in ση , the blockholders’ informational advan-
+
+
+
+
+                                                                                      Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+tage, and σ , their ability to profit from information by trading with liquid-
+ity investors. In addition, aggregate blockholder trading profits are decreasing
+in I , because multiple blockholders compete as in a Cournot oligopoly and
+trade aggressively. While aggressive trading reduces aggregate profits, it also
+impounds
+     h      i more information into prices. Our definition of price informativeness
+is E dd ṽp̃ , the expected change in price for a given change in firm value. This
+definition is particularly relevant for our setting as it measures the incentives
+to improve fundamental value of an agent compensated according to the stock
+price. It will thus be used later to derive the manager’s optimal action. The
+common measure used in the microstructure literature is (Var(ṽ) − Var(ṽ| p̃)) /
+Var(ṽ), the proportion of the variance of ṽ that is captured by prices. Appendix
+D shows that these measures are equivalent.
+   The next proposition calculates price informativeness.
+Proposition 2. (Price Informativeness) Price informativeness is equal to
+I /(I + 1).
+   Price informativeness is increasing in I . As I approaches infinity, prices
+become fully informative. On the other hand, in the monopolistic Kyle model
+(I = 1), the blockholder limits her order, and so prices reveal only one-half of
+her private information.
+   The positive link between the number of blockholders and price informative-
+ness does not arise because a greater number of informed agents mechanically
+increases the amount of information in the market. Indeed, a single blockholder
+already has a perfect signal of fundamental value; since she faces no trading
+constraints, she could theoretically impound this entire information into prices.
+The amount of information in the economy is independent of I ; the effect on
+price informativeness instead arises entirely from competition in trading.
+   As is standard in Kyle-type models, liquidity σε has no effect on price infor-
+mativeness. From (5), greater noise trading allows blockholders to trade more
+aggressively. This increase in informed trading exactly counterbalances the ef-
+fect of increased noise and leaves price informativeness unchanged. In Section
+4.1, we show that liquidity has a positive effect on price informativeness under
+costly information acquisition.
+
+2.2 The action stage
+We now solve for the actions of the manager and the blockholders in the first
+stage. There is a unique symmetric equilibrium.
+
+
+
+2406
+Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+Proposition 3. (Optimal Actions) The manager’s optimal action is
+                                        
+                                      I
+                         a = φa α          − 1,                                   (7)
+                                    I +1
+
+and combined blockholder actions are
+                                   X                
+                                                    1
+
+
+
+
+                                                                                        Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+                                         bi = φb β     − 1,                       (8)
+                                                    I
+                                     i
+
+In a symmetric equilibrium, the optimal action of each blockholder is
+                                                2
+                                                1    1
+                                     bi = φb β      − .                           (9)
+                                                I    I
+
+
+Proof The manager maximizes the market value of his shares, less the cost of
+effort:
+                                                 p − a] .
+                                             E [αe                               (10)
+
+When setting the price p  e, the market maker uses his conjecture for the man-
+ager’s action a. Therefore, the manager’s actual action affects the price only
+through its influence on ṽ, and thus blockholders’ order flow. The manager’s
+first-order condition is given by
+                                        
+                                d p̃     φa
+                        α E                    − 1 = 0.                    (11)
+                                d ṽ    1+a
+
+From Proposition 2, his optimal action is therefore
+                                         
+                                     I
+                          a=α               φa − 1.                              (12)
+                                   I +1
+
+   Each blockholder maximizes her trading profits, plus the fundamental value
+of her shares, less her cost of effort. From (6), the blockholder’s trading profits
+do not depend on bi , because it is public and thus does not affect her informa-
+tional advantage. Therefore, blockholder i simply chooses bi to maximize the
+fundamental value of her shares, less her cost of effort:
+                                               
+                                       β
+                                 E         e − bi .
+                                           v                                  (13)
+                                       I
+
+Her first-order condition is given by
+                                         X          β
+                                             bi =     φb − 1,
+                                                    I
+                                         i
+
+
+
+
+                                                                                 2407
+  The Review of Financial Studies / v 24 n 7 2011
+
+
+
+  and so in a symmetric equilibrium, the action of blockholder i is
+                                             2
+                                              1        1
+                                 bi = φb β         − .                             (14)
+                                              I        I
+                                                    P
+     There also exist asymmetric equilibria, but i bi is uniquely defined. Since
+  firm value depends on the sum of blockholder efforts, there is no loss of gen-
+  erality by focusing on symmetric equilibria.
+
+
+
+
+                                                                                          Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+     The manager’s action a is the product of three variables: the effectiveness
+                                                                  I
+  of effort φa , his equity stake α, and price informativeness I +1  . It is increasing
+  in I as a higher I augments price informativeness, and so the stock price more
+  closely reflects the firm’s fundamental value and thus the manager’s effort.
+  In effect, blockholder trading rewards managerial effort ex post by impound-
+  ing its effects into the stock price, therefore inducing it ex ante. The dynamic
+  consistency of this reward mechanism depends on the number of blockhold-
+  ers. Critically, trading occurs after the manager has taken his action, at which
+  point shareholders are concerned only with maximizing their trading profits. A
+  single blockholder optimizes her profits by limiting her order, at the expense
+  of price informativeness. Therefore, the promise of rewarding effort by bid-
+  ding up the price to fundamental value is not credible. By contrast, multiple
+  blockholders trade aggressively, augmenting price informativeness, and thus
+  constitute a commitment device to reward the manager ex post for his actions.
+  While such aggressive trading is motivated purely by the private desire to max-
+  imize individual profits in the presence of competition, it has a social benefit
+  by eliciting managerial effort.                     P
+     As is standard, combined blockholder effort i bi is decreasing in I , owing
+  to the free-rider problem. Therefore, there is a tradeoff between the effects of I
+  on intervention and trading. The coordination problems and externalities cre-
+  ated by splitting a block play opposing roles in intervention and trading. For
+  intervention, the externalities are positive: Intervention improves the value of
+  other shareholders’ stakes, but this effect is not internalized by the individual
+  blockholder. Since these externalities are positive, there is “too little” interven-
+  tion with multiple blockholders, from a firm value standpoint. For trading, the
+  externalities are negative. Higher trading volumes reveal more information to
+  the market maker, leading to a less attractive price for other informed traders.
+  Blockholders trade “too much” from the standpoint of maximizing combined
+  profits. However, firm value does not depend on trading profits as they are a
+  mere transfer from liquidity traders to blockholders. Instead, “too much” trad-
+  ing is beneficial for firm value as it increases price informativeness and induces
+  effort ex ante.
+
+3. The Optimal Number of Blockholders
+  This section derives the optimal number of blockholders. We start by deriv-
+  ing the optimal number that maximizes firm value, and then analyze the social
+
+
+
+  2408
+   Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+   optimum (that maximizes total surplus) and the private optimum (that maxi-
+   mizes the total payoff to blockholders).
+   Proposition 4. (Firm Value Optimum) The number I ∗ of blockholders that
+   maximizes firm value is17
+                                    φa − φb
+                               I∗ =         .                         (15)
+                                       φb
+
+
+
+
+                                                                                                                     Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   Proof From Proposition 3, the expected firm value is
+                                                        
+                                      I                      1
+               v ] = φa log φa α
+             E[e                              + φb log φb β      .                                          (16)
+                                    I +1                     I
+   The first-order condition with respect to I is given by
+                                            φa − φb − φb I
+                                                           = 0.                                             (17)
+                                                I + I2
+   Iˆ = (φa − φb )/φb satisfies the first-order condition. Since the left-hand side of
+   (17) is positive for I < Iˆ and negative for I > Iˆ, I ∗ is indeed a maximum.
+      The number I ∗ of blockholders that maximizes firm value solves the trade-
+   off between the positive effect of more blockholders on managerial effort, and
+   the negative effect on blockholder intervention. The optimum is therefore in-
+   creasing in φa , the productivity of the manager’s effort, and declining in φb ,
+   the productivity of blockholder intervention.
+      While Proposition 4 is concerned with maximizing firm value, the social op-
+   timum maximizes total surplus, which also takes into account the effort costs
+   borne by the manager and blockholders. In theory, the social optimum would
+   be chosen by a social planner. If the noise traders are the firm’s atomistic share-
+   holders (Kahn and Winton 1998; Bolton and von Thadden 1998), it will also
+   be chosen by the initial owner when taking the firm public, since IPO proceeds
+   will equal total surplus. The owner will have to compensate the blockholders
+   (in the form of a lower issue price) for their expected intervention costs, and
+   the manager for his effort in the form of a higher wage. Trading profits have no
+   effect on IPO proceeds: While blockholders will pay a premium in expecta-
+   tion of trading gains, small shareholders will demand discounts to offset their
+   future losses.
+   Proposition 5. (Social Optimum) The number Isoc    ∗ of blockholders that max-
+
+   imizes total surplus is the unique positive solution to
+                                  φa      φb     φa α     φb β
+                                        −    −           + 2 = 0,                                           (18)
+                              I (I + 1)    I   (I + 1) 2   I
+
+17 In reality, the number of blockholders must be a strictly positive integer. To economize on notation, we ignore
+                                             φ −φ                                      φ −φ
+   such technicalities when stating I ∗ . If aφ b < 1, the optimal number is 1. If aφ b is a non-integer, the
+                                               b                                          b
+   optimal number is found by comparing (16) under the two adjacent integers.
+
+
+
+
+                                                                                                          2409
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+which may be higher or lower than I ∗ . Isoc
+                                         ∗ is increasing in φ and β, and
+                                                             a
+decreasing in φb and α.
+
+Proof Total surplus is given by
+                                                      
+                   I                        1               I            1
+ φa log φa α             + φb log φb β           − φa α           − φb β + 2.
+                I +1                        I             I +1           I
+
+
+
+
+                                                                                           Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+                                                                           (19)
+Differentiating yields (18). Appendix A proves that there is a unique posi-
+tive solution and that it maximizes (19). It also addresses the comparative
+statics.
+   Compared to (16), (19) contains two additional terms. Increasing I raises the
+cost of managerial effort, but reduces the combined cost of blockholder effort.
+The social optimum may thus be higher or lower than the firm value optimum.
+If β rises, total blockholder costs φb β 1I − 1 become more important in the
+social welfare function, and so Isoc∗ rises to reduce these costs by lowering
+
+intervention. Conversely, a rise in α increases the importance of the manager’s
+                        ∗ . The comparative statics with respect to φ and φ
+costs and thus lowers Isoc                                             a       b
+are the same as in Proposition 4.
+   Finally, we analyze the privately optimal division of β that would maxi-
+mize blockholders’ combined payoffs. This optimum would be endogenously
+chosen by the blockholders themselves and is robust to retrading.
+
+Proposition 6. (Private Optimum) The number I priv  ∗     of blockholders that
+maximizes total blockholders’ payoff is the unique positive solution to
+                                    
+                   φa      φb    φb          (I − 1)
+           β             −     + 2 − √                  ση σε = 0,        (20)
+               I (I + 1)    I     I        2 I (I + 1)2
+                                                                  ∗ . I∗
+which may be higher or lower than I ∗ , and higher or lower than Isoc  priv is
+increasing in φa and β, and decreasing in φb and ση σε .
+
+Proof Total blockholders’ payoff is given by
+                                                                     √
+                              I                       1              1         I
+ β φa log φa α                          + φb log φb β          − φb β + 1 +      ση σε .
+                            I +1                      I              I      I +1
+                                                                                    (21)
+   Differentiating yields (20). Appendix A proves that there is a unique pos-
+itive solution and that it maximizes (21). It also addresses the comparative
+statics.
+   The blockholders’ objective function differs from firm value in three ways.
+They only enjoy β of any increase in firm value; bear the costs of intervention;
+and are concerned with informed trading profits. Increasing I above I ∗ has
+an ambiguous effect: It reduces the combined costs of intervention, but also
+reduces total trading profits by exacerbating competition. Therefore, as with
+
+
+
+2410
+  Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+  the social optimum, the private optimum may be higher or lower than the firm
+  value optimum. An increase in β causes blockholders’ effort costs to become
+                                                      ∗
+  more important in the objective function and so I priv  rises. If ση σε increases,
+                                                    ∗
+  trading profits become more important and so I priv falls to lower competition.
+     The blockholders’ objective function also differs from the social welfare
+  function in three ways. Blockholders are concerned with trading profits and
+  only β of firm value, but ignore the cost of managerial effort. Again, the sum
+
+
+
+
+                                                                                          Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+                                                           ∗ both reduces profits
+  of these three effects is ambiguous. Increasing I above Isoc
+  and increases the manager’s costs. The comparative statics with respect to φa
+  and φb are the same as in Propositions 4 and 5.
+
+4. Extensions
+  4.1 Costly information acquisition
+  In the core model, blockholders are endowed with private information about
+  firm value ṽ. In this subsection, they are initially uninformed but can learn ṽ by
+  paying a cost c in the first stage of the game. Blockholders that do not pay this
+  cost remain uninformed in the second stage. To solve this modified version of
+  the model, we again use backward induction.
+  Proposition 7. (Equilibrium with Costly Information) Let J be the number
+  of blockholders that acquire information in the first stage of the game. Then,
+  in the unique linear equilibrium of the trading stage, the I − J uninformed
+  blockholders do not trade in aggregate. The J informed blockholders submit
+  demands as in (2), and the market maker sets the price as in (3) with
+                                        √
+                                          J ση
+                                  λ=                                        (22)
+                                       J + 1 σ
+                                        1 σ
+                                  γ =√        .                             (23)
+                                         J ση
+  In the first stage of the game, the manager’s optimal action is
+                                               
+                                            J
+                               a = φa α           − 1,                             (24)
+                                          J +1
+  and the optimal action of each blockholder is
+                                         2
+                                         1      1
+                              bi = φb β        − .                                 (25)
+                                         I      I
+  The number J of blockholders that acquire information is
+                                            J = min{I, n},
+  where n satisfies
+                                              1
+                                        √            ση σ = c.
+                                            n(n + 1)
+
+
+
+                                                                                   2411
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+   Proposition 7 shows that when I is sufficiently large (greater than n), some
+blockholders choose not to acquire information. If all blockholders become
+informed, competition in trading is sufficiently fierce that trading profits are
+insufficient to recoup the cost c. Hence, in equilibrium, some blockholders
+remain uninformed and do not participate in the trading stage.
+   Turning to the optimal number of blockholders, it is never efficient to have
+I greater than n. If I > n, then from Proposition 7, some blockholders will
+
+
+
+
+                                                                                       Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+not acquire information in equilibrium. Uninformed blockholders do not trade
+and thus have no effect on governance through trading. Moreover, they dilute
+ownership and reduce incentives to engage in intervention. Uninformed block-
+holders are thus unambiguously detrimental to firm value, and so the optimum
+involves no such blockholders. This leads to the next proposition.
+Proposition 8. (Firm Value Optimum with Costly Information) The number
+ ∗
+Icostly of blockholders that maximizes firm value with costly information ac-
+quisition is equal to
+                                                  
+                          ∗              φa − φb
+                         Icostly = min           ,n .                    (26)
+                                            φb
+
+If n < φaφ−φ
+           b
+             b    ∗
+               , Icostly and firm value are increasing in ση and σε and decreasing
+in c. If n ≥ φaφ−φ
+                 b
+                   b    ∗
+                     , Icostly and firm value are independent of ση , σε , and c.
+    ∗
+   Icostly is weakly increasing in ση and σ and weakly decreasing in c. The in-
+tuition is as follows. If n < φaφ−φ
+                                  b
+                                    b
+                                      , the optimum with costless information I ∗ is
+so large that competition in trading reduces individual trading profits below the
+cost of information. Some blockholders would choose to remain uninformed,
+and their existence would reduce firm value. The optimum is therefore n, the
+maximum number under which competition is sufficiently low that all block-
+holders become informed. A fall in the cost of information c, an increase in
+the informational advantage ση , and a rise in liquidity σε all lead to an increase
+in net trading profits. Higher net profits in turn raise n, as they allow greater
+competition to be sustained before net profits become negative. This in turn
+             ∗
+increases Icostly  toward I ∗ , and thus raises firm value.
+   By contrast, if n > φaφ−φ
+                           b
+                             b
+                               , net trading profits are sufficiently high that all
+blockholders become informed. The analysis is as in the core model of Section
+3, where the optimum depends only on φa and φb . The constraint that I is
+sufficiently low to induce information acquisition is not binding. Changes in
+net trading profits, and thus changes in ση , σε , and c, have no effect on the
+optimal number of blockholders or firm value.
+
+4.2 Complementarities
+In the core model, the manager’s and blockholders’ actions are perfect substi-
+tutes, with independent effects on firm value. The marginal productivity of the
+
+
+
+2412
+Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+Table 2
+Classification of blockholders’ and manager’s actions as substitutes or complements
+
+                                                               Blockholder Action
+                                            Advisory             Rent Extraction      Perk Prevention
+Manager              Initiative             Positive               Substitutes          Substitutes
+Action                                    Complements
+                                                                                        Negative
+                 Rent Extraction           Substitutes             Substitutes        Complements
+
+
+
+
+                                                                                                        Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+manager’s (blockholders’) effort is unaffected by the effort level of the other
+              ∂2v
+party, i.e., ∂a∂b i
+                    = 0. This assumption likely applies to a number of settings:
+For example, rent extraction by the blockholders reduces firm value regardless
+of the manager’s effort; and managerial initiative is unaffected by blockholder
+perk prevention or rent extraction.
+   In some cases, there may be complementarities between the manager’s and
+blockholders’ efforts. This subsection extends the core model to these cases.
+If complementarities are positive, the marginal productivity of one party’s
+                                                                     ∂2v
+action is increasing in the effort level of the other party, i.e., ∂a∂b  i
+                                                                            ≥ 0.
+This arises if manager and blockholder outputs are mutually interdependent,
+in particular, if the main managerial action is initiative and the main block-
+holder action is advising. For example, venture capital investors have exper-
+tise in devising an effective strategy, which is then executed by the manager.
+Both strategy formulation and implementation are necessary for firm
+success.
+   With positive complementarities, blockholders are “allies” of the manager,
+providing him with advice. Negative complementarities arise if blockholders
+are “adversaries” of the manager—for example, if their main value added is
+perk prevention, and rent extraction is an important managerial action. Block-
+                                                             ∂2v
+holders are most productive if managerial effort is low ( ∂a∂b   i
+                                                                   ≤ 0), i.e., the
+manager is pursuing private benefits. Negative complementarities are most
+likely in mature firms, where the optimal strategy is often clear to the man-
+ager. Inefficiencies arise not because the manager is unaware of the correct
+course of action and needs blockholders’ advice, but because he has private
+incentives to depart from the efficient action. For example, managers of “cash
+cows” know that they should return excess cash to shareholders, but may in-
+stead reinvest it inefficiently. Table 2 summarizes whether actions are likely
+to be substitutes or positive or negative complements depending on their
+type.
+   We analyze complementarities using the boundary cases of perfect positive
+(negative) complementarities, where firm value depends only on the minimum
+(maximum) output level of the manager and blockholders, as these scenarios
+are most tractable within our framework and thus allow the clearest empirical
+
+
+
+                                                                                              2413
+   The Review of Financial Studies / v 24 n 7 2011
+
+
+
+   predictions.18 Reality will typically lie between these two extremes, and the
+   optimum for an interior level of complementarity may be inferred by inter-
+   polating between the boundary cases. For example, we will see that the zero
+   complementarities case of the core model lies between the two extremes.
+     We commence with perfect positive complementarities, which we model
+   with a Leontief production function:
+
+
+
+
+                                                                                                                        Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+                                                         P 
+                       e = min φa log (1 + a) , φb log 1 + i bi + η
+                       v                                          e.                                          (27)
+   The optimal actions can no longer be derived independently. The manager’s
+   optimal action depends on his conjecture b      bi for the blockholders’ actions.
+   Blockholder i’s optimal action depends on her conjecture for the manager’s
+           a ) and for the actions of the other blockholders (b
+   effort (b                                                  b j , j 6= i).
+   Proposition 9. (Perfect Positive Complementarities) The manager’s optimal
+   action is
+                                                            
+                          I                 φb        P 
+        a = min φa α             − 1, exp                bi − 1
+                                               log 1 + i b         .    (28)
+                        I +1                φa
+      Blockholder i’s effort level is
+                                                        "                          #
+               2                                                    2   P
+         
+                1       1                                             1   1      b
+         
+          φb β I − I if φa log (1 + a       b) ≥ φb log 1 + φb β I − I +         bj
+         
+                                                                            j6=i
+         
+                                   P
+         
+         
+         
+          exp φφab log (1 + a b) − b      bj − 1
+         
+                                     j6=i
+         
+                                              !
+         
+                                       P
+                      if φb log 1 +          bj ≤ φa log (1 + a
+                                             b                     b)
+   bi =                                                                              .
+         
+                                "      j6=i                       #
+         
+                                              2
+         
+                                                          P
+         
+                     <  φ   log   1 +  φ   β  1
+                                                   − 1I + b     bj
+         
+         
+                           b              b     I
+         
+                                                        ! j6=i
+         
+         
+         
+                                                  P
+                                                     bj
+         0 if φa log (1 + a
+                             b) < φb log 1 +         b
+                                                                 j6=i
+                                                                                                              (29)
+      The number I ∗ of blockholders that maximizes firm value is the unique pos-
+   itive solution to
+                              I2     φb β
+                                 =        exp (φb − φa ) .                   (30)
+                            I +1     φa α
+       I ∗ is increasing in φb and β, and decreasing in φa and α.
+
+18 An alternative way to model complementarities is to use a constant elasticity of substitution production function,
+                                          P ρ 1/ρ
+         e = (φa log(1 + a))ρ + φb log 1 + i bi
+   e.g., v                                                 +e η. Such a production function does not yield tractable
+   solutions in our framework owing to the logarithmic functional form, which is necessary for the core model (see
+   footnote 10).
+
+
+
+
+   2414
+Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+   As with the core case, I ∗ is typically an interior solution, i.e., involves mul-
+tiple, but finite, blockholders. However, the comparative statics with respect
+to φa and φb are opposite to the core case. In the core case, I ∗ is increasing
+in φa . If managerial effort becomes more productive, it becomes increasingly
+important in the tradeoff between trading and intervention, and so I ∗ rises to
+enhance trading. With complements, I ∗ must balance the levels of manager
+and blockholder outputs. If φa rises, managerial effort is more effective and
+
+
+
+
+                                                                                                       Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+so it is not necessary to “boost” it via a high I . Instead, I should be used to
+enhance blockholder effort so that it becomes sufficiently high to complement
+the manager’s output. This involves reducing I .
+   We now turn to the case of perfect negative complementarities, i.e.,
+
+                                                    P 
+                  e = max φa log (1 + a) , φb log 1 + i bi + η
+                  v                                          e.                               (31)
+
+Proposition 10. (Perfect Negative Complementarities) The manager’s opti-
+mal action is
+                                              h            i                    P 
+             I                   I                       I
+    
+     φ a α I +1   −  1  if  α  I +1    φ a log   φ a α I +1   −   φ b log  1 +      i bi
+    
+                     I
+a=        ≥ φa α I +1 − 1                                                                          .
+    
+                                h           i                             
+    0 if α I φ log φ α I − φ log 1 + P b  <φ α I − 1.
+    
+                I +1     a           a I +1           b                 i i         a I +1
+                                                                                               (32)
+  Similarly, blockholder i’s effort level is
+                                                  "                                 #
+                  2                                                       P
+        
+                  1          1      β                            1      1        bj
+        
+         φb β I − I if I φb log 1 + φb β I 2 − I +                               b
+        
+                                                                            j6=i
+        
+                                   !
+        
+                                                2
+        
+        
+         −φa log (1 + a       b) ≥ φb β 1I − 1I
+  bi =                            "                                 #                        ! .
+        
+        
+        
+                                                            P
+        
+         0 if βI φb log 1 + φb β I12 − 1I +                      bj − φa log (1 + a
+                                                                  b                       b)
+        
+        
+        
+                                                            j6=i
+        
+                        2
+        
+         < φb β 1 − 1 .
+                           I          I
+                                                                                               (33)
+  The number of blockholders I ∗ that maximizes firm value is
+                           
+                           ∞ if φa log (φa α) ≥ φb log (φb β)
+                   I∗ =                                                           .            (34)
+                           1 if φ log (φ α) < φ log (φ β)
+                                        a         a          b          b
+
+
+
+  In the core model of perfect substitutes, firm value depends on both manager
+and blockholder efforts. Since the optimal shareholder structure must tradeoff
+both, I ∗ is typically an interior solution. Here, firm value depends only on the
+
+
+
+                                                                                             2415
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+maximum output level and there are no tradeoff concerns. If blockholder effort
+is relatively productive, I ∗ should be chosen exclusively to maximize the po-
+tency of intervention and completely ignores trading; thus, I ∗ is at its minimum
+value of 1. By contrast, if managerial effort is relatively productive, I ∗ = ∞.
+This case represents fully dispersed ownership; since empirical studies define
+a blockholder as a shareholder who owns above a minimum threshold, it will
+appear in the data as zero blockholders. Therefore, under perfect negative com-
+
+
+
+
+                                                                                      Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+plementarities, there is either zero or one blockholder. Indeed, Table 1 shows
+that both of these cases are common in the data.
+   With perfect substitutes, I ∗ is smoothly increasing in φa . Here, I ∗ remains
+weakly increasing in φa , but φa has a discontinuous effect. If φa log (φa α) <
+φb log (φb β), I ∗ is independent of φa . A small increase in φa has zero ef-
+fect on I ∗ : Since blockholder effort is still more productive, I ∗ continues
+to be exclusively determined by intervention. However, when φa rises above
+the level for which φa log (φa α) = φb log (φb β), I ∗ jumps from 1 to ∞. For
+φa log (φa α) ≥ φb log (φb β), I ∗ is already exclusively determined by trading,
+and so further increases in φa have no effect on I ∗ . Similarly, changes in φb
+have either a zero or infinite effect on I ∗ . Negative complementarities there-
+fore lead to more extreme results than the core model. The optimal number of
+blockholders is a corner solution; φa and φb have the same directional effect
+as in the core model, but their impacts are discontinuous.
+   Combining all of the results, with perfect negative complementarities, I ∗ is
+either 1 or ∞ and is driven entirely by the more productive action. As comple-
+mentarities become less negative, I ∗ becomes less extreme and is determined
+by the productivity of both actions; it continues to be increasing in φa and
+decreasing in φb . The core case of perfect substitutes is an example. Once
+complementarities become sufficiently high, we approach the case of perfect
+complements, and the effects of φa and φb change direction.
+
+
+4.3 General objective functions
+In the core model, the manager’s payoff stems from the market value of his
+shares, αe
+         p , as in Holmstrom and Tirole (1993). In a more general setting, the
+manager can be compensated according to the fundamental value v    e as well as
+the market value p e, for instance using long-vesting stock. We thus generalize
+the manager’s objective function from (10) to
+
+
+                                         p + (1 − ω)e
+                                  E [α (ωe          v ) − a] .                (35)
+
+The actual level of ω will reflect factors outside the model and introduced
+in earlier work, such as takeover threat (Stein 1988), concern for managerial
+reputation (Narayanan 1985; Scharfstein and Stein 1990), or the manager ex-
+                               e before v
+pecting to sell his shares for p        e is realized, e.g., to finance consumption
+
+
+
+2416
+   Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+   (Stein 1989).19 Even if the manager’s sole objective is to maximize long-run
+   shareholder value, he will care about the stock price as it affects the terms at
+   which the firm can raise equity at t = 2 (Stein 1996).
+      Similarly, in the core model, each blockholder maximizes her share of fun-
+   damental value less the cost of effort when choosing her action. More gen-
+   erally, the blockholder may place weight on the short-term stock price, for
+   example if she expects to receive a liquidity shock that will force her to sell
+
+
+
+
+                                                                                                                      Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   her shares in the interim regardless of her private information (Miller and
+   Rock 1985; Faure-Grimaud and Gromb 2004). We thus generalize each block-
+   holder’s objective function from (13) to
+                                                        
+                               β
+                           E           e + (1 − ζ )e
+                                    (ζ p           v ) − bi .
+                                I
+       The core model has ω = 1 and ζ = 0. The new equilibrium is given below.
+                                                               ∗ of block-
+   Proposition 11. (General Compensation Contract) The number Igen
+   holders that maximizes firm value is the larger root of
+                              φa ω   φb (I + 1)2 − ζ (2I + 1)
+                                   −                          =0                                             (36)
+                            I +1−ω    I       I +1−ζ
+                                                              ∗ is increasing in ω,
+   if Equation (36) has solutions for I ≥ 1. In this case, Igen
+   ζ and φa , and decreasing in φb . If (36) has no solutions for I ≥ 1, I ∗ = 1.
+                               ∗ represents a tradeoff between price informative-
+      As in the core model, Igen
+   ness and intervention. The positive effect of I on stock price efficiency is more
+   important when the manager is more closely aligned with the stock price, and
+        ∗ increases in the manager’s short-term concerns ω. Similarly, I ∗ is
+   so Igen                                                                      gen
+   increasing with blockholders’ short-term concerns ζ . This is for two reasons.
+   First, when ζ is high, blockholder effort is low: Effort affects p    e to a lesser
+   extent than ve, since the stock price is only partially informative, and so if she
+   places greater weight on p  e, she is less rewarded for her effort. When inter-
+   vention is low, the negative effect of increasing blockholders on intervention
+   is less important. Second, when blockholders care about the stock price, their
+   effort depends on price informativeness. Since a rise in I raises price informa-
+   tiveness, this augments their effort.
+      In addition to generating additional comparative statics for ω and ζ , this
+   extension demonstrates that the results of the core model do not stem from the
+   fact that we modeled the blockholders as having a more long-term objective
+   than the manager (i.e., maximize their share of v e while the manager maximizes
+   his share of pe). Even if blockholders have shorter horizons than the manager
+   (ζ < ω), the results continue to hold; in fact, the case for multiple blockholders
+   is even stronger when blockholders have short-term concerns.
+
+19 Kole (1997) shows that vesting periods are short in practice, perhaps because long vesting periods would subject
+   the manager to excessive risk.
+
+
+
+
+                                                                                                           2417
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+4.4 Unobservable blockholder actions
+This section extends the model to allowing the blockholders’ actions bi to be
+unobservable. Now, a blockholder can earn additional trading profits by taking
+an action different from the market maker’s conjecture, so we must compute
+her trading profits off the equilibrium path. The market maker conjectures an
+expected firm value of
+                                                   P 
+                                                      bi ,
+
+
+
+
+                                                                                                      Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+                    μ = φa ln (1 + a b) + φb ln 1 + i b
+where a      bi are his conjectures for the manager’s and blockholders’ actions.
+       b and b
+However, blockholder i may choose an action bi 6= b       bi , which will yield a
+different expected value of
+                                                               
+                                                  X
+              E ṽ = φa ln (1 + a b) + φb ln 1 +      bj + bi  .
+                                                        b
+                                                               j6=i
+
+  Her trading profits are given by
+                                                                        
+                       1                              I
+E xi (ṽ − p̃) = E            (ṽ − μ) ṽ − μ − λ             (ṽ − μ) + ε
+                     (I + 1)λ                       (I + 1) λ
+                       1
+                =√           ση σε
+                   I (I + 1)
+                                                                      !     !2
+                      1      σε                                 X
+                +√                φa log (1 + a) + φb log 1 +       bi − μ ,
+                   I (I + 1) ση                                                    i
+
+and so her overall objective function is
+        
+         β                      1
+  max        E ṽ − bi + √               ση σε
+   bi    I                     I (I + 1)
+                                                                               !        !2
+                   1σε                                                X
+       + √                         φa log (1 + a) + φb log 1 +            bi       −μ        . (37)
+           I (I + 1) η
+                    σ
+                                                                      i
+
+     We wish to show that, if the market maker conjectures bi = φIb2β − 1I ∀ i,
+then it is indeed optimal for blockholder i to take action bi = φIb2β − 1I .
+Proposition 12. (Unobservable Blockholder Actions) If either
+                                              β            σε
+                                                         >                                     (38)
+                                      φb (1 + ln (φb β))   ση
+or
+                                          φb β − 1      σε
+                                          2
+                                                      >    ,                                   (39)
+                                         φb ln (φb β)   ση
+
+
+
+2418
+  Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+  then
+                                                     
+                                                   I
+                                       a = φa α         −1
+                                                 I +1
+                                                 2
+                                                 1      1
+                                      bi = φb β      −
+                                                 I      I
+
+
+
+
+                                                                                          Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+  is an equilibrium.
+     The conjectured action bi = φIb2β − 1I maximizes the blockholder’s share of
+  firm value less her cost of intervention. By deviating, the blockholder reduces
+  this objective (the “fundamental motive”), but also earns additional trading
+  profits since she now has private information on bi (the “trading motive”).
+  Either condition (38) or (39) is sufficient to ensure that the trading motive is
+  sufficiently weak to deter such deviations. The parameters in the conditions
+  are intuitive. Recall from Equation (5) that the sensitivity of the blockholder’s
+  trade to fundamental value is given by γ = √1 σσηε . When φb is higher, a given
+                                                    I
+  deviation in bi has a larger effect on firm value. When σσηε is higher, this in turn
+  leads to a greater change in the blockholder’s trade, and so the trading motive
+  becomes stronger. Thus, conditions (38) and (39) are more likely to be satisfied
+  if φb and σσηε are low. Similarly, if β is high, the blockholder has a high share
+  of fundamental value, and so the fundamental motive is stronger.
+     If neither condition is satisfied, the actions a and bi stated in Proposition 12
+  may not constitute an equilibrium, as trading profits are sufficiently strong that
+  the blockholder will always wish to deviate from the market maker’s conjec-
+  ture. In this case, there is no alternative pure strategy equilibrium.
+  Proposition 13. (Uniqueness of Equilibrium) The equilibrium actions stated
+  in Proposition 12 constitute the unique symmetric equilibrium in purePstrate-
+  gies. Moreover, any asymmetric equilibrium in pure strategies satisfies i bi =
+  φb β/I − 1.
+     Proposition 13 states that, if actions a and bi stated in Proposition 12 do not
+  constitute an equilibrium, then there cannot exist a symmetric equilibrium in
+  pure strategies.
+         P         Moreover, any asymmetric equilibrium in pure strategies must
+  satisfy i bi = φb β/I − 1, and therefore differs from our equilibrium only in
+  terms of the division of rents among blockholders, as in the case of observable
+  actions studied in Proposition 3. The analysis of mixed strategy equilibria is
+  beyond the scope of this article, which focuses on the tradeoff between trading
+  and intervention. (See Maug 1998 and Kahn and Winton 1998 for analysis of
+  mixed strategy equilibria in a single blockholder model.)
+
+5. Empirical Implications
+  This article is motivated by the empirical observation that many firms are held
+  by multiple small blockholders, in contrast to theories that advocate highly
+
+
+
+                                                                                   2419
+   The Review of Financial Studies / v 24 n 7 2011
+
+
+
+   concentrated ownership. The model generates a number of additional empir-
+   ical implications, over and above its initial motivation. It suggests new ways
+   of thinking about blockholders that may give rise to novel directions for em-
+   pirical research. First, the article views blockholders as competing for trading
+   profits rather than private benefits, thus linking the previously separate block-
+   holder and microstructure literatures. Second, it suggests studying the number
+   of blockholders rather than (or in addition to) total ownership or the stake
+
+
+
+
+                                                                                                                     Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   of the largest shareholder. These two broad themes in turn generate specific
+   predictions for the effects of blockholder structure, and the determinants of
+   blockholder structure. We commence with the former.
+      The model suggests that the number of blockholders impacts both financial
+   markets and firm value. Starting with the first set of effects, it predicts that
+   a greater number of blockholders reduces total trading profits, but increases
+   price efficiency. Gallagher, Gardner, and Swan (2010) find support for both
+   predictions; Gorton, Huang, and Kang (2010) show that price informative-
+   ness is increasing in the number of blockholders; and Boehmer and Kelley
+   (2009) find that it is increasing in the dispersion of ownership among institu-
+   tional traders (the last two studies do not investigate trading profits). Turning
+   to the second set, multiple blockholders can improve firm value, in contrast to
+   existing models that advocate a single concentrated blockholder.20 Gallagher,
+   Gardner, and Swan find that the threat of disciplinary trading from multiple
+   blockholders leads to superior subsequent firm performance. They use a mea-
+   sure of portfolio churning to specifically test governance through trading rather
+   than control contests. Smith and Swan (2008) show that institutional trading is
+   successful at disciplining executive pay. Multiple investors with frequent trad-
+   ing have the greatest effect; total institutional ownership matters only insofar
+   as it affects trading activity. Kandel, Massa, and Simonov (forthcoming) find
+   that multiple shareholders that trade in the same direction are associated with
+   higher firm value and profitability. Bharath, Jayaraman, and Nagar (2010) doc-
+   ument that U.S. firms with multiple blockholders have higher Tobin’s Q than
+   firms with a single blockholder; Laeven and Levine (2007) find a similar result
+   with international data.
+      The effect of the number of blockholders on prices and firm value suggests
+   that it is an important determinant of both market efficiency and corporate
+   governance. Many empirical papers use total institutional ownership as a mea-
+   sure of market efficiency, since institutions have greater information than retail
+   traders. However, price efficiency depends not only on the amount of informa-
+   tion held by investors, but on the extent to which this information is impounded
+   into prices. The latter in turn depends on the number of informed shareholders.
+
+20 If I is always at the firm value optimum, there should be no relationship between I and firm value, when
+   controlling for the joint determinants of I and firm value. Demsetz and Lehn (1985) made this point in the
+   context of managerial ownership and firm value. However, the empirically observed I is likely to be the private
+   optimum, which differs from the firm value optimum. Moreover, the private optimum may shift for exogenous
+   reasons, such as a blockholder suffering a change in management or a liquidity shock.
+
+
+
+
+   2420
+   Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+   Similarly, many studies use total institutional ownership or the stake of the
+   largest investor as a proxy for corporate governance, but the model suggests
+   that the number of blockholders is another important factor and thus may be
+   relevant for future empirical work. Bharath, Jayaraman, and Nagar (2010) and
+   Gorton, Huang, and Kang (2010) are two recent empirical studies that investi-
+   gate the effect of blockholder numbers, and Konijn, Krässel, and Lucas (2009)
+   study the effect of blockholder dispersion, which is positively correlated with
+
+
+
+
+                                                                                                                             Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   numbers.
+      Our model also generates predictions concerning the determinants of block-
+   holder structure. To our knowledge, none of these predictions have been tested
+   formally, as empirical studies have focused largely on total institutional own-
+   ership or the stake of the largest blockholder rather than the number of block-
+   holders, and so they are potential topics for future research.21 In the article, we
+   considered different criteria for the optimal number of blockholders. In prac-
+   tice, sometimes the social optimum may be observed, for instance if the firm
+   has recently undergone an IPO, or lockups prevent blockholders from retrading
+   from the initial structure. For most firms, it is most likely that the private op-
+   timum will be observed (see also Maug 1998). Importantly, both optima share
+   the same predictions for φa and φb : The number of blockholders is increasing
+   (decreasing) in the productivity of the manager’s (blockholders’) effort.
+      We first consider the core model of perfect substitutes. The magnitude of
+   φb depends on the nature of blockholders’ expertise. Using the terminology
+   of Dow and Gorton (1997), if blockholders have forward-looking (“prospec-
+   tive”) information about optimal future investments or strategic choices, inter-
+   vention is particularly valuable and φb is high. For example, activist investors
+   (e.g., Kirk Kerkorian or Carl Icahn) are typically expert at preventing perks
+   or empire-building; venture capitalists have skills in advising. On the other
+   hand, passive mutual funds and insurance companies typically lack specialist
+   expertise in managing a firm, but instead are adept at gathering backward-
+   looking (“retrospective”) information to evaluate the effect of past decisions
+   on firm value. Their primary benefit is to impound the effects of prior man-
+   agerial effort into the stock price. In such a case, φb is low and I ∗ is high.
+   Another determinant of φb is blockholders’ control rights and thus ability to
+   intervene (holding constant the size of their individual stakes).22 Black (1990)
+   and Bebchuk (2007) note that U.S. shareholders face substantial legal and in-
+   stitutional hurdles to intervention, compared to their foreign counterparts. This
+   reduces φb , thus increasing I ∗ , and is consistent with smaller and more numer-
+   ous blockholders in the U.S.
+
+
+
+21 Maury and Pajuste (2005) and Laeven and Levine (2007) report the number of blockholders, but do not relate
+   them to cross-sectional determinants.
+22 In reality, control rights will likely be increasing in the size of each blockholder’s individual stake β/I . This will
+   reinforce the negative effect of I on intervention currently in this article.
+
+
+
+
+                                                                                                                  2421
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+   The manager’s effectiveness φa will be higher if he is more talented. Talent
+can be measured directly using managerial characteristics, such as education,
+experience, or past performance, or proxied by salary (see Gabaix and Landier
+2008). The manager’s effectiveness φa also depends on the manager’s scope
+to use his initiative or extract rents. It is likely lower in regulated firms, and
+high in firms with free cash flow problems. The latter implication suggests that
+mature firms should be held by many blockholders, which reinforces the earlier
+
+
+
+
+                                                                                      Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+predictions. It is also likely higher in large firms because many managerial
+actions can be “rolled out” across the entire firm—for example, if the CEO
+designs a new method to reduce production costs, this can be applied firmwide.
+   Negative complementarities may arise if the manager has significant scope
+for rent extraction that can be prevented by intervention, such as in mature
+firms with high agency costs of free cash flow. If investors are passive, φa will
+be significantly higher than φb , and so the model predicts dispersed ownership.
+By contrast, if blockholders are activist and skilled in perk prevention, it is ef-
+ficient to have a single blockholder. Both of these predictions reinforce earlier
+results.
+   Positive complementarities typically occur in startup firms. The main man-
+agerial action is initiative, and early-stage investors (such as venture capital-
+ists) are expert at advising the manager (e.g., by devising a strategy for the
+manager to implement). Typically, φa will be significantly greater than φb :
+The manager is able to add greater value than blockholders, given his close
+proximity to firm operations. In such a case, Section 4.2 predicts that I ∗ is
+lower under positive complementarities than perfect substitutes. Moreover, in
+start-ups, the manager often has a significant equity stake (high α), which gives
+him strong incentives to exert effort. From Equation (30), I ∗ should be low to
+ensure that blockholder effort is also high. This may explain the concentrated
+blockholder structure in early-stage firms, even after such firms go public and
+the trading governance mechanism becomes available.
+   Section 4.1 shows that if information is costly, the optimal number of block-
+holders depends on microstructure features: It is decreasing in the information
+cost c, increasing in blockholders’ private information ση , and increasing in
+market liquidity σε . Indeed, Fang, Noe, and Tice (2009) find a causal rela-
+tionship between liquidity and firm value. While many other papers also gen-
+erate a positive effect of liquidity on firm value (e.g., Holmstrom and Tirole
+1993), here the specific mechanism is through changing blockholder structure.
+Bharath, Jayaraman, and Nagar (2010) find that liquidity is particularly ben-
+eficial for firm value where there are more blockholders. This is consistent
+with the model because, if blockholders are numerous, a large volume of noise
+trading is necessary to induce them all to gather information.
+   Turning to the predictions regarding c and ση , we previously established
+that institutions skilled at gathering retrospective information have low φb , in-
+creasing I ∗ . Such institutions also likely have a low cost of monitoring and
+superior information, further reinforcing the prediction that I ∗ is high. Indeed,
+
+
+
+2422
+  Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+  as firms mature, active venture capitalist investors are typically replaced by
+  passive institutional shareholders, and the number of blockholders usually in-
+  creases. Note that this association could be for reasons outside the model. As
+  firms mature, they typically become larger; if blockholder wealth constraints
+  limit the number of dollars they can invest in a firm (Winton 1993), this will
+  lead to more dispersed ownership. Therefore, the above empirical observation
+  is only tentative support for the model; a formal test will have to control for
+
+
+
+
+                                                                                          Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+  factors such as firm size.
+     The theory also suggests that trading is most important where the man-
+  ager’s short-term concerns ω are highest. Therefore, the number of blockhold-
+  ers should be higher when the manager’s stock and options have shorter vesting
+  periods, or takeover defenses are weaker. Again, simple cross-sectional corre-
+  lations will be insufficient to support this prediction, since blockholders can
+  plausibly affect the compensation contract. In addition, the number of block-
+  holders is increasing in blockholders’ short-term concerns ζ , which could be
+  proxied by blockholders’ trading frequency. Hence the model predicts a pos-
+  itive correlation between the number of blockholders and trading frequency
+  because of causation in both directions: Dispersed blockholders trade aggres-
+  sively; and if a firm’s blockholders are frequent traders who rarely intervene,
+  they should adopt a dispersed structure. Gallagher, Gardner, and Swan (2010)
+  find evidence of multiple small blockholders engaging in frequent “churning”
+  trades.
+     While the theory appears to generate a number of untested predictions
+  through a different conceptualization of blockholders to prior research, we
+  caveat that empirical testing will have to overcome a number of challenges.
+  First, although the model yields clear, closed-form predictions for the opti-
+  mal number of blockholders in terms of certain variables, a number of these
+  parameters (such as the effectiveness of blockholder and manager effort) are
+  difficult to measure directly. The key challenge for empiricists is to come up
+  with accurate proxies. Second, while the model predicts that these variables
+  have a causal impact on blockholder structure, it may be that additional factors
+  outside the model have an effect on both. Therefore, documenting correlations
+  will be insufficient to support the model; identification of causal effects will
+  require careful instrumentation.
+
+
+6. Conclusion
+  Why are so many firms held by multiple blockholders when such a share-
+  holding structure generates free-rider problems in monitoring? This article
+  offers a potential explanation. The same coordination issues that hinder inter-
+  vention increase blockholders’ effectiveness in exerting governance through an
+  alternative mechanism: trading. Multiple blockholders act competitively when
+  trading, impounding more information into prices. This in turn induces higher
+  managerial effort, particularly if the manager has high stock price concerns.
+
+
+
+                                                                                   2423
+   The Review of Financial Studies / v 24 n 7 2011
+
+
+
+      The optimal number of blockholders depends on the relative productivity of
+   managerial and blockholder effort. If outputs are perfect substitutes, the opti-
+   mum is decreasing in the effectiveness of blockholder intervention and increas-
+   ing in the potency of managerial effort. It is therefore high if blockholders are
+   mutual funds that gather retrospective rather than prospective information, and
+   low if they are activists. This dependence becomes stronger under negative
+   complementarities. However, if complementarities are positive, the produc-
+
+
+
+
+                                                                                                                          Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+   tivity parameters have opposite effects on the optimal shareholder structure.
+   If blockholder effort is unproductive, concentrated ownership is necessary to
+   augment it to a sufficient level to complement the manager’s effort.
+      The article suggests a number of potential avenues for future research. On
+   the empirical side, the model highlights the importance of the number of block-
+   holders. As an independent variable, it is a relevant determinant of both gov-
+   ernance and price efficiency; as a dependent variable, the model identifies a
+   number of underlying factors that affect the optimal blockholder structure.
+   On the theoretical side, the article assumes symmetric blockholders and fo-
+   cuses the analysis on their optimal number. It would be interesting to extend
+   the analysis to introduce asymmetries and examine the optimal distribution of
+   shares between a fixed number of blockholders.23 Another possible asymme-
+   try would be to feature some blockholders specializing in trading and others
+   in intervention, as in Faure-Grimaud and Gromb (2004), Aghion, Bolton, and
+   Tirole (2004), and Attari, Banerjee, and Noe (2006) (although these models
+   feature only one type of each blockholder). Similarly, while we have focused
+   our study on the efficient number of blockholders, the model can be expanded
+   to consider the simultaneous determination of the manager’s stake and total
+   blockholder ownership.
+      More broadly, the model suggests a new way of thinking about the interac-
+   tions between multiple blockholders: as competing for trading profits, rather
+   than private benefits. This leads to new empirical predictions linking block-
+   holders to microstructure, and more generally corporate finance to financial
+   markets. In addition, this way of thinking gives rise to new theoretical direc-
+   tions: Future corporate finance models of multiple blockholders could incorpo-
+   rate more complex effects currently analyzed in asset pricing models of many
+   informed traders. The present article assumes a single trading period, but in
+   reality there may be multiple periods in which information may arrive and
+   blockholders may trade. Trading profits, and thus incentives to acquire costly
+   information, then depend not only on the quality of information but on its time-
+   liness. A blockholder who receives information late may find that the price has
+
+23 Studying asymmetric blockholders will likely require a quite different framework. In the current model (as in
+   standard Kyle-type models), block size has no effect on trading behavior as the ability to trade is independent
+   of one’s stake. Introducing short-sale constraints will allow block size to be relevant, but will require departures
+   from normal noise distributions to obtain tractability (e.g., Edmans 2009). Moreover, a symmetric equilibrium
+   is necessary to obtain closed-form solutions in the trading stage; see also Kyle (1984), Admati and Pfleiderer
+   (1988), Holden and Subrahmanyam (1992), and Foster and Viswanathan (1993). The current model does contain
+   an asymmetry in the case of costly information acquisition, as some blockholders may remain uninformed.
+
+
+
+
+   2424
+Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+already moved, reducing her trading profits. In addition, in the present article,
+blockholders trade on information only. If blockholders are subject to liquidity
+shocks (e.g., Brunnermeier and Pedersen 2005), the addition of multiple trad-
+ing rounds may give incentives for other blockholders to “front-run” and sell in
+advance of an anticipated forced liquidation. This may increase the potency of
+governance through trading, but reduce incentives to engage in interventions
+with long-run benefits.
+
+
+
+
+                                                                                                                  Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+Supplementary Data
+Supplementary data are available online at http://www.sfsrfs.org/addenda/.
+
+References
+Admati, A. R., and P. Pfleiderer. 2009. The “Wall Street Walk”and Shareholder Activism: Exit as a Form of
+Voice. Review of Financial Studies 22:2645–85.
+
+Admati, A., P. Pfleiderer, and J. Zechner. 1994. Large Shareholder Activism, Risk Sharing, and Financial Market
+Equilibrium. Journal of Political Economy 102:1097–30.
+
+Aghion, P., P. Bolton, and J. Tirole. 2004. Exit Options in Corporate Finance: Liquidity versus Incentives.
+Review of Finance 8:327–53.
+
+Attari, M., S. Banerjee, and T. Noe. 2006. Crushed by a Rational Stampede: Strategic Share Dumping and
+Shareholder Insurrections. Journal of Financial Economics 79:181–222.
+
+Barclay, M. J., and C. G. Holderness. 1989. Private Benefits from Control of Public Corporations. Journal of
+Financial Economics 25:371–95.
+
+       . 1991. Negotiated Block Trades and Corporate Control. Journal of Finance 46:861–78.
+
+Bebchuk, L. 2007. The Myth of the Shareholder Franchise. Virginia Law Review 93:675–732.
+
+Bennedsen, M., and D. Wolfenzon. 2000. The Balance of Power in Closely Held Corporations. Journal of
+Financial Economics 58:113–39.
+
+Bharath, S. T., S. Jayaraman, and V. Nagar. 2010: Exit as Governance: An Empirical Analysis. Working Paper,
+Arizona State University.
+
+Black, B. 1990. Shareholder Passivity Reexamined. Michigan Law Review 89:520–608.
+
+Bloch, F., and U. Hege. 2003. Multiple Shareholders and Control Contests. Working Paper, Ecole
+Polytechnique.
+
+Boehmer, E., and E. Kelley. 2009. Institutional Investors and the Informational Efficiency of Prices. Review of
+Financial Studies 22:3563–94.
+
+Bolton, P., and E-L. von Thadden. 1998. Blocks, Liquidity, and Corporate Control. Journal of Finance 53:1–25.
+
+Bond, P., I. Goldstein, and E. S. Prescott. 2010. Market-based Corrective Actions. Review of Financial Studies
+23:781–820.
+
+Brav, A., and R. Mathews. 2010. Empty Voting and the Efficiency of Corporate Governance. Journal of Financial
+Economics, forthcoming.
+
+Brockman P., and X. S. Yan. 2009. Block Ownership and Firm-specific Information. Journal of Banking and
+Finance 33:308–16.
+
+Brunnermeier, M., and L. Pedersen. 2005. Predatory Trading. Journal of Finance 60:1825–63.
+
+Burkart, M., D. Gromb, and F. Panunzi. 1997. Large Shareholders, Monitoring, and the Value of the Firm.
+Quarterly Journal of Economics 112:693–728.
+
+
+
+
+                                                                                                       2425
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+Bushee, B., and T. Goodman. 2007. Which Institutional Investors Trade Based on Private Information About
+Earnings and Returns? Journal of Accounting Research 45:289–321.
+
+Calcagno, R., and F. Heider. 2008. Market Based CEO Pay, Aggregation of Information, and Short-termism in
+the Stock Market. Working Paper, Vrije Universiteit Amsterdam.
+
+Chen, B., and P. L. Swan. 2010. CEO Incentives and Institutional Trader Monitoring Are Substitutes: Theory
+and Evidence. Working Paper, University of New South Wales.
+
+Chen, Q., I. Goldstein, and W. Jiang. 2007. Price Informativeness and Investment Sensitivity to Stock Price.
+
+
+
+
+                                                                                                                  Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+Review of Financial Studies 20:619–50.
+
+Chen, X., J. Harford, and K. Li. 2007. Monitoring: Which Institutions Matter? Journal of Financial Economics
+86:279–305.
+
+Demsetz, H., and K. Lehn. 1985. The Structure of Corporate Ownership: Causes and Consequences. Journal of
+Political Economy 93:1155–77.
+
+Dhillon, A., and S. Rossetto. 2009. Corporate Control and Multiple Large Shareholders. Working Paper,
+University of Warwick.
+
+Dlugosz, J., R. Fahlenbrach, P. Gompers, and A. Metrick. 2005. Large Blocks of Stock: Prevalence, Size, and
+Measurement. Journal of Corporate Finance 12:594–618.
+
+Dow, J., and G. Gorton. 1997. Stock Market Efficiency and Economic Efficiency: Is There a Connection?
+Journal of Finance 52:1087–129.
+
+Edmans, A. 2009. Blockholder Trading, Market Efficiency, and Managerial Myopia. Journal of Finance 64:
+2481–513.
+
+Faccio, M., and L. Lang. 2002. The Ultimate Ownership of Western European Corporations. Journal of Financial
+Economics 65:365–95.
+
+Fang, V., T. Noe, and S. Tice. 2009. Stock Market Liquidity and Firm Value. Journal of Financial Economics
+94:150–69.
+
+Faure-Grimaud, A., and D. Gromb. 2004. Public Trading and Private Incentives. Review of Financial Studies
+17:985–1014.
+
+Ferreira, D., M. Ferreira, and C. Raposo. 2010. Board Structure and Price Informativeness. Journal of Financial
+Economics, forthcoming.
+
+Fishman, M. J., and K. Hagerty. 1989. Disclosure Decisions by Firms and the Competition for Price Efficiency.
+Journal of Finance 44:633–46.
+
+Foster, F. D., and S. Viswanathan. 1993. The Effect of Public Information and Competition on Trading Volume
+and Price Volatility. Review of Financial Studies 6:23–56.
+
+Fulghieri, P., and D. Lukin. 2001. Information Production, Dilution Costs, and Optimal Security Design. Journal
+of Financial Economics 61:3–42.
+
+Gabaix, X., and A. Landier. 2008. Why Has CEO Pay Increased So Much? Quarterly Journal of Economics
+123:49–100.
+
+Gallagher, D., P. Gardner, and P. Swan. 2010. Institutional Swing Trades and Subsequent Firm Performance.
+Working Paper, University of Sydney.
+
+Goldstein, I., and A. Guembel. 2008. Manipulation and the Allocational Role of Prices. Review of Economic
+Studies 75:133–64.
+
+Gomes, A., and W. Novaes. 2006. Sharing of Control versus Monitoring as Corporate Governance Mechanisms.
+Working Paper, Washington University in St. Louis.
+
+Gorton, G. B., L. Huang, and Q. Kang. 2010. The Limitations of Stock Market Efficiency: Price Informativeness
+and CEO Turnover. Working Paper, Yale University.
+
+
+
+
+2426
+Governance Through Trading and Intervention: A Theory of Multiple Blockholders
+
+
+
+Heflin, F., and K. Shaw. 2000. Blockholder Ownership and Market Liquidity. Journal of Financial and
+Quantitative Analysis 35:621–33.
+
+Hirschman, A. 1970. Exit, Voice, and Loyalty. Cambridge, MA: Harvard University Press.
+
+Holden, C. W., and A. Subrahmanyam. 1992. Long-lived Private Information and Imperfect Competition.
+Journal of Finance 47:247–70.
+
+Holderness, C. G. 2009. The Myth of Diffuse Ownership in the United States. Review of Financial Studies
+22:1377–408.
+
+
+
+
+                                                                                                                 Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+Holmstrom, B., and J. Tirole. 1993. Market Liquidity and Performance Monitoring. Journal of Political Economy
+101:678–709.
+
+Holthausen, R. W., R. W. Leftwich, and D. Mayers. 1990. Large-block Transactions, the Speed of Response,
+and Temporary and Permanent Stock-price Effects. Journal of Financial Economics 26:71–95.
+
+Kahn, C., and A. Winton. 1998. Ownership Structure, Speculation, and Shareholder Intervention. Journal of
+Finance 53:99–129.
+
+Kalay, A., and S. Pant. 2010. Time-varying Voting Rights and the Private Benefits of Control. Working Paper,
+University of Utah.
+
+Kandel, E., M. Massa, and A. Simonov. Forthcoming. Do Small Shareholders Count? Journal of Financial
+Economics.
+
+Khanna, N., and R. D. Mathews. 2010. Doing Battle with Short Sellers: The Role of Blockholders in Bear Raids.
+Working Paper, Michigan State University.
+
+Kole, S. 1997. The Complexity of Compensation Contracts. Journal of Financial Economics 43:79–104.
+
+Konijn, S. J. J., R. Krässel, and A. Lucas. 2009. Blockholder Dispersion and Firm Value. Working Paper, Vrije
+Universiteit Amsterdam.
+
+Kyle, A. 1984. Market Structure, Information, Futures Markets, and Price Formation. In Gary G. Storey,
+Andrew Schmitz, and Alexander H. Sarris, (eds.), International Agricultural Trade: Advanced Readings in
+Price Formation, Market Structure, and Price Instability. Boulder, CO: Westview.
+
+       . 1985. Continuous Auctions and Insider Trading. Econometrica 53:1315–35.
+
+La Porta, R., F. Lopez-de-Silanes, and A. Shleifer. 1999. Corporate Ownership Around the World. Journal of
+Finance 54:471–517.
+
+Laeven, L., and R. Levine. 2007. Complex Ownership Structures and Corporate Valuations. Review of Financial
+Studies 21:579–604.
+
+Maug, E. 1998. Large Shareholders and Monitors: Is There a Tradeoff Between Liquidity and Control? Journal
+of Finance 53:65–98.
+
+       . 2002. Insider Trading Legislation and Corporate Governance. European Economic Review 46:1569–97.
+
+Maury, B., and A. Pajuste. 2005. Multiple Large Shareholders and Firm Value. Journal of Banking and Finance
+29:1813–34.
+
+McCahery, J., Z. Sautner, and L. Starks. 2010. Behind the Scenes: The Corporate Governance Preferences of
+Institutional Investors. Working Paper, University of Amsterdam.
+
+Mello, A., and R. Repullo. 2004. Shareholder Activism Is Non-monotonic in Market Liquidity Finance Research
+Letters 1:2–10.
+
+Mikkelson, W., and M. Partch. 1985. Stock Price Effects and Costs of Secondary Distributions. Journal of
+Financial Economics 14:165–94.
+
+Mueller, H., and K. Wärneryd. 2001. Inside versus Outside Ownership: A Political Theory of the Firm. RAND
+Journal of Economics 32:527–41.
+
+
+
+
+                                                                                                      2427
+The Review of Financial Studies / v 24 n 7 2011
+
+
+
+Narayanan, M. P. 1985. Managerial Incentives for Short-term Results. Journal of Finance 40:1469–84.
+
+Noe, T. 2002. Investor Activism and Financial Market Structure. Review of Financial Studies 15:289–318.
+
+Pagano, M., and A. Röell. 1998. The Choice of Stock Ownership Structure: Agency Costs, Monitoring, and the
+Decision to Go Public. Quarterly Journal of Economics 113:187–225.
+
+Parrino, R., R. Sias, and L. Starks. 2003. Voting with Their Feet: Institutional Ownership Changes Around
+Forced CEO Turnover. Journal of Financial Economics 68:3–46.
+
+
+
+
+                                                                                                                 Downloaded from academic.oup.com/rfs/article/24/7/2395/1625435 by Catherine Sharp user on 19 August 2026
+Rubin, A. 2007. Ownership Level, Ownership Concentration, and Liquidity. Journal of Financial Markets 10:
+219–48.
+
+Scharfstein, D., and J. Stein. 1990. Herd Behavior and Investment. American Economic Review 80:465–79.
+
+Scholes, M. 1972. The Market for Securities: Substitution Versus Price Pressure and the Effects of Information
+on Share Prices. Journal of Business 45:179–211.
+
+Shleifer, A., and R. Vishny. 1986. Large Shareholders and Corporate Control. Journal of Political Economy
+94:461–88.
+
+Sias, R., L. Starks, and S. Titman. 2006. Changes in Institutional Ownership and Stock Returns: Assessment
+and Methodology. Journal of Business 79:2869-910.
+
+Smith, G., and P. Swan. 2008. Will the Real Monitors Please Stand Up? Institutional Investors and CEO
+Compensation. Working Paper, University of New South Wales.
+
+Stein, J. 1988. Takeover Threats and Managerial Myopia. Journal of Political Economy 46:61–80.
+
+       . 1989. Efficient Capital Markets, Inefficient Firms: A Model of Myopic Corporate Behavior. Quarterly
+Journal of Economics 104:655–69.
+
+       . 1996. Rational Capital Budgeting in an Irrational World. Journal of Business 69:429-55.
+
+Subrahmanyam, A., and S. Titman. 1999. The Going-public Decision and the Development of Financial
+Markets. Journal of Finance 54:1045–82.
+
+Winton, A. 1993. Limitation of Liability and the Ownership Structure of the Firm. Journal of Finance 48:
+487–512.
+
+Zwiebel, J. 1995. Block Investment and Partial Benefits of Corporate Control. Review of Economic Studies
+62:161–85.
+
+
+
+
+2428
+

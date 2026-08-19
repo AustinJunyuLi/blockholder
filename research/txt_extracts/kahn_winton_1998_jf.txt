@@ -1,0 +1,1600 @@
+THE JOURNAL OF FINANCE • VOL LIII, NO. 1 • FEBRUARY 1998
+
+
+
+
+             Ownership Structure, Speculation,
+              and Shareholder Intervention
+
+                       CHARLES KAHN and ANDREW WINTON*
+
+
+                                         ABSTRACT
+      An institution holding shares in a firm can use information about the firm both for
+      trading (“speculation”) and for deciding whether to intervene to improve firm per-
+      formance. Intervention increases the value of the institution’s existing sharehold-
+      ings, but intervention only increases the institution’s trading profits if it enhances
+      the precision of the institution’s information relative to that of uninformed traders.
+      Thus, the ability to speculate can increase or decrease institutional intervention.
+      We examine key factors that affect the intervention decision, the usefulness of
+      “short-swing” provisions and restricted shares in encouraging institutional inter-
+      vention, and implications for ownership structure across different firms.
+
+
+
+INSTITUTIONAL INVESTORS HOLD an ever-greater fraction of Corporate America’s
+equity. Traditionally, these institutions were “stock pickers” who tried to beat
+the market through trading; if a firm whose stock they held seemed headed
+for trouble, these investors headed for the door (“the Wall Street rule”). More
+recently, some of these institutions have been using the ownership rights
+attached to their shares to pressure firms to act in the shareholders’ inter-
+est. Some have even argued that there is a synergy between gathering in-
+formation for use in trading shares (“speculation”) and intelligently pressuring
+firms to improve performance (“intervention”). We argue that these motives
+can also conflict. Analyzing these motives allows us to predict which firms
+are most likely to attract institutional intervention, which in turn has cross-
+sectional implications for firm ownership structure.
+   Recent examples suggest that institutional investors with large stakes some-
+times intervene and sometimes follow the Wall Street rule, so that there is
+indeed a choice to be studied. In the early 1990s, there was a wave of activ-
+ism by a variety of large institutional investors, among them CalPERS, the
+California public employees pension fund, Putnam Management, a mutual
+fund manager, and J.P. Morgan, a bank holding company.1 These institu-
+
+   * Kahn is at the College of Commerce and Business Administration, University of Illinois at
+Urbana–Champaign, and Winton is at the J.L. Kellogg Graduate School of Management, North-
+western University. This paper is a substantial revision of our earlier paper entitled “Owner-
+ship Structure, Liquidity Demand, and Shareholder Monitoring.” In revising this version, we
+are grateful to Mike Fishman, Kathleen Hagerty, Debbie Lucas, Raghu Rajan, René Stulz (the
+editor), and an anonymous referee for comments and suggestions. Winton thanks the Banking
+Research Center at Northwestern University and the University of Rome “Tor Vergata” Finan-
+cial Conference for research support. All mistakes remain our own responsibility.
+   1
+     See “Shareholders call the plays,” Economist, April 24, 1993.
+
+                                               99
+                                                                                                 15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+100                             The Journal of Finance
+
+tions lobbied for the removal of CEOs at several large, poorly performing
+firms, including Kodak, IBM, Westinghouse, Borden, American Express, and
+GM. In the mid 1990s, Fidelity Investment’s Magellan mutual fund began to
+accumulate large positions in a number of high-technology stocks, many of
+them smaller firms: by the end of March 1995, 49 percent of Magellan’s
+holdings were stakes of 5 percent or more in the target firms’ shares. It
+would seem that Fidelity was well-placed to exert influence in these firms if
+matters started to deteriorate. Yet in late 1995, Magellan reduced its tech-
+nology holdings from 45 percent to 8.5 percent just in advance of a downturn
+in those stocks.2
+   More generally, suppose that an institution learns that a firm whose shares
+it holds is doing poorly and might benefit from a change in direction. If the
+institution’s position (possibly in coalition with other institutions) is large
+enough, it might be able to effect such a change, albeit at some cost in time
+and effort. Knowing that the market price doesn’t yet reflect this informa-
+tion, the institution could buy additional shares, profiting from the impact
+its subsequent intervention will have on the additional shares it has bought
+as well as on its existing holdings. On the other hand, the institution could
+sell its stake (and perhaps go short shares), saving the cost of intervention
+and profiting from advance knowledge that the firm will do badly. Thus, the
+ability to speculate may lead to “cut-and-run” behavior—the Wall Street rule—
+and this possibility continues to concern many commentators, such as Bhide
+(1993) and Roe (1994).
+   The institution’s decision will of course depend on its payoffs: it will in-
+tervene if that is more profitable than pure speculation. In part, the insti-
+tution must examine the expected impact of intervention on its existing stake
+in the firm, less the costs of such intervention. Since an increase in the
+institution’s existing stake in the firm increases its share of any improve-
+ment in firm performance, this “direct impact” of intervention should also
+increase with the institution’s stake.
+   However, the institution must also consider how intervention affects its
+profits from trading on private information. By increasing the odds that the
+firm will do well, intervention increases the probability that the institution
+buys ahead of good outcomes and decreases the probability that it sells ahead
+of bad ones. Whether expected trading profits increase or decrease depends
+on whether intervention increases or decreases the value of the institution’s
+information relative to that of uninformed traders. For example, if the mar-
+ket believes that the firm is likely to do badly, intervening pushes the firm’s
+return in the unexpected direction, which tends to increase the institution’s
+trading profits. But if the market believes the firm is likely to do well, in-
+tervention only reaffirms these beliefs, while not intervening and letting the
+firm do badly leads to the less expected outcome. In this case, intervention
+
+  2
+     See Floyd Norris (May 21, 1995), and David J. Morrow (February 10, 1996). In at least one
+case (Micron Technology), there were accusations that Jeffrey Vinik, Magellan’s fund manager,
+had given positive interviews about the firm’s prospects that were published while he was
+selling off his position—see Robert McGough (December 15, 1995).
+                                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+               Ownership Structure, Speculation, and Intervention                          101
+
+tends to decrease trading profits, and an institution whose stake in the firm
+seems more than large enough to influence management may instead choose
+to sell out if it gets advance notice of a problem.
+   Thus, if we are to predict which firms an institution is most likely to inter-
+vene in, we must look at not only the size of the institution’s stake, but also
+firm-specific factors that influence the magnitude and sign of intervention’s im-
+pact on the institution’s trading profits (henceforth, “trading impact”). For ex-
+ample, although the institution’s stake may give it better access to management
+and a better sense of the firm’s overall direction, it is unlikely to be the only
+investor (“speculator”) looking to gather information about the firm and trade
+on it. Because other speculators will acquire information as long as they ex-
+pect to at least break even, their marginal cost of gathering information limits
+the size of the institution’s trading profits. In firms where information is dif-
+ficult to gather—smaller, younger, or other less well-known firms—the effec-
+tive barrier to entry is high, and trading profits may loom large in the institution’s
+decision. By contrast, for large, well-established “blue-chip” firms, public cov-
+erage may make the cost of information low, reducing the importance of trad-
+ing profits in the institution’s decision.
+   Similarly, “intervention” can vary both in its expected impact on the firm
+and in the speed with which its success or failure becomes apparent. For
+example, spinning off a money-losing, unrelated division to an acquirer with
+the right managerial expertise is quite likely to improve matters, in contrast
+to replacing a somewhat below-average CEO. Thus, the spin-off will have a
+greater effect on the value of the institution’s existing stake (a higher “direct
+impact”), and it will have a greater impact on the institution’s trading profits—
+for good or ill. The results of a policy change may take more time to resolve
+in a young, rapidly evolving industry than in a mature, stable one; if so,
+intervention’s effect on trading profits will be more negative in the younger
+industry, because the institution exchanges relatively precise information
+(the firm is doing badly) for less precise information (the firm may do well).
+   These results are broadly consistent with the two examples given at the
+start of this paper. In the cases of shareholder activism in the early 1990s,
+the targets were large, well-established firms that had performed badly for
+years, with relatively clear inefficiencies and mistakes. Thus, the trading
+impact of intervention would probably be positive, and might in any case be
+of secondary importance for such well-followed firms. By contrast, in 1995,
+the Magellan Fund’s stakes were concentrated in younger, high-tech firms at
+a time when (partly because of Magellan’s positions) technology stocks reached
+record highs. With high market expectations and a young industry where
+the impact of outside intervention might be less clear, the trading impact of
+intervention was likely to be negative and relatively large in size.3
+
+   3
+     More support for this view comes from a 1993 interview with Robert Pozen, Fidelity’s gen-
+eral counsel: “The times when we become most activist are when we are drawn into it, either
+because people propose things that we think are not in the interests of shareholders, or because
+companies have such a low level of management that we almost feel we have gone beyond the
+pale with our investment.” [Emphasis added.] (Myron Magnet, March 8, 1993, p. 60)
+                                                                                                  15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+102                             The Journal of Finance
+
+   Our model also has implications for ownership structure. Diversification,
+liquidity, or regulatory concerns may impose costs on large institutional hold-
+ings. Thus, the greatest gains from a large institutional position should be
+found in firms where the threshold for intervention is lowest: for example,
+those where the odds of success without outside intervention are viewed as
+low and the gains to potential monitoring or intervention are most clear-cut,
+such as firms in mature industries with generally well-understood opera-
+tions. These results are particularly relevant for an initial owner who wishes
+to maximize proceeds from selling off its ownership stake: for an example,
+an entrepreneur or venture capitalist seeking to cash out its stake, or a
+government seeking to privatize a state-owned firm.
+   Furthermore, firms may wish to privately place restricted shares with in-
+stitutions: because such shares are harder to sell, cut-and-run behavior is
+reduced, and intervention becomes more attractive. Our analysis suggests
+that the incentives to do this will be highest in those firms for which trading
+profits loom largest—i.e., those where other speculators face high costs of
+gathering information. By contrast, “short-swing” rules requiring that large
+shareholders forfeit short-run trading profits are less likely to be useful in
+enhancing intervention: such rules make any trading less attractive, whether
+it is linked to cut-and-run behavior or to buying more shares so as to take
+advantage of intervention.
+   Several earlier papers have focused on the positive externality that a large
+shareholder’s monitoring creates. Shleifer and Vishny (1986) show how an
+active and anonymous stock market may make it difficult to assemble a
+large position because of holdout problems, and Huddart (1993) and Admati,
+Pfleiderer, and Zechner (1994) show how such a market may induce an al-
+ready large shareholder to sell rather than incur the cost of monitoring.
+Stoughton and Zechner (1996) show how the holdout problem can be par-
+tially overcome at the time of an IPO by underpricing shares and allocating
+a large block to a large shareholder. In these papers, liquidity traders and
+other informed traders are absent, and the only private information that the
+large shareholder has is its decision on whether to monitor.4
+   Most closely related to our work is that of Maug (1998), who also analyzes
+an institutional investor’s intervention decision when the institution’s pri-
+vate knowledge of its decision may allow it to earn trading profits at the
+expense of liquidity traders. Although the two papers begin with the same
+problem, the modeling assumptions are somewhat different, reflecting a dif-
+ference in focus.
+   Maug’s primary goal is to see how increased liquidity trading affects an
+institution’s incentives to intervene when the institution acquires its initial
+
+   4
+     Other recent work on ownership structure includes Bolton and von Thadden (1998) and
+Pagano and Röell (1996) who examine the relative pros and cons of concentrated versus dis-
+persed ownership shares, and Burkart, Gromb, and Panunzi (1997), who examine the possible
+disincentives that concentrated ownership can have for managerial performance. Other related
+work includes the extensive literature on the pros and cons of insider trading, such as Ausubel
+(1990), Leland (1992), Fishman and Hagerty (1992), and Bernhardt, Hollifield, and Hughson
+(1995).
+                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+            Ownership Structure, Speculation, and Intervention              103
+
+stake on the open market. He shows that increased liquidity trading may
+actually increase the institution’s desire to acquire a large initial stake and
+intervene. Intuitively, with no liquidity trading, the holdout problem of Gross-
+man and Hart (1980) applies: small shareholders’ reservation price reflects
+any benefits of intervention, so the institution cannot recoup its costs of
+intervention. Fear of trading at a loss to meet future liquidity needs reduces
+small shareholders’ reservation price, making it more attractive for the in-
+stitution to acquire shares.
+   By contrast, we focus on how differing firm characteristics affect the in-
+stitution’s intervention decision, and the implications that this has for firm
+ownership structure. This complementary focus leads us to adopt a some-
+what richer structure than Maug. For example, we incorporate additional
+large traders, and find that trading effects are of little concern for firms
+where costs of gathering information are relatively low and competition among
+informed traders is high. We also make firm outcomes partly independent of
+intervention, and find that firms that are generally thought to be doing well
+are less likely to receive intervention when they do need it, because market
+expectations make it more profitable for the institution to cut and run rather
+than intervene.
+   Our complementary focus also leads us to a broader analysis of ownership
+structure choice. To illustrate his main point, Maug focuses on the case where
+the holdout problem is most severe—the case where the institution acquires
+its stake on the open market at a price that reflects the small shareholders’
+marginal valuation. Because private placements of shares can alleviate the
+holdout problem, we analyze ownership structure choice under both private
+placements and open market purchases. We also analyze the impact of is-
+suing restricted shares to mitigate cut-and-run behavior.
+   The rest of the paper is structured as follows. After describing our model
+and assumptions in Section I, Section II examines the intervention and in-
+formation gathering decisions of the institution and other speculators, given
+a preexisting ownership structure. Section III examines how ownership struc-
+ture is determined, and Section IV considers the use of short-swing rules
+and restricted shares. Section V discusses our model’s empirical implications
+and some supporting evidence, and Section VI concludes.
+
+
+                           I. Basic Assumptions
+  Our model focuses on a firm whose stock is traded in a market with three
+types of participants: small investors, large institutional investors, and com-
+petitive market makers. For simplicity, all agents are risk neutral. The model
+takes place over times 0, 1, and 2. The firm allocates its shares (normalized
+to one for simplicity) among different investors at time 0, shares are traded
+on the open market at time 1, and the firm is liquidated at time 2.
+  At time 2, the firm returns either 0 or X units of the consumption good,
+which is then divided among shareholders on a pro rata basis. Absent out-
+side intervention (see below), the chance of a return of X is assumed to be
+q [ ~0, 1!.
+                                                                                                     15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+104                              The Journal of Finance
+
+   At time 0, a large institutional investor (henceforth “the institution”) ob-
+tains n of the firm’s shares; the remaining 1 2 n go to a continuum of infin-
+itesimal small investors. For the moment, this allocation is exogenous; the
+choice of ownership structure is addressed in Section III.
+   Before time 1 trading, the institution learns whether or not the firm is
+“distressed.” 5 If the firm is not distressed, its time 2 realization will be X. If
+it is distressed, then its time 2 return will be zero unless the institution
+“intervenes” at a positive cost m. Intervention changes the firm’s return from
+zero to X with probability d. Thus, if the institution is certain to intervene
+when the firm is distressed, the firm’s ex ante chance of success increases to
+qmax [ q 1 d~1 2 q!. Intervention involves determining a beneficial change
+in the firm’s policy and then trying to get that change carried out. In prac-
+tice, getting management to make the change might involve threatening
+(and possibly carrying out) a takeover or proxy fight, but we abstract from
+these details. (An alternative would be to structure managerial compensa-
+tion so as to motivate management to make these changes, but such schemes
+are limited by managerial risk aversion and wealth constraints. Thus, in-
+tervention can play a useful role even in the presence of compensation
+schemes.)6
+   It seems reasonable that other large institutional investors might attempt
+to gather information about the firm for use in trading at time 1. We assume
+a large number of such potential “speculators.” By paying an amount g, spec-
+ulators learn the firm’s situation before time 1 trading, including whether or
+not the institution has intervened. For simplicity, we assume that both the
+institution and the speculators immediately find out whether the interven-
+tion has been successful. The assumption that informed speculators have the
+same information as the institution is extremely strong. Nonetheless, weak-
+ening this assumption would not change our qualitative results—as will be
+seen, our assumptions already give the institution a trading advantage over
+the speculators. The effects of weakening the assumption that informed trad-
+ers immediately learn whether intervention has been successful is discussed
+at the end of Section II.
+   As noted before, the time 1 stock market has three types of participants:
+competitive market makers, small shareholders, and large informed inves-
+tors (the institution and speculators). Small shareholders will not intervene
+or speculate because the fixed costs involved outweigh their (infinitesimal)
+
+   5
+     In earlier versions of this paper, we assumed that the institution has to pay a cost for
+acquiring this information. As long as the institution can acquire information more cheaply
+than can other investors—perhaps by virtue of its stake in the firm—our basic results are
+unchanged.
+   6
+     Although in principle one could have multiple large shareholders, we assume that there is
+only one (the institution) so as to simplify the analysis of intervention. Having one large share-
+holder intervene (or “monitor”) avoids duplication of effort and free rider problems. However,
+multiple monitors may be useful if monitoring quality is sufficiently convex in effort (see Win-
+ton (1993)), or if the signals received by different monitors are imperfectly correlated. Also, if
+the effectiveness of monitoring depends on the number of shares controlled, multiple large
+shareholders might gain from forming coalitions.
+                                                                                                 15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+             Ownership Structure, Speculation, and Intervention                          105
+
+                                          Table I
+                                Sequence of Events
+
+Time 0:   • Initial ownership structure is chosen.
+          • Speculators decide whether to gather information.
+Time 1:   • Competitive stock market opens.
+          • Institution and active speculators learn the firm’s base time 2 return.
+          • If the institution finds that the base return is bad, it decides whether to inter-
+            vene. Intervention’s outcome is realized and observed by informed investors.
+          • Small investors may experience liquidity shocks.
+          • Trading takes place.
+Time 2:   • Firm return is realized and divided among shareholders.
+
+
+
+gains from these activities. Market makers have no private information of
+their own. Following Admati and Pfleiderer (1989) and Easley and O’Hara
+(1992), we assume that market makers quote bid and ask prices PB and PA
+independent of the supply or demand for shares at time 1; i.e., these prices
+are independent of realized order flow. Bertrand competition among the mar-
+ket makers leads to zero profits in equilibrium, so that PB equals the ex-
+pected value of a share conditional on a sale, and PA equals the expected
+value conditional on a buy.
+   At time 1, small investors may suffer “liquidity shocks” that cause them to
+buy or sell a number of shares equal to the amount they hold, independent
+of the market price. Buying could be the result of a portfolio shock that leads
+them to desire exposure to the firm; selling could represent a sudden need
+for funds. For simplicity, we assume that small investors have a chance m of
+each type of shock. Thus, if small investors hold 1 2 n of the firm’s shares,
+the total expected volume L of liquidity buys or sells is m~1 2 n!.
+   For simplicity, large investors with private information about the firm (the
+institution and the speculators) do not face liquidity shocks. Each large in-
+vestor’s trading is limited to buying or selling w shares. This limit can be
+thought of as a simplified version of a wealth restriction on buying on mar-
+gin or selling short. Any short selling or borrowing must be repaid at time 2.
+(In a more complex model with risk aversion, w might also reflect diversifi-
+cation concerns.)
+   The sequence of events in the model is summarized in Table I.
+
+
+   II. Market Equilibrium Given an Initial Ownership Structure
+
+A. Market Equilibrium at Time 1
+   We solve our model starting from the situation at time 1 and working
+backwards. Suppose that the institution holds n shares. Before time 1, if the
+firm is distressed, it may choose to intervene. Although the institution and
+any informed (“active”) speculators know what the institution has chosen to
+do and whether any intervention has been successful, the market makers
+only know the ex ante equilibrium probabilities that these events have oc-
+                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+106                        The Journal of Finance
+
+curred. Accordingly, let a be the equilibrium probability that an informed
+institution intervenes upon finding that the firm is performing badly. Let S
+be the equilibrium expected number of active speculators.
+  It follows that the ex ante probability q ' that the firm will eventually do
+well (whether through intervention or not) equals q 1 ad~1 2 q!; similarly,
+the ex ante value of the firm’s cash flows is q ' X. In the absence of informed
+trading, the competitive market makers would quote q ' X as both the bid and
+the ask price. However, fully informed investors know that the firm is either
+worth 0 or X: if the firm is worth 0, they will sell as many shares as they can
+at any bid price PB above 0; if the firm is worth X, they will buy as many
+shares as they can at any ask price PA below X. Because the expected prob-
+ability that the firm eventually succeeds is q ' , and the maximum trading
+volume of informed traders S equals ~S 1 1!w, it easily follows that expected
+informed selling volume is ~1 2 q ' !{S, while expected informed buying vol-
+ume is q ' {S.
+  These considerations lead to the following results.
+LEMMA 1 (Equilibrium Prices and Returns):
+   (i) The equilibrium bid and ask prices are
+
+                           L{q ' X                     ~L 1 S!{q ' X
+                 PB 5                     and   PA 5                 .       (1)
+                        L 1 ~1 2 q ' !S                  L 1 q'S
+
+  (ii) Denoting the institution’s possible actions as D (don’t intervene at all)
+       and I (intervene when possible), the net returns RD and RI to each of
+       these actions are
+
+         RD 5 n{qX 1 w{@q~X 2 PA ! 1 ~1 2 q!{PB #        and
+
+         RI 5 n{qmax X 1 w{@qmax ~X 2 PA! 1 ~1 2 qmax!{PB # 2 d~1 2 q!{m.
+
+                                                                             (2)
+
+  (iii) The net expected return RS to each active speculator is
+
+                     RS 5 w{@q ' ~X 2 PA ! 1 ~1 2 q ' !{PB # 2 g.            (3)
+
+Proofs of this and all subsequent results are given in the Appendix.
+   In each case, the institution’s return consists of the value of its initial
+shareholding n, plus speculative profits from using its total wealth w to trade
+on its private information, less any cost of intervening. These returns are
+only affected by the institution’s intervention decision a and the expected
+number of speculators S through the effects of these variables on the equi-
+librium prices PA and PB and the ex ante probability q ' that the firm succeeds.
+   Note that an increase in the expected volume of liquidity trading L in-
+creases the bid price and decreases the ask price; as is usual in microstruc-
+                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+            Ownership Structure, Speculation, and Intervention              107
+
+ture models, increases in liquidity trading reduce adverse selection problems
+for market makers, narrowing the bid–ask spread. Increases in the volume
+of strategic (informed) trading S have the opposite effect on prices— adverse
+selection problems for market makers increase. An increase in the likelihood
+of intervention a increases both bid and ask prices, both by raising the ex
+ante value of the firm q ' X and by weighting informed trading more toward
+buying than selling (the firm is more likely to do well).
+
+B. Large Investors’ Choices of Actions Before Trading
+  We now consider the various large investors’ equilibrium choices of actions
+prior to trading. The speculators must decide whether to gather information,
+and if the firm is distressed the institution must decide whether to inter-
+vene. Furthermore, these choices and the resulting equilibrium prices must
+be consistent. The following proposition shows that an equilibrium always
+exists and gives the conditions that determine equilibrium action choices.
+
+PROPOSITION 2 (Equilibrium Action Choices): Take any candidate equilibrium
+choices for the institution’s probability of intervening a and the expected num-
+ber of active speculators S. Let PA , PB , RD , RI , and RS be as defined in
+Lemma 1. Then, in equilibrium, the following conditions hold:
+   (i) If RI is less than, equal to, or greater than RD , then a equals zero, is
+       between zero and one, or equals one, respectively.
+  (ii) If RS is less than zero, no investors become speculators (S equals zero);
+       if there are speculators (S greater than zero), RS equals zero.
+Given the institution’s ownership stake n and the other parameters of the
+model, an equilibrium set of action choices always exists.
+   Condition (i) is straightforward: if the institution is to intervene once it
+learns that the firm is distressed, its expected return RI must at least weakly
+exceed the return to just trading on information RD . Condition (ii) follows
+from free entry by speculators: if the expected equilibrium profit of a specu-
+lator RS exceeded zero, it would pay for at least one more speculator to
+gather information with some probability, so either RS is negative and there
+are no speculators, or RS equals zero. Finally, existence of equilibrium fol-
+lows standard fixed point arguments, as discussed in the Appendix.
+   We are interested in situations where the institution is not the only in-
+formed trader (i.e., S exceeds zero), as this seems to apply most broadly to
+publicly traded firms. Proposition A.1 of the Appendix establishes sufficient
+conditions that guarantee that speculators become active. Essentially, spec-
+ulators must be able to recoup their costs of gathering information by trad-
+ing on it. This requires a sufficiently high level of liquidity trading, so the
+institution’s maximum stake w cannot be too large, nor the chance of liquid-
+ity shocks m too small. Also, the cost of gathering information g cannot be too
+large relative to trading profits, which are directly related to the number of
+shares w each speculator can trade and to the variance of the firm’s returns
+                                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+108                              The Journal of Finance
+
+(without uncertainty, profitable trading is impossible).7 Proposition A.2 of
+the Appendix then shows that, subject to these conditions, the equilibrium is
+unique.
+   When speculators are active ~S . 0!, Proposition 2 implies that the equi-
+librium values of a and S are determined by the condition that RS equals
+zero and by the relationship between the return to intervening, RI , and the
+return to not intervening, RD . Notice that RI and RD only differ when the
+institution learns that the firm is distressed: it can either cut and run, sell-
+ing its shares, or intervene and try to improve matters. Of course, interven-
+tion isn’t guaranteed success, and with probability 1 2 d the institution ends
+up selling its shares anyway. Defining F [ ~RI 2 RD )0(1 2 q) as the nor-
+malized difference between the two returns, we have
+
+
+                         F 5 dnX 2 m 1 dw~X 2 PA 2 PB !.                                    (4)
+
+
+F is the (normalized) net benefit of intervention. From Proposition 2(i), the
+equilibrium probability of intervention a is zero, between zero and one, or
+one as F is negative, equal to zero, or positive.
+  The net benefit of intervention has two components. The first is the ex-
+pected increase in the value of the institution’s initial stake, dnX, less the
+cost of intervention m; this can be thought of as the direct impact of inter-
+vention. The second component, d{w~X 2 PA 2 PB !, is the impact of inter-
+vention on the institution’s expected trading profits: with chance d, the
+intervention succeeds, causing the institution to buy w shares (and earn
+X 2 PA on each) rather than sell w shares (and earn PB on each).
+  This trading impact needn’t be positive. Making use of the expressions for
+the bid and ask prices from Lemma 1, we have
+
+
+             X 2 PA 2 PB 5 ~1 2 2q ' !X{ 1 2  F            SA SB
+                                                      ~L 1SA!{~L 1 SB !
+                                                                        .   G               (5)
+
+
+The trading impact of intervention has the same sign as 1 2 2q ' . Intuitively,
+intervention only increases the institution’s trading profits if it increases the
+value of the institution’s information about the firm’s future returns. Be-
+cause the value of this information is directly related to its precision relative
+to that of the uninformed market makers, and the institution learns the
+firm’s return with certainty, it follows that the value of the institution’s in-
+formation is directly related to the ex ante variance of the firm’s return,
+q ' ~1 2 q ' !X 2 . Because intervention increases the ex ante probability q ' of
+good returns, its impact on trading profits has the same sign as the deriv-
+ative of the variance with respect to q ' . This derivative is ~1 2 2q ' !X 2 , so an
+
+  7
+    The specific conditions derived in Proposition A.1 are that w be no greater than half of the
+firm’s shares, and wX0g must weakly exceed m 22 , @q~1 2 q!# 21 , and @qmax~1 2 qmax )] 21 .
+                                                                                           15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+             Ownership Structure, Speculation, and Intervention                    109
+
+increase in the probability of good returns improves trading profits if and
+only if q ' is less than 12_ .
+   Although this leads to a simple rule in our binomial model where the
+institution is perfectly informed (intervention increases trading profits if and
+only if q ' is less than 12_ ), the more general point is that intervention and
+speculation are complements only when intervention increases the institu-
+tion’s information advantage over other traders—in this case, the market
+makers. When intervention’s impact is more of a surprise (here, when q ' is
+less than 12_ ), intervention increases trading profits, but if the firm is already
+expected to do well, or intervention’s impact is diffused, not intervening may
+be more surprising, and so more lucrative. As we shall see, this has a num-
+ber of implications for institutional behavior and for optimal ownership
+structure.
+
+C. The Impact of Changes in Ownership Concentration
+   Next, we examine how equilibrium behavior is affected by changes in own-
+ership structure, as measured by the institution’s share n in the firm. Let
+nM [ dX0m be the ownership stake at which the institution’s direct impact of
+intervention dnX 2 m equals zero. This is strictly increasing in n, so if nM
+exists, it is unique and greater than zero. Note that nM is increasing in the
+cost of intervention m, decreasing in the probability d that intervention suc-
+ceeds, and decreasing in successful intervention’s impact X on firm returns.
+   Absent trading concerns, nM would be the ownership level at which an
+informed institution would start intervening; in fact, since the direct impact
+of intervention increases with n, the institution would not intervene if n was
+below nM , and would intervene with certainty if n was above nM . However, as
+just shown, the trading impact may be positive or negative, depending on
+the sign of 1 2 2q ' , and so the point at which intervention becomes attrac-
+tive may be higher or lower than nM . These considerations help lead to the
+following result.
+PROPOSITION 3 (Impact of Ownership Concentration on Intervention):
+    (i) There is a critical level n * such that, if the institution’s stake in the
+        firm is less than n * , the institution gathers information but never in-
+        tervenes. As the institution’s stake increases beyond n * , the probability
+        of intervention increases with the institution’s stake.
+   (ii) The critical level n * is greater than nM if the firm’s base (no interven-
+        tion) probability of success, q, is greater than 12_ . It is less than nM if the
+        firm’s base probability of success is less than 12_ .
+  (iii) Suppose that the firm’s maximum chance of success (with full inter-
+        vention) qmax is greater than 12_ . Then certain intervention can only
+        occur for some n greater than nM , if at all.
+  The intuition behind part (i) of the proposition is as follows. For low own-
+ership levels, the institution’s direct impact from intervening is negative, so
+unless the trading impact from intervention is very positive, intervention
+                                                                                                     15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+110                              The Journal of Finance
+
+simply isn’t worth the cost. As ownership level increases, the direct impact of
+intervention increases. Although increasing the institution’s stake also re-
+duces expected liquidity trades L (there are fewer small shareholders), the
+number of speculators shrinks to exactly offset the reduced liquidity in the
+market.8 This occurs because outside speculators are the marginal informed
+traders: the institution has lower cost of gathering information, so it is un-
+affected by the decrease in liquidity as long as some speculators are active.
+The only factor that affects prices is the probability of intervention, which is
+zero in this region, so prices and the trading impact of intervention are
+constant until n * is reached, at which point the direct impact offsets any
+trading impact. Further increases in n increase the direct impact, making
+intervention attractive; however, intervention raises prices, reducing the trad-
+ing impact. The net effect is that the probability of intervention now in-
+creases continuously in n.
+   The intuition behind part (ii) of the proposition has already been dealt
+with, but part (iii) requires some explanation. Essentially, when the institu-
+tion’s stake reaches nM , its direct impact from intervention is zero, so if the
+trading impact of intervention is positive, the institution strictly prefers in-
+tervention to pure speculation. Because the probability of a good return with
+certain intervention is qmax , it follows that the trading benefit will be posi-
+tive and consistent with full intervention only if qmax is less than 12_ .
+   To summarize, the ability to trade on information alters the institution’s
+behavior as a function of its ownership stake in the firm. Without this abil-
+ity, the relationship would be clear-cut: no intervention below nM , full inter-
+vention above this level. The institution’s ability to trade has two effects: it
+typically increases intervention slowly over some range of ownership levels,
+and this range may begin above or below nM , depending on whether inter-
+vention increases the institution’s information advantage or not. Further-
+more, unless the firm is likely to fail even with full intervention ~qmax , 12_ ),
+the ability to trade on information results in slower attainment of full
+intervention.
+
+D. Comparative Statics on Intervention
+  We are interested in how changing key parameters affects both the critical
+ownership level n * and the probability of intervention once this level is sur-
+passed. The parameters that we formally analyze are the firm’s base chance
+of success (without intervention) q, the effectiveness of intervention d, the
+difference X between good and bad returns, and the cost of gathering infor-
+mation g.
+
+  8
+     Although we focus on equilibria in which speculators are active, it should be noted that a
+high enough level of ownership concentration can reduce the volume of liquidity trading to the
+point at which speculation is unprofitable. Once this occurs, the institution is the only informed
+trader, and further reductions in the volume of liquidity trading are now internalized by the
+institution. We return to the relationship between liquidity and the institution’s choices in the
+next subsection.
+                                                                                      15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+            Ownership Structure, Speculation, and Intervention                 111
+
+COROLLARY 4 (Changes in the Base Chance of Success):
+   (i) An increase in the base chance of success q increases n * .
+  (ii) For ownership stakes above n * , an increase in the base chance of suc-
+       cess reduces the equilibrium probability of intervention a.
+  Holding the level of intervention fixed, an increase in the base chance of
+success q increases the equilibrium probability of success q ' —which means
+that success is more expected than before. This means that intervention’s
+impact on the institution’s trading profits is less positive (or more negative)
+than before, undermining incentives to intervene and reducing the equilib-
+rium level of intervention. It follows that the institution must have a larger
+stake in the firm to support any intervention, so n * increases.
+COROLLARY 5 (Changes in the Effectiveness of Intervention):
+   (i) An increase in the effectiveness of intervention d reduces n * .
+  (ii) For ownership stakes above n * , an increase in intervention’s effective-
+       ness increases the equilibrium probability of intervention a when a or
+       d is sufficiently small.
+   Intuitively, as intervention becomes more effective, its direct impact in-
+creases, making intervention more attractive at lower ownership levels. Nev-
+ertheless, because intervention has more effect on the distribution of the
+firm’s returns, such an increase also increases the magnitude of the trading
+impact of intervention, whether positive or negative. If intervention occurs
+with zero or low probability, or the effectiveness of intervention d is itself
+low, an increase in d has little effect on the distribution of the firm’s returns,
+and so little effect on the trading impact of intervention; thus, direct effects
+dominate, making intervention more attractive. Otherwise, the effect can be
+ambiguous.
+COROLLARY 6 (Changes in the Difference Between Good and Bad Returns):
+   (i) An increase in the difference between good and bad returns X re-
+       duces n * .
+  (ii) If the equilibrium probability of good returns q ' is less than 12_ , or the
+       institution’s stake n is close to its overall wealth limit w, then increas-
+       ing X increases the probability of intervention.
+   An increase in X increases the direct impact of intervention; it also in-
+creases the variance of the firm’s returns. The second effect tends to increase
+the magnitude of intervention’s trading impact (it also attracts more specu-
+lators into the market, which reduces this magnitude, but the net effect is
+an increase). If the equilibrium probability of success is below 12_ , the effects
+on the direct impact and the trading impact go in the same direction; other-
+wise, they conflict. The direct effect dominates when the institution’s stake
+is near n * ; it also dominates when the institution has invested most of its
+wealth, for in this case the direct impact is close to dw, which exceeds the
+magnitude of any trading impact.
+                                                                                        15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+112                          The Journal of Finance
+
+   Thus, increases in both d and X reduce the threshold at which interven-
+tion first occurs, but because they increase intervention’s trading impact as
+well as its direct impact, they can have mixed effects on intervention when
+the institution is already intervening with significant probability. By con-
+trast, an increase in the cost of gathering information g has no effect on the
+direct impact of intervention. However, it reduces the profitability of in-
+formed trading, so fewer speculators are active, and prices are less reveal-
+ing. This increases the magnitude of the trading impact of intervention: with
+less revealing prices, more trading revenues are at stake. Effectively, the
+departure of marginal speculators means that the institution faces less com-
+petition in informed trading. This leads to the following result:
+
+COROLLARY 7 (Changes in the Cost of Gathering Information):
+   (i) An increase in the speculator’s cost of gathering information g does not
+       affect nM . It decreases n * if the base probability of good returns q is less
+       than 12_ , and increases n * if q is greater than 12_ .
+  (ii) If the equilibrium probability of good returns q ' is less than 12_ , then
+       increasing the speculator’s cost of gathering information g increases
+       the level of intervention a; otherwise, it decreases intervention.
+   A further corollary is that, because a decrease in g decreases the overall
+magnitude of the trading impact, the ambiguous effects of changes in d and
+X are lessened—trading effects simply don’t matter as much to the institu-
+tion, because high speculative activity makes prices fairly revealing.
+   We note that an increase in the probability of liquidity shocks m has no
+effect on intervention so long as speculators are active. Again, the reason is
+that these other speculators are the marginal informed traders, so increases
+in liquidity trading attract more speculators into the market. In equilibrium,
+the new speculators exactly offset the additional liquidity trading, leaving
+the institution’s incentives unchanged. However, if speculators’ costs of gath-
+ering information were not identical, but were drawn from a distribution,
+higher liquidity volume would attract less efficient speculators, raising equi-
+librium trading profits. This would tend to increase the magnitude of the
+trading impact of intervention, which would affect the institution’s interven-
+tion choice.
+
+E. Discussion
+   This section has shown that the ability to trade on information alters the
+institution’s incentive to engage in value-enhancing intervention, increasing
+this incentive if and only if intervention enhances the value of the institu-
+tion’s information. In this simple model, this comes down to whether success
+or failure is less expected by uninformed market participants, which in turn
+depends on whether the equilibrium probability of success is below or above
+1
+_
+2 . From a trading perspective, the institution prefers to enhance the odds of
+the least expected outcome, so if the expected chance of success is less than
+                                                                                                         15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                Ownership Structure, Speculation, and Intervention                               113
+1
+_
+2 , it has incentive to improve matters by intervention, and otherwise it has
+incentive to cut and run.
+   The importance of this trading effect increases as intervention becomes
+more effective, as the firm’s innate risk increases, and as the cost of gath-
+ering information increases. In the first two cases, the institution’s direct
+impact from intervening also increases. In the last case, the institution faces
+less competition in informed trading, increasing the importance it places on
+trading concerns while leaving the direct impact of intervention unaffected.
+   We conclude this section with a brief discussion of the effects of relaxing
+some of our model’s assumptions.
+   (1) Delayed resolution of intervention. To simplify matters, we have been
+assuming that intervention’s outcome is immediately known to the various
+informed traders. Suppose instead that this information doesn’t become known
+until time 2. Such delayed resolution of intervention skews the trading im-
+pact of intervention toward the negative.9 Intuitively, by intervening, the
+institution gives up precise information (the firm is doing badly) for less
+precise information (the firm may do well).
+   This negative impact on intervention is lower as the effectiveness of in-
+tervention d is higher. Furthermore, some types of intervention might be
+resolved more quickly than others: for example, a spin-off or removal of take-
+over deterrents resolves more quickly than a shift in R&D emphasis. Simi-
+larly, interventions might have more immediate impact in mature industries
+than in high technology firms.
+   Of course, in a model with repeated trading periods, the institution might
+be able to wait until the outcome of the intervention is resolved and then
+trade, but by that point its intervention may well have become public, re-
+ducing the value of the institution’s information. Also, institutions must worry
+about performance evaluation, which might shorten their horizons and in-
+crease their desire to sell out for relatively certain gains now rather than
+intervene and receive uncertain benefits down the road.
+   (2) Benefits of control.10 Although wealthy individuals and corporations
+can also be large shareholders, such investors are more likely to obtain ben-
+efits of control apart from the increase in share value analyzed here. Such
+benefits would reduce the large shareholder’s willingness to sell shares, en-
+couraging intervention over pure speculation, but now the large shareholder
+would intervene so as to increase some weighted sum of total shareholder
+value and private control benefits. Because effective control can be obtained
+with a fraction of the firm’s shares (particularly through the use of different
+classes of voting rights, or pyramiding schemes), the large shareholder might
+
+
+    9
+     Specifically, if the institution intervenes, it now values the firm at dX. If dX is less than the
+ask price PA , the institution might intervene, but it cannot profit from buying more shares.
+Only if dX is greater than PA can the institution make a profit by trading on its information.
+Thus, the trading impact becomes w{[max $dX 2 PA ,0% 2 PB #, which is less than our previous
+value of dw{@X 2 PA 2 PB #.
+   10
+      We thank the referee and the editor for raising this issue.
+                                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+114                              The Journal of Finance
+
+inefficiently reduce cash flows available to other shareholders (see Bebchuk
+and Zingales (1996) and Pagano and Röell (1996)). Thus, although the trade-
+off between speculation and intervention would loom less large if control
+benefits were important, the positive relationship between ownership con-
+centration and firm value would also be undermined.
+   Although control benefits are likely to be less important for most institu-
+tional investors, an important exception arises in the case of interlocking
+shareholdings, which characterize much institutional share ownership in Ja-
+pan (see Sheard (1994)), and which may effectively limit the activism of
+corporate pension fund managers in the United States (see Roe (1994)).11
+
+
+              III. The Determination of Ownership Structure
+   We now consider endogenizing the institution’s stake in the firm. We find
+that more concentrated ownership generally increases firm value; however,
+the benefits to increased concentration are weakest when the institution’s
+stake is less than the critical level n * defined in the previous section. In this
+analysis, we assume that the firm is initially owned by an entrepreneur
+whose goal is to sell off the firm so as to maximize his or her proceeds. For
+comparison, we also briefly consider the effects when the firm is initially
+diffusely held. In this case, there is a tension between the institution’s in-
+centives and maximization of shareholder value which stems from the fact
+that the institution’s intervention benefits all shareholders, but its specula-
+tion benefits itself and hurts small shareholders. When the institution buys
+shares anonymously on the open market, these externalities have effects
+analogous to the holdout problem analyzed in Grossman and Hart’s (1980)
+paper on takeovers.12
+
+A. Choosing Initial Ownership Structure to Maximize Shareholder Value
+   Suppose that an initial owner sells the firm’s shares to one large (institu-
+tional) and many small investors so as to maximize his or her proceeds. This
+owner could be an entrepreneur or private equity fund seeking to cash out,
+or a government seeking to privatize state-owned enterprises. Assume that
+this initial owner sells shares by competitive auction in two separate lots:
+one of size n (as determined by the initial owner) to one of many institutional
+investors, and one of size 1 2 n to a large number of small investors.13 Again,
+
+  11
+      If the institution is also a lender (as in the case of banks in Germany and Japan), there
+may be a conflict of interest between the institution and other shareholders. On the other hand,
+some have argued that such combined debt and equity holdings may be useful in maximizing
+overall firm value. See Berlin, John, and Saunders (1996) for an analysis of some of these
+issues.
+   12
+      As noted in the introduction, our results when the institution buys shares on the open
+market are essentially analogous to those of Maug (1998).
+   13
+      Although such price discrimination is generally not part of IPOs in the United States,
+large institutional investors are sometimes brought in prior to the IPO (see Mikkelson, Partch,
+and Shah (1995)).
+                                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+               Ownership Structure, Speculation, and Intervention                          115
+
+we assume that the maximum number of shares the institution can pur-
+chase is w.
+  It follows that the initial owner’s objective is to choose n less than w so as
+to maximize
+
+           ~1 2 n!{@ m{PB ~n! 1 ~1 2 m!{q ' ~n!{X 1 m{~q ' ~n!{X 2 PA ~n!!#
+                1 @a~n!{RI ~n! 1 ~1 2 a~n!!{RD ~n!#,                                        (6)
+
+where we have written the bid price PB , ask price PA , monitoring level a, and
+ex ante probability q ' of success as functions of n to emphasize that, as n
+changes, these equilibrium values change as well. The first term in the ob-
+jective function is the value of the small shareholders’ stake: with probabil-
+ity m, they are forced to sell at the bid price, and with probability m, they are
+forced to buy additional shares at the ask price, even though they are un-
+informed. This can be rearranged as ~1 2 n!{q ' ~n!{X 2 ~1 2 n!m{~PA 2 PB !;
+that is, the small shareholder’s share of the firm’s expected cash flows, less
+their expected trading losses L~PA 2 PB !. The second term in the objective
+function is the value of the institution’s stake, which is the weighted average
+of the returns to pure speculation and intervention.
+   This objective function can be simplified by noting that, since market mak-
+ers break even, expected trading losses suffered by liquidity traders must
+equal expected trading gains to informed investors. These trading gains equal
+~S~n! 1 1!{g: the S~n! speculators each break even, earning g, while the
+institution’s average trading profits are limited to the same amount. Also, it
+is easy to show that the expected value of the institution’s position equals
+
+                           nq ' ~n!{X 2 ~1 2 q!{a~n!{m 1 g.                                 (7)
+
+The institution gets the expected value of its initial stake n, less expected
+intervention costs, plus expected trading profits g. Thus, because q ' equals
+q 1 ad~1 2 q!, the initial owner’s objective function equals
+
+                       qX 1 ~1 2 q!a~n!@dX 2 m# 2 S~n!{g;                                   (8)
+
+that is, total shareholder value equals the base value of the firm, qX, plus the
+net expected benefit of any intervention, less the costs of gathering information.
+  Although outside speculators break even in their trading, their costs of
+gathering information are passed through to small shareholders, reducing
+the amount these shareholders are willing to pay in the first place. Because
+we do not have a direct positive role for the information that the speculators
+gather, this cost is a deadweight loss. By contrast, increases in intervention
+generally increase shareholder value.14
+
+  14
+     Indeed, in this model, institutional intervention only hurts overall shareholder value when
+the institution’s trading volume w is greater than half of the firm’s shares: the institution’s
+benefit from intervention is less than d~y 1 w!X 2 m, while that to the firm as a whole is
+dX 2 m.
+                                                                                                 15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+116                             The Journal of Finance
+
+   Of course, in a more complex model, speculators’ impact on prices might
+add value; for example, more revealing stock prices can make a manager’s
+shareholdings a better incentive device (Holmström and Tirole (1993)), might
+give the manager better information about industry conditions (Fishman
+and Hagerty (1992)), or (in a dynamic model) might allow an institutional
+investor to learn that the firm is likely to do badly without gathering as
+much information on its own.15 These considerations suggest important ca-
+veats to any results that depend on increases or decreases in the number of
+speculators and their total costs of gathering information.
+   It is easy to show that for ownership levels below n * the number of spec-
+ulators declines with the institution’s stake in the firm: liquidity volume is
+reduced, and the speculators (being the marginal informed traders) are forced
+out of the market. For levels above n * , higher institutional ownership in-
+creases intervention and its net benefit to the firm as a whole, dX 2 m. The
+effect on speculation is ambiguous if q ' is less than 12_ , and negative other-
+wise. (Liquidity volume is always reduced, reducing speculation, but q ' less
+than 12_ implies that increased intervention increases the firm’s return vari-
+ance and thus the profit to informed trading, increasing speculation. When
+q ' exceeds 12_ , return variance is decreased, complementing the liquidity ef-
+fect.) To the extent the impact of changes in the number of speculators and
+their expenditures on gathering information are “second order” due to omit-
+ted benefits of more informative prices, increasing the institution’s stake
+increases total shareholder value.
+   Thus, when an initial owner optimally chooses the mix of shareholdings,
+he or she generally prefers to give the institution as many shares as it can
+buy. This has the greatest impact when the institution’s wealth constraint w
+exceeds the critical level n * at which intervention first occurs; below n * , the
+only impact of increased concentration is to reduce the number of active
+speculators.
+
+
+B. Ownership Structure When the Institution Buys Shares on the Open Market
+  When the institution buys shares on the open market, its incentives to
+concentrate shares are counter to “social” incentives. Suppose that at time 0
+the firm is diffusely held, and assume for the moment that the market mak-
+ers who sell shares at this point must cover their positions by the end of time
+0 by buying shares at competitive prices from small shareholders. We also
+assume for simplicity that the institution is the only informed trader at time
+0. As before, the chance of liquidity trades is m.
+  Suppose that the institution buys n shares with certainty. Then the ex-
+pected value of the firm’s cash flows is q ' X. Because the ultimate source of
+shares is small shareholders, the selling price P0 equals the value of these
+shares to a small shareholder: q ' X 2 m{~PA 2 PB !. As already noted, ex-
+
+  15
+     We thank the referee for this last insight. A good discussion of various pros and cons of
+informed trading can be found in Fishman and Hagerty (1992).
+                                                                                      15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+             Ownership Structure, Speculation, and Intervention                117
+
+pected time 1 trading losses m~1 2 n!{~PA 2 PB ! equal total expected trading
+profits ~S 1 1!{g, so
+
+                                             ~S~n! 1 1!{g
+                          P0 5 q ' ~n!{X 2                .                     (9)
+                                                12n
+
+The institution benefits from future speculative activity, which depresses the
+value that the current small shareholders place on their shares. Note that
+the discount is proportional to ~S 1 1!0~m~1 2 n!!, which is the ratio of
+informed traders to liquidity trading volume.
+  The institution’s net profit from buying n shares today is a{RI 1 ~1 2 a!{RD 2
+n{P0 , which equals
+
+                        ~S~n! 1 1!{g
+                   n{                1 g 2 ~1 2 q!{a~n!{m.                    (10)
+                           12n
+
+As in Maug (1998), the institution gains no direct benefit from intervention.
+Instead, the institution benefits from the effect of future speculative activity
+on the initial price P0 and from its own expected trading profits, which
+equal g. Intervention’s effect on the firm’s cash flows is a positive external-
+ity; as in Grossman and Hart (1980), no one small shareholder has incentive
+to pay for the costs of intervention. By contrast, informed trading creates
+negative externalities for small shareholders; these depress the share price,
+enabling the institution to buy shares more cheaply.
+   For ownership levels below n * , there is no intervention. The proof of Prop-
+osition 3 shows that the ratio of informed traders to liquidity trades is con-
+stant in this region, so the institution’s profits increase until n * is reached.
+Thereafter, matters are less clear-cut: although larger stakes increase the
+institution’s share of any discount from future informed trading, expected
+intervention costs also increase. Also, once the firm’s ex ante chance of suc-
+cess q ' exceeds 12_ , increasing the institution’s stake decreases the variance of
+the firm’s return, reducing trading profits and thus the ratio of informed
+traders to liquidity trades. Thus, the institution may limit its stake even
+though a higher stake and increased intervention might be socially desirable.
+   We conclude this subsection by considering some modifications of our
+assumptions.
+  (1) If market makers don’t have to immediately cover their positions, the
+      holdout problem is reinforced. For example, if they can hold positions
+      costlessly until time 2, the time 0 price is q ' X. It follows that the
+      institution’s only gain from buying shares is its expected time 1 trad-
+      ing profit g, and it has no incentive to increase its stake into the range
+      where intervention occurs.
+  (2) If liquidity traders are present at time 0, the institution can profit by
+      randomizing its decision to buy shares. This is analogous to Kyle and
+      Vila’s (1991) analysis of how liquidity trading can mitigate holdout
+                                                                                    15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+118                        The Journal of Finance
+
+      problems in takeovers. Because liquidity trading masks the institu-
+      tion’s share purchases, P0 is an average of the marginal shareholder’s
+      value when the institution is present (and subsequently intervenes)
+      and this value when the institution is not present. Thus, P0 is lower
+      than in our previous analysis, increasing the institution’s profits when
+      it does acquire shares.
+  (3) If the firm issues stock privately to the institution, the holdout prob-
+      lem is circumvented. This lets management commit to having an in-
+      stitution monitor in the future, which might be useful in a more dynamic
+      model where the firm has to go to the market for funds at some future
+      date. On the other hand, management’s desire to do this may be weaker
+      if the firm is already diffusely held than it is at the time of an IPO,
+      particularly if the IPO takes place with a large blockholder already in
+      position.
+
+             IV. Short-Swing Rules and Restricted Shares
+   Concerns about the potential conflict between the ability to speculate and
+the desire to enhance firm value have led some (e.g., Bhide (1993)) to sug-
+gest that trading by institutional investors be somehow restricted. In this
+section, we discuss two devices that might be used to better align the insti-
+tution’s trading incentives with enhancing firm value: short-swing rules and
+restricted shares.
+   Short-swing rules. U.S. insider trading regulations classify institutions with
+10% or more of a firm’s shares as insiders, so that they forfeit any “short-
+swing” profits earned by buying or selling shares and then reversing the
+trade within a six-month period. As we now discuss, this type of rule is
+unlikely to enhance an institution’s incentives to intervene.
+   Suppose that such a short-swing rule applies to shareholdings of some
+level n[ or more, and that the interval between time 1 and the unwinding of
+positions at time 2 is less than the short-swing horizon. Then an institution
+that holds more than n[ shares cannot profit from any additional purchases
+or short sales of shares at time 1. However, if the interval between time 1
+and the institution’s initial purchase of shares at time 0 exceeds the short-
+swing horizon, and the institution knows the firm will fail, it can profitably
+sell its initial stake at time 1. Intervention’s impact on the institution’s ex-
+isting stake is unchanged, but its impact on trading profits is now negative:
+intervention reduces the probability that the firm will fail. This effect is
+most pronounced for firms with a low base chance of success, because these
+firms have the most positive trading impact of intervention in the absence of
+short-swing rules.
+   In addition to favoring pure speculation over intervention, the short-swing
+rule reduces the institution’s expected trading profits. This may lead the
+institution to hold fewer than n[ shares, so as to retain its ability to trade on
+any information that it has and earn higher trading profits. Unfortunately,
+                                                                                                     15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+               Ownership Structure, Speculation, and Intervention                            119
+
+from the viewpoint of maximizing total shareholder value, this is likely to be
+inefficient, since a lower stake reduces the probability of intervention.16
+   Restricted shares. The preceding discussion suggests that overall prohibi-
+tions on short-term trading by large investors may backfire in promoting
+intervention. One alternative is to give the institution restricted shares that
+cannot be sold in the public market.17 By limiting the institution’s ability to
+sell while leaving its ability to buy additional shares relatively untouched,
+restricted shares make the trading impact of intervention more positive, en-
+couraging intervention. On the other hand, if the institution has liquidity
+needs, selling restricted shares involves large losses or delays when the in-
+stitution needs the money the most; also, regulation may restrict the frac-
+tion of an institution’s portfolio that can be devoted to such holdings. Such
+concerns reduce the amount that an institution will be willing to pay for
+such shares.18 Because restricted shares are costly, we would expect that
+they would be most useful in situations where an institutional investor’s
+potential trading profits are high (e.g., other speculators face high costs of
+gathering useful information), the trading impact of intervention would other-
+wise be negative (e.g., the resolution of intervention is delayed), and the
+institution’s liquidity needs are limited.
+
+
+                                     V. Implications
+  We now discuss the implications of our results for the relationship be-
+tween outside shareholder monitoring and intervention, ownership struc-
+ture, and firm characteristics.
+  Our strongest predictions concern the behavior of institutions that have al-
+ready acquired large stakes in firms. All else equal, intervention or monitor-
+ing should be strongest for firms that are publicly perceived as poor performers,
+and weakest for firms that are publicly perceived as good performers. To the
+extent that outside shareholders do play a useful role in disciplining manage-
+ment, this suggests that institutional intervention may exaggerate mean re-
+version in firm earnings performance—“bad” firms attract intervention, while
+“good” firms are allowed to slip as informed institutions jump ship.
+  Intervention should be most likely for firms in industries or situations
+that are relatively accessible to well-informed outsiders: mature or low-
+
+  16
+      Also, if larger stakes make intervention cheaper or more likely to succeed (because the
+institution controls more votes outright), the short-swing rule is even more inefficient; by re-
+ducing the institution’s stake, it makes whatever intervention occurs more costly and ineffective.
+   17
+      In the United States, SEC Rule 144A allows private resale of such shares subject to certain
+conditions, but this resale market is still relatively illiquid. See Carey et al. (1993).
+   18
+      Indeed, Silber (1991) finds restricted shares place at an average discount of 34 percent
+relative to public share prices, and Hertzel and Smith (1993) find that private placements of
+restricted shares have a discount 13.5 percent greater than that on private placements of non-
+restricted shares. Of course, these discounts may also reflect expected monitoring and inter-
+vention costs.
+                                                                                                 15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+120                             The Journal of Finance
+
+technology industries, situations where management is clearly subpar (so
+that even an average replacement is likely to help matters), or firms with
+general “focus” or “agency” problems (extraneous money-losing divisions, or
+excessive layers of management). By contrast, it may be harder for outsiders
+to know what to do in firms that specialize in new technologies, have a high
+R&D focus, or rely on other specialized intangible skills, and the same should
+be true in situations where intervention means assessing an uncertain change
+of focus, such as what types of R&D should be emphasized, or what direction
+a young industry is likely to take. Such “opaque” situations are also likely to
+involve delays in the resolution of intervention’s impact, further reducing
+the likelihood of intervention.
+   Intervention’s impact on trading profits is greatest in magnitude when
+barriers to gathering information are highest; therefore, all of these effects
+should be most intense for younger, smaller, or otherwise less well-known
+firms, and least intense for large, well-established firms with numerous an-
+alysts and extensive reporting in the press. Also, all else equal, those firms
+where risk is more idiosyncratic than systematic may provide the greatest
+potential for private information, making trading concerns more important.
+   As noted in the introduction, anecdotal evidence about intervention tar-
+gets in the early 1990s is consistent with our predictions: large, well-
+established firms with very visible poor performance. Similarly, the case of
+Fidelity Magellan’s selling activity in the late fall of 1995 seems consistent
+with our predictions: relatively young or small firms in risky and ever-
+changing industries (high-technology), where the public perception had been
+very positive. Indeed, because of the overall size of Fidelity, the business
+press has reported that Fidelity has unparalleled access to the management
+of the firms it invests in, giving it a large information advantage over other
+market participants.19
+   Our analysis suggests that the overall benefits of concentrated institu-
+tional ownership are greatest when incentives to intervene are highest. Given
+that an institution’s limited wealth and need for diversification may limit
+the size of the stake it can hold in any one firm, these benefits will be most
+easily found in firms where intervention is achieved at relatively low levels
+(in terms of our model, where n * is relatively low). Thus, all else equal, we
+should expect concentration to be most useful, hence most common, for firms
+where intervention is more effective and more quickly resolved.
+   Zeckhauser and Pound (1990) present evidence that is consistent with our
+predictions on intervention and concentration. They find that, in low-R&D
+industries, there is a significant negative association between the presence
+of large outside shareholders and the firm’s earnings0price ratio, but there is
+no significant association for firms in high-R&D industries. To the extent
+that lower earnings0price ratios proxy for higher earnings growth, this is
+consistent with the view that large shareholders are more likely to improve
+
+  19
+     Note that the legal prohibition on using “inside” information would not apply to informa-
+tion such as in-person appraisals of the CEO’s motives and ability.
+                                                                                  15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+            Ownership Structure, Speculation, and Intervention             121
+
+firm performance in low-R&D firms, where intervention is likely to be more
+effective and more quickly resolved. Additionally, 39 percent of the firms in
+low-R&D industries have a large outside shareholder, but only 28 percent of
+the high-R&D firms do, which is consistent with the view that concentration
+is more likely in low-R&D firms.
+   Restricted shares limit institutions’ cut-and-run behavior, so we would ex-
+pect more sales of large blocks of restricted shares to outside investors in
+situations where the firm is young, small, or otherwise less well-known, as
+well as in firms where firm-specific risk is high. Consistent with this, Silber
+(1991) finds that publicly traded firms that issued restricted shares to out-
+side investors during 1981–1988 tended to be small (average sales of $40
+million); Hertzel and Smith (1993) find similar results for publicly traded
+firms that placed shares privately (restricted or otherwise) during 1980–
+1987. Hertzel and Smith also find that private placements of restricted shares
+have a positive announcement effect on a firm’s publicly traded share price
+that is significantly higher (17.8 percent) than that for private placements
+in general. Although this result may simply be due to signalling of favorable
+information rather than expectations of future monitoring by the new block-
+holder(s), they find that the effect is strongly correlated with issues of re-
+stricted shares to a single investor rather than to multiple investors, which
+is more consistent with the monitoring explanation.
+
+
+                              VI. Conclusion
+  Our paper explores the tension between an institution’s ability to trade on
+private information and its desire to use the information to intervene in a
+poorly performing firm. As we have shown, the institution’s intervention
+decision depends not only on the direct benefit that it receives by interven-
+ing and increasing the value of its existing stake in the firm, but also on the
+impact of intervention on the institution’s trading profits. When the market
+expects the firm to do poorly, this trading impact tends to be positive, en-
+couraging intervention; when the market expects the firm to do well, the
+trading impact is actually negative, discouraging intervention.
+  The size of this trading impact varies with the degree of competition that
+the institution faces from other informed traders. As costs of gathering in-
+formation fall, more informed traders enter the market, making prices more
+informative, diminishing the institution’s trading profits, and thus reducing
+the importance of trading profits in the institution’s intervention decision.
+Also, as intervention becomes more likely to succeed or the impact of suc-
+cessful intervention increases, the trading impact increases in importance.
+Finally, as the delay between intervention and the resolution of its success
+or failure increases, the trading impact is more likely to be negative, dis-
+couraging intervention.
+  These results have a number of implications for ownership structure. First,
+although a higher ownership stake always increases an institution’s desire
+to intervene, the threshold at which intervention becomes attractive will
+                                                                                    15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+122                        The Journal of Finance
+
+vary with the sign and size of the trading impact of intervention. Thus,
+concentration levels should be higher in relatively “transparent,” well-
+understood firms or industries than in relatively “opaque” firms or indus-
+tries where information is harder to come by and the effects of intervention
+may be more uncertain. Furthermore, firms where intervention’s trading
+impact is large and possibly negative should be more inclined to issue re-
+stricted shares to institutions, because such a stake tilts the institution’s
+trading preferences toward intervening and buying more shares rather than
+selling out. By contrast, short-swing provisions imposed on large ownership
+stakes reduce trading profits in general, which may encourage institutions
+to hold fewer shares—and intervene less often.
+   Clearly, the interactions between liquidity demand, speculation, and in-
+tervention are complex; our model has examined only a simple case. As noted
+in Section II, with heterogeneous speculators, an increase in liquidity de-
+mand should attract less efficient speculators on the margin, increasing the
+institution’s equilibrium trading profits and their importance in the institu-
+tion’s intervention decision. Also, the institution’s own liquidity needs may
+affect the intervention decision, particularly if such needs tilt the institution
+more toward selling rather than buying shares. Detailed analysis of these
+issues could lead to useful cross-sectional relationships between shareholder
+composition and intervention.
+
+
+                                  Appendix
+
+    Proof of Lemma 1: (i) Market makers price at the expected share value
+given a buy or sell. Liquidity buyers and sellers think that the firm is worth
+q ' X, and the expected volume of each is L. The valuations and volumes of
+fully informed buyers and sellers are derived in the text. The expressions for
+PA and PB follow easily.
+    (ii–iii) The expressions for RD , RI , and RS follow easily (these investors
+sell w shares that are truly worth 0 when the firm does badly and there
+is either no intervention or it fails, as appropriate, and buy w shares that
+are truly worth X at a price PA when the firm does well or intervention
+succeeds). Q.E.D.
+  Proof of Proposition 2: Condition (i) follows from the usual intuition for
+equilibrium strategy choice: if one action yields a strictly higher return than
+the alternative, the institution will choose it with certainty; if both actions
+are tied for the highest return, the institution is willing to choose any mix-
+ture of them. Condition (ii) follows from the logic of free entry, as discussed
+in the text.
+  Existence follows from Kakutani’s Fixed Point Theorem applied to the
+equilibrium price correspondence. The details are available on request and
+follow the same basic logic as our existence proof in Kahn and Winton
+(1996). Q.E.D.
+                                                                                        15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+               Ownership Structure, Speculation, and Intervention                123
+
+PROPOSITION A.1 (Sufficient Conditions for Active Speculators): Suppose that
+a large institution’s wealth w is no more than 12_ , and wX/g exceeds m 22 ,
+@q~1 2 q!# 21 , and @qmax~1 2 qmax!# 21 . Then, regardless of the institution’s
+choice of actions, speculators are active in equilibrium.
+
+   Proof: Speculators won’t become active if RS , 0 for S 5 0, so if we can
+show that RS $ 0 at S 5 0 for any ownership stakes n and action choice of
+the institution, we are done (because we allow randomized entry, S needn’t
+be an integer). First, note that RS increases with L ~PB increases and PA
+decreases), so speculation is least attractive (ceteris paribus) when L is small-
+est, which occurs at n 5 w.
+   RS $ 0 is equivalent to g0w # ~1 2 q ' !{PB 1 q ' {~X 2 PA !. As just shown, this
+is least likely when L 5 m~1 2 w! and S 5 0, so we can write the RHS as
+
+                                         L~2L 1 S!
+               q ' ~1 2 q ' !X{
+                                  ~L 1 q S!~L 1 ~1 2 q ' !S!
+                                          '
+
+
+                        q ' ~1 2 q ' !X{@2m 2 ~1 2 w! 2 1 mw~1 2 w!#
+                    5                                                 ,          (A1)
+                        m 2 ~1 2 w! 2 1 mw~1 2 w! 1 q ' ~1 2 q ' !w 2
+
+which is clearly increasing in q ' ~1 2 q ' !; thus, it is smallest at either q ' 5 q
+or q ' 5 qmax . Denote the minimum value of q ' ~1 2 q ' ! as f; then g0w #
+~1 2 q ' !{PB 1 q ' {~X 2 PA ! can be rearranged to yield
+
+
+       F    g
+           wf       G
+              2 2X {m 2 ~1 2 w! 2 1           F    g
+                                                  wf   G
+                                                     2 X {mw~1 2 w! 1
+                                                                      g 2
+                                                                      w
+                                                                        w # 0.   (A2)
+
+
+If wX0g exceeds f 21 5 max$@q~1 2 q!# 21 , @qmax ~1 2 qmax!# 21 %, the first two
+terms in the LHS of the inequality are negative; if w # 12_ , then w 2 #
+w~1 2 w! # ~1 2 w! 2 , and the LHS is less than or equal to
+
+
+  F    g
+      wf        G
+         2 2X {m 2 {w 2 1         F    g
+                                      wf          G  g
+                                                                 F
+                                         2 X {m{w 2 1 w 2 # 2Xm 2 1
+                                                     w
+                                                                    g
+                                                                    w       G
+                                                                      {w 2 . (A3)
+
+
+This is negative if wX0g exceeds m 22 . Thus, when the conditions in the prop-
+osition hold, S 5 0 implies g0w # ~1 2 q ' !{PB 1 q ' {~X 2 PA ! for any a, so
+speculators are active in equilibrium. Q.E.D.
+
+PROPOSITION A.2 (Uniqueness of Equilibrium): Suppose that the conditions of
+Proposition A.1 hold, so that S . 0 in equilibrium. Then, given the institu-
+tion’s stake n and the other parameters of the model, there is only one prob-
+ability of intervention a and one number of active speculators S that is an
+equilibrium.
+                                                                                           15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+124                           The Journal of Finance
+
+   Proof: If dw~X 2 PA 2 PB ! is decreasing in q ' when the condition RS 5 0
+is imposed, there will be a unique equilibrium choice of a and S. To see this,
+note that RS 5 0 uniquely determines S as an equilibrium function of q ' ;
+following Proposition A.2, this is a quadratic equation with only one positive
+solution given our earlier conditions. q ' is strictly increasing in a, and equi-
+librium returns are only affected by a through the prices (which are func-
+tions of q ' ) and q ' itself. If there are two equilibria, one will have lower a
+than the other, so RI 2 RD must be weakly lower in the first (low a) equi-
+librium. RI 2 RD has the same sign as F [ ~RI 2 RD !0~1 2 q! 5 dnX 2 m 1
+dw~X 2 PA 2 PB !, so if dw~X 2 PA 2 PB ! is decreasing in q ' , so is F, and we
+have a contradiction.
+   Thus, it suffices to show that X 2 PA 2 PB decreases in q ' subject to the
+condition RS 5 0. First, note that determining S from RS 5 0 is the same as
+determining ~S 1 1!w 5 S, which is somewhat easier to work with. From the
+Implicit Function Theorem, dS0dq ' 5 2~?RS 0?q ' !0~?RS 0?S!. We have
+
+        d~X 2 PA 2 PB ! ?~X 2 PA 2 PB ! ?~X 2 PA 2 PB ! { ?RS 0?q '
+                       5               2                            .              (A4)
+             dq '            ?q '             ?S          ?RS 0?S
+
+Rewriting the equation for X 2 PA 2 PB from the text, we have
+
+                                     ~1 2 2q ' !L~L 1 S!X
+                  X 2 PA 2 PB 5                                 .                  (A5)
+                                    L2 1 LS 1 q ' ~1 2 q ' !S 2
+
+It follows that ?~X 2 PA 2 PB !0?q ' is directly proportional to 22~L2 1 LS 1
+q ' ~1 2 q ' !S 2 ! 2 ~1 2 2q ' ! 2 S 2 , which is negative, while ?~X 2 PA 2 PB !0?S is
+directly proportional to 2~1 2 2q ' !. Also, RS 5 0 is equivalent to
+
+                         wq ' ~1 2 q ' !XL~2L 1 S!
+                                                     5 g.                          (A6)
+                         L2 1 LS 1 q ' ~1 2 q ' !S 2
+
+?RS 0?q ' is directly proportional to 1 2 2q ' ~RS increases with q ' ~1 2 q ' !, and
+?@q ' ~1 2 q ' !#0?q ' 5 1 2 2q ' !. ?RS 0?S is negative: RS is proportional to
+~1 2 q ' !PB 1 q ' ~X 2 PA !, and PA increases with S while PB decreases.
+   It follows that @?~X 2 PA 2 PB !0?S#{@d S0dq ' # has the same sign as 2~1 2 2q ' ! 20
+~?RS 0?S!, which is positive, and so d ~X 2 PA 2 PB !0dq ' is strictly nega-
+tive. Q.E.D.
+
+Useful Derivatives for Remaining Proofs
+
+           ?PA 2q ' ~1 2 q ' !SX             ?PB     q ' ~1 2 q ' !SX
+              5                       and        5                     .           (A7)
+           ?L   ~L 1 q ' S! 2                ?L    ~L 1 ~1 2 q ' !S! 2
+                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+              Ownership Structure, Speculation, and Intervention            125
+
+              ?PA ?PB    ~1 2 2q ' !q ' ~1 2 q ' !S 2 ~2L 1 S!X
+                 1    52                                        .           (A8)
+              ?L   ?L       ~L 1 q ' S! 2 ~L 1 ~1 2 q ' !S! 2
+
+               ?PA      L ?PA                   ?PB      L ?PB
+                   52                   and         52          .           (A9)
+               ?S     S 1 1 ?L                  ?S     S 1 1 ?L
+
+  Proof of Proposition 3: (i) Suppose that n 5 0. Then F equals 2m 1
+w~X 2 PA 2 PB !. Set a 5 0, so that q ' 5 q, and find the number of
+speculators S that sets RS to zero; if F is negative, this is an equilibrium.
+Otherwise, equilibrium involves a . 0, and we can define n * 5 0. (For the
+moment, assume a , 1.)
+  Suppose that F is negative at n 5 0, so that a 5 0. Then the equilibrium
+condition RS 5 0 defines a quadratic in ~S 1 1!w0L whose solution de-
+pends only on q, w, g, and other underlying parameters. Thus, in this
+region, ~S 1 1!0L is constant, which implies that PA and PB are constant.
+Thus the only change in F is from the direct impact term dnX 2 m, which
+increases in n. Eventually, either n 5 w, or F equals 0; in the latter case,
+we have n * .
+  Once F 5 0, equilibrium is determined by two conditions: F 5 0 and
+RS 5 0. The Implicit Function Theorem implies that, for any parameter x,
+da0dx equals 2@~?F0?x!~?RS 0?S! 2 ~?F0?S!~?RS 0?x!# divided by J [ ~?F0?a!{
+~?RS 0?S! 2 ~?F0?S!~?RS 0?a! ~J is the Jacobian). Because both PA and PB
+increase in a, ?F0?a , 0. ?RS 0?S is negative (an increase in S increases PA
+and decreases PB , decreasing RS !. ?F0?S 5 ~L0~S 1 1!!~?~PA 1 PB !0?L! has
+the same sign as 2~1 2 2q ' !. Finally,
+
+       ?RS
+        ?a                   F
+           5 w{d~1 2 q!{ ~1 2 q ' !
+                                    ?PB
+                                    ?q
+                                            '
+                                       ' 2 q {
+                                               ?PA
+                                               ?q '
+                                                    1 X 2 PA 2 PB . G      (A10)
+
+
+The bracketed term equals L{~L 1 S! times
+
+           1 2 q'               q'                    1 2 2q '
+                          2               1
+      ~L 1 ~1 2 q ' !S! 2   ~L 1 q ' S! 2   ~L 1 q ' S!~L 1 ~1 2 q ' !S!
+                  ~1 2 2q ' !L~2L 1 S!
+          5                                      ,                         (A11)
+              ~L 1 q ' S! 2 {~L 1 ~1 2 q ' !S! 2
+
+which is proportional to 12 2q ' . This shows that J is positive. Thus, the sign
+of da0dx is the opposite of that of the first determinant in the expression for
+da0dx, which equals ~?F0?x!~?RS 0?S! 2 ~?F0?S!~?RS 0?x!.
+  Now apply this to da0dn. We need to sign the determinant ~?F0?n!~?RS 0?S! 2
+~?F0?S!~?RS 0?n!. Note that ?RS 0?n 5 2m{~?RS 0?L! 5 m{~~S 1 1!0L!~?RS 0?S!.
+Now,
+
+   ?F
+   ?n     F
+      5 d X 2 w{
+                 ?~PA 1 PB !
+                     ?L                  G
+                             ~2m! 2 m 5 dX 2 m 1 m{
+                                                    S 1 1 ?F
+                                                      L
+                                                         { ,
+                                                          ?S
+                                                                           (A12)
+                                                                                             15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+126                            The Journal of Finance
+
+so the determinant in question equals ~?RS 0?S!{@~?F0?n! 2 ~m~S 1 1!0L!{
+~?F0?S!# 5 ~?RS 0?S!{dX, which is negative; this implies da0dn is positive and
+proportional to dX.
+  If equilibrium involves a 5 1, similar arguments to the case when a 5 0
+show that prices are constant as long as speculators are active, so that a
+remains at 1.
+  Proposition 3(ii) follows directly from the discussion of the sign of the trad-
+ing impact of intervention, combined with the derivation of n * given in (i).
+  In (iii), a 5 1 requires that F . 0 for q ' 5 qmax . Because qmax . 12_ implies
+1 2 2qmax , 0, the trading impact is negative, and F . 0 requires that the
+direct impact dnX 2 m is strictly positive. Q.E.D.
+
+  Proof of Corollary 4: (i) At n * , a 5 0 and F 5 0, so q ' 5 q and dn * X 1 dw~X 2
+PA 2 PB ! 2 m [ H 5 0. By the Implicit Function Theorem, dn *0dq 5
+2~?H0?q!0~?H0?n * ! 5 2w@?~X 2 PA 2 PB !0?q#0X. Substituting in for X 2 PA 2 PB
+at q ' 5 q yields that dn *0dq has the same sign as
+
+
+      2
+           ?
+            F      1 2 2q
+          ?q L 1 LS 1 q~1 2 q!S 2
+              2                       G   5
+                                                      2
+                                              L 1 LS 1 q~1 2 q!S 2
+                                                  2
+
+
+                                                            ~1 2 2q! 2 S 2
+                                              1                                  ,   (A13)
+                                                      ~L2 1 LS 1 q~1 2 q!S 2 ! 2
+
+which is positive.
+    (ii) From the proof of Proposition 3(i), da0dq equals 2@~?F0?x!~?RS 0?S! 2
+~?F0?S!~?RS 0?x!# divided by J. As a and q only enter into F and RS through
+q ' , it follows that da0dq equals 2~?q '0?q!0~?q '0?a! 5 2~1 2 ad!0~d~1 2 q!!;
+and because a, d # 1, it follows that this is negative. Q.E.D.
+
+  Proof of Corollary 5: (i) Note that at n * , a 5 0 initially and F 5 0, which
+implies dn * X 1 dw~X 2 PA 2 PB ! 5 m . 0. n * X 1 w~X 2 PA 2 PB ! must be
+positive for slightly smaller n as well, so the effect of an increase in d for n
+just below n * is to increase F, and the point at which F first equals 0 moves
+down.
+  (ii) From the proof of Proposition 3(i), when n . n * , da0dd has the same
+sign as 2@~?F0?d!~?RS 0?S! 2 ~?F0?S!~?RS 0?d! [ D. Noting that
+
+                 ?F
+                 ?d
+                    5 nX 1 w~X 2 PA 2 PB ! 2 dw
+                                                ?PA ?PB
+                                                 ?d
+                                                    1
+                                                      ?d
+                                                         ,  F            G           (A14)
+
+
+and
+
+                ?RS
+                 ?d
+                         F
+                    5 w{ ~1 2 q ' !
+                                    ?PB
+                                     ?d
+                                        2 q'
+                                             ?PA
+                                              ?d
+                                                 2 ~PA 1 PB !
+                                                              ?q '
+                                                              ?d
+                                                                   ,      G          (A15)
+                                                                                                 15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+              Ownership Structure, Speculation, and Intervention                         127
+
+D can be written as
+
+
+    2@nX 1 w~X 2 PA 2 PB !#
+                                   ?RS
+                                    ?S
+                                       1 dw 2 ~PA 1 PB !     F   ?PA
+                                                                 ?S
+                                                                     1
+                                                                       ?PB
+                                                                       ?S    G   ?q '
+                                                                                 ?d
+
+         1 dw 2   F   ?PA ?PB ?PB ?PA
+                      ?q ' ?S
+                              2
+                                ?q ' ?S   G   ?q '
+                                              ?d
+                                                   .                                    (A16)
+
+
+Because F $ 0 for n $ n * , nX 1 w~X 2 PA 2 PB ! $ m0d . 0, and the first
+term in D is positive. The second term has the same sign as 1 2 2q ' , while
+the third is negative ~PA and PB are increasing in q ' , PA is increasing in S,
+and PB is decreasing in S!. Since ?q '0?d equals a~1 2 q!, when a or d is
+sufficiently small, the second and third terms are negligible. Q.E.D.
+   Proof of Corollary 6: (i) This follows from the impact of a change in X on
+F for n close to n * ; this is more complicated than Corollary 5(i), because
+although the direct impact of X on F is positive ~dnX 1 dw~X 2 PA 2 PB ! is
+linear in X !, increasing X also increases speculators’ profits RS , which leads
+to an increase in S. The net change in F is then ?F0?X 1 ~?F0?S!~dS0dX !.
+Using the Implicit Function Theorem, dS0dX equals 2~?RS 0?X!~?RS 0?S!; al-
+gebra (available on request) shows that the net effect is still positive. Intu-
+itively, an increase in S decreases the magnitude of the trading impact, but
+this is more than offset by the increase in magnitude that results from in-
+creasing X.
+   (ii) da0dX has the same sign as 2@~?F0?X !~?RS 0?S! 2 ~?F0?S!~?RS 0?X !#.
+Algebra shows that this has the same sign as
+
+       n@~1 2 q ' !~L 1 q ' S! 2 1 q ' {~L 1 ~1 2 q ' !S! 2 # 1 ~1 2 2q ' !wL2 ,        (A17)
+
+which is positive when q ' # 2_1 and ambiguous otherwise. However, the brack-
+eted term is greater than L2 , which exceeds ~1 2 2q ' !L2 , so if n is close
+enough to w, this is positive even for q ' . 12_ . Q.E.D.
+   Proof of Corollary 7: (i) Clearly, a change in g doesn’t affect nM . Higher g
+raises the barrier to speculation, so there are fewer speculators. In the re-
+gion n # n * , this increases the magnitude of the trading impact (more pos-
+itive if q , 12_ , more negative if q . 12_ !, and n * moves in the same direction.
+   (ii) da0dg has the same sign as 2@~?F0?g!~?RS 0?S! 2 ~?F0?S!~?RS 0?g!#. Since
+?F0?g 5 0 and ?RS 0?g 5 21, this has the same sign as 2?F0?S, which is that
+of 1 2 2q ' (see Proposition 3). Q.E.D.
+
+                                     REFERENCES
+Admati, Anat, and Paul Pfleiderer, 1989, Divide and conquer: A theory of intraday and day-of-
+   the-week mean effects, Review of Financial Studies 2, 189–223.
+Admati, Anat, Paul Pfleiderer, and Josef Zechner, 1994, Large shareholder activism, risk shar-
+   ing, and financial market equilibrium, Journal of Political Economy 102, 1097–1130.
+                                                                                                  15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+128                             The Journal of Finance
+
+Anonymous, April 24, 1993, Shareholders call the plays, Economist, 83–84.
+Ausubel, Lawrence, 1990, Insider trading in a rational expectations economy, American Eco-
+    nomic Review 80, 1022–1041.
+Bebchuk, Lucian, and Luigi Zingales, 1996, Corporate ownership structures: Private versus
+    social optimality, Working paper, NBER.
+Berlin, Mitchell, Kose John, and Anthony Saunders, 1996, Bank equity stakes in borrowing
+    firms and financial distress, Review of Financial Studies 9, 889–919.
+Bernhardt, Dan, Burton Hollifield, and Eric Hughson, 1995, Investment and insider trading,
+    Review of Financial Studies 8, 501–543.
+Bhide, Amar, 1993, The hidden costs of stock market liquidity, Journal of Financial Economics
+    34, 31–51.
+Bolton, Patrick, and Ernst-Ludwig von Thadden, 1998, Blocks, liquidity, and corporate control,
+    Journal of Finance 53, 1–25.
+Burkart, Mike, Denis Gromb, and Fausto Panunzi, 1997, Large shareholders, monitoring and
+    the value of the firm, Quarterly Journal of Economics 112, 693–728.
+Carey, Mark, Stephen Prowse, John Rea, and Gregory Udell, 1993, The economics of the private
+    placement market, Staff study, Board of Governors of the Federal Reserve System.
+Easley, David, and Maureen O’Hara, 1992, Adverse selection and large trade volume: The impli-
+    cations for market efficiency, Journal of Financial and Quantitative Analysis 27, 185–208.
+Fishman, Michael, and Kathleen Hagerty, 1992, Insider trading and the efficiency of stock
+    prices, RAND Journal of Economics 23, 106–122.
+Grossman, Sanford, and Oliver Hart, 1980, Takeover bids, the free-rider problem, and the theory
+    of the corporation, Bell Journal of Economics 11, 42–64.
+Hertzel, Michael, and Richard Smith, 1993, Market discounts and shareholder gains for placing
+    equity privately, Journal of Finance 48, 459–485.
+Holmström, Bengt, and Jean Tirole, 1993, Market liquidity and performance monitoring, Jour-
+    nal of Political Economy 101, 678–709.
+Huddart, Steven, 1993, The effect of a large shareholder on corporate value, Management Sci-
+    ence 39, 1407–1421.
+Kahn, Charles, and Andrew Winton, 1996, Ownership structure, liquidity demand, and share-
+    holder monitoring, Working paper, Northwestern University.
+Kyle, Albert, and Jean-Luc Vila, 1991, Noise trading and takeovers, RAND Journal of Econom-
+    ics 22, 54–71.
+Leland, Hayne, 1992, Insider trading: Should it be prohibited? Journal of Political Economy
+    100, 859–887.
+Magnet, Myron, March 8, 1993, What activist investors want, Fortune, 59–63.
+Maug, Ernst, 1998, Large shareholders as monitors: Is there a trade-off between liquidity and
+    control? Journal of Finance 53, 65–98.
+McGough, Robert, December 15, 1995, Fidelity managers spoke highly of 2 other stocks that
+    were unloaded, Wall Street Journal, Section C, 1.
+Mikkelson, Wayne, M. Megan Partch, and Ken Shah, 1995, Ownership and operating perfor-
+    mance of companies that go public, Working paper, University of Oregon.
+Morrow, David J., February 10, 1996, Fidelity discloses a big shift to cash by Magellan Fund,
+    New York Times, 39.
+Norris, Floyd, May 21, 1995, Fidelity’s Vinik continues to buy technology, New York Times,
+    Section 3, 7.
+Pagano, Marco, and Ailsa Röell, 1996, The choice of stock ownership structure: Agency costs,
+    monitoring and the decision to go public, Working paper, London School of Economics.
+Roe, Mark, 1994. Strong Managers, Weak Owners: The Political Roots of American Corporate
+    Finance (Princeton University Press, Princeton, New Jersey).
+Sheard, Paul, 1994, Interlocking shareholdings, corporate governance, and the Japanese firm,
+    in M. Aoki and R. Dore, eds.: The Japanese Firm: The Sources of Competitive Strength
+    (Oxford University Press, New York, N.Y.).
+                                                                                                   15406261, 1998, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/0022-1082.45483 by University College London UCL Library Services, Wiley Online Library on [18/08/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+               Ownership Structure, Speculation, and Intervention                          129
+
+Shleifer, Andrei, and Robert Vishny, 1986, Large shareholders and corporate control, Journal of
+    Political Economy 94, 461–488.
+Silber, William, 1991, Discounts on restricted stock: The impact of illiquidity on stock prices,
+    Financial Analysts Journal 47, 60–64.
+Stoughton, Neil, and Josef Zechner, 1996, IPO-mechanisms, monitoring and ownership struc-
+    ture, Working paper, University of California, Irvine.
+Winton, Andrew, 1993, Limitation of liability and the ownership structure of the firm, Journal
+    of Finance 48, 487–512.
+Zeckhauser, Richard, and John Pound, 1990, Are large shareholders effective managers? An
+    investigation of share ownership and corporate performance, in R. Glenn Hubbard, ed.:
+    Asymmetric Information, Corporate Finance, and Investment (University of Chicago Press,
+    Chicago, Ill.).
+

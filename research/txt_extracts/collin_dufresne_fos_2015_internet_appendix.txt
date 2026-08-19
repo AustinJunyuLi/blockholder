@@ -1,0 +1,1308 @@
+                  Internet Appendix for
+        “Do Prices Reveal the Presence of Informed
+                        Trading?”
+
+                PIERRE COLLIN-DUFRESNE and VYACHESLAV FOS*
+
+
+
+
+                                          ABSTRACT
+
+
+This appendix is in five sections. Section I provides further details on the sample of
+Schedule 13D trades, trading strategies of Schedule 13D filers. In addition, it gives
+a detailed description of a specific case. Section II shows that Schedule 13D filers
+posses valuable private information. Section III describes liquidity measures used in
+the analysis. Section IV shows robustness of main results. Section V presents further
+evidence on the selection and limit order mechanisms.
+
+
+
+
+   *
+    Citation format: Collin-Dufresne, Pierre and Vyacheslav Fos, Internet Appendix for “Do Prices
+Reveal the Presence of Informed Trading?” Journal of Finance [DOI: 10.1111/jofi.12260]. Please note:
+Wiley-Blackwell is not responsible for the content or functionality of any supporting information
+supplied by the authors. Any queries (other than missing material) should be directed to the authors of
+the article.
+                      I. Supplementary Results for Section I
+
+
+A. Sample Description
+
+   Figure IA.1 presents the time distribution of the Schedule 13D filings with infor-
+mation on trades in common stocks during 1994 to 2010. During the sample period,
+on average 184 events take place each year. Importantly, the sample covers a 17-year
+period, during which several changes in microstructure took place.
+
+   Table IA.I reports the industry classification of Schedule 13D targets. Firms are
+classified into 48 Fama-French industries. Column (1) reports the percentage of Schedule
+13D targets for the 12 most represented industries among Schedule 13D targets. Column
+(2) reports the percentage of public firms in those 12 industries. The evidence indicates
+that the population of Schedule 13D targets does not differ from the universe of public
+firms as far as the industry classification is concerned.
+
+   Next we examine how the characteristics of targets correlate with the likelihood of a
+Schedule 13D filing. We use probit regressions to estimate the partial effects of several
+covariates on the likelihood of a Schedule 13D filing. Results are reported in Table IA.II.
+
+   Activist shareholders do not target firms randomly. Potential targets have smaller
+market cap (lower MV), are more mature (higher CRSP AGE), invest more in capital
+expenditures (higher CAPEX), and have lower market valuation (higher BOOK-TO-
+MARKET). Potential targets are also characterized by high institutional ownership
+(higher INST), which indicates a more sophisticated shareholder base, whose support
+dissident shareholders often need to succeed with the activism. Targets’ shares are
+more liquid (lower ILLIQUIDITY) and have higher idiosyncratic volatility (higher
+IDIO VOLATILITY). Overall, the evidence is consistent with the notion that activist
+shareholders select to target firms with more severe agency problems (e.g., Brav, Jiang,
+, Partnoy, and Thomas (2008), Fos (2014)).
+
+
+
+                                             1
+Figure IA.1. Time distribution of Schedule 13D filings with information on
+trades. The dark bars represent the number of Schedule 13D filings that satisfy the
+criteria listed in Section I of the main article. The total number of Schedule 13D filings
+that satisfy these criteria is 3,126 during 1994 to 2010. 1994 and 1995 bars are dashed
+because during 1994 and 1995 the submission of filings to EDGAR was voluntary. After
+1996 the submission of filings EDGAR is obligatory.
+
+
+
+
+                                            2
+                                      Table IA.I
+                   Industry Classification of Schedule 13D Targets
+
+This table reports the industry classification of Schedule 13D targets. Firms are classified into 48
+Fama-French industries. Column (1) reports the percentage of Schedule 13D targets for the 12 most
+represented industries among Schedule 13D targets. Column (2) reports the percentage of public firms
+in those 12 industries.
+
+
+
+           Industry                      % of Schedule 13D Targets    % of Public Firms
+                                                    (1)                      (2)
+
+
+           Insurance                                 13.3%                  13.4%
+           Petroleum and Natural Gas                 11.0%                  12.1%
+           Wholesale                                 4.7%                    6.3%
+           Communication                             5.1%                   5.6%
+           Machinery                                  6.2%                   4.7%
+           Medical Equipment                         3.6%                   3.8%
+           Computers                                 2.6%                    3.3%
+           Pharmaceutical Products                   3.5%                   3.3%
+           Electronic Equipment                      2.4%                    3.2%
+           Retail                                     2.6%                   3.1%
+           Business Services                         2.8%                   2.9%
+           Banking                                   3.2%                    2.9%
+
+           Total                                     61.1%                  64.7%
+
+
+
+
+                                                 3
+                                     Table IA.II
+                        Probit Analysis of Schedule 13D Filings
+
+This table reports estimates of the probit regression: P r(SC13Dit = 1) = Φ(Xit α21 + ζt + εit ),
+where the dependent variable SC13Dit is a dummy variable equals to one if the company experiences
+a Schedule 13D filing during the year, Φ is the cumulative normal distribution, Xit is a vector of
+lagged covariates, and ζt are time fixed effects. These regressions cover all CRSP-Compustat firm-year
+observations from 1996 to 2010, and include both event and nonevent observations. M V is market
+capitalization in millions of dollars. CRSP AGE is the number of years since first appearance on
+CRSP. BOOK-T O-M ARKET is the ratio of the book value of equity to the market value of equity.
+ST OCK RET U RN is the 12-month buy-and-hold return. IN ST is the proportion of shares held by
+institutions. ILLIQU IDIT q Y is the Amihud (2002) illiquidity measure, defined as the yearly average
+(using daily data) of 1000 DollarT|Return|
+                                     radingV olume . LEV ERAGE is the net book leverage ratio defined as
+(book value of debt - cash)/(book value of debt + book value of equity). CASH is the ratio of total cash
+and cash equivalents to total assets. R&D is the research and development expense scaled by total assets.
+CAP EX is the capital expenditures less the sale of PP&E divided by total assets. P AY OU T RAT IO
+is the ratio of total dividend payments to net income before extraordinary items. ROA is earnings
+before interest, taxes, depreciation, and amortization divided by lagged total assets. V OLAT ILIT Y is
+12-month stock return volatility, calculated using daily data. IDIO V OLAT ILT IY is the idiosyncratic
+volatility from the Fama-French three-factor model. The table reports probit coefficients and t-
+statistics, calculated using heteroskedasticity-robust standard errors and within correlation clustered
+by industry (three-digit SIC). *, **, and *** indicate statistical significance at the 10%, 5%, and 1%
+levels, respectively.
+
+                                                           (1)           (2)
+
+
+                                  log (MV)              -0.2153***    -0.2144***
+                                                           [-12.50]      [-12.19]
+                                  CRSP AGE                0.0033**     0.0039***
+                                                             [2.56]        [3.00]
+                                  BOOK-TO-MARKET            0.0098     0.0903**
+                                                             [0.27]        [2.37]
+                                  STOCK RETURN            -0.6713*       -0.5350
+                                                            [-1.66]       [-1.23]
+                                  INST                   0.6861***     0.6814***
+                                                             [8.37]        [7.87]
+                                  ILLIQUIDITY           -0.2561***    -0.2363***
+                                                            [-5.39]       [-4.77]
+                                  LEVERAGE                  0.0266        0.1050
+                                                             [0.15]        [0.59]
+                                  CASH                     -0.0143        0.0066
+                                                            [-0.14]        [0.06]
+                                  R&D                       0.3980        0.3881
+                                                             [1.15]        [1.05]
+                                  CAPEX                  0.7976***     0.6899**
+                                                             [3.05]        [2.56]
+                                  PAYOUT RATIO            0.0245**      0.0258**
+                                                             [1.97]        [2.01]
+                                  ROA                      -0.2942       -0.1332
+                                                            [-1.43]       [-0.62]
+                                  VOLATILITY            -3.2092***    -2.3459***
+                                                            [-6.53]       [-3.83]
+                                  IDIO VOLATILITY        3.1226***    2.2750***
+                                                             [5.92]        [3.49]
+
+                                  Year FE                   No           Yes
+                                  Observations            35,011        32,570
+
+
+
+                                                    4
+   It is important to emphasize that our results are robust to any bias in terms of
+industry and firm characteristics. In contrast to several empirical papers in corporate
+finance and microstructure, the main evidence in this paper comes from comparing days
+with and without informed trading for the same firm within a 60-day period prior to the
+filing date. The key point is that firms’ industry classifications and main characteristics
+are not likely to change back and forth at a daily frequency.
+
+
+B. Trading Strategy of Schedule 13D Filers
+
+   In Section I we analyze the trading strategy of Schedule 13D filers as a function of
+the distance to the filing date. Figure IA.2 presents similar analysis, but presents the
+strategy of Schedule 13D filers as a function of the distance to the event date.
+
+   Figure IA.2 indicates that the probability that a Schedule 13D filer trades at least one
+share on a given day increases gradually closer to the event date, reaches the 100% level
+on the event date, and then gradually declines. Figure IA.2 also suggests that a Schedule
+13D filer gradually increases the percentage of outstanding shares purchased on every
+trading day until the event date. For example, the average percentage of outstanding
+shares purchased on every trading day by the Schedule 13D filers increases from (0.03%
+to 0.05%) to (0.10% to 0.15%) closer to the event date. On the event date it reaches
+0.92% of shares outstanding. It then gradually decreases.
+
+
+C. Case Study: Icahn Capital LP vs. Chesapeake Energy Corporation
+
+   To illustrate the informed trades that are the focus of this paper, we give a detailed
+description of a specific case.
+
+   On May 25, 2012, Icahn Capital LP filed a Schedule 13D indicating that it owned
+7.56% of Chesapeake Energy Corporation (50,085,202 shares of common stock), which
+operates in the Oil & Gas Operations industry. In a letter to the Chesapeake board
+included in the Schedule 13D filing, the filer said that Icahn Capital LP planned to force
+
+                                            5
+Figure IA.2. Trading strategy of Schedule 13D filers before the event day.
+The solid line (right axis) plots the probability that a Schedule 13D filer trades at least
+one share on a given day. For every distance to the event date, t−τ , the probability that
+a Schedule 13D filer trades at least one share is the number of filings with a nonzero
+trade by the filer divided by the total number of Schedule 13D filings in the sample.
+We define the distance to the event date as the number of days between a trading day,
+τ , and the event date, t. The event date corresponds to the day when the beneficial
+ownership of the Schedule 13D filer crosses the 5% threshold. The dark bars (left axis)
+represent the percentage of outstanding shares traded by Schedule 13D filers, from 60
+days prior to the event date to 10 days after the event date. For every Schedule 13D
+filing and distance to the event date, t − τ , we calculate the percentage of outstanding
+shares traded by the filer as the ratio between the number of shares traded by the filer
+and the number of shares outstanding. If no trade is reported on a given day by the
+filer, the percentage of outstanding shares traded by the filer is set to zero. Then, for
+every distance to the event date, t − τ , the percentage of outstanding shares traded by
+Schedule 13D filers is the average (across all filings) of the percentage of outstanding
+shares traded.
+
+
+
+                                            6
+Figure IA.3. Icahn Capital LP and Chesapeake Energy Corporation. The
+event date is the day on which the filer’s ownership exceeds the 5% threshold. The filing
+date corresponds to the day of filing with the SEC. The dark bars plot the percentage
+of outstanding shares owned by the filer. The dashed line plots the 5% threshold.
+Since during the (t-60,t-37) period the filer did not trade stocks of Chesapeake Energy
+Corporation, this period is not plotted in this figure.
+
+
+the break up of Chesapeake’s board and the installation of new directors nominated
+by Icahn Capital LP and other leading shareholders. Therefore, the filer explicitly
+highlighted the possibility of active engagement in the company’s corporate governance.
+
+   Figure IA.3 presents the percentage of outstanding shares owned by Icahn Capital
+LP during the (t-36,t) period around the filing date.1 The filer’s ownership prior to the
+60-day disclosure period was 0.11% of Chesapeake Energy (702,367 shares of common
+stock).   During the 60-day period before the filing date the filer purchased 7.46%
+of Chesapeake Energy (49,382,835 shares of common stock). All these shares were
+purchased during the (t-36,t-1) period. The filer’s ownership crossed the 5%-percent
+threshold on May 17, 2012 (the event date).
+
+   The filer disclosed that the 50,085,202 shares of common stock were purchased for
+$785,300,000, that is, $15.68 per share. The filing reveals that the 702,367 shares
+
+
+                                           7
+purchased prior to the 60-day period were acquired at an average price of $14.54 per
+share while the 49,382,835 shares that were purchased during the 60-day period were
+acquired at an average price of $15.70 per share. The average price of Chesapeake Energy
+shares reached the level of $17 per share in the 10 days after the filing and remained at
+$17.52 per share during the post-filing month, suggesting that the filer gained $1.82 on
+average per share purchased. This gain aggregates to $91,981,854. In the 40 days after
+the filing the stock price reached $19.36 per share, raising Icahn Capital LP’s gain to
+$183,311,839.
+
+   The price of Chesapeake Energy shares increased by 4.95% on the filing date (May 25,
+2012) and the following trading day (May 29, 2012). Therefore, the market’s perception
+of the value created by Icahn Capital LP was clearly positive.
+
+   Consistent with the evidence in Table I, Figure IA.3 suggests that Icahn Capital LP
+did not trade on every trading day during the 60-day pre-filing period; rather, the filer
+traded on 18 trading days during the 60-day period. Interestingly, the filer traded when
+stock liquidity was high. For example, during the 60-day period, the average level of
+the Amihud (2002) illiquidity measure during days with trades by Icahn Capital LP was
+38% lower than on days with no trades by Icahn Capital LP.2
+
+   On January 30, 2013 the company announced that CEO Aubrey McClendon was to
+leave the company on April 1. The CEO’s departure followed a series of disagreements
+between the CEO and newly appointed board members, who were nominated by Icahn
+Capital LP. Consistent with the hedge fund activism literature, this example therefore
+emphasizes that activist shareholders often achieve their long-term goals and do not
+simply trade on short-lived information (e.g., Brav et al. (2008)).
+
+
+                     II. Supplementary Results for Section I
+
+
+
+
+                                            8
+Figure IA.4. Abnormal return around the filing fate. The solid line plots the
+daily abnormal return in excess of the buy-and-hold return of the value-weighted market
+from 60 days prior to the filing date to 40 days afterwards. The dashed lines plot the
+lower and upper 1% confidence bounds.
+
+
+A. Is Filing Date Abnormal Return Statistically Significant?
+
+   We test whether the positive announcement-date abnormal return is statistically
+significant. Figure IA.4 plots the daily abnormal return, calculated as the average
+daily return in excess of the value-weighted market return. In addition, we plot 1%
+confidence bounds to test whether the abnormal return is statistically different from zero.
+The evidence suggests that the filing-date abnormal return is positive and statistically
+significant, indicating that Schedule 13D filers possess valuable information.
+
+   To further test the magnitude of the filing-date announcement return, we also regress
+the average daily return in excess of the value-weighted market return on indicators
+of (t-2,t+2), (t-1,t), or t, where t is the filing date. Table IA.III reports the results,
+suggesting a significant positive abnormal return around the filing date. For example,
+the filing-date abnormal return is 1.12% and is highly statistically significant. The
+
+                                            9
+                                     Table IA.III
+                         Schedule 13D Filing Abnormal Returns
+
+This table presents the impact of Schedule 13D filings on abnormal returns. We regress the average
+daily return in excess of the value-weighted market return on an indicator for the two-day window
+around the filing date (column (1)), an indicator for the one-day window around the filing date (column
+(2)), or an indicator for the filing date (column (3)). The analysis is based on 121 daily observations
+of cross-event average abnormal returns from 60 days before the filing date to 60 days after the filing
+date, where the filing date is the day on which the Schedule 13D filing is submitted to the SEC. In each
+column, we report estimated coefficients and their t-statistics. *** indicates statistical significance at
+the 1% level.
+
+
+          Window around filing date (days)           (t − 2, t + 2)   (t − 1, t + 1)       t
+                                                          (1)              (2)            (3)
+
+
+          Indicator of window around filing date        0.0049***      0.0080***       0.0112***
+                                                          [5.50]         [7.77]          [5.79]
+          Constant                                      0.0006***      0.0006***       0.0007***
+                                                          [3.11]         [3.45]          [3.82]
+
+          Observations                                     121             121            121
+          R2                                              0.203           0.337          0.220
+
+
+
+three-day abnormal return, reported in column (2), is 2.4% (0.8% times 3) and is highly
+statistically significant as well.
+
+
+B. Is There A Reversal in The Buy-and-Hold Return?
+
+    Figure IA.5 plots the average buy-and-hold return in excess of the buy-and-hold
+return on the value-weighted NYSE/Amex/NASDAQ index from CRSP, from 60 days
+prior to the filing date to 120 days afterward. The sample includes data from the 1994
+to 2010 period. We observe a run-up of about 3% between 60 days to one day prior to
+the filing date. The two-day jump in excess return observed at the filing date is around
+2.5%. After that the excess return remains positive and the post-filing “drift” cumulates
+to a total of 10%. When we compare Figure IA.5 and Figure 2, we see that there is
+no reversal. The abnormal buy-and-hold return over the (t-40,t-120) period is slightly
+
+
+
+                                                   10
+Figure IA.5. Buy-and-hold abnormal return around the filing date. The solid
+line (right axis) plots the average buy-and-hold return around the filing date in excess
+of the buy-and-hold return of the value-weighted market from 60 days prior to the filing
+date to 120 days afterwards. The filing date is the day on which the Schedule 13D
+filing is submitted to the SEC. The dark bars (left axis) plot the increase (in percentage
+points) in the share turnover during the same time window compared to the average
+turnover rate during the preceding (t-120, t-60) event window.
+
+above 1%. An untabulated result suggests that the price drift after the filing date is not
+positive in the recent period (2003 to 2010).
+
+
+C. Profits
+
+   We calculate three measures of profits. First, we calculate Schedule 13D filers’ profits
+from purchasing shares at the pre-announcement prices,
+
+
+                            T rading P rof it = q0 (ppost − p),                     (IA.1)
+
+
+where q is the vector of trades (purchases are positive and sales are negative) during the
+60-day period, ppost is the post-announcement price, and p is the vector of transaction
+prices. The post-announcement price is the average stock price during the week that
+follows the Schedule 13D filing.
+
+   If Schedule 13D filers do indeed own valuable private information, they would be
+expected to purchase shares at a discount relative to the post-announcement price. Of
+
+                                            11
+course, by purchasing securities Schedule 13D filers may also push up prices. Thus, their
+cumulative profits also depend on the price impact of their trades. If price impact is
+large, then we expect realized profits of informed traders to be lower than if price impact
+is low. Thus, the trading profits of Schedule 13D filers depend both on the value of their
+private information and stock price liquidity.
+
+   Second, we calculate the total profits realized by informed investors,
+
+
+                   T otal P rof it = T rading P rof it + (ppost − p0 )w0 ,          (IA.2)
+
+
+where p0 is the price of the first transaction and w0 is the initial ownership, which is
+established before the 60-day period. This measure assumes that a Schedule 13D filer
+purchases the initial stake at the price of the first transaction. This assumption is most
+likely to cause a downward bias in estimated total profits.
+
+   Finally, we report the total value created for the shareholders of a company that
+experience a Schedule 13D filing,
+
+
+                         V alue Created = (ppost − p0 )SHOU T,                      (IA.3)
+
+
+where SHOU T is the number of shares outstanding.
+
+   Table IA.IV presents the distribution of trading profits. We split the sample into five
+market cap quantiles and report average profit measures for every quantile. The evidence
+suggests that informed traders make significant profits. For example, a Schedule 13D
+filer who acquires a $22 million stake in a $293 million market cap company (i.e., a 7.51%
+stake, which is the average stake size in our sample) expects to benefit $0.8 million. This
+can be further broken down into a $0.4 million profit on trades during the 60-day period
+and a $0.4 million profit on the initial ownership, purchased prior to the 60-day window.
+
+
+
+
+                                             12
+                                           Table IA.IV
+                                 Profits from Informed Trades
+
+This table presents summary statistics for three measures of profits. Trading Profit is defined as
+q0 (ppost − p), where q is the vector of trades (purchases are positive and sales are negative), ppost
+is the post-announcement price, and p is the vector of transaction prices. The post-announcement
+price is the average price during the week that follows the filing date. Total Profit is defined as
+T rading P rof it + (ppost − p0 )w0 , where p0 is the price of the first transaction disclosed in the Schedule
+13D filing and w0 is the initial ownership, established prior to the first transaction disclosed in the
+Schedule 13D filing. V alue Created is defined as (ppost − p0 )SHOU T , where SHOU T is the number
+of shares outstanding. Average measures of profits as well as t-statistics are reported for five Market
+CAP quantiles, where Market CAP is the market capitalization of the targeted company. ** and ***
+indicate statistical significance at the 5% and 1% levels, respectively.
+
+
+       Market CAP Quantile        Market CAP       Trading Profit     Total Profit    Value Created
+                                      (1)               (2)               (3)              (4)
+
+
+       Q1 - low                     19,773,876        43,998***        56,590***          908,857**
+                                                        [4.52]            [3.97]            [2.17]
+       Q2                           52,884,243       104,907***        192,926***       2,607,513***
+                                                        [5.71]            [4.22]            [2.99]
+       Q3                          119,969,759       216,250***        298,363***       4,226,135***
+                                                        [7.31]            [6.01]            [3.37]
+       Q4                          293,003,259       403,214***        801,141***      15,000,273***
+                                                        [9.24]            [7.59]            [5.56]
+       Q5 - high                  1,346,301,018      907,584***       1,818,721***     33,239,501***
+                                                       [13.73]           [11.08]            [8.09]
+
+
+
+
+                                                     13
+   The evidence also suggests that the main beneficiaries are shareholders who own
+shares on the announcement date. For example, shareholders of companies in the fifth
+market cap quantile gain $33 million during an average event whereas Schedule 13D
+filers gain $1.8 million. Therefore, while Schedule 13D filers benefit from uninformed
+traders who sell their shares during the pre-announcement period, they create significant
+value for all other shareholders by deciding to file a Schedule 13D and to intervene in a
+company’s governance.
+
+
+                       III. Supplementary Results for Section III
+
+
+A. Adverse Selection Measures
+
+   Kyle’s (1985) lambda is a measure of price impact, which can be interpreted as the
+cost of demanding a certain amount of liquidity over a given time period. In constructing
+this measure, we follow Hasbrouck (2009) and Goyenko, Holden, Trzcinka (2009) and
+calculate the price impact as the slope coefficient λit in the regression
+
+
+                                  retitn = δit + λit Sitn + εitn ,                (IA.4)
+
+
+where for the nth five-minute period on date t and stock i, retitn is the stock
+return and Sitn is the sum of the signed square-root dollar volume, that is,
+P                   p
+   k sign(dvolitnk ) |dvolitnk |. The trades are signed according to the Lee and Ready
+
+(1991) algorithm.
+
+   The five-minute price impact is the permanent component of the effective spread.
+It measures gross losses to liquidity demanders due to adverse selection (Glosten and
+Harris (1988)). For a given stock i and day t, the five-minute price impact of the kth
+trade is defined as:
+
+
+                          pimpactitk = 2qitk (ln(Mitk+5 ) − ln(Mitk )),           (IA.5)
+
+
+                                                14
+where qitk is the buy-sell indicator (+1 for buys, –1 for sells), Mitk+5 is the midpoint of
+the consolidated best bid and ask offer (BBO) prevailing five minutes after the kth trade,
+and Mitk is the midpoint of the consolidated BBO prevailing at the time of the kth trade.3
+Aggregating over day t, a stock’s price impact pimpactit is the dollar-volume-weighted
+average of price impact pimpactitk computed over all trades on day t.
+
+   Hasbrouck (1991a, 1991b) introduces a model based on a vector autoregression (VAR)
+that infers the nature of information and trading from the observed sequence of quotes
+and trades. In this framework, all stock price moves end up being decomposed into two
+components depending on whether they are associated with a recent trade. Price moves
+associated with a recent trade are usually referred to as private information-based. We
+construct a VAR with two equations: the first describes the trade-by-trade evolution of
+the quote midpoint, while the second describes the persistence of order flow. Define qitτ
+to be the buy-sell indicator for stock i on date t and trade τ (+1 for buys, –1 for sells),
+and define ritτ to be the log return based on the quote midpoint of stock i on date t
+from trade τ − 1 to trade τ . The VAR picks up order flow dependence out to 10 lags:
+
+                                     10
+                                     X                  10
+                                                        X
+                            rτ =           αk rτ −k +         βk qτ −k + εrτ ,              (IA.6)
+                                     k=1                k=0
+
+
+                                     10
+                                     X                  10
+                                                        X
+                            qτ =           γk rτ −k +         φk qτ −k + εqτ ,              (IA.7)
+                                     k=1                k=1
+
+where the stock subscript i and date subscript t are suppressed.4 The VAR is inverted
+to get the vector moving average (VMA) representation,
+                                                                                  
+                            rτ                           a(L) b(L)               εrτ
+                   yτ =          = θ(L)ετ =                                       ,   (IA.8)
+                            qτ                           c(L) d(L)               εqτ
+
+
+
+
+                                                   15
+where a(L), b(L), c(L), and d(L) are lag polynomial operators. The variance of the
+random work component can be written as
+
+                                  ∞
+                                             !2           ∞
+                                                                      !2
+                                  X                       X
+                          σω2 =         bj        σq2 +          aj        σr2 .    (IA.9)
+                                  j=0                      j=0
+
+
+The first term captures the component of price discovery that is related to recent
+trades, and the second term captures price changes that are orthogonal to trading.
+Following Hasbrouck (1991b), we define the trade-related component of the variance of
+                                       P       2
+                                         ∞
+changes in the efficient price as Rω =   j=0 bj    σq2 /σω2 , where Rω is a comprehensive
+relative measure of trade informativeness. Following Hasbrouck (1991a), we define the
+                                P       
+                                    ∞
+cumulative impulse response as      j=0 j .
+                                       b
+
+   Amihud’s illiquidity measure illiquidityit is defined as
+
+                                                            |rit |
+                              illiquidityit = 1000                 ,               (IA.10)
+                                                          volumeit
+
+where rit is the stock i return on day t and volumeit is the stock i dollar volume on day
+t. A smaller value of illiquidity implies a lower price impact, and therefore higher stock
+liquidity.
+
+   The Easley et al. (1996) pin measure is
+
+                                                    αµ
+                                     pin =                ,                        (IA.11)
+                                                  αµ + 2ε
+
+where α is the probability of an information event, µ is the arrival rate of traders who
+know the new information if it exists, and ε is the arrival rate of uninformed traders.
+Maximum likelihood estimators of these parameters are described in Easley et al. (1996),
+pages 1412-1414. A higher value of pin implies a higher probability of informed trade.
+
+
+
+
+                                                  16
+B. Other Liquidity Measures
+
+   The realized spread is the temporary component of the effective spread. It measures
+the revenue to liquidity providers assuming that the liquidity provider is able to close
+her position at the midpoint prevailing five minutes after the trade. For a given stock i
+and day t, the realized spread on the kth trade is defined as
+
+
+                            rspreaditk = 2qitk (ln(Pitk ) − ln(Mitk+5 )),            (IA.12)
+
+
+where Pitk is the price of the kth trade, Mitk+5 is the midpoint of the consolidated BBO
+prevailing five minutes after the kth trade, and qitk is the buy-sell indicator (+1 for buys,
+–1 for sells). Aggregating over day t, a stock’s realized spread rspreadit is the dollar-
+volume-weighted average of the realized spread rspreaditk computed over all trades on
+day t.
+
+   The effective spread is the difference between the natural logarithm of the actual
+transaction price and the natural logarithm of the midpoint prevailing at the time of
+the trade,
+                               espreaditk = 2|ln(Pitk ) − ln(Mitk )|,                (IA.13)
+
+where Pitk is the price of the kth trade and Mitk is the midpoint of the consolidated BBO
+prevailing at the time of the kth trade (Hasbrouck (2010)). Aggregating over day t, a
+stock’s effective spread espreadit is the dollar-volume-weighted average of the effective
+spread espreaditk computed over all trades on day t. The wider the effective spread, the
+less liquid is the stock.
+
+   The bid-ask spread basperadit of stock i on day t is defined as
+
+                                                  askit − bidit
+                                 baspreadit =                       ,                (IA.14)
+                                                0.5(askit + bidit )
+
+
+
+
+                                                 17
+                                    Table IA.V
+                       Summary Statistics of Liquidity Measures
+
+This table reports summary statistics for the liquidity measures on daily data. λ is the slope coefficient
+of retitn = δit + λit Sitn + εitn , pimpact is dollar-weighted price impact, cumir is cumulative impulse
+response, trade − related is trade-related component of variance of changes in the efficient price,
+illiquidity Amihud’s (2002) illiquidity, pin is the probability of informed trade, rspread is dollar-
+weighted realized spread, espread is dollar-weighted effective spread, and baspread is closing bid-ask
+spread. The sample covers the (t-421,t-361) period, where t is the Schedule 13D filing date. For
+every Schedule 13D filing we calculate the average level of a liquidity measure during the (t-421,t-361)
+period. We then calculate summary statistics for the liquidity measures among all events. The data set
+combines TAQ, CRSP, and the newly constructed sample of Schedule 13D filings (see Section I of the
+main article).
+
+
+  Liquidity           Min                        Percentile                      Max      Mean     Std Dev
+  Measure                      5th       25th     Median      75th     95th
+                               (1)        (2)       (3)        (4)      (5)       (6)      (7)       (8)
+
+
+                                  Panel A: Adverse Selection Measures
+
+  λ ∗ 106            -46.12    0.54      2.86      9.68       29.25    107.28   414.59    25.48    42.54
+  pimpact           -0.0609   0.0006    0.0019    0.0039      0.0078   0.0229   0.4827    0.0075   0.0186
+  cumir             -0.0402   0.0001    0.0004    0.0010      0.0022   0.0073   0.0330    0.0019   0.0036
+  trade − related   0.0000    0.0146    0.0329    0.0511      0.0830   0.1896   0.6476    0.0711   0.0725
+  illiquidity       0.0033    0.0225    0.0819    0.2185      0.5881   2.1300   19.0555   0.5422   0.9392
+  pin               0.0000    0.1500    0.3278    0.4637      0.6462   0.8999   0.9988    0.4899   0.2233
+
+                                     Panel B: Other Liquidity Measures
+
+  rspread           -0.0765   0.0000    0.0008    0.0046      0.0155   0.0432   0.1792    0.0111   0.0169
+  espread           0.0003    0.0014    0.0053    0.0133      0.0244   0.0523   0.4431    0.0185   0.0228
+  baspread          -0.0002   0.0009    0.0043    0.0160      0.0349   0.0877   0.5000    0.0262   0.0340
+
+
+where askit and bidit are the daily closing ask and bid from CRSP. A smaller value of
+baspread implies a higher stock liquidity.
+
+
+C. Descriptive Statistics
+
+    Table IA.V provides summary descriptive statistics of the stock liquidity measures.
+Panel A describes high-frequency stock liquidity measures and Panel B describes low-
+frequency stock liquidity measures.
+
+
+                        IV. Supplementary Results to Section IV
+
+                                                     18
+                                              Table IA.VI
+
+                  Low-Frequency Liquidity Measures on Days when
+
+                                   Schedule 13D Filers Trade
+
+This table reports the average level of liquidity measures on days when Schedule 13D filers trade. The
+sample covers the 60-day disclosure period. illiquidity Amihud’s (2002) illiquidity baspread is closing
+bid-ask spread. All liquidity measures are 99.9% winsorized. For every Schedule 13D filing we calculate
+the average level of a liquidity measure during the sixty-day disclosure period on days with trades by
+the Schedule 13D filer. Column (1) reports the average level of liquidity measures on days with trades
+by Schedule 13D filers among all events. Similarly, column (2) reports the average level of liquidity
+measures on days with no trades by Schedule 13D filers during the 60-day disclosure period. Column
+(3) reports the differences between columns (1) and (2) and the t-statistic of the difference. Column
+(4) replicates column (3) for the sample of matched stocks, where a matched stock is assigned from the
+same industry, exchange, size, and low-frequency volatility (see Section IV of the main article for further
+details). Column (5) reports the diff-in-diff estimate and the t-statistic of the diff-in-diff estimate, where
+the diff-in-diff estimate is the difference between columns (3) and (4). *, **, and *** indicate statistical
+significance at the 10%, 5%, and 1% levels, respectively.
+
+
+                      Days with           Days with No
+                  Informed Trading      Informed Trading          Diff      Matched Diff     Diff-in-Diff
+                         (1)                   (2)                (3)           (4)              (5)
+
+
+    Adverse Selection Measure
+    illiquidity       0.2662                  0.5191          -0.2529***       -0.0387       -0.2142***
+                                                                [-17.08]        [-1.47]        [-6.09]
+    Liquidity Measure
+    baspread          0.0212                  0.0232          -0.002***        -0.0002       -0.0018***
+                                                                [-6.65]         [-0.38]        [-2.72]
+
+
+
+A. Low-Frequency Measures of Stock Liquidity
+
+    The main evidence presented in Section IV is based on high-frequency measures of
+stock liquidity. Table IA.VI shows that we obtain similar results when we use two low-
+frequency measures of stock liquidity: illiquidity and baspread. When Schedule 13D
+filers trade, illiquidity and baspread decrease. Table IA.VI also indicates that these two
+measures are significantly lower for target stocks than for matched stocks.
+
+
+
+
+                                                       19
+B. An Alternative Matching Procedure
+
+   We show that results are similar when an alternative matching procedure is used.
+Specifically, in addition to matching stocks on exchange, we follow Davies and Kim
+(2009) and match stocks on market capitalization and share price. The evidence reported
+in Table IA.VII indicates no material difference in the results.
+
+
+C. Average Liquidity Measures during The Disclosure Period
+
+   We also test whether liquidity measures during the 60-day disclosure period differ on
+average from liquidity measures during the same calendar window in the year prior to
+the filing date. Table IA.VIII presents the results. The evidence reported in column (3)
+suggests that none of the adverse selection measures indicate the presence of informed
+traders during the 60-day disclosure period (i.e., none are significantly higher during that
+period). Instead, four out of six measures indicate significantly lower adverse selection.
+For example, pin is more than 9% lower during the 60-day disclosure period. Therefore,
+the evidence presented in Table IA.VIII is inconsistent with the notion that these adverse
+selection measures rise in the presence of informed trading.
+
+   All other liquidity measures indicate higher stock liquidity and higher competition
+among liquidity providers during the disclosure period. This evidence is consistent with
+liquidity being high when informed trading takes place.
+
+   Next, we adopt a “diff-in-diff” approach. For each stock, we find a matched stock.
+The matched stock is selected from the same industry (Fama and French (1997)),
+exchange, size (market cap), and low-frequency volatility (annual return volatility). We
+then test whether the change in liquidity measures for event stocks is different from
+the change in liquidity measures for matched stocks. The main purpose of using this
+approach is to make sure that time-series changes in liquidity measures do not confound
+the results. Columns (4) to (7) in Table IA.VIII report the results. Column (7) reports
+diff-in-diff estimates and suggests that relative to the matched sample, adverse selection
+
+                                            20
+                                             Table IA.VII
+
+          Liquidity Measures on Days when Schedule 13D Filers Trade:
+
+                            An Alternative Matching Procedure
+
+This table reports the average level of liquidity measures on days when Schedule 13D filers trade. λ is
+the slope coefficient of retitn = δit + λit Sitn + εitn , pimpact is dollar-weighted price impact, cumir is
+cumulative impulse response, trade − related is trade-related component of the variance of changes in
+the efficient price, rspread is dollar-weighted realized spread, and baspread is closing bid-ask spread.
+The sample covers the 60-day disclosure period. All liquidity measures are 99.9% winsorized. For every
+Schedule 13D filing we calculate the average level of a liquidity measure during the 60-day disclosure
+period on days with trades by the Schedule 13D filer. Column (1) reports the average level of liquidity
+measures on days with trades by Schedule 13D filers among all events. Similarly, column (2) reports the
+average level of liquidity measures on days with no trades by Schedule 13D filers during the sixty-day
+disclosure period. Column (3) reports the differences between columns (1) and (2) and the t-statistic
+of the difference. Column (4) replicates column (3) for the sample of matched stocks, where a matched
+stock is assigned from the same exchange, market cap, and stock price (Davies and Kim (2009)). Column
+(5) reports the diff-in-diff estimate and the t-statistic of the diff-in-diff estimate, where the diff-in-diff
+estimate is the difference between columns (3) and (4). *, **, and *** indicate statistical significance
+at the 10%, 5%, and 1% levels, respectively.
+
+
+                         Days with           Days with No
+                     Informed Trading      Informed Trading         Diff       Matched Diff     Diff-in-Diff
+                            (1)                   (2)               (3)            (4)              (5)
+
+
+ Adverse Selection Measures
+ λ ∗ 106               14.3311                  20.1644          -5.8334***       -0.9963       -4.8371***
+                                                                    [-8.38]        [-1.28]         [-6.22]
+ pimpact                   0.0060                0.0064           -0.0004**       -0.0003        -0.0001**
+                                                                    [-2.18]        [-1.11]         [-2.11]
+ cumir                     0.0013                0.0015           -0.0002**        0.0000         -0.0001
+                                                                    [-2.06]        [-0.57]         [-1.02]
+ trade − related           0.0654                0.0673            -0.0019        -0.0013         -0.0006
+                                                                    [-0.99]        [-0.64]         [-1.46]
+ Other Liquidity Measures
+ rspread               0.0081                    0.0089          -0.0008***        0.0000         -0.0008
+                                                                    [-3.43]         [0.08]         [-1.62]
+ baspread                  0.0212                0.0232           -0.002***       -0.0002       -0.0018***
+                                                                    [-6.65]        [-0.38]         [-2.72]
+
+
+
+
+                                                     21
+                                             Table IA.VIII
+
+                Liquidity Measures during the 60-Day Disclosure Period
+
+This table reports the average level of liquidity measures during the 60-day disclosure period, (t-60,t-1),
+and the corresponding sixty-day period during the year before the Schedule 13D filing, (t-420,t-361).
+All liquidity measures are defined in Section III of the main article and are 99.9% winsorized. Column
+(1) reports the average level of liquidity measures during (t-60,t-1). Column (2) reports the average
+level of liquidity measures during (t-420,t-361). Column (3) reports the differences between columns (1)
+and (2) and the t-statistic of the difference among all events. Column (4) reports the average level of
+liquidity measures for matched stocks during (t-60,t-1). Column (5) reports the average level of liquidity
+measures for matched stocks during (t-420,t-361). Column (6) reports the differences between columns
+(4) and (5) and the t-statistic of the difference. Column (7) reports the diff-in-diff estimate and the
+t-statistic of the diff-in-diff estimate, where the diff-in-diff estimate is the difference between columns
+(3) and (6). Matched stocks are assigned from the same industry, exchange, size, and low-frequency
+volatility (see Section IV of the main article for further details). *, **, and *** indicate statistical
+significance at the 10%, 5%, and 1% levels, respectively.
+
+
+                             Schedule 13D Sample                          Matched Sample
+                    (t-60,t-1) (t-420,t-361)     Diff        (t-60,t-1)    (t-420,t-361)    Diff      Diff-in-Diff
+                        (1)          (2)         (3)             (4)            (5)         (6)           (7)
+
+
+  Adverse Selection Measures
+  λ ∗ 106           19.0011     22.3285***    -3.3274***     24.6448         23.3934      1.2514       -4.5788**
+                                                 [-3.36]                                   [0.92]        [-2.31]
+  pimpact            0.0066       0.0066         0.0000       0.0073         0.0075      -0.0002         0.0002
+                                                 [-0.21]                                  [-0.76]         [0.72]
+  cumir              0.0015       0.0017       -0.0002**      0.0016         0.0017      -0.0001        -0.0001
+                                                 [-2.16]                                  [-1.06]        [-0.99]
+  trade − related    0.0691       0.0686         0.0005       0.0729         0.0747      -0.0018         0.0022
+                                                  [0.24]                                  [-0.99]         [0.06]
+  illiquidity        0.4611       0.5025      -0.0413***      0.6610         0.6297     0.0312**      -0.0726***
+                                                 [-4.12]                                   [1.96]        [-4.24]
+  pin                0.4385       0.4943      -0.0559***      0.4819         0.5120    -0.0301***     -0.0257***
+                                                 [-13.1]                                  [-6.97]        [-3.52]
+
+  Other Liquidity Measures
+  rspread           0.0095        0.0109      -0.0014***      0.0127         0.0129        -0.0002    -0.0012***
+                                                 [-4.69]                                    [-0.59]      [-2.74]
+  espread            0.0162       0.0175      -0.0012***      0.0194         0.0199        -0.0004      -0.0008
+                                                 [-2.99]                                    [-0.92]      [-1.23]
+  baspread           0.0219       0.0239      -0.0020***      0.0284         0.0288        -0.0004     -0.0016**
+                                                 [-4.85]                                    [-0.54]      [-2.32]
+
+
+
+
+                                                        22
+is lower and stock liquidity is higher during the disclosure period. For example, the
+average change in λ for event (matched) stocks is -3.3274 (1.2514), implying that the
+diff-in-diff estimate is -4.5788. While some diff-in-diff estimates are not statistically
+significant, none of the measures indicate that adverse selection measures are higher or
+that liquidity is lower on average during the 60-day period relative to a year before. The
+reduction in statistical significance of the differences in liquidity measures indicates that
+Schedule 13D filers are more likely to trade when aggregate liquidity is high.
+
+
+D. Robustness
+
+                              D.1. Regression Specification
+
+
+   To check the robustness of our findings, we adopt the regression methodology used
+in Hendershott, Jones, and Menkveld (2011) and estimate
+
+
+                              liqit = α + γitradeit + ηi + it ,                     (IA.15)
+
+
+where liqit is a measure of liquidity for company i on day t, itradeit is an indicator
+equal to one on a day with trades by Schedule 13D filers and zero otherwise, and ηi
+are event fixed effects. The sample is restricted to the (t − 60, t) period around the
+filing date. Event fixed effects absorb differences in levels of liquidity measures between
+events. Therefore, the estimated coefficients exploit only the within-event variation in
+liquidity measures.
+
+   Panel A in Table IA.IX reports the results. Odd columns report results for unmatched
+measures and even columns report results for matched measures.             The results are
+consistent with the evidence reported in Table III, suggesting lower adverse selection and
+higher stock liquidity on days with trades by Schedule 13D filers. Since all cross-sectional
+variation in liquidity measures is captured by the event fixed effects, the evidence implies
+that stocks appear more liquid when Schedule 13D filers trade. When controlling for
+
+                                             23
+changes in matched stocks’ liquidity, results are almost unchanged, indicating that
+adverse selection and liquidity on days with Schedule 13D trading are lower for target
+than for matched stocks. The only exception is the price impact component of the
+effective spread, which remains negative but loses statistical significance.5
+
+
+                         D.3. Order vs. Quote-Driven Markets
+
+
+   In our sample, 62% of companies are listed on the NASDAQ and 29% are listed on the
+NYSE (the remaining 9% are listed on the Amex). To test whether adverse selection and
+liquidity measures perform differently across NASDAQ and NYSE market structures,
+we split the sample into NASDAQ- and NYSE-listed stocks. Garfinkel and Nimalendran
+(2003) suggest that there is a difference in the degree of anonymity between NASDAQ
+and NYSE market structures. Specifically, they find evidence that is consistent with less
+anonymity on the NYSE specialist system compared to the NASDAQ dealer system.
+After Reg NMS was implemented, however, post-Reg NMS U.S. exchanges have become
+more similar in structures and trading mechanisms.
+
+
+                            D.2. Crisis vs. Noncrisis Period
+
+
+   Almost 25% of events in the sample take place during the financial crisis. Since the
+financial crisis period was characterized by higher trading volume and volatility, we want
+to test whether adverse selection and liquidity measures reveal the presence of informed
+trading in the pre-crisis period (i.e., pre-2007 period). To perform the test, we restrict
+our sample to the pre-crisis period. Panel B in Table IA.IX reports the results. The
+evidence suggests that results are not affected by removing the financial crisis period
+from the sample.
+
+
+
+
+                                            24
+   Panels C and D in Table IA.IX report the results. The evidence suggests that
+the results are stronger for the sample of NASDAQ-listed stocks. All measures gain
+additional economic significance in the NASDAQ sample. For example, the difference in
+matched-adjusted price impact on days with and without informed trading (column (4))
+increases from insignificant -0.0003 (Panel A) to -0.0009 (Pane C), which is significant
+at the 1% level. For stocks listed on the NYSE (Panel D), the coefficient on itrade
+remains significant in the λ and cumir regressions. While for all other measures the
+coefficient on itrade is insignificant, those measures still fail to reveal the presence of
+informed trading.
+
+
+                     V. Supplementary Results for Section V
+
+
+A. Abnormal Volume
+
+   We study abnormal trading activity during the 60-day disclosure period. Figure IA.6
+presents the average percentage of outstanding shares purchased by Schedule 13D filers
+and the abnormal volume that does not come from Schedule 13D filers. We refer to the
+abnormal volume that does not come from Schedule 13D filers as “uninformed.”
+
+   In Panel A, the two series are centered around the event date. In Panel B, the two
+series are centered around the filing date. The evidence indicates that closer to the event
+date both Schedule 13D trading and uninformed trading activity increase, reaching a
+maximum at the event date. The correlation between the two series is 80% during the
+(t-60,t-1) period and 96% during the (t,t+9) period.
+
+   The evidence is consistent with both the selection and the limit order mechanisms.
+The selection mechanism implies that informed investors trade more aggressively when
+uninformed trading activity is high. That is, they submit more market buy orders when
+uninformed trading activity is high. The limit order mechanism implies that limit orders
+placed by Schedule 13D filers are executed when trading activity is high.
+
+
+                                            25
+                                                                                   Table IA.IX
+
+                                                       Informed Trading and Liquidity Measures
+
+     This table shows the relation between informed trading and liquidity measures. We regress each of the liquidity measures described in Section
+     III of the main article on indicators of informed trading, using the following specification: liqit = α + γitradeit + ηi + it , where liqit is a
+     measure of liquidity for company i on day t, itrade indicates days on which Schedule 13D filers trade, and ηi are event fixed effects. For each
+     measure of stock liquidity, we use the raw liquidity measures as well as the difference between liquidity measures for targeted and matched
+     stocks. Matched stocks are assigned from the same industry, exchange, size, and low-frequency volatility (see Section IV of the main article
+     for further details). The analysis is based on daily observations from 60 days before the filing date to the filing date. Panel A covers the
+     sample of all Schedule 13D filings. Panel B covers the pre-crisis period (prior to 2007). Panel C covers stocks listed on NASDAQ. Panel D
+     covers stocks listed on NYSE. Panel E covers the (t − 30, t) period before the filing date. In each column, we report estimated coefficients and
+     their t-statistics, calculated using heteroskedasticity-robust standard errors clustered by event. *, **, and *** indicate statistical significance
+     at the 10%, 5%, and 1% levels, respectively.
+
+
+       Dependent Variable            λ ∗ 106                   pimpact                      cumir            trade − related                rspread                    espread
+
+                 Matched       No              Yes       No              Yes          No            Yes        No         Yes         No              Yes        No              Yes
+26                             (1)             (2)       (3)             (4)          (5)           (6)        (7)        (8)         (9)             (10)      (11)             (12)
+
+
+                                                                                  Panel A: Full Sample
+                   itrade   -3.4855***   -3.1775***   -0.0004***     -0.0003      -0.0001*** -0.0001***      -0.0013    -0.0007    -0.0008***   -0.0009***   -0.0009***    -0.0010***
+                              [-11.51]     [-6.20]       [-2.83]      [-1.54]        [-5.46]     [-3.11]      [-1.40]    [-0.60]     [-6.22]       [-4.31]      [-4.50]       [-2.80]
+
+                                                                                Panel B: Pre-Crisis Sample
+                   itrade   -4.2098***   -3.5294***   -0.0004**      -0.0004      -0.0002*** -0.0001***      -0.0020    -0.0017    -0.0010***   -0.0010***   -0.0011***    -0.0012***
+                              [-10.37]     [-4.91]      [-2.09]       [-1.54]        [-5.04]      [-2.95]     [-1.54]    [-1.10]     [-6.18]       [-4.05]      [-4.17]       [-2.85]
+
+                                                                             Panel C: NASDAQ Sample
+                   itrade   -4.3652***   -3.8136***   -0.0006***   -0.0009*** -0.0002*** -0.0001**           -0.0017    0.0004     -0.0010***   -0.0010***   -0.0012***    -0.0016***
+                              [-10.08]     [-4.56]       [-3.62]     [-3.42]      [-4.57]   [-2.58]           [-1.31]   [0.25]       [-5.13]      [-2.99]       [-4.73]      [-3.50]
+
+                                                                                 Panel D: NYSE Sample
+                   itrade   -2.0876***   -2.1727***    -0.0001       -0.0001      -0.0001*** -0.0001***      0.0001     -0.0022     -0.0002       -0.0002     -0.0001        0.0000
+                               [-5.32]     [-4.38]      [-0.56]       [-0.14]        [-3.78]    [-2.59]      [0.06]      [-1.60]     [-1.62]       [-1.45]     [-0.33]       [0.02]
+
+                                                                                 Panel E: (t-30,t) Sample
+                   itrade   -3.5582***   -2.4045***    -0.0003       -0.0001      -0.0001***      -0.0000    -0.0006    0.0006     -0.0007***   -0.0011***   -0.0007***     -0.0012**
+                               [-9.49]     [-4.55]      [-1.46]       [-0.29]        [-3.48]       [-0.74]    [-0.46]   [0.38]       [-4.21]      [-3.92]       [-2.75]       [-2.54]
+Figure IA.6. Decomposition of abnormal share turnover. The bars plot the
+abnormal volume as a percentage of outstanding shares, measured as the increase (in
+percentage points) in the share turnover during the same time window compared to the
+average turnover rate during the preceding (t-120, t-60) event window. The dashed part
+of each bar plots the average percentage of outstanding shares purchased by Schedule
+13D filers. The dark part of each bar plots the abnormal volume that does not come
+from Schedule 13D filers. Panel A plots the abnormal volume from 60 days prior to the
+event date to 10 days after the event date. Panel B plots the abnormal volume from 60
+days prior to the filing date to the filing date.
+
+
+                                         27
+Figure IA.7. Informed trading during a trading day. The solid line plots the
+percentage of trades by Schedule 13D filers during a trading day. The sample covers
+12,576 trades that have a unique match to the TAQ data.
+
+
+B. Informed Trading during a Trading Day
+
+   Figure IA.7 presents the distribution of these trades over the trading day. The sample
+covers 12,576 trades that have a unique match to the TAQ data (see Section V.A). The
+figure indicates that Schedule 13D filers are more likely to trade at the beginning and at
+the end of the trading day. This trading pattern is consistent with Schedule 13D filers
+trading when intraday trading activity is high, that is, at the beginning and at the end
+of the trading day (e.g., Jain and Joh 1988)).
+
+
+C. Matching Schedule 13D Trades and TAQ Data
+
+   In general, Schedule 13D requires disclosure at the daily level and not at the
+transaction level. Therefore, our sample of 292,551 Schedule 13D transactions consists
+of both aggregated (to the daily level) transaction data and specific transactions. We
+match transaction data with TAQ data on the following dimensions: transaction date,
+transaction price, and transaction quantity. The matching procedure leaves us with
+
+                                           28
+108,706 transactions, or 37% of the sample, which suggests that often Schedule 13D
+filers disclose aggregated transaction data.
+
+   Next, we require a Schedule 13D transaction to have a unique match to TAQ data.
+The match on date, quantity, and price is not unique because Schedule 13D filers do not
+disclose the exact timing of each transaction. The matching procedure leaves us with
+12,576 trades that have a unique match to the TAQ data.
+
+   There is one final concern, however, about the quality of the match. While 12,576
+reported trades have a unique match to TAQ data on transaction date, transaction
+price, and transaction quantity, it is possible that Schedule 13D filers report aggregated
+information about a series of transactions and that the aggregated “transaction” has a
+unique match to the TAQ data. To mitigate this concern, we restrict the sample to the
+filings in which Schedule 13D filers disclose at least five transaction on a given day. Our
+assumption is that in these cases Schedule 13D filers are likely to disclose information
+on true and not aggregated trades. There is almost no change in the results.
+
+
+D. Proxy for Usage of Market Orders
+
+   We calculate a new version of the volume-weighted average transaction price for
+every trading day using only buy-initiated transactions (vwap buy). Next, we augment
+the data with the average price Schedule 13D filers pay (obtained from Schedule 13D
+filings). Finally, we hypothesize that if the average price paid by a Schedule 13D filer
+is above vwap buy, the filer is likely to use market orders. We indicate these days with
+above vwap buy. To test our proxy, we estimate the following regression:
+
+
+         yit = α + γ1 itradeit + γ2 itradeit ∗ above vwap buyit + ηi + it ,       (IA.16)
+
+
+where yit is either the order imbalance or excess stock return for company i on day t,
+itradeit indicates days on which Schedule 13D filers trade, above vwap buyit indicates
+trading days when Schedule 13D filers are likely to use market orders, and ηi are event
+
+                                               29
+                                              Table IA.X
+
+               Informed Trading, Order Imbalance, and Stock Prices
+
+This table presents the relation between informed trading, order imbalance, and stock prices. We
+estimate the following regression: yit = α + γ1 itradeit + γ2 itradeit ∗ above vwap buyit + ηi + it , where
+yit is either the order imbalance or market-adjusted return for company i on day t, itrade indicates
+days on which Schedule 13D filers trade, above vwap buyit indicates days when the average price paid
+by an informed investor is higher than the volume-weighted average price of buy-initiated transactions,
+and ηi are event fixed effects. Order imbalance (orderim) is the difference in the proportion of buy-
+and sell-initiated trades. Market-adjusted return (eret) is the stock return in excess of the CRSP
+value-weighted return. The analysis is based on daily observations from 60 days before the filing date
+to the filing date. In each column, we report estimated coefficients and their t-statistics, calculated
+using heteroskedasticity-robust standard errors clustered by event. *, **, and *** indicate statistical
+significance at the 10%, 5%, and 1% levels, respectively.
+
+
+             Dependent Variable            orderim         orderim       eret         eret
+                                             (1)             (2)          (3)          (4)
+
+
+             itrade                       -0.0378***      -0.0868***   0.0060***   0.0052***
+                                             [-6.67]        [-13.42]     [11.86]      [9.22]
+             itrade ∗ above vwap buy                       0.1221***               0.0021**
+                                                             [16.78]                  [2.57]
+             Constant                     -0.0344***      -0.0344***    -0.0002     -0.0002
+                                            [-18.96]        [-19.22]     [-0.96]     [-0.96]
+
+
+
+fixed effects. The analysis is based on daily observations from 60 days before the filing
+date to the filing date. Table IA.X presents the results.
+
+    The results support the validity of our proxy for the usage of market orders. The
+negative and significant coefficient γ1 on itrade suggests that when Schedule 13D filers
+trade, order imbalance is more negative. However, γ2 is positive and significant, which
+shows that on days when the average price paid by Schedule 13D filers is higher than
+vwap buy, order imbalance increases. This is consistent with the usage of market orders
+by the filers on these days.
+
+    When we analyze excess stock returns, we find that prices appreciate more when
+Schedule 13D filers are likely to use market orders. While on a typical trading day with
+informed trading the excess returns are 0.52%, when Schedule 13D filers are likely to
+
+
+                                                     30
+use market orders the excess returns increase by an additional 0.21% to 0.73%. Overall,
+when our proxy indicates usage of market orders by Schedule 13D filers, informed trades
+have a positive and significant impact on order imbalance and excess stock returns. This
+suggests that our proxy for the usage of market orders by Schedule 13D filers is likely
+to be valid.
+
+
+E. Autoquoting on NYSE
+
+   We perform a test on the role of limit orders on NYSE. The test exploits the start
+of autoquoting on NYSE (Hendershott, Jones, and Menkveld (2011)).            Previously,
+specialists were responsible for manually disseminating the inside quote. This was
+replaced in early 2003 by a new automated quote system whenever there was a change
+to the NYSE limit order book. Presumably, the ability of Schedule 13D traders to rely
+on limit orders must have been enhanced by the reform. Therefore, the limit order
+mechanism implies weaker results during the pre-reform period. Table IA.XI reports
+the results. The evidence suggests that the main result of the paper holds prior to the
+start of autoquoting on NYSE as well, indicating that the limit order mechanism is not
+the only mechanism that explains the main result.
+
+
+F. Informed Trading and Selection on Observables
+
+   If the selection mechanism operates, the relation between informed trading and
+liquidity measures should be weaker if a regression includes variables on which informed
+traders select. To test this hypothesis, we augment regression (IA.15) with market-
+wide and firm-specific characteristics. Table IA.XII reports the results. Panel A reports
+estimates of the basic specification. In Panel B we augment the regression with date
+fixed effects, which basically controls for any market-wide observable and unobservable
+stock characteristics. In Panel C we augment the regression with the market-wide and
+stock-specific characteristics (see Table VIII of the main article).
+
+
+                                            31
+                                              Table IA.XI
+
+             Informed Trading and Restrictions on Usage of Limit Orders:
+
+                                       Autoquoting on NYSE
+
+This table shows the relation between informed trading and liquidity measures on stocks listed on NYSE.
+We regress each of the liquidity measures described in Section III of the main article on an indicator
+of informed trading using the following specification: liqit = α + γ1 itradeit + γ2 bef oreit + γ3 itradeit ∗
+bef oreit + ηi + it , where liqit is a measure of liquidity for company i on day t, itrade indicates days
+on which Schedule 13D filers trade, bef oreit indicates the 1994 to 2002 period (before the introduction
+of algorithmic trading on NYSE), and ηi are event fixed effects. The F − test tests whether during the
+period when the usage of limit orders by informed investors was severely limited, stock liquidity on days
+with informed trading is different from stock liquidity on days without informed trading. The analysis
+is based on daily observations from 60 days before the filing date to the filing date. In each column, we
+report estimated coefficients and their t-statistics, calculated using heteroskedasticity-robust standard
+errors clustered by event. *, **, and *** indicate statistical significance at the 10%, 5%, and 1% levels,
+respectively.
+
+
+   Dependent Variable       λ ∗ 106     pimpact       cumir      trade − related     rspread     espread
+                              (1)         (2)          (3)             (4)             (5)         (6)
+
+
+   itrade                  -0.7534**     -0.0003      -0.0000        -0.0004          0.0000      -0.0002
+                             [-2.27]      [-0.92]      [-1.54]        [-0.33]          [0.33]      [-0.54]
+   bef ore                   1.4968      -0.0007    0.0001***       0.0068***         0.0022       0.0027
+                              [0.89]      [-0.48]       [3.50]         [3.22]          [1.04]       [1.65]
+   itrade ∗ bef ore       -3.9324***      0.0005    -0.0002***        0.0015        -0.0005**      0.0003
+                             [-3.91]       [0.97]      [-2.71]         [0.46]         [-2.04]       [0.43]
+
+   F-test: γ1 + γ3 = 0
+   Point estimate           -4.6858      0.0002      -0.0002          0.0011          -0.0005     0.0001
+   F-statistics             24.2906      0.2123      11.0662          0.1329          4.2478      0.0125
+   p-value                  0.0000       0.6452       0.0010          0.7156          0.0398      0.9111
+
+
+
+
+                                                     32
+                                             Table IA.XII
+
+                    Informed Trading and Selection on Observables
+
+This table shows the impact of informed trading on liquidity measures, while controlling for several
+market-wide and stock-specific variables. In Panel A we regress each of the liquidity measures described
+in Section III of the main article on an indicator of informed trading, using the following specification:
+liqit = α+γitradeit +ηi +it , where liqit is a measure of liquidity for company i on day t, itrade indicates
+days on which Schedule 13D filers trade, and ηi are event fixed effects. In Panel B we augment the
+regression with date fixed effects. In Panel C we augment the regression with market-wide and stock-
+specific controls analyzed in Table VIII of the main article. The analysis is based on daily observations
+from 60 days before the filing date to the filing date. In each column, we report estimated coefficients
+and their t-statistics, calculated using heteroskedasticity-robust standard errors clustered by event. *,
+**, and *** indicate statistical significance at the 10%, 5%, and 1% levels, respectively.
+
+
+ Liquidity Measure       λ ∗ 106       pimpact        cumir       trade − related     rspread       espread
+                           (1)           (2)           (3)              (4)             (5)           (6)
+
+
+                                            Panel A: Basic Model
+ itrade                -3.4855***    -0.0004*** -0.0001***            -0.0013        -0.0008***    -0.0009***
+                         [-11.51]      [-2.83]       [-5.46]           [-1.40]          [-6.22]       [-4.50]
+
+
+                                Panel B: Basic Model with Date Fixed Effects
+ itrade                -2.3634*** -0.0006** -0.0001***            -0.0012            -0.0006***    -0.0009***
+                          [-6.64]      [-2.38]     (-3.66)        (-1.24)               [-3.44]      [-3.29]
+
+
+                         Panel C: Basic Model with Current and Lagged Controls
+ itrade                -2.2297*** -0.0005*** -0.0001***         -0.0011      -0.0005***            -0.0008***
+                          [-8.08]     [-2.93]     [-4.41]        [-1.18]        [-3.87]              [-3.29]
+
+
+
+    Consistent with the hypothesis, the results show that the coefficient on itrade is
+closer to zero in the λ, rspread, and espread regressions. For example, the coefficient
+on itrade in the rspread regression changes from -0.0008 to -0.0005 when market-wide
+and stock-specific characteristics are added to the regression. The only exception is
+regression with pimpact, which is more strongly related to informed trading when the
+regression includes market-wide and stock-specific characteristics.
+
+    The fact that the coefficients are still negative and statistically significant (albeit
+weaker) after controlling for our market-wide and stock-specific liquidity factors indicates
+
+
+                                                     33
+that we have not explained all of the effect with selection. Of course, this may be because
+we are not using sufficiently precise instruments to control for market and stock-specific
+liquidity.
+
+
+
+
+                                            34
+                                   REFERENCES
+
+
+Amihud, Yakov, 2002, Illiquidity and stock returns: Cross-section and time-series effects,
+Journal of Financial Markets 5, 31–56.
+
+Brav, Alon, Wei Jiang, Frank Partnoy, and Randall Thomas, 2008, Hedge fund activism,
+corporate governance, and firm performance, Journal of Finance 63, 1729–1775.
+
+Davies, Ryan J., and Sang Soo Kim, 2009, Using matched samples to test for differences
+in trade execution costs, Journal of Financial Markets 12, 173–202.
+
+Easley, David, Nicholas M. Kiefer, Maureen O’Hara, and Joseph B. Paperman, 1996,
+Liquidity, information, and infrequently traded stocks, Journal of Finance 51, 1405–
+1436.
+
+Fama, Eugene F., and Kenneth R. French, 1997, Industry costs of equity, Journal of
+Financial Economics 43, 153–193.
+
+Fos, Vyacheslav, 2014, The disciplinary effects of proxy contests, Working paper,
+University of Illinois at Urbana-Champaign.
+
+Garfinkel, Jon, and Mahendrarajah Nimalendran, 2003, Market structure and trader
+anonymity: An analysis of insider trading, Journal of Financial and Quantitative
+Analysis 38, 591–610.
+
+Glosten, Lawrence R., and Lawrence E. Harris, 1988, Estimating the components of the
+bid/ask spread, Journal of Financial Economics 21, 123–142.
+
+Goyenko, Ruslan, Craig Holden, and Charles Trzcinka, 2009, Do liquidity measures
+measure liquidity? Journal of Financial Economics 92, 153–181.
+
+Hasbrouck, Joel, 1991a, Measuring the information content of stock trades, Journal of
+Finance 46, 179–207.
+
+
+
+                                           35
+Hasbrouck, Joel, 1991b, The summary informativeness of stock trades: An econometric
+analysis, Review of Financial Studies 4, 571–595.
+
+Hasbrouck, Joel, 2009, Trading costs and returns for U.S. equities: Estimating effective
+costs from daily data, Journal of Finance 64, 1445–1477.
+
+Hasbrouck, Joel, 2010, The best bid and offer: A short note on programs and practices,
+Working paper, New York University.
+
+Hendershott, Terrence, Charles M. Jones, and Albert J. Menkveld, 2011, Does
+algorithmic trading improve liquidity? Journal of Finance 66, 1–33.
+
+Jain, Prem C., and Gun-Ho Joh, 1988, The dependence between hourly prices and
+trading volume, Journal of Financial and Quantitative Analysis 23, 269–283.
+
+Kyle, Albert, 1985, Continuous auctions and insider trading, Econometrica 53, 1315–
+1335.
+
+Lee, Charles M. C., and Mark J. Ready, 1991, Inferring trade direction from intraday
+data, Journal of Finance 46, 733–746.
+
+
+
+
+                                          36
+
