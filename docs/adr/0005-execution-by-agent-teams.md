@@ -14,3 +14,11 @@ for research, mechanical and first-pass work, Opus for hard derivations,
 diagnosis, synthesis and judging. Fable is never spawned as a subagent and
 never does the work itself beyond tiny orchestration acts (ls, git, tickets,
 logs).
+
+**Routing by difficulty (2026-08-19).** "Research" for Sonnet means locating,
+fetching, extracting and quoting. Judging what a paper *proves* is not that:
+theory papers and direct competitors get Opus readers and Opus verifiers;
+empirical/institutional papers get Sonnet readers with a batched Sonnet
+verifier. Evidence: in the 2026-08 review, checked Sonnet claims were refuted
+~33% vs ~8% for Opus; a wrong "what is proved" reading forces a redo of the
+whole positioning stage.
