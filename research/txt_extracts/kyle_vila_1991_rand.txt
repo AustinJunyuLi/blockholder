@@ -1,0 +1,1246 @@
+Noise Trading and Takeovers
+Author(s): Albert S. Kyle and Jean-Luc Vila
+Source: The RAND Journal of Economics , Spring, 1991, Vol. 22, No. 1 (Spring, 1991),
+pp. 54-71
+Published by: Wiley on behalf of RAND Corporation
+
+Stable URL: https://www.jstor.org/stable/2601007
+
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide
+range of content in a trusted digital archive. We use information technology and tools to increase productivity and
+facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at
+https://about.jstor.org/terms
+
+
+
+
+            RAND Corporation and Wiley are collaborating with JSTOR to digitize, preserve and extend
+            access to The RAND Journal of Economics
+
+
+
+
+                                                    This content downloaded from
+                                  52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                            All use subject to https://about.jstor.org/terms
+                                                                                      RAND Journal of Economics
+                                                                                      Vol. 22, No. 1, Spring 1991
+
+
+
+
+Noise trading and takeovers
+
+Albert S. Kyle*
+
+and
+
+Jean-Luc Vila * *
+
+
+
+
+A model of takeovers is investigated in which "noise trading" provides camouflage that
+makes it possible for a large corporate outsider to purchase enough shares atfavorable prices
+so that takeovers become profitable. Although the model accommodates the possibility of
+dilution (Grossman and Hart, 1980) and a large incumbent shareholder (Shleifer and Vishny,
+1986), neither dilution nor a large incumbent shareholder is necessary for costly takeovers
+to be profitable. Noise trading tends to encourage costly takeovers that otherwise would not
+occur and to discourage beneficial takeovers that otherwise would occur.
+
+
+1. Introduction
+
+* Firms in the risk arbitrage business use the stock market as a vehicle for speculating
+about the occurrence of corporate takeovers. Since these firms buy and sell large quantities
+of shares, they recognize their own market power by taking into account the depth of the
+market. In a takeover situation, the amount held by the largest shareholder influences his
+incentives to engineer a takeover, which would increase the value of the firm's shares. In
+an efficient market, the price of a firm's stock discounts the probability of a takeover and
+its implications for the firm's value. This article develops a simple model that makes it
+possible to answer the following questions about such markets: What determines the depth
+of the market in which informed traders buy and sell? How can profitable speculation by
+risk arbitragers be reconciled with the economist's understanding of efficient markets? How
+is asset pricing affected when the size of a large trader's holding of shares influences the
+economic value of those shares?
+      The model is based on the idea that "noise trading"-uninformative trading for liquidity
+or life cycle motives-provides enough camouflage to enable a large outsider to profit by
+acquiring a significant stake in a target firm without being noticed.' When there is a great
+deal of noise trading, the market for a firm's shares tends to be deep, since the market
+attributes changes in the quantity of shares supplied in the market to changes in noise
+
+
+
+
+      * University of California, Berkeley.
+      * * Massachusetts Institute of Technology.
+      Kyle's research was sponsored by NSF Grant IST85-11741. Both authors thank seminar participants at the
+Graduate School of Industrial Administration, Carnegie-Mellon University, for useful comments.
+      '-The model abstracts from disclosure requirements. We do not require the large trader to notify the market
+if he purchases or sells a significant amount of stock.
+
+
+                                                          54
+
+
+                                          This content downloaded from
+                        52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                  All use subject to https://about.jstor.org/terms
+                                                                                 KYLE AND VILA / 55
+
+
+trading, not to changes in the behavior of a large trader with private information about
+takeover prospects. In equilibrium, the depth of the market adjusts so that all information
+about the probability of takeovers revealed by the supply of shares brought to market is
+incorporated into prices. Thus, prices are consistent with the efficient markets principle that
+all public information is impounded in prices. The large trader makes profits at the expense
+of noise traders, whose losses can be interpreted as a payment for liquidity services provided
+by the market.
+     We assume that one large informed trader has the ability to declare a takeover by
+incurring a cost. He has an incentive to do so because shares purchased during the trading
+process, as well as shares owned before the trading process begins, will be worth more if a
+takeover occurs than if it does not. The large trader can also speculate against a takeover
+by taking a short position. In equilibrium, this large trader trades the quantity (positive or
+negative) that maximizes his expected profits, taking into account his own effect on prices.
+We use a rational expectations concept to show simultaneously both how the depth of the
+market depends upon the trading strategy of a large trader and how the trading strategy of
+the large trader depends upon the depth of the market.
+     The model provides a perspective on takeovers different from those of both Grossman
+and Hart (1980) and Shleifer and Vishny (1986).
+     Grossman and Hart ( 1980) argue that takeovers which increase the value of a firm's
+shares will not occur if the shares of the firm are initially diffusely held and the shares of
+the target firm are worth exactly the same to a successful bidder as to incumbent shareholders.
+Once shareholders realize that a value-enhancing takeover is going to occur, they have no
+incentive to sell their shares for less than they would be worth after the takeover. To rationali
+takeovers, Grossman and Hart suggest that an outside bidder can dilute the value of incum-
+bents' shares by excluding incumbent shareholders from some of the gains the takeover
+brings about. This dilution makes shares worth more to the bidder than to incumbent
+shareholders and thus gives incumbent shareholders an incentive to sell to the bidder.
+     Shleifer and Vishny (1986) emphasize that when one of the incumbent shareholders
+is large, the prospect of increasing the value of shares he already owns provides an incentive
+for the large shareholder to engage in takeovers and other value-enhancing activities, even
+though other incumbent shareholders receive a free ride.
+     The model discussed here includes both Grossman and Hart's dilution and Shleifer
+and Vishny's large incumbent shareholder as motivations for profitable takeovers, but it
+adds to these an additional effect arising from the interaction between noise traders and the
+large informed trader. When noise traders are heavy sellers, the large informed trader notices
+an opportunity to buy a large stake at favorable prices and does so. Having become a larger
+shareholder, the large trader has an incentive to declare a takeover (by making a tender
+offer for all outstanding shares), even if he incurs a cost in doing so. The large trader makes
+a profit, and the noise traders, whose selling precipitated the takeover that increased the
+value of the firm's shares, systematically lose out.
+     Since trading against noise encourages costly takeovers, neither dilution nor a large
+incumbent shareholder is necessary for costly takeovers to be profitable.
+     In order to make the analysis tractable, the model makes the restrictive assumptions
+that ( 1 ) only one large trader is eligible to declare a takeover and (2) this large trader is the
+only trader who observes the aggregate trading activity of noise traders. The second as-
+sumption could be relaxed by considering an equilibrium in supply curves (see Vila ( 1986)
+and Kyle ( 1989) for an application to another case). The first assumption requires the
+existence of some barrier to entry that prevents other potential large traders from engaging
+in takeover activity. Such a barrier could be created if the large trader has a lower cost of
+declaring takeovers than other large traders or a larger ex ante position in the commodity
+(as in Shleifer and Vishny (1986)). Alternatively, a natural barrier to entry might prevent
+two large traders from competing. Other restrictive assumptions are that noise trading has
+
+
+
+                                      This content downloaded from
+                    52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                              All use subject to https://about.jstor.org/terms
+56 / THE RAND JOURNAL OF ECONOMICS
+
+
+a two-state distribution and there is one round of trading. Vila ( 1986) discusses some im-
+plications of relaxing these assumptions.
+     The framework used here to describe takeovers can also be used to describe other
+trading situations in which the ex post value of the commodity is influenced by the action
+of a large trader, and the large trader's action depends upon the size of his ex post position
+in the commodity. An example involving manipulation of a futures contract is developed
+by Kyle ( 1984b). The proofs in this article represent great improvements over Kyle ( 1984b).
+
+
+2. A model of takeovers
+* There are three kinds of traders in the market for a firm's shares: a large trader, noise
+traders, and value-based investors. After one round of trading, positions are liquidated
+according to predetermined rules that incorporate a reduced-form model of the takeover
+process.
+     In the one round of trading, the noise traders sell an exogenous random quantity
+denoted i. The large trader observes i and places a "market order" to buy a quantity
+denoted X(2). The large trader's strategy is a market order in the sense that he must choose
+the quantity he buys before the price at which the order is executed is established. Actually,
+the large trader's "trading strategy," X( ), is a mixed buying strategy because we allow the
+quantity purchased or sold to be random. Thus for every distinct realization z, the quantity
+purchased, X(z), is a random variable (degenerate in a pure strategy equilibrium). The
+value-based investors observe the net supply Z - X(fi), but they do not observe Z
+separately. They set a price denoted P(z - X(z)), where the "pricing rule," P( * ), is some
+real-valued function. In this respect, the model is like the "market order" equilibrium of
+Kyle ( 1985 ), with value-based investors here competing away profits and insuring efficient
+markets like market makers in that discussion.
+     The profits of the informed trader depend upon whether or not he declares a takeover
+after trading occurs. The informed trader is assumed to have an option to declare a takeover,
+which is modelled as follows:
+     Let S denote the number of shares outstanding, including the holdings of the large
+trader. If the informed trader does not declare a takeover, then each share is assumed to be
+worth p*, so the firm is worth p*S. If the informed trader does declare a takeover, then the
+informed trader makes a tender offer for the firm's outstanding shares, and the firm is
+assumed to be worth (p* + v)S + G. Here, v is an exogenously specified premium the
+informed trader must pay in a tender offer, and G represents gains the informed trader
+realizes from diluting the values of existing shares. The total increase in the value of the
+firm is vS + G. Of this amount, vS is given to existing shareholders (including the large
+trader) in the tender offer, and the balance G is captured by the large trader for himself.
+We do not model in this article where the premium v comes from; it is exogenously specified.
+     The informed trader is assumed to incur a cost K (representing legal fees and other
+expenses) when he declares a takeover. Let X0 denote the initial shareholdings of the informe
+trader before trading takes place. Let f3 denote the net gains to the informed trader from
+declaring a takeover (relative to not declaring a takeover) if he chooses not to trade. Since
+the takeover allows the shares to be liquidated forp* + v instead of p*, the no-trade takeover
+benefit fi is given by : = X0v + G - K. In this expression, X0v denotes the gain realized
+from being a large shareholder, G represents the gain from dilution, and these two sources
+of gains are netted against the cost K. If the informed trader trades, the gain from declaring
+a takeover (relative to not declaring a takeover) is given by vx + A, i.e., the relative gain is
+increased by vx, the difference between the no-takeover value and the takeover value of
+the shares purchased in the round of trading. To maximize profits, the informed trader wil
+declare a takeover if vx + fi is positive, not declare a takeover if vx + fi is negative, and b
+indifferent if vx + fi is zero (in which case we make the innocuous assumption that a
+takeover is declared).
+
+
+
+                                      This content downloaded from
+                    52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                              All use subject to https://about.jstor.org/terms
+                                                                                 KYLE AND VILA / 57
+
+
+     Note that even if the no-trade benefit : is negative (because the gains from dilution
+and from being a large shareholder are not large enough to offset the takeover costs K), a
+takeover can occur if the large trader buys enough shares x to make vx + fi positive.
+     If we assume that the profits of the informed trader are zero if he does not trade and
+does not declare a takeover, then the net profits of the informed trader from buying an
+amount x when noise traders sell z is given by
+
+                           H(x, z) = [p* - P(z-x)1x+(vx+)?, (+1 )
+
+ where (vx + #f)+ denotes max(vx + A, 0). In th
+the first term [p* - P(z - x)]x denotes the premium above p* paid for shares by the large
+trader and is generally nonpositive, since shares are never worth less than p*. The second
+term (vx + fl)+ denotes the gains from a profitable takeover, including both the no-trade
+takeover benefit : and the extra value v added to each share purchased in anticipation of
+declaring a takeover.
+
+
+3. Definition of equilibrium
+
+U Given the trading rule X(z), a function 0 giving the conditional probability o
+(based on the information of value-based investors) can be written
+
+                        6(y) = prob {vX(f) +f 2 0 I Zn - X(Z) = y}. (2)
+Notice that the function 0(y) is not uniquely defined over sets of y-values which have a
+zero probability of occurring.
+     The following definition of equilibrium is similar in spirit to Kyle (1985) and Kyle
+(1984a) and is essentially identical to Kyle ( 1984b):
+     An equilibrium is defined as a trading rule (i.e., a mixed buying strategy) X and a
+pricing rule P: R -- [p*, p* + v] such that the following two conditions hold:
+(1) Market efficiency: for some function 0 satisfying (2), we have P(y) = p* + vO(y).
+(2) Profit maximization: for every realization of zi, the quantity x = X(z) maximizes
+H(x, z).
+
+The market efficiency condition says that competitive value-based investors insure t
+price of the stock equals its expected liquidation value, reflecting accurately the probabil-
+ity of a takeover conditional on the market's ability to observe the net quantity traded
+y = z - X(zi). The profit maximization condition says that the large trader maximizes
+expected profits, taking into account his influence on prices, his ability to observe noise
+trading z, and his ability to declare a takeover after trading ceases. Note that the demand
+schedule P( * ) and the realization of z? define a residual demand schedule against which the
+large informed trader trades like a textbook monopsonist.
+    If we view value-based investors as risk-neutral Bertrand competitors who bid for the
+net supply z - X(z), then the equilibrium resembles a sequential equilibrium in which the
+market efficiency condition becomes endogenous and the profit maximization condition
+incorporates a subgame perfection requirement. The restriction of the range of p to
+[p*, p* + v] would be implied by a sequential equilibrium requirement (see Kreps and
+Wilson (1982)): given an observation of y, for any beliefs that the market makers could
+have about zi, they would be willing to make unlimited purchases at prices less than p* and
+make unlimited sales at prices greater than p* + v. In fact, a sequential equilibrium re-
+quirement would imply more than this. It would imply P(y) = p* + v when traders can
+infer that a takeover is profitable ((z - y)v + 3 2 0 for every z in the support of z), and it
+would imply P(y) = p* when traders can infer that a takeover is unprofitable ((z - y)v
++ 3 <0 for every z in the support of 2).
+    Note that we assume no constraints on short sales.
+
+
+
+                                      This content downloaded from
+                    52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                              All use subject to https://about.jstor.org/terms
+58 / THE RAND JOURNAL OF ECONOMICS
+
+     In order to keep calculations as simple as possible, it is assumed in what
+the random variable z has a two-state distribution
+
+                            zO with probability - X (state 0)
+                            z1 with probability X (state 1)
+
+where zo, z1, and X are exogenous constants, with z1 > zo and 0 < X < 1.
+the more complicated case in which z has more than two states takes us b
+of this article, but some aspects of this case are considered by Vila ( 1986
+Vila (1991). In the discussion of equilibrium that follows, noise trading c
+trading of the large shareholder, who tends to buy shares when selling by n
+relatively heavy. Since z represents selling and z, > zo, the heavier selling by
+in state 1 makes state 1 more favorable for a takeover than state 0. The param
+measures the probability that the state favorable for a takeover occurs.
+
+
+4. Characterization of equilibria: an intuitive approach
+* A rigorous characterization of all equilibria is presented in detail in the Appendix
+set aside technical difficulties, here we present a simplified and more intuitive derivation
+     For trading to generate interesting possibilities, takeover benefits 3 cannot be extreme
+large in absolute value. If # is large and positive, the large trader always declares a takeo
+in any equilibrium, the price is always p* + v since the market knows this, and the
+trader stands to gain nothing from buying shares in advance of a takeover. If / is large
+negative (i.e., takeovers are very costly), the large trader never declares a takeover in an
+equilibrium, the price is always p* since the market knows this, and the large trader sta
+to gain nothing by shorting shares in advance of not declaring a takeover. Interesting trad
+possibilities require that the equilibrium involve uncertainty among the value-based inve
+about whether a takeover is going to occur, and this requires that takeover benefits / no
+be extremely large in absolute value.
+    For uncertainty about whether a takeover is going to occur to be an aspect of
+equilibrium, a takeover (or the absence of a takeover) cannot be inferred by the ma
+from the net order flow observed, ? - X(z2). In this sense, noise trading camouflage
+large trader's buying and selling. When the level of selling of noise traders is high, the
+trader buys shares (X(zl) > 0) for some price between p* and p* + v, then profits
+declaring a takeover and liquidating the shares purchased at p* + v. When the lev
+selling by noise traders is low, the large trader sells shares for some price between p* an
+p* + v, then profits on the sale when he subsequently does not declare a takeover
+liquidates the shares at price p*. In both cases the market is uncertain about wheth
+takeover is going to occur. This uncertainty requires that value-based investors observe t
+same level of aggregate volume y* when the large trader is buying as when he is sel
+This "pooling quantity" y* satisfies2
+
+                                  y* = z1-X(z1) = zo-X(zO). (4)
+      In principle, it is possible for an equilibrium to involve
+ strategies on the part of the large trader. With pure strat
+ the noise-trading quantity z - zi, the quantity traded by
+ In a mixed strategy equilibrium, for distinct realizations
+ large trader is random. In a mixed strategy equilibrium
+
+
+     2 Although it is tempting to use the word "confusion" to describe
+ takeover-is going to occur, the word "pooling" is more precise, since it
+ adverse selection problem is dealt with.
+
+
+
+                                     This content downloaded from
+                   52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                             All use subject to https://about.jstor.org/terms
+                                                                                KYLE AND VILA / 59
+
+
+randomize his trading in state 0 or in state I or in both states. The rest of this section
+discusses the different kinds of equilibria that can arise, depending upon the level of takeov
+benefits B. It is shown that an equilibrium can involve either pure strategies or mixed
+strategies, but mixed strategy equilibria involve mixing in only one state. Furthermore (see
+the Appendix for details), there can be at most one pooling point.
+
+0 Pure strategy equilibrium. We discuss the pure strategy equilibrium first. The problem
+boils down to discovering the range of takeover benefits A for which a pure strategy equi-
+librium exists.
+     To prove that an equilibrium with pure strategies and pooling exists, it is necessary to
+find a trading strategy X(z) and a pricing rule P(y) such that the market efficiency and the
+profit maximization conditions in the definition of equilibrium are satisfied. With pure
+strategies, the trading strategy X(z ) is characterized by two nonrandom quantities, X(zo)
+and X(zl). The pricing rule P(y) must still be defined for all real numbers y, even though
+the actual price observed will always be the price associated with the observed pooling
+quantity P(y* ). Prices for quantities y # y* are nevertheless important because even though
+they do not occur in equilibrium, they provide incentives for the large trader to trade the
+quantity that results in y* being observed by the market.
+    Even though conditional probabilities of a takeover are not uniquely defined for these
+nonpooling quantities, we can set 0(y) = [P(y) - p * I/ v. Assuming the market efficiency
+condition holds, we shall therefore refer to O(y) = (P(y) - p* )/v as either a probability
+or a "price," as convenient, and shall think of Of() and P(*) interchangeably. This is
+essentially equivalent to the normalizing assumptions p* = 0, v = 1.
+     In a pure strategy equilibrium with pooling, a takeover occurs in state 1 and no takeover
+occurs in state 0, the probability of a takeover is X, and we have
+
+                                                 ((Y*)                     =     X.'       (5)
+Thus the market efficiency condition implies that the "pooling price" is P(y*) = p* + Xv.
+This price is the same for both states, and the large trader makes a trading profit in both
+states: When he buys in state 1, the shares realize a post-takeover value of p* + v and he
+makes a capital gain of (1 - X) v per share bought. When he sells in state 0, the shares
+realize a no-takeover value of p* and the large trader makes a gain of Xv on each share sold
+short. These profits always come at the expense of noise traders, who are always heavier
+sellers just before a takeover occurs than just before a takeover does not occur.
+      Now let us consider the implications of profit maximization. When z = z1, the large
+trader chooses x to maximize III (x), where
+
+                                HI(x) = (1 - O(zI - x))xv + f. (6)
+Similarly, when Z = zo the large trader chooses x to maxim
+
+                                       Ho(x) = -O(zO - x)xv. (7)
+
+     Notice that (6) is derived from (1) by assuming that the large trader will declare a
+takeover, while (7) is derived by assuming that the large trader will not declare a takeover.
+Thus in (6) the profits of the large trader equal the trading gains (price change times quantity
+traded) plus the lump-sum benefit A3. In (7) the profits are the speculative profits of the
+short position.
+     Assuming that O(*) is differentiable (see the Appendix), the first-order conditions are
+
+                      1 - O(z1 - X(zI)) + X(z1)O'(zl - X(z1)) = 0, (8)
+                        0(zO - X(zO)) - X(zO)0'(zO - X(zO)) = 0. (9)
+When differentiating 0, we assume that the large trader takes his effect on prices
+when deciding how much to trade. Given z;, then O(z; - x) defines a residual demand
+
+
+                                     This content downloaded from
+                   52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                             All use subject to https://about.jstor.org/terms
+60 / THE RAND JOURNAL OF ECONOMICS
+
+
+schedule by value-based investors for shares supplied by the large trader, and the large trader
+acts as a monopolist with respect to this demand schedule. Although only one point on the
+graph of the pricing schedule P(*), namely P(y*), is ever observed in equilibrium, other
+points on the graph of P( * ) must nevertheless satisfy the property that the large trader
+would never want to trade in such a way that they are observed.
+     Combining (4), (8) and (9) yields
+
+                                        - (y*)= IAZ - zo), (10)
+                                       X('zj)            =     (    1-       Z       -   Zo),   (11)
+
+                                          X(zo)               =      -(ZI-ZO),                  (12)
+
+                              III(X(zi)) = (1- )2(ZIZo)V + A, (13)
+
+                                      IIo(X(z2)) = -2(ZI-Zo)V. (14)
+Equations (10-14) are necessary conditions that characterize the equilibrium strategies and
+payoffs, but they are not sufficient since they are derived only from first-order conditions.
+     Equation ( 10) says the depth of the market, as measured by the absolute value of the
+reciprocal of the slope of the demand schedule p + 0(y) v offered by value-based investors,
+is in equilibrium proportional to the difference between the level of selling by noise traders
+in the two states, z1 - zo. The greater this difference, the greater the liquidity of the market
+in equilibrium.
+     Notice also that equations ( 11 ) and ( 12) imply X(z,) -X(zo) = z, - zo. Thus the
+difference in quantities bought by the large trader in the two states is exactly the correct
+amount to create pooling, as implied by (4).
+     In addition to the first-order conditions, it is necessary for the large trader to make as
+much profit by trading and declaring a takeover in state 1 as he would make by not trading,
+and it is necessary for him to make as much money by shorting the stock and not declaring
+a takeover in state 0 as he would by declaring a takeover. When a takeover occurs and is
+fully anticipated, the large trader earns profit equal to f3. Similarly, if a takeover does not
+occur and this is fully anticipated, zero profits are made. Therefore, to be part of an equi-
+librium, the strategies above must satisfy the inequalities
+                                              I11(X(z1))                             2   0,   (15a)
+
+                                               llo(X(zo))                        2       3.   (15b)
+These inequalities imply
+
+                           _(1 - X)2(ZI - ZO)v < a < X2(ZI - Zo)V, (16)
+and this defines an interval within which 3 must fall if a pooling equilibrium with pure
+strategies is to be sustained.
+     To interpret this inequality, define the ratio My by
+
+
+
+                                                     (Zy-=                       ~       v    (17)
+ The              quantity                              y          is       the           ratio        of
+ profit                    that                 would                       be           generated
+  z, - zo as the change in quantit
+from his equilibrium strategy), and v is the profit made when the market price is known
+by the large trader to be dead wrong (i.e., when the market anticipates a takeover with
+perfect certainty and none occurs, or vice versa). Thus the denominator (z1 - zo)v is an
+upper bound on the profit the large trader could ever make trading in an efficient market.
+In terms of y, inequality ( 16) can now be written
+
+                                          _(I1-             X)2          <       z   <   X2.    (18)
+
+
+                                      This content downloaded from
+                    52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                              All use subject to https://about.jstor.org/terms
+                                                                                   KYLE AND VILA / 61
+
+
+     In the Appendix we show that if A satisfies inequality ( 16) or its equivalent ( 18), the
+strategies and payoffs ( 10-14) are the only equilibrium strategies and payoffs and there
+exists a price schedule P( * ) (it can be piecewise linear, but other possibilities also exist)
+that supports this equilibrium. This is illustrated in Figure 1, where the situation is graphed
+in (0, y)-space. In this figure the price schedule separates two regions labelled Ao(irO) and
+Al (cr I). The region AO(ro) is the set of price-quantity combinations that would offer the
+large trader superior profits in state 0, where he sells short knowing a takeover is not going
+to occur. This region offers the informed trader either higher prices or larger quantities to
+sell short, with the quantity shorted by the large trader measured as the distance from the
+vertical line through z1 . The region A I (ir1 ) is the set of price-quantity combinations offering
+the large trader superior profits in state 1, where he buys and declares a takeover. This
+region offers the large trader either lower prices or greater quantity, with the quantity pur-
+chased by the informed trader measured from the vertical line through zo. Thus the best
+point on the price schedule is (X, y*), in both states. The logic of this figure is justified
+rigorously in the Appendix.
+     Inequality ( 16) or its equivalent ( 18) says that in order for an equilibrium with pure
+strategies and pooling to exist, the benefits of a takeover 3 can be neither too large nor too
+small relative to (z1 - zo)v. If /B does not satisfy (16), then it might seem plausible to
+conjecture that a takeover will always occur if , is too large and that a takeover will never
+occur if , is too small. Actually, this intuition is only partially correct, since mixed strategies
+also come into play. This is discussed in the next few paragraphs.
+
+3 Equilibrium with takeovers always. Consider an equilibrium in which the large trader
+never trades and always declares a takeover. In such an equilibrium, the equilibrium price
+is always p* + v, and the market observes either y = zo or y = z1. For this to be an
+equilibrium, it must be unprofitable for the large trader to deviate from not trading by
+shorting z, - zo shares at a price of p* + v when z = zo (so the market is confused observing
+y = z1, what it ought to observe when z = z1), then surprising the market by not declaring
+a takeover and realizing a profit of v per share on the short sale when the market realizes
+the shares are worth only p *. Since the profits of this hypothetical short sale are (z1 - zo)v,
+exactly the denominator of y, the benefits from the takeover a must be greater than this.
+We thus obtain
+                               (z1 - zO)v < A, or equivalently, 1 ' Y. (19)
+
+
+FIGURE 1
+
+POOLING WITH PURE STRATEGIES
+
+
+
+
+                           0
+
+                                          D | -A. . ~. . . . . . . . . . . . .
+                      .t . . . . . Ao( . . . .
+                                              1 N a~~~~~~~~~ . . . . . . .. . .
+                                               II        ::::::::::
+
+
+
+
+                   2 . . . . . . . . . . *-
+                                                        I              ?
+
+
+                                                  ZO          Z
+
+                                                            Net                   supply                Y
+
+
+                                       This content downloaded from
+                     52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                               All use subject to https://about.jstor.org/terms
+62 / THE RAND JOURNAL OF ECONOMICS
+
+
+This inequality describes takeover benefits A so large that a takeover will always occur
+despite trading opportunities that might make "spiking" the takeover profitable as well.
+
+o Equilibrium with no takeovers. Now consider the other extreme case in which the large
+trader never trades and the benefits of a takeover are so small that a takeover never occurs.
+Then the market price is always the no-takeover value p*. In such an equilibrium it must
+be unprofitable for the large trader to deviate by purchasing z1 - zo when the market
+would otherwise observe I = z1, then declaring a takeover. Since the profits from this are
+(z1 - zo)v + / and profits would otherwise be zero, a necessary condition for a no-takeover
+equilibrium is
+
+                        (z - zo)v -, or equivalently, 1 < -Y. (20)
+
+This inequality defines when takeovers are so costly t
+taking into account possible gains from trading the f
+
+ o Mixed strategy equilibria. We have thus shown that
+ occur or never occur are possible provided /3 is suffic
+makes the situation complicated is that conditions ( 19) and (20) do not cover all the pos-
+sibilities in which (16) fails to hold. There are two intermediate cases: X2(Z1 - Zo)V < /
+< (z - zo)v and (1 - X)2(z1 - zo)v < -/ < (z - zo)v. In these cases, there does not
+exist an equilibrium with pooling and pure strategies, nor does there exist an equilibrium
+in which takeovers either always occur or never occur. To obtain equilibria, it is necessary
+to consider mixed strategies in which takeovers sometimes occur and sometimes do not
+occur in either state 0 or state 1. We summarize results here, deferring details to the Appendix.
+     Consider the first intermediate case, where X2(z1 - zo)v < 3 < (z1 - zo)v, or equivalently,
+X2 < Y < 1. Here a takeover is profitable even if the large trader does not trade, but takeover
+benefits are too large to sustain pooling with pure strategies and yet not large enough for
+takeover always to occur. It can be shown that equilibrium involves mixing in state 0 (see
+the Appendix). In state 0, the large trader randomizes his strategy as follows: With probability
+lio, he does not trade and declares a takeover.3 Since the market can infer that a takeover
+is going to occur, the price is p* + v, and the large trader's profits are /. With probability
+I- AO, the large trader shorts stock by choosing X(zo) = -O(y*)(z, - zo) and does not
+declare a takeover. Since y* is still a pooling quantity satisfying (4), the market cannot
+infer that a takeover is not going to occur. Market efficiency (Bayes' Law) implies
+
+                                  (by*) = X/(x + (I - X)(1 - AO)). (21)
+so the price is p * + O(y* )v, and the large trader's prof
+a randomized strategy, the mixing parameter AO must
+makes just as much money from not trading and declar
+shorting the stock and not declaring a takeover:
+
+                                 llo(X(zo)) =/ = O(y*)2(z1 - zO)v. (22)
+This implies
+
+                                                                        1/-
+                                 0(y*) = _Y 1/2 Io = -X (23)
+    The other intermediate case (1 - X)2(z1 - zo)v < -/3 < (z1 - zo)v,
+( -X) 2 < y < 1, is analogous. Here takeovers are costly, in the sense t
+earns negative profits if he declares a takeover without buying share fir
+
+
+
+    3As discussed in the Appendix, any positive X(zo) can be chosen in this equilibrium.
+
+
+
+                                        This content downloaded from
+                      52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                All use subject to https://about.jstor.org/terms
+                                                                                 KYLE AND VILA / 63
+
+
+TABLE I Description of Equilibria
+
+
+                                          Probability of a Takeover Expected Profits
+                                                                                         as a Fraction
+    Range for y State 0 State I Overall of(z1 - zO)v
+
+           'Y<-1                                   0              0              0      0
+ - < y < -(1I - )2 0 1 _ ( -)[()-12- ] (1 - Xf)l -(_7)112]2
+  -(I - x)2 <eY < X2 0 1 A -A)+ At
+     X2 < y < IA0 I + A - XY-1/2 Y + g i _ 71/2)2
+               <              Y                   ,             I                I   Y
+
+
+           Notes:                                                            The                         p
+
+                            ________ _ 1 _ - I-(1/2 X-)(_ y)-1,2
+                        (ZI-Zo)v' A 1 X - x Al-
+
+
+
+are too great to sustain a pooling equilibrium with pure strategies, but the costs are not so
+large that takeovers can never occur. Any equilibrium involves mixing in state 1, as follows:
+With probability pi,, the large trader does not trade and does not declare a takeover, earning
+zero profits. With probability 1 - A, he choosesX(zl) = (1 - O(y* ))(z1 - zo) and declares
+a takeover. Since y* is still a pooling quantity, the value-based investors cannot infer that
+a takeover is going to occur. Market efficiency implies
+
+                                                      X(1 - A)
+                                     O(Y*) .(1- Ju) + l (24)
+The mixing parameter .LI must be such that the large trader is
+and takeover after buying shares and earning zero profits by not trading:
+
+                        RlI(X(zi)) = v(l - O(y))2(ZI - zO) + =O. (25)
+
+This implies
+
+
+                  O(y*) = (1- )1()2, _ 1 -(1-._)-l (26)
+
+     The above discussion, which has described all the different cases, makes it possible to
+describe the relevant features of the equilibrium in terms of the two parameters X and -Y
+In addition, the ex ante probability of takeovers and the ex ante expected profits of the l
+trader (as a percentage of (z, - zo)v) can be expressed as functions of X and y (details of
+proof omitted). The results are summarized in the following theorem and the accompanying
+Table 1.
+
+
+Proposition 1. For all given values of the exogenous parameters z1, zo, X, there exist equilibria.
+Although the price function P(*) may not be unique, the price distribution, probabilities
+of takeovers, and profits for the large trader are all unique. The equilibria are described in
+Table 1.
+
+Proof. See the Appendix.
+
+
+5. Properties of equilibrium
+
+* This section examines properties of the equilibrium discussed in the previous section.
+     In the absence of noise trading, the large trader achieves his default level of profits
+max (1f, 0) by always taking over when fully anticipated takeovers generate a net benefi
+(/3 > 0) and by never taking over when fully anticipated takeovers generate a net cost
+
+
+
+                                      This content downloaded from
+                    52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                              All use subject to https://about.jstor.org/terms
+64 / THE RAND JOURNAL OF ECONOMICS
+
+(/ < 0). If enough noise trading is present, he departs from this default action by
+(or always, if there is no mixing) shorting the stock in state 0 when /3> 0 and by so
+(or always, if there is no mixing) taking over in state I when / < 0. Thus, the
+of noise trading is to encourage fewer takeovers when takeovers would otherw
+occur, to encourage more takeovers when they would otherwise never occur, and t
+the profits of the large trader above the default level max (/l, 0). These profits fo
+trader come at the expense of noise traders, who consistently find themselves on th
+side of the market.
+    Here we provide a comparative statics analysis of how the properties of the equilibrium
+change as the takeover benefit /3 changes. Since a change in / is proportional to a change
+in y when (z1 - zo)v is held fixed, it suffices to consider the effect on equilibrium of a
+change in y.
+    Figure 2 is a graph of the probability of a takeover as a function of y (the ratio of the
+takeover benefits /3 to the maximum trading profit (z1 - zo)v). It is assumed that X = ?/2.
+As the graph shows, the probability of a takeover increases monotonically from zero (when
+takeovers are very costly) to one (when takeovers generate large benefits). When there is
+mixing in state 1, the probability of a takeover is less than X because takeovers then do not
+occur in state 1, and the graph is convex. When there is mixing in state 0, the probability
+of a takeover is greater than X because takeovers then always occur in state 1, and the graph
+is concave. When there is pooling with pure strategies, the probability of a takeover is X.
+     Figure 3 graphs the ex ante expected profit to the large trader as a function of / (or
+equivalently, y), setting X = ?/2 and making the normalizing assumption (z1 - zo)v = 1.
+The dotted line represents max (/, 0), the default profits of the large trader if there is no
+trading. The graph shows that the large trader's ex ante expected profits are greater than /.
+Furthermore, the graph illustrates the general principle that trading profits are a monoton-
+ically increasing function of /. Note that the actual ex post profits of the large trader are
+random, depending upon whether the outcome is state 0 or state 1.
+      Of perhaps more interest than the large trader's expected profits is the amount by which
+the large trader's expected profits exceed the no-trade level max (/, 0). A graph of this
+amount, which represents the gains to the large trader from being able to trade, is presented
+in Figure 4. The graph shows that trading gains are zero either when takeovers are so
+unprofitable that they would otherwise never occur or when takeovers are so profitable tha
+
+
+FIGURE 2
+
+PROBABILITY OF A TAKEOVER AS A FUNCTION OF y OR 3
+X =1/2, (z 1 - zo ) v = 1
+                            1.5
+
+
+
+
+                             1.0 -?-- - - - - - - -- - - - - -
+                     0
+
+
+
+
+                    .0
+                     0
+                         0        0.5   _-D
+
+
+
+
+                         0.5
+                                  -1.5 -1.0 -0.5 0.0 0.5 1.0 1.5
+
+
+
+
+                                           This content downloaded from
+                         52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                   All use subject to https://about.jstor.org/terms
+                                                                                           KYLE AND VILA / 65
+
+
+FIGURE 3
+
+EXPECTED PROFITS AS A FUNCTION OF y OR P
+X = 1/2, (z1 -zo) v = 1
+
+                                1.5
+
+
+
+
+                                1.0
+
+                         Co
+
+
+
+
+                               0.5
+
+                               U            /
+
+
+
+
+                               0.0
+
+
+
+
+                                      -0.5           X      l
+                                      -1.5 -1.0 -0.5 0.0 0.5 1.0 1.5
+
+
+
+
+they are going to occur anyway. Trading gains are largest when takeovers are most unpre-
+dictable, and this occurs when the costs or benefits of the takeover (apart from trading) are
+close to zero. In fact, Figure 4 shows that trading gains are largest when ,3 = My = 0.
+      Consider next the effect of the amount of noise trading on the probability and profits
+of takeovers. Since the properties of the model depend upon zo and z1 only through
+(z, - zo)v, the appropriate measure of the amount of noise trading is z1 - zo, the differenc
+between the amounts bought in states 0 and 1. If zo and z1 both increase by the same
+amount, there is no substantive effect on the equilibrium.
+     The effect of noise trading on the probability and profits of takeovers depends upon
+whether takeovers would occur or not occur if there were no trading. To handle the case
+in which 3 is positive, we set : = 1, and to handle the case in which A is negative, we set
+A = -1. In both cases we make the normalizing assumption v = 1, and we set X = I/2.
+
+
+FIGURE 4
+
+THE EXPECTED TRADING PROFITS OF THE LARGE TRADER
+X= 1/2, (z1 -zo) v = 1
+                              1.5
+
+
+
+
+                     0) 1.0
+                     C
+
+
+
+
+                     E
+                     0
+
+                              0.5
+                     0
+
+
+
+
+                              W              0.0                  1
+
+
+                                -0.5      I | I X
+                                -1.5 -1.0 -0.5 0.0 0.5 1.0 1.5
+                                                                  -y
+
+
+
+
+                                                This content downloaded from
+                              52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                        All use subject to https://about.jstor.org/terms
+66 / THE RAND JOURNAL OF ECONOMICS
+
+FIGURE 5
+
+PROBABILITY AND EXANTE PROFITS OF TAKEOVERS
+
+           1.25                                3.2
+
+
+     g 1 00?? --~-------~~~t All 2.8
+           1.25                                2.4
+      .,        0.75                     _           2.0
+                                                                20.
+      1.500 - ------------------ - - -
+      i        0.50                        |       1.6
+
+     -j    0.25t                 /        uj       0       /          |
+           o                     0.8
+  0.00 '___________________ 0.4
+
+
+      -0.25                   l      l     l       I     l      l         l       0.0         E       l   l
+           0   1   2    3   4    5    6    7   8    9    10      0        1   2   3   4   5   6   7   8   9   10
+                             (Zi-Zo)                      v      (zi              -zo)        v
+
+               Probability of a takeover (P = 1) Expected profits of a takeover (1 = 1)
+
+           1.25                                2.4
+
+
+      1.00 - -?-- - - - - - - - - 2.0 -
+
+       2                ?
+        0.75                         -1.6                       -
+                   Cu    0.~~~~~~~~~~~~~~~C
+      15            0.50                     1.2                -
+
+
+                    0.25 - X ~~~~~~~~~~~0.8-
+                                         w
+ 0
+
+     IL 0.00?-- - - - -- - - - - 0.4 -
+
+
+           01
+                    1.2567
+                    2
+                            1 1 1 1 1 1 1 1 1 ~ ~~~0.0
+                     3 4 5 6 7 8 9 10 0 1 2 3 4 5 6 7 8 9 10
+                             (Zi          -zo)           v      (Zi           -ZO)            v
+               Probability of a takeover (P = -1) Expected profits of a takeover (P -1)
+
+
+
+      Graphs of the probability and ex ante profits of takeovers (as a function of z,
+are presented in Figure 5. When d = 1, takeovers would always occur in the absence of
+trading, and profits would occur in the absence of trading. Noise trading increases the
+probability of a takeover and increases the large trader's expected profits. When the level
+of noise trading, z1 - z0, is large enough, there is always a pooling equilibrium with pure
+strategies, the probability of a takeover is X, and the profits of the large trader are proportion
+to z1 - z0. These graphs illustrate the result that noise trading encourages takeovers when
+they are costly to the large trader, but it discourages takeovers when they are not costly and
+increases the large trader's profits.
+
+
+6. Implications and other applications
+
+* Our model can be viewed as an alternative approach to the problem of social cost posed
+by Hirshleifer ( 1971 ). He argues that the ability to trade as a perfect competitor in advance
+of undertaking a costly action which affects asset prices (like technological innovation)
+increases the incentive to undertake such costly actions in the first place. Hirschleifer uses
+this argument to suggest that speculation in anticipation of technological changes creates
+incentives to undertake the innovations that offset the disincentives to undertake the in-
+novations resulting from spillovers of benefits to others. Of course, since the argument does
+not depend upon whether the technological change represents a socially efficient or inefficient
+action, the same argument also implies that speculative opportunities create incentives to
+undertake socially wasteful actions (like destroying capital goods) as well.
+
+
+
+                                          This content downloaded from
+                        52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                  All use subject to https://about.jstor.org/terms
+                                                                                      KYLE AND VILA / 67
+
+
+      Our approach assumes that when large traders participate in markets to earn a spec-
+ulative profit from actions undertaken outside the marketplace, we would not ordinarily
+expect the asset market to be perfectly competitive. The adverse selection resulting from
+the large trader's participation in the market affects adversely the liquidity or depth of the
+market. By increasing the cost of acquiring a large speculative position, this adverse selection
+reduces the speculative incentive to undertake costly actions (like takeovers or squeezes).
+Our approach ignores the social costs and benefits of such actions, because considering
+them would raise different issues that take us beyond the scope of this article. Thus, without
+further modelling, we cannot conclude that policies which reduce stock turnover, like a
+transactions tax or more widespread use of passive portfolio management techniques, have
+favorable or unfavorable welfare implications.
+
+Appendix
+
+* The characterization of equilibria obtained in this appendix is based upon a rigorous equilibrium argument
+in which the large trader has preferences defined over price-quantity combinations and chooses from among those
+available the best combination offered by the market.
+      When describing the trading decision of the large trader, it is more convenient to think of the large trader's
+choice variable as the net aggregate supply to value-based investors, y = z - X(z), instead of the actual quantity
+demanded, X(z). When the large trader chooses y, this means that he chooses xi = zi - y in state i (i = 0, I) as a
+realization of X(z). Using this interpretation, a problem in which the trader's preferences in price-quantity space
+are constant but trading opportunities offered by the marketplace vary across states is converted into an equivalent
+problem in which the price-quantity combinations offered by the market are constant but the trader's preferences
+in (y, 0)-space vary across states.
+      Much of the discussion below is based upon the concept of a pooling point. A pooling point is defined as a
+pair (y, 0) such that for some equilibrium, 0 satisfies the inequality 0 < 0 = e(y) < 1, and y is in the supports of
+both z1 - X(zl) and zo - X(zo). Since e(y) is the conditional probability of a takeover given - X() = y, the
+inequality 0 < 0 < 1 implies that conditional upon realization of a pooling point, a takeover occurs when z1 is
+realized and does not occur when zo is realized (since z1 > zo). This fact, of course, is not inconsistent with mixed
+strategies (in which the pooling point y is not always chosen in one of the two states).
+      It is worth noting that (given some equilibrium) when a takeover occurs and is fully anticipated, the large
+trader earns profits equal to fi. Similarly, if a takeover does not occur and this is fully anticipated, no profits are
+made. Since the range of O(*) is restricted by definition to the interval [0, 1], the large trader can guarantee profits
+equal to at least flA = max (fl, 0) by purchasing or selling large quantities. If the large trader makes profits greater
+than ft' in either state 0 or state 1, it must be the case that any point chosen in the profitable state with positive
+probability is a pooling point supported by the equilibrium. Furthermore, since 110 -O(y)xo> 2 A (and 0(y)
+> 0 at a pooling point), we must have xk0 ? 0, i.e., the large trader goes (weakly) short when he does not take
+over. It follows immediately (from x0 ? 0) that any pooling point y = z, - x, = zo- xo satisfies the inequality
+zo ? y ? zj. Now define the rectangular disk B by
+
+                             B = [zo, z,] X [O, 1] = {(y, 0) I y E [zo, z ],0 E [O, 1]}. (Al)
+
+We have shown that a pooling point must be an element of the set B.
+      Profits can be expressed as a function of y and 0 as follows:
+
+                              fli(y, 0) = -(zi -y)v + [(zi - y)v + A]+, i = 0, 1. (A2)
+
+A point (y, 0) E B is said to sustain pooled profit maximization if there exist
+following two conditions are satisfied:
+
+                                 max {Ili(y, 0(y)) I yE [zo, zaJ} I + i = 0, 1, (A3)
+
+                               y E argmax { li(y, 0(y)) I y E [zo, z}, i = 0, 1. (A4)
+
+Inequalities (A3) state that the trader must make profits at least as great as the
+feature of pooling is captured by (A4), which states that the same quantity y mu
+for both states 0 and 1. Clearly, any pooling point must sustain pooled profit m
+      To discuss the implications of these conditions geometrically, we examine iso
+For i = 0, 1 and r E R, define
+
+                                        B,(7r) = {(y, 0) E B Il,(y, 0) ? 7}, (A5)
+
+                                        Ai(7r) = {(y, 0) E B IH(y, 0) > 7r}. (A6)
+
+
+                                           This content downloaded from
+                         52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                   All use subject to https://about.jstor.org/terms
+68 / THE RAND JOURNAL OF ECONOMICS
+
+
+Pooled profit maximization requires that (y, 0) lie in the set B1 (#3+) n Bo(f3'). The weak P
+as the set of points
+
+                            {(y, 0) E B,(,+) n Bo(#+) I Al(I(y, )) n Ao(lo(y, 0)) = (A7)
+The weak Pareto frontier is analogous to a contract curve (in the "Edgeworth Box" B), wher
+individual rationality constraint (y, 0) E B, (a+) n Bo(f3+).
+Lemma Al. The point (y, 0) sustains pooled profit maximization if and only if the poin
+Pareto frontier.
+
+Proof In the set A,(/.+), profits in state 1 equal the value of the modified profit function
+
+                                              llj(y,         0)     =(     -0)(z,        -   y)v   +,   (A8)
+
+ because                a       takeover             always              occurs.         In   the   set   AI    (0),
+ quasi-concave                            in      (y,       0).     Similarly,                in   the   set    Bo(
+ 11'o         B        -.   R       given           by
+
+                                                   fIlo(y, 0) = -0(Zo - y)V, (A9)
+because a takeover does not occur. In the set AO(O), this funct
+quasi-concave in (y, 0). Furthermore, the sets AI (/f3+) and
+   Now observe that if (y, 0) is on the weak Pareto frontie
+tangent line separating the two sets Al(flI'(y, 0)) and Ao
+defines a function, 0( * ), sustaining pooled profit maxim
+Pareto frontier, then monotonicity implies that every point o
+ AI (I' (y, 0)) and Ao( (IH(y, 0)) generates higher profits in eit
+0(*) consistent with pooled profit maximization. Q.E.D.
+
+Lemma A2. Define the constants, Sy, 0,, 00 and the function Y: [0, 1] [zo, zi by
+
+
+                                                         ay=v(z - zo)
+                                                                               V         ,    (A10)
+
+                                                     80 = - [(-,Y)+ 1/2 (Al 1)
+                                                          8      =       (y+)112,                  (A12)
+
+                                                    Y(0) = zo + 0(Z1 - Zo). (A13)
+
+ The weak Pareto frontier is the set of points { (Y
+
+Proof For a point (y, 0) in the interior of the set B to be on the weak Pareto frontier, the separation prop-
+erty A, (H1(y, 0)) n AO(fl,(y, 0)) = k implies that the ratios of the partial derivatives of HI(y, 0) and fl'(y, 0)
+
+
+FIGURE Al
+
+
+
+
+                                        ~ ~ ~ ~ ~ . . ' Ao(no) '
+POOLING WITH PURE STRATEGIES
+
+
+
+
+                                    1   -----[-'--_-          __-'_-_-'_'.
+
+
+
+
+                            0       o    X     _1__.                ..    .   .   .1
+
+                                        O 1:::::::::::1::h:::.::::
+
+
+                                0
+
+
+
+
+                                               Zo               Y             Z1
+                                                            Net                          supply
+
+
+
+                                              This content downloaded from
+                            52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                      All use subject to https://about.jstor.org/terms
+                                                                                                   KYLE AND VILA / 69
+
+ with respect to y and 0 must be equal. Equating these ratios from (A8) and (A9) results in
+= (zo - y)/0, and solving this equation for y in terms of 0 yields y = Oz, + ( 1 - 0)zO. Thus the
+B which satisfy the separation property is the graph of the function Y defined by (A l 3).
+    The weak Pareto frontier itself is the subset of this graph, which lies in B, (i+) n Bo(ff
+substitute y out of (A8) and (A9), we find that (Y(0), 0) is in B.(A+) and Bo(/+) if and only i
+
+                                                   ( 1- 0)(ZI -ZO)v +: 28 + (A 14)
+
+                                                          02(Z,             -    Zo)V             2     #+.           (A15)
+
+ Inequalities (A 14) and (Al 5) are equivalent, re
+ (Al 1 ) and (A 12). Thus, the weak Pareto fron
+    The weak Pareto frontier has the property th
+ frontier is the graph of Y( ) over the maximu
+ a subset of the weak Pareto frontier when fi =
+ a > 0. This truncation incorporates the restricti
+ must be large enough to make a takeover mor
+ benefits to the large trader (1 > 0), taking a sho
+ ipated takeover. Notice also that the weak Paret
+ 01 < 0 = Oo), and this occurs when 13 is large in
+ profitable (relative to points in B) in both states
+ unprofitable in both states.
+   We now proceed to the proof of Proposition
+
+  Proof               of       Proposition                           1.      We          consider                     the     variou
+ takeovers                     always               occur            or       never             occur.
+   Suppose O0 2 0,. Since in this case O0 = 1 or
+ Pareto frontier has one point, this point is eith
+ without pooling do exist. They either have takeo
+           First,         if      the         weak            Pareto              frontier                   has        at    most   o
+ then           fully            anticipated                       takeovers                     are        always            unprof
+ never occur. Such an equilibrium is supported
+   Second, if the weak Pareto frontier has at
+ positive), then fully anticipated takeovers are al
+ takeovers always occur. Such an equilibrium i
+y < Z, .
+       In the rest of this proof, we consider the cases in which takeover can occur. For all of these cases, suppose
+0o < 0,. Note that the assumption 0o < 0, implies that the weak Pareto frontier contains at least one point.
+       The strict monotonicity properties of profits discussed in the proof of Lemma Al and the fact that all points
+on the weak Pareto frontier, except the endpoints, lie in the set A, (II, (y, 0)) n Ao(Ho(y, 0)) imply that profits on
+the weak Pareto frontier are strictly increasing in 0 for state I and strictly decreasing in 0 for state 0. It follows that
+every equilibrium supports exactly one pooling point. To see this, observe first that in a given state, profits for all
+choices y must be the same, and this makes it impossible for the same equilibrium to support more than one
+pooling point (since different points on the weak Pareto frontier support different levels of profits). Now observe
+that along a vertical line passing through an interior point (i.e., non-endpoint) of the weak Pareto frontier, profits
+in at least one of the two states exceed 1+, and this makes it impossible to define prices that support an equilibrium
+without pooling (since pooling is necessary to achieve profits strictly greater than #+).
+      Any equilibrium must therefore have the following pooling structure: There exists a pooling point (y, 0) on
+the weak Pareto frontier and there exist "mixing probabilities" Ai E [0, 1], i = 0, 1 such that conditional upon
+state i being realized, the large trader chooses y with probability 1 - ,Ai and chooses other points generating fully
+anticipated profits j3+ with probability Ai. Clearly, this pooling structure is supported by an equilibrium if and only
+if the following conditions hold:
+
+                                                  i= 0 if Hli(y, 0)> 1+, (A16)
+
+                                                             (1-)   0 = Al7+AO
+                                                                        O AOX ~~~~~~~~~(A17)
+  Here, condition (A 16) insures that if
+  any state. Condition (Al 7) says that 0
+  market efficiency are satisfied by any
+  to the right of and one to the left of
+  appropriately truncated to values zero
+    We can now characterize all equilibri
+  consider pooling with pure strategies. I
+
+
+
+                                              This content downloaded from
+                            52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                      All use subject to https://about.jstor.org/terms
+70 / THE RAND JOURNAL OF ECONOMICS
+
+
+FIGURE A2
+
+MIXING IN STATE 0
+
+
+
+
+                                     0      -       -      -      -       -         -
+
+
+
+
+                                o     ~    ~    ~     Z     yeI
+                                                   !I         ---I
+
+                                  CL - - - - - - -e supl - =- -----
+                                 0
+
+
+
+                                                    I        I         I
+
+
+                                                               Net                         supply
+
+
+
+     a            takeover                                                                 alway
+is supported by an equilibrium with pure strategies. This categorizes all pooling equilibria with pure strategies.
+Figure Al illustrates this case.
+      Next consider pooling points supported with mixing. (A16) implies that mixing can occur in state 1
+(Mi > 0) only if the pooling point is ( Y(O I ), 0 1), and mixing can occur in state 0 (o y> 0) only if the pooling
+is (Y(0O), 0o), i.e., mixing only occurs at an endpoint of the weak Pareto frontier.
+      If the large trader mixes in state 1, he chooses Y(01) with probability 1 - L,1 and does not take over (genera
+fully observed profits 0 = A+) with probability ,ul. The market efficiency condition is satisfied if and only
+01 = (X - XM,)/( 1 - XAL,). Solving for Ai in terms of X and 01 yields Ai = (X - 01)/(X - X01). This value of
+lies in the interval (0, 1) (and thus supports an equilibrium with mixing) if and only if 01 < X < 1. This
+illustrated in Figure A2.
+     If the large trader mixes in state 0, he chooses Y(0O) with probability 1 - AO and takes over (gener
+fully observed profits (3 > 0) with probability AO. The market efficiency condition is satisfied if and o
+0 = X/( 1 - po + tubX). Solving for AO in terms of X and 0, yields AO = (O0 - X)/(00 - X0). This value of AO
+in the interval (0, 1) (and thus supports an equilibrium with mixing) if and only if 0 < X < 00. This case is
+trated in Figure A3.
+
+
+FIGURE A3
+
+MIXING IN STATE 1
+
+
+
+
+                    .0
+                         01
+
+
+
+
+                         00=0
+
+
+
+
+                                                 Zo               Y            Z1
+                                                          Net supply y = z - X(z)
+
+
+
+
+                                                This content downloaded from
+                              52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                        All use subject to https://about.jstor.org/terms
+                                                                                      KYLE AND VILA / 71
+
+
+      This completes the proof of Proposition 1. Q.E.D.
+
+      Our definition of equilibrium involves certain technical assumptions that potentially affect the results in
+Proposition 1. We discuss these here. First, the assumption that a takeover occurs when the large shareholder is
+indifferent ex post (vx + fi = 0) has no effect on the equilibrium outcome. Second, our assumption that the large
+trader observes the trading by noise traders before he chooses his own quantity to trade could be replaced by the
+two assumptions that ( 1) he does not observe the quantity traded by noise traders, and (2) his trading strategy is
+a demand curve instead of a fixed quantity. This issue is discussed by Vila ( 1986). Third, our assumption that
+there are no restrictions on short sales sometimes modifies the equilibrium but not the substance of the results. A
+short-sale restriction is considered in a working-paper version of this article (available from the authors).
+While the derivation of the equilibrium is mathematically more complicated, the results are similar to those
+presented here.
+
+
+
+References
+
+GROSSMAN, S.J. AND HART, O.D. "Takeover Bids, the Free-Rider Problem and the Theory of the Corporation."
+     The Bell Journal of Economics, Vol. 11 (1980), pp. 42-64.
+HIRSHLEIFER, J. "The Private and Social Value of Information and the Reward to Inventive Activity." American
+     Economic Review, Vol. 61 (1971), pp. 561-574.
+KREPS, D.M. AND WILSON, R. "Sequential Equilibria." Econometrica, Vol. 50 (1982), pp. 863-894.
+KYLE, A. "Market Structure, Information, Futures Markets, and Price Formation." In G.G. Storey, A. Schmitz,
+     and A.H. Sarris, eds. International Agricultural Trade: Advanced Readings in Price Formation, Market Structure,
+     and Price Instability. Boulder, Co.: Westview Press, 1984a.
+         "A Theory of Futures Market Manipulations." In R.W. Anderson, ed. The Industrial Organization of
+     Futures Markets. Lexington, Mass.: Lexington Books, 1984b.
+        "Continuous Auctions and Insider Trading." Econometrica, Vol. 53 (1985), pp. 1315-1335.
+        "Informed Speculation with Imperfect Competition." Review of Economic Studies, Vol. 56 (1989), pp.
+     317-356.
+ROCHET, G.-L. AND VILA, J.-L. "Insider Trading and Market Manipulations: A Weak Invisible Hand Result."
+     Unpublished manuscript, 1991.
+SHLEIFER, A. AND VISHNY, R. W. "Large Shareholders and Corporate Control." Journal of Political Economy,
+     Vol. 94 (1986), pp. 461-488.
+VILA, J.-L. "The Role of Information in Futures Market Manipulations." Unpublished manuscript, 1986.
+
+
+
+
+                                           This content downloaded from
+                         52.77.211.17 on Wed, 19 Aug 2026 05:34:35 UTC
+                                   All use subject to https://about.jstor.org/terms
+
