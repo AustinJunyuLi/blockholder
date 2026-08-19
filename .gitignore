@@ -47,4 +47,9 @@ Rplots.pdf
 Thumbs.db
 
 # Empirics raw data (large, regenerable from EDGAR)
-empirics/data/
+empirics/data
+
+# Third-party paper PDFs (copyright) — keep local, do not push
+lit/*.pdf
+research/txt_extracts/*.pdf
+deliverables/conversion/

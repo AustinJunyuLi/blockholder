@@ -1,0 +1,2731 @@
+Journal of Financial Economics 139 (2021) 29–56 
+Contents lists available at ScienceDirect 
+Journal of Financial Economics 
+journal homepage: www.elsevier.com/locate/jfec 
+Reputation and investor activism: A structural approach /p82 
+Travis L. Johnson a , ∗, Nathan Swem b 
+a The University of Texas at Austin, 2110 Speedway Stop B6600, Austin, TX 78756, USA 
+b Board of Governors of the Federal Reserve System, 20th Street and Constitution Avenue N.W., Washington, DC 20551, USA 
+a r t i c l e i n f o 
+Article history: 
+Received 6 March 2019 
+Revised 19 August 2019 
+Accepted 12 September 2019 
+Available online 5 July 2020 
+JEL classiﬁcation: 
+G23 
+G34 
+G35 
+Keywords: 
+Investor activism 
+Reputation 
+Governance 
+Hedge funds 
+Structural estimation 
+a b s t r a c t 
+We measure the impact of reputation for proxy ﬁghting on investor activism by estimating 
+a dynamic model in which activists engage a sequence of target ﬁrms. Our estimation pro- 
+duces an evolving reputation measure for each activist and quantiﬁes its impact on cam- 
+paign frequency and outcomes. We ﬁnd that high reputation activists initiate 3.5 times 
+as many campaigns and extract 85% more settlements from targets, and that reputation- 
+building incentives explain 20% of campaign initiations and 19% of proxy ﬁghts. Our esti- 
+mates indicate these reputation effects combine to nearly double the value that activism 
+adds for target shareholders. 
+©2 0 2 0 Elsevier B.V. All rights reserved. 
+1. Introduction 
+Activists capture only a small fraction of the value 
+they create in target ﬁrms while paying substantial pri- 
+vate costs associated with rapidly acquiring shares, propos- 
+ing and campaigning for desired changes in ﬁrm policy, 
+/p82 We thank an anonymous referee, Vikas Agarwal [Center for the Eco- 
+nomic Analysis of Risk (CEAR) discussant], Andres Almazan, Aydo ˘gan Altı, 
+Audra Boone, Joseph Briggs, Jonathan Cohn, Arthur Korteweg [Ameri- 
+can Financial Association (AFA) discussant] Richard Lowery, Mario Milone 
+(Paris discussant), Jordan Nickerson, Eric So, Sheridan Titman, Mitch 
+Towner, Toni Whited (the editor), Adam Winegar, and seminar partici- 
+pants at the 2020 American Finance Association Meetings, the Board of 
+Governors of the Federal Reserve System, the 2016 Georgia State Univer- 
+sity CEAR-Finance Conference, the Eighth Annual Paris Hedge Fund Re- 
+search Conference, and The University of Texas at Austin for helpful sug- 
+gestions. This article represents the views of the authors, and should not 
+be interpreted as reﬂecting the views of the Board of Governors of the 
+Federal Reserve System or other members of its staff. 
+∗ Corresponding author. 
+E-mail addresses: travis.johnson@mccombs.utexas.edu (T.L. Johnson), 
+Nathan.F.Swem@frb.gov (N. Swem). 
+and potentially organizing a proxy ﬁght ( Gantchev, 2013 ). 
+In a static setting, this free rider problem suggests activist 
+campaigns should be rare and unsuccessful. However, em- 
+pirical evidence shows campaigns are common and suc- 
+cessful, with activists prevailing primarily by extracting 
+settlements from target managers without a proxy ﬁght 
+( Bebchuk et al., 2020; Brav et al., 2008, 2010 ). These pat- 
+terns raise two related questions: why do targets settle so 
+frequently with activists who face the large private costs 
+of proxy ﬁghts, and why do activists initiate so many cam- 
+paigns and proxy ﬁghts despite the free rider problem? 
+In this paper, we show activist reputation for proxy 
+ﬁghting ties together and explains both target settlement 
+and costly activist aggression in a dynamic setting. We 
+do so by estimating a dynamic model in which target 
+managers settle more frequently with high reputation ac- 
+tivists instead of risking a proxy ﬁght that has negative ca- 
+reer consequences ( Fos and Tsoutsoura, 2014 ). These set- 
+tlements provide incentives for activists to invest in rep- 
+utation by incurring the costs of initiating campaigns and 
+proxy ﬁghts. Using our estimated model, we quantify these 
+https://doi.org/10.1016/j.jﬁneco.2020.07.005 
+0304-405X/© 2020 Elsevier B.V. All rights reserved. 
+30 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+reputation effects empirically and show that they combine 
+to make activism substantially more frequent and success- 
+ful than it would otherwise be. 
+Measuring reputation’s impact on the success of ac- 
+tivism presents four main challenges. The ﬁrst is dynam- 
+ically quantifying reputation in a way that appropriately 
+reﬂects all information in each activist’s track record, in- 
+cluding the frequency and outcomes of past campaigns. 
+The second challenge is specifying the form of reputation’s 
+impact on observed campaign outcomes, which emerge 
+from a non linear equilibrium. The third challenge is as- 
+sessing how much of activists’ observed behavior is driven 
+by static cost concerns versus dynamic reputation build- 
+ing, which requires estimates of activists’ unobserved costs. 
+The fourth challenge is measuring how successful activism 
+would be in a counterfactual world without reputation, 
+which requires estimates of no-reputation equilibrium be- 
+havior. 
+We address these challenges by solving and estimat- 
+ing a dynamic economic model that produces an evolving 
+reputation measure for each activist in our sample, pre- 
+dicts how this measure relates to the frequency and out- 
+comes of activist campaigns, allows us to estimate the ex- 
+tent of reputation-building behavior, and generates a no- 
+reputation counterfactual. Our structural approach also en- 
+sures consistency between each facet of our analysis by us- 
+ing a single parsimonious set of parameters to construct 
+our reputation measure and specify how it affects equilib- 
+rium behavior and outcomes. 
+Activists in our model engage a series of potential tar- 
+get ﬁrms in a game having up to three stages. First, the 
+activist decides whether to initiate a campaign, which en- 
+tails a private cost encompassing the price impact associ- 
+ated with buying shares in the target, the effort and ex- 
+pense related to communications with targets and regu- 
+lators, and any other expenses prior to a proxy ﬁght (see 
+Gantchev, 2013 ). If the activist initiates a campaign, target 
+managers then decide whether to settle by undertaking a 
+project that has positive value for shareholders but nega- 
+tive net value for them due to private costs. If target man- 
+agers settle, the campaign ends and they pay the net pri- 
+vate cost of the project, while the activist beneﬁts from the 
+project increasing the target’s share price. If target man- 
+agers refuse to settle, the activist then decides whether to 
+initiate a proxy ﬁght. If they do, the project occurs and 
+both parties receive the same payoff they get from a settle- 
+ment but with an additional proxy ﬁght cost. If the activist 
+does not initiate a proxy ﬁght, the engagement ends with 
+no effect on target managers and the activist paying only 
+the campaign initiation cost. 
+Reputation arises in our model because targets do not 
+know the activist’s average cost of proxy ﬁghting (their 
+type) and instead estimate it from behavior in past cam- 
+paigns. There are two types of activists, aggressive types 
+with lower average costs of proxy ﬁghts and cautious types 
+with higher average costs. These costs encompass the ﬁ- 
+nancial and non ﬁnancial costs of ﬁghting, net of any non 
+ﬁnancial beneﬁts such as enjoying conﬂict and attention. 
+Consistent with the importance of non ﬁnancial beneﬁts to 
+aggressive types, activists often make statements advertis- 
+ing their low subjective cost of proxy ﬁghts. For example, 
+activist investor Carl Icahn said, “I enjoy the hunt much 
+more than the ‘good life’ after the victory.”
+A key variable affecting each stage of the activism game 
+is the activist’s reputation, deﬁned as the probability the 
+activist is the aggressive type conditional on previous cam- 
+paigns (as in Kreps and Wilson, 1982 and Milgrom and 
+Roberts, 1982 ). Higher reputation activists initiate more 
+campaigns in the ﬁrst stage because targets, fearing a 
+costly proxy ﬁght, settle more frequently with higher rep- 
+utation activists in the second stage. Because activists an- 
+ticipate these additional settlements in future stage games, 
+they value higher reputations. Activists therefore have an 
+added incentive to initiate campaigns and proxy ﬁghts, 
+even when they are not proﬁtable in a single campaign, 
+as an investment in reputation. 
+We estimate our model using maximum likelihood by 
+choosing the parameters which result in an equilibrium 
+that best explains the observed data from a panel of 2434 
+activist campaigns by hedge funds between 1999 and 2016. 
+Our model yields predictions for the likelihood of cam- 
+paign initiations, target stock reactions to campaign an- 
+nouncements, and likelihood of proxy ﬁghts, all of which 
+we observe directly using Securities and Exchange Com- 
+mission (SEC) ﬁlings, SharkWatch, and the Center for Re- 
+search in Securities Pricies (CRSP). Our model also yields 
+predictions for the likelihood of settlements, which we in- 
+fer from target ﬁrm reorganizations, payout increases, chief 
+executive oﬃcer (CEO) changes, board changes, and merg- 
+ers and acquisitions (M&A) observed in Compustat and 
+Capital IQ. 1 These data allow us to identify model param- 
+eters using maximum likelihood based on the functional 
+form of relations between activists’ past and future and 
+campaign frequency and outcomes. 2 
+Using our estimated model parameters, we quantify 
+reputation’s role in each stage of our activism game. In 
+the ﬁrst stage, we ﬁnd high reputation activists initiate 3.5 
+campaigns per year, compared to only 0.6 for low repu- 
+tation activists. 3 Moreover, 20% of campaigns are initiated 
+despite not being proﬁtable in isolation due to the beneﬁts 
+of reputation. In the second stage, targets settle with high 
+reputation activists 44% of the time, compared to 29% for 
+low reputation activists. In the third stage, high reputation 
+activists ﬁght 26% of the time when refused, compared to 
+14% for low reputation activists, and 19% of ﬁghts are ini- 
+tiated despite not being proﬁtable in isolation due to the 
+beneﬁts of reputation. 
+We formally test and reject a no-reputation version 
+of our model in which targets do not consider the ac- 
+tivist’s history. With this constraint, all campaigns fea- 
+ture the same equilibrium strategies and independent and 
+identically distributed (i.i.d.) outcomes. We ﬁnd that this 
+1 Unfortunately, as we discuss in Section 4.1 , SharkWatch and other 
+data providers have no comprehensive classiﬁcation for whether a cam- 
+paign was settled, forcing empirical research on settlements (e.g., in 
+Bebchuk et al., 2020 ) to estimate whether a speciﬁc campaign was set- 
+tled using data from multiple sources. 
+2 Our estimated reputation measure for campaigns in our sample are 
+available on Travis Johnson’s website ( http://travislakejohnson.com ). 
+3 For these statistics, a low reputation activist has probability less than 
+0.5% of being the aggressive type and a high reputation activist has prob- 
+ability above 50%. 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 31 
+alternative model ﬁts the data signiﬁcantly worse than our 
+baseline model because campaign frequency and outcomes 
+are highly correlated with our reputation estimates and 
+therefore are not i.i.d. A potential alternative explanation 
+for the non-i.i.d. campaign outcomes is that targets directly 
+observe the activist’s type, making campaign outcomes 
+depend on static type but not dynamic reputation. We 
+also reject this full-information version of our model us- 
+ing a likelihood-ratio test. While our reputation model and 
+the full-information alternative ﬁt the data similarly well 
+along many dimensions, our reputation model better ﬁts 
+the relations between within-activist changes in reputa- 
+tion and within-activist changes in the frequency and out- 
+comes of their campaigns, both of which are signiﬁcantly 
+larger in the data than the full-information alternative 
+predicts. 
+Having established the importance of reputation in ex- 
+plaining observed equilibrium behavior, we next consider 
+how equilibrium behavior would change in a counter- 
+factual world without reputation. We do so by retaining 
+our baseline parameter estimates but generating a new 
+equilibrium in which targets do not condition on the ac- 
+tivist’s past behavior. We ﬁnd that activism produces many 
+fewer successful campaigns in this no-reputation counter- 
+factual for three related reasons. First, because activists 
+have no reputation-building incentives, they initiate fewer 
+campaigns in the counterfactual (6% of opportunities) than 
+in our baseline model (9%). Similarly, without reputation- 
+building incentives, activists ﬁght less frequently (12% of 
+the campaigns in which the target does not settle) than 
+in our baseline model (17%). Anticipating the lower risk of 
+a proxy ﬁght, targets settle less frequently (24% of cam- 
+paigns) than in our baseline model (27%). Combining these 
+effects, we estimate target shareholders’ average payoff
+would be 48% lower without reputation. 
+We further illustrate the magnitude of our empirical 
+ﬁndings and the quality of our model’s ﬁt using linear re- 
+gressions of campaign outcomes on our model-based rep- 
+utation measure. We ﬁnd reputation signiﬁcantly predicts 
+the frequency of campaigns, activist-friendly actions by tar- 
+get ﬁrms, instances of proxy ﬁghts, and abnormal target 
+stock returns around campaign announcements. The mag- 
+nitudes of these empirical relations are very close to the 
+magnitudes predicted by our estimated model for cam- 
+paign frequency and target actions, suggesting our esti- 
+mated model ﬁts well along those dimensions. The model 
+ﬁts less well in predicting the frequency of proxy ﬁghts, 
+which is more sensitive to reputation in the data than 
+in our estimated model. We also ﬁnd that while three- 
+day target returns around campaign announcements are 
+somewhat less sensitive to reputation than our model pre- 
+dicts, this relation strengthens when using larger return 
+windows. Finally, we show that within-activist variation in 
+reputation predicts within-activist differences in campaign 
+frequency and target actions more positively than is pre- 
+dicted by the no-reputation and full-information null hy- 
+potheses. Within-activist relations between reputation and 
+target actions in non-proxy campaigns, target announce- 
+ment returns, and proxy ﬁghts are too noisy to reject ei- 
+ther our reputation model or the alternative models at the 
+5% level. 
+Our reduced-form tests also allow us to assess how our 
+model-based reputation measure relates to campaign fre- 
+quency and outcomes while controlling for variables out- 
+side of our model. We ﬁnd that our reputation measure is 
+incremental to other time-varying activist characteristics, 
+including measures of experience and reputation adapted 
+from Boyson et al. (2016) and Krishnan et al. (2016) , re- 
+spectively. 
+2. Related literature 
+We add a unique perspective to the theoretical litera- 
+ture on investor activism by studying multiple sequential 
+campaigns with asymmetric information about activists’ 
+cost of ﬁghting. The existing literature focuses on a large 
+shareholder of a single ﬁrm (examples include Burkart 
+et al., 1997; Maug, 1998; Aghion et al., 2004; Admati and 
+Pﬂeiderer, 2009; Back et al., 2018 ). In this literature, large 
+shareholders are effective activists because their position 
+sizes reduce the free rider problem. Levit (2018) extends 
+the literature by examining communication and exit as al- 
+ternate channels to avoid costly proxy ﬁghts. Corum and 
+Levit (2019) studies the role of activists in facilitating 
+takeovers, and Corum (2018) models demands and settle- 
+ments in a setting with asymmetric information about the 
+value of the project. 
+Our analysis supports and extends an ongoing 
+empirical literature on investor activism, as sur- 
+veyed in Brav et al. (2010) and Denes et al. (2017) , 
+by using a structural approach to study repu- 
+tation for proxy ﬁghting. 4 Two related papers, 
+Krishnan et al. (2016) and Boyson et al. (2016) , examine 
+activist hedge fund reputation and experience empirically. 
+Krishnan et al. (2016) ﬁnds that short-term stock returns 
+and long-term ﬁrm performance are both stronger follow- 
+ing interventions by hedge funds with higher dollar values 
+of recent activist positions. Boyson et al. (2016) shows that 
+activists with more experience produce larger announce- 
+ment returns and better long-term target performance. 
+Bebchuk et al. (2020) ﬁnds that settlements often con- 
+sist of board seats rather than direct corporate policy 
+changes, can be formal legal contracts but are often in- 
+formal understandings, and are related to activists’ ability 
+to credibly threaten a proxy ﬁght. We formally model this 
+credibility as arising in a dynamic reputation model, assess 
+its impact using a structural estimation, and use activist- 
+friendly actions to capture both formal and informal set- 
+tlements. 
+The closest activism paper in methodology is 
+Gantchev (2013) , which estimates the net cost to ac- 
+tivists in four stages of a campaign. Because the goal of 
+the Gantchev (2013) model is to estimate these costs, 
+while the goal of our model is to assess the role of 
+reputation in the dynamic interaction between activists 
+and their targets, the two models differ in important 
+4 Recent work shows activism is effective internationally ( Becht et al., 
+2017 ); is facilitated by passive investors ( Appel et al., 2018 ); improves tar- 
+gets’ productive eﬃciency ( Brav et al., 2015 ), governance ( Gantchev et al., 
+2019 ), and innovation ( Brav et al., 2018 ); and increases the likelihood of 
+mergers ( Boyson et al., 2017 ). 
+32 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+ways. Gantchev (2013) estimates a statistical sequential 
+decision model featuring a single campaign. We estimate 
+an economic model with a strategic equilibrium featuring 
+multiple campaigns, allowing us to quantify dynamic 
+reputation effects. 
+Our methodology is similar to other structural estima- 
+tion papers in corporate ﬁnance, which use the variety of 
+procedures summarized in Strebulaev and Whited (2012) . 
+Simulated method of moments (SMM) is the most com- 
+mon, employed recently in Nikolov and Whited (2014) , 
+Dimopoulos and Sacchetto (2014) , Schroth et al. (2014) , 
+Warusawitharana (2015) , and Glover (2016) , among others. 
+As discussed in Section 4 , we use a maximum likelihood 
+estimation (MLE), which is similar to the simulated maxi- 
+mum likelihood approach in Morellec et al. (2012) . Com- 
+pared to SMM, MLE has the advantage of using the full 
+functional form of relations in the model for identiﬁcation, 
+avoiding subjective choices of moments and making it ef- 
+ﬁcient from a statistical perspective. SMM has the advan- 
+tages of not forcing the model to ﬁt every moment and not 
+requiring a closed-form solution for the likelihood func- 
+tion. We use MLE because we have a closed-form solution 
+and a rich enough model to ﬁt the distribution of observed 
+data in our setting. 
+3. Model 
+Our model adapts the canonical reputation frame- 
+work with one long-lived player of unknown type and 
+many short-lived players to investor activism. This 
+framework originated in Kreps and Wilson (1982) and 
+Milgrom and Roberts (1982) , which study the chain-store 
+stage game, and was generalized to other stage games 
+in Fudenberg and Levine (1989) and Fudenberg and 
+Levine (1992) . This reputation concept has been 
+applied to many settings in ﬁnance (e.g., debt is- 
+suance in Diamond, 1989 and investment banking in 
+Chemmanur and Fulghieri, 1994 ), but, to our knowledge, 
+we are the ﬁrst to apply it to investor activism. 
+3.1. Stage game 
+The core of our model is an activist campaign op- 
+portunity in which an activist A and a manager M , each 
+risk-neutral, engage in the stage game summarized by 
+Model Fig. 1 . 
+M controls a ﬁrm with access to a project that would 
+generate an average return for shareholders of /Delta1> 0. M 
+does not take the project without intervention by A be- 
+cause it entails private cost B > /Delta1. We scale all payoffs for 
+both A and M into units of returns, so they each receive 
+gross payoff of /Delta1if the project occurs. For M , this implies 
+all payoffs are in units of the ﬁrm’s initial market value 
+and B can be interpreted as the stock return that would 
+make M indifferent to taking the project. For A , this im- 
+plies that all payoffs are in units of itheir initial investment 
+in the target ﬁrm. 
+In each stage game, A moves ﬁrst and decides whether 
+to initiate a campaign by purchasing shares in the target 
+ﬁrm and ﬁling a 13-D ( 13-D ) or to ignore the opportunity 
+( Ignore ). If A chooses Ignore , the game ends and each party 
+Model Fig. 1. Stage game tree. Each stage game takes the form depicted 
+by this ﬁgure. Nodes marked with A are decisions made by the activist, 
+nodes marked with M are decisions made by the target manager. Payoffs 
+are for the activist and manager are presented in brackets for each possi- 
+ble outcome. 
+gets a payoff of zero. If A chooses 13-D , they incur the costs 
+˜ L > 0 of an activist campaign. Campaign costs include the 
+round trip liquidity costs of buying and selling shares, as 
+well as the effort and expense related to regulatory docu- 
+ment submissions, communications with target managers, 
+and fundamental research analysis (see Brav et al., 2008, 
+Gantchev, 2013 , and Back et al., 2018 ). 
+Filing a 13-D represents a threat to force M to enact the 
+project via a proxy ﬁght. Prior to a proxy ﬁght, M decides 
+whether to refuse A ’s demands ( Refuse ) or settle ( Settle ), in 
+which case they undertake the project and the game ends, 
+making the payoffs 
+[ /Pi1A, Settle , /Pi1M, Settle ] = 
+[/Delta1− ˜ L , /Delta1− B 
+]
+. (1) 
+If M refuses, A decides whether or not to initiate a 
+proxy ﬁght ( Fight or Fold ). We assume proxy ﬁghts are al- 
+ways successful and therefore result in ﬁrm value increas- 
+ing by /Delta1. 5 Proxy ﬁghts also have private costs for both A 
+( ˜ F A > 0 ) and M ( ˜ F M > 0 ). These costs include legal, account- 
+ing, and administrative expenses for both parties, as well 
+as a negative effect on target manager’s career prospects 
+( Bebchuk et al., 2020; Fos and Tsoutsoura, 2014; Gow et al., 
+2014 ). Therefore, if A chooses Fight , the payoffs are 
+[/Pi1A, Fight , /Pi1M, Fight 
+]
+= 
+[/Delta1− ˜ L − ˜ F A , /Delta1− B − ˜ F M 
+]
+. (2) 
+If A chooses Fold, M ignores the project and the payoffs 
+are 
+[ /Pi1A, Fold , /Pi1M, Fold ] = 
+[
+−˜ L , 0 
+]
+. (3) 
+To assure each outcome occurs with positive proba- 
+bility in equilibrium and avoid the empirically implausi- 
+ble pooling equilibrium in Kreps and Wilson (1982) and 
+Milgrom and Roberts (1982) , we allow costs to vary from 
+campaign to campaign, perhaps because they are target- or 
+interaction-speciﬁc, according to 
+lo g( ˜ L ) ∼ N 
+(μL , τ−2 
+L 
+)
+, (4) 
+lo g 
+( ˜ F M 
+B − /Delta1
+)
+∼ N 
+(μM , τ−2 
+M 
+)
+, (5) 
+and lo g( ˜ F A ) ∼ N 
+(μA , τ−2 
+A 
+)
+. (6) 
+5 In Online Appendix E, we show that our results are robust to a frac- 
+tion φ < 1 of proxy ﬁghts succeeding. 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 33 
+The cost ˜ F M is scaled by B − /Delta1because, as detailed below, 
+the equilibrium depends only on the ratio 
+/Pi1M, Fight 
+/Pi1M, Settle and not 
+on the level of /Pi1M, Settle . 
+Activists differ only by their μA , which takes one of 
+two values: μagr < μcaut . 6 When A has μA = μagr , they are 
+more likely to ﬁght and we therefore refer to them as the 
+aggressive type; when A has μA = μcaut , we refer to them 
+as the cautious type. Aggressive A could have lower aver- 
+age costs associated with proxy ﬁghts because they have 
+more of the knowledge and experience necessary to initi- 
+ate a successful ﬁght. Alternatively, they can be interpreted 
+as intrinsically enjoying the attendant conﬂict and atten- 
+tion. 
+The key information asymmetry in the model is that 
+A knows their type and but M does not and has to esti- 
+mate it from A ’s past behavior. A learns the realization of 
+˜ L before choosing 13-D or Ignore , and learns the realiza- 
+tion of ˜ F A only after choosing 13-D. M learns the realization 
+of ˜ F M prior to deciding whether to choose Settle. A knows 
+the distribution of ˜ F M but not its realization. Similarly, M 
+only knows the distribution of ˜ L and ˜ F A . All other parame- 
+ters, including /Delta1and B , are common knowledge and ﬁxed 
+across campaigns. 7 
+3.2. Dynamics 
+Campaign opportunities arrive exogenously according 
+to a Poisson process with an annualized arrival rate λc , 
+which we assume is the same for all activists. 8 Upon re- 
+ceiving a campaign opportunity, the above stage game is 
+played instantly. When playing each stage game, A maxi- 
+mizes their expected payoffs across the current and all fu- 
+ture campaign opportunities, using an annual discount fac- 
+tor δ. Each M is targeted only once, and so simply maxi- 
+mizes their expected payoffs in the current campaign. 
+The only state variable in the model is A ’s reputation 
+r t , deﬁned as the probability that A is the aggressive type 
+conditional on their observed track record of campaigns 
+occurring prior to t. A ’s initial reputation is r 0 , the exoge- 
+nous unconditional probability they are aggressive. It sub- 
+sequently evolves as time passes and new campaign op- 
+portunities arrive. 
+We assume M does not observe the true outcome of 
+past campaigns by A but instead only observes the same 
+imperfect indicators we see as econometricians. This ap- 
+proach closely connects our model to the data because, for 
+a given parameterization, the r t we compute empirically is 
+the true model r t . If instead we assume that M can ob- 
+serve the true outcomes of past activist campaigns, true 
+6 Another possible difference between types of activists is in their idea 
+quality, which would result in /Delta1varying across activists. As we detail in 
+Online Appendix B, measures of activist-speciﬁc idea quality are less per- 
+sistent and worse predictors of future campaign success than measures 
+of aggressiveness, suggesting that /Delta1does not vary substantially across 
+activists. 
+7 In Online Appendix E, we show that allowing /Delta1to vary randomly 
+across campaigns affects some parameter estimates, particularly for the 
+precision of ˜ L , but not our estimates of the overall impact of reputation. 
+8 This assumption and the assumption that campaign costs have the 
+same distribution for both types are important because they focus our 
+model on one-dimensional reputation for proxy ﬁghting. 
+Model Table 1 
+Outcomes observed by future targets. This table summarizes what M 
+observes about past campaigns by A . Observed outcomes are indicator 
+variables 13-D , which equals one on activist-days when a campaign is 
+initiated; Proxy , which equals one when the campaign outcome is Fight ; 
+and a set of ﬁve a i , each equal to one if the target takes action i . The 
+table provides the values of 13-D and Proxy , as well as the probability 
+a i = 1 ( P (a i = 1) ), all of which depend on the true outcome on each 
+activist-day. Dashes indicate the outcome is not observed. True out- 
+comes can be no campaign opportunity ( No opportunity ), or a campaign 
+opportunity that ends with Ingore, Fold Settle , or Fight , as described in 
+Section 3.1 . 
+Observed outcomes 
+True outcome 13-D Proxy P (a i = 1) 
+No opportunity 0 ––
+Ignore 0 ––
+Fold 1 0 ˆ a i 
+Settle 1 0 ˆ a i + βi 
+Fight 1 1 ˆ a i + βi 
+r t would become unobservable to us as econometricians 
+and we would need to estimate an evolving distribution 
+of possible r t for each A instead of just a single time se- 
+ries, greatly complicating estimation. Furthermore, we ar- 
+gue some degree of noise in M ’s observation of past cam- 
+paign outcomes is realistic. 
+M faces two main data limitations, summarized by 
+Model Table 1 and motivated empirically in Section 4.1 . 
+First, they do not observe campaign opportunities A 
+chooses to ignore, instead only observing an indicator ( 13- 
+D ) that equals one when a campaign was initiated on each 
+activist-day. As a result, when 13-D = 0 , future M are not 
+sure whether no opportunity arrived or one arrived and 
+the activist chose Ignore . Second, while M can directly ob- 
+serve campaigns ending in a Fight using indicator variable 
+Proxy , they do not perfectly observe whether non-proxy 
+campaigns ended with Settle or Ignore . Observing long-run 
+target stock returns does not perfectly reveal whether a 
+campaign was settled because /Delta1is the average return and 
+not the realized return in every successful campaign. In- 
+stead, M uses a vector of binary observable actions by the 
+target, denoted a , that are correlated with campaign suc- 
+cess in the following way: 
+P (a i = 1) = ˆ a i + 1 ( Settle or Fight ) βi , (7) 
+where a i is the i th action in vector a , ˆ a i is its predicted 
+value in the absence of activism, and βi is the added prob- 
+ability of action i during a campaign ending in Settle or 
+Fight . We detail the a i we use in Section 4.1 , and our cali- 
+bration of ˆ a i and βi in Section 4.3 . 
+Using the indicators 13-D, Proxy , and a , we can solve for 
+the evolution of r t both between and following observed 
+campaigns using Bayes’ rule. After an observed campaign, 
+A ’s reputation updates to the posterior r t+ : 
+r t+ = 
+{
+P ( μA = μagr | a , r t , P roxy = 0 ) if P roxy = 0 
+P ( μA = μagr | r t , Fight ) if P roxy = 1 . 
+(8) 
+Between campaigns, r t evolves continuously for two rea- 
+sons. First, the absence of campaigns indicates that a cam- 
+paign opportunity could have arrived but A chose Ignore . 
+Because a cautious A is more likely to choose Ignore, r t de- 
+cays with each passing moment as it is increasingly likely 
+34 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+A ignored an opportunity. Second, a chance exists that A 
+will have a change in fund management or investment 
+strategy that results in their type being re-drawn from the 
+unconditional distribution. These type resets arrive accord- 
+ing to a Poisson process with an annualized arrival rate λr 
+and are observed by A but not by M . We include them in 
+our model because they cause r t to revert toward r 0 , al- 
+lowing learning in the model to continue indeﬁnitely in- 
+stead of r t converging to zero or one. When estimating our 
+model, we ﬁnd that λr > 0 ﬁts the data signiﬁcantly better 
+than λr = 0 , meaning these type of resets seem to occur in 
+the data. 9 See Appendix A for the relevant formulas. 
+Because A knows that r t affects expected payoffs condi- 
+tional on receiving a campaign opportunity, they internal- 
+ize the impact of their decisions on future r t . We quantify 
+this impact using their value function, deﬁned as the ex- 
+pected discounted payoff they will get from all future cam- 
+paigns conditional on r t . We write this value function as 
+V caut ( r ) for cautious A and V agr ( r ) for aggressive A , where 
+V i (r) ≡
+∫ ∞  
+0 
+δs λc E ( /Pi1i (r t+ s ) | r t = r, μA = μi ) ds (9) 
+and E ( /Pi1i (r t+ s ) | r t = r, μA = μi ) is the expected payoff to 
+an A of type i for campaign opportunities at time t + s 
+given r t = r. 
+3.3. Equilibrium 
+The stage game equilibrium is speciﬁed by ﬁve func- 
+tions of r t : the probabilities that cautious A and ag- 
+gressive A choose 13-D when a campaign opportunity 
+arises [ d caut ( r t ) and d agr ( r t ), respectively], the probability 
+M chooses Settle [ y ( r t )], and the probabilities that cautious 
+and aggressive A choose Fight [ f caut ( r t ) and f agr ( r t ), respec- 
+tively]. 
+We solve the stage game equilibrium starting with A ’s 
+decision to choose Fight or Fold once M chooses Refuse. A of 
+type i chooses Fight whenever the payoffs from the project 
+and increased reputation outweigh the cost ˜ F A : 
+˜ F A ≤ /Delta1+ V i (r t+ | Fight ) − E [ V i (r t+ ) | Fold ] ≡ F i , (10) 
+where r t+ is A ’s post-campaign reputation and the ex- 
+pected value is taken across possible r t+ that can result 
+from different draws of a conditional on the true campaign 
+outcome being Fold . No uncertainty exists about r t+ when 
+the true outcome is Fight because future targets can di- 
+rectly observe this outcome. Type i ’s probability of ﬁghting 
+therefore satisﬁes 
+f i (r t ) = /Phi1(τ−1 
+A 
+(
+log 
+(
+F i 
+)
+− μi 
+))
+, (11) 
+where /Phi1( · ) is the cumulative density function of the stan- 
+dard normal distribution. 
+M chooses Settle when p f ( r t ), the probability A ﬁghts 
+given r t and equilibrium strategies, is suﬃciently high 
+9 Events affecting activists in our sample consistent with type re-draws 
+include Riley Investment Management’s 2009 initial public offering (IPO) 
+and Ramius Capital merging with the Cowen Group in 2009. 
+relative to their cost of ﬁghting: 
+/Delta1− B    
+/Pi1m, Settle 
+≤ (/Delta1− B − ˜ F M ) 
+   
+/Pi1m, Fight 
+p f (r t ) ⇒  
+˜ F M 
+B − /Delta1≥ 1 − p f (r t ) 
+p f ( r t ) 
+≡ F M , 
+(12) 
+where p f ( r t ) is a function of d i ( r t ), y ( r t ), and f i ( r t ) given in 
+Appendix A . 
+Eq. (12) shows that M ’s decision depends on ˜ F M relative 
+to B − /Delta1. We therefore estimate the properties of 
+˜ F M 
+B −/Delta1, pa- 
+rameterized by μM and τM , but have no way of separating 
+˜ F M and B − /Delta1. Eq. (12) implies M ’s probability of settling 
+satisﬁes 
+y (r t ) = 1 − /Phi1(τ−1 
+M 
+(
+log 
+(
+F M 
+)
+− μM 
+))
+. (13) 
+Finally, A chooses 13-D when the expected payoffs from 
+the campaign and jump in value function outweigh the 
+cost ˜ L : 
+˜ L ≤− V i (r t ) + y (r t ) ( /Delta1+ E [ V i (r t+ ) | Settle ] ) 
++ (1 − y (r t )) f i (r t ) 
+(/Delta1+ V i (r t+ | Fight ) − E 
+[˜ F i | ˜ F i < F i 
+])
++ (1 − y (r t ))(1 − f i (r t )) E [ V i (r t+ ) | Fold ] ≡ L i . (14) 
+Eq. (14) implies that the type i ’s probability of choosing 
+13-D satisﬁes 
+d i (r t ) = /Phi1(τ−1 
+L 
+(
+log 
+(
+L i 
+)
+− μL 
+))
+. (15) 
+For a given set of parameters, we solve equilibrium 
+strategies and value functions using value function itera- 
+tion, as detailed in Appendix A . 
+3.4. No-reputation alternative model 
+We consider, as a benchmark for testing hypotheses and 
+evaluating counterfactuals, an alternative model with the 
+same stage game but no role for reputation. In this alter- 
+native model, M ignores A ’s track record and assesses the 
+probability that A is the aggressive type as r 0 . With this 
+restriction, the equilibrium is not the same as the equilib- 
+rium in our dynamic model when r t = r 0 because the pos- 
+sibility of changing r t affects equilibrium behavior. Without 
+this possibility, each stage game follows the same static 
+equilibrium. 
+Writing d s 
+i , y s , and f c 
+i for the equilibrium strategies in a 
+one-shot stage game, we simplify the cutoff values L i and 
+F i to 
+L 
+s 
+i ≡ y s /Delta1+ (1 − y s ) f s 
+i 
+(
+/Delta1− E 
+[ 
+˜ F i | ˜ F i < F 
+s 
+i 
+] )
+(16) 
+and F 
+s 
+i ≡ /Delta1. (17) 
+Based on these cutoffs, we compute the static equilibrium 
+strategies that make Eqs. (11) , (13) , and (15) all hold when 
+using L 
+s 
+i and F 
+s 
+i in place of L i and F i . 
+3.5. Model predictions 
+We illustrate the key predictions of our model with and 
+without reputation in Fig. 1 . For the static model, we il- 
+lustrate how the exogenous likelihood A is aggressive ( r 0 ) 
+affects equilibrium outcomes. Panel A of Fig. 1 shows both 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 35 
+Fig. 1. Estimated Equilibrium . We plot equilibrium properties of our 
+model using estimated parameters. Panel A shows the probability the ac- 
+tivist chooses 13-D . Panel B shows the probability the target chooses Set- 
+tle . Panel C shows the probability the activist chooses Fight . Panel D shows 
+each type of activists’ value function. Panel E shows post-campaign repu- 
+tation r t+ conditional on each possible campaign outcome. For Settle and 
+Fold outcomes, we plot expected r t+ across possible realizations of a . All 
+ﬁve plots are a function of pre-campaign reputation r t for the dynamic 
+equilibrium and unconditional reputation r 0 for the static equilibrium. 
+Subscripts agr and caut indicate strategies for aggressive and cautious ac- 
+tivists, respectively. 
+types of A have higher likelihood of choosing 13-D ( d s 
+caut 
+and d s 
+agr ) when r 0 is higher because they are more likely 
+to receive proﬁtable settlements (higher y s ), as illustrated 
+by Panel B. Panel C shows that r 0 has no impact on ei- 
+ther type of A ’s probability of ﬁghting ( f s 
+caut or f s 
+agr ) be- 
+cause their decision has no impact on future campaigns in 
+the static model. 
+The dynamic model carries through the predictions of 
+the static model but adds two further implications. First, 
+both types of A initiate more proxy ﬁghts than they do 
+in the static model ( f caut > f s 
+caut and f agr > f s 
+agr ). These ad- 
+ditional ﬁghts arise when a proxy ﬁght’s cost ˜ F A is more 
+than the direct payoff /Delta1but is justiﬁed by the expected 
+increase in future project payoffs. In this sense, A invests 
+in their reputation by initiating additional proxy ﬁghts at 
+short-term losses to extract more settlements in future 
+campaigns. Second, both types of A initiate more cam- 
+paigns than they do in the static model ( d caut > d s 
+caut and 
+d agr > d s 
+agr ). Because aggressive A are more likely to choose 
+13-D than cautious A , campaigns on average increase r t . 
+Choosing 13-D is therefore another way A can invest in 
+reputation by acting aggressively. 
+The extent of A ’s reputation-building incentives de- 
+pends on the slope of the value function and the degree to 
+which A expects r t to change after each potential outcome. 
+We illustrate these effects in Panels D and E of Fig. 1 . For 
+this parameterization, proxy ﬁghts substantially increase 
+r t , settlements moderately increase expected r t , and folds 
+slightly increase or decrease expected r t depending on pre- 
+campaign r t . 10 Panel E shows the value function is much 
+steeper for aggressive A when r t is low because building 
+and maintaining their reputation in the future is cheaper. 
+As a result, an aggressive A increases their probability of 
+ﬁghting more than cautious A for small values of r t . As r t 
+approaches one, this relation reverses as r t increases be- 
+come more valuable for cautious A because it reduces the 
+necessity of expensive reputation maintenance. 
+To summarize, the mechanisms by which reputation af- 
+fects activism in our model are: 
+1. High reputation activists initiate more campaigns, and 
+all activists sometimes initiate campaigns despite ex- 
+pected losses as an investment in their reputation; 
+2. Target managers are more likely to settle with high rep- 
+utation activists; and 
+3. High reputation activists initiate more proxy ﬁghts 
+when refused, and all activists sometimes ﬁght despite 
+expected losses as an investment in their reputation. 
+3.6. Identiﬁcation in the model 
+In this section, we describe the comparative statics and 
+empirical predictions that allow us to identify our model’s 
+parameters using observable campaign outcomes. Model 
+parameters are not directly estimable because the realiza- 
+tions of random campaign and proxy ﬁght costs ( ˜ L , ˜ F M , and 
+˜ F A ) and each activist’s evolving reputation ( r t ) are not ob- 
+servable. Instead, we observe a panel of activist campaigns 
+10 Fig. 1 plots expected r t+ after Settle and Fold outcomes across possible 
+realizations of a . 
+36 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+Model Table 2 
+Parameters governing random costs in the model and estimation. This table summarizes the 
+parameters governing random costs in our model. Random variables have a tilde, and parame- 
+ters we estimate empirically are boxed. Given other model parameters, the mapped parameters 
+are a one-to-one function of the means μ, as speciﬁed in Appendix D.2 . 
+Log distribution 
+Random cost Notation Mean Precision Mapped parameter 
+A campaign cost ˜ L μL τL d caut, 0 = P ( 13-D | r t = 0 , μL ) 
+M relative ﬁght cost 
+˜ F M 
+B −/Delta1 μM τM y 0 = P ( Settle | r t = 0 , μM ) 
+Cautious A ﬁght cost ˜ F A μcaut τA f caut, 0 = P ( Fight | r t = 0 , μcaut ) 
+Aggressive A ﬁght cost ˜ F A μagr τA f agr, 0 = P ( Fight | r t = 0 , μagr ) 
+including the variables outlined in Model Table 1 ( 13-D, 
+Proxy , and a ) as well as the target’s stock return upon cam- 
+paign announcement ( CAR ), as detailed in Section 4.1 . 
+We can identify our model’s parameters using a panel 
+of observable campaign outcomes because each parameter 
+has a distinct impact on the model’s predictions for how 
+the frequency and outcomes of A ’s campaigns depend on 
+A ’s track record. This dependence occurs due to reputation 
+because A ’s history determines their r t , which in turn de- 
+termines the observable frequency and outcomes of future 
+campaigns. For example, A initiates more campaigns when 
+they have a recent history of proxy ﬁghts because those 
+ﬁghts increased their r t . Because our model speciﬁes the 
+functional forms for this and other relations between past 
+and future campaigns, we can estimate the model using 
+maximum likelihood by ﬁnding the parameters that best 
+match model-predicted relations to observed empirical re- 
+lations. 
+The identiﬁcation requirement for maximum likelihood 
+estimation is that a unique parameterization maximizes 
+the likelihood of observed data. In this section, we demon- 
+strate how our model satisﬁes this condition by showing 
+each parameter’s unique impact on the predicted likeli- 
+hood of observable outcomes. To do so, we ﬁrst provide 
+economic intuition for the effects of changing each param- 
+eter using plots of A and M ’s equilibrium strategies ( Fig. 2 ). 
+We then translate these comparative statics to empirical 
+predictions for how each parameter affects the likelihoods 
+of observable outcomes ( Fig. 3 ). 11 
+Instead of presenting estimates of the means of log 
+costs ( μL , μM , μcaut , and μagr ), which are diﬃcult to in- 
+terpret, we map these means to probabilities expressing 
+what they imply for equilibrium strategies when r t = 0 , as 
+summarized by Model Table 2 . We deﬁne d caut ,0 , y 0 , f caut ,0 , 
+and f agr ,0 as the probabilities a cautious A chooses 13-D, M 
+chooses Settle , a cautious A chooses Fight , and an aggres- 
+sive A chooses Fight , respectively, given r t = 0 . With r t = 0 , 
+reputation is irrelevant and a one-to-one mapping exists 
+between these four probabilities and the corresponding μ
+(see D.2 ). This mapping has no effect on the economics of 
+11 Changing any parameter affects equilibrium strategies at all three 
+stages of the activism game and therefore all predicted likelihoods. For 
+brevity, Figs. 2 and 3 illustrate only the key distinct prediction(s) our 
+model makes about each variable’s impact that allow identiﬁcation. The 
+full set of plots are in Online Appendix Figs. OA1 and OA2. 
+our model, and our results would be the same if we di- 
+rectly estimated the μ instead. 
+3.6.1. Identifying activists’ campaign cost parameters ( d caut ,0 
+and τL ) 
+We primarily identify d caut ,0 and τL using the observed 
+campaign frequency ( 13-D /year) in the full sample and 
+the difference in 13-D /year when activists have strong and 
+weak track records, making r t unusually high or low. In- 
+creasing d caut ,0 is equivalent to lowering average campaign 
+costs, meaning both types of A choose 13-D more fre- 
+quently across all r t (denoted by higher d caut and d agr ), as 
+illustrated by Panel A in Fig. 2 . Increasing τL decreases the 
+noise in ˜ L , making A put relatively more weight on the ex- 
+pected payoff in the campaign. Panel B of Fig. 2 shows this 
+leads an aggressive A , who has higher expected payoffs, to 
+initiate more campaigns across all r t . It also makes a cau- 
+tious A initiate more campaigns when r t is high because 
+the higher likelihood of settling increases their expected 
+payoff but has no effect on d caut for low r t because d caut ,0 
+is ﬁxed. 
+Panels A and B of Fig. 3 show these comparative stat- 
+ics translate to the empirical prediction that d caut ,0 and τL 
+determine the level and slope, respectively, of the relation 
+between r t and the model-implied 13-D /year. All plots in 
+Fig. 3 show predictions for r t between 0% and 10% to make 
+level and slope effects easier to visually distinguish and be- 
+cause we estimate the median r t is 0.55% and 75% of r t are 
+below 10%. 
+3.6.2. Identifying targets’ proxy ﬁght cost parameters ( y 0 and 
+τM ) 
+We primarily identify y 0 and τM using the average 
+settlement frequency and the difference in settlement 
+frequency when activists have strong versus weak track 
+records, respectively. Increasing y 0 is equivalent to increas- 
+ing M ’s average cost of a proxy ﬁght, which increases the 
+probability M settles across all r t , as illustrated by Panel 
+E of Fig. 2 . Increasing τM reduces the noise in M ’s settle- 
+ment decision and therefore increases the sensitivity of y 
+to r t , as illustrated by Panel F of Fig. 2 . These comparative 
+statics translate directly to predictions about the probabil- 
+ity a campaign is settled [ P (Set t le ) ], as illustrated by Pan- 
+els E and F of Fig. 3 . We use observable target actions a to 
+measure Settle empirically, as detailed in Model Table 1 . 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 37 
+Fig. 2. Comparative statics. We show how different parameterizations of our model affect equilibrium strategies as a function of activist reputation r t . The 
+strategies are expressed by d caut and d agr , the probabilities cautious A and aggressive A choose 13-D , respectively; y , the probability M chooses Settle ; and 
+f caut and f agr , the probabilities cautious A and aggressive A choose Fight , respectively. The solid lines represents the baseline strategy in our model with 
+estimated parameters presented in Table 2 , while the dotted lines represent the equilibrium strategies when a single parameter is increased by 50%. Gray 
+lines represent cautious A ’s strategies. 
+38 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+Fig. 3. Model identiﬁcation. We show how different parameterizations affect model-predicted observable outcomes as a function of activist reputation r t . 
+The outcomes are 13-D /yr, the annualized rate at which an activist initiates a campaigns; P ( Settle ), the percent probability a campaign is settled; P ( Fight ), 
+the percent probability a campaign ends in a proxy ﬁght; (r t+ − r t ) | Set t le, the increase in r t after a campaign ending in Settle ; and (r t+ − r t ) | F ight, the 
+increase in r t after a campaign ending in Fight . The solid line in each plot represents the baseline functional form in our model with estimated parameters 
+presented in Table 2 and the dotted line presents the equilibrium functional form when a single parameter is increased by 50%. 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 39 
+3.6.3. Identifying activists’ proxy ﬁght cost parameters 
+( f caut ,0 , f agr ,0 , and τA ) 
+We primarily identify f caut ,0 using the full-sample prob- 
+ability campaigns end in proxy ﬁghts. Increasing f caut ,0 
+is equivalent to reducing cautious A ’s average cost of a 
+proxy ﬁght and, therefore, increases the probability cau- 
+tious A choose Fight when refused, as illustrated in Panel 
+I of Fig. 2 . The same plot illustrates that an aggressive A 
+chooses Fight slightly less frequently with higher f caut ,0 be- 
+cause cautious A ’s added aggression decreases the repu- 
+tation gained by choosing Fight . Panel I in Fig. 3 shows 
+that these effects shift the probability of a proxy ﬁght 
+[ P (F ight) ] upwards for A with low r t , which drives up the 
+predicted full-sample average because we estimate most 
+activists have low r t . 
+We primarily identify f agr ,0 using the differences in set- 
+tlement and proxy ﬁght frequencies between low and high 
+r t subsamples. Increasing f agr ,0 while holding ﬁxed f caut ,0 
+widens the gap between cautious A and aggressive A in 
+their frequency of proxy ﬁghting (see Panel K of Fig. 2 ). 
+This added difference also increases the slopes of the re- 
+lations between r t and both initiation and settlement de- 
+cisions (see Panels C and G of Fig. 2 ). Combined, these 
+comparative statics yield a distinct empirical prediction for 
+f agr ,0 : It positively affects the slope of the relations between 
+r t and 13-D /year, P (Set t le ) , and P (F ight ) , as illustrated by 
+Fig. 3 . Other variables increase one of these slopes but not 
+the other slopes. For example, Fig. 3 shows that increas- 
+ing τM increases P (Set t le ) when r t is high but decreases 
+P (F ight) because fewer campaigns reach that stage. The 
+unique prediction that allows us to identify τM is there- 
+fore that it positively affects both the r t –P (Set t le ) relation 
+and the r t –P (F ight) relation. 
+We primarily identify τA using the frequency and 
+success of campaigns after r t has recently been up- 
+dated. Increasing τA decreases the noise in A ’s decision 
+to ﬁght, leading them to initiate more ﬁghts as invest- 
+ments in reputation, which in turn results in more set- 
+tlements by M and more campaign initiations by cau- 
+tious A , as illustrated by Panels D, H, and L of Fig. 2 . 
+These effects combine to make increasing τA result in 
+a higher P (Set t le ) and P (F ight) for moderate r t (but 
+no change for extreme r t ) and smaller increases in r t 
+following successful campaigns because the relative ag- 
+gressiveness of aggressive A ( d agr / d caut and f agr / f agr ) is 
+smaller. Panels D, H, and L of Fig. 3 illustrate both these 
+effects. As we discuss in Section 5.2 , the reputation- 
+updating prediction is more distinct from the effects of 
+other parameters and therefore plays a larger role in 
+identifying τA . 
+3.6.4. Identifying remaining parameters ( r 0 , λr , and /Delta1) 
+We primarily identify r 0 by comparing campaigns by A 
+with little or no track record to the broader sample. In- 
+creasing r 0 directly affects the function mapping past ob- 
+served campaigns to r t by increasing the prior used for 
+Bayesian updating, resulting in higher r t for all observa- 
+tions but especially when the activist is new to the sample 
+and more weight is on the prior. Our choice of r 0 there- 
+fore primarily affects the relative likelihoods of campaign 
+initiation and success in the subsample of inexperienced 
+activists. 12 
+We identify λr using the apparent degree of persistence 
+in the relation between past and future campaign out- 
+comes. The arrival rate of type resets ( λr ) directly affects 
+the mean reversion in r t when A does not initiate a cam- 
+paign, as described in Section 3.2 and plotted in Online Ap- 
+pendix Fig. OA2. We therefore predict λr primarily affects 
+model implications for observations, where A had high r t 
+prior to a period of inactivity, meaning r t is decaying. 
+One other parameter requires the full structure of the 
+model to estimate: the value added for target shareholders 
+in a successful campaign ( /Delta1). For a given /Delta1, our sample 
+of campaign outcomes allows us to identify the distribu- 
+tion of costs and reputation as described above. Campaign 
+outcome variables do not pin down the scale of successful 
+projects. We thus identify /Delta1using the model’s prediction 
+for the expected return to target shareholders at the start 
+of a campaign: 
+E ( Target shareholder payoff| r t , 13-D ) 
+= /Delta1· P ( project occurs | r t , 13-D ) . (18) 
+We can therefore identify /Delta1by combining model-implied 
+campaign success rates with observed stock market reac- 
+tions to campaign announcements ( CAR ). These reactions 
+also serve as an extra source of identifying variation as 
+Eq. (18) predicts how they vary across campaigns as a 
+function of r t . 
+In summary, we identify the ten parameters: 
+θ= 
+[/Delta1, d caut, 0 , τL , y 0 , τM , f caut, 0 , f agr, 0 , τA , r 0 , λr 
+]
+(19) 
+using the structure of the model to ﬁt observed relations 
+between past and future campaign frequency, outcomes, 
+and announcement returns. In Section 4.3 , we describe 
+how we implement this identiﬁcation strategy for θusing 
+maximum likelihood and how we calibrate the remaining 
+model parameters. 
+4. Data and estimation 
+In this section, we describe how we form our primary 
+dataset and estimate our model. 
+4.1. Data 
+We assemble a sample of 4,235 activist campaigns ini- 
+tiated during 1999–2016. We initially identify 35,768 cam- 
+paigns using 13-D ﬁlings collected from the SEC’s Elec- 
+tronic Data Gathering, Analysis, and Retrieval (EDGAR) 
+database, and 5,910 campaigns using SharkWatch. 13 Of 
+these, we keep 4,221 13-D ﬁlings and 3,874 campaigns 
+from SharkWatch in which we successfully match target 
+ﬁrms to the Compustat-CRSP Linked data and we identify 
+12 For brevity and because they are straightforward to describe, we do 
+not plot the effects of r 0 , λr , and /Delta1in Figs. 2 and 3 . We provide and 
+discuss these plots in Online Appendix D. 
+13 The SEC requires that investors ﬁle a beneﬁcial ownership report on 
+Form 13-D within ten days of initiating an activist campaign. 
+40 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+the activist is a ﬁnancial institution. 14 We exclude cam- 
+paigns for which the target security does not pertain to 
+an operating corporation by requiring target CRSP share 
+code be 10, 11, 18, 31, or 71 and dropping campaigns 
+targeting ﬁrms with Standard Industry Classiﬁcation (SIC) 
+codes 6770 and 6726 (closed-end mutual funds and Spe- 
+cial Purpose Aquisition Companies (SPACs), as studied in 
+Bradley et al., 2010 ). 
+Our initial ﬁlters result in a sample of 5,756 campaigns, 
+some of which represent multiple activists targeting the 
+same ﬁrm in rapid succession in what is known as “wolf 
+pack activism” (see Brav et al., 2016 ). Because this behav- 
+ior is outside our model, we take several steps to identify 
+a lead activist who is the primary aggressor, and we at- 
+tribute each campaign to the lead activist only. We clas- 
+sify all campaign initiations by different activists target- 
+ing the same ﬁrm in the year following the ﬁrst initiation 
+date as part of a single campaign, which results in 4,235 
+nonoverlapping campaigns, 956 of which feature multiple 
+activists. For the 224 multiple-activist campaigns that in- 
+volve a proxy ﬁght ( P roxy = 1 ) attributable to a single ac- 
+tivist, we select that activist as the lead for the campaign. 15 
+For the other 732 multiple-activist campaigns, we identify 
+the lead activist as the one who ﬁrst initiates the cam- 
+paign or, if two activists initiate campaigns on the same 
+day, the activist with the highest proxy-ﬁght propensity in 
+prior campaigns. 
+Our main analysis studies a sample of campaigns by 
+hedge funds, which are the primary focus of empirical 
+literature on activism (see Brav et al., 2008; 2010 ) and 
+have the institutional structure most favorable to taking 
+the costly actions required to build and maintain repu- 
+tation (see Starks, 1987; Ackermann et al., 1999; Stulz, 
+2007 ). SharkWatch data indicate directly which activists 
+are hedge funds, and we identify which 13-D ﬁlers are 
+hedge funds by cross-checking the activist name with the 
+Factset Lionshares holdings data and using one-by-one In- 
+ternet searches. Among the initial sample of 4,235 cam- 
+paigns, we ﬁnd 2,434 activist campaigns by 420 unique 
+hedge funds targeting 1,889 unique ﬁrms. In Online Ap- 
+pendix G, we analyze the remaining 1801 campaigns by 
+603 unique non hedge fund activists targeting 1489 unique 
+ﬁrms. 
+We face two data limitations that guide our sample 
+construction and, because we assume future targets face 
+the same limitations, the modeling choices discussed in 
+Section 3.2 . First, we cannot observe instances in which 
+an activist identiﬁed a potential target but chose not to 
+initiation a campaign. Second, no direct measure exists 
+14 To ﬁlter individual and nonﬁnancial corporation activists, we drop 13- 
+D ﬁlings in which the activist Central Index Key (CIK) has no 13-F ﬁlings 
+on EDGAR, and drop SharkWatch campaigns in which the activist is classi- 
+ﬁed as “Corporate” or “Indiv.” We match target ﬁrms to Compustat-CRSP 
+using CIKs and quarterly ﬁling dates for the 13-D ﬁlings and nine-digit 
+CUSIPs and quarterly ﬁling dates for the SharkWatch campaigns. 
+15 We compute Proxy , an indicator for whether the campaign features 
+a proxy ﬁght, by collecting preliminary and deﬁnitive proxy ﬁlings from 
+EDGAR relating to contested solicitations (forms DFAN14A, DEFR14A, 
+DEFC14A, and DEFN14A) and apply the matching and ﬁlters outlined 
+above with 13-D ﬁlings. For SharkWatch campaigns, we also use the pro- 
+vided “Proxy Fight” designation. 
+for whether a campaign was settled. In principle, one 
+could use the text in 13-D ﬁlings to determine speciﬁc de- 
+mand(s) made by activists and then use subsequent news 
+items and ﬁnancial statements to see whether those de- 
+mands were met. However, successful campaigns often end 
+with different outcomes than those speciﬁed in the 13- 
+D ﬁling because initial demands are often vague (e.g., en- 
+hance shareholder value) and serve as the start of a broad 
+and evolving negotiation. Furthermore, Bebchuk et al. 
+(2020) ﬁnds evidence formal legal settlements are rela- 
+tively rare, occurring in only 13% of their sample, but in- 
+formal settlements, whereby targets take activist-friendly 
+actions, are much more common. We therefore include all 
+campaigns in our sample regardless of initial demands and 
+use the vector a of observable actions by the target to as- 
+sess whether non-proxy campaigns are formally or infor- 
+mally settled. 
+The ﬁve variables in a are indicators for whether the 
+target ﬁrm took each of ﬁve activist-friendly actions in 
+the year following campaign initiation: Reorg , which indi- 
+cates the target ﬁrm announces a reorganization, change in 
+strategic direction, or discontinuation/downsizing of busi- 
+ness; Payout , which indicates the target ﬁrm’s quarterly 
+payout (dividends plus stock repurchases) increases by 
+more than 1% of assets; CEO , which indicates the CEO of 
+the target ﬁrm departs; Board , which indicates a member 
+of the target’s board of directors departs or a new direc- 
+tor is appointed due to activism; and Acq , which indicates 
+the target ﬁrm announces a merger or acquisition, or an- 
+nounces that it seeks to sell or divest a business. We com- 
+pute these ﬁve indicators using data from Capital IQ Key 
+Developments, SharkWatch, and Compustat, as detailed in 
+Appendix B . 
+To isolate the incremental effect of activism on target 
+actions, we estimate the likelihood they would occur with- 
+out activism using predictive regressions on a broader uni- 
+verse of all Compustat ﬁrms, as described in Appendix C . 
+We deﬁne the expected action vector ˆ a as the ﬁtted value 
+from these regressions for the target at the time of cam- 
+paign initiation. Using ˆ a that varies across campaigns al- 
+lows us to address the possibility that high reputation ac- 
+tivists seem more successful by our measures because they 
+select ﬁrms that will take the actions a even without ac- 
+tivist intervention. Using ˆ a mitigates this possible expla- 
+nation because it requires that activist campaigns prompt 
+targets to take more target actions than their characteris- 
+tics would predict. As a robustness test, we show in Online 
+Appendix E that assuming constant ˆ a across all campaigns 
+has a negligible effect on our results. 
+In addition to ex post campaign outcomes, we use tar- 
+get stock returns around campaign initiations to estimate 
+how much value activists create in their target ﬁrms both 
+on average and as a function of reputation. We measure 
+these market reactions using CAR , the [ −1 , +1 ] abnormal 
+return for target ﬁrms around the day on which the cam- 
+paign is initiated. 
+4.2. Descriptive statistics 
+Table 1 shows descriptive statistics for our campaign 
+outcome variables. About 14% of campaigns result in proxy 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 41 
+Table 1 
+Descriptive statistics. 
+We present summary statistics for the activist campaigns in our sample. Proxy is an indicator for whether the campaign features a proxy ﬁght. CAR 
+is the target’s [-1,1] market-adjusted return around the campaign initiation date. 13-D is an indicator for whether there is a campaign initiation on a 
+given activist-day. The ﬁve indicator variables for target actions in the year following campaign initiation are Reorg , for whether the target initiates a 
+restructuring; Payout , for whether the target substantially increases payouts to shareholders; CEO , for whether the target changes CEO; Board , for whether 
+the target changes board composition due to activism; and Acq , for whether the target engages in a merger or acquisition. For each action indicator, ˆ  Action 
+is its expected value in the absence of activism based on the regressions discussed in Appendix C and Ab Action is Action − ˆ  Action . Actions is the sum of 
+these ﬁve indicators, ˆ  Actions is the sum of the ˆ  Action , and Ab Actions is the difference between the two. We present averages for each variable in the full 
+sample and in subsamples sorted by whether Proxy = 1 and whether it is the activist’s ﬁrst campaign. Our sample for 13-D is 737,004 activist-days during 
+1999–2016. Our sample for the other variables is 2,434 campaigns initiated by hedge funds during 1999–2016. 
+Means by subsample 
+Standard Proxy = 1 Proxy = 0 First camp. 
+Variable Mean Deviation N = 348 N = 2086 N = 419 
+Proxy (percent) 14.3 35.0 100.0 0.0 13.8 
+CAR (percent) 2.8 9.0 3.8 2.7 1.9 
+13-D ( × 365) 1.0 19.1 —— —
+Reorg (percent) 32.6 46.9 48.3 30.0 30.1 
+ˆ Reorg (percent) 13.9 9.4 16.0 13.5 12.5 
+Ab Reorg (percent) 18.7 45.6 32.3 16.5 17.6 
+Payout (percent) 14.7 35.4 16.7 14.4 12.6 
+ˆ  Payout (percent) 10.1 14.6 10.5 10.1 8.6 
+Ab Payout (percent) 4.6 32.5 6.2 4.3 4.0 
+CEO (percent) 25.4 43.6 31.6 24.4 24.3 
+ˆ  CEO (percent) 13.7 4.0 14.1 13.6 13.0 
+Ab CEO (percent) 11.7 43.6 17.5 10.8 11.4 
+Board (percent) 25.6 43.6 68.1 18.5 27.0 
+ˆ Board (percent) 0.4 0.4 0.5 0.4 0.3 
+Ab Board (percent) 25.2 43.6 67.6 18.1 26.6 
+Acq (percent) 27.8 44.8 42.0 25.4 28.6 
+ˆ  Acq (percent) 10.3 4.1 11.2 10.1 9.5 
+Ab Acq (percent) 17.5 44.6 30.8 15.3 19.2 
+Actions ( × 100) 126.1 123.4 206.6 112.7 122.7 
+ˆ  Actions ( × 100) 48.4 22.8 52.3 47.7 43.9 
+Ab Actions ( × 100) 77.7 120.1 154.3 64.9 78.8 
+contests, indicating that activists rarely engage in direct 
+governance via shareholder vote. Despite this infrequency, 
+Table 1 shows that activists have a remarkable impact on 
+target behavior even in the 86% of campaigns not fea- 
+turing a proxy ﬁght. Targets are much more likely than 
+predicted by ˆ a to initiate corporate restructurings, change 
+CEOs, change board composition, and engage in M&A. The 
+effect on board composition is mechanically the strongest, 
+with Board equal to one in 25.6% of campaigns but only 
+0.4% of the broader Compustat universe, because the Cap- 
+ital IQ code we use to identify board changes refers to 
+activism-driven changes. These results validate that our 
+sample captures most instances of activism and indicate 
+that Board is an excellent measure of campaign success be- 
+cause it rarely occurs by chance. Perhaps surprisingly, ac- 
+tivist targets are only marginally more likely to pay off ac- 
+tivists by increasing payouts. 
+Target actions are particularly common in campaigns 
+featuring proxy ﬁghts, with Reorg occurring in 32.3% more 
+proxy campaigns than target ﬁrm propensity would sug- 
+gest, Payout in 6.2%, CEO in 17.5%, Board in 67.6%, and 
+Acq in 30.8%. These probabilities indicate proxy campaigns 
+prompt substantial responses from target ﬁrms and sup- 
+port the assumption in our model that target managers 
+ﬁnd proxy ﬁghts privately costly because both CEO and 
+board turnover substantially increase. Combined, we ﬁnd 
+targets take an average of 1.543 abnormal activist-friendly 
+actions ( Ab Actions ) in campaigns with P roxy = 1 . 
+Even campaigns not featuring proxy ﬁghts are fre- 
+quently successful, with targets taking each action more 
+frequently than our predictive regressions would suggest. 
+The average Ab Actions in these campaigns is 0.649, around 
+40% of the total in P roxy = 1 campaigns. 
+Table 1 also shows that markets react positively to ac- 
+tivist campaign initiations, with share prices increasing by 
+an average of 2.8%. This is consistent with evidence in prior 
+literature (e.g., Brav et al., 2008; Collin-Dufresne and Fos, 
+2015 ) and our model’s assumption that activist campaign 
+outcomes are either positive or neutral for shareholders, 
+meaning the initiation of a campaign is positive news in 
+expectation. 
+4.3. Estimation 
+We use two vectors to summarize our model’s parame- 
+ters: 
+θ= 
+[/Delta1, d caut, 0 , τL , y 0 , τM , f caut, 0 , f agr, 0 , τA , r 0 , λr 
+]
+(20) 
+and /Omega1= [ δ, σcar , βreorg , βpayout , βceo , βboard , βacq , λc ] , (21) 
+where σcar is the standard deviation of CAR . The ﬁrst ten 
+parameters ( θ) are diﬃcult to estimate directly but can 
+be identiﬁed using the structure of the model combined 
+with our panel of campaigns, as illustrated in Section 3.6 . 
+The remaining eight parameters ( /Omega1) either are impossible 
+42 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+to separately identify using available data or are estimable 
+without the model. We therefore ﬁx /Omega1and estimate θus- 
+ing maximum likelihood. 
+We assign a value for δbecause we cannot distinguish 
+empirically between a high value of δ, which makes ac- 
+tivists initiate more campaigns and proxy ﬁghts as invest- 
+ments in reputation, and higher values of campaign cost 
+precision τL and manager proxy cost precision τA , which 
+have the same two effects. We therefore base our estima- 
+tion on the assumption that δ= 0 . 9 . 16 Similarly, we can- 
+not distinguish empirically between a high arrival rate λc , 
+which makes observed campaigns occur more frequently, 
+and a high no-reputation campaign initiation rate d caut ,0 , 
+which has the same effect. We therefore assume a λc = 10 , 
+which is suﬃciently high so that the upper bound on 13-D 
+frequency [ d i ( r t ) ≤ 1] is far from binding. In Online Ap- 
+pendix E, we show our main results are robust to alterna- 
+tive choices for these exogenous parameters as long as λc 
+is not unrealistically small. 
+Unlike the parameters in θ, both σcar and βi are es- 
+timable using reduced form approaches that do not rely 
+on the structure of the model. For σcar , we use the sam- 
+ple standard deviation of CAR , 8.99%. Our estimates for βi , 
+the added probability of action a i due to a successful cam- 
+paign, rely on the deﬁnition provided in Eq. (7) . This def- 
+inition shows that βi equals the average a i − ˆ a i in cam- 
+paigns featuring a proxy ﬁght, which we present in Table 1 . 
+We account for ﬁrst-stage estimation error in σcar and βi 
+when calculating standard errors for our estimates of θ, as 
+detailed in Online Appendix C. 
+Given these ﬁxed values for /Omega1, we estimate θby max- 
+imizing the likelihood of observed data. For each θ, we 
+compute the likelihood function l ( θ) using the following 
+four-step process: 
+1. Compute equilibrium strategies and value functions nu- 
+merically as described in Sections 3.3 and A.2 . 
+2. Using these strategies, compute each activist’s reputa- 
+tion r t for each day, as described in Sections 3.2 and 
+A.1 . 
+3. Compute the conditional likelihood of each observed 
+campaign as 
+L c (θ) = L ga p 
+c (θ) · L 13 − D 
+c (θ) · L car 
+c (θ) · L out come 
+c (θ) , (22) 
+where L ga p 
+c (θ) is the probability the activist initiates no 
+campaigns until the date of their next 13-D , L 13 − D 
+c (θ) 
+is the probability an opportunity arrives on the date 
+of campaign c and the activist chooses 13-D , L car 
+c (θ) is 
+likelihood of the target stock’s reaction to the campaign 
+initiation ( CAR ), and L out come 
+c (θ) is the likelihood of the 
+observed outcomes Proxy c and a c conditional on cam- 
+paign initiation. Each of these likelihoods depends on 
+r t , as detailed in D.1 . We assume CAR has distribution 
+CAR ∼ N 
+(/Delta1· P ( project occurs | r t , 13-D ) , σ2 
+car 
+)
+. (23) 
+4. Compute overall likelihood l (θ) = 
+∑ 
+c log ( L c (θ) ) . 
+16 This is a common problem when structurally estimating dynamic 
+models in corporate ﬁnance, and δ= 0 . 9 is a standard value to assume 
+(e.g. in Taylor, 2010 ). 
+5. Results and counterfactuals 
+In this section, we present and discuss our main results 
+and counterfactuals. 
+5.1. Equilibrium results and hypothesis tests 
+Panel A of Table 2 presents our estimates of model pa- 
+rameters along with standard errors accounting for estima- 
+tion error in σcar and βi and conﬁdence intervals based 
+on likelihood ratio tests. Fixing any individual parameter to 
+take a value outside these ranges results in a signiﬁcantly 
+worse ﬁt at the 5% level even when all other parameters 
+are reestimated to maximize ﬁt, as detailed in Online Ap- 
+pendix ??. 
+The projects that activists demand generate an esti- 
+mated average return /Delta1= 6 . 62% for target shareholders. 
+Private costs to target managers of these projects are suﬃ- 
+ciently large relative to the costs and likelihood of proxy 
+ﬁghts that they only settle in y 0 = 21 . 82% of campaigns 
+when the activist is sure to be the cautious type. We esti- 
+mate r 0 = 2 . 05% of activists are aggressive types who ﬁght 
+f agr, 0 = 48 . 03% of the time when their demands are re- 
+fused and reputation is not a concern, compared with only 
+a f caut, 0 = 11 . 10% baseline ﬁght rate for cautious types. Ac- 
+tivist type resets arrive at a rate of λr = 0 . 19 per year. Type 
+resets do not necessarily imply type changes because we 
+estimate that 98% of activists are cautious and therefore 
+are likely to remain cautious after their type is redrawn. 
+Our estimated parameters imply the mean campaign 
+cost ( ˜ L ) is 5.44% of the activist’s position in the target and 
+the mean proxy ﬁght cost ( ˜ F A ) is 8.68% for aggressive A and 
+19.44% for cautious A . These averages are substantial rela- 
+tive to the return from a successful campaign ( /Delta1= 6 . 62% ), 
+resulting in activists initiating campaigns and proxy ﬁghts 
+only when cost realizations are unusually low. The relative 
+size of average activist costs also illustrates the importance 
+of reputation-building incentives, which allow activists to 
+sometimes initiate campaigns and proxy ﬁghts despite the 
+costs exceeding single-campaign beneﬁts. 
+The only other estimates of these costs we are aware 
+of are in Gantchev (2013) , which ﬁnds non-proxy cam- 
+paigns cost an average of 5.05% of the activist’s investment 
+and proxy ﬁghts cost an additional 8.27%. These averages 
+differ from ours in sample period, data sources, and esti- 
+mator. A potential economic reason the average costs in 
+Gantchev (2013) are lower than our estimates, especially 
+for cautious A , is that his static framework requires all de- 
+cisions be proﬁtable in a single campaign, whereas our dy- 
+namic framework allows activists to initiate campaigns and 
+proxy ﬁghts at a loss as an investment in reputation. 
+For a given set of no-reputation parameters d caut ,0 , y 0 , 
+f caut ,0 , and f agr ,0 , the precision parameters τL , τM , and τA 
+determine how agents behave when r t is strictly positive. 
+Large values of τL and τM indicate stronger relations be- 
+tween r t and campaign initiation and settlement decisions, 
+respectively. Large values of τA indicate more reputation- 
+seeking ﬁghts. Small values of these precisions indicate 
+agents follow mixed strategies independent of their r t . We 
+ﬁnd that all three precisions are positive and statistically 
+distinct from zero, indicating that constraining our model 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 43 
+Table 2 
+Estimated model parameters and hypothesis tests. 
+Panel A describes the model parameters we estimate and gives their estimated values. We also provide standard errors (SE) accounting for estimation error 
+in σcar and β and 95% conﬁdence intervals (CI) based on likelihood-ratio tests, both detailed in Online Appendix C. Panel B describes the model parameters 
+we ﬁx and gives their values. Panel C presents results from testing the no-reputation and full-information hypotheses. For both, we present reestimated 
+model parameters as well as the Wilks (1938) likelihood-ratio χ2 statistic and its p -value. Our sample consists of 2,434 campaigns initiated by hedge funds 
+during 1999–2016. 
+Panel A: Parameters estimated using maximum likelihood 
+Parameter Description Estimate SE 95% CI 
+/Delta1 Value of project A demands/market capitalization (percent) 6.62 (0.66) [5.70, 7.35] 
+d caut ,0 Probability cautious A chooses 13-D given r t− = 0 (percent) 4.16 (0.63) [2.78, 8.83] 
+τL Precision log(Cost of campaign to A ) 1.65 (0.19) [0.48, 2.06] 
+y 0 Probability M settles given r t− = 0 (percent) 21.82 (2.43) [12.87, 24.22] 
+τM Precision log( M proxy ﬁght cost/ M project cost) 0.33 (0.15) [0.11, 0.48] 
+f caut ,0 Probability cautious A chooses Fight given r t− = 0 (percent) 11.10 (2.81) [2.44, 14.66] 
+f agr ,0 Probability aggressive A chooses Fight given r t− = 0 (percent) 48.03 (6.66) [40.73, 60.38] 
+τA Precision log( A proxy ﬁght cost) 1.45 (0.64) [0.72, 2.42] 
+r 0 Unconditional probability A is aggressive (percent) 2.05 (1.94) [1.00, 9.80] 
+λr Arrival rate of type resets (annualized) 0.19 (0.07) [0.08, 0.36] 
+Panel B: Parameters assumed or directly estimated 
+Param. Description Value 
+δ Activists’ annual discount factor 0.90 
+σcar Standard deviation of campaign announcement three-day CAR (percent) 8.99 
+βreorg Added probability of reorganization in successful camp. (percent) 32.25 
+βpayout Added probability of payout increase in successful camp. (percent) 6.16 
+βceo Added probability of CEO change in successful camp. (percent) 17.53 
+βboard Added probability of board change in successful camp. (percent) 67.63 
+βacq Added probability of M&A activity in successful camp. (percent) 30.76 
+λc Arrival rate of campaign opportunities (annualized) 10.00 
+Panel C: Hypothesis tests 
+Model /Delta1 d caut ,0 τL y 0 τM f caut ,0 f agr ,0 τA r 0 λr χ2 p -value 
+Baseline 6.62 4.16 1.65 21.82 0.33 11.10 48.03 1.45 2.05 0.19 
+No reputation 6.67 9.94 — 28.05  — 19.87  — — — — 340.1  0.00% 
+Full information 6.80 9.12 2.00 29.52 0.12 12.36 64.15 —0 . 8 5  — 21.0  0.00% 
+to ignore r t at any of the three stages results in signif- 
+icantly worse ﬁt. We illustrate the economic signiﬁcance 
+of these precisions in Fig. 1 , which presents estimated 
+equilibrium strategies as a function of r t , as described in 
+Section 3.5 . 
+We formally test whether reputation signiﬁcantly af- 
+fects equilibrium outcomes using two constrained versions 
+of our model: a no-reputation framework in which targets 
+do not use past campaigns to assess the activist’s type, and 
+a full-information framework in which each activist’s type 
+is common knowledge. For each framework, we reestimate 
+the model to ﬁnd parameters that best ﬁt the data. In the 
+no-reputation framework, each campaign is played inde- 
+pendently of other campaigns using the static equilibrium 
+in Section 3.4 with the unconditional reputation r 0 apply- 
+ing in all campaigns. This implies all stage games follow 
+the same mixed strategy equilibrium, where A with type i 
+chooses 13-D with probability d s 
+i and Fight with probability 
+f s 
+i , and M chooses Settle with probability y s . While we can 
+identify these equilibrium probabilities, we cannot identify 
+the full set of parameters θ in a no-reputation world be- 
+cause many parameters θ generate the same static game 
+equilibrium. One of many equivalent formulations for any 
+no-reputation equilibrium features r 0 = 0 , meaning we can 
+estimate the no-reputation model with only four parame- 
+ters: /Delta1, d caut ,0 , y 0 , and f caut ,0 . 
+Panel C of Table 2 presents our estimates of the no- 
+reputation model. We ﬁnd that activists choosing 13- 
+D with probability 9.94%, managers choosing Settle with 
+probability 28.05%, and activists choosing Fight with prob- 
+ability 19.87% ﬁt the data best. These probabilities are 
+higher than the zero-reputation strategies in our baseline 
+estimation because they capture average behavior in our 
+whole sample instead of the behavior of an activist with 
+r t = 0 . As Fig. 1 illustrates, campaign frequency, settlement, 
+and ﬁghting are all much more frequent when r t > 0 in 
+our dynamic model than when r t = 0 . 
+Despite ﬁtting the data as well as possible on average, 
+the no-reputation parameters result in a much lower like- 
+lihood of the observed data than our more general model 
+because r t strongly predicts campaign frequency and out- 
+comes. We therefore ﬁnd a high likelihood ratio χ2 statis- 
+tic and strongly reject the no-reputation hypothesis. 
+Another hypothesis is that targets have complete infor- 
+mation about which type of activist they are facing. Like 
+the no-reputation hypothesis, the full-information hypoth- 
+esis removes reputation-building incentives. Unlike the no- 
+reputation hypothesis, each stage game does not feature 
+the same equilibrium strategy. Instead, each game is played 
+according to the r 0 = 0 static equilibrium for cautious A 
+and the r 0 = 1 static equilibrium for aggressive A . To make 
+the full-information model estimable by econometricians 
+44 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+who do not directly observe activist type, we assume ac- 
+tivist types do not change and assign each activist the 
+type that maximizes the likelihood of their full-sample set 
+of campaign outcomes. We therefore identify the full set 
+of parameters θ except for τA (because r t is never be- 
+tween zero and one) and λr (because activist types do not 
+change). 
+We ﬁnd that the full-information model ﬁts the data 
+best when a cautious A chooses 13-D 9.12% of the time and 
+Fight 12.36% of the time, while an aggressive A chooses 
+13-D 65.9% of the time and Fight 64.15% of the time, and 
+M settles with cautious A 29.5% of the time and aggres- 
+sive A 40.8% of the time. 17 Aggressive A s are less common 
+( r 0 = 0 . 85% versus 2.05%) in the full-information estimates. 
+While the full-information hypothesis ﬁts the data better 
+than the no-reputation hypothesis, it is still strongly re- 
+jected because our baseline reputation model allows for 
+campaign frequency and success to vary within-activist as 
+their r t changes. This possibility ﬁts the data better than 
+ascribing, even with the beneﬁt of full-sample hindsight, 
+each activist as consistently playing the same equilibrium. 
+5.2. Moments and identiﬁcation in the data 
+In Section 3.6 , we discuss our identiﬁcation strategy in 
+the context of our model, showing how parameters af- 
+fect the predicted relations between past and future ob- 
+servable outcomes via r t . In this section, we illustrate how 
+our model’s parameters are identiﬁed using our full sam- 
+ple and various sub-samples of activist campaigns. To do 
+so, we compute moments in the data, predicted values 
+for these moments in baseline and alternative models, and 
+the elasticity of model-predicted moments with respect to 
+changes in parameters. 
+The moments, presented in Table 3 , are the means 
+of four outcome variables ( 13-D , Ab Actions | P roxy = 0 , CAR , 
+and Proxy ) in the full sample and differences in means 
+across subsamples selected based on the analyses in 
+Section 3.6 . The four subsample differences we present are 
+high r t observations (those with r t > 50%) minus low r t 
+observations (those with r t < 0.5%), observations with re- 
+cently updated r t (those where A has ﬁve or more cam- 
+paigns and an increase in r t over the prior year) minus 
+the full sample, observations with new A (those in each A ’s 
+ﬁrst year) minus the full sample, and observations with de- 
+caying r t (those with r t > r 0 and over a year since the prior 
+campaign) minus the full sample. 
+5.2.1. Alternative models 
+For both our baseline model and alternative models, 
+we use estimated parameters presented in Table 2 to 
+compute each activist’s r t for all days, including days 
+without campaign initiations. 18 For each campaign in our 
+sample, we then compute the model-implied average 
+17 Aggressive A ’s probability of choosing 13-D and M ’s probability of set- 
+tling with aggressive A are computed from full-information d caut ,0 , τL , y 0 , 
+and τM . 
+18 See Appendix D.1 for details on how we handle activists only present 
+in part of our sample. 
+Ab Actions | P roxy = 0 , CAR , and Proxy conditional on pre- 
+campaign r t . For the model-implied moments of 13-D , we 
+use r t on all activist-days to compute the likelihood we 
+observe a 13-D on each activist-day. Finally, we compute 
+average model-predicted values across the full sample and 
+differences in averages across subsamples. 
+We ﬁnd our baseline model ﬁts the means of 13-D, 
+CAR , and Proxy well, but it underestimates the mean of 
+Ab Actions | P roxy = 0 . Our baseline model also ﬁts cross- 
+reputation differences well for 13-D , slightly overstates 
+differences in Ab Actions , and understates cross-reputation 
+differences in Proxy . We discuss model ﬁt extensively in 
+Section 5.4 . 
+In Table 3 , we also show the predicted values for each 
+moment in the no-reputation and full-information alter- 
+native models, with ↑ ( ↓ ) superscripts indicating mo- 
+ments which the alternative model ﬁts signiﬁcantly bet- 
+ter (worse) than the baseline model. The no-reputation al- 
+ternative ﬁts the full-sample means well but predicts no 
+cross-campaign variation in expected outcomes, making all 
+its predictions for difference-based moments equal to zero. 
+This results in the no-reputation model ﬁtting four of the 
+moments based on cross-campaign differences signiﬁcantly 
+worse than our baseline model, illustrating why our formal 
+likelihood-ratio test rejects the no-reputation alternative in 
+Table 2 . 
+No signiﬁcant differences exist between our baseline 
+model and the full-information model in ﬁtting the mo- 
+ments in Table 3 , with one notable exception: the spread 
+in 13-D between high and low r t observations, which 
+the full-information model ﬁts signiﬁcantly worse than 
+our baseline model. As we detail in Section 5.4 , the 
+full-information model fails to capture the full extent of 
+variation in 13-D because it allows only across-activist 
+variations, whereas our model also allows within-activist 
+variation depending on r t . This shortcoming, together 
+with the additional within-activist evidence we discuss in 
+Section 5.4 , leads to the rejection of the full-information 
+alternative in Table 2 . 
+5.2.2. Identifying parameters in the baseline model 
+In Section 3.6 , we illustrate how each model parame- 
+ter has a unique impact on our model’s empirical predic- 
+tions that allows it to be identiﬁed. We quantify these pre- 
+dictions in Table 3 by presenting the local elasticities of 
+model-implied values for each moment ( ˆ m i ) with respect 
+to (wrt) each parameter ( θj ), deﬁned as: 
+Elasticity of ˆ m i wrt parameter θj ≡ ∂ ˆ m i ( ˆ θ) 
+∂θj 
+·
+ˆ θj 
+ˆ m i ( ˆ θ) 
+. 
+(24) 
+We compute these elasticities at our parameter estimate ˆ θ
+for every i and j , but for parsimony we only present elas- 
+ticities with absolute values above 0.25 in Table 3 . 
+The ﬁrst column of Table 3 shows elasticities with re- 
+spect to /Delta1, which as we describe in Section 3.6 directly 
+affects average CAR . We show that this is the case, with 
+average model-predicted CAR having an elasticity with re- 
+spect to changes in /Delta1equal to one, which is higher 
+than any other parameter. Furthermore, changing /Delta1only 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 45 
+Table 3 
+Moments and identiﬁcation. 
+We present model predictions and observed values of four different outcome variables, all deﬁned in Table 1 . We present average values for these moments 
+in the full sample as well as four subsample differences: high r t observations (those with r t > 50%) minus low r t observations (those with r t < 0.5%), 
+observations with recently updated r t (those in which A has ﬁve or more campaigns and an increase in r t over the prior year) minus the full sample, 
+observations with new A (those in which A ’s ﬁrst campaign was in the prior year) minus the full sample, and observations with decaying r t (those with 
+r t > r 0 and over a year since the prior campaign) minus the full sample. For each moment and subsample, we present average observed values in the data, 
+standard errors (SE) for data averages clustered by activist, average predicted values in our baseline model, no-reputation, and full-information models, 
+and local elasticities of our baseline model’s prediction for each moment to changes in each parameter. We only tabulate elasticities larger than 0.25 in 
+absolute value. Elasticities highlighted in Bold are the focus of our discussion in Section 3.6 . ↑ , ↑↑ , and ↑↑↑ ( ↓ , ↓↓ and ↓↓↓ ) indicate the alternative model 
+ﬁts the data moment signiﬁcantly better (worse) than the baseline model with p -values below 10%, 5%, and 1%, respectively. The sample for 13-D is 737,004 
+activist-days during 1999–2016. Our sample for the other variables is 2,434 campaigns initiated by hedge funds during 1999–2016. 
+Data Model-estimated value Elasticity with respect to 
+Moment: Value (SE) Baseline No reputation Full infoformation /Delta1d caut ,0 τL y 0 τM f caut ,0 f agr ,0 τA r 0 λr 
+Full sample 
+Mean CAR 2.82 (0.25) 2.80 2.82 2.90 1.00 0.54 
+Mean 13-D 1.00 (0.08) 0.93 1.06 1.08 0.45 0.44 -0.25 
+Mean Ab Actions | Proxy = 0 0.65 (0.04) 0.52 0.51 0.55 0.86 
+Mean Proxy 14.30 (1.67) 13.74 14.30 11.87 -0.28 -0.27 0.66 
+Observations with high r t - observations with low r t 
+Mean 13-D 2.93 (0.24) 2.86 0.00 ↓↓↓ 2.21 ↓↓↓ 0.39 1.60 -0.86 0.66 -0.62 1.15 
+Mean Ab Actions | Proxy = 0 0.37 (0.17) 0.50 0.00 0.36 0.60 -0.42 1.16 
+Mean Proxy 25.25 (3.63) 15.43 0.00 ↓↓ 20.43 -0.66 -0.78 0.79 
+Observations with recently updated r t - all observations 
+Mean 13-D 3.87 (0.51) 1.59 0.00 ↓↓↓ 0.77 1.60 -0.89 0.35 -0.34 0.51 -0.36 
+Mean Ab Actions | Proxy = 0 -0.02 (0.11) 0.21 0.00 ↑ 0.08 0.32 0.58 -0.26 
+Mean Proxy 1.74 (3.63) 6.70 0.00 4.40 -0.76 -0.99 0.31 -0.28 
+Observations with new A - all observations 
+Mean 13-D -0.57 (0.11) -0.21 0.00 ↓ -0.12 0.30 -0.57 -0.26 0.31 
+Mean Ab Actions | Proxy = 0 0.06 (0.08) -0.07 0.00 -0.03 0.64 1.03 -0.78 -0.25 0.27 0.42 
+Mean Proxy -1.43 (2.20) -2.11 0.00 -1.94 0.66 1.05 1.11 -0.35 0.46 0.31 0.35 
+Observations with decaying r t - all observations 
+Mean 13-D 1.00 (0.59) 1.25 0.00 0.77 -0.30 -0.86 0.87 0.38 -0.46 -0.91 -0.56 
+Mean Ab Actions | Proxy = 0 0.14 (0.45) 0.15 0.00 0.05 -0.72 -2.81 2.15 0.61 -0.59 -0.53 0.44 -0.54 
+Mean Proxy 23.80 (9.56) 5.14 0.00 2.88 -0.69 -2.69 1.23 -0.67 -0.64 0.38 -0.49 
+signiﬁcantly affects mean CAR , meaning /Delta1is primarily 
+identiﬁed by the sample average CAR . 
+Consistent with Fig. 3, Table 3 shows d caut ,0 and τL both 
+directly affect mean predicted 13-D , but τL has a larger 
+impact on the predicted difference in mean 13-D between 
+high and low r t observations. d caut ,0 and τL are unique in 
+the sense that other parameters either do not affect both 
+these moments (e.g., y 0 ) or have large effects on moments 
+unrelated to d caut ,0 and τL (e.g., f caut ,0 ). We therefore con- 
+clude d caut ,0 and τL are primarily identiﬁed using observed 
+means of 13-D in the full sample and subsamples with 
+high or low r t . 
+We identify y 0 using a similar approach to d caut ,0 
+but with our measure of settlement frequency (average 
+Ab Actions | P roxy = 0 ) replacing 13-D as the outcome vari- 
+able. Consistent with the prediction in Fig. 3 , y 0 is the 
+only parameter to strongly affect the full-sample average 
+of Ab Actions | P roxy = 0 , allowing us to identify y 0 primar- 
+ily using this moment. 
+In Section 3.6 , we outline our model’s predictions for 
+the effects of changing τM and f agr ,0 on the likelihoods of 
+both settlements and proxy ﬁghts. Consistent with these 
+predictions, Table 3 shows that increasing τM widens the 
+gap in Ab Actions | P roxy = 0 across high and low r t cam- 
+paigns. These added settlements reduce the likelihood 
+of observing P roxy = 1 because fewer campaigns reach 
+the ﬁnal stage, weakening the r t –Proxy relation. Increas- 
+ing f agr ,0 has the opposite effect on the r t –Proxy rela- 
+tion, which strengthens as aggressive A s are more likely 
+to choose Fight , but has the same positive effect on the 
+r t –Ab Actions | P roxy = 0 relation. Our estimates of τM and 
+f agr ,0 are therefore primarily identiﬁed by the observed dif- 
+ferences in settlement and proxy ﬁght frequency between 
+high and low r t subsamples. 
+Table 3 shows that, consistent with the prediction in 
+Fig. 3 , the full-sample mean of Proxy is increasing in f caut ,0 
+and not strongly affected by other parameters. Our esti- 
+mate of f caut ,0 is therefore primarily identiﬁed by this mo- 
+ment. 
+Figs. 2 and 3 show that increasing τA narrows the gap 
+in campaign and proxy ﬁght frequency between cautious 
+A and aggressive A , making r t update less dramatically fol- 
+lowing successful campaigns. This manifests in the model 
+predicting campaigns are less likely to be initiated or to 
+succeed when τA increases in cases for which A ’s reputa- 
+tion has recently updated upward. We therefore focus on 
+the subsample in which A has ﬁve or more campaigns in 
+the past year and higher r t than a year ago, making r t re- 
+cently updated and more sensitive to changes in τA . The 
+τA column illustrates this pattern, with all three relative 
+moments for the recently updated subsample decreasing in 
+τA . Table 3 also shows that increasing τA affects other mo- 
+ments.Its impact on observations with recently updated r t 
+is unique in the sense that other parameters either do not 
+affect all three of these moments (e.g., τL ) or have large 
+effects on moments unrelated to τA (e.g., f agr ,0 ). 
+46 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+As discussed in Section 3.6 , we predict that r 0 primarily 
+affects outcomes early in an activist’s career. Table 3 shows 
+this is the case, with increases in r 0 causing increases in 
+model-implied settlements and proxy ﬁghts by activists in 
+their ﬁrst year but not signiﬁcantly affecting overall mean 
+outcomes. We therefore primarily identify r 0 by comparing 
+campaigns early in activists’ careers relative to the overall 
+sample. 
+Finally, increasing λr primarily affects the rate at which 
+r t reverts toward r 0 between campaigns. As a result, 
+Table 3 shows that increasing λr only substantially affects 
+moments in situations where a long gap exists since the 
+prior campaign (more than a year) and r t is still above r 0 , 
+meaning r t is reverting downward and will be further low- 
+ered by increasing λr . We therefore primarily identify λr 
+using this subset of observations. 
+The analyses in Table 3 highlight an important aspect 
+of our MLE approach, it does not explicitly identify each 
+parameter using any one moment or any set of moments 
+but instead uses the full joint distribution of campaign 
+frequency, market reactions, and campaign outcomes. The 
+model can informally be viewed as overidentiﬁed because 
+we ask the same set of parameters to generate r t as well as 
+the full shape of its relation with campaign frequency and 
+three partially independent outcome measures ( a , CAR , and 
+Proxy ). As a result, no combination of parameters can ex- 
+plain all the features of the data. We discuss which aspects 
+of the data our model ﬁts well and which it struggles to 
+match in Section 5.4 . 
+5.3. Reputation in the data 
+Our estimation procedure produces pre- and post- 
+campaign reputation measures r t and r t+ for each cam- 
+paign, as summarized by Table 4 . Because aggressive ac- 
+tivists are rare unconditionally ( r 0 = 2 . 05% ), r t and r t+ are 
+positively skewed across campaigns. Most r t are negligi- 
+ble, with a median of only 0.55%. A few activists establish 
+strong reputations and initiate campaigns more frequently 
+once they do, making the mean r t equal to 10.81%. 
+Panel B of Table 4 shows the top 25 activists by average 
+pre-campaign r t . It contains many of the best-known ac- 
+tivist hedge funds, including Third Point, Elliot Associates, 
+and Valueact. The two standouts are Starboard Value and 
+Icahn Enterprises. Both have 77 campaigns in our sample 
+have around 30 proxy ﬁghts, generate unusually many tar- 
+get actions, and have average r t above the 90th percentile 
+of the overall distribution. Fig. 4 shows the evolution of 
+these activists’ r t , both of which are above 75% for the 
+past decade and peak above 99%. Panel C of Fig. 4 also 
+shows the evolution of r t for Loeb Partners, which initi- 
+ated only one proxy ﬁght, has a low r t for most of the 
+sample, and extracts many fewer settlements than Icahn 
+Enterprises and Starboard Value. 
+As illustrated by Fig. 4 , r t is persistent but decays be- 
+tween campaigns. One reason for this decay is that activist 
+types are redrawn at a rate of λr = 0 . 19 per year. Consis- 
+tent with this feature, Fig. 4 shows activist behavior ap- 
+pears to have occasional regime shifts whereby an activist 
+with consistently high or low r t suddenly changes behav- 
+ior and r t . Both Icahn Enterprises and Starboard Value were 
+less frequent and successful activists and, as a result, had 
+r t below 20%, until around 2005, at which point their be- 
+havior changed and r t grew. Another example of this phe- 
+nomenon is Riley Investment Management, which Fig. 4 il- 
+lustrates built a strong r t from 2005 to 2009 and then 
+suddenly became inactive, possibly due to its parent com- 
+pany’s 2009 IPO, initiating only one additional campaign in 
+2013. 
+5.4. Effects of reputation and model ﬁt 
+We assess our model’s ﬁt and measure the effects of 
+reputation by estimating model-implied equilibrium strate- 
+gies for each campaign in our sample, computing what 
+these strategies imply for the distributions of outcomes, 
+and comparing these predictions with observed outcomes. 
+We do so using the same process as for Table 3 , described 
+in Section 5.2 . Instead of local elasticities of moments to 
+parameters, we present levels of model-implied and data 
+moments for gradations of r t and, more important, esti- 
+mates of unobservable equilibrium strategies and motiva- 
+tions gleaned from our estimated model. 
+Panel A of Table 5 shows that our model predicts that 
+activists initiate an average of 1.00 campaigns per year and 
+that high r t activist-days (those with r t > 50%) result in 
+campaign initiations at a rate of 3.50 per year, six times as 
+frequently as the 0.58 per year rate for low r t activist-days 
+(those with r t < 0.50%). The data reveal nearly identical 
+frequencies to our model’s predictions both on average and 
+for extreme r t . 
+Our structural approach also yields estimates for the 
+distributions of costs and payoffs for activists, allowing us 
+to estimate the fraction of observed campaigns initiated 
+despite expected losses in the campaign itself as an in- 
+vestment in reputation. For each observed campaign in 
+the sample, we compute the likelihood of drawing ˜ L low 
+enough to initiate a campaign in the dynamic model and 
+compare this with the likelihood of drawing ˜ L low enough 
+that the expected proﬁt from the individual campaign is 
+positive. From this comparison, we estimate that 80.08% of 
+13-D decisions in our sample had positive expected single- 
+campaign proﬁts, and the remaining 19.92% were due to 
+reputation-building incentives. 
+Panel B of Table 5 summarizes strategies, outcomes, 
+and motivations pertaining to settlement and ﬁghting de- 
+cisions conditional on a campaign initiation. Our estimated 
+model activists with high r t receive settlements 44.11% of 
+the time compared with only 23.86% of the time for low 
+r t activists, as depicted in Panel B of Fig. 1 . This translates 
+into a strong relation between r t and the average Ab Actions 
+in campaigns without a proxy ﬁght, which our model pre- 
+dicts varies from 0.41 for low r t campaigns to 0.91 for high 
+r t campaigns. Our model ﬁts the data well for medium and 
+high r t activists but underestimates the success of low r t 
+activists in non-proxy campaigns. 
+Settling and ﬁghting decisions in our ﬁtted model com- 
+bine to predict a strong relation between r t and both 
+CAR and Ab Actions in all campaigns. The data support 
+the predicted directions of these relations but imperfectly 
+match the predicted quantities. Both low and high r t ac- 
+tivists receive more average Ab Actions than predicted by 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 47 
+Fig. 4. Example Reputation Dynamics. We plot the time series of model-implied reputations for four activists in our sample, Icahn Enterprises, Starboard 
+Value, Loeb Partners, and Riley Investment Management, based on the sample of their campaigns and our estimated model. Each plot shows reputation 
+between campaigns as a line and marks campaign dates with a circle if they do not feature a proxy ﬁght and an x if they do. For campaigns without 
+a proxy ﬁght, the darkness of the circle is proportional to the probability the campaign was settled based on observed target actions and our estimated 
+model. 
+48 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+Table 4 
+Reputation summary statistics. 
+In Panel A, we present summary statistics for estimated post- and pre-campaign activist reputation measures r t+ and r t , which we describe in Section 4.3 . 
+In Panel B, we list the 25 activists with the highest average r t . Ab Actions is the total number of abnormal activism-related corporate actions by target ﬁrms 
+in the year following campaign initiation. CAR is the target’s [-1,1] market-adjusted return around the campaign initiation date. Our sample consists of 
+2,434 campaigns initiated by hedge funds during 1999–2016. 
+Panel A: Distribution of reputation across campaigns 
+Percentile 
+Mean Variance 1st 5th 10th 25th 50th 75th 90th 95th 99th 
+r t+ 14.35 25.31 0.36 0.39 0.47 1.01 2.32 12.16 55.69 87.44 98.01 
+r t 10.81 23.01 0.10 0.10 0.10 0.28 0.55 7.25 41.87 77.96 94.57 
+Panel B: Highest reputation activists 
+Mean Number of Number of Mean Mean 
+Activist r t campaigns proxy ﬁghts Ab Actions CAR 
+1. Starboard Value 79.15 77 30 2.25 4.65% 
+2. Icahn Enterprises 61.70 77 28 1.84 6.21% 
+3. Lone Star Value Management 47.36 16 8 0.88 4.27% 
+4. Clinton Group 44.07 29 12 1.62 5.13% 
+5. Riley Investment Management 42.79 24 7 1.75 3.02% 
+6. Vertex Capital Adv 28.26 11 3 1.55 1.50% 
+7. Steel Partners 27.93 56 9 1.32 2.55% 
+8. Pirate Capital 27.85 18 3 1.78 2.84% 
+9. Engaged Capital 26.18 12 4 1.92 2.57% 
+10. Newcastle Partners 24.51 16 9 1.56 8.92% 
+11. Bulldog Investment 24.15 24 12 1.13 0.41% 
+12. Voce Capital Management 23.89 10 6 2.40 5.84% 
+13. Lawrence Seidman 21.46 34 12 1.09 4.54% 
+14. Barington Companies 19.32 28 10 1.71 4.09% 
+15. Land & Buildings 17.65 6 4 1.83 5.63% 
+16. Harbinger Capital Partners 16.64 16 4 2.25 0.25% 
+17. PL Capital 16.37 39 10 0.79 3.27% 
+18. Shamrock Partners 15.53 19 3 1.63 0.22% 
+19. Millennium Management 14.69 44 0 0.82 -0.30% 
+20. Sandell Asset Management 14.38 15 8 2.20 2.19% 
+21. ValueAct Capital Management 14.28 80 1 1.48 1.80% 
+22. Elliott Associates 13.16 45 5 1.84 4.60% 
+23. Third Point 11.87 36 5 1.67 3.44% 
+24. Stilwell Joseph 9.95 28 9 0.93 1.76% 
+25. Tontine Associates 8.79 60 0 0.57 2.76% 
+our model, with only medium r t campaigns matching the 
+model closely. The model ﬁts average CAR well (2.80% ver- 
+sus 2.82%), but the difference between high and low r t ac- 
+tivists’ average CAR is smaller than predicted by the model 
+(1.81% instead of 2.36%). 
+Finally, we estimate that 81.17% of observed proxy ﬁghts 
+were immediately proﬁtable and the remaining 18.83% 
+were motivated by reputation building. This fraction is 
+slightly lower than the corresponding fraction of campaign 
+initiations (19.92%) despite proxy ﬁghts having a larger im- 
+pact on post-campaign r t because our estimates indicate 
+proxy ﬁghting costs are noisier than campaign initiation 
+costs ( τA < τL ). As a result, the cost of ﬁghting ˜ F A is less 
+likely to fall in the region where reputation-building incen- 
+tives are decisive. 
+As an alternative illustration of the magnitude of our 
+main empirical ﬁndings and quality of our model’s ﬁt, 
+we use linear regressions to compare observed relations 
+between r t and campaign frequency and outcomes with 
+those predicted by the model. These regressions abandon 
+the structure of our model, which predicts nonlinear rela- 
+tions, and so should be viewed as providing additional de- 
+scriptive moments. They also offer several advantages over 
+the summary statistics in Table 5 , allowing us to assess 
+which dimensions of the data the model ﬁts well, com- 
+pare our results with other empirical work on activism, 
+and control for other potentially relevant activist charac- 
+teristics. 19 
+Table 6 present linear regression coeﬃcients for pre- 
+dicting 13-D, Ab Actions, CAR , and Proxy using r t , without 
+activist ﬁxed effects in Panel A and with them in Panel 
+B. In both panels, we test three null hypotheses based on 
+whether the data are generated by the baseline model, the 
+no-reputation alternative model, and the full-information 
+alternative model, all estimated to ﬁt the data as well as 
+possible (as detailed in Section 5.1 ). For each null hypoth- 
+esis, we compute the average coeﬃcient in 25 thousand 
+simulated samples under the null and test whether the co- 
+eﬃcient in the data is different from this average using t - 
+statistics with standard errors clustered by activist. 
+With the exception of Proxy in Panel A and CAR in Panel 
+B, the magnitude of the estimated coeﬃcients are close 
+19 Other structural papers using reduced form regressions on 
+structurally estimated parameters to illustrate their results include 
+DeAngelo et al. (2011) and Li et al. (2016) . 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 49 
+Table 5 
+Equilibrium effects of reputation. 
+We present average strategies, outcomes, and motivations based on our estimated model in the full sample and subsamples by reputation. Strategies are 
+described by d caut and d agr , cautious and aggressive activist’s probability of choosing 13-D; y , the target’s probability of settling; and f caut and f agr , cautious 
+and aggressive activist’s probability of ﬁghting. 13-D, Ab Actions, CAR , and Proxy are deﬁned in Table 1 . “Short-term proﬁtable” is the fraction of campaign 
+initiations or proxy ﬁghts that have positive expected proﬁts in the current campaign, with the remainder listed as “Reputation building.” Our sample for 
+Panel A is 737,004 activist-days during 1999–2016. Our sample for Panel B is 2,434 campaigns initiated by hedge funds during 1999–2016. 
+r t (percent) range: All [0, 0.5] [0.5, 5] [5, 50] [50, 100] 
+Panel A: Activist-days sorted by r t 
+Percent of activst-days 100.00 65.85 23.11 7.96 3.07 
+Strategies 
+d caut (percent of opportunities) 8.74 6.10 9.88 20.04 27.60 
+d agr (percent of opportunities) 39.57 40.35 37.84 38.97 37.36 
+Outcomes 
+13-D (model) ( × 365) 1.00 0.58 1.17 2.99 3.50 
+13-D (data) ( × 365) 0.93 0.62 1.03 2.29 3.48 
+Motivations 
+Short-term proﬁtable (percent of 13-D ) 80.08 84.75 73.20 71.77 91.82 
+Reputation building (percent of 13-D ) 19.92 15.25 26.80 28.23 8.18 
+Panel B: Campaigns sorted by r t 
+Percent of campaigns 100.00 48.81 22.51 19.76 8.92 
+Strategies 
+y (percent of 13-D ) 28.55 23.86 26.97 34.89 44.11 
+f caut (percent of Refuse ) 14.62 12.61 14.54 18.41 17.45 
+f agr (percent of Refuse ) 58.98 59.26 60.19 60.07 51.96 
+Outcomes 
+Ab Actions (model) 0.65 0.52 0.61 0.83 1.08 
+Ab Actions (data) 0.78 0.73 0.69 0.77 1.24 
+Ab Actions | Proxy = 0 (model) 0.51 0.41 0.48 0.66 0.91 
+Ab Actions | Proxy = 0 (data) 0.65 0.63 0.58 0.66 1.00 
+CAR (model) (percent) 2.80 2.25 2.61 3.55 4.61 
+CAR (data) (percent) 2.82 2.78 2.53 2.45 4.59 
+Proxy (model) (percent) 13.74 10.12 12.46 18.79 25.55 
+Proxy (data) (percent) 14.30 11.62 10.22 15.38 36.87 
+Motivations 
+Short-term proﬁtable (percent of Fight ) 81.17 87.95 76.62 68.77 90.16 
+Reputation building (percent of Fight ) 18.83 12.05 23.38 31.23 9.84 
+enough to the model-predicted magnitudes that we fail to 
+reject the model null, suggesting that the model ﬁts fairly 
+well along these dimensions. Echoing the results in Table 5 , 
+we ﬁnd the relation between r t and Proxy is weaker in 
+the estimated model than in the data. No choice of pa- 
+rameters perfectly ﬁts all these relations because changing 
+a parameter such as τA to make the model-implied rela- 
+tion between r t and Proxy stronger would simultaneously 
+strengthen the relations between r t and CAR and between 
+r t and Ab Actions , both of which are already a bit stronger 
+in the ﬁtted model than the data. 
+Tables 5 and 6 show that the empirical relation be- 
+tween r t and CAR is weaker than the model-implied re- 
+lation. One potential reason is that market prices do not 
+react to the information contained in campaign initiations 
+entirely during the [ −1 , +1 ] announcement window we fo- 
+cus on. Instead, targets of high reputation activists could 
+outperform targets of low reputation activists prior to the 
+announcement window due to information leakage or af- 
+ter the announcement window due to a delayed reaction. 
+In Online Appendix F, we show this is the case, with only 
+around a third of the total effect of reputation on target re- 
+turns occurring during the narrow announcement window. 
+Unlike the estimated model, we can strongly reject the 
+no-reputation null hypothesis in both Panels A and B. This 
+null predicts no relation between r t and campaign out- 
+comes, meaning it is rejected by the strong positive rela- 
+tions in Panel A. In Panel B, we reject the no-reputation 
+null for predicting 13-D and Ab Actions in part because our 
+simulations reveal that, despite no true relation between r t 
+and campaign outcomes, regressions with activist ﬁxed ef- 
+fects have negative average coeﬃcients in simulated sam- 
+ples. The reason is that these outcome variables are pos- 
+itively correlated with innovations in r t , meaning regres- 
+sions with activist ﬁxed effects are biased downward in 
+ﬁnite samples. 20 This small-sample bias disappears with 
+enough campaigns per activist. However, 94% of activists 
+have 20 or fewer campaigns in our sample, making it acute 
+in this setting. 
+Panel A of Table 6 shows the full-information null 
+hypothesis can ﬁt cross-activist differences in outcomes 
+fairly well, though the relation between r t and campaign 
+20 The technical reason for this bias is that these regressions fail 
+the strict exogeneity condition discussed in Wooldridge (2010) and 
+Grieser and Hadlock (2019) . 
+50 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+Table 6 
+Reputation and activist campaign outcomes. 
+We present panel regressions using our model-based reputation measure r t to predict four dependent variables: 13-D , an indicator for whether there is a 
+campaign initiation on a given activist-day; Ab Actions , the total number of abnormal activism-related corporate actions by target ﬁrms in the year following 
+campaign initiation; CAR , the target’s [-1,1] market-adjusted return around the campaign initiation date and Proxy , an indicator for whether the campaign 
+features a proxy ﬁght. In Column 3, we predict Ab Actions in the subsample of campaigns with Proxy = 0 . Panel A does not include activist ﬁxed effects, 
+while Panel B does. Both Panels A and B show average coeﬃcients from the same regressions in samples simulated using the model under three null 
+hypotheses: the full model, the no-reputation alternative model, and the full-information alternative model, all parameterized using the values in Table 2 . 
+In Panel C, we show similar regressions, but include additional activist characteristics, which we describe in Appendix B , as controls. All regressions include 
+year ﬁxed effects. Our sample for 13-D is 737,004 activist-days during 1999–2016. Our sample for the other variables is 2,434 campaigns initiated by hedge 
+funds during 1999–2016. We present standard errors, which we cluster by activist, in parentheses. For each null, ∗∗∗ indicates we reject at the 1% level; ∗∗, 
+5%; and ∗, 10%. 
+Ab Actions 
+13-D Ab Actions | Proxy = 0 CAR Proxy 
+(1) (2) (3) (4) (5) 
+Panel A: Main regressions 
+Data coeﬃcient 4.43 0.71 0.55 2.60 34.26 
+Standard error (0.53) (0.18) (0.18) (0.70) (4.32) 
+Simulated coeﬃcient (model null) 4.19 0.77 0.72 3.53 19.88 ∗∗∗
+Simulated coeﬃcient (no reputation null) -0.02 ∗∗∗ -0.07 ∗∗∗ -0.03 ∗∗∗ 0.04 ∗∗∗ -4.10 ∗∗∗
+Simulated coeﬃcient (full information null) 3.39 ∗∗ 0.72 0.59 3.25 33.08 
+Panel B: Activist ﬁxed effects 
+Data Coeﬃcient 1.59 -0.06 -0.06 0.88 7.86 
+Standard error (0.38) (0.17) (0.20) (1.19) (6.62) 
+Simulated coeﬃcient (model null) 2.13 -0.08 0.26 3.20 ∗ -0.33 
+Simulated coeﬃcient (no reputation null) -3.05 ∗∗∗ -1.52 ∗∗∗ -0.58 ∗∗∗ 0.03 -1.03 
+Simulated coeﬃcient (full information null) -2.64 ∗∗∗ -0.45 ∗∗ -0.27 0.02 -0.31 
+Panel C: Robustness 
+r t 2.82 ∗∗∗ 0.93 ∗∗∗ 0.74 ∗∗∗ 2.91 ∗∗ 40.04 ∗∗∗
+(0.73) (0.23) (0.25) (1.22) (8.42) 
+Past CAR 250 | Proxy 0.06 -0.16 -0.09 -0.41 0.06 
+(0.14) (0.18) (0.19) (0.80) (5.56) 
+Past CAR 250 | Hi Act 0.14 0.03 0.00 0.73 4.71 
+(0.16) (0.17) (0.16) (1.13) (4.58) 
+Past CAR 250 -0.01 -0.24 -0.24 -0.05 0.83 
+(0.12) (0.17) (0.17) (1.25) (3.77) 
+Log Portfolio Size 0.01 -0.00 0.00 0.04 -2.85 ∗∗∗
+(0.02) (0.03) (0.03) (0.16) (0.77) 
+Portfolio Turnover -0.20 ∗∗ -0.12 -0.08 -0.02 -1.54 
+(0.08) (0.07) (0.08) (0.51) (2.35) 
+Number of Prior Campaigns 0.06 ∗∗∗ -0.00 0.00 -0.01 -0.08 
+(0.01) (0.00) (0.00) (0.02) (0.08) 
+Stake Size -0.69 -0.08 0.43 -49.70 ∗∗∗
+(0.54) (0.54) (3.94) (18.49) 
+Top Investor Hedge Fund 0.02 0.10 0.14 -0.13 3.80 
+(0.13) (0.09) (0.10) (0.64) (2.34) 
+frequency is stronger in the data than this null pre- 
+dicts. Consistent with our discussion of Table 2 , the full- 
+information null is rejected by the within-activist relations 
+we ﬁnd in Columns 1 and 2 of Panel B, which are signiﬁ- 
+cantly larger than the negative coeﬃcients we ﬁnd in full- 
+information simulations. The combined evidence in Panels 
+A and B of Table 6 illustrate why the likelihood ratio test 
+presented in Table 2 rejects the full-information alternative 
+model in favor of our baseline model. While both models 
+ﬁt many features of the data well, the full-information al- 
+ternative struggles along more dimensions than our repu- 
+tation model. The full-information null is rejected at the 
+5% level in three of the speciﬁcations in Table 6 and the 
+model null is rejected at the 5% level in only one. 
+In Panel C of Table 6 , we include several time- 
+varying activist characteristics as controls. Two variables, 
+Prior Campaigns and Top HF , mimick the experience and 
+reputation measures used in Boyson et al. (2016) and 
+Krishnan et al. (2016) , respectively. Three other variables, 
+Past CAR 250 | Proxy, Past CAR 250 | Hi Act , and Past CAR 250 , mea- 
+sure activist-speciﬁc idea quality using long run target re- 
+turns in past campaigns with P roxy = 1 , past campaigns 
+with above median Ab Actions , and all past campaigns, re- 
+spectively. The remaining controls represent potential con- 
+founding effects for our results in Panel A; for example, 
+the possibility that high r t activists are more successful be- 
+cause they take larger positions in their target ﬁrms. We 
+ﬁnd that the coeﬃcients on r t remain economically and 
+statistically signiﬁcant in each regression, with the coeﬃ- 
+cient magnitudes increasing in four of the ﬁve speciﬁca- 
+tions. 
+5.5. Counterfactuals 
+Having analyzed the role of reputation in equilibrium 
+activism, we now estimate how this equilibrium would 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 51 
+Table 7 
+Counterfactuals. 
+We present average pre-opportunity reputation r t , equilibrium strategies, and payoffs for target shareholders and activists in our baseline model and three 
+counterfactuals. In the no-reputation counterfactual, targets do not consider the activist’s past campaigns when deciding whether to choose Settle . In 
+the no aggressive A counterfactual, there are no aggressive type activists. In the full information counterfactual, activists’ types are common knowledge. 
+For our baseline model and each counterfactual, we simulate 25 thousand samples and compute average reputation prior to each campaign opportunity, 
+equilibrium strategies, and payoffs to target shareholders and activists across all campaigns in the simulated samples, in basis points (bp).. 
+Counterfactual 
+Baseline No reputation No aggressive A Full information 
+Pre-opportunity reputation r t (%) 
+Cautious A 1.21 2.05 0.00 0.00 
+Aggressive A 40.29 2.05 — 100.00  
+All 2.00 2.05 0.00 2.05 
+13-D (% of opportunities) 
+Cautious A 8.73 5.43 4.16 4.16 
+Aggressive A 38.62 15.82 — 35.89  
+All 9.34 5.65 4.16 4.81 
+Settle (% of campaigns) 
+Cautious A 26.50 23.81 21.82 21.82 
+Aggressive A 37.65 23.81 — 45.31  
+All 27.44 23.81 21.82 22.31 
+Fight (% of refusals) 
+Cautious A 13.82 11.10 11.10 11.10 
+Aggressive A 55.74 48.03 — 48.03  
+All 16.85 11.86 11.10 11.86 
+Target shareholders’ average payoff (bp per opportunity) 
+Cautious A 21.19 11.60 8.41 8.41 
+Aggressive A 185.11 63.28 — 170.05  
+All 24.53 12.67 8.41 11.73 
+Activists’ average net payoff (bp per opportunity) 
+Cautious A 2.62 1.94 1.33 1.33 
+Aggressive A 23.26 9.71 — 39.87  
+All 3.04 2.10 1.33 2.12 
+change in a world without reputation. 21 We consider three 
+counterfactuals, each a variation of the static model de- 
+scribed in Section 3.4 . The ﬁrst requires targets ignore past 
+behavior and use r 0 as the probability that the activist 
+is aggressive. In this no-reputation counterfactual, activists 
+and targets play the same strategy in every campaign op- 
+portunity; that is, the static equilibrium strategy when r 0 = 
+2 . 05% . The second counterfactual we consider sets r 0 = 0 , 
+removing the possibility of aggressive A from the model. In 
+this no aggressive A counterfactual, cautious A and M play 
+their zero-reputation strategies d caut ,0 , y 0 , and f caut ,0 . In the 
+third counterfactual, M observes A ’s type directly, remov- 
+ing the role for reputation and learning. In this full infor- 
+mation counterfactual, the r t = 0 equilibrium prevails for 
+all of cautious A ’s opportunities, and the r t = 1 equilibrium 
+prevails for all of aggressive A ’s opportunities, neither of 
+which have reputation building. 
+We estimate equilibrium behavior and payoffs in the 
+baseline model and each counterfactual by simulating 25 
+thousand samples as detailed in Appendix D . Table 7 
+presents average behavior at each stage and average pay- 
+offs to target shareholders and activists per campaign 
+21 This analysis differs from the hypothesis tests described in 
+Section 5.1 because, instead of estimating a distinct parameterization that 
+best ﬁts the data, we retain the relevant estimated parameters from our 
+dynamic model and assess how outcomes change without reputation. 
+opportunity. 22 We ﬁnd that cautious and aggressive A s 
+choose 13-D less frequently in all three counterfactuals 
+because they no longer have reputation-building motives. 
+For cautious A , this effect is stronger in the counterfac- 
+tuals with no aggressive A and full-information because 
+M knows A is cautious and therefore infrequently settles. 
+Even when cautious A ’s type remains unknown in the 
+no-reputation counterfactual, they still initiate fewer cam- 
+paigns than in our baseline model due to the absence of 
+reputation-building incentives. 
+Conditional on campaign initiation, we also ﬁnd that 
+targets would be less likely to settle without reputation. 
+In our baseline model, managers settle in 27.44% of cam- 
+paigns, compared with 23.81%, 21.82%, and 22.31% in the 
+three counterfactuals. Targets settle less frequently with- 
+out reputation because activists ﬁght less frequently. For all 
+three counterfactuals, because reputation-building incen- 
+tives are absent, cautious A chooses Fight f caut, 0 = 11 . 10% 
+of the time and aggressive A chooses Fight f agr, 0 = 48 . 03% 
+of the time, both less than their likelihood of ﬁghting in 
+the dynamic equilibrium. 
+Combining these effects, Table 7 shows that average 
+payoffs for target shareholders per campaign opportunity 
+22 Because we only estimate the distribution of target managers’ cost of 
+proxy ﬁghts ( ˜ F M ) relative to their net private costs of the project ( B − /Delta1), 
+we cannot quantify managers’ payoffs in absolute terms. 
+52 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+would decline by at least 48% in all three counterfactu- 
+als. Target shareholders receive nothing if the project does 
+not occur and a return of /Delta1if it does. Target sharehold- 
+ers’ average payoff is therefore proportional to the proba- 
+bility the project occurs, which requires that A chooses 13- 
+D and either M chooses Settle or A chooses Fight . Because 
+all three of these choices are less likely without reputation, 
+Table 7 shows that for each type of activist, and overall, 
+average target shareholder payoffs would decline without 
+reputation. 
+Average activist payoffs also decline without reputa- 
+tion because activists extract fewer settlements. Cautious 
+A s suffer more in the counterfactuals without aggressive A 
+or with full information because M knows their type and 
+therefore settles even less than in the no-reputation coun- 
+terfactual. Aggressive A s, by contrast, beneﬁt from the full- 
+information counterfactual because M knows their type 
+and therefore chooses Settle more frequently. 
+Comparing the average payoffs of activists and target 
+shareholders illustrates how stark the free rider problem 
+is in this setting. The private costs of activism are suﬃ- 
+ciently large in our baseline estimate that activists’ average 
+net returns per campaign opportunity are less than a ﬁfth 
+of average returns for their targets. The size of these costs 
+and their impact on the net performance of activist hedge 
+funds is consistent with the evidence in Clifford (2008) , 
+Brav et al. (2008) , and Gantchev (2013) . 
+5.6. Robustness 
+We conduct robustness tests by reestimating our model 
+under a variety of alternative parameterizations, empirical 
+implementations, and modeling assumptions. As detailed 
+in Online Appendix E, we consider different values for ac- 
+tivists’ discount factor ( δ) and the arrival rate of campaign 
+opportunities ( λc ), a wider 20-day window for measuring 
+the market’s reaction to campaign announcements ( CAR ), 
+ﬁxed values for the action likelihoods in the absence of 
+activism ( ˆ a ), random variations across campaigns in the 
+expected return for target shareholders after a successful 
+campaign ( /Delta1), and proxy ﬁghts succeeding only a fraction 
+φ of the time. 
+We ﬁnd that parameter estimates can sometimes vary 
+due to changes in assumed parameters or model struc- 
+ture. For example, increasing the campaign opportunity ar- 
+rival rate λc results in proportionally smaller estimates of 
+the baseline frequency with which activists choose 13-D 
+( d caut ,0 ). Similarly, random variations in /Delta1serve as substi- 
+tutes for random variation in campaign costs ( ˜ L ), resulting 
+in higher estimates of their precision ( τL ). 
+More important, we ﬁnd that our main economic 
+results are consistent across alternative assumptions. 
+Reputation-building incentives explain between 15% and 
+30% of observed aggressive behavior, and without reputa- 
+tion activists would create between 35%–60% less value for 
+target shareholders. 23 The reason these effects are more 
+consistent is they are identiﬁed from the changes in av- 
+23 The only exception is if we decrease λc below the rate at which we 
+observe the highest-reputation activists initiating campaigns (around ﬁve 
+per year) which effectively forces reputation effects to be smaller. 
+erage campaign frequency and outcomes as a function of 
+reputation observed in the data. While the speciﬁc param- 
+eters generating this increase can vary across speciﬁcation, 
+the economic conclusion remains unchanged. 
+6. Conclusion 
+We argue that reputation for proxy ﬁghting helps ex- 
+plain why activism is both common and successful de- 
+spite the large private costs and infrequent proxy ﬁghts 
+observed empirically. To support this claim, we estimate a 
+dynamic model in which activists engage target ﬁrms in 
+a series of campaign opportunities. Each target computes 
+the activist’s reputation, deﬁned as the probability they 
+are an aggressive type with a lower average cost of proxy 
+ﬁghting. In our estimated model and empirical tests, we 
+ﬁnd our model-based reputation measure r t signiﬁcantly 
+predicts campaign frequency, market reactions, target re- 
+sponses, and frequency of proxy ﬁghts. Using estimated 
+parameters and the structure of the model, we ﬁnd that 
+20% of observed campaign initiations and 19% of proxy 
+ﬁghts are due to reputation-building incentives and that 
+activism would produce 48% less value value for target 
+shareholders in a counterfactual world without reputation. 
+Activists in our model differ only by their average cost 
+of proxy ﬁghting. While this allows us to focus succinctly 
+on the effects of reputation for proxy ﬁghting, other forms 
+of activist heterogeneity could give rise to reputations for 
+frequent campaigning, identifying high-value projects, ne- 
+gotiating advantageous settlements, and many other skills. 
+Future research could examine these possibilities using a 
+similar approach to this paper. More broadly, our method- 
+ology could be used to estimate dynamic reputation mod- 
+els in many areas of ﬁnance and economics. 
+Appendix A. Model details 
+A. 1 . Reputation dynamics between campaigns 
+Between campaigns, r t evolves according to 
+dr t = − λc (d agr (r t ) − d caut (r t )) r t (1 − r t ) 
+λc (1 − d caut (r t ))(1 − r t ) + λc (1 − d agr (r t )) r t + (1 − λc ) 
+dt 
+   
+decay due to absence of campaigns 
++ (r 0 − r t ) λr dt 
+   
+type resets 
+, (A.1) 
+The evolution due to type resets is the product of their 
+arrival rate λr with the change in reputation that occurs 
+conditional on arrival, r 0 − r t . The decay due to the absence 
+of campaigns affects reputation in proportion to 
+P (agr| r t , no camp. ) − r t 
+= 
+P ( no camp. | r t , agr) r t 
+P ( no camp. | r t , agr) r t + P ( no camp. | r t , caut)(1 − r t ) 
+(A.2) 
+= [ (1 − d agr (r t )) λc + (1 − λc ) ] r t 
+[ (1 − d agr (r t )) λc + (1 − λc ) ] r t + [ (1 − d caut (r t )) λc + (1 − λc ) ] (1 − r t ) − r t , 
+(A.3) 
+which simpliﬁes to the value given in Eq. (A.1) . 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 53 
+Because we do not observe how long an activist is seek- 
+ing campaign opportunities prior to their ﬁrst campaign, 
+we do not know how much of their reputation evolves 
+from r 0 prior to the ﬁrst campaign. We assume it evolves 
+to r 0 , which is deﬁned so that the activist’s reputation con- 
+ditional on initiating a campaign equals the unconditional 
+reputation r 0 : 
+P (μA = μagr | r 0 , 13-D ) = r 0 . (A.4) 
+This is equivalent to assuming all activists receive a cam- 
+paign opportunity with ˜ L = 0 on the ﬁrst day they appear 
+in the sample, meaning the initiation of a ﬁrst campaign, 
+unlike subsequent campaigns, does not affect reputation 
+and so post-initiation reputation equals the unconditional 
+reputation r 0 . 
+A.2. Numeric solution and value function iteration 
+We solve the model numerically using value function 
+iteration on a 106 × 1 grid of r t : 
+r ≡[ 0 , /Phi1( [ −6 , −5 , −4 , −3 . 5 , −3 . 43 , −3 . 36 , . . . , 3 . 36 , 
+3 . 43 , 3 . 5 , 4 ] ) , 1 ] , (A.5) 
+where /Phi1is the standard normal cumulative distribution 
+function. We use a denser grid of r t near zero because very 
+small r t are common in equilibrium. 
+In specifying the cutoff for ˜ F M in Section 3 , we omit the 
+formula for p f ( r t ), the probability A chooses Proxy condi- 
+tional on pre-campaign reputation r t and choosing 13-D , 
+but not conditional on A ’s type. This formula is 
+p f (r t ) = 
+r t d agr (r t ) f agr (r t ) + (1 − r t ) d caut (r t ) f caut (r t ) 
+r t d agr (r t ) + (1 − r t ) d caut (r t ) 
+(A.6) 
+We use value function iteration to ﬁnd equilibrium 
+strategies d i , y , and f i along with value functions V i in four 
+steps. 
+1. Find d i , y , and f i assuming a ﬂat value function V i (r) = 
+0 by numerically searching for values that satisfy 
+Eqs. (11) , (13) , and (15) . 
+2. Find the reputation updating function both between 
+campaigns and after campaigns. Eq. (A.1) speciﬁes how 
+r t evolves between campaigns given model parameters 
+and equilibrium d i ( r t ). After an observed campaign at 
+t , reputation jumps to r t+ according to Eqs. (7) and 
+(8) combined with Bayes’ rule as follows: 
+r t+ | (P roxy = 1 , r t = r) 
+= 
+rd agr (r) f agr (r) 
+rd agr (r) f agr (r) + (1 − r ) d caut (r ) f caut (r ) 
+(A.7) 
+and r t+ | (P roxy = 0 , r t = r) 
+= 
+rd agr (r) P (Set t le | a , r) 
+rd agr (r) + (1 − r ) d caut (r ) 
++ 
+rd agr (r)(1 − f agr (r)) P (F ol d| a , r t ) 
+rd agr (r)(1 − f agr (r)) + (1 − r ) d caut (r )(1 − f caut (r)) 
+. 
+(A.8) 
+The posterior probabilities a campaign was settled 
+given P roxy = 0 are 
+P (Set t le | a , r t = r) 
+= 
+P (a | Set t le, r) P (Set t le | r) 
+P (a | Set t le, r) P (Set t le | r) + P (a | F ol d, r) P (F ol d| r) 
+(A.9) 
+and P (F ol d| a , r, = r) = 1 − P (Set t le | a , r) , (A.10) 
+which can be computed using Eq. (7) combined with 
+equilibrium strategies. 
+3. Find V i using 
+V i = E ( /Pi1i ) + δ1 / 365 /Sigma1i V i (A.11) 
+⇒  V i = 
+(
+I 106 − δ1 / 365 /Sigma1i 
+)−1 
+E ( /Pi1i ) , (A.12) 
+where V i is a 106 × 1 vector of V i ( r t ) values for r t ∈ r , 
+E ( /Pi1i ) is a 106 × 1 vector expected per day proﬁts for 
+A with type i, δis the annualized discount factor, /Sigma1i is 
+a 106 × 106 transition probability matrix describing the 
+likelihood of reputation transitions in a single day, and 
+I 106 is the identity matrix. We compute this transition 
+probability matrix using Eq. (A.1) discretized daily, the 
+distribution of possible observed outcomes Proxy and a 
+conditional on a campaign occurring [from Eq. (7) ], and 
+the post-campaign reputations r t each a implies (from 
+Step 2). 
+4. Repeat Steps 1–3 using the value function found in 
+Step 3 and compare the resulting value function with 
+the last one found. Repeat this iteration until the sum 
+across r of changes in the value function is less than 
+0.01. 
+Appendix B. Variables deﬁnitions 
+B.1. Activist reputation and related measures 
+These variables are constructed using form 13-D and 
+Proxy ﬁlings data from the SEC’s Edgar database which we 
+access via the Wharton Research Data Services (WRDS) SEC 
+Analytics tool, SharkWatch, and our estimation, which we 
+describe in Section 4.3 . 
+Past CAR 250 | Proxy is the average CAR 250 in all the ac- 
+tivist’s prior campaigns with P roxy = 1 and zero if the ac- 
+tivist has no such campaigns. 
+Past CAR 250 | Hi Act is the average CAR 250 in all the ac- 
+tivist’s prior campaigns with Ab Actions above the full- 
+sample median and zero if the activist has no such cam- 
+paigns. 
+Past CAR 250 is the average CAR 250 in all the activist’s 
+prior campaigns and zero if the activist has no prior cam- 
+paigns. 
+Prior Campaigns is the number of previous activist cam- 
+paigns initiated by the activist. This measure approximates 
+the experience measure in Boyson et al. (2016) . 
+r t is our estimate of the activist’s pre-campaign reputa- 
+tion, described in Section 4.3 . 
+r t+ is our estimate of the activist’s post-campaign rep- 
+utation, described in Section 4.3 . 
+54 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+Top HF is an indicator equal to one for activist hedge 
+funds ranked in the top quintile by the trailing year 
+average position size for all activist campaigns. This 
+measure approximates the main reputation measure in 
+Krishnan et al. (2016) . 
+B.2. Other activist characteristics 
+These variables are constructed using data from CRSP 
+and Thomson Reuters. For the small minority of activists 
+with no precise date and mgrno identiﬁer match, we use 
+data from an additional one quarter prior or one quarter 
+later. 
+Log Portfolio Size is the log of the total market cap of 
+all positions, from Form 13-F, held by the activist at the 
+quarter-end prior to the initiation of each campaign. 
+Portfolio Turnover is the trailing one-year average quar- 
+terly portfolio turnover, as deﬁned in Gaspar et al. (2005) . 
+Stake Size is the share of the target ﬁrm’s shares out- 
+standing held by the activist as of the ﬁrst quarter after the 
+initiation of each campaign, from Form 13-F. In a handful 
+of cases with no match, we assign the sample average of 
+roughly 7%. 
+B.3. Activist campaign outcome measures 
+These variables are constructed using Form 8-K data 
+from Capital IQ Key Developments, Form 13-D and Proxy 
+ﬁlings data from the SEC’s EDGAR database, which we ac- 
+cess via the WRDS SEC Analytics tool, and cash ﬂow and 
+balance sheet data from Compustat, CRSP, and SharkWatch. 
+13-D is an indicator equal to one on activist-days in 
+which a campaign is initiated. 
+Ab Actions is Actions minus ˆ Actions . 
+Actions is the sum of Acq, Board, CEO, Payout , and Proxy . 
+ˆ Actions is the sum of predicted values for Acq, Board, 
+CEO, Payout , and Proxy in the absence of activism, com- 
+puted as detailed in Appendix C . 
+Acq is an indicator equal to one if the target ﬁrm an- 
+nounces a merger or acquisition, or announces that it 
+seeks to sell or divest a business, within the year follow- 
+ing the initiation of each campaign, which we deﬁne using 
+Capital IQ codes 1 and 80. 
+Board is an indicator equal to one if a member of target 
+ﬁrm’s board of directors departs or a new director is ap- 
+pointed due to activism, within the year following the ini- 
+tiation of each campaign, as indicated by Capital IQ code 
+172 or SharkWatch. 
+CAR is the three-day [-1,+1] market-adjusted return for 
+the target ﬁrm around the day in which each activist cam- 
+paign is initiated. 
+CAR 250 is the market-adjusted return in days [-10,+250] 
+for the target ﬁrm around the day in which each activist 
+campaign is initiated. 
+CEO is an indicator equal to one if the CEO of the tar- 
+get ﬁrm departs within the year following the initiation of 
+each campaign, which we deﬁne using Capital IQ code 101 
+or SharkWatch. 
+Payout is an indicator for a company’s quarterly payout 
+(dividends plus stock repurchases) increasing by more than 
+1% of assets (versus the prior year) within the year follow- 
+ing the initiation of each campaign, which we measure us- 
+ing ﬁnancial statement data from Compustat. 
+Proxy is an indicator equal to one if the activist initiates 
+a proxy ﬁght in the year following campaign initiation, as 
+detailed in Section 4.1 . 
+Reorg is an indicator equal to one if the target ﬁrm an- 
+nounces a reorganization, change in strategic direction, or 
+discontinuation or downsizing of business, within the year 
+following the initiation of each campaign, which we deﬁne 
+using Capital IQ codes 21 and 63 or SharkWatch. 
+B.4. Target ﬁrm characteristics 
+These variables are constructed using data from Com- 
+pustat, CRSP, and Thomson Reuters. 
+One-Year Return is the cumulative total return over the 
+year prior to the campaign initiation date. 
+Book-to-Market is the equity book-to-market ratio: book 
+equity from Compustat divided by CRSP market capitaliza- 
+tion. 
+Capex/Assets is the trailing year’s total capital expendi- 
+tures from the cash ﬂow statement divided by lagged total 
+assets. 
+EBIT/Assets is the trailing year’s total earnings before in- 
+terest and taxes from divided by lagged total assets. 
+Log Size is the natural log of CRSP market capitalization. 
+Net Leverage is total debt, net of cash, divided by lagged 
+total assets. 
+Inst Investors is the number of 13-F ﬁlers holding the 
+stock in the most recent quarter. 
+Payout/Assets is the trailing year’s total dividend pay- 
+ments and stock repurchases (from the cash ﬂow state- 
+ment) divided by lagged total assets. 
+Appendix C. Target ﬁrm actions propensity measure 
+In this Appendix, we outline the construction of ˆ a i , our 
+estimate of the likelihood action i would occur in a certain 
+ﬁrm-year in the absence of an activist campaign. 
+We calculate ˆ a i for each campaign as the ﬁtted value 
+from a cross-sectional regression predicting future corpo- 
+rate actions using observables during the quarter t when 
+the campaign is initiated. We estimate this regression on 
+a wider sample that includes all publicly traded ﬁrms 
+in the intersection of the CRSP and Compustat panels. 
+Eq. (C.1) outlines each regression: 
+a j,i,t+4 = αi,t + γi,t · X j,t + ϵj,i,t+4 , (C.1) 
+where a j,i,t+4 is action indicator i (one of Reorg, Payout, 
+CEO, Board , and Acq ) measured in the year following quar- 
+ter t for ﬁrm j and X j,t is a vector of company character- 
+istics measured in quarter t: Log Size j,t , EBIT/Assets j,t , Net 
+Leverage j,t , Payout/Assets j,t , Capex/Assets j,t , Book-to-Market j,t , 
+Inst Ownership j,t , and One-Year Return j,t . 24 
+Online Appendix Table OA1 shows the average coeﬃ- 
+cients across each of our 56 quarterly cross-sectional pre- 
+dictive regressions, with t -statistics calculated using the 
+24 We deﬁne in detail how we calculate each of the actions and charac- 
+teristics in Appendix B . 
+T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 55 
+cross-quarter standard deviations in coeﬃcients in a man- 
+ner similar to Fama and MacBeth (1973) . 
+Appendix D. Estimation 
+D.1. Likelihood function details 
+We compute the likelihood function for each observed 
+campaign as 
+L c (θ) = L ga p 
+c (θ) · L 13 − D 
+c (θ) · L car 
+c (θ) · L out come 
+c (θ) . (D.1) 
+L ga p 
+c (θ) is the probability A does not initiate another 
+campaign until the date of their next observed campaign. 
+Writing t for the date of this campaign and d for the num- 
+ber of days until A ’s next campaign occurs, we have 
+L ga p 
+c (θ) = 
+t+ d−1 ∑ 
+s = t+1 
+[(
+1 − λc 
+365 
+)
++ 
+λc 
+365 
+(r s (1 − d agr (r s )) 
++ (1 − r s )(1 − d caut (r s ))) 
+]
+, (D.2) 
+where r s is A ’s reputation on day s . If c is A ’s last campaign 
+in our sample, we set d equal to the smaller of 365 and the 
+number of days until our sample ends on December 31st, 
+2016. 25 
+L 13 − D 
+c (θ) is the probability A receives a campaign op- 
+portunity and chooses 13-D on date t , given pre-campaign 
+reputation r t , which satisﬁes 
+L 13 − D 
+c (θ) = 
+λc 
+365 
+(r t d agr (r t ) + (1 − r t ) d caut (r t )) . (D.3) 
+L car 
+c (θ) is the probability of observed market returns 
+CAR given pre-campaign reputation r t and A ’s choice of 13- 
+D : 
+L car 
+c (θ) = φ
+(
+CAR − P ( Settle or Fight | r t , 13-D ) 
+σcar 
+)
+(D.4) 
+and P ( Settle or Fight | r t , 13-D ) = y (r t ) + (1 − y (r t ) p f (r t ) , 
+(D.5) 
+where φ is the PDF of the standard normal distribution. 
+Finally, L out come 
+c (θ) is the probability of observed out- 
+come o given pre-campaign reputation r t and A ’s choice of 
+13-D : 
+L out come 
+c (θ) 
+= 
+{ 
+(1 − y (r t )) p f (r t ) if P roxy = 1 
+y (r t ) P (a | Settle ) + (1 − y (r t )) 
+× (1 − p f (r t )) P (a | Fold ) if P roxy = 0 
+(D.6) 
+D.2. Mapping between μ and zero-reputation probabilities 
+To ease the interpretation of our model’s parameters, 
+we map means of log costs μL , μM , μagr , and μcaut to what 
+25 This approach allows us to ignore any days before an activist’s ﬁrst 
+campaign and limit the potential impact of long absences after an ac- 
+tivist’s last campaign in our sample, perhaps because they exit activism 
+altogether, to a maximum of 365 days. 
+they imply for strategies when reputation equals zero. This 
+mapping is: 
+f caut, 0 = /Phi1( τA ( log (/Delta1) − μcaut ) ) , (D.7) 
+f agr, 0 = /Phi1( τA ( log (/Delta1) − μagr ) ) , (D.8) 
+y 0 = 1 − /Phi1
+(
+τM 
+(
+log 
+(
+1 − f caut, 0 
+f caut, 0 
+)
+− μM 
+))
+, (D.9) 
+d caut, 0 = /Phi1(τL ( log ( L caut, 0 ) − μL ) 
+)
+, (D.10) 
+and L caut, 0 = y 0 /Delta1+ (1 − y 0 ) f caut, 0 
+(/Delta1− E 
+[˜ F A | ˜ F A < /Delta1, μA = μcaut 
+])
+. (D.11) 
+D.3. Simulating samples 
+Our analyses in Tables 6 and 7 use samples simulated 
+from the model. For a given parameterization of the model 
+θ, and given restrictions on the information set, we com- 
+pute equilibrium strategies and reputation dynamics as de- 
+scribed in Section 3.3 and Appendix A . With these in hand, 
+we simulate samples using the following sixt-step proce- 
+dure. 
+1. Create a new activist A ( i ) with initial type randomly as- 
+signed based on the unconditional probability r 0 and 
+birth date t 0 randomly assigned within our sample pe- 
+riod. We assume A ( i ) receives a campaign opportunity 
+on t 0 , always chooses 13-D in this case, and has repu- 
+tation conditional on ﬁling a 13-D equal to r 0 . 
+2. Draw random type reset dates according to rate λr , and 
+at each date re-assign a new randomly drawn type, 
+forming a complete path for the A ( i ) ’s true type. 
+3. Draw random campaign opportunity dates according to 
+rate λc . 
+4. Starting with the ﬁrst campaign at t 0 , randomly draw 
+costs ˜ L , ˜ F M , and ˜ F A and compute the resulting cam- 
+paign outcome. From this outcome, draw random a us- 
+ing Eq. (7) . Then compute post-campaign reputation r t+ 
+and, based on Eq. (A.1) , pre-campaign reputation r t for 
+the next campaign opportunity. 
+5. Repeat Step 4 for all campaign opportunity dates drawn 
+in Step 3. 
+6. Repeat Steps 1–5, creating new activists and record- 
+ing the timing and outcome of their campaigns, until a 
+sample is generated matching the size of our empirical 
+sample. 
+References 
+Ackermann, C. , McEnally, R. , Ravenscraft, D. , 1999. The performance of 
+hedge funds: risk, return, and incentives. J. Finance 54 (3), 833–874 . 
+Admati, A.R. , Pﬂeiderer, P. , 2009. The “wall street walk” and shareholder 
+activism: exit as a form of voice. Rev. Financ. Stud. 22 (7), 2445–2485 . 
+Aghion, P. , Bolton, P. , Tirole, J. , 2004. Exit options in corporate ﬁnance: 
+liquidity versus incentives. Rev. Finance 8 (3), 327–353 . 
+Appel, I.R. , Gormley, T.A. , Keim, D.B. , 2018. Standing on the shoulders of 
+giants: The effect of passive investors on activism. Rev. Financ. Stud. 
+32 (7), 2720–2774 . 
+Back, K. , Collin-Dufresne, P. , Fos, V. , Li, T. , Ljungqvist, A. , 2018. Activism, 
+strategic trading, and liquidity. Econometrica 86 (4), 1431–1463 . 
+56 T.L. Johnson and N. Swem / Journal of Financial Economics 139 (2021) 29–56 
+Bebchuk, L.A. , Brav, A. , Jiang, W. , Keusch, T. , 2020. Dancing with activists. 
+J. Finance. Econ. 137 (1), 1–41 . 
+Becht, M. , Franks, J. , Grant, J. , Wagner, H.F. , 2017. Returns to hedge fund 
+activism: an international study. Rev. Financ. Stud. 30 (9), 2933–2971 . 
+Boyson, N.M. , Gantchev, N. , Shivdasani, A. , 2017. Activism mergers. J. Fi- 
+nanc. Econ. 126 (1), 54–73 . 
+Boyson, N.M. , Ma, L. , Mooradian, R.M. , 2016. How does past experience 
+impact hedge fund activism?. Northeastern University, Boston, MA . 
+Unpublished working paper. 
+Bradley, M. , Brav, A. , Goldstein, I. , Jiang, W. ,2 0 1 0 . Activist arbitrage: a 
+study of open-ending attempts of closed-end funds. J. Financ. Econ. 
+95 (1), 1–19 . 
+Brav, A. , Dasgupta, A. , Mathews, R.D. , 2016. Wolf pack activism. Cornell 
+University, Ithaca, NY . Unpublished working paper. 
+Brav, A. , Jiang, W. , Kim, H. , 2010. Hedge fund activism: a review. Found. 
+Trends Finance 4 (3), 185–246 . 
+Brav, A. , Jiang, W. , Kim, H. , 2015. The real effects of hedge fund activism: 
+productivity, asset allocation, and labor outcomes. Rev. Financ. Stud. 
+28 (10), 2723–2769 . 
+Brav, A. , Jiang, W. , Ma, S. , Tian, X. , 2018. How does hedge fund activism 
+reshape corporate innovation? J. Financ. Econ. 130 (2), 237–264 . 
+Brav, A. , Jiang, W. , Partnoy, F. , Thomas, R. , 2008. Hedge fund activism, 
+corporate governance, and ﬁrm performance. J. Finance 63 (4), 
+1729–1775 . 
+Burkart, M. , Gromb, D. , Panunzi, F. , 1997. Large shareholders, monitoring, 
+and the value of the ﬁrm. Quart. J. Econ. 112 (3), 693–728 . 
+Chemmanur, T.J. , Fulghieri, P. , 1994. Investment bank reputation, informa- 
+tion production, and ﬁnancial intermediation. J. Finance 49 (1), 57–79 . 
+Clifford, C.P. , 2008. Value creation or destruction? hedge funds as share- 
+holder activists. J. Corporate Finance 14 (4), 323–336 . 
+Collin-Dufresne, P. , Fos, V. , 2015. Do prices reveal the presence of in- 
+formed trading? J. Finance 70 (4), 1555–1582 . 
+Corum, A .A . , 2018. Activist settlements. Cornell University, Ithaca, NY . Un- 
+published working paper 
+Corum, A .A . , Levit, D. , 2019. Corporate control activism. J. Financ. Econ. 
+133 (1), 1–17 . 
+DeAngelo, H. , DeAngelo, L. , Whited, T.M. , 2011. Capital structure dynamics 
+and transitory debt. J. Financ. Econ. 99 (2), 235–261 . 
+Denes, M.R. , Karpoff, J.M. , McWilliams, V.B. , 2017. Thirty years of share- 
+holder activism: a survey of empirical research. J. Corporate Finance 
+44, 405–424 . 
+Diamond, D.W. , 1989. Reputation acquisition in debt markets. J. Polit. 
+Econ. 97 (4), 828–862 . 
+Dimopoulos, T. , Sacchetto, S. , 2014. Preemptive bidding, target resistance, 
+and takeover premiums. J. Financ. Econ. 114 (3), 4 4 4–470 . 
+Fama, E.F. , MacBeth, J.D. , 1973. Risk, return, and equilibrium: empirical 
+tests. J. Polit. Econ. 81 (3), 607–636 . 
+Fos, V. , Tsoutsoura, M. , 2014. Shareholder democracy in play: career con- 
+sequences of proxy contests. J. Financ. Econ. 114 (2), 316–340 . 
+Fudenberg, D. , Levine, D.K. , 1989. Reputation and equilibrium selection in 
+games with a patient player. Econometrica 57 (4), 759–778 . 
+Fudenberg, D. , Levine, D.K. , 1992. Maintaining a reputation when strate- 
+gies are imperfectly observed. Rev. Econ. Stud. 59 (3), 561–579 . 
+Gantchev, N. , 2013. The costs of shareholder activism: evidence from a 
+sequential decision model. J. Financ. Econ. 107 (3), 610–631 . 
+Gantchev, N. , Gredil, O. , Jotikasthira, C. , 2019. Governance under the 
+gun: spillover effects of hedge fund activism. Rev. Finance 23 (6), 
+1031–1068 . 
+Gaspar, J.-M. , Massa, M. , Matos, P. , 2005. Shareholder investment horizons 
+and the market for corporate control. J. Financ. Econ. 76 (1), 135–165 . 
+Glover, B. , 2016. The expected cost of default. J. Financ. Econ. 119 (2), 
+284–299 . 
+Gow, I.D. , Shin, S.-P.S. , Srinivasan, S. , 2014. Consequences to directors 
+of shareholder activism. Harvard University, Cambridge, MA . Unpub- 
+lished Working Paper 
+Grieser, W.D. , Hadlock, C.J. , 2019. Panel-data estimation in ﬁnance: 
+testable assumptions and parameter (in)consistency. J. Financ. Quant. 
+Anal. 54 (1), 1–29 . 
+Kreps, D.M. , Wilson, R. , 1982. Reputation and imperfect information. J. 
+Econ. Theory 27 (2), 253–279 . 
+Krishnan, C. , Partnoy, F. , Thomas, R.S. , 2016. The second wave of hedge 
+fund activism: The importance of reputation, clout, and expertise. J. 
+Corporate Finance 40, 296–314 . 
+Levit, D. , 2018. Soft shareholder activism. Rev. Financ. Stud. 32 (7), 
+2775–2808 . 
+Li, S. , Whited, T.M. , Wu, Y. , 2016. Collateral, taxes, and leverage. Rev. Fi- 
+nanc. Stud. 29 (6), 1453–1500 . 
+Maug, E. , 1998. Large shareholders as monitors: is there a trade-off be- 
+tween liquidity and control? J. Finance 53 (1), 65–98 . 
+Milgrom, P. , Roberts, J. , 1982. Predation, reputation, and entry deterrence. 
+J. Econ. Theory 27 (2), 280–312 . 
+Morellec, E. , Nikolov, B. , Schürhoff, N. , 2012. Corporate governance and 
+capital structure dynamics. J. Finance 67 (3), 803–848 . 
+Nikolov, B. , Whited, T.M. , 2014. Agency conﬂicts and cash: estimates from 
+a dynamic model. J. Finance 69 (5), 1883–1921 . 
+Schroth, E. , Suarez, G.A. , Taylor, L.A. , 2014. Dynamic debt runs and ﬁnan- 
+cial fragility: evidence from the 2007 ABCP crisis. J. Financ. Econ. 112 
+(2), 164–189 . 
+Starks, L.T. , 1987. Performance incentive fees: an agency theoretic ap- 
+proach. J. Financ. Quant. Anal. 22 (1), 17–32 . 
+Strebulaev, I.A. , Whited, T.M. , 2012. Dynamic models and structural esti- 
+mation in corporate ﬁnance. Found. Trends Finance 6 (1–2), 1–163 . 
+Stulz, R.M. , 2007. Hedge funds: past, present, and future. J. Econ. Perspect. 
+21 (2), 175–194 . 
+Taylor, L.A. , 2010. Why are CEOs rarely ﬁred? evidence from structural es- 
+timation. J. Finance 65 (6), 2051–2087 . 
+Warusawitharana, M. , 2015. Research and development, proﬁts, and ﬁrm 
+value: a structural estimation. Quant. Econ. 6 (2), 531–565 . 
+Wilks, S.S. , 1938. The large-sample distribution of the likelihood ratio for 
+testing composite hypotheses. Ann. Math. Statistics 9 (1), 60–62 . 
+Wooldridge, J.M. , 2010. Econometric Analysis of Cross Section and Panel 
+Data. MIT Press, Cambridge, MA. . 

@@ -1,0 +1,1247 @@
+=== PAGE 1 ===
+ Electronic copy available at: http://ssrn.com/abstract=1705707 
+The Disciplinary Eﬀects of Proxy Contests $
+Vyacheslav Fos
+Carroll School of Management, Boston College
+July 2015
+Abstract
+Using a manually collected data set of all proxy contests from 1994 through 2012, I
+show that proxy contests play an important role in hostile corporate governance. Target
+shareholders beneﬁt from proxy contests: the average abnormal returns reach 6.5% around
+proxy contest announcements. Proxy contests that address ﬁrms’ business strategies and
+undervaluation are most beneﬁcial for shareholders. In contrast, proxy contests that aim
+at changing capital structure and governance do not lead to higher ﬁrm values. Relative
+to matching ﬁrms, future targets are smaller, they have higher stock liquidity, higher
+institutional and activist ownership, lower leverage and market valuation, and higher
+investments. While most of these characteristics predict proxy contests in time-series, prior
+to proxy contests targets also experience poor stock performance, decreases in investments,
+increases in cash reserves and payouts to shareholders, and increases in management’s
+entrenchment. These changes in corporate policies are consistent with targets’ attempts to
+aﬀect the probability of a proxy contest.
+$I thank Patrick Bolton, Pierre Collin-Dufresne, Wei Jiang, and Daniel Paravisini for their encour-
+agement and support. I also thank Cindy Alexander, Heitor Almeida, Yakov Amihud, Gur Huberman,
+Vikas Mehrotra (NFA discussant), Carrie Pan (CICF discussant), Amit Seru (the Editor), Abraham Ravid
+(WFA discussant), Randall Thomas, Robert Thompson (NYU-PENN discussant), Daniel Wolfenzon, and
+two anonymous referees. I also thank seminar participants at Columbia Business School, Haas School of
+Business, the Graduate School of Management at UC Davis, Cox School of Business, Harvard Business
+School, College of Business at UIUC, Rotman School of Management, Bauer College of Business, the
+Division of Risk, Strategy and Financial Innovation at the U.S. Securities and Exchange Commission,
+and participants at the WFA 2011 Annual Meeting, the NFA 2011 Annual Meeting, the 2012 China
+International Conference in Finance, and the 2013 NYU/Penn Conference on Law and Finance for their
+helpful comments and suggestions.
+Email address: vyacheslav.fos@bc.edu (Vyacheslav Fos)
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 2 ===
+ Electronic copy available at: http://ssrn.com/abstract=1705707 
+The agency problem created by separation of ownership and control in publicly traded
+corporations with dispersed ownership is a central topic of the corporate governance
+literature, which focuses on mechanisms for disciplining incumbents. These mechanisms
+range from informal “jawboning” to contests for corporate control, which are used to change
+management and to obtain control in publicly traded corporations. In 1992 the regulatory
+burdens surrounding proxy contests were substantially liberalized, thus reducing the cost
+of engaging in a proxy contest. Speciﬁcally, the 1992 proxy reform reduced the costs of
+proxy contests by relaxing constraints on communications between shareholders of public
+corporations (Sharara and Hoke-Witherspoon, 1993). As a result, the frequency of proxy
+contests increased signiﬁcantly after 1992. The average number of proxy contests was 56
+(68) per year during the years 1994-2012 (2006-2012) as compared with an average of 17 a
+year during the years 1979-1994 (see Figure 1 and Mulherin and Poulsen, 1998).
+While shareholders more often rely on the proxy contest mechanism, the evidence
+pertaining to the role of proxy contests in modern corporate governance is limited because
+most of the existing literature uses pre-1992 proxy reform data. Do proxy contests play
+an active governance role in the post-1992 period? This question has important policy
+implications for debates on the optimal scope of shareholder rights in public companies
+(Bebchuk, 2007; Lipton and Savitt, 2007). Whereas a conclusion that the proxy contest
+mechanism is beneﬁcial provides support for strengthening shareholder rights in proxy
+contests, the opposite conclusion provides support for constraining them (Bebchuk and
+Weisbach, 2010). The eﬀort that the SEC, institutional investors, and business groups
+expended ﬁghting for or against 2010 proxy access reform suggests that the eﬀectiveness
+of the proxy contest mechanism is of central importance. 1
+1In an attempt to facilitate corporate governance, on July 21, 2010 the SEC received authorization from
+the Dodd-Frank Act to adopt proxy access rules and adopted signiﬁcant proxy access reform on August 25,
+2010. This reform addresses concerns about the eﬀectiveness of the proxy contest mechanism by facilitating
+the process of nominating directors by large long-term shareholders (Rule 14a-11). The reform would reduce
+these cost barriers by allowing shareholder nominations to be included in the corporate proxy materials.
+On September 29, 2010, the Chamber and the Roundtable jointly ﬁled a petition with the United States
+1
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 3 ===
+This paper reveals several interesting empirical regularities. First, I show that proxy
+contests play an increasingly important role in hostile corporate governance. There were
+1,061 proxy contests from 1994 through 2012. Whereas shareholders more frequently
+rely on proxy contests, hostile takeovers became less frequent, suggesting that there was
+a signiﬁcant change in hostile corporate governance over the last three decades. The
+widespread adoption of anti-takeover provisions, the enactment of state-level antitakeover
+laws favoring management, and the collapse of the junk bond market have increased the
+cost of hostile tender oﬀers and therefore contributed to the decrease in frequency of such
+oﬀers (Karpoﬀ and Malatesta, 1989; Bertrand and Mullainathan, 2003; Cremers and Ferrell,
+2014). In contrast, the 1992 proxy reform, which allowed independent shareholders to freely
+engage in communication without being monitored by the SEC, the rise of activist hedge
+funds, and increased stock liquidity are among potential explanations for the increasing
+frequency of proxy contests.
+Second, I document several key characteristics of proxy contests. I ﬁnd that 81%
+of proxy contests are non-control contests. These are either short-slate contests or issue
+contests. The current corporate governance environment therefore resembles the ‘market
+for corporate inﬂuence’ and not the ‘market for corporate control.’ When I analyze what
+types of shareholders stand behind proxy contests, I ﬁnd that activist hedge funds are by
+far the most frequent proxy contest sponsors: 57% of proxy contests were sponsored by
+activist hedge funds. The number (proportion) of proxy contests sponsored by activist
+hedge funds increased from 162 (38%) from 1994 through 2002 to 440 (70%) from 2003
+through 2012. Thus, activist hedge funds often materialize the threat of launching a proxy
+contest if the management is not willing to implement changes suggested by the activists
+Court of Appeals for the District of Columbia Circuit alleging that the reform violated several federal
+statutes. On October 4, 2010, pending a judicial decision, the SEC agreed to stay implementation of the
+reform. On July 22, 2011, calling the rule arbitrary and capricious, the appeals court voted to vacate Rule
+14a-11, a ruling that the SEC decided not to appeal. See Becker et al. (2010) and Cohn et al. (2014) for
+further details.
+2
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 4 ===
+(Brav et al., 2008). This result also ﬁts well with the fact that most proxy contests are
+non-control contests because activist hedge funds seek not to run ﬁrms but to inﬂuence or
+replace existing management.
+I ﬁnd that about half (47%) of proxy contests are resolved through voting process and
+that there is substantial uncertainty about the voting outcome in these cases: dissidents’
+chances of failing or winning a voting contest are about 50%. The second most frequent
+outcome is a settlement agreement between ﬁrm management and dissident shareholders:
+267 contests, corresponding to 25% of such events, were settled, often allowing dissident
+director nominees to join the board. Another important characteristic of a proxy contest
+involves the stated goals of dissident shareholders. Addressing undervaluation concerns
+is the ﬁrst priority of dissident shareholders (41% of proxy contests). The second most
+frequently stated goal is corporate governance (39% of proxy contests). Dissidents also
+often address ﬁrms’ business strategies and the possibility of selling the target company
+(28% and 27% of proxy contests, accordingly).
+Third, when I study the valuation of implications of proxy contests, I ﬁnd that
+dissidents are more likely to initiate a proxy contest after a period of poor stock
+performance: Cumulative abnormal returns (CARs) during the two years that precede
+proxy contest announcements is -10%. Following proxy contest announcements the average
+abnormal returns reach 6.5%, suggesting that target shareholders beneﬁt from proxy
+contests. When I analyze cross-sectional variation in the valuation implications of proxy
+contests, I ﬁnd that whereas the announcement eﬀect is stronger when a proxy contest is
+initiated by activist hedge funds versus other types of dissidents, the CARs of two groups are
+similar eight months after the announcement, suggesting that the overall changes in stock
+prices are similar when these two groups of dissident shareholders are involved. Moreover,
+the analysis reveals interesting relations between the valuation of implications of proxy
+contests and dissidents’ stated goals. I ﬁnd that most of value creation for shareholders is
+3
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 5 ===
+concentrated in proxy contests that address business strategies and valuations of targets.
+There is almost no value creation for shareholders when governance, capital structure, and
+selling the target company are among dissidents’ stated goals.
+Fourth, I study what ﬁrm characteristics predict proxy contests. Probit analysis
+reveals that proxy contest targets in the post-reform environment are suﬀering from low
+market valuation and poor stock performance, which dissidents typically use when they
+criticize incumbent management. Targets are also characterized by high institutional and
+activist ownership, which indicates a more sophisticated shareholder base, whose support
+dissident shareholders often need to succeed with a proxy contest. Moreover, a company
+is more likely to be targeted in a proxy contest if it has a smaller market cap, which is
+consistent with the notion that it is more expensive to launch a proxy contest in a large
+company. As far as corporate policies are concerned, targets are characterized by lower
+investments and higher dividend payout ratios. Interestingly, the evidence indicates that
+stock liquidity positively aﬀects the likelihood of a proxy contest. This result ﬁnds support
+in the theoretical literature, which suggests that greater stock liquidity makes it easier for
+investors to accumulate large stakes without substantially aﬀecting the stock price and
+therefore facilitates shareholder activism (Kyle and Vila, 1991; Bolton and von Thadden,
+1998; Maug, 1998; Collin-Dufresne and Fos, 2014).
+In order to understand what ﬁrm characteristics predict proxy contests in cross-
+section, I compare future targets and match non-targets, identiﬁed based on year, industry
+(3-digit SIC), market cap, and book-to-market ratio. I ﬁnd that future targets are smaller
+than matched non-targets, and they have lower market valuation, lower leverage, higher
+activist ownership, and higher stock liquidity. Moreover, future targets invest more than
+matched non-targets, suggesting that targets suﬀer from over-investment problem. While
+most of these characteristics predict proxy contests in time-series, prior to proxy contests
+targets also experience poor stock performance, decreases in investments, increases in cash
+4
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 6 ===
+reserves and payouts to shareholders, and increases in management entrenchment.
+The evidence pertaining to dissidents’ stated goals and ﬁrm characteristics reveals
+that ﬁrms can take concrete steps to reduce the probability of a proxy contest. To address
+this possibility, I examine whether companies change their ﬁnancial policies when the
+likelihood of a proxy contest increases. Consistently with this conjecture, I ﬁnd that when
+the likelihood of a proxy contest increases, companies increase leverage and payouts while
+also decreasing cash reserves and investments. While this relation is suggestive, one needs
+to ﬁnd an instrument for the likelihood of a proxy contest to show that the relation is also
+causal. This relation does suggest, however, that the proxy contest mechanism plays a
+disciplinary role. That is, companies change corporate policies when the mere threat of a
+proxy contest increases.
+This paper contributes to several strands in the broader ﬁnance literature. First, the
+paper contributes to the corporate governance literature on proxy contests. Most of the
+existing literature studies proxy contests that took place prior to the 1992 proxy reform
+(Dodd and Warner, 1983; DeAngelo and DeAngelo, 1989; Ikenberry and Lakonishok, 1993;
+Mulherin and Poulsen, 1998). This paper therefore is the ﬁrst to provide comprehensive
+evidence pertaining to the role of proxy contests in the post-1992 proxy reform period. 2
+The paper shows that substantial changes in types of proxy contests took place over past
+three decades. For example, activist hedge funds became the most frequent type of proxy
+contest sponsors. Moreover, most proxy contests aim not at controlling the board but at
+electing a few dissident shareholders’ nominees to represent shareholders’ interests on the
+board of directors.
+Second, the evidence documented in this paper suggests that the occurrence of a
+substitution of proxy contests for hostile takeovers. While it has been documented that
+2An exception is Norli et al. (2015), who study shareholder proposals and proxy contests during the
+1994-2007 period. Their sample includes 331 proxy contests, a sub-sample of 1,061 proxy contests I analyze.
+5
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 7 ===
+hostile takeovers have played a signiﬁcant disciplinary role, several changes in the regulatory
+environment and the structure of ﬁnancial markets have decreased the disciplinary eﬀects
+of hostile takeovers (Bertrand and Mullainathan, 2003). As this paper shows, consequent
+changes in the regulatory environment led to a signiﬁcant increase in the disciplinary eﬀects
+of proxy contests.
+Third, this paper contributes to the literature that studies the valuation implications
+of proxy contests (e.g., Dodd and Warner, 1983; DeAngelo and DeAngelo, 1989; Ikenberry
+and Lakonishok, 1993; Mulherin and Poulsen, 1998). Consistently with most existing
+studies, I ﬁnd that target shareholders beneﬁt from proxy contests. Interestingly, the
+overall changes in stock prices are similar when proxy contests sponsored by activist hedge
+funds are compared with other proxy contests. The paper also contributes to the literature
+by showing that the valuation of the implications of proxy contests depend to a great extent
+on dissidents’ stated goals.
+Finally, the paper contributes to the literature that studies ﬁrm characteristics of
+proxy contests and of proxy contest targets. I document a substantial change in the
+composition of proxy contest sponsors during the sample period: activist hedge funds
+became the dominant class of proxy contest sponsors during this period. Also, this paper
+is the ﬁrst to analyze factors that predict proxy contests in cross-section and in time-series.
+The rest of the paper is organized as follows. The institutional background and
+description of the data are introduced in Section 1. Section 2 presents characteristics of
+proxy contests, such as contest type, dissident type, dissidents’ stated goals, and contest
+outcomes. Section 3 analyzes the valuation implications of proxy contests. Cross-sectional
+and time-series factors that predict proxy contests are described in Section 4. The relation
+between corporate policies and the likelihood of a proxy contest is reported in Section 5.
+Section 6 concludes.
+6
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 8 ===
+1. Institutional Background and Sample Description
+During a proxy contest, dissidents and incumbents forward proxy solicitation
+materials to shareholders, who sign and return the proxy form indicating their preferred
+group. The agents for each group accumulate votes via the returned proxies and cast these
+votes at the shareholders’ meeting. This process is known as the contested solicitation of
+votes. The SEC has Congress’s authorization to regulate proxy solicitations.
+The sample of companies targeted by proxy contests (hereafter “targets”) is con-
+structed as follows. In the incident of a contested solicitation of votes, the following forms
+are submitted to the SEC through EDGAR: a preliminary proxy statement in connection
+with contested solicitations (PREC14A) and a deﬁnitive proxy statement in connection
+with contested solicitations (DEFC14A). I use submissions of these forms to identify proxy
+contest events.3 First, I identify more than 6,000 ﬁlings of either PREC14C or DEFC14A
+forms using an automatic searching script, which checks the existence of either PREC14C
+or DEFC14A forms in EDGAR for each company in the Compustat universe from 1994
+through 2012. This method identiﬁes all contested solicitations of votes in the universe of
+Compustat companies. Next, I manually check the ﬁlings and identify proxy contest events
+from 1994 through 2012. There are about six ﬁlings of either PREC14C or DEFC14A forms
+during an average proxy contest. The ﬁnal sample is the universe of all proxy contests from
+1994 through 2012 and consists of 1,061 unique proxy contests. 4
+Figure 1 presents the time distribution of proxy contests during the sample period,
+showing that, on average, 56 proxy contests take place each year. The last comprehensive
+study of proxy contests, by Mulherin and Poulsen (1998), documents that the average
+number of proxy contests was 17 per year from 1979 through 1994. Thus, shareholders rely
+3Alexander, Chen, Seppi, and Spatt (2010) and Fos and Tsoutsoura (2014) use a similar approach to
+identify proxy contests.
+41,061 unique proxy contests correspond to 873 ﬁrms, suggesting that about 20% of ﬁrms are targeted
+more than once.
+7
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 9 ===
+on proxy contests more frequently when they want to inﬂuence corporate governance.
+[Insert Figure 1 here]
+One potential explanation of the increasing frequency of proxy contests is the 1992
+proxy reform. During the early 1990s regulators felt a sense of urgency regarding the proxy
+rules due to the perceived entrenchment of management, brought about by three events.
+First, many ﬁrms adopted stringent anti-takeover defenses (e.g., poison pills). Second, by
+1991 forty states had enacted anti-takeover statutes. Third, the collapse of the junk bond
+market destroyed the major ﬁnancing mechanism used to fund corporate takeovers. In
+1992 the SEC introduced a proxy reform measure. The reform substantially liberalized the
+regulatory burdens applying to proxy contests and thus reduced the cost of engaging in
+a proxy contest. Speciﬁcally, the 1992 proxy reform reduced the costs of proxy contests
+by relaxing constraints on communications between shareholders of public corporations
+(Sharara and Hoke-Witherspoon, 1993). Following the reform, shareholders could contact
+each other directly to discuss matters relating to the target company. Among additional
+factors that contributed to the increased frequency of proxy contests are the rise of activist
+hedge funds and an increase in stock market liquidity. 5
+Figure 2 presents the time distribution of proxy contests and hostile tender oﬀers
+from 1981 through 2012. Figure 2 indicates a signiﬁcant change in corporate governance
+over the last three decades: while in the 1980s dissident shareholders more often relied
+on hostile tender oﬀers, during the last decade they relied almost exclusively on proxy
+contests. As discussed above, the widespread adoption of anti-takeover provisions, the
+enactment of state-level antitakeover laws favoring management, and the collapse of the
+junk bond market have increased the cost of hostile tender oﬀers and therefore contributed
+5The increase in the frequency of proxy contests between 2005 and 2008 is consistent with pro-cyclical
+shareholder activism. On the theoretical side, Burkart and Dasgupta (2014) develop a model in which
+shareholder activism is pro-cyclical. On the empirical side, similar time-series properties are observed for
+hedge fund activism campaigns (see Brav et al., 2008).
+8
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 10 ===
+to the decrease in frequency of such oﬀers (Karpoﬀ and Malatesta, 1989; Bertrand and
+Mullainathan, 2003; Cremers and Ferrell, 2014). In contrast, the 1992 proxy reform,
+which allowed independent shareholders to freely engage in communication without being
+monitored by the SEC, is one potential explanation of the increasing frequency of proxy
+contests. This study is therefore the ﬁrst comprehensive study of proxy contests that took
+place after the 1992 proxy reform.
+[Insert Figure 2 here]
+Additional data are compiled from several sources. Firm-level accounting information
+comes from Compustat. Stock returns come from the Center for Research in Security
+Prices (CRSP). Institutional Common Stock Holdings come from Thomson-Reuters
+Institutional Holdings Database. Corporate governance data on shareholder proposals and
+the Governance Index (GINDEX) come from RiskMetrics. Table 1 describes the variables
+used in the paper.
+[Insert Table 1 here]
+2. Characteristics of Proxy Contests
+2.1. Types of Proxy Contests
+There are three main types of proxy contests: control contests, short-slate contests,
+and issue contests. Control contests are ﬁled by shareholders who want to gain control
+over a ﬁrm’s board. Short-slate contests are targeted to obtaining a few non-controlling
+seats on a board. While control contests and short-slate contests both involve contested
+elections of directors, issue contests do not involve the election of a ﬁrm’s board of directors.
+Issue contests either raise issues about a company’s corporate governance or are related to
+proposals that are excluded by management from the proxy statement. 6
+6Rule 14a-8 of the Securities Exchange Act of 1934 gives a shareholder who meets certain threshold
+requirements the right to require management to include his proposal in management’s proxy materials.
+9
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 11 ===
+The classiﬁcation of proxy contests into three types was based on information taken
+from dissidents’ proxy statements. I next present an example of each proxy contest type.
+The proxy contest between a group of shareholders of Weis Markets, Inc. and the
+company’s board of directors is an example of a control contest. In 1999 Weis Markets was
+targeted by a group of shareholders who sought to remove the entire board of directors of the
+company and to elect nominees recommended by the group. The group asked shareholders
+to vote to reconstitute the board of directors “... to better reﬂect the shareholder base of
+Weis Markets, and to approve certain resolutions and amendments to the By-Laws designed
+to allow the shareholders to continue to have a meaningful opportunity to inﬂuence the
+management of Weis Markets.” Members of the group beneﬁcially owned approximately
+41% of Weis Markets stock, and directors and oﬃcers as a group owned approximately
+47%. After the board of directors had authorized its ﬁnancial advisor to conduct a full
+review of all options available to the company, including a possible sale or recapitalization
+of the company, the group of dissident shareholders agreed to withdraw its request for a
+special meeting and therefore terminated the proxy contest.
+Short-slate contests are targeted to obtaining a few non-controlling seats on a board.
+For example, two former executives of Insituform Technologies, Inc. sought to elect four
+directors to Insituform’s 13-member board. In order to do so, a committee was formed
+to restore value to Insituform Technologies. The committee was formed “... because of
+their desire to see the value of Insituform maximized for all of the Company’s stockholders,
+and their concerns that a number of the Company’s existing directors do not support the
+Company’s existing strategic direction and are inﬂuenced by conﬂicts of interest.” On July
+3, 1997, the company and the group of dissident shareholders announced that they had
+Rule 14a-8 is commonly referred to as the “shareholder proposal rule.” It states that to be eligible to
+submit a proposal, a shareholder either must have continuously held at least $2,000 in market value or
+1% of a company’s securities for at least one year, or be a registered holder. Management, however, may
+exclude an eligible proposal from proxy materials if the proposal relates to an election to membership on the
+company’s board of directors or the proposal directly conﬂicts with one of the company’s own proposals.
+10
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 12 ===
+reached an agreement in principle to settle a dispute over the composition of the company’s
+board of directors. The company agreed to reduce the board from 13 to 9 members,
+eliminate the staggered terms of directors, and add two new independent directors to the
+board. One of the new independent directors joining the board was a member of the group
+of dissident shareholders.
+While control contests and short-slate contests both involve contested elections of
+directors, issue contests do not involve the election of a ﬁrm’s board of directors. Issue
+contests either raise issues about the company’s corporate governance or are related to
+proposals that are excluded by management from the proxy statement. For example,
+in 2001 two shareholders of Biopool International, Inc., R. Gale Daniel and Larry C.
+Fenster, asked shareholders to vote against two proposals recommended by Biopool’s board.
+Speciﬁcally, Mr. Daniel and Mr. Fenster recommended voting against two items: (1)
+amending Biopool’s certiﬁcate of incorporation to limit certain actions by stockholders
+and (2) authorizing the issuance of preferred stock. 7 Dissident shareholders succeeded,
+and these proposals did not receive a suﬃcient number of votes: approximately 21% of
+shareholders supported the ﬁrst proposal and 35% of shareholders supported the second
+proposal.
+Table 2 presents the distribution of proxy contest types in the 1994-2012 sample.
+Nineteen percent of proxy contests are control contests, and 81% are non-control contests.
+The evidence suggests that proxy contests that became more frequent after the 1992
+proxy reform are not control contests. Instead, these are mostly short-slate contests, often
+combined with issue contests. Since dissident shareholders rarely seek control over a target’s
+board, the current corporate governance environment resembles the ‘market for corporate
+7In the ﬁrst proposal the board wanted to amend the company’s certiﬁcate of incorporation to (a)
+prohibit stockholder action by written consent, and (b) preclude the ability of stockholders to call a special
+meeting. In the second proposal the board wanted to amend the company’s certiﬁcate of incorporation
+to allow for the issuance of one or more series of preferred stock, the rights, preferences and privileges of
+which would be designated by the board of directors.
+11
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 13 ===
+inﬂuence’ and not the ‘market for corporate control.’
+[Insert Table 2 here]
+2.2. Sponsors of Proxy Contests
+In this section I describe which types of shareholders stand behind proxy contests.
+I consider ﬁve types of dissident shareholders: activist hedge funds, corporations, pension
+funds, prior insiders and employees, and groups of shareholders. 8 Table 3 presents the
+distribution of contests sponsors in the full sample (1994-2012), from 1994 through 2002,
+and from 2003 through 2012.
+[Insert Table 3 here]
+Activist hedge funds are by far the most frequent proxy contest sponsors: 57% of
+proxy contests were sponsored by activist hedge funds. The number (proportion) of proxy
+contests sponsored by activist hedge funds increased from 162 (38%) from 1994 through
+2002 to 440 (70%) from 2003 through 2012, corresponding to a 170% increase in the
+number of proxy contests sponsored by activist hedge funds. Thus, activist hedge funds
+often materialize the threat of launching a proxy contest if management is not willing to
+implement changes suggested by the activists (Brav et al., 2008).
+Other types of proxy contest sponsors became less frequent during the sample period.
+The percentage of proxy contests sponsored by corporations, prior insiders and employees,
+8The proxy contest sponsored by Elliott Associates against Metromedia International
+Group is an example of a proxy contest sponsored by an activist hedge fund:
+http://www.sec.gov/Archives/edgar/data/39547/000095011701501157/a31302.txt. The proxy contest
+sponsored by Pﬁzer against Weaner-Lambert is an example of a proxy contest sponsored by a corporation:
+http://www.sec.gov/Archives/edgar/data/78003/0000950123-99-010992.txt. The proxy contest sponsored
+by SEIU Pension Funds against Columbia HCA Healthcare is an example of a proxy contest sponsored by
+a pension fund: ttp://www.sec.gov/Archives/edgar/data/860730/0001037673-98-000003.txt. The proxy
+contest sponsored by Allen Bender against TVI Corporation is an example of a proxy contest sponsored
+by an insider: http://www.sec.gov/Archives/edgar/data/352079/000113379608000187/tv80473.htm. The
+proxy contest sponsored by the Committee to Revitalize Endocare against Endocare is an example of a
+proxy contest sponsored by a group of shareholders.
+12
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 14 ===
+and groups of shareholders declined signiﬁcantly during the sample period. For example,
+the number (proportion) of proxy contests sponsored by corporations decreased from 87
+(20%) from 1994 through 2002 to 34 (5%) from 2003 through 2012. Because corporations
+often sponsor contests that involve changing the controlling shareholder, this result is
+consistent with the downward trend in the frequency of hostile tender oﬀers. Finally,
+note that while pension funds own a signiﬁcant share of common stock and often sponsor
+regular (non-contested) shareholder proposals, they rarely sponsor proxy contests. Over
+the sample period only two proxy contests were sponsored by pension funds.
+Overall, the evidence indicates that activist hedge funds constitute by far the most
+active class of dissident shareholders. This result ﬁts well with the evidence on proxy
+contest types: most proxy contests are non-control contests because hedge funds seek not
+to run ﬁrms but to inﬂuence or replace the existing management.
+2.3. Outcomes of Proxy Contests
+Proxy contests can be resolved in four main ways: (1) a voting process, (2) a
+settlement agreement between management and dissident shareholders, (3) the withdrawal
+of proxy solicitations by dissidents, and (4) delisting or taking over a target ﬁrm. Table 4
+presents the distribution of proxy contest outcomes.
+[Insert Table 4 here]
+I ﬁnd that about half (47%) of proxy contests are resolved through a voting process.
+In voted contests, shareholders determine who is going to win the contest by casting their
+votes in favor of either management or the dissident group. Out of 503 voted contests,
+in 274 cases dissident shareholders were able to achieve at least one of their formal goals
+(obtaining board seats or passing proposals). In 229 contests dissident shareholders failed to
+achieve any of their formal goals, implying that in about 55% of voted contests dissidents
+at least partially succeed. Thus, there is substantial uncertainty about the outcomes of
+13
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 15 ===
+voted contests: conditional on reaching the voting stage, dissidents’ chances of failing or
+winning a proxy contest are about 50%.
+The second most frequent outcome is a settlement agreement between ﬁrm manage-
+ment and dissident shareholders: 267 contests, corresponding to 25% of events, were settled.
+When entering into settlement agreements dissident shareholders agree to terminate the
+proxy solicitation process and in return obtain concessions from management. These
+concessions often allow dissident director nominees to join a board.
+The third most frequent outcome is withdrawal of dissident shareholders from the
+proxy solicitation process: dissidents took this step in 158 contests, corresponding to 15%
+of events. While dissidents rarely state a formal reason for such a withdrawal, it is likely
+that when the withdrawal decision is made dissidents believe that their chances of winning
+a contest are very low.
+Overall, the results reveal that dissident shareholders achieve their formal goals in
+about 50% of proxy contests. They do so by either entering a settlement agreement with a
+ﬁrm’s management (25% of proxy contests) or by winning the voted contest (26% of proxy
+contests).
+2.4. Stated Goals of Dissident Shareholders
+It is important to diﬀerentiate between what dissident shareholders can formally
+achieve by running a proxy contest (e.g., to elect a director or to pass a proposal) and
+their stated goals. In this section I describe the stated goals of dissident shareholders.
+I categorize the stated goals into the following ﬁve (not mutually exclusive) groups: (1)
+general undervaluation and maximizing shareholder value, (2) corporate governance, (3)
+change in business strategy, (4) selling a target company, and (5) change in capital structure
+(e.g., increasing payouts to shareholders). This classiﬁcation of activists’ stated goals closely
+follows Brav et al. (2008).
+[Insert Table 5 here]
+14
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 16 ===
+Table 5 presents the results. Addressing undervaluation concerns is the ﬁrst priority
+of dissident shareholders. For instance, in 41% of proxy contests dissidents indicate that
+the main reason for running proxy contests is to address the general undervaluation of the
+target. In these cases the interests of dissident shareholders are clearly aligned with the
+interests of all non-incumbent shareholders.
+The second most frequently stated goal is corporate governance: in 39% of proxy
+contests dissidents want to make an impact on governance. For example, dissident
+shareholders often want to enhance board independence by electing their nominees. As the
+analysis in Section 2.3 indicates, dissident shareholders are often successful in achieving
+these goals.
+The next two most frequently stated goals are business strategy and sale of a target
+company. As far as the business strategy goal is concerned, dissident shareholders often
+criticize the lack of focus in an investment strategy. When dissidents indicate that
+management should consider selling a target company, they often indicate that management
+should contact an investment bank to facilitate that process. Dissident shareholders aim
+to achieve these goals in 28% and 27% of proxy contests, respectively.
+Finally, in 13% of proxy contests sponsors advocate for signiﬁcant changes in a ﬁrm’s
+capital structure. These changes include requests to increase leverage and to increase cash
+payouts through share repurchases and stock dividends.
+Overall, dissidents’ stated goals indicate that they pursue goals that are consistent
+with classical agency problems: undervaluation, lack of focus, low leverage, and insuﬃcient
+payouts leading to high cash reserves.
+3. Do Proxy Contests Create Value?
+In this section I ask the key question regarding the well-being of target shareholders:
+do proxy contests create value? To address this question, I calculate the cumulative
+abnormal returns from the four-factor (market, size, book-to-market, and momentum)
+15
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 17 ===
+model from 24 months before the announcement of a proxy contest to 24 months after.
+Figure 3 reports full sample CARs.
+[Insert Figure 3 here]
+The evidence shows that activist shareholders are more likely to initiate a proxy
+contest after a period of poor stock performance. Cumulative abnormal returns drop below
+-10% two months prior to the proxy contest announcement. The sharp decline in valuation
+begins about a year before the proxy contest announcement.
+How do shareholders respond to proxy contest announcements? The period from
+one month before to one month after an announcement is characterized by strong stock
+performance: CAR increases by more than 6.5% during that period. The sharp increase in
+stock prices indicates that shareholders respond favorably to dissidents’ decision to initiate
+a proxy contest (without long-term reversal). This result is consistent with ﬁndings in the
+literature that document a positive stock market reaction to shareholder activism (e.g.,
+Brav et al., 2008; Collin-Dufresne and Fos, 2015).
+Does CAR depend on whether the dissident shareholder is an activist hedge fund?
+This question is interesting because activist hedge funds are often criticized for promoting
+short-term goals at the expense of long-term value. To address this question, Figure 4
+reports CARs for the sub-sample of proxy contests sponsored by activist hedge funds (dark
+line) and the sub-sample of proxy contests sponsored by other types of dissidents (gray
+line). The evidence reveals that the overall changes in stock prices are similar when these
+two groups of dissident shareholders are invloved. Whereas the announcement eﬀect is
+stronger when a proxy contest is initiated by activist hedge funds, CARs converge eight
+months after the announcement. Thus, activist hedge funds are as productive as other
+types of dissident shareholders in creating value.
+[Insert Figure 4 here]
+16
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 18 ===
+Next, I analyze how CARs vary with the stated goals of dissident shareholders. In
+each panel of Figure 5, the dark (gray) line plots CARs for the sub-sample of proxy contests
+where a speciﬁc goal is (is not) among dissidents’ stated goals (-13% vs -7%). Panel A shows
+that dissidents are more likely to address undervaluation following a sharper decline in stock
+prices. Interestingly, stock price appreciations following proxy contest announcements are
+smaller when dissidents address undervaluation, resulting in a lower ﬁrm value 24 months
+after an announcement. Thus, while addressing undervaluation is consistent with targets’
+past performance, it is followed by smaller improvements in ﬁrm value.
+[Insert Figure 5 here]
+Panel B reveals that upon the announcement of a proxy contest target stock prices
+appreciate most when dissidents aim at selling a target company (10% relative to 6.5% in
+the full sample). These announcements arrive after relatively small negative CARs during
+the pre-announcement period (-5% relative to -10% in the full sample). Interestingly, post-
+announcement CARs behave quite diﬀerently depending on whether selling the target was
+among dissidents’ goals: when dissidents state (do not state) it as a formal goal, the post-
+announcement CAR exhibits a negative (positive) drift. These two groups of proxy contest
+targets end up with similar ﬁrm value 24 months after the announcement.
+Panels C and D show that pre-announcement CARs are smaller when dissidents
+address governance and capital structure relative to the full-sample results (-15% vs -
+10%). Surprisingly, these two cases exhibit quite small stock price appreciations upon the
+announcement of a proxy contest. Probably most surprisingly, there are no long-term stock
+price appreciations in these cases. Thus, when governance and capital structure are among
+dissidents’ stated goals, shareholders typically do not beneﬁt from proxy contests.
+Finally, Panel E reveals that proxy contests in which changing business strategy is
+among the stated goals are announced after the sharpest deterioration in stock prices:
+pre-announcement CARs reach -20% and are four times as large as CARs for proxy
+17
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 19 ===
+contests when changing business strategy is not among the stated goals. Moreover, when
+dissidents address the business strategies of target companies, the long-term value creation
+for shareholders is high: CARs increase from -20% before an announcement to -10% 24
+months after the announcement.
+Overall, Figure 5 indicates that most value creation for shareholders is concentrated
+in proxy contests that address business strategies and valuations of targets. There is almost
+no value creation for shareholders when governance, capital structure, and selling a target
+company are among dissidents’ stated goals.
+4. What Predicts Proxy Contests?
+In this section I examine how the characteristics of targets correlate with the likelihood
+of a proxy contest. To begin the analysis, I use probit regressions to estimate the partial
+eﬀects of several covariates on the likelihood of a proxy contest:
+Pr (PC it = 1) = Φ(Xitα21 +ζt +εit), (1)
+where the dependent variable PC it is a dummy variable equal to one if the company is
+targeted in a proxy contest during the year, Φ is the cumulative normal distribution, Xit
+is a vector of lagged covariates, and ζt are time ﬁxed eﬀects. These regressions cover all
+Compustat ﬁrm-year observations from 1994 through 2012, and include both event and
+non-event observations. All independent variables are deﬁned in Table 1. Results are
+reported in Table 6.
+[Insert Table 6 here]
+Potential proxy contest targets are seen to suﬀer from low market valuation (higher
+BM) and poor stock performance (lower STOCK RETURN), which dissidents usually
+use when they criticize incumbent management. As evidence reported in Section 2.4
+18
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 20 ===
+indicates, in 41% of proxy contests dissidents indicate that the main reason for running
+the proxy contests is to reduce the general undervaluation of the target. For example,
+while criticizing the incumbent board in a proxy statement, dissident shareholders of
+Insituform Technologies, Inc. wrote: ”In the past, we believe the incumbent Board has
+promoted poorly-conceived business strategies that resulted in a material decline in the
+value of Insituform common stock. Since 1991, the S&P 500 Index has gone up 100% while
+Insituform stock has gone down 63%.”
+Potential targets are also characterized by high institutional ownership (higher INST),
+which indicates a more sophisticated shareholder base, whose support dissident shareholders
+often need to succeed with a proxy contest. Results reported in Section 2.2 reveal that
+activist hedge funds often sponsor proxy contests. Moreover, it is plausible that activist
+hedge funds are more likely to support dissident shareholders during a proxy contest. In
+accordance with that result, targets are characterized by high activist ownership (higher
+INST-AHF). Results pertaining to activist ownership are consistent with the theoretical
+analysis in Fos and Kahn (2015). The authors develop a model in which the presence
+of activist shareholders is one of the key factors that determines what type of corporate
+governance (Exit or Intervention) disciplines a manager. In their model Intervention is
+the equilibrium form of governance when a signiﬁcant share of common stock is owned by
+activist investors.
+A company is more likely to be targeted in a proxy contest if it has a smaller market
+cap (lower MV), which is consistent with the notion that it is more expensive to launch
+a proxy contest in a large company. As far as corporate policies are concerned, potential
+targets are characterized by lower investment (lower INVESTMENT) and a higher dividend
+payout ratio (DIVIDENDS).
+The evidence indicates that stock liquidity positively aﬀects the likelihood of a proxy
+contest. The Amihud measure of stock illiquidity has a large Average Partial Eﬀect (APE)
+19
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 21 ===
+on the likelihood of a proxy contest. In particular, a one-standard-deviation increase in
+stock liquidity leads to an increase of 0 .13% in the likelihood of a proxy contest in the
+full sample. Since the unconditional likelihood of a proxy contest is 0 .55% in the full
+sample, the APE eﬀect of stock liquidity is of considerable economic signiﬁcance. This
+result ﬁnds support in the theoretical literature, which suggests that greater stock liquidity
+makes it easier for investors to accumulate large stakes without substantially aﬀecting the
+stock price and therefore facilitates shareholder activism (Kyle and Vila, 1991; Bolton and
+von Thadden, 1998; Maug, 1998; Collin-Dufresne and Fos, 2014). The evidence is also
+consistent with Collin-Dufresne and Fos (2015), who show that activist shareholders who
+often engage in proxy contests signiﬁcantly beneﬁt from stock liquidity when they purchase
+a stake in a target company. 9
+Probit analysis suggests that several ﬁrm characteristics are correlated with the
+likelihood of a proxy contest. Therefore, probit analysis pools cross-sectional and time-
+series forces that predict proxy contests. To shed further light on that issue, I next analyze
+what ﬁrm characteristics are correlated with the likelihood of a proxy contest in cross-
+section and in time-series.
+4.1. What Predicts Proxy Contests in Cross-Section?
+To begin the analysis of cross-sectional predictors of proxy contests, I compare
+characteristics of future proxy contest targets (during the period that ends one year before
+the event) and those of non-targets. Each ﬁrm characteristic is ﬁrst aggregated at the ﬁrm
+level by taking the average over a period of years that precede the event for targets and by
+taking the average over the sample period for non-targets. I use two-sample t-tests on the
+equality of means between the sample of future targets and non-targets. The results are
+reported in columns (1) through (3) of Table 7. Consistently with the probit analysis, future
+9Collin-Dufresne and Fos (2015) use data on trading strategies of activist investors and show that
+activists are more likely to purchases shares when stock liquidity is high.
+20
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 22 ===
+targets have higher stock liquidity (lower ILLIQUIDITY), lower market valuation (higher
+BM), higher dividend payout ratio (higher DIVIDENDS), higher institutional ownership
+(higher INST), higher activist ownership (higher INST AHF), and lower investment (lower
+INVESTMENT) than non-targets.
+[Insert Table 7 here]
+The univariate analysis also reveals that during the period that ends one year before
+the event, future targets perform better than non-targets in terms of both stock performance
+(higher STOCK RETURN) and operating performance (higher ROA). The average ROA
+ratio for future targets is 6.84% whereas the average ROA ratio for non-targets is 4.18%,
+suggesting a meaningful diﬀerence in operating performance.
+In addition to having higher dividend payout ratios, future targets are more likely to
+initiate dividend payments (higher DIV. INITIATIONS) and have higher repurchase ratios
+(higher REPURCHASES). For example, the probability that a non-target ﬁrm initiates
+dividend payments in a given year is 1.36% for non-targets and 1.90% for future targets.
+Furthermore, future targets have lower leverage ratios (lower LEVERAGE): 17.54% for
+future targets versus 22.68% for non-targets. Finally, future targets have higher GINDEX,
+suggesting a higher level of entrenchment (Gompers et al., 2003).
+The above analysis compares cross-sectional diﬀerences in characteristics of future
+targets and those of non-targets. The analysis does not involve matching ﬁrms from two
+samples. I next compare average characteristics of future targets and non-targets for every
+year during the sample period. That is, I analyze how cross-sectional diﬀerences between
+targets and non-targets change over time. Results are reported in Figure 6.
+[Insert Figure 6 here]
+I ﬁnd that several diﬀerences in ﬁrm characteristics between future targets and non-
+targets are time-persistent. Future targets have higher institutional ownership, higher
+21
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 23 ===
+activist ownership, lower leverage, and higher levels of share repurchases during most of
+the sample period. On the other side, some ﬁrm characteristics seem to matter during
+some years only. Future targets have higher returns on assets than non-targets during
+the pre-2000 period only. Similarly, future targets have higher stock liquidity during the
+pre-2010 period. Finally, the evidence indicates that when characteristics of future targets
+and non-targets are compared within each year, several diﬀerences in ﬁrm characteristics
+become insigniﬁcant (e.g., dividend initiations, investment, market cap).
+To further sharpen the cross-sectional analysis, I compare future targets to matched
+ﬁrms. For each targeted ﬁrm, I identify a matching non-target ﬁrm based on year, industry
+(3-digit SIC), market cap, and book-to-market ratio. When market cap (book-to-market)
+is analyzed, market cap (book-to-market) is excluded from the matching criteria. The
+results are reported in columns (4) through (6) of Table 7. Consistently with the previous
+analysis, future targets are smaller than matched non-targets (lower MV), and they have
+higher stock liquidity (lower ILLIQUIDITY), lower market valuation (higher BM), lower
+leverage (lower LEVERAGE), and higher activist ownership (higher INST AHF).
+Interestingly, in contrast to the results of the previous analysis, the evidence here
+suggests that future targets invest more than matched non-targets. The average level of
+investment is 16.33% for future targets and 13.95% for non-targets, corresponding to a 17%
+diﬀerence in investments. This result is consistent with one of the major stated goals in
+the “Business Strategy” category. In such contests dissidents often try to persuade a ﬁrm
+to adopt more conservative investment policies.
+4.2. What Predicts Proxy Contests in Time-Series?
+In this section I analyze changes in ﬁrm characteristics of proxy contest targets during
+a period of years that precede the event. To perform the analysis, I calculate average
+within-ﬁrm changes in characteristics of future targets before the event year. The results
+are reported in Table 8. Column (3) reports the average change in targets’ characteristics
+22
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 24 ===
+between the period that precedes the pre-event year (“Before (t-1)”) and the pre-event year
+(t-1). Column (5) reports the average change in targets’ characteristics between the period
+that precedes the pre-event year (“Before (t-1)”) and the event year (t).
+[Insert Table 8 here]
+The evidence suggests that ﬁrms are targeted after a signiﬁcant deterioration in all
+measures of performance. Stock returns, operating performance, and market valuation
+drop before ﬁrms are targeted. This is consistent with the results reported in Section 2.4:
+in 41% of proxy contests dissidents indicate that the main foal of running such contests is
+reducing the general undervaluation of the target.
+Increases in institutional ownership as well as in activist hedge fund ownership
+naturally precede proxy contest events. Thus, not only do targets have higher activist
+ownership when compared with non-targets in cross-section, they also experience increases
+in activist ownership before the event starts. This result is consistent with higher stock
+liquidity predicting proxy contests.
+I also ﬁnd that targets experience increases in cash reserves during the proxy contest
+period. This is consistent with high cash reserves attracting activists’ attention. Note that
+in about 13% of proxy contests dissident sponsors indicate that they are seeking changes in
+capital structure, including decreasing cash reserves and increasing payouts to shareholders
+(see Section 2.4).
+Some changes in corporate policies are consistent with the view that ﬁrms probably
+realize that the likelihood of shareholder intervention increases: their ﬁrms exhibit poor
+stock and operating performance, high activist ownership, and high stock liquidity. These
+ﬁrms probably introduce changes in corporate policies that might reduce the likelihood of
+intervention. Consistently with this hypothesis, I ﬁnd that future targets cut investments,
+increase payouts to shareholders, and increase the cost of intervention (higher GINDEX).
+Attempts to increase the cost of intervention are consistent with ﬁndings in Fos and Jiang
+23
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 25 ===
+(2014), who show that incumbent CEOs increase their voting power in an attempt to
+maintain control.
+5. What Do Firms Do when the Likelihood of Proxy Contest Increases?
+What actions do ﬁrm managers take when the likelihood of proxy contests increases?
+A recent study by Fos and Tsoutsoura (2014) shows that proxy contests impose a signiﬁcant
+adverse eﬀect on the careers of incumbent directors. Following a proxy contest, directors
+experience a signiﬁcant decline in the number of directorships not only in the targeted
+company, but also in other non-targeted companies. Thus, it would be natural for
+incumbents to take actions that reduce the probability of a proxy contest. Indeed, the
+theoretical literature predicts that management can change corporate policies to reduce
+the probability of intervention (e.g., Grossman and Hart, 1982; Fos and Kahn, 2015).
+To investigate the possibility that corporate policies change when the likelihood of a
+proxy contest increases, I estimate a speciﬁcation in which corporate policies are regressed
+on the likelihood of a proxy contest:
+yit =γ1 ˆPC ∗
+it +ηt +ηi +uit, (2)
+whereyit is a corporate policy of interest, ηt are time ﬁxed eﬀects, ηi are ﬁrm ﬁxed eﬀects,
+and ˆPC ∗
+it is the estimate of the likelihood of a proxy contest from Table 6. Because
+regressions include ﬁrm ﬁxed eﬀects, the estimates are based on within-ﬁrm variations in
+the likelihood of a proxy contest and within-ﬁrm variations in corporate policies. When a
+corporate policy is analyzed, it is excluded from the probit regression and therefore does not
+enter ˆPC ∗
+it. Table 9 reports estimates of equation (2), using which I analyze the eﬀect of the
+likelihood of a proxy contest on capital structure (leverage and cash reserves), investments,
+and payouts (dividends and share repurchases).
+[Insert Table 9 here]
+24
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 26 ===
+Table 9 shows that the likelihood of a proxy contest is signiﬁcantly correlated with
+changes in major corporate policies. The coeﬃcient of ˆPC ∗
+it suggests that when the
+likelihood of a proxy contest increases, ﬁrms increase leverage and decrease cash reserves.
+As far as the investment policy is concerned, companies invest less when the likelihood
+of a proxy contest increases. Finally, the likelihood of a proxy contest is positively and
+signiﬁcantly correlated with payouts. Companies increase dividends and share repurchases
+when the likelihood of a proxy contest increases. Overall, the evidence indicates that,
+following an increase in the likelihood of proxy contests, potential targets are more likely
+to change corporate policies in the direction that is favored by dissident shareholders. 10
+Overall, the evidence indicates that there is a signiﬁcant correlation between the
+likelihood of a proxy contest and corporate policies. 11 This result is consistent with the
+proxy contest mechanism having strong disciplinary eﬀects. Speciﬁcally, the threat of
+a proxy contest (as measured by the probability of a proxy contest) may aﬀect major
+corporate policies, including capital structure, investments, and payouts. Overall, the
+evidence is consistent with the proposition that the disciplinary eﬀects alleviate the agency
+problem between managers and outside shareholders. The evidence also implies that an
+assessment of a corporate governance mechanism cannot be based on materialized events
+10This evidence ﬁts well with other ﬁndings in the existing literature. For example, positive eﬀects
+of stronger shareholder control on leverage are documented in studies of the implications of the second-
+generation antitakeover legislation (Garvey and Hanka, 1999). Similarly, it has been shown that leverage
+increases in the aftermath of entrenchment-reducing shocks to managerial security (Berger et al., 1997;
+Saﬁeddine and Titman, 1999). Changes in investment policy are consistent with evidence reported by
+Saﬁeddine and Titman (1999) and Garvey and Hanka (1999), who document that when targets increase
+their leverage ratios to prevent a control challenge, they also reduce capital expenditures. Finally,
+previous studies document the positive relationship between the strength of corporate governance and
+dividend payouts (La Porta et al., 2000). The positive disciplinary eﬀect of proxy contests on payouts
+is also consistent with the results of a survey conducted by Allen and Michaely (2003), suggesting that
+management can commit to paying out cash because of the constant threat of disciplinary action.
+11The analysis does not, however, imply a causal relation. To do so, one needs a source of exogenous
+variation in the likelihood of a proxy contest. Unfortunately, ﬁnding an instrument for proxy contests at
+the ﬁrm level is hard, if not impossible. For example, Collin-Dufresne and Fos (2014) show that under
+certain conditions the market cannot ﬁgure out whether an improvement in ﬁrm value after an activism
+event is due to the causal impact of the activist on a ﬁrm’s value or due purely to timing of the activist
+campaign.
+25
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 27 ===
+only. Instead, the analysis should start from studying the disciplinary eﬀects.
+6. Conclusion
+This paper studies all proxy contests from 1994 through 2012. I describe time-series
+distribution of proxy contests and document key characteristics of proxy contest targets.
+Moreover, I show the eﬀects of proxy contests on shareholder wealth and study how these
+eﬀects depend of types of dissident shareholders and their stated goals. Finally, I study
+which ﬁrm characteristics predict proxy contests, both in cross-section and in time series.
+The main contribution of this paper is to the corporate governance literature. The
+paper shows that there was a signiﬁcant shift in hostile corporate governance: proxy
+contests have become substitutes for hostile takeovers. Importantly, the proxy contest
+mechanism is eﬀective in creating value for shareholders of targeted ﬁrms. The paper
+also shows that ﬁrms are changing corporate policies when the likelihood of a proxy
+contest increases. This result is consistent with the proxy contest mechanism having strong
+disciplinary eﬀects. Future research could provide a causal interpretation to this result.
+26
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 28 ===
+References
+Alexander, C., Chen, M., Seppi, D., Spatt, C., December 2010. Interim news and the role
+of proxy voting advice. The Review of Financial Studies 23 (12), 4419–4454.
+Allen, F., Michaely, R., 2003. Payout Policy. Handbook of the Economics of Finance.
+Elsevier B.V., Ch. 7, pp. 339–429.
+Amihud, Y., January 2002. Illiquidity and stock returns: Cross-section and time-series
+eﬀects. Journal of Financial Markets 5 (1), 31–56.
+Bebchuk, L., May 2007. The myth of the shareholder franchise. Virginia Law Review 93 (3),
+675–732.
+Bebchuk, L., Weisbach, M., March 2010. The state of corporate governance research. The
+Review of Financial Studies 23 (3), 939–961.
+Becker, B., Bergstresser, D., Subramanian, G., November 2010. Does shareholder proxy
+access improve ﬁrm value? Evidence from the business roundtable challenge, Harvard
+Law School Discussion Paper No. 685.
+Berger, P., Ofek, E., Yermack, D., September 1997. Managerial entrenchment and capital
+structure decisions. The Journal of Finance 52 (4), 1411–1438.
+Bertrand, M., Mullainathan, S., October 2003. Enjoying the quiet life? Corporate
+governance and managerial preferences. The Journal of Political Economy 111 (5), 1043–
+1075.
+Bolton, P., von Thadden, E.-L., February 1998. Blocks, liquidity, and corporate control.
+The Journal of Finance 53 (1), 1–25.
+Brav, A., Jiang, W., Partnoy, F., Thomas, R., August 2008. Hedge fund activism, corporate
+governance, and ﬁrm performance. The Journal of Finance 63 (4), 1729–1775.
+Burkart, M., Dasgupta, A., 2014. Activist funds, leverage, and procyclicality, european
+Corporate Governance Institute (ECGI)-Finance Working Paper 429.
+Cohn, J., Gillan, S., Hartzell, J., 2014. On the optimality of shareholder control: Evidence
+from the Dodd-Frank Financial Reform Act. The Journal of Finance, forthcoming.
+Collin-Dufresne, P., Fos, V., 2014. Shareholder activism, informed trading, and stock prices,
+working paper, The University of Illinois at Urbana-Champaign.
+Collin-Dufresne, P., Fos, V., 2015. Do prices reveal the presence of informed trading? The
+Journal of Finance, forthcoming.
+Cremers, M., Ferrell, A., 2014. Thirty years of shareholder rights and ﬁrm valuation. The
+Journal of Finance, forthcoming.
+27
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 29 ===
+DeAngelo, H., DeAngelo, L., June 1989. Proxy contests and the governance of publicly
+held corporations. Journal of Financial Economics 23 (1), 29–59.
+Dodd, P., Warner, J., April 1983. On corporate governance: A study of proxy contests.
+Journal of Financial Economics 11, 401–438.
+Fos, V., Jiang, W., 2014. Out-of-the-money CEOs: Inferring private control premium from
+CEO option exercises, working paper, The University of Illinois at Urbana-Champaign.
+Fos, V., Kahn, C., 2015. Governance through threat of intervention and threat of exit,
+working paper, The University of Illinois at Urbana-Champaign.
+Fos, V., Tsoutsoura, M., 2014. Shareholder democracy in play: Career consequences of
+proxy contests. Journal of Financial Economics 59 (6), 1271–1289.
+Garvey, G., Hanka, G., April 1999. Capital structure and corporate control: The eﬀect of
+antitakeover statutes on ﬁrm leverage. The Journal of Finance 54 (2), 519 – 546.
+Gompers, P., Ishii, J., Metrick, A., February 2003. Corporate governance and equity prices.
+The Quarterly Journal of Economics 118 (1), 107–155.
+Grossman, S., Hart, O., 1982. Corporate Financial Structure and Managerial Incentives.
+The Economics of Information and Uncertainty, University of Chicago Press, Chicago,
+Ill.
+Ikenberry, D., Lakonishok, J., July 1993. Corporate governance through the proxy contest:
+Evidence and implications. Journal of Business 66 (3), 405–435.
+Karpoﬀ, J., Malatesta, P., December 1989. The wealth eﬀects of second-generation state
+takeover legislation. Journal of Financial Economics 25 (2), 291–322.
+Kyle, A., Vila, J.-L., 1991. Noise trading and takeovers. RAND Journal of Economics
+22 (1), 54–71.
+La Porta, R., Lopez-de Silanes, F., Shleifer, A., Vishny, R., February 2000. Agency
+problems and dividend policies around the world. The Journal of Finance 55 (1), 1–
+33.
+Lipton, M., Savitt, W., May 2007. The many myths of Lucian Bebchuk. Virginia Law
+Review 93 (3), 733–757.
+Maug, E., February 1998. Large shareholders as monitors: Is there a trade-oﬀ between
+liquidity and control? The Journal of Finance 53 (1), 65–98.
+Mulherin, H., Poulsen, A., March 1998. Proxy contests and corporate change: Implications
+for shareholder wealth. Journal of Financial Economics 47 (3), 279–313.
+Norli, O., Ostergaard, C., Schindele, I., 2015. Liquidity and shareholder activism. The
+Review of Financial Studies 28 (2), 486–520.
+28
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 30 ===
+Saﬁeddine, A., Titman, S., April 1999. Leverage and corporate performance: Evidence
+from unsuccessful takeovers. The Journal of Finance 54 (2), 547–580.
+Sharara, N. M., Hoke-Witherspoon, A. E., 1993. The evolution of the 1992 shareholder
+communication proxy rules and their impact on corporate governance. The Business
+Lawyer 49 (1), 327–358.
+Skinner, D., March 2008. The evolving relation between earnings, dividends, and stock
+repurchases. Journal of Financial Economics 87 (3), 582–609.
+29
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 31 ===
+Figure 1: Time Distribution of Proxy Contests. The bars plot the number of proxy
+contests initiated each year. The proxy contest data are described in Section 1.
+30
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 32 ===
+Figure 2: Rise in Proxy Contests and Disappearance of Hostile Tender Oﬀers.
+The dark bars plot the average number of proxy contests initiated each year during four
+sample periods. The gray bars plot the average number of hostile tender oﬀers initiated
+each year. The proxy contest data are described in Section 1. The hostile tender oﬀer data
+are from SDC database.
+31
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 33 ===
+Figure 3: Cumulative abnormal returns around proxy contests. This chart plots
+the cumulative abnormal returns from the four-factor (market, size, book-to-market, and
+momentum) model from 24 months before the announcement of a proxy contest to 24
+months after.
+32
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 34 ===
+Figure 4: Cumulative abnormal returns around proxy contests: Does sponsor
+type matter? This chart plots the cumulative abnormal returns from the four-
+factor (market, size, book-to-market, and momentum) model from 24 months before the
+announcement of a proxy contest to 24 months after. The dark (gray) line plots CARs
+for the sub-sample of proxy contests sponsored by activist hedge funds (other types of
+dissidents).
+33
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 35 ===
+(a) Undervaluation
+ (b) Selling the Target Company
+(c) Governance
+ (d) Capital Structure
+(e) Business Strategy
+Figure 5: Cumulative abnormal returns around proxy contests: Does the
+stated goal matter? This chart plots the cumulative abnormal returns from the four-
+factor (market, size, book-to-market, and momentum) model from 24 months before the
+announcement of a proxy contest to 24 months after. In each panel, the dark (gray) line
+plots CARs for the sub-sample of proxy contests where a speciﬁc goal is (is not) among
+dissidents’ stated goals. In Panel A the stated goal is undervaluation. In Panel B the stated
+goal is selling the target company. In Panel C the stated goal is governance. In Panel D the
+stated goal is changing capital structure. In Panel E the stated goal is changing business
+strategy.
+34
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 36 ===
+(a) BM
+ (b) CASH
+ (c) DIVIDENDS
+(d) DIV. INITIATIONS
+ (e) GINDEX
+ (f) ILLIQUIDITY
+(g) INST
+ (h) INST-AHF
+ (i) INVESTMENT
+(j) LEVERAGE
+ (k) MV
+ (l) REPURCHASES
+(m) ROA
+ (n) STOCK RETURN
+Figure 6: Characteristics of targets and non-targets during sample period. Solid
+(dashed) lines plot characteristics of future targeted (non-targeted) ﬁrms during each ﬁscal
+year. Years in which the diﬀerence between the two groups was signiﬁcant at the 10% level
+are shaded in gray. All ﬁrm characteristics are deﬁned in Table 1.
+35
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 37 ===
+Table 1: Variable Deﬁnitions.
+Variable Deﬁnition
+BM The ratio of the book value of equity to the market value of equity.
+CASH The ratio of total cash and cash equivalents to total assets.
+DIVIDENDS Dividend payout ratio, deﬁned as the ratio of total dividend payments to net
+income before extraordinary items.
+DIV. INITIATIONS A dummy variable equal to one if the ﬁrm initiates dividend payments.
+GINDEX The Gompers et al. (2003) governance index.
+ILLIQUIDITY Amihud (2002) illiquidity measure, deﬁned as the yearly average (using daily
+data) of 1000
+√
+|Return|
+DollarT radingV olume .
+INST The proportion of shares held by institutions.
+INST-AHF The proportion of shares held by activist hedge funds.
+INVESTMENT Research and development expense and capital expenditures less the sale of
+PP&E, divided by mean total assets, where the mean of total assets is the
+average of current and lagged total assets.
+LEVERAGE The net book leverage ratio deﬁned as (book value of debt - cash)/(book value
+of debt + book value of equity).
+MV Market capitalization in millions of 1980 dollars.
+REPURCHASES The ratio of net repurchases (see footnote 7 in Skinner, 2008, for further details)
+to income before extraordinary items.
+ROA Return on assets, deﬁned as earnings before interest, taxes, depreciation, and
+amortization divided by lagged total assets.
+STOCK RETURN The 12-month buy-and-hold return.
+36
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 38 ===
+Table 2: Types of Proxy Contests. This table presents the study’s classiﬁcation of proxy
+contests into three types: short-slate contests, issue contests, and control contests. Control
+contests are ﬁled by shareholders who want to gain control over board. Short-slate contests
+are targeted to obtaining a few non-controlling seats on board. Issue contests do not
+involve elections of a ﬁrm’s board of directors. They either raise issues about the company’s
+corporate governance or are related to proposals that are excluded by management from
+the proxy statement. The sample period is 1994-2012.
+Number of Events Frequency
+(1) (2)
+Proxy Contest Type
+Control Contests 199 19%
+Non-Control Contests:
+Short-Slate Contests 398 39%
+Issue Contests 120 12%
+Short-Slate and Issue Contests 310 30%
+Sub-Total Non-Control Contests 828 81%
+Total 1,027 100%
+37
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 39 ===
+Table 3: Sponsors of Proxy Contests. This table presents the study’s classiﬁcation of
+proxy contests into sponsor classes. The sample period is 1994-2012. Columns (1) and (2)
+report the frequency and proportion of contests for each sponsor type in the full sample.
+Columns (3) and (4) report the frequency and proportion of contests for each sponsor type
+from 1994 through 2002. Columns (5) and (6) report the frequency and proportion of
+contests for each sponsor type from 2003 through 2012. Column (7) reports the diﬀerences
+between the results shown in columns (6) and (4). Column (8) reports p-value of the
+diﬀerences.
+Full Sample 1994-2002 2003-2012 diﬀerence p-value
+(1) (2) (3) (4) (5) (6) (7) (8)
+Sponsor Type
+Activist hedge funds 602 57% 162 38% 440 70% 32%*** 0.0000
+Corporations 121 11% 87 20% 34 5% -15%*** 0.0000
+Pension funds 2 0% 2 0% 0 0% 0% 1.0000
+Prior insiders and employees 120 11% 66 15% 54 9% -6%*** 0.0032
+Group of shareholders 213 20% 109 26% 104 16% -10%*** 0.0001
+Total 1,058 426 632
+38
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 40 ===
+Table 4: Outcomes of Proxy Contests. This table presents the study’s classiﬁcation of
+proxy contests into outcome groups. The sample period is 1994-2012.
+Number of Events Frequency
+(1) (2)
+Outcome Type
+Voted Contests
+Voted contests - dissidents win 274 26%
+Voted contests - dissidents lose 229 21%
+Sub-Total Voted Contests 503 47%
+Non-Voted Contests
+Settled contests 267 25%
+Withdrawn contests 158 15%
+Firm delisted or taken over 60 6%
+Other 78 7%
+Sub-Total Non-Voted Contests 563 53%
+Total 1,066 100%
+39
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 41 ===
+Table 5: Stated Goals. This table presents stated (not mutually exclusive) goals of
+dissident shareholders. The sample period is 1994-2011.
+Number of Events Frequency
+(1) (2)
+Goal Type
+General undervaluation/maximize shareholder value 416 41%
+Governance 389 39%
+Business Strategy 278 28%
+Sale of Target Company 270 27%
+Capital Structure 132 13%
+Total 1,004 100%
+40
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 42 ===
+Table 6: Probit Analysis of Proxy Contests. This table reports estimates of the probit
+regression: Pr (PC it = 1) = Φ(Xitα21 +ζt +εit), where the dependent variable PC it is a
+dummy variable equal to one if the company is targeted in a proxy contest during the
+year, Φ is the cumulative normal distribution, Xit is a vector of lagged covariates, and ζt
+are time ﬁxed eﬀects. These regressions cover all Compustat ﬁrm-year observations from
+1994 through 2012, and include both event and non-event observations. All independent
+variables are deﬁned in Table 1. Column (1) reports probit coeﬃcients. Column (2) reports
+average partial eﬀects (APE). APE corresponds to the change in the likelihood of a proxy
+contest due to a standard deviation change of a covariate. Column (3) reports t-statistics,
+calculated using heteroscedasticity robust standard errors and within correlation clustered
+by industry (3-digit SIC). *, **, and *** indicate statistical signiﬁcance at the 10%, 5%,
+and 1% levels, respectively.
+Dependent Variable: Dummy (of Proxy Contest)
+(1) (2) (3)
+coeﬃcient APE t-stat
+BM 0.0735** 0.0013 2.44
+CASH 0.1294 0.0005 1.18
+DIVIDENDS 0.1273** 0.0011 2.09
+DIV. INITIATIONS 0.1394 0.0003 1.26
+ILLIQUIDITY -0.0944** -0.0013 -2.23
+INST 0.2414** 0.0013 2.22
+INST-AHF 1.9592*** 0.0017 8.27
+INVESTMENT -0.1877* -0.0008 -1.91
+LEVERAGE 0.0724 0.0004 0.55
+MV (log) -0.0409* -0.0019 -1.73
+REPURCHASES -0.1081 -0.0005 -0.91
+ROA 0.0647 0.0007 0.57
+STOCK RETURN -1.9746*** -0.0019 -4.29
+Constant -2.7518*** -16.14
+YEAR DUMMIES YES
+Observations 58,405
+Pseudo R2 4.87%
+41
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 43 ===
+Table 7: Targets and Non-Targets: Cross-sectional Analysis. This table presents
+characteristics of proxy contest targets and non-targets. Each ﬁrm characteristic is ﬁrst
+aggregated at the ﬁrm level by taking the average over a period of years that precede the
+event for targets and by taking the average over the sample period for non-targets. All
+variables are deﬁned in Table 1. Column (1) reports cross-sectional averages for targets.
+Column (2) reports cross-sectional averages for non-targets. Column (3) reports diﬀerences
+between results for targets and non-targets and t-statistics of the diﬀerences. Columns
+(4) through (6) report paired comparison of targets and matching non-targets. For each
+targeted ﬁrm, we identify a match non-target ﬁrm based on year, industry (3-digit SIC),
+market cap, and book-to-market ratio. When market cap (book-to-market) is analyzed,
+market cap (book-to-market) is excluded from the matching criteria. Column (4) reports
+cross-sectional averages for targets with available matched non-targets. Column (5) reports
+cross-sectional averages for matched non-targets. Column (6) reports average diﬀerences
+between targets and matched non-targets and t-statistics of the diﬀerences. *, **, and ***
+indicate statistical signiﬁcance at the 10%, 5%, and 1% levels, respectively.
+Unpaired comparison Paired comparison
+Variable Targets, Non-targets Diﬀ Targets, Non-targets, Diﬀ
+before before matched
+(1) (2) (3) (4) (5) (6)
+BM 0.6917 0.5621 0.1296*** 0.6904 0.6254 0.065**
+[4.71] [2.23]
+CASH 0.1860 0.1949 -0.0089 0.1913 0.1772 0.0141
+[-1.11] [1.59]
+DIVIDENDS 0.2502 0.1970 0.0533*** 0.2505 0.2707 -0.0202
+[4.71] [-1.43]
+DIV. INITIATIONS 0.0190 0.0136 0.0054*** 0.0174 0.0177 -0.0004
+[2.96] [-0.16]
+GINDEX 8.891 8.610 0.281* 8.975 8.850 0.125
+[1.79] [0.44]
+ILLIQUIDITY 0.4581 0.6755 -0.2174*** 0.4660 0.5266 -0.0606**
+[-7.17] [-2.02]
+INST 0.3964 0.2942 0.1021*** 0.3969 0.4037 -0.0068
+[9.07] [-0.49]
+INST-AHF 0.0383 0.0217 0.0166*** 0.0373 0.0297 0.0076***
+[10.54] [3.09]
+INVESTMENT 0.1589 0.1760 -0.0171* 0.1633 0.1395 0.0238***
+[-1.94] [3.29]
+LEVERAGE 0.1754 0.2268 -0.0514*** 0.1705 0.1972 -0.0266***
+[-5.65] [-3.06]
+MV 680 583 97 686 912 -226**
+[1.29] [-2.54]
+REPURCHASES 0.2520 0.2013 0.0507*** 0.2595 0.2553 0.0043
+[2.95] [0.18]
+ROA 0.0684 0.0418 0.0265*** 0.0693 0.0621 0.0072
+[4.38] [1.24]
+STOCK RETURN 0.0126 0.0051 0.0075*** 0.0126 0.0108 0.0018
+[5.51] [1.44]
+42
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 44 ===
+Table 8: Targets: Time-series Analysis. This table presents characteristics of proxy
+contests targets before the event year. The sample period is 1994-2012. All variables are
+deﬁned in Table 1. Column (1) reports average characteristics of proxy contest targets
+during the period that ends two years before the event. Column (2) reports average
+characteristics of proxy contest targets during the pre-event year. Column (3) reports
+diﬀerences between results shown in columns (1) and (2) and t-statistics of the diﬀerences.
+Column (4) reports average characteristics of proxy contest targets during the event year.
+Column (5) reports average diﬀerences between results shown in columns (1) and (4) and
+t-statistics of the diﬀerences. *, **, and *** indicate statistical signiﬁcance at the 10%,
+5%, and 1% levels, respectively.
+Variable Before ( t-1) ( t-1) Diﬀerence Event year, t Diﬀerence
+(1) (2) (3) (4) (5)
+BM 0.7012 0.7899 0.0887*** 0.8686 0.1674***
+[3.49] [6.18]
+CASH 0.1904 0.2049 0.0145*** 0.2000 0.0096**
+[2.97] [2.51]
+DIVIDENDS 0.2536 0.2918 0.0383* 0.3319 0.0783***
+[1.83] [4.06]
+DIV. INITIATIONS 0.0212 0.0198 -0.0013 0.0355 0.0143**
+[-0.21] [2.38]
+GINDEX 8.932 9.279 0.35*** 9.248 0.32***
+[5.85] [6.09]
+ILLIQUIDITY 0.4406 0.3721 -0.0686*** 0.4191 -0.0215
+[-4.32] [-1.37]
+INST 0.4159 0.4847 0.0688*** 0.4715 0.0556***
+[8.29] [10.41]
+INST-AHF 0.0390 0.0490 0.01*** 0.0554 0.0165***
+[3.72] [6.66]
+INVESTMENT 0.1752 0.1347 -0.0405*** 0.1112 -0.064***
+[-5.51] [-9.92]
+LEVERAGE 0.1752 0.1657 -0.0094* 0.1771 0.002
+[-1.94] [0.21]
+MV 652 745 93*** 649 -3
+[2.95] [0.05]
+REPURCHASES 0.2807 0.3600 0.0793* 0.4666 0.1859***
+[1.82] [4.29]
+ROA 0.0713 0.0735 0.0023 0.0566 -0.0147***
+[0.51] [-2.79]
+STOCK RETURN 0.0095 0.0048 -0.0047** -0.0054 -0.0149***
+[-2.07] [-8.25]
+43
+Electronic copy available at: https://ssrn.com/abstract=1705707
+
+=== PAGE 45 ===
+Table 9: The Likelihood of a Proxy Contest and Corporate Policies. This table
+studies the relation between the likelihood of a proxy contest and corporate policies. The
+table reports estimates ofγ1 from the following regression:yit =γ1 ˆPC ∗
+it+ηt+ηi+uit, where
+yit is a corporate policy of interest, ηt are time ﬁxed eﬀects, ηi are ﬁrm ﬁxed eﬀects, and
+ˆPC ∗
+it is the estimate of the likelihood of a proxy contest from Table 6. When a corporate
+policy is analyzed, it is excluded from the probit regression and therefore does not enter
+ˆPC ∗
+it. These regressions cover all Compustat ﬁrm-year observations from 1994 through
+2012. All variables are deﬁned in Table 1. Panel A reports the results for the full sample.
+Panel B reports the results for non-targets. In each column, I report estimated coeﬃcients
+and heteroscedasticity robust standard errors clustered by ﬁrm. *, **, and *** indicate
+statistical signiﬁcance at the 10%, 5%, and 1% levels, respectively.
+Dependent Variable: LEVERAGE CASH INVESTMENTS DIVIDENDS REPURCHASES
+(1) (2) (3) (4) (5)
+Panel A: Full Sample
+ˆP C∗ 0.0308*** -0.0273*** -0.1279*** 0.0949*** 0.0199**
+[0.0041] [0.0036] [0.0046] [0.0138] [0.0080]
+Observations 55,211 55,215 55,799 55,195 55,270
+R2 2.90% 1.30% 8.50% 2.30% 2.90%
+Panel B: Non-targets
+ˆP C∗ 0.0298*** -0.0268*** -0.1256*** 0.0942*** 0.0225***
+[0.0042] [0.0038] [0.0048] [0.0139] [0.0082]
+Observations 51,209 51,213 51,766 51,192 51,266
+R2 3.00% 1.20% 8.30% 2.30% 3.00%
+Year FE YES YES YES YES YES
+Firm FE YES YES YES YES YES
+44
+Electronic copy available at: https://ssrn.com/abstract=1705707

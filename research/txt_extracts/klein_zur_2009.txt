@@ -1,0 +1,3731 @@
+European Corporate Governance Institute (ECGI)
+ECGI - Finance Working Paper No. 140/2006
+
+New York University School of Law
+NYU Law and Economics Research Paper No. 06-41
+1st Annual Conference on Empirical Legal Studies
+AAA 2007 Financial Accounting & Reporting Section (FARS) Meeting Paper
+
+Entrepreneurial Shareholder Activism: Hedge
+Funds and Other Private Investors
+
+APRIL KLEIN
+New York University - Department of Accounting, Taxation & Business Law
+
+EMANUEL ZUR
+New York University - Leonard N. Stern School of Business
+
+This paper can be downloaded without charge from the Social
+Science Research Network Electronic Paper Collection at:
+http://ssrn.com/abstract=913362
+
+Entrepreneurial Shareholder Activism: Hedge Funds and Other Private Investors
+
+April Klein, Stern School of Business, New York University*
+Emanuel Zur, Stern School of Business, New York University**
+October, 2006
+NYU, Law and Economics Research Paper No 06-41
+
+*aklein@stern.nyu.edu
+** ezur@stern.nyu.edu
+44 West 4th Street K-MEC 10-93
+Stern School of Business
+New York University
+New York, N.Y. 10012
+We would like to thank Yakov Amihud, Baruch Lev, Christine Petrovits, and Nitzan
+Shilon for helpful comments and suggestions.
+
+1
+
+Abstract
+We examine recent confrontational shareholder activism campaigns by hedge funds and
+by other private investors.
+
+The three main parallels between the groups are a
+
+significantly positive market reaction for the target firm around the initial Schedule 13D
+filing date, a further significant increase in share price for the subsequent year, and the
+activist’s high success rate in gaining its original objective. The two main differences are
+the types of companies each group targets and the activists’ post-investment strategies.
+Hedge funds target more profitable and healthy firms than other activists. Afterwards,
+hedge funds reduce the target’s cash holdings by increasing its leverage and dividends
+paid. In contrast, other activists lower the target’s capital expenditures and research and
+development costs. In total, we conclude that the activism benefits existing shareholders
+of the targeted firms, but that hedge funds and other entrepreneurial activists achieve
+these benefits through different outlets.
+
+2
+
+In this paper, we examine recent aggressive campaigns by entrepreneurial
+shareholder activists. In the spirit of Pound (1992), we define an entrepreneurial activist
+as an investor who buys a large stake in a publicly held corporation with the intention to
+bring about change and thereby realize a profit on the investment.
+We conduct our analyses on two samples of entrepreneurial activists.
+
+The
+
+common feature of each group is that the investor is relatively free from the regulatory
+controls of the Securities Act of 1933, the Securities Exchange Act of 1934, and most
+notably the Investment Company Act of 1940. The first sample consists of 151 hedge
+fund activist campaigns conducted primarily between 2003 and 2005.
+
+Hedge fund
+
+activism has received widespread attention, both in the popular press and by legal and
+financial scholars.1 Our paper complements and extends these papers by examining the
+determinants, methods, and consequences of hedge fund managers who undertake
+confrontational activist campaigns.
+
+The second sample contains 154 other
+
+entrepreneurial confrontational activist campaigns over the same time period. These
+activists are composed primarily of individuals, private equity funds, venture capital
+firms, and asset management groups for wealthy investors. Although these investoractivists have generated widespread interest, there is little large-sample evidence on the
+determinants or outcomes of these campaigns. Thus, our paper contributes to the recent
+shareholder activism literature by examining this group alone and also by comparing
+them to hedge fund activists.
+We define the beginning of a confrontational activist campaign as the filing of an
+initial SEC Schedule 13D in which the activist clearly professes in the “purpose”
+
+1
+
+In the next section, we include a literature review of past shareholder activism, as well as current studies
+on hedge fund activism. The articles on hedge fund activism we discuss include those by Brav et al.
+(2006), Bratton (2006), and Kahan and Rock (2007).
+
+1
+
+statement of the filing its goal to redirect managements’ efforts. A Schedule 13D is
+triggered after an investor directly or indirectly acquires the beneficial ownership of five
+percent or higher of any equity security in a publicly traded firm with the stated intent of
+influencing the firm’s policies. The redirections stated in the Schedule 13D purpose
+statement include (but are not limited to) seeking seats on the company’s board, opposing
+an existing merger or liquidation of the firm, pursuing strategic alternatives, or replacing
+the CEO. We exclude 13D filings that are filed because the investor is “unwilling to give
+up the option of affecting the firm” (Clifford (2007)), or if the investor states an interest
+to work with or communicate with management on a regular basis. These restrictions
+limit our analyses to activist campaigns that can be characterized as aggressive or
+confrontational.
+We find similarities and disparities between our samples of hedge fund and other
+entrepreneurial activists. The two main parallels are market reaction to the activism and
+the activist’s success in gaining its original objective.
+Hedge fund targets earn 10.2% average abnormal stock returns during the period
+surrounding the initial Schedule 13D. Other activist targets experience a significantly
+positive average abnormal return of 5.1% during the SEC filing window. These findings
+suggest that the market, on average, believes activism creates shareholder value. Our
+findings are consistent with those of Holderness and Sheehan (1985), which document
+significant price increases for firms targeted by “notorious” corporate raiders of the late
+1970s and early 1980s and also with those of Bethel et al.’s (1998) study, which show
+similar results for firms targeted by individuals, but not by corporate or institutional large
+shareholders. The positive abnormal returns also are consistent with the work of Brav et
+al. (2006), who find positive market reactions for a comprehensive sample of
+
+2
+
+confrontational and non-confrontational hedge fund Schedule 13D filings. Furthermore,
+our target abnormal returns do not dissipate in the one-year period following the initial
+Schedule 13D. Instead, hedge fund targets earn an additional 11.4% abnormal return
+during the subsequent year, and other activist targets have a 17.8% abnormal return over
+the year following the activists’ interventions.
+We also find that entrepreneurial activists experience great success in getting
+existing management to acquiesce to their demands as articulated in the initial Schedule
+13D. Hedge funds enjoy a success rate of 60%, and other entrepreneurial activists
+accomplish their objectives 65% of the time. Moreover, ex ante, the market is able to
+differentiate between overall successful and non-successful campaigns. For both groups
+of activists, the abnormal return surrounding the initial Schedule 13D filing is
+significantly higher for firms in which the activist gains its objective within one year,
+when compared to those firms in which the activist is unsuccessful.
+However, there are two striking differences between hedge fund and other
+entrepreneurial activism: the two main differences are the types of companies each group
+targets and the activists’ post-13D filing strategies.
+Hedge fund activists target more profitable and financially healthy firms than
+other entrepreneurial activists.
+
+Prior studies on activism almost always find that
+
+shareholder activists are more likely to target poorly performing firms (e.g., Gordon and
+Pound (1993), Bethel et al. (1998), Faleye (2004), Becht et al. (2007)). Our results
+suggest that other entrepreneurial activists employ a similar screening mechanism to prior
+activists, but that hedge fund activists invest in a different subset of companies.
+Given that the groups target firms with different characteristics, we expect and
+find that hedge funds and other entrepreneurial activists dissimilarly redirect target firms.
+
+3
+
+Hedge funds appear to address the free cash flow problem, as articulated by Jensen
+(1986). Under this theory, firms can reduce agency conflicts between managers and
+shareholders by reducing excess cash on hand, and by obligating managers to make
+continuous payouts in the form of increased dividends and interest payments to creditors.
+Consistent with this view, hedge fund targets initially have higher levels of cash on hand
+than do other entrepreneurial activist targets. In addition, hedge fund activists frequently
+demand the target firm to buy back its own shares, cut the CEO’s salary, and initiate
+dividends, whereas other activists do not make these demands. Consequently, over the
+fiscal year following the initial Schedule 13D, hedge fund targets, on average, double
+their dividends, significantly increase their debt-to-assets ratio, and significantly decrease
+their cash and short-term investments.
+In contrast, other entrepreneurial activists appear to redirect the investment
+strategies of their targeted firms. In their initial Schedule 13Ds, they most frequently
+demand changes in the targets’ operating strategies. Consistent with these requests, when
+comparing hedge fund and other entrepreneurial activist targets, we find significant
+differences in changes in R&D and capital expenditures in the year following the 13D
+filing, with the other entrepreneurial activist targets experiencing significant declines in
+both parameters.
+Finally, we ask how the activist achieves these results. Overall, we present
+evidence that hedge fund and other entrepreneurial activists use the proxy solicitation
+process to gain board representation within one year of the initial 13D filing. We note
+that oftentimes the activist does not actually initiate a proxy fight, but instead, threatens a
+proxy fight, which results in one or more board seats. These findings are inconsistent
+
+4
+
+with earlier evidence on shareholder activism, which finds limited use of the proxy
+solicitation process as a weapon (e.g., Bebchuk (2005, 2007)).
+The paper proceeds as follows. Section I traces the recent history of shareholder
+activism and explains how the two samples fit the mold of a successful entrepreneurial
+activist. Section II describes the activist data, including the firms activists target. Section
+III examines the pre-13D filing market, financial, and discretionary spending
+characteristics of the target firms. In section IV, we examine the market’s response to the
+initial investment by the hedge fund and other entrepreneurial activism. Sections V and
+VI present the outcomes of the activists’ campaigns, both in terms of the activists
+achieving their stated goals, and changes in firm characteristics for the one-year period
+between the pre-and-post 13D filing dates. Section VII summarizes and concludes the
+paper.
+
+I. Shareholder Activism
+A. The Entrepreneurial Activist: Hedge Funds, Venture Capital Funds, Private Equity
+Funds, and Individual Investors
+Hedge funds, asset management groups, private equity funds, and venture capital
+funds fall under a similar investment umbrella. Broadly, they can be characterized as
+classes of investments that are relatively free from the regulatory controls of the
+Securities Act of 1933, the Securities Exchange Act of 1934, and most notably the
+Investment Company Act of 1940.2 They maintain their exemption from securities and
+
+2
+
+They are not exempt, however, from filing SEC Form 13D or 13G when crossing the 5% threshold of
+ownership or from filing an SEC Form 13F. The 13G filings are required for passive investors who acquire
+at least a 5% interest in a publicly traded equity security. See Clifford (2007) for an examination of 13G
+filings by hedge funds. A form 13F must be filed within 45 days after the end of March, June, September,
+and December by all institutional managers who exercise investment discretion over $100 million or more
+
+5
+
+mutual fund registration by limiting the number of investors and by allowing only
+experienced investors with significantly high net worth.3 The funds are almost always
+organized as limited partnerships (LPs) or occasionally limited liability corporations
+(LLCs) and are managed by a small group of highly incentivized managers who are free
+from pay-for-performance restrictions imposed for mutual fund managers in the
+Investment Advisors Act of 1940. For example, whereas Kahan and Rock (2007) report
+that 97% of mutual funds charge investors a flat-rate fee based on the mutual fund’s
+assets alone, a hedge fund manager’s compensation typically includes both a percentage
+of invested funds and a percentage of the funds’ profits, usually 5–40% over zero percent
+or the risk-free rate. Private Equity Intelligence Ltd. (2007) reports similar percentages
+for private equity and venture capital funds.
+The main difference among asset management groups, hedge funds, private equity
+funds, and venture capital funds lies in their investment strategies. Private equity funds
+tend to have large investments in a small number of private firms. Often, they invest in
+publicly traded companies, subsequently taking them private. Venture capital funds
+invest in start-up or young companies, usually with new technologies or products. Hedge
+funds and asset management groups appear to be more eclectic investors and are more
+difficult to define by their investment strategies. Individual investors are also immune
+from most regulatory controls and generally are less-diversified investors.
+Pound (1992) discusses the active, entrepreneurial investor, whom he describes as
+an investor who buys stakes in publicly held corporations with the intention of bargaining
+in total securities. The 13F lists the securities, the number of shares owned, and the market value of each
+investment. It does not contain any indication of investment purpose.
+3
+
+The investments are organized as "3(c)(1)" or "3(c)(7)" funds, referring to exemptions from mutual fund
+registration. Funds organized as 3(c)(1) funds are limited to 99 "accredited" investors. Section 3(c)(7) funds
+may have up to 499 "qualified" investors, but the net worth requirement is higher.
+
+6
+
+with management to bring about productive change and thereby realize profits on his
+investments (p. 7). He reviews the history of entrepreneurial investors from the mid1800s on and concludes there are several primary characteristics that distinguish
+successful activists from passive investors or unsuccessful activists.
+Many of these characteristics are consistent with those described above for our
+hedge fund and other entrepreneurial investor samples. First, as articulated by Pound,
+entrepreneurial investors are independent from corporate and financial power structures.
+This independence allows them to take positions without fear of economic or political
+reprisals.
+Second, activists operate through small entities, for example investment
+partnerships. This trait also minimizes their economic and political risks from their
+actions, thereby giving the general partners a great deal of control over their investment
+strategies.
+Third, the entrepreneurial activist is relatively undiversified and can risk a
+relatively large proportion of its wealth on individual ventures. Individual investors,
+hedge funds, asset management groups, private equity funds, and venture capital funds
+are wholly unrestricted in how they can invest in terms of diversification, illiquid assets,
+short-selling, and leverage.
+
+The funds need not have sufficient capital to cover
+
+redemptions and can restrict investors from exiting their funds. Furthermore, because the
+underlying investors are relatively wealthy, the activists have the financial resources to
+absorb large financial losses.
+In addition to Pound’s (1992) list, we note that our activists are not required to
+disclose their investment strategies, short-selling positions, or leverage ratios.
+
+One
+
+ramification of these disclosure exemptions is that they have used the stock-lending
+
+7
+
+(Christoffersen et al. (2007)) or derivative markets (Hu and Black (2007)) to acquire
+voting rights without owning a long position in the company’s underlying stock. Thus,
+an activist can build up voting rights in a target company to buttress a threat of an
+impending proxy fight. Moreover, we argue that the pay-for-performance compensation
+structure described above for fund managers is consistent with them pursuing
+confrontational activism if they believe this activism results in meaningful increases in
+the target’s share price.
+
+B. Prior Waves of Shareholder Activism
+We trace shareholder activism over the past 30 years to allow comparisons
+between current and former waves of activism. Specifically, we discuss previous studies
+on the corporate raider, the large non-hedge fund blockholder, the institutional
+shareholder, and the hedge fund activist.4
+Holderness and Sheehan (1985) and Walsh and Kosnik (1993) examine firms
+targeted by a handful of “corporate raiders” during the 1977–1983 period.5 In many
+respects, these raiders fit Pound’s (1992) profile of the entrepreneurial activist. Most
+germane, their often confrontational methods closely resemble those used by the
+managers and individual activists we examine in this paper. Collectively, Holderness and
+Sheehan (1985) and Walsh and Kosnik (1993) find that, although the stock market
+reacted positively to the public revelation of the raider’s existence, there is little to no
+evidence that the raider influenced the firm beyond, in several cases, subsequently
+privately buying out the raider at a profit to the raider. In particular, neither paper
+4
+
+See Gillan and Starks (2007) for an excellent and comprehensive review of shareholder activism.
+
+5
+
+These raiders include Carl Icahn, Irwin Jacobs, Carl Lindner, David Murdock and Victor Posner.
+
+8
+
+documents increased rates of board or top management turnover, nor an increased
+tendency for the targeted firm to be taken over or reorganized. In addition, Walsh and
+Kosnik (1993) report no association between prior firm performance and whether a firm
+is targeted by the raider.
+Concurrently and following the corporate raider (1978–1989) is the large nonhedge fund blockholder.6 These large shareholders include individuals, corporations and
+financial institutions. Generally, a firm’s stock price increases around the 13D filing date
+that identifies a new blockholder, indicating that the market interprets this event as valueincreasing. The positive abnormal stock returns occur whether the block is bought on the
+open market (e.g., Mikkelson and Ruback (1985), Shome and Singh (1995)) or through a
+negotiated transaction with the firm or a single shareholder of the firm (e.g., Barclay and
+Holderness (1989, 1991)).
+Shleifer and Vishny (1986) theoretically examine the positive monitoring effects
+of a large shareholder. They predict that the presence of a large shareholder increases (1)
+the probability of a takeover (either by the blockholder or a third party) and (2) the target
+firm’s future earnings over time. Shleifer and Vishny primarily envision the blockholder
+as achieving its goals through non-confrontational means. For example, they predict that
+it is not in the large-shareholder’s economic interests to pursue a proxy fight to achieve
+board representation or a successful takeover. In defense of the latter prediction, Shleifer
+and Vishny cite Dodd and Warner (1983), who report only 71 proxy contests over a 17year period and a success rate of just 25%. Bebchuk (2005, 2007), using more recent
+
+6
+
+With the exception of Bethel et al. (1998), the studies we cite below combine individual and corporate
+activists into their samples. Bethel et al. (1998) divide their sample into activists (individuals who
+currently announce their intention to influence firm policies or in the past have done so), financial investors
+(banks, pension funds, mutual funds, and individuals who do not adopt a public activist position), and
+strategic investors (nonfinancial investors, mainly companies). In addition, all of the studies, Bethel et al.
+included, combine confrontational and non-confrontational activism.
+
+9
+
+data, comes to similar conclusions with regard to a shareholder’s success in replacing
+sitting members of boards of directors.
+The empirical literature on large blockholders both supports and refutes Shleifer
+and Vishny’s (1986) conjectures.
+
+Barclay and Holderness (1991) find a positive
+
+correlation between the advent of an outside blockholder and the probability of a future
+takeover of the target over the 1978–1982 sample period. In contrast, Bethel et al. (1998)
+report a reduction in merger activity in the period after the activist investor stock
+purchase for their sample of targets from 1980 through 1989. This drop in M&A activity
+might be a reflection of the overall decline in hostile or contested M&A activity that
+Holmstrom and Kaplan (2001) and Pound (1992) document for the post-1987 period.7 In
+addition, Barclay and Holderness (1991) find that the reported positive abnormal returns
+surrounding the 13D filing are more likely only if the targeted firm is subsequently
+acquired either by the blockholder (usually a corporation) or a third party. As further
+evidence, they report that the original increase in stock price around the 13D dissipates
+within the first year after the filing if the firm is not subsequently acquired, whereas the
+abnormal return increases further if the firm is acquired within the first year. Thus, these
+blockholder studies envision the activist as a conduit to an eventual takeover.
+Two studies measure changes in the target firms’ future earnings. Bethel et al.
+(1998) find a modest increase in the target’s ROA the second and third year after a
+blockholder–activist targets a firm (both changes around 1% each year), but report no
+changes in firm performance for corporate or institutional blockholders.8 Shome and
+7
+
+There are many reasons for this drop in M&A activity, including the rise of takeover defenses and state
+takeover laws, along with the decline in the high-yield bond market following the demise of Drexel
+Burnham Lambert in 1987.
+
+8
+
+Bethel et al. (1998) attribute this result to the activist influencing the firm to be more focused, i.e., less
+diversified following the initial stock purchase. However, it should be noted that their sample is for
+
+10
+
+Singh (1995) report a 3.83% increase in operating income/total assets between years –3
+and +2, but do not show which part of the increase occurs before and after the block
+purchase.
+Beginning in the mid-1980s, financial institutions, most commonly pension funds
+and mutual funds, began a wave of non-confrontational shareholder activism. First, using
+Rule 14a-8, they tried to prod firms to make changes to their corporate governance and
+anti-takeover provisions by introducing shareholder proposals at annual corporate
+meetings.
+
+By and large, these proposals were unsuccessful and were met with
+
+indifference by the market (e.g., John and Klein (1994), Gordon and Pound (1993),
+Gillan and Starks (2000)).
+
+Second, large pension funds, for example TIAA-CREF
+
+(Carleton et al. (1998) and CalPERS (Smith (1996, Barber (2006)), tried to engage firms
+through private negotiations or other relational investing techniques to influence
+corporate policies. These campaigns too had little impact on future firm performance or
+current stock price.
+The main explanations offered by financial and legal scholars for these findings
+are that political costs and regulatory barriers exist that prevent mutual funds and pension
+funds from being entrepreneurial activists. Romano (2001), Davis and Kim (2007), and
+Kahan and Rock (2007) analyze conflicts of interest that mutual funds and public pension
+funds face in voting against management. Black (1990, 1998) describes regulatory
+constraints that inhibit mutual funds from engaging in confrontational activism, including
+rules on maintaining liquidity, holding large blocks of any one company, and insider
+trading.
+
+Fortune 500 firms in the 1980s, when investors viewed the issue of companies being overly diversified as
+value-decreasing (e.g., Berger and Ofek (1995)).
+
+11
+
+The most recent type of shareholder activism that has been examined is by the
+hedge fund activist. Bratton (2006), Briggs (2007), and Kahan and Rock (2007) present
+anecdotal data on hedge fund activism in the United States. These papers give interesting
+and often illuminating examples of the types of successful activist campaigns of hedge
+funds over the past few years. Becht et al. (2007) conduct a clinical study on one large
+UK pension fund, the Hermes UK Focus Fund, the pension fund of British Telecom.
+They find that this fund primarily targets poorly performing companies, but, contrary to
+most other blockholder studies, find a significantly negative abnormal return of –3.7%
+over a [–5,+5] window surrounding the notification by the Hermes Fund of their original
+stakehold in their UK companies.9 They also document the fund’s capacity to make
+significant changes to its target firms, most notably board changes and asset
+restructurings. One major difference between their study and ours is that Becht et al.
+describe almost all of the interactions between the Hermes fund and its target firms as
+non-confrontational, although they note that the fund uses the threat of calling a special
+or extraordinary shareholder meeting to vote on a shareholder proposal as a potent
+weapon toward achieving its goals.
+Brav et al. (2006) analyze 888 events in the United States by 131 activist hedge
+funds from 2001 through 2005. Their larger sample size can be attributed to including
+both confrontational and non-confrontational activist events, to containing some events in
+which the hedge fund activist owns less than five percent of the target’s shares, and their
+longer time period. Despite these differences, many of our findings for hedge fund
+targets are consistent with their paper; for example both report significantly positive price
+reactions around the initial 13D filing dates. However, there are several divergent results
+9
+
+Under UK company law disclosure rules, all investments exceeding a 3% threshold must be disclosed.
+
+12
+
+between the two studies, which might be due to the differences in sample selection.10
+Most notably, we report a decrease in operating performance and an increase in leverage
+for the target firm in the year following the Schedule 13D, whereas Brav et al. (2006)
+find an increase in the target’s operating performance and no such change in debt.11
+
+II. Sample Selection and Data Description
+A. Selection Criteria
+We initially examine Schedule 13D and 13D/A filings between January 1, 2003
+and December 31, 2005. Investors are required to file a schedule 13D with the SEC
+within 10 days after acquiring more than five percent of any publicly traded equity
+security class with the intent of influencing the firm’s management.12 A Schedule 13D/A
+is an amended filing by the same investor for the same firm and is filed subsequent to the
+original Schedule 13D. Because we are interested in examining first filings only, we
+trace these 13D/A schedules backwards in time to find the first event in time.
+In either filing, the investor identifies name, background (including any criminal
+convictions within the last five years), number and type of shares purchased, the
+
+10
+
+Boyson and Mooradian (2007), for example, find that the post-intervention changes in performance and
+cash holdings are related to whether the hedge fund practices a more or less aggressive activism.
+
+11
+
+Clifford (2007) examines 13D and 13G filings by hedge funds from 1998–2005. He includes all blocks
+purchased by 197 hedge funds. Similar to Brav et al. (2006) and our paper, Clifford finds a significant
+positive price reaction around the initial 13D filing date. Similar to Brav et al., he reports an increase in
+operating performance in the year following the acquisition by the hedge fund, but also reports a decrease
+in the dollar amount (i.e., earnings before interest, taxes, depreciation, and amortization; EBITDA).
+12
+
+Specifically, Rule 13d-1(a) states that “Any person who, after acquiring directly or indirectly the
+beneficial ownership of any equity security of a class which is specified in paragraph (i) of this section, is
+directly or indirectly the beneficial owner of more than five percent of the class shall, within 10 days after
+the acquisition, file with the Commission a statement containing the information required by Schedule
+13D.” Rule 13d-2(b) further states that the investor could file a Schedule 13G if “such person has acquired
+such securities in the ordinary course of his business and not with the purpose nor with the effect of
+changing or influencing the control of the issuer…”
+
+13
+
+percentage of the class of equity owned, and the purpose of the transaction. For the
+hedge fund sample, we select only those transactions in which (1) the investments are in a
+U.S. publicly traded firm, (2) are purchased by a hedge fund or hedge fund manager, and
+(3) present an activist agenda in its purpose statement. For the other entrepreneurial
+activist sample, we use criteria (1) and (3), but select only those transactions that are
+purchased by individuals, venture capital firms, or private equity or asset management
+groups that invest for wealthy investors. Most importantly, we eliminate all activists that
+are required to file under the Investment Company Act of 1940 or the 1934 SEC Act,
+most notably mutual funds and corporations (both U.S. and foreign). The one exception
+is GAMCO, formerly known as Gabelli Asset Management, a publicly traded fund.
+Since there is no institutional or regulatory definition of a hedge, private equity,
+or venture capital fund, we rely on several sources to verify the blockholder’s
+classification. These include the funds’ Internet web sites, investor journals, Factiva, and
+newspaper and magazine articles to determine if the filer is recognized as being a hedge
+or other type of fund. We use these sources to determine if the individual investors in our
+other entrepreneurial activist sample are investing for themselves (or him/herself if a solo
+investor) or are acting on a different entity’s account. We also rely on the information in
+the 13D filing itself to help us decide the identity of the actual investor. When in doubt,
+we eliminate the filing, a rare event. We recognize that this search process may be
+imperfect, but we are confident that we correctly classify almost all (if not all) of our
+investors.
+
+B. Descriptive Data
+
+14
+
+Table I describes the composition of the two samples of activist–target pairs. As
+Panel A shows, the hedge fund sample consists of 101 activists and 151 target events.
+The sample of other entrepreneurial activists consists of 134 investors and 154 target
+firms. These activists fall into several categories: 58 are individual investors; 8 are exofficers of the targeted firm; 38 are investment advisors to wealthy investors; 16 are
+private asset management firms; 9 are private equity funds; the remaining 5 are venture
+capital firms. We note that, although each sample contains roughly the same number of
+targets, hedge funds tend to be repeat activists when compared to the other activists in the
+sample. Twenty-four of the 101 hedge funds targeted two or more companies over our
+time period, with two, Steel Partners II and Carl Icahn’s Hedge Fund, taking activist
+positions in eight or more firms. In contrast, only 12 of the 134 other entrepreneurial
+activists targeted more than one company, with only one investor, Gabelli Asset
+Management, engaging in a confrontational activist campaign against more than three
+firms.
+As Panel B illustrates, most activists filed their original Schedule 13D from 2003
+through 2005. We find, however, a few examples of long-term activism. Carl Icahn’s
+hedge fund filed its first Schedule 13D on National Energy Group in 1995, and Steel
+Partners II filed its first Schedule 13D on Ronson in 1998. Gabelli Asset Management
+originally invested in Liberty Corporation in 1998, and the Aokis began their activist
+campaign against Benihana (of which Rocky Aoki was the founder) in 1998.
+In terms of trading venue, Panel C shows that hedge funds and other
+entrepreneurial activists invest in firms trading in a variety of markets, including the OTC
+bulletin board and the pink sheets. In addition, examination of whether these firms are in
+the S&P 500 Index reveals (not tabulated) that only ten (seven) hedge fund targets (other
+
+15
+
+entrepreneurial activist targets) were part of this Index. Thus, entrepreneurial activists
+tend to target relatively smaller companies.
+We also tabulate the target firms’ industries.
+
+The hedge fund (other
+
+entrepreneurial activist) targets hail from 36 (42) of the 48 Fama and French (1997)
+industry classifications. As Panel D shows, only two industries yield at least ten firms for
+the hedge fund sample–business services with 29 firms and pharmaceutical products with
+ten firms. The top two industries in which other entrepreneurial activists invest are
+restaurants, hotels, and motels with 19 firms and banking with 17 firms.
+Panel E presents the primary reasons stated in the original 13D filing for the
+investment under Item 4: “Purpose of Transaction.” For the hedge fund sample, the most
+frequently stated purpose is to change the board’s composition (41 filings), with the
+hedge fund manager usually asking to fill one or more seats.
+
+Pursuing alternative
+
+strategic goals is the second most frequently found reason, accounting for 29 filings.
+Opposing a merger (18) or supporting a merger (16) are common goals, as is the threat
+that the hedge fund would like to take over the firm in the future (12). In contrast, other
+activists are less concerned with merger and acquisition activity, but instead are more
+interested in steering the firm toward alternative strategic goals (40), buying the target
+firm themselves (24), or becoming more active investors (10). We note, however, that,
+similar to hedge funds, other activists frequently demand changes in the composition of
+board of directors (35).
+
+To determine if the differences in purpose statements are
+
+statistically significant, we use a χ2 test of independence for the 13 groups. The χ2 value
+is 26.8 (P < 0.01); hence, we reject the null hypothesis that hedge fund activists and other
+entrepreneurial activists make a similar set of demands in their purpose statements.
+
+C. Examples of Hedge Fund and Other Entrepreneurial Activism
+16
+
+In this sub-section, we describe two confrontational campaigns to allow the reader
+to understand what is presented in the purpose statement and how these campaigns
+progress over time. The first example is a hedge fund that uses the 13D filing process to
+publicly wage its fight against the target firm. The second example is a venture capital
+fund that tried but failed to take over its target firm.
+
+C1.1 Pirate Capital (a hedge fund) and Cornell Companies, Inc.
+On June 23, 2004, Pirate Capital (Pirate) filed a Schedule 13D indicating that it
+owned 5.2% of Cornell Companies, Inc. (Cornell). In the purpose statement, Pirate
+wrote:
+“Pirate Capital LLC… may make proposals to the board of directors, seek to change
+the composition of and/or seek representation on the board of directors and/or solicit
+proxies or written consents from other shareholders of the Issuer.”
+We consider this to be a confrontational activist filing and would classify the purpose
+statement as indicating that the hedge fund wishes to gain board representation.
+Between July 9, 2004 and August 11, 2005, Pirate filed 12 subsequent 13D/A filings.
+The overall purposes of these filings were to disclose additional holdings in the firm
+(which peaks at 14.8%) and to make further demands on the company.
+- July 12, 2004 (second filing): includes a letter to the CEO and Chairman Harry
+Phillips and to Cornell’s Board of Directors in which they request a complete list of
+shareholders and state that they “are prepared to take every step necessary to maximize
+our investment including the removal of directors at the next annual meeting.”
+- August 5, 2004 (third filing): includes another letter that proposes a special meeting
+of shareholders to vote on whether the sale of the company should be explored. In this
+
+17
+
+letter, they ask: “How many failures will it take for you to actually start protecting the
+interests of shareholders?”
+- August 25, 2004 (fourth filing) and August 31, 2004 (fifth filing): enclose letters to
+the Board and to Mr. Phillips, respectively, asking Cornell to immediately remove Mr.
+Phillips as Chairman of the Board and CEO.
+By October 2004, Pirate Capital owned 11.8% of Cornell’s shares and Mr. Phillips
+had resigned as CEO of the firm.
+- November 5, 2004 (seventh filing): submit a plan to the Board for Mr. Phillips and
+another director to resign from the Board and for Pirate to be given these two seats.
+- January 31, 2005 (ninth filing): intends to run its own slate of board nominees at the
+next annual meeting.
+- February 24, 2005 (tenth filing): intends to commence a proxy fight.
+- April 5, 2005 (11th filing): files a preliminary proxy statement with the SEC with
+respect to the director slate.
+The 12th filing, dated May 17, 2005, discusses a letter of agreement between Pirate
+and Cornell, in which Cornell agrees to nominate seven Pirate Capital candidates (and
+two other candidates) to the Board and to reimburse Pirate for up to $750,000 in its proxy
+solicitation costs. In the last filing, dated August 11, 2005, it is revealed that the head of
+Pirate, Thomas Hudson, assumed the lead directorship of Cornell.
+
+C1.2 Columbia Ventures Corporation (a venture capital fund) and International
+Aluminum Corporation
+On June 5, 2000, Columbia Ventures Corporation (Columbia) filed a Schedule
+13D in which they disclose they own a 6.4% stake in International Aluminum
+
+18
+
+Corporation. In their purpose statement, they proposed a transaction in which they will
+acquire all of the outstanding common stock of International Aluminum for $18.25. The
+filing also contains a letter to the target’s Board of Directors in which they “noted with
+disappointment the significant operating difficulties which have been reported recently”
+as well as the “severe decline in the share price over the last several months.” The letter
+reiterates their desire to purchase the firm.
+From Factiva, we find that on June 16, 2000, the firm rejected the takeover offer.
+However, on October 16, 2000, it is reported in the press that Kenneth D. Peterson, Jr.,
+the CEO of Columbia, was elected to serve on the company’s Board of Directors.
+On June 12, 2002, Columbia filed a Schedule 13D in which they make another
+unsolicited offer to acquire 100% of International Aluminum’s common stock. On July
+5, 2004, a Schedule 13D/A reveals that Columbia has reduced its position in International
+Aluminum to under 5%.
+International Aluminum remained a publicly traded company on the NYSE until
+April 2, 2007, when it was acquired by Genstar Capital LLC, a private equity firm for
+$53.00 a share.
+
+III. Properties of Targeted Firms Prior to 13D Filing Dates
+What type of companies do entrepreneurial activists target? To address this
+research issue, we examine the characteristics of hedge fund and other entrepreneurial
+activist targets. We make two comparisons. First, for each class of activist, we compare
+the properties of the target firms (for the year before they are targeted) to a matched
+sample of firms, where each target firm is matched with another firm by industry, size
+and book-to-market ratio. Our matching algorithm is the following: For each firm, we
+
+19
+
+choose the ten closest firms in revenues (five above and five below) from all firms in the
+same Fama-French (1997) 48 industry classification. From these ten possible matches,
+we choose the one firm with the closest book-to-market ratio. Second, we compare
+hedge fund targets to other entrepreneurial activist targets. This allows us to see if each
+group invests in firms with similar or different characteristics. In section A, we present
+univariate tests on means and median values. In section B, we use logistic and probit
+models to identify the partial effects of all covariates.
+
+A. Summary Statistics and Univariate Tests
+Table II presents summary statistics. To give the reader a flavor of how the
+sample firms compare to their respective control samples, we show their means
+(medians) side-by-side. Columns (1) and (2) present the hedge fund targets and its
+control group, respectively. Columns (3) and (4) show the other entrepreneurial activist
+targets and its control group, respectively. Columns (1) and (3) also present significance
+levels testing for differences between the means (medians) between sample and control
+firms. Column (5) shows the t-statistic and the Z-statistic testing for differences between
+hedge fund target and other entrepreneurial activist target means and medians. For all
+tests, the t-statistics are for differences in means, assuming unequal variances between
+samples. The Z-statistic is from a Wilcoxon signed rank test for differences in medians.
+The first attribute we examine is firm performance. The firm’s abnormal stock
+return is the difference between its buy-and-hold return from one year prior to the 13D
+filing date to 30 trading days before the date and the buy-and-hold return for the same
+
+20
+
+time period on the Fama-French 5 size-matched portfolio.13 As Table II shows, hedge
+funds target good-performing firms, as evidenced by its prior one-year mean abnormal
+return for the hedge fund targets of 12.3%. Furthermore, when we compare this return to
+the control sample’s mean abnormal return of 8.1%, we find that the 4.2% difference is
+statistically significant at 0.01 level. In contrast, other entrepreneurial activist targets
+earn an average abnormal return of 2.8%, which is significantly less than its control
+group’s mean abnormal return of 5.6% (P < 0.05. Testing for differences in the mean
+abnormal return between hedge fund and other activist targets yields a t-statistic of 1.74,
+suggesting that hedge fund activists target firms that perform better than those targeted by
+other entrepreneurial activists. Median values produce similar conclusions.
+Table II also presents three measures of prior-period accounting profitability and
+financial health: return on assets, defined as EBITDA/Assets, cash flows from operations
+(CFO), defined as CFO/Assets, and Altman’s (1968) Z-score.
+
+These metrics are
+
+calculated over the one-year data ending on the fiscal year preceding the 13D filing
+date.14 We present both raw and industry-adjusted metrics; the latter is defined as the
+difference between the firm’s measure and the industry’s median measure (Shah (1994)).
+
+13
+
+We winsorize extreme observations by setting the values in the bottom and top one percent to the values
+of the 1st and 99th percentiles to present more meaningful mean statistics. For each activist sample, there are
+two observations below the 1st percentile and two observations above the 99th percentile, respectively. As a
+sensitivity check to this process, we redo the analyses after dropping these extreme observations. The
+empirical results with the smaller samples are qualitatively the same, and therefore we do not include them.
+We employ the same winsorzing process for all variables throughout the analyses and include these results
+only.
+14
+
+Compustat data are used for these and the other measures presented in Table 2. Nine hedge fund targets
+and 12 other entrepreneurial activist targets trade on the pink sheets and are excluded because they are
+exempt from filing financial statements with the SEC. Missing data further reduces our sample to 134
+hedge fund and 139 other activist targets.
+For accounting flow data, i.e., EBITDA, CFO, Capital
+Expenditures, Research and Development (R&D) expenditures, we divide by mean assets, the latter defined
+as the average of beginning and ending total assets. For accounting balances, i.e., Cash, Short-term
+Investments, and Debt, we divide by total assets at fiscal year end preceding the 13D filing date.
+
+21
+
+Consistent with the market return data, hedge funds target firms with positive
+earnings, i.e., its mean EBITDA/Assets is 0.062, and positive cash flows from operations,
+as evidenced by the average CFO/Assets ratio of 0.033.15 When compared to its sample
+of control firms, hedge fund targets have significantly higher earnings, but similar cash
+flows from operations.
+
+Despite the fact that several hedge funds describe their
+
+investment strategies as investing in struggling or distressed companies (e.g., Contrarian
+Capital Management, Schultze Asset Management), the average Altman’s Z-score, a
+predictor of bankruptcy, is 2.47, well above the predictive level of bankruptcy. Other
+entrepreneurial activist targets have similar EDITDA and CFO to its control sample, but
+have significantly lower Altman Z-scores (P < 0.05). More significantly, perhaps, when
+we compare hedge fund targets to other activist targets, we find that hedge fund targets
+have significantly higher EBITDA/Assets and Z-scores than other entrepreneurial activist
+targets. We note that raw and industry-adjusted performance measures yield similar
+results. Thus, whether we examine stock returns or accounting data, we conclude that
+hedge fund activists, on average, target better-performing firms than do other
+entrepreneurial activists.
+These findings make an interesting comparison to those reported by Bethel et al.
+(1998), who find that between 1980 and 1989, activist investors were more likely to
+purchase large blocks of shares in firms with relatively low EBITDA/Assets. Our results
+support their findings when we focus on other entrepreneurial activists, but are in contrast
+when we examine hedge fund activists. Furthermore, our hedge fund target market
+returns contrast those reported by Becht et al. (2007) for the Hermes UK Focus Fund;
+
+15
+
+As a sensitivity check, we also divide EBITDA by revenues, and by assets net of cash and short-term
+investments. Our results with these two specifications are qualitatively the same as those reported in
+Tables 2 and 8. For brevity, we do not report these numbers in the tables.
+
+22
+
+they find that more than 40% of Hermes’ targets are in the bottom quintile of
+performance in the six months prior to this fund’s initial investment. They also differ
+from Barclay and Holderness (1991), who report negative market- and industry-adjusted
+returns for the three-year period (to day –40) for 106 negotiated block trades between
+1978 and 1982.
+Table II also presents data on discretionary spending items, for example, capital
+expenditures, research and development (R&D) expenditures, and dividends paid to
+common shareholders. We find no qualitative differences between either activist group
+and its control sample. Moreover, hedge fund targets and other entrepreneurial activist
+targets have similar discretionary spending ratios. Thus, these activists are neither more
+nor less apt to target firms with above-or-below average spending on investments or
+dividends paid to common shareholders.
+We next examine prior-period cash holdings and debt-to-asset ratios. It has been
+argued in the financial press that hedge fund activists target firms to extract excess cash
+from them, either in terms of stock repurchases or increased stock dividends (Eisinger
+(2005), Wynn (2005)). This claim is analogous to Jensen’s (1986) discussion of agency
+costs between shareholders and management over “free” cash flow. Under Jensen’s
+theory, managers have incentives to grow their company beyond its optimal size and,
+therefore, may hoard cash to facilitate these purchases. Jensen (1986) also argues that
+excess-cash agency costs are inversely related to the amount of firm debt because
+required interest payments reduce free cash flow. Under Jensen’s theory, targeted firms
+should have relatively high amounts of cash and relatively low amounts of debt on their
+balance sheet.
+
+23
+
+Cash is from the firm’s balance sheet and, following generally accepted
+accounting rules (SFAS 95), is defined as cash plus interest-denominated investments
+with maturities of three-months or less. We include a second measure, cash plus shortterm investments; the latter is defined as interest-denominated investments with
+maturities between three months and one year, or passive equity instruments.16 Debt is
+measured as short-term (due within one-year), long-term, and total debt. All variables are
+divided by total assets.
+Table II supports the view that targets of hedge funds have substantially more
+cash than do other entrepreneurial activist targets on their balance sheets, be it cash or
+cash plus investments. Thus, there may be some basis to the argument that hedge funds
+target cash-rich companies, although we also note that none of the activist samples’ cash
+ratios are significantly different from their control samples’ ratios.
+
+There are no
+
+discernible differences in debt between the activist groups or between the activist groups
+and their control samples.
+Table II also presents firm size data and the book-to-market ratio. Consistent with
+our earlier observation that few target firms are in the S&P 500 Index, activists, on
+average, target relatively small companies. The median assets for firms targeted by
+hedge funds (other entrepreneurial activists) are $208.49 ($140.07) million; the mean
+assets are $946.81 ($931.80) million. These means compare to $927 million for the firms
+targeted by activist blockholders between 1980 and 1989 (a full 20 years earlier than our
+sample) studied by Bethel et al. (1998). Similar observations can be made when using
+revenues or market value of equity as measures of firm size. Moreover, if we use
+16
+
+Between 2002 and 2005, the one-year Treasury constant maturity rate, as published by the Federal
+Reserve Bank of St. Louis, meandered between one and three percent. Thus, investments in short-term
+Treasury bills yield below-market returns, suggesting an additional agency cost of holding suboptimal
+assets. In addition, firms tend to place their excess cash in these short-term securities.
+
+24
+
+revenues or market value as measures of firm size, we find that other entrepreneurial
+activists invest in smaller companies than hedge funds. For example, the median market
+value of equity for other entrepreneurial activist targets is $69.97 million, compared to
+$133.09 million for the hedge fund targets (P < 0.01 for difference). Finally, consistent
+with Brav et al. (2006), the sample of hedge fund and other activist targets have relatively
+low market-to-book ratios.
+In tandem, our findings suggest that, when compared to each other, hedge funds
+and other entrepreneurial activists target firms with different characteristics. The targets
+of hedge funds have higher earnings, are financially healthier, and have more cash on the
+balance sheet when compared to targets of other entrepreneurial activists, who instead
+tend to target smaller firms in terms of revenues and market capitalization.
+
+B. Logistic Models
+We expand on the univariate analyses by using pooled logistic models. We fit the
+models separately for the pooled hedge fund activist–control samples, other
+entrepreneurial activist–control samples and hedge fund activist–other entrepreneurial
+activist samples. The results, presented in Table III, are consistent with the univariate
+tests presented above. When compared to its control sample, hedge funds are more likely
+to target firms with higher earnings and cash and investments. They also have lower
+Altman Z-scores. When compared to its control sample, other entrepreneurial activists
+are more likely to invest in firms with higher capital expenditures, total debt, and cash
+plus investments. Finally, when comparing hedge fund targets to other entrepreneurial
+
+25
+
+activist targets, hedge funds activists are more likely to invest in firms with lower debtto-asset ratios and Altman Z-scores.17
+
+IV. Market Response to Initial 13D Filings
+Next, to determine how the market reacts to the planned activism, we compute
+abnormal share price reactions around the initial 13D filing date. We define the filing
+date, as reported in www.sec.gov, as “day zero.” Our event window begins on day –30 to
+allow for the ten-day 13D filing window, possible prior leakage of information, and prefiling price pressure that may occur due to the activist accruing a large stake in a
+relatively short period of time. We extend the event window to day +5, and alternatively
+to day +30 to accommodate subsequent press coverage of the filing event.
+To facilitate comparisons between our study and previous studies, we calculate
+and present three measures of abnormal stock returns. The target’s size-adjusted return is
+the difference between its buy-and-hold return over a selected time period and the buyand-hold return for the same time period on the Fama-French 5 size-matched portfolio.
+The market-adjusted return is the difference between the target’s buy-and-hold return and
+the value-weighted NYSE/AMEX/NASDAQ index from CRSP. The industry-adjusted
+return is the difference between the target’s buy-and-hold return and the return for all
+firms (target excluded) in the target’s Fama-French (1997) 48 industry code.
+17
+
+To determine the sensitivity of our results to the choice of a logistic model, we replicate our analyses
+using probit models. Because the cumulative normal distribution and the logistic distribution are very close
+to each other, except at the tails, similar results should be observed (Maddala (1993)). To examine the
+comparability of the two models, we examine the goodness-of-fit tests, the coefficients of the individual
+independent variables and their significance levels. In all cases, the significance levels of the coefficients
+for the logistical and probit models are comparable to each other within a 0.02 range. The goodness-of-fit
+measures, the log likelihood ratios, are also comparable between specifications. Following Maddala
+(1993), we transform the logistic estimates into approximations of the probit estimates by multiplying the
+logistic estimates by 1/1.6. This transformation produces estimates that, in all cases, are within 0.01 of the
+point estimates for the probit models.
+
+26
+
+A. All 13D filings
+Table IV presents abnormal stock returns and parametric and non-parametric test
+statistics to evaluate for whether these returns are different from zero. Columns (1) and
+(2) present abnormal returns and significance levels for the [–30,+5] event window.
+Columns (4) and (5) have the abnormal returns and significance levels for the longer
+event window. Columns (3) and (6) contain test statistics for differences in means and
+medians between hedge fund and other activist targets for the shorter (column 3) and
+longer (column 6) windows.
+We begin by discussing size-adjusted market returns. This measure is comparable
+to those presented by Bethel et al. (1998). The portfolio of hedge fund targets earns
+statistically significant mean size-adjusted returns of 7.3% over the [–30,+5] window, and
+10.2% over the [–30,+30] window. The medians are respectively 4.9% and 8.9%, also
+statistically different from zero. Thus, the market perceives substantial benefits upon
+learning that a firm is targeted by a hedge fund activist. Other entrepreneurial activist
+targets earn significantly positive mean (median) size-adjusted returns of 4.4% (3.6%)
+over the [–30,+5] window and 5.1% (6.7%) over the [–30,+30] window. These abnormal
+returns are consistent with those of Bethel et al. (1998) for their sample of activist targets.
+When we compare abnormal returns between targets of hedge fund and other
+entrepreneurial activists, we find little to no statistical differences between the two
+groups. Thus, even though the size-adjusted returns for the hedge fund activists are
+larger than those for the other entrepreneurial activists, they are not statistically larger.
+Many current and previous activist and blockholder studies use market-adjusted
+returns to calibrate the market’s perception of the effect of the activism on shareholder
+
+27
+
+wealth. Using this metric, we find that hedge fund targets earn a mean (median) marketadjusted return of 5.7% (4.6%) over the [–30,+5] window and 7.2% (5.4%) for the [–
+30,+30] period. The size and significance levels of these abnormal returns are consistent
+with those of Brav et al. (2006), who use a similar methodology for their sample of hedge
+fund activism, and with results of previous studies on corporate raiders (Holderness and
+Sheehan (1985)) and block purchases (Barclay and Holderness (1989, 1991)). They
+differ dramatically, however, from previous studies on institutional activism, which show
+little to no price reaction (see Karpoff (2001) for a summary of these studies). These
+differences, most likely, can be attributed to the fact that we are studying confrontational
+block purchase activism, whereas Karpoff summarizes papers that examine nonconfrontational shareholder activism.
+In contrast to the hedge fund targets, other entrepreneurial activist targets record
+smaller market-adjusted returns. The mean (median) abnormal return is 2.2% (3.0%) for
+the [–30,+5] time period and 1.9% (2.6%) for the [–30,+30] period. Although all are
+statistically significant at conventional levels, the t and Z-statistics are lower than those
+reported for the size-adjusted returns.
+
+In addition, when we test for differences in
+
+market-adjusted returns between hedge fund activists and other entrepreneurial activists,
+we find statistically greater abnormal returns for hedge funds three out of four times.
+We also present industry-adjusted returns to partially control for collinearities and
+possible contagion effects among firms in the same industry. Targets of hedge fund
+activists and other activists earn significantly positive abnormal returns around the 13D
+filing date. In addition, for the longer window, the abnormal returns for hedge fund
+activists’ targets exceed those for the other entrepreneurial activists’ targets.
+
+28
+
+In summary, Table IV shows that the market reacts positively to activism in
+general and that the positive abnormal returns are robust across different methodologies.
+Table IV also presents evidence that the market reacts more favorably to hedge fund
+activism than other entrepreneurial activism, particularly when comparing abnormal
+stock returns around the longer [–30,+30] window.
+
+B. Abnormal Stock Returns by Purpose of Initial 13D Filing
+Table V presents mean and median size-adjusted stock returns, for the –30
+through +30 period surrounding the 13D filing date, by the stated purpose in the initial
+13D filing.
+
+Since the number of occurrences of some of the cells are small, we
+
+concentrate only on the abnormal returns for which there at least 11 occurrences. As the
+table shows, there are distinctly different market reactions by group (hedge fund vs. other
+entrepreneurial activists) and by purpose statement. First, although the market reacts
+favorably to all hedge fund purpose statements (including those in cells with less than 11
+observations), investors seem most intrigued when the hedge fund activist asks for at
+least one seat on the board (mean abnormal return = 12.60%) or hints at increasing its
+stake with the intention of buying the firm (mean abnormal return = 13.06%).
+
+In
+
+contrast, market reaction is relatively low when the hedge fund asks the firm to pursue
+alternative strategies (mean abnormal return = 4.30%).
+
+The latter two returns are
+
+consistent with those reported by Greenwood and Schor (2007) for a different sample of
+hedge fund targets.
+Second, other entrepreneurial activist targets’ mean abnormal returns are highest
+for the group of firms in which the activist intends to buy more stock in the firm
+(15.93%) or expects to become either more passive or active (12.50%). The latter result
+
+29
+
+is in contrast to hedge fund targets, which record a mean abnormal return of just 2.30%.
+Finally, when other activists ask for a seat on the board, the mean abnormal return is
+3.12%, well below the 12.60% recorded by the hedge fund activist target firms.
+
+V. Are Activists Successful in Achieving their Goals?
+In this section, we document the success rates that activists have in achieving their
+initial goals, as articulated in the initial 13D filings. We also examine the association
+between success or not and the activists’ methods in trying to achieve these objectives.
+Finally, we compare market reactions around 13D filings by success and non-success,
+and also by certain outcomes to see if the market anticipates and values these outcomes.
+
+A. Purposes of the Investment and Success Rates
+Table VI, Panel A, shows success rates for hedge fund and other entrepreneurial
+activists categorized by the purpose statements from the original 13D filings. We define
+success as achievement of the activist’s goal within one year of the 13D filing. We
+gathered this information by examining subsequent 13D/A filings and through news
+articles disclosed on Factiva.
+Hedge fund activists enjoy a 60% success rate.
+
+Most strikingly, they gain
+
+representation on the target’s board 30 out of 41 times, for an achievement rate of 73%.
+They are 100% successful in getting the firm to buy back its own stock, replace the
+current CEO, and initiate a cash dividend. Approximately 50% of the time, the target
+firm changes its operating strategies, drops its merger plans, or agrees to be taken over or
+merged.
+
+30
+
+Other entrepreneurial activists achieve their goals 65% of the time. Similar to
+hedge funds, other activists gain board representation 25 out of 35 times, for an
+achievement rate of 71%.
+
+They are 70% successful in getting the firm to pursue
+
+alternative strategies and 75% successful when wanting to change the company’s
+corporate governance. We note that, unlike hedge funds, other activists do not demand
+the company to buy back its own stock or initiate a dividend. Instead, they appear to be
+most interested and successful in getting the firm to make organic changes to corporate
+governance (including board structure) and operations.
+We interpret these high success percentages as evidence that both classes of
+activists are effective in making significant changes to their target firms. These findings
+are contrary to prior activism studies; in particular, they run counter to Bebchuk’s (2007)
+evidence that U.S. shareholders’ ability to replace the board of directors is “largely a
+myth.” However, our results are consistent with Becht et al.’s (2007) study on UK
+shareholder activism, in which they document the Hermes pension fund’s capacity to
+make significant changes to its target firms, most notably board changes and asset
+restructurings.
+
+B. Possible Reasons behind Success Rates
+We offer and examine several possible reasons behind the success rates for hedge
+fund and other activists. First, we consider if the success rate is related to the relative
+level of aggressiveness of the initially stated objectives in the 13D.
+
+For example,
+
+management might be more willing to acquiesce to outside shareholders’ demands if they
+believe the outcomes are less costly to the firm or to management itself. On the other
+
+31
+
+hand, management might resist making concessions to aggressive demands for fear that
+future and more onerous demands might be in the offering.
+We categorize eight of the 13 purposes in Table VI, Panel A, as aggressive:
+change board, oppose a merger, sell the firm, buy more stock with intention of buying the
+firm, buy back its own stock, replace CEO, cut CEO’s salary, and pay cash dividend.18
+This categorization is similar to that of Brav et al. (2006), with the exception that they
+consider board representation to be non-aggressive. Using our definition, we find that 98
+(65%) initially stated purposes for the hedge fund activists are aggressive and 53 (35%)
+are not (not tabulated).
+
+Of the 98 aggressive objectives, 66 (67%) ultimately are
+
+successful, whereas 32 (33%) are not. Of the 53 non-aggressive objectives, 25 (47%) are
+successful, whereas 28 (53%) are not.
+
+Using a χ2 test to determine if there is an
+
+association between the success rate and the purpose (aggressive or not) yields a χ2
+statistic of 5.85 (P = 0.02). Thus, we find a positive association between aggressive
+objectives and success rates for hedge fund activists-targets.
+When we examine other entrepreneurial activists, a different picture emerges. For
+this group, 71 (46%) initial purpose statements are classified as aggressive, and 83 (54%)
+are non-aggressive (not tabulated). For the 71 aggressive objectives, the activist is
+successful 44 (62%) times; for the 83 non-aggressive objectives, the activist succeeds 49
+(59%) times. The χ2 statistic for testing the association between aggression and success
+is 0.13, insignificant at conventional levels, suggesting no association between the two.
+Next, we turn to the use of proxy fights by hedge fund managers and other
+activists, respectively, against the target firms. Bebchuk (2005, 2007), Briggs (2007),
+
+18
+
+Alternatively, we include get list of shareholders as an aggressive purpose, and find similar results to
+those reported in this section.
+
+32
+
+and Kahan and Rock (2007) suggest that a proxy fight is the shareholder’s only effective
+weapon to bring about significant change in the target firm.
+Table VI, Panel B, presents data on actual and threatened proxy fights for both
+samples of targets. Proxy solicitations are from the Georgeson Shareholder website,
+which presents a comprehensive list of “contested solicitations” for each year in our data
+sample. Georgeson lists the target company, the dissident, the contested issue and also
+whether the dissident or management won, or whether there was a settlement between the
+two parties. Threatened proxy fights are from Factiva and consist of all news reports that
+the activist was threatening to begin a proxy solicitation, but never got to the SEC level
+of an actual solicitation.
+We find that 40% (12% + 28%) of the hedge fund campaigns involved an actual
+or threatened proxy solicitation. Of the 18 realized proxy solicitations, Opportunity
+Partners engaged in three proxy fights, Steel Partners II and Santa Monica had two proxy
+fights apiece, and 11 other hedge funds were involved in one proxy fight each. In the
+remaining 91 cases (60% of the sample), there was no public information of an actual or
+threatened proxy fight, although we acknowledge there might be private correspondences
+between the activist and the firm did not come to our attention. Other entrepreneurial
+activists initiated 13 proxy solicitations and publicly threatened 35 other proxy fights, for
+an overall rate of 31%. Of the 13 proxy solicitations, five were conducted by individuals,
+two were by venture capital funds, and six were by asset management firms. No other
+entrepreneurial activist engaged in more than one fight proxy fight.
+To gauge market reaction to these explicit and threatened proxy challenges, we
+calculate share price effects (size-adjusted returns) for the days [–5, +5], where day zero
+is the first public disclosure from Factiva about the dissident’s threat or initiation of a
+
+33
+
+proxy challenge (not tabulated). For the hedge fund targets, the mean (median) abnormal
+return is 4.48% (4.15%), each significant at the 0.01 level. For the other entrepreneurial
+activist targets, the mean (median) abnormal return is 5.08% (2.57%), each significant at
+the 0.01 level. These findings support the view that investors treat activists’ campaigns
+as value-increasing events.
+We next examine if the overall success rates reported in Table VI, Panel A, are
+related to whether or not the activist used or threatened a proxy fight. As Panel B shows,
+the 91 successful hedge fund outcomes were accompanied by 13 actual proxy fights, 26
+threatened proxy solicitations, and 52 instances of no public action.
+
+For the 60
+
+unsuccessful hedge fund campaigns, the activist filed a proxy solicitation 5 times,
+threatened a proxy fight 16 times, but did not publicly use the proxy solicitation process
+39 times. When examining proxy fights and outcomes for the other entrepreneurial
+activism outcomes, we find that for the 101 successful campaigns, the investor initiated
+11 proxy fights, threatened 21 proxy solicitations, and did not use the process 69 times.
+For the remaining 53 unsuccessful events, the other activists engaged in 2 actual proxy
+fights, threatened 14 proxy fights and had 37 non-engagements.
+To test for the association between the proxy solicitation process and the success
+rates of each group of activists, we perform a 2 x 2 χ2 test, where we lump actual and
+threatened proxy fights together and compare them to non-engagements. For hedge fund
+activists, we report a χ2 statistic of 0.93, insignificant at conventional levels. Similarly,
+the χ2 statistic for other entrepreneurial activists is 0.03, also insignificant at conventional
+levels. Thus, we find no evidence of a relationship between proxy fights and the rate of
+success.
+
+34
+
+However, a perusal of the Georgeson database reveals that the vast majority of
+contested proxy solicitations are over board composition. We therefore determine if
+there is an association between proxy fights and whether a hedge fund or other activist
+gains at least one seat on the target firms’ board of directors, independent of whether that
+change is in their original purpose statement.
+As Table VI, Panel B, shows, 44% of the 151 hedge fund targets (67 events)
+resulted in the activist getting at least one seat on the target’s board of directors. Of these
+firms, 13 were engaged in a proxy fight with the activist, 24 were threatened with a proxy
+solicitation, and 30 were not public recipients of a real or threatened proxy fight. A 2 x 2
+χ2 test on the relation between proxy fights (real or threatened) and success in gaining
+board representation yields a χ2 statistic of 12.06, indicating a significant association
+between the two. We find similar results for the other activists. Of the 65 board
+successes, 9 activists engaged the firm in a proxy fight, 22 threatened a proxy fight, and
+34 did not use the proxy solicitation as a threat. A χ2 test on the relation between groups
+and success in gaining board representation yields a significant χ2 statistic of 14.31.
+In summary, an explicit or implicit proxy threat is positively related to whether an
+activist successfully gains a seat on the target’s board. We interpret this finding as
+consistent with the activist’s choice of tactics and probability of success being
+endogenous to the characteristics of the target firm.
+
+Similarly, we interpret the
+
+nonsignificant χ2 values for the association between overall success and the proxy
+solicitation process as a reflection of the fact that most other demands made by activists
+are not voted on by shareholders and, therefore, the proxy ballot may not be the
+appropriate avenue to seek these changes.
+
+35
+
+C. 13D Abnormal Returns, Successful Campaigns, and Eventual Outcomes
+In this section, we present size-adjusted stock returns around the initial 13D
+filings by (1) the eventual success/failure of the campaign, (2) whether the activist
+received within one year at least one seat on the board (irrespective of whether it initially
+asked for it), and (3) whether the firm was taken over or merged within one year.
+Table VII contains these results. When we compare abnormal returns between
+hedge funds that are successful within one year in obtaining their goals vs. those that are
+not successful, we find sharp differences between the two groups of targets. As Table
+VII, Panel A, shows, the mean (median) abnormal return for successful campaigns over
+the [–30,+5] window is 10.7% (7.1%), which is significantly greater than the 2.6%
+(1.5%) mean (median) abnormal return for unsuccessful outcomes.
+
+The [–30,+30]
+
+window also produces significantly greater abnormal returns for the successful-outcome
+group than for the unsuccessful group.
+We find similar differences in abnormal returns between successful and
+unsuccessful campaigns for firms targeted by other entrepreneurial activists. The mean
+(median) [–30,+5] initial Schedule 13D abnormal returns for successful outcomes is 6.4%
+(6.3%), which is significantly greater than the 1.1% (1.4%) abnormal return for the
+unsuccessful outcomes.
+
+The [–30,+30] window produces similar differentials; for
+
+successful outcomes, the mean (median) abnormal return is 7.1% (7.2%); for
+unsuccessful outcomes, it is 0.3% (2.4%). Thus, we conclude that investors, on average,
+are able to differentiate, albeit with error, between successful and unsuccessful
+campaigns.
+Table VII, Panel B, presents abnormal stock returns by whether the activist
+obtains board representation within one year. These results differ from Panel A in that
+
+36
+
+we observe significantly different abnormal returns between gaining or not gaining board
+seats for the hedge fund targets only. The mean (median) [–30,+5] 13D abnormal stock
+return for the hedge fund targets is 11.94% (9.33%), which is significantly larger than the
+4.92% (2.01%) for those targets in which the hedge fund does not eventually get on the
+board. The longer window yields similar differentials. For the other entrepreneurial
+activist targets, the means and medians between subgroups are not significantly different
+from each other. We note that these results are similar to those reported in Table V, in
+which the market reaction to a purpose statement of board representation was relatively
+high for the hedge fund targets, but relatively low for the other entrepreneurial activist
+targets.
+Finally, Barclay and Holderness (1991) find that the stock market reaction around
+the announcement date of the 13D filing date for a negotiated block trade is higher when
+the firm is acquired within a year.
+
+Barclay and Holderness (1991) examine 106
+
+negotiated block trade announcements between 1978 and 1982. Their market-adjusted
+return for days –40 through 0 is 9.9% for the 65 firms that remain independent after one
+year of day 0 and 20.5% for the 41 firms that are acquired within one year.
+For our sample of 151 hedge fund targets, 22 firms are merged or acquired within
+one year and 129 remained independent. For the sample of 154 other activist targets, 19
+targets are merged or acquired within a year, while 135 remained independent. Thus, the
+incidence of activist targets (hedge fund or other) being taken over within one year is less
+than that reported by Barclay and Holderness (1991).
+
+One possible reason for the
+
+different acquisition rates is that the majority of blockholders studied by Barclay and
+Holderness are other companies, whereas our blockholders are predominantly hedge
+funds, private investors, venture capitalists, or private equity managers. For example, as
+
+37
+
+Table VI, Panel A, showed, hedge funds and other entrepreneurial activists typically do
+not seek control of the target, a finding consistent with Brav et al’s (2006) study on hedge
+fund activists.
+As Table VII, Panel C, shows, there are distinct differences in abnormal returns
+by type of activist and whether the firm is acquired or merged within one year. For hedge
+fund activists, there are no significant differences in abnormal returns between firms that
+are merged or acquired within one year and firms that remain independent. In contrast,
+the abnormal returns are significantly greater for other entrepreneurial activists when the
+firm is acquired within one year when compared to firms that remain independent after
+one year. Over the [–30, +5] window, the mean (median) abnormal return for merged or
+acquired firms is 17.39% (12.80%), which is significantly greater than the 3.25% (2.89%)
+mean (median) abnormal return for those firms not merged or acquired. The [–30,+30]
+window also produces significantly greater abnormal returns for the merged group than
+for the group of targets that remain independent.
+Taken together, these results suggest that the market places different weights on
+the 13D filing date on the probability that the target firm will be taken over in the future.
+These differences also reflect the disparity in incidences in which the activist professes an
+intent in having the target firm acquired, either by the activist or by a third party. Recall,
+from Table I, that other entrepreneurial activists declare an intention of buying more
+stock in the target firm 24 times vs. 12 times for the hedge fund activist. Furthermore, as
+Table I shows, the incidence for both groups of activists to support or oppose a future
+merger is a wash.
+
+38
+
+VI. Subsequent Abnormal Returns and Changes in Operating and Financial
+Structures after the Initial Filing Date
+In this section, we examine abnormal stock returns and changes in accounting
+performances, cash on hand, discretionary spending, leverage and firm size for the oneyear period after the initial 13D filing. Our primary purpose is to discern the short-term
+effects that the activists have on the targeted firms.
+Table VIII presents some of these results. Columns (1) and (2) contain the hedge
+fund targets and its control group, respectively. Columns (3) and (4) show the other
+entrepreneurial activist targets and its control group, respectively. Columns (1) and (3)
+also present significance levels testing for differences between the means (medians)
+between sample and control firms. Column (5) shows the t-statistic and the Z-statistic
+testing for differences between hedge fund target and other entrepreneurial activist target
+means and medians.
+
+A. One-Year Abnormal Stock Returns Following the Initial Schedule13D Filing
+We begin by computing size-adjusted stock returns for the target and control
+samples for the period from 30 trading days to one year after the filing date. The first
+row of Table VIII contains these returns. The mean one-year abnormal return for the
+sample of hedge fund targets is 11.35%, which is statistically different from zero at the
+0.01 level, and is significantly greater than the abnormal return of 3.17% for the matchedfirm sample. Similarly, other entrepreneurial activist targets earn a significant abnormal
+return of 17.82% over the subsequent one-year period, which is significantly greater than
+the 2.87% for its control sample (P = 0.05). Median abnormal returns yield the same
+
+39
+
+conclusions.
+
+Thus, the jump in share price around the 13D filing date continues
+
+throughout the first year after the activist engages the firm.
+To examine possible sources of the subsequent one-year abnormal returns, we
+calculate the abnormal returns for sub-groups of firms, based on the outcome of the
+activist campaign. Table VII contains these results. As the last column in the table
+illustrates, there are no significant differences in the one-year post-investment abnormal
+returns for hedge fund targets relative to whether the activist achieves its goal (Panel A),
+gains at least one seat on the target’s board (Panel B), or is subsequently acquired during
+the year (Panel C). In light of the differentials we found for the abnormal returns
+surrounding the 13D filings for the first two categories, these one-year returns suggest
+that (1) the market anticipated the success and/or the ability of the hedge fund activist to
+obtain board representation around the initial filing date and (2) the positive overall
+subsequent rise in stock price is not related to these two outcomes. The positive, but
+insignificantly different, subsequent abnormal returns for the merged vs. not merged
+targets is consistent with the view that the market return is not related to whether the
+company remains independent after one year. This result is contrary to that of Barclay
+and Holderness (1991), who find that the positive abnormal return around the 13D for
+firms targeted by blockholders dissipates if they are not subsequently acquired or merged
+within one year.
+For other activists, we see some evidence that outcomes are related to the oneyear stock return. While there is no difference in abnormal returns between success and
+non-success (Table VII, Panel A), there is weak evidence that the abnormal return is
+greater when the activist receives board representation (Table VII, Panel B) and stronger
+evidence that the one-year abnormal return is higher for firms that are acquired within
+
+40
+
+one year (Table VII, Panel C). Overall, our findings support our previous findings that
+the market views hedge fund and other entrepreneurial activism as different types of
+activism.
+
+B. One-Year Changes in Profitability, Discretionary Spending, Capital Structure, and
+Cash Reserves after the Initial Target Date
+The one-year post-investment abnormal returns are consistent with the activist
+making short-term value-enhancing changes to the target firm.
+
+We explore several
+
+sources of these changes by calculating one-year changes in accounting profitability, cash
+balances, discretionary spending, leverage, and total assets. Specifically, we present
+mean and median changes in firm characteristics between the fiscal year after and prior to
+the filing of the initial Schedule 13D. Table VIII presents these changes for the activist
+firms and their control samples. Existing Compustat data extend to December 31, 2005,
+reducing our sample to 132 target and 129 control firms.19
+We find no evidence that hedge fund targets become more profitable in terms of
+return on assets (EBITDA/Assets) or cash flows from operations. On the contrary, there
+appears to be a deterioration of profitability. The mean and median EBITDA/Assets
+ratios significantly decline, when measured in absolute (–0.024; –0.008) or industryadjusted (–0.031; –0.015) terms. These decreases are statistically different from those
+reported for the control sample. We find weaker, but consistent, evidence that cash flows
+from operations drop in a similar manner. The median industry-adjusted change in
+
+19
+
+The reductions in sample sizes are due to time constraints as well as some of the firms leaving the
+Compustat database. We do the analyses with annual Compustat data because quarterly data are not
+currently available past 2004. When using quarterly data through 2004 for a smaller sample, we get
+qualitatively the same results as presented in Table 8.
+
+41
+
+CFO/Assets is –0.007, significantly different at the 0.10 level than the –0.001 change for
+its control sample.
+Other entrepreneurial activist targets experience similar changes in short-term
+profitability. The change in the targets’ mean (median) EBITDA/Assets is –0.008 (–
+0.002) in the year following the 13D filing; the mean (median) change in industryadjusted ratio is –0.015 (–0.002). For both measures, the median values are significantly
+different from their control sample’s median at the 0.10 levels.
+
+Cash flows from
+
+operations (CFO) and CFO/Assets decrease over the year, with the median values (both
+raw and industry-adjusted) being significantly less than their control sample’s values.
+Finally, when we test for differences between hedge fund activists and other
+entrepreneurial activists, we find little to no significant t- or Z-statistics, supporting the
+view that both groups of target firms display similar drops in one-year accounting
+profitability measures.
+When examining changes in cash balances (broadly and narrowly defined), we
+find overall reductions in average cash balances for both groups of activist targets. For
+the hedge fund targets, the mean industry-adjusted changes in Cash/Assets, Short-term
+Investments/Assets and (Cash plus Short-term Investments)/Assets are each negative,
+indicating that cash on hand (relative to the industry norm) drops in the fiscal year
+following the initial 13D filing. Each measure is significantly less than its control sample
+mean. For the other entrepreneurial activist targets, both raw and industry-adjusted cash
+plus short-term investments drop significantly more than in its control sample, but the
+drop is due almost exclusively to a reduction in short-term investments and not to
+changes in cash balances.
+
+42
+
+Next, we examine changes in the target firms’ discretionary spending, beginning
+with changes in the targets’ investments in PP&E and R&D. For the hedge fund targets,
+there is little to no one-year change in capital expenditures or R&D expenditures. In
+contrast, there is a drop in mean R&D expenditures for the other entrepreneurial activist
+samples, which is significantly less than the increase reported for its control sample.
+Furthermore, testing for differences in means and medians between the two activist
+samples (column 5) produces significant t-statistics for all four measures, suggesting that
+the reductions in capital and R&D expenditures for other entrepreneurial activist targets
+are greater than the changes in expenditures for the hedge fund targets.
+These findings are consistent with the activists’ stated reasons in their initial 13D
+filings as well as the rates of success obtained by these activists. As Table I shows, the
+most frequent demand made by other entrepreneurial activists is for the target to pursue
+strategic alternatives; moreover, from Table VI, these activists are successful in achieving
+this goal within one year 70% of the time. In contrast, hedge fund activists had a 48%
+success rate in achieving this goal, suggesting they are less successful in changing the
+target’s investment expenditures.
+Next, we examine changes in dividends per share, another discretionary
+expenditure. For the hedge fund targets, mean dividends per share rise 11.2 cents per
+share (median = 9.9 cents per share)—almost doubling in size from the prior period (see
+Table II). This change is significantly higher than the control sample mean dividend per
+share rises of less than a penny per share. We also find (not tabulated) that seven target
+firms initiate common stock dividends in the fiscal year following the 13D filing date,
+compared to four control firms. In contrast, average dividends per share for the other
+entrepreneurial activist targets rise by 4.1 cents per share (median = zero cents per share),
+
+43
+
+which is not significantly different from its control sample. We therefore conclude that
+the subsequent increase in dividends is most pronounced for the hedge fund targets.
+The increase in dividends per share for the hedge fund targets is consistent with
+hedge funds addressing agency costs associated with Jensen’s (1986) free cash flow
+theory. To further explore this, we examine changes in leverage for the target firms. For
+the hedge fund targets, there are significant increases in leverage. The mean unadjusted
+total debt/assets ratio rises by 0.016 and the industry-adjusted ratio increases by 0.020.
+The average long-term debt/assets increases by 0.024 and the industry-adjusted long-term
+debt/assets increases by 0.026. When comparing the sample of hedge fund targets to its
+control group, each change is significantly different from each other, supporting the view
+that following the initial 13D filing, hedge fund targets increase the amount of debt in
+their capital structures. In contrast, we find no discernible changes in the debt ratios for
+the other entrepreneurial activist targets. These findings, in total, are consistent with the
+view that hedge fund activists more frequently address free cash flow issues whereas
+other entrepreneurial activists are more focused on the targets’ investing patterns.
+We also present changes in total firm assets. Industry-adjusted assets decline for
+both hedge fund and other entrepreneurial activists’ targets, suggesting that target firms
+sell off unwanted assets within one year. These results are similar to those reported by
+Bethel et al. (1998) for their sample of individual activist targets.
+In summary, we conclude that activism does not result in an immediate increase
+in the firm’s accounting profitability—on the contrary, earnings and/or cash flows decline
+in the year following the initial 13D investment. However, we do find evidence that
+hedge funds and other entrepreneurial activists pursue different post-intervention
+strategies. Hedge funds appear to address agency costs associated with excess cash
+
+44
+
+balances by increasing dividends and the target’s leverage.
+
+Other entrepreneurial
+
+activists appear to be more concerned with the investment strategies of the target firms
+and reduce investments in R&D and capital expenditures.
+Finally, to see if these findings persist or are reversed in the second fiscal year, we
+calculate two-year changes as well as changes in the second year subsequent to the initial
+13D filing. Since our data end on December 2005, we lose additional firms, resulting in
+sample sizes of 69 for the hedge funds and 73 for the other activists. Because of the
+smaller sample sizes, we view these findings as preliminary and briefly discuss them.
+Overall, there is no evidence that any of our one-year changes reverse in the second year.
+Nor do we observe large continuations of the profitability, discretionary expenditures,
+and changes in debt, cash, and assets. We cautiously conclude that changes to the target
+occur mainly in the first year subsequent to the activism.
+
+VII. Summary and Conclusions
+This paper examines recent confrontational entrepreneurial shareholder activism.
+We define confrontational entrepreneurial activism as when an investor files a 13D filing
+after taking an initial stake of 5% or more in the company and clearly states in the filing’s
+“purpose” section that it intends to proactively influence management’s future decisions.
+We examine two samples of entrepreneurial activists: hedge funds and other
+entrepreneurial investors, where the latter primarily consists of individuals, private equity
+funds, venture capital funds, and asset management firms. We find similarities and
+disparities between hedge fund and other entrepreneurial activism.
+
+The two main
+
+parallels are market returns and the activist’s success in gaining its original objectives.
+Hedge fund targets earn, on average, 10.2% abnormal stock returns during the period
+
+45
+
+surrounding the initial Schedule 13D filing, and other activist targets experience
+abnormal returns of 5.1%. Furthermore, these returns do not dissipate in the one-year
+period following the initial 13D filings. Instead, hedge fund targets earn an additional
+11.4% abnormal return during the subsequent year; other targets have a 17.8% abnormal
+return.
+Activists are extremely successful in getting existing management to acquiesce to
+their demands as articulated in the initial 13D filing, with hedge funds enjoying a success
+rate of 60% and non-hedge fund activists accomplishing their objectives 65% of the time.
+Both groups are particularly successful at gaining board representation on the target firm
+within one year of the initial finding. We present evidence that this success is based on
+their use of the proxy solicitation process (both actual and threatened), a finding contrary
+to Bebchuk (2005, 2007) and Dodd and Warner (1983).
+However, there are distinct differences between hedge fund and other
+entrepreneurial activism. Hedge fund activists target more profitable and financially
+healthy firms than do other entrepreneurial activists. Hedge fund targets also have higher
+levels of cash on hand than evidenced by other activist targets.
+
+After the initial
+
+investment, hedge funds differentially redirect target firms relative to the redirection
+implemented by other entrepreneurial activists. Hedge funds address the free cash flow
+problem by frequently demanding the target firm to buy back its own shares, cut the
+CEO’s salary, and initiate dividends. In the fiscal year after the initial 13D filing, hedge
+fund targets, on average, double their dividends, significantly increase their long-term
+debt, and significantly decrease their cash and short-term investments. In contrast, other
+activists most frequently demand changes in operating strategies. Consistent with these
+requests, there are significant differences in changes in R&D and capital expenditures in
+
+46
+
+the year following the 13D filing between targets of hedge fund and other activists.
+Other entrepreneurial activist targets reduce expenditures in these investments, and the
+reductions are significantly less than the slight increases recorded by hedge fund targets.
+Although many of our findings are consistent with studies on prior waves of
+shareholder activism, we conclude that hedge funds and other current, entrepreneurial
+activists take different approaches from each other and that the current wave of
+confrontational entrepreneurial activism may represent a new breed of shareholder
+activist.
+
+47
+
+References
+Altman, E. I., 1968, Financial ratios, discriminant analysis, and the prediction of
+corporate bankruptcy, Journal of Finance 23, 589–609.
+Barber, Brad M., 2006, Monitoring the monitor: Evaluating CalPERS’ shareholder
+activism, Working paper, University of California, Davis.
+Barclay, Michael J., and Clifford G. Holderness, 1989, Private benefits from control of
+public corporations, Journal of Financial Economics 25, 371–395.
+Barclay, Michael J., and Clifford G. Holderness, 1991, Negotiated block trades and
+corporate control, Journal of Finance 46, 861–878.
+Bebchuk, Lucian Arye, 2005, The case for increasing shareholder power, Harvard Law
+Review 118, 835–914.
+Bebchuk, Lucian Arye, 2007, The myth of the shareholder franchise, Virginia Law
+Review 93, 675–732.
+Becht, Marco, Julian Francs, Colin Mayer, and Stefano Rossi, August 2007, Returns to
+shareholder activism: Evidence from a clinical study of the Hermes UK Focus Fund,
+Working Paper, ECGI Working paper Series in Finance.
+Berger, Philip, and Eli Ofek, 1995, Diversification’s effect on firm value, Journal of
+Financial Economics 37, 39–65.
+Bethel, Jennifer E., Julia Porter Liebeskind, and Tim Opler, 1998, Block share purchases
+and corporate performance, Journal of Finance 53, 605–634.
+Black, Bernard S., 1990, Shareholder passivity reexamined, Michigan Law Review 89,
+520–608.
+Black, Bernard S., 1998, Shareholder activism and corporate governance in the United
+States, The New Palgrave Dictionary of Economics and the Law, 459–465.
+Boyson, Nicole M., and Robert M. Mooradian, 2007, Hedge funds as shareholder
+activists from 1994–2005, Working paper, Northeastern University.
+Bratton, William, 2006, Hedge funds and governance targets, Working paper,
+Georgetown Law School.
+Brav, Alon, Wei Jiang, Frank Partnoy, and Randall Thomas, November 2006, Hedge
+fund activism, corporate governance, and firm performance, Working paper, ECGI
+Working Paper Series in Finance.
+Briggs, Thomas W., 2007, Corporate governance and the new hedge fund activism: An
+empirical analysis, Journal of Corporation Law 32(4), 681–737.
+48
+
+Carleton, William T., James M. Nelson, and Michael S. Weisbach, 1998, The influence
+of institutions on corporate governance through private negotiations: Evidence from
+TIAA-CREF, Journal of Finance 53, 1335–1362.
+Christoffersen, Susan Kerr, Chris Géczy, David K. Musto, and Adam V. Reed, 2007,
+Vote trading and information aggregation, Working Paper, McGill University.
+Clifford, Chris, 2007, Value creation or destruction? Hedge funds as shareholder
+activists, Working paper, Arizona State University.
+Davis, Gerald F., and E. Han Kim, 2007, Business ties and proxy voting by mutual funds,
+Journal of Financial Economics (forthcoming).
+Dodd, Peter, and Jerold B. Warner, 1983, On corporate governance: A study of proxy
+contests, Journal of Financial Economics 11, 401–438.
+Eisinger, Jesse, 2005, Hedge funds set sights on company cash hoards, Wall Street
+Journal, October 12, 2005.
+Faleye, Olubunmi, 2004, Cash and corporate control, Journal of Finance 59, 2041–2060.
+Fama, Eugene, and Kenneth French, 1997, Industry costs of equity, Journal of Financial
+Economics 43, 153–193.
+Gillan, Stuart L., and Laura T. Starks, 2000, Corporate governance proposals and
+shareholder activism: The role of institutional investors, Journal of Financial Economics
+57(2), 275–305.
+Gillan, Stuart, and Laura T. Starks, 2007, The evolution of shareholder activism in the
+United States, Journal of Applied Corporate Finance 19(1), 55–73.
+Gordon, Lilli A., and John Pound, 1993, Information, ownership structure, and
+shareholder voting: Evidence from shareholder-sponsored corporate governance
+proposals, Journal of Finance 48, 697–718.
+Greenwood, Robin, and Michael Schor, 2007, Hedge fund investor activism and
+takeovers, Working paper, Harvard Business School and Harvard University.
+Holderness, Clifford G., and Dennis P. Sheehan, 1985, Raiders or saviors? The evidence
+on six controversial investors, Journal of Financial Economics 14, 555–579.
+Holmstrom, Bengt, and Steven N. Kaplan, 2001, Corporate governance and merger
+activity in the United States: Making sense of the 1980s and 1990s, Journal of Economic
+Perspectives 15, 121–144.
+
+49
+
+Hu, Henry T.C., and Bernard Black, 2007, Hedge funds, insiders, and empty voting:
+Decoupling of economic and voting ownership in public companies, Journal of
+Corporate Finance 13, 343–367.
+Jensen, Michael C., 1986, Agency costs of free cash flow, corporate finance, and
+takeovers, American Economic Review 76, 323–329.
+John, Kose, and April Klein, 1994, Shareholder proposals and corporate governance,
+Working paper, New York University.
+Kahan, Marcel, and Edward B. Rock, 2007, Hedge funds in corporate governance and
+corporate control, University of Pennsylvania Law Review 155(5), 1021–1093.
+Karpoff, Jonathan, M., 2001, The impact of shareholder activism on target companies: A
+survey of empirical findings, Working paper, University of Washington.
+Maddala, G.S., 1993, Limited-Dependent and Qualitative Variables in Econometrics
+(Cambridge University Press).
+Mikkelson, Wayne H., and Richard S. Ruback, 1985, An empirical analysis of the
+interfirm equity investment process, Journal of Financial Economics 14, 523–553.
+Pound, John, 1992, Raiders, targets, and politics: The history and future of American
+corporate control, Journal of Applied Corporate Finance 5(3), 6–18.
+Private Equity Intelligence Ltd., 2007, The 2007 Fund Terms Advisor: A Guide to Terms
+and Conditions of Private Equity Funds (Prequin).
+Romano, Roberta, 2001, Less is more: Making shareholder activism a valued mechanism
+of corporate governance, Yale Journal on Regulation 18, 174–251.
+Shah, Kshitiji, 1994, The nature of information conveyed by pure capital structure
+changes, Journal of Financial Economics 36, 89–126.
+Shleifer, Andrei and Robert W. Vishny, 1986, Large shareholders and corporate control,
+Journal of Political Economy 94, 461-488.
+Shome, Kilip K., and Sudhir Singh, 1995, Firm value and external blockholdings,
+Financial Management 24(4), 3–14.
+Smith, Michael P., 1996, Shareholder activism by institutional investors: Evidence from
+CalPERS, Journal of Finance 51, 227–252.
+Walsh, James P., and Rita D. Kosnik, 1993, Corporate raiders and their disciplinary role
+in the market for corporate control, Academy of Management Journal 36, 671–700.
+Wynn, Gerard, 2005, Hedge funds targets cash-rich corporates, Reuters, June 23 .
+
+50
+
+Table I
+Descriptive Statistics
+This table reports descriptive statistics for the final sample of hedge funds and other entrepreneurial
+activists along with their target firms. Panel A summarizes the number of activists and target firms in each
+of the samples. Panel B summarizes the number of firms targeted in each year by the hedge fund and the
+other entrepreneurial activists. Panel C summarizes the number of target firms over the different exchanges
+or markets. Panel D summarizes the different industries of the target firms. Industry is defined according
+to Fama and French (1997) 48 industry classifications. Panel E summarizes the activists’ initial stated
+reasons for targeting the firms, as collected from the Schedule 13D’s “Purpose of Transaction” section.
+
+Panel A: Number of Activists and Target Firms
+
+Total Number of Activists
+Total Number of Target Firms
+
+101
+151
+
+Other
+Entrepreneurial
+Activists
+134
+154
+
+Number of Firms Targeted by 2 Activists
+Number of Firms Targeted by 3 Activists
+Number of Firms Targeted by 4 Activists
+
+4
+3
+0
+
+5
+2
+1
+
+Number of Activists that Target:
+1 Firm
+2 Firms
+3 Firms
+4 Firms
+7 Firms
+8 Firms
+10 Firms
+
+77
+12
+8
+2
+0
+1
+1
+
+122
+8
+3
+0
+1
+0
+0
+
+Hedge Fund
+Activists
+1
+1
+
+Other Entrepreneurial
+Activists
+0
+2
+
+3
+1
+3
+
+0
+7
+4
+
+10
+28
+39
+65
+
+19
+31
+40
+51
+
+Hedge Fund
+Activists
+
+Panel B: Year of First 13D Filing
+1995
+1998
+1999
+2000
+2001
+2002
+2003
+2004
+2005
+
+51
+
+Panel C: Exchange or Market Where Target Firm Trades at Time of Initial Investment
+Hedge Fund
+Activists
+45
+12
+79
+6
+9
+
+New York Stock Exchange
+American Stock Exchange
+Nasdaq National Market
+OTC Bulletin
+Pink Sheets
+
+Other Entrepreneurial
+Activists
+56
+12
+63
+11
+12
+
+Panel D: Industry of Target Firm (Eight or More Firms for Either Group)
+Hedge Fund
+Activists
+29
+10
+9
+8
+6
+5
+
+Business Services
+Pharmaceutical Products
+Retail
+Restaurants, Hotels, Motels
+Banking
+Communication
+
+Other Entrepreneurial
+Activists
+11
+5
+3
+19
+17
+12
+
+Panel E: Activists’ Stated Reasons in Schedule 13D’s “Purpose of Transaction”
+Change Board of Directors’ Composition
+Firm Should Pursue Strategic Alternatives
+Oppose a Merger
+Sell the Firm or Merge with Another Company
+Buy More Stock with Intention of Buying the Firm
+Firm Should Buy Back its Own Stock
+Get List of Shareholders
+Become an Active Investor
+Expresses Concerns with Corporate Governance
+Replace CEO
+Cut CEO’s Salary
+Firm Should Pay a Cash Dividend
+Other Reasons
+
+52
+
+Hedge Fund
+Activists
+41
+29
+18
+16
+12
+4
+4
+4
+3
+3
+2
+2
+13
+
+Other Entrepreneurial
+Activists
+35
+40
+5
+5
+24
+0
+8
+10
+8
+2
+0
+0
+17
+
+Table II
+Characteristics of Target Firms Prior to the 13D Filing Date
+This table summarizes characteristics of firms targeted by hedge funds (column 1) and other
+entrepreneurial activists (column 3), as well as each group’s control sample (based on industry, size, and
+book-to-market; columns (2) and (4)). For each variable the mean [median] is reported. All data are
+winsorized at the 1% and 99% levels. Columns (1) and (3) also contain significance levels for differences
+between the means (medians) between sample and control firms. Column (5) shows the t-statistic (Zstatistic) testing for differences between hedge fund and other entrepreneurial activists’ means (medians).
+***
+significant at the 0.01 level; **significant at the 0.05 level; *significant at the 0.10 level. The abnormal
+stock return is the difference between the firm’s buy-and-hold return from one year prior to the 13D filing
+date to 30 trading days before the date and the buy-and-hold return for the same time period on the FamaFrench 5 size-matched portfolio, as computed by Eventus. The remaining variables are accounting data
+during (for flows) or on (for balances) the end of the year previous to the filing of the initial Schedule 13D.
+EBITDA/Assets is earnings before interest, taxes, depreciation, and amortization divided by mean total
+assets, the latter defined as the average of beginning and ending total assets. CFO/Assets is net cash flow
+from operating activities divided by mean total assets. Z-Score uses the Altman (1968) model to determine
+the likelihood of bankruptcy amongst companies. Capital Expenditures/Assets is capital expenditures less
+the sale of PP&E divided by mean total assets. R&D Expenditures/Assets is research and development
+expense divided by mean total assets. Dividends/Share is dividends per share—ex date. Cash/Assets is
+total cash to total assets ratio. (Cash + Short-term Investments)/Assets is the ratio of the sum of cash plus
+short-term investments to total assets. Total Debt/Assets is the ratio of sum of the long and short-term debt
+to total assets. Short-term Debt/Assets variable is the ratio of debt in current liabilities to total assets.
+Long-term Debt/Assets is the ratio of total long-term debt to total assets. Assets are total assets of the
+company. Revenues are net sales of the company. Market value of Equity is the dollar value of common
+equity. Market-to-Book ratio is the ratio of the stock's market value to the difference in the value of total
+assets and total liabilities. The industry-adjusted variable is the difference in the firm’s value and the
+median value for all firms in the company’s Fama and French (1997) 48 industry classification.
+
+Hedge
+Fund
+Activist
+Target
+Firms
+
+Hedge
+Fund
+Control
+Sample
+
+Other
+Entrepreneurial
+Activist Target
+Firms
+
+Other
+Entrepreneurial
+Activist Control
+Sample
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+t-statistic
+[Zstatistic]
+for diff.
+between
+columns 1
+and 3
+(5)
+
+12.3% ***
+[6.5%]***
+
+8.1%
+[4.0%]
+
+2.8%**
+[0.5%]***
+
+5.6%
+[6.8%]
+
+1.74*
+[1.63]*
+
+EBITDA/Assets
+
+0.062**
+[0.071]***
+
+0.014
+[0.055]
+
+0.042
+[0.044]
+
+0.040
+[0.049]
+
+1.77*
+[1.97]***
+
+Industry-Adjusted
+
+0.008**
+[0.008]**
+
+–0.040
+[–0.008]
+
+–0.004
+[–0.002]
+
+–0.007
+[–0.005]
+
+1.85***
+[1.88]**
+
+CFO/Assets
+
+0.033
+[0.053]
+
+0.024
+[0.065]
+
+0.035
+[0.034]
+
+0.033
+[0.049]
+
+0.27
+[1.16]
+
+Industry-Adjusted
+
+-0.007
+[0.006]
+
+-0.017
+[0.015]
+
+0.001
+[0.001]
+
+0.003
+[0.003]
+
+0.32
+[0.66]
+
+Profitability
+Abnormal Stock
+Return
+
+53
+
+Z-Score
+
+2.47
+[2.48]
+
+2.91
+[2.38]
+
+1.75**
+[1.20]**
+
+2.65
+[2.61]
+
+2.51**
+[3.72]***
+
+Industry-Adjusted
+
+0.728
+[0.360]
+
+0.746
+[0.353]
+
+0.599*
+[0.036]**
+
+0.848
+[0.046]
+
+1.97**
+[1.56]
+
+Discretionary Spending
+0.032
+Capital
+[0.018]
+Expenditures/Assets
+
+0.023
+[0.014]
+
+0.029
+[0.013]
+
+0.023
+[0.015]
+
+1.03
+[1.36]
+
+Industry-Adjusted
+
+0.017
+[0.002]
+
+0.012
+[0.000]
+
+0.017
+[0.001]
+
+0.016
+[0.004]
+
+0.18
+[0.34]
+
+R&D
+Expenditures/Assets
+
+0.048
+[0.000]
+
+0.044
+[0.000]
+
+0.037
+[0.000]
+
+0.029
+[0.000]
+
+1.11
+[0.92]
+
+Industry-Adjusted
+
+0.028
+[0.000]
+
+0.027
+[0.000]
+
+0.019
+[0.000]
+
+0.007
+[0.000]
+
+0.88
+[1.06]
+
+Dividends/Share
+
+0.129
+[0.000]
+
+0.136
+[0.000]
+
+0.106
+[0.000]
+
+0.148
+[0.000]
+
+1.09
+[0.53]
+
+Industry-Adjusted
+
+0.099
+[0.000]
+
+0.103
+[0.000]
+
+0.055
+[0.000]
+
+0.105
+[0.000]
+
+1.11
+[0.38]
+
+Cash Balances and Debt
+Cash/Assets
+0.137
+[0.090]
+
+0.118
+[0.054]
+
+0.094
+[0.033]
+
+0.100
+[0.038]
+
+2.73***
+[4.09]***
+
+Industry-Adjusted
+
+0.109
+[0.096]
+
+0.095
+[0.060]
+
+–0.007
+[0.006]
+
+0.001
+[0.010]
+
+2.72***
+[4.17]***
+
+(Cash+Short-term
+Investments)/Assets
+
+0.204
+[0.118]
+
+0.187
+[0.091]
+
+0.139
+[0.055]
+
+0.140
+[0.060]
+
+2.88***
+[3.54]***
+
+Industry-Adjusted
+
+0.052
+[0.056]
+
+0.049
+[0.046]
+
+–0.160
+[0.001]
+
+–0.162
+[0.006]
+
+2.96***
+[3.75]***
+
+Total Debt/Assets
+
+0.222
+[0.162]
+
+0.230
+[0.186]
+
+0.230
+[0.161]*
+
+0.260
+[0.226]
+
+0.75
+[0.19]
+
+Industry-Adjusted
+
+–0.936
+[–0.462]
+
+–0.907
+[–0.432]
+
+–0.618
+[–0.252]
+
+–0.595
+[–0.210]
+
+0.99
+[0.51]
+
+54
+
+0.049
+[0.007]
+
+0.051
+[0.015]
+
+0.042
+[0.011]
+
+0.065
+[0.019]
+
+0.71
+[–0.09]
+
+–0.717
+[–0.210]
+
+–0.697
+[–0.244]
+
+–0.487
+[–0.116]
+
+–0.475
+[–0.111]
+
+0.19
+[–0.25]
+
+0.162
+[0.095]
+
+0.181
+[0.123]
+
+0.190
+[0.096]
+
+0.195
+[0.132]
+
+0.57
+[0.03]
+
+–0.186
+[–0.168]
+
+–0.180
+[–0.150]
+
+–0.124
+[–0.057]
+
+–0.117
+[–0.024]
+
+0.51
+[0.16]
+
+946.81
+[208.49]
+
+1,171.27
+[250.33]
+
+931.80
+[140.07]
+
+1,023.08
+[171.55]
+
+0.101
+[1.07]
+
+Industry-Adjusted
+
+848.74
+[23.96]
+
+967.94
+[96.85]
+
+840.29
+[–23.91]
+
+912.44
+[–7.26]
+
+0.64
+[1.88]*
+
+Revenues
+($ millions)
+
+796.03
+[148.31]
+
+902.73
+[130.25]
+
+439.33**
+[68.42]**
+
+657.93
+[82.81]
+
+2.84***
+[4.44]***
+
+Industry-Adjusted
+
+591.45
+[48.01]
+
+680.08
+[31.69]
+
+571.69**
+[–7.99]*
+
+635.01
+[–2.84]
+
+1.48
+[1.83]*
+
+717.89
+[133.09]
+
+1071.03
+[180.75]
+
+461.02
+[69.97]
+
+484.23
+[70.81]
+
+1.73*
+[3.51]***
+
+635.15
+[47.10]
+
+935.41
+[85.93]
+
+312.89
+[4.93]
+
+341.75
+[6.89]
+
+1.45
+[2.69]***
+
+Market-to-Book Ratio
+
+1.460
+[1.241]
+
+1.699
+[1.303]
+
+1.294
+[1.095]
+
+1.303
+[1.080]
+
+1.04
+[0.91]
+
+Industry-Adjusted
+
+0.108
+[0.080]
+
+0.337
+[0.091]
+
+0.030
+[–0.081]
+
+0.040
+[–0.069]
+
+0.59
+[0.34]
+
+Number of Firms
+
+134
+
+134
+
+139
+
+139
+
+134/139
+
+Short-term Debt/Assets
+Industry-Adjusted
+
+Long-term Debt/Assets
+Industry-Adjusted
+
+Firm Size and Book-to-Market Ratio
+Assets ($ millions)
+
+Market Value of Equity ($ millions)
+Industry-Adjusted
+
+55
+
+Table III
+Logistic Models Predicting Targeting
+This table reports the results of logistic regressions of the firms that are targeted by hedge funds and other
+entrepreneurial activists. Column (1) uses the firms in the control sample (based on industry, size, and
+book-to-market) in addition to the firms targeted by hedge funds. Column (2) uses firms targeted by other
+entrepreneurial activists in addition to firms in the control sample (based on industry, size, and book-tomarket). The third set uses firms targeted by hedge funds in addition to firms targeted by other
+entrepreneurial activists. See Table II notes for variable definitions. All data are winsorized at the 1% and
+99% levels. The table shows the coefficients and (P-values). ***significant at the 0.01 level; **significant at
+the 0.05 level ; *significant at the 0.10 level
+
+Hedge Fund Targets
+vs. Control Sample
+(1)
+
+Other Entrepreneurial
+Activist Targets vs.
+Control Sample
+(2)
+
+Hedge Fund Target
+vs. Other Activist
+Targets
+(3)
+
+Intercept
+
+0.46
+(0.38)
+
+–0.684
+(0.26)
+
+0.564
+(0.28)
+
+Abnormal Stock Return
+
+0.179
+(0.34)
+
+–0.183
+(0.29)
+
+0.341
+(0.23)
+
+EBITDA/Assets
+
+1.974
+(0.02) **
+
+–0.778
+(0.60)
+
+1.300
+(0.18)
+
+Z-Score
+
+–0.065
+(0.02)**
+
+0.008
+(0.61)
+
+–0.063
+(0.05)**
+
+Capital Expenditures/
+Assets
+
+1.089
+(0.70)
+
+12.756
+(0.03)**
+
+1.184
+(0.59)
+
+Dividends/Share
+
+0.005
+(0.95)
+
+–0.163
+(0.79)
+
+–0.483
+(0.19)
+
+Total Debt/Assets
+
+–0.703
+(0.47)
+
+1.236
+(0.08)*
+
+–1.957
+(0.01)***
+
+Cash + Short-term
+Investment/Assets
+
+1.417
+(0.06)*
+
+2.012
+(0.07)*
+
+0.736
+(0.40)
+
+Log Likelihood Ratio
+No. Of Observations
+
+10.08
+134/134
+
+12.20
+139/139
+
+13.11
+134/139
+
+56
+
+Table IV
+Abnormal Stock Returns Surrounding the Initial Schedule 13D Filing Dates
+This table shows the distributions of size-adjusted stock returns, market-adjusted stock returns, and industry-adjusted stock returns surrounding the initial Schedule
+13D filing dates for 134 firms targeted by hedge fund activists and 139 firms targeted by other entrepreneurial activists. The target’s size-adjusted return is the
+difference between its buy-and-hold return for the time period and the return on the matched Fama-French 5 size portfolio as calculated on Eventus. The marketadjusted return is the difference between the target’s buy-and-hold return and the value-weighted NYSE/AMEX/NASDAQ index from CRSP. The industry-adjusted
+return is the difference between the target’s buy-and-hold return and the return for all firms (target excluded) in the target’s Fama-French (1997) industry code. The
+abnormal return is for the 30 trading days prior to the filing day of the Schedule 13D (day zero) through the 5 (30) trading days after the filing day of the Schedule
+13D. All data are winsorized at the 1% and 99% levels. ***significant at the 0.01 level; **significant at the 0.05 level; *significant at the 0.10 level.
+
+Abnormal return [days –30,+5]
+t-stat. [Z-stat] for
+Other
+Hedge Fund
+diff. between
+Entrepreneurial
+Targets
+columns 1 and 2
+Activist Targets
+(2)
+
+(3)
+
+7.3%***
+–1.7
+4.9***
+13.9
+
+4.4%***
+–4.2
+3.6***
+15.9
+
+1.34
+
+Market-Adjusted Returns
+Mean
+25%
+50%
+75%
+
+5.7%***
+–1.4
+4.6***
+14.3
+
+2.2%*
+–6.1
+3.0**
+11.8
+
+Industry-Adjusted Returns
+Mean
+25%
+50%
+75%
+
+7.0%***
+–1.8
+4.8***
+15.1
+
+4.4%***
+–4.2
+3.5***
+15.8
+
+(1)
+Size-Adjusted Returns
+Mean
+25%
+50%
+75%
+
+[0.88]
+
+1.53
+[1.54]*
+
+1.04
+[0.57]
+
+57
+
+Abnormal return [days –30,+30]
+t-stat. [Z-stat]
+Other
+Hedge Fund
+for diff.
+Entrepreneurial
+Targets
+between
+Activist Targets
+columns 4 and
+5
+(6)
+(5)
+(4)
+10.2%***
+0.1
+8.9***
+20.3
+
+5.1%***
+–6.0
+6.7***
+17.8
+
+7.2%***
+–2.7
+5.4***
+17.7
+
+1.9%*
+–7.5
+2.6***
+13.0
+
+9.8%***
+–0.1
+8.5***
+20.3
+
+4.8%***
+–6.2
+6.5***
+17.4
+
+1.97**
+[1.49]
+
+2.03**
+[1.92]**
+
+1.85*
+[1.79]**
+
+Table V
+Abnormal Stock Returns by Reason Given in “Purpose Statement” in Initial 13D Filing
+This table presents mean [median] size-adjusted stock returns surrounding the initial Schedule 13D filing
+dates for 134 firms targeted by hedge fund activists and by 139 other entrepreneurial activists. The target’s
+size-adjusted return is the difference between its buy-and-hold return for days [–30,+30] and the return on
+the matched Fama-French 5 size portfolio as calculated on Eventus. All data are winsorized at the 1% and
+99% levels. ***significant at the 0.01 level; **significant at the 0.05 level ; *significant at the 0.10 level
+
+Reason
+Change Board of Directors’
+Composition
+
+Hedge Fund Targets
+
+Other Entrepreneurial
+Activist Targets
+
+12.60%***
+[9.50%]***
+N= 39
+
+3.12%
+[4.18%]
+N= 33
+
+Firm Should Pursue Strategic
+Alternatives
+
+4.30%
+[2.21%]
+N= 27
+
+3.19%
+[3.52%]
+N= 39
+
+Oppose a Merger
+
+8.37%***
+[6.32%]***
+N= 16
+
+9.81%**
+[9.81%]**
+N= 1
+
+Sell the Firm or Merge with Another
+Company
+
+6.37%**
+[8.31%]**
+N= 13
+
+–2.19%
+[–2.19%]
+N= 1
+
+Buy More Stock with Intention of
+Buying the Firm
+
+13.06%**
+[10.88%]***
+N= 11
+
+15.93%**
+[9.70%]***
+N= 23
+
+Firm Should Buyback its Own Stock
+
+16.88%*
+[18.12%]
+N= 4
+
+0.00%
+[0.00%]
+N= 0
+
+Get List of Shareholders
+
+5.99%
+[5.55%]
+N= 4
+
+5.39%
+[9.43%]
+N= 8
+
+Become an Active Investor
+
+2.30%
+[2.20%]
+N= 4
+
+12.50%**
+[11.10%]**
+N= 10
+
+Expresses Concerns with Corporate
+Governance
+
+11.88%
+[7.48%]
+N= 3
+
+8.98%
+[7.16%]*
+N= 6
+
+Replace the CEO
+
+11.19%
+[20.43%]
+N= 3
+
+–4.42%
+[–4.42%]
+N= 2
+
+Cut CEO’s Salary
+
+11.11%
+[11.11%]
+N= 1
+
+0.00%
+[0.00%]
+N= 0
+
+Firm Should Pay a Cash Dividend
+
+9.83%
+[9.83%]
+N= 2
+
+0.00%
+[0.00%]
+N= 0
+
+Other Reasons
+
+19.40%*
+[20.28%]*
+N= 7
+
+–2.56%
+[–0.19%]
+N= 16
+
+58
+
+Table VI
+Outcomes of Hedge Fund and Other Entrepreneurial Activism and the Proxy Solicitation Process
+This table reports statistics for the outcomes of the hedge fund and other entrepreneurial activism. Panel A summarizes the activists’ purposes for the activism as
+stated in the original Schedule 13D filings’ “Purpose of Transaction,” and the number and percentage of successes of these activist campaigns. We define a success
+as the activist having achieved its stated goal within one year of the initial 13D filing date. Panel B summarizes the relation between the proxy fight-publicly
+threatens-non publicly threatens and the outcomes of the activist campaigns. Panel B also describes the relation between the proxy fight and the success in gaining a
+seat(s) on the target firm’s board. ***significant at the 0.01 level.
+
+Panel A: Stated Purposes in Schedule 13D’s “Purpose of Transaction” and Success Rates of Achieving Their Stated Goals
+Purpose
+
+Hedge Fund
+Activists
+
+Number of
+Successes (%)
+
+Change Board of Directors’ Composition
+Firm Should Pursue Strategic Alternatives
+Oppose a Merger
+Sell the Firm or Merge with Another Company
+Buy More Stock with Intention of Buying the Firm
+Firm Should Buyback its Own Stock
+Get List of Shareholders
+Become an Active Investor
+Expresses Concerns with Corporate Governance
+Replace CEO
+Cut CEO’s Salary
+Firm Should Pay a Cash Dividend
+Other Reasons
+
+41
+29
+18
+16
+12
+4
+4
+4
+3
+3
+2
+2
+13
+
+30
+14
+10
+9
+7
+4
+2
+4
+1
+3
+1
+2
+4
+
+Total Number
+
+151 (100%)
+
+91 (60%)
+
+59
+
+(73%)
+(48%)
+(56%)
+(56%)
+(58%)
+(100%)
+(50%)
+(100%)
+(33%)
+(100%)
+(50%)
+(100%)
+(31%)
+
+Other
+Entrepreneurial
+Activists
+
+Number of
+Successes (%)
+
+35
+40
+5
+5
+24
+0
+8
+10
+8
+2
+0
+0
+17
+
+25
+28
+4
+2
+13
+0
+5
+10
+6
+0
+0
+0
+8
+
+(71%)
+(70%)
+(88%)
+(40%)
+(54%)
+(N/A)
+(62%)
+(100%)
+(75%)
+(N/A)
+(N/A)
+(N/A)
+(47%)
+
+154 (100%)
+
+101 (65%)
+
+Panel B: Associations Between Proxy Fights and and Success Rates of Obtaining Their Stated Goals or Gaining at Least One Seat on the Target’s
+Board
+Hedge Fund Activists
+Obtain Stated Goal?
+Proxy Fight
+Threaten Proxy Fight
+No Proxy Fight
+Total
+χ2 Statistic for
+Association between
+[Proxy Fight/Threaten
+Proxy Fight] and No
+Proxy Fights, and the
+Outcome
+
+Number
+18 (12%)
+42 (28%)
+91 (60%)
+151 (100%)
+
+Yes
+13 (72%)
+26 (62%)
+52 (57%)
+91 (60%)
+
+No
+5 (28%)
+16 (38%)
+39 (43%)
+60 (40%)
+
+0.93
+
+Gain at Least One
+Seat on Target’s
+Board?
+Yes
+No
+13 (72%) 5 (28%)
+24 (57%) 18 (43%)
+30 (33%) 61 (67%)
+67 (44%) 84 (56%)
+
+12.06***
+
+60
+
+Number
+13 (8%)
+35 (23%)
+106 (69%)
+154 (100%)
+
+Other Entrepreneurial Activists
+Gain at Least One
+Obtain Stated Goal?
+Seat on Target’s
+Board?
+Yes
+No
+Yes
+No
+11 (84%)
+2 (16%)
+9 (69%) 4 (31%)
+21 (60%)
+14 (40%)
+22 (63%) 13 (37%)
+69 (65%)
+37 (35%)
+34 (32%) 72 (68%)
+101(65%) 53 (35%)
+65 (40%) 89 (60%)
+
+0.03
+
+14.31***
+
+Table VII
+
+Abnormal Stock Returns Surrounding the Initial Schedule 13D Filing Dates by
+Outcomes
+This table presents mean [median] size-adjusted stock returns surrounding the initial Schedule 13D filing
+dates for three different outcomes. The target’s size-adjusted return is the difference between its buy-andhold return for the time period and the return on the matched Fama-French 5 size portfolio as calculated on
+Eventus. Day 0 is the Schedule 13D filing date. Panel A shows abnormal stock returns by whether the
+activist achieved its goal within one year of the initial 13D filing, as stated in the purpose statement of the
+initial Schedule 13D filing. Panel B contains the abnormal stock returns by whether the activist obtains at
+least one seat on the target’s board of directors within one year of the initial filing. Panel C presents the
+abnormal returns by whether the firm is ultimately merged or taken over within one year of the filing date.
+All data are winsorized at the 1% and 99% levels. The table presents test statistics for significance of the
+means [medians] as well as differences between groups. ***significant at the 0.01 level; **significant at the
+0.05 level; *significant at the 0.10 level
+
+Panel A: Activist Does or Does Not Obtain Its Goal Within One-Year of Initial Schedule 13D
+Filing
+Period
+
+Hedge Fund Targets
+[–30 to +5]
+[–30 to +30]
+[+30 to +1yr]
+
+t-stat [Z-stat] for
+difference between (1)
+and (2)
+
+(1)
+
+Activists Do Not
+Obtain Stated
+Goals
+(2)
+
+10.7%***
+[7.1%]***
+13.2%***
+[9.8%]***
+12.3%***
+[5.4%]***
+
+2.6%
+[1.5%]**
+5.6%**
+[6.8%]***
+10.0%**
+[4.2%]**
+
+2.29**
+[2.95]***
+2.03**
+[2.25]**
+0.99
+[0.81]
+
+1.1%
+[1.4]%
+0.3%
+[2.4%]
+19.9%**
+[5.4]%**
+
+1.98**
+[1.79] **
+1.99**
+[1.98] **
+0.63
+[0.21]
+
+Activists Obtain Stated Goals
+
+Other Entrepreneurial Activist Targets
+[–30 to +5]
+6.4%***
+[6.3%]***
+[–30 to +30]
+7.1%***
+[7.2%]***
+[+30 to +1yr]
+16.7%***
+[8.0%]***
+
+61
+
+Panel B: Activist Does or Does Not Receive at Least One Seat on Target’s Board
+t-stat [Z-stat] for
+difference between
+(1) and (2)
+
+(1)
+
+Activists Does Not
+Receive Board
+Seat
+(2)
+
+11.94%***
+[9.33%]***
+14.62%***
+[13.18%]***
+10.18%**
+[4.33%]**
+
+4.92%***
+[2.01%]***
+7.30%***
+[6.48%]***
+13.41%***
+[7.36%]***
+
+1.91*
+[2.14]**
+1.89**
+[1.85]**
+–0.41
+[–0.28]
+
+Other Entrepreneurial Activist Targets
+[–30 to +5]
+2.94%**
+[2.78%]*
+[–30 to +30]
+4.60%**
+[3.29%]**
+[+30 to +1yr]
+22.85%***
+[14.60%]***
+
+5.50%**
+[4.23%]***
+5.72%***
+[8.14%]***
+14.40%***
+[3.78%]**
+
+–0.89
+[–1.24]
+–0.38
+[–0.83]
+1.12
+[1.49] *
+
+Activists Receive Board Seat
+
+Hedge Fund Targets
+[–30 to +5]
+[–30 to +30]
+[+30 to +1yr]
+
+Panel C: Firm is Merged or Not Within One Year of Initial 13D Filing
+Firm is Merged or Acquired
+
+t-stat [Z-stat] for
+difference between (1)
+and (2)
+
+(1)
+
+Firm is Not
+Merged or
+Acquired
+(2)
+
+2.66%
+[1.48%]
+7.10%*
+6.74%**
+14.72%***
+[7.05%]***
+
+8.63%***
+[5.17%]***
+10.95%***
+[8.94%]***
+10.34%***
+[6.56%]**
+
+–1.51
+[–0.99]
+–1.01
+[–0.80]
+1.09
+[0.59]
+
+Other Entrepreneurial Activist Targets
+[–30 +5]
+17.39%***
+[12.80%]***
+[–30 to +30]
+12.24%
+[14.06%]
+[+30 to +1yr]
+21.50%***
+[8.98%]***
+
+3.25%***
+[2.89%]**
+3.90%**
+[5.55%]***
+14.30%***
+[4.95%]**
+
+2.59***
+[2.42] ***
+1.81*
+[1.80]**
+2.42**
+[1.70] **
+
+Hedge Fund Targets
+[–30 to +30]
+[–30 to +30]
+[+30 to +1yr]
+
+62
+
+Table VIII
+One-Year Changes in Target Firm Performance After Activism
+This table summarizes changes (Δ) in firm characteristics between the fiscal year following and prior to the
+filing of the schedule 13D for firms targeted by hedge funds (column 1) and other entrepreneurial activists
+(column 3), as well as each group’s control sample (based on industry, size, and book-to-market; columns
+(2) and (4)). For each variable the mean [median] is reported. All data are winsorized at the 1% and 99%
+levels. Columns (1) and (3) also contain significance levels for differences between the means [medians]
+between sample and control firms. Column (5) shows the t-statistic (Z-statistic) testing for differences
+between hedge fund and other entrepreneurial activists’ means [medians]. See Table II notes for variable
+definitions. ***significant at the 0.01 level; **significant at the 0.05 level ; *significant at the 0.10 level .
+
+Hedge
+Fund
+Activist
+Target
+Firms
+
+Hedge
+Fund
+Control
+Sample
+
+Other
+Entrepren
+eurial
+Activist
+Target
+Firms
+
+Other
+Entreprene
+urial
+Activist
+Control
+Sample
+
+t-statistic [Z-statistic]
+for diff. between
+columns (1) and (3)
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+Profitability
+Abnormal Stock
+Return
+
+11.35%***
+[4.90%]***
+
+3.17%
+[2.38%]
+
+17.82%***
+[7.09%]***
+
+2.87%
+[2.11%]
+
+1.97**
+[1.85]**
+
+ΔEBITDA/Assets
+
+–0.024*
+[–0.008]**
+
+0.009
+[0.002]
+
+–0.008
+[–0.002]*
+
+–0.013
+[–0.001]
+
+–1.36
+[–0.19]
+
+ΔIndustry-Adjusted
+
+–0.031**
+[–0.015]**
+
+0.003
+[–0.003]
+
+–0.015
+[–0.002]*
+
+–0.020
+[–0.001]
+
+–1.51
+[–0.23]
+
+ΔCFO/Assets
+
+–0.001
+[–0.001]
+
+0.005
+[–0.000]
+
+–0.020
+–0.008]**
+
+–0.004
+[0.000]
+
+0.87
+[1.00]
+
+ΔIndustry-Adjusted
+
+–0.013
+[–0.007] *
+
+–0.003
+[–0.001]
+
+–0.022
+[–0.011]**
+
+–0.005
+[–0.000]
+
+0.69
+[–0.43]
+
+–0.014
+[–0.000]
+
+–0.003
+[0.000]
+
+–0.003*
+[–0.001]
+
+0.018
+[0.002]
+
+–0.76
+[–0.80]
+
+ΔIndustry-Adjusted
+
+–0.096***
+[–0.000]
+
+–0.049
+[0.003]
+
+–0.005
+[0.001]
+
+0.016
+[0.001]
+
+0.93
+[–0.90]
+
+Δ(Short-term
+Investments)/Assets
+
+0.004
+[–0.003]*
+
+0.003
+[0.000]
+
+–0.005**
+[–0.000]
+
+0.009
+[0.001]
+
+–1.48
+[–0.56]
+
+ΔIndustry-Adjusted
+
+–0.103***
+[–0.002]
+
+–0.013
+[–0.001]
+
+–0.009**
+[–0.003]
+
+–0.032
+[0.003]
+
+–1.48
+[–0.24]
+
+Δ(Cash+Short-term
+Investments)/Assets
+
+–0.011
+[–0.003]
+
+–0.000
+[0.000]
+
+–0.007**
+[–0.001]
+
+0.023
+[0.002]
+
+–0.51
+[–1.29]
+
+Cash Balances
+ΔCash/Assets
+
+63
+
+[–0.001]
+
+–0.045
+[0.002]
+
+–0.014***
+[–0.003]
+
+–0.019
+[0.001]
+
+–0.48
+[–1.37]
+
+Discretionary Spending
+ΔCapital
+0.004
+Expenditures/Assets
+[0.000]
+
+–0.002
+[0.000]
+
+–0.004
+[0.000]
+
+–0.001
+[0.000]
+
+1.71*
+[1.13]
+
+ΔIndustry-Adjusted
+
+–0.199***
+
+ΔIndustry-Adjusted
+
+0.003
+[0.000]
+
+–0.003
+[0.000]
+
+–0.004
+[0.000]
+
+–0.001
+[0.000]
+
+1.78*
+[1.70]**
+
+ΔR&D
+Expenditures/Assets
+
+0.003
+[0.001]
+
+0.001
+[0.000]
+
+–0.008***
+[–0.001]
+
+0.005
+[0.000]
+
+2.35**
+[0.77]
+
+ΔIndustry-Adjusted
+
+0.003
+[0.001]
+
+0.002
+[0.000]
+
+–0.006***
+[–0.000]
+
+0.007
+[0.001]
+
+2.29**
+[1.27]
+
+ΔDividends/Share
+
+0.112**
+[0.099]
+
+0.010
+[0.001]
+
+0.041
+[0.003]
+
+0.011
+[0.000]
+
+1.57
+[1.55]
+
+ΔIndustry-Adjusted
+
+0.104**
+[0.005] *
+
+–0.002
+[–0.010]
+
+0.035
+[0.001]
+
+0.008
+[–0.000]
+
+1.48
+[0.50]
+
+0.016*
+[0.001]
+
+–0.001
+[0.000]
+
+0.001
+[–0.000]
+
+0.008
+[–0.000]
+
+0.49
+[0.26]
+
+ΔLong-term
+Debt/Assets
+
+0.020*
+[0.004] *
+0.024***
+[0.046]***
+
+0.001
+[–0.000]
+–0.005
+[0.000]
+
+0.009
+[0.007]
+0.005
+[0.000]
+
+0.017
+[0.012]
+0.013
+[–0.001]
+
+0.34
+[0.19]
+1.32
+[1.19]
+
+ΔIndustry-Adjusted
+
+0.026***
+[0.006]***
+
+–0.004
+[–0.006]
+
+0.008
+[0.002]
+
+0.016
+[0.002]
+
+1.18
+[1.42]
+
+ΔShort-term
+Debt/Assets
+
+–0.007**
+[0.000]
+
+0.004
+[0.000]
+
+–0.004
+[–0.001]
+
+–0.008
+[0.000]
+
+–0.33
+[–0.41]
+
+ΔIndustry-Adjusted
+
+–0.006**
+[0.000]
+
+0.005
+[0.000]
+
+–0.001
+[0.000]
+
+–0.007
+[0.001]
+
+–0.74
+[–0.48]
+
+0.007
+[0.026]
+
+0.048
+[0.041]
+
+0.014
+[0.016]
+
+0.003
+[0.032]
+
+0.15
+[0.11]
+
+ΔIndustry-Adjusted
+
+–0.135
+[–0.106] *
+
+–0.090
+[–0.088]
+
+–0.091
+[–0.072]
+
+–0.096
+[–0.076]
+
+–1.39
+[–1.33]
+
+Number of Firms
+
+132
+
+132
+
+129
+
+129
+
+132/129
+
+Debt
+ΔTotal Debt/Assets
+ΔIndustry-Adjusted
+
+Firm Size
+ΔLn(Assets)
+
+64
+
+

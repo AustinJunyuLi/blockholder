@@ -1,0 +1,2455 @@
+Finance Working Paper N° 685/2020
+July 2020
+Rui Albuquerque
+Boston College, CEPR and ECGI
+Vyacheslav Fos
+Boston College, CEPR and ECGI
+Enrique J. Schroth
+EDHEC Business School and CEPR
+© Rui Albuquerque, Vyacheslav Fos and Enrique J. 
+Schroth 2020. All rights reserved. Short sections of 
+text, not to exceed two paragraphs, may be quoted 
+without explicit permission provided that full credit, 
+including © notice, is given to the source.
+This paper can be downloaded without charge from:
+http://ssrn.com/abstract_id=3639636
+https://ecgi.global/content/working-papers
+Value Creation in Shareholder 
+Activism: A Structural 
+Approach
+ECGI Working Paper Series in Finance
+Working Paper N° 685/2020
+July 2020 
+Rui Albuquerque
+Vyacheslav Fos 
+Enrique J. Schroth
+ 
+Value Creation in Shareholder Activism: A 
+Structural Approach
+We have benefitted from comments by Wei Jiang and participants at the Boston College brown bag lunch 
+seminar. We also thank Inyoung Cho for excellent research assistance. 
+© Rui Albuquerque, Vyacheslav Fos and Enrique J. Schroth 2020. All rights reserved. Short sections 
+of text, not to exceed two paragraphs, may be quoted without explicit permission provided that full 
+credit, including © notice, is given to the source.
+Abstract
+We model an investor’s choice between filing Schedules 13D and 13G and use 
+the model to estimate expected returns to activist and passive investing. Using 
+the model, we decompose average Schedule 13D filing announcement returns 
+into treatment (75:2%), stock picking (12:2%), and sample selection components 
+(12:6%).The treatment component of Schedule 13D announcement returns 
+predicts improvements in firm performance and a lower probability of a proxy 
+contest, suggesting that our estimate of the treatment component identifies more 
+effective activism campaigns. Counterfactual analysis shows that if all investors 
+shared the private cost of activism, a large fraction of Schedule 13G filings would 
+have been filed as Schedule 13D, resulting in substantial firm value gains.
+Keywords: Shareholder activism, Value creation, Passive investors, Stock picking, 
+Structural estimation.
+JEL Classifications: C34, G14, G34
+Rui Albuquerque*
+Professor of Finance and Haub Family Faculty Fellow
+Boston College, Carroll School of Management
+140 Commonwealth Avenue
+Chustnut Hill, MA 02467, United States
+phone: +1 617 552 2825
+e-mail: rui.albuquerque@bc.edu
+Vyacheslav Fos
+Associate Professor of Finance
+Boston College, Carroll School of Management
+140 Commonwealth Avenue
+Chestnut Hill, MA 02467, United States
+phone: +1 617 552 1536
+e-mail: fos@bc.edu
+Enrique J. Schroth
+Professor of Finance, CEPR
+EDHEC Business School
+393, Promenade Des Anglais
+Nice 06202, France
+phone: +33 493 186 939
+e-mail: enrique.schroth@edhec.edu
+*Corresponding Author
+Value Creation in Shareholder Activism:
+A Structural Approach $
+Rui Albuquerque
+Carroll School of Management, Boston College
+Vyacheslav Fos
+Carroll School of Management, Boston College
+Enrique Schroth
+EDHEC Business School
+July 8, 2020
+$We have beneﬁted from comments by Wei Jiang and participants at the Boston College brown bag lunch
+seminar. We also thank Inyoung Cho for excellent research assistance. Rui Albuquerque: Boston College,
+ECGI, CEPR, rui.albuquerque@bc.edu. Slava Fos: Boston College, ECGI, CEPR, fos@bc.edu. Enrique
+Schroth: EDHEC Business School, CEPR, enrique.schroth@edhec.edu.
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Value Creation in Shareholder Activism:
+A Structural Approach
+Abstract
+We model an investor’s choice between ﬁling Schedules 13D and 13G and use the model
+to estimate expected returns to activist and passive investing. Using the model, we
+decompose average Schedule 13D ﬁling announcement returns into treatment (75 .2%),
+stock picking (12.2%), and sample selection components (12.6%).The treatment component
+of Schedule 13D announcement returns predicts improvements in ﬁrm performance and
+a lower probability of a proxy contest, suggesting that our estimate of the treatment
+component identiﬁes more eﬀective activism campaigns. Counterfactual analysis shows
+that if all investors shared the private cost of activism, a large fraction of Schedule 13G
+ﬁlings would have been ﬁled as Schedule 13D, resulting in substantial ﬁrm value gains.
+JEL classiﬁcation: C34, G14, G34
+Keywords: Shareholder activism, Value creation, Passive investors, Stock picking, Struc-
+tural estimation.
+Electronic copy available at: https://ssrn.com/abstract=3639636
+“Two roads diverged in a yellow wood,
+And sorry I could not travel both...”
+Robert Frost, The Road Not Taken
+1. Introduction
+Activist shareholders play an important role in modern corporate governance (Gillan
+and Starks, 2007). A key question is how much value they create. The existing literature
+searches for answers in the abnormal stock returns observed around the announcements
+of new activist positions. The consensus is that these returns are signiﬁcantly larger than
+those following the announcement of new passive positions (e.g., Holderness and Sheehan,
+1985; Brav, Jiang, Partnoy and Thomas, 2008; Klein and Zur, 2009; Edmans, Fang and
+Zur, 2013). Indeed, in our data, the average announcement return is 6.34% for Schedule
+13D ﬁlings but only 0.59% for Schedule 13G ﬁlings. 1
+Which aspects of activism could potentially explain why the stock market rewards
+activist positions with higher announcement returns than passive positions? First, activist
+investors may indeed increase value by inﬂuencing the ﬁrm’s corporate policies, i.e., the
+treatment eﬀect of activism. Second, activist investors could be better at identifying
+undervalued stocks. That is, part of the returns to a Schedule 13D ﬁling announcement
+would have been observed anyway had the investor counterfactually chosen to remain
+passive and ﬁled a Schedule 13G instead. To wit, Brav et al. (2008) document that a
+stated goal of 48.3% of activist campaigns is “General undervaluation/maximize shareholder
+value,” suggesting that a fraction of the announcement return could be due to stock picking.
+Finally, because the investor strategically chooses to be an activist or to remain passive,
+the observed average announcement return includes a sample selection bias.
+1The Securities and Exchange Commission (SEC) mandates investors that become beneﬁciary owners
+of at least 5% of any class of equity securities in a publicly traded company to ﬁle one of these Schedules.
+Schedule 13D is required if the investor intends to aﬀect the management of the company (i.e. activist
+investor). Otherwise, the investor can ﬁle a shorter form—Schedule 13G—associated with passive investing.
+1
+Electronic copy available at: https://ssrn.com/abstract=3639636
+There are several challenges to measure these three components of the Schedule
+13D announcement return. The investor’s ﬁling decision is endogenous and depends on
+unobservable quantities such as the expected returns to ﬁling Schedule 13D versus ﬁling
+Schedule 13G and the private costs of activism. In addition, the distributions of observed
+announcement returns for either type of ﬁling schedule are each censored by the choice of
+the other type. It is hard to ﬁnd good instruments for the unobservable components or get
+data on the non-censored distribution of announcement returns. In this paper, we propose
+to overcome these challenges and recover the three components of announcement returns
+with the structural estimation of an economic model of ﬁling choices.
+The central feature of our model is the investor’s decision to ﬁle a Schedule 13D versus
+a Schedule 13G. The assumption that investors have that choice for every ﬁling in the data
+is grounded on the observation that among all investors that ﬁled at least one Schedule
+13D any time in our sample, 78% also ﬁled a Schedule 13G. 2 To choose optimally between
+Schedule 13D versus Schedule 13G, the investor trades oﬀ the expected announcement
+return to the former, minus a private cost of activism, against the expected announcement
+return to the latter. We allow for due diligence by the investor, which introduces noise
+in the ﬁling decision that is uncorrelated with announcement returns. This simple model
+produces a joint distribution of ﬁling choices and announcement returns. The distribution
+of announcement returns to Schedule 13D ﬁlings is censored because announcement returns
+to 13D are not observed if the investor chooses to ﬁle Schedule 13G, giving rise to a sample
+selection bias in returns to both Schedule 13D and Schedule 13G ﬁlings that we can estimate.
+Using data on announcement returns and ﬁling choices, we can estimate the unobservable
+quantities—expected returns, due diligence precision, and private cost of activism—but
+also each of the components in Schedule 13D announcement returns.
+2Several papers have looked at the choice between active and passive strategies. For example, Edmans
+et al. (2013) study activist hedge funds and show that stock liquidity predicts ﬁling Schedule 13D versus
+Schedule 13G. Giglia (2016) discusses incentives to ﬁle Schedule 13G versus Schedule 13D.
+2
+Electronic copy available at: https://ssrn.com/abstract=3639636
+We estimate the model’s parameters by deriving and maximizing the joint likelihood
+of ﬁling choices and announcement returns. As a result, our maximum likelihood
+(ML) estimator of the characteristic loadings on expected returns satisﬁes a modiﬁed
+orthogonality condition, one that is similar to that of the Ordinary Least Squares (OLS)
+regression of announcement returns on characeristics — that the residual is orthogonal
+to the regressors — but corrected for sample selection. Moreover, the sample selection
+correction is itself a function of the characteristic loadings because these determine the
+ﬁling choices besides explaining announcement returns. Our estimator exploits the same
+model structure to recover the cost of activism: we show that the ML estimate of this cost
+trades oﬀ the relative amounts of selection in the subsamples of each ﬁling type.
+We ﬁnd that the average treatment eﬀect of activism, which is equal to the diﬀerence
+in expected returns from ﬁling Schedule 13D instead of Schedule 13G, represents 75 .2% of
+the observed Schedule 13D announcement return, that is, 4.77% of 6.34%. The estimated
+average stock picking component, which is given by the estimated counterfactual expected
+return from ﬁling Schedule 13G instead, amounts to 12 .2% of the observed announcement
+return, that is, 0.77% of 6.34%. The estimated average stock picking component of Schedule
+13D announcement return is indeed higher than the average announcement return for
+Schedule 13G ﬁlings, 0.59%, suggesting that Schedule 13D ﬁlers are better stock pickers than
+Schedule 13G ﬁlers. The economic magnitude of the diﬀerence, 0.18%, explains only a small
+fraction of the diﬀerence between Schedule 13D and 13G announcement returns. Finally,
+the sample selection component, which results from the left censoring of the distribution
+of expected returns to Schedule 13D ﬁlings and, therefore, increases average announcement
+returns above their unconditional mean, represents 12 .6% of announcement returns. For
+Schedule 13G ﬁlings, the sample selection bias is small and stock picking accounts for almost
+all of the observed announcement return.
+We cannot reject that our speciﬁcation of expected returns does not explain the joint
+3
+Electronic copy available at: https://ssrn.com/abstract=3639636
+variation in ﬁling choices and announcement returns. Moreover, our estimates indicate
+that the model-implied variation in expected returns is a ﬁrst-order driving primitive of
+variation in the outcome variables. Indeed, our model best ﬁts the data by loading most
+heavily on expected returns variation instead of variation from the noise in the ﬁler’s due
+diligence.
+Another result is that all determinants of expected returns that are not related to the
+investor’s experience have the same estimated loading on expected returns to Schedule 13D
+ﬁlings and to Schedule 13G ﬁlings, even though the model places no such restrictions on
+their values. This ﬁnding is important because it implies that the market assigns an extra
+return to Schedule 13D ﬁlings vis-a-vis Schedule 13G ﬁlings based only on the identity
+of the investor, not the target ﬁrm characteristics. That is, the treatment component of
+announcement returns is determined only by the investors’ ﬁling experience. Speciﬁcally,
+we ﬁnd that an investor with a higher number of past Schedule 13D ﬁlings is compensated
+with a higher return for ﬁling Schedule 13D, but penalized with lower announcement returns
+for ﬁling a Schedule 13G. Conversely, a more frequent Schedule 13G ﬁler is more negatively
+aﬀected when ﬁling a Schedule 13D.
+The result above has two further implications. First, investors with little Schedule 13D
+ﬁling experience will not earn higher announcement returns from ﬁling a Schedule 13D if
+their intentions are to remain passive: past 13D ﬁlings serve as a signal of commitment
+that the activist will stick around after the price jump at announcement. Second, the stock
+picking component is determined mostly by ﬁrm characteristics. In particular, we ﬁnd that
+expected returns to both Schedule 13D and Schedule 13G ﬁlings are positively associated
+with stock illiquidity and book-to-market of equity, and negatively associated with sales
+growth and stock return performance, i.e. suggestive of stock-picking strategies.
+We quantify the beneﬁts of activism to investors and dispersed shareholders. We
+estimate that the mean Schedule 13D ﬁler earns a net return of 1 .74%. Dispersed
+4
+Electronic copy available at: https://ssrn.com/abstract=3639636
+shareholders save the costs and, therefore, enjoy higher returns from Schedule 13D ﬁlings.
+However, our estimates also suggests that 60% of Schedule 13G ﬁlings would oﬀer better
+counterfactual expected returns under Schedule 13D. According to our estimates, these
+Schedule 13G ﬁlings occur because the treatment eﬀect is not enough to cover the private
+cost of activism. But if the cost of activism were shared amongst all shareholders, then
+the estimated aggregate net increase in ﬁrm valuations, from ﬁling Schedule 13D instead,
+would be $60 billion on average per year.
+To validate the cross equation restrictions that tie the variation in expected returns
+to both ﬁling choices and announcement returns imposed by our model, we compare its
+performance to reduced-form approaches used in the activism literature. To our knowledge,
+researchers to date have only used reduced-form models of ﬁling choices (e.g., probit models)
+or announcement returns (e.g., OLS regressions) ignoring the information content of either
+on the other. That is, such reduced-form models do not impose constraints tying cross-
+sectional variation in announcement returns to cross sectional variation in ﬁling choices. We
+show that the structural model is just as good as the reduced-form models at matching the
+ﬁrst and second moments of announcement returns, but is signiﬁcantly better at matching
+the distribution of ﬁling choices. We also compare our model with the two-step Heckman
+approach that introduces an ad hoc correlation between announcement returns and ﬁling
+probabilities. We show that our structural model remains signiﬁcantly better than the
+two-step Heckman approach at matching the distribution of ﬁling choices.
+A critical assumption in our exercise is that announcement returns to Schedule 13D
+ﬁlings reﬂect, albeit noisily, shareholders’ anticipated value creation by activists. Because
+our model-inferred components of announcement returns are not part of the noise, we
+hypothesize that they would subsume or improve the informational content about the target
+ﬁrm’s future performance. Speciﬁcally, we test whether the estimated treatment eﬀect
+predicts subsequent improvements in ﬁrm performance over and above the information
+5
+Electronic copy available at: https://ssrn.com/abstract=3639636
+in the total announcement return. We ﬁnd that both the treatment and stock-picking
+components of expected returns to Schedule 13D ﬁlings positively predict improvements in
+ROA and sales turnover above the information content in announcement returns. Moreover,
+the treatment component of expected returns to Schedule 13D ﬁlings negatively predicts
+the likelihood of a proxy contest, suggesting that a higher estimate of treatment identiﬁes
+more eﬀective activism campaigns that do not need to escalate into a proxy contest.
+One potential concern about the quality of our estimates is that, because our sample
+consists of a heterogeneous collection of investors, the results may be driven by the type
+least likely to satisfy our model assumptions. In an important robustness test, we perform
+the analysis in the sub-sample of 7,551 Schedule 13D and 13G ﬁlings ﬁled by activist hedge
+funds. This sub-sample represents ﬁlings that are ﬁled by a relatively homogenous group
+of investors who most likely represent the behavior in the model. We obtain similar results
+when we reestimate the model only in this sub-sample: the treatment eﬀect represents
+92.4% of the observed announcement return, the stock picking component represents −4%
+of the observed announcement return, and the sample selection component represents 11.6%
+of announcement returns.
+Our paper contributes to several strands of the literature on shareholder activism. First,
+our paper contributes to the literature that studies stock price reactions to announcements
+of shareholder activism campaigns (e.g. Holderness and Sheehan, 1985; Guercio and
+Hawkins, 1999; Brav et al., 2008; Becht et al., 2008; Cliﬀord, 2008; Klein and Zur, 2009). 3
+Holderness and Sheehan (1985) are the ﬁrst to demonstrate positive abnormal returns to
+Schedule 13D ﬁlings. They reject the hypothesis that activist investors are corporate raiders
+and instead suggest that the evidence is consistent with value creation and stock picking.
+Brav et al. (2008) study activism campaigns initiated by hedge funds using Schedule 13D
+ﬁlings. They also document positive abnormal returns to campaign announcements. This
+3See Brav et al. (2010) for a survey of evidence on hedge fund activism.
+6
+Electronic copy available at: https://ssrn.com/abstract=3639636
+paper contributes to this literature by quantifying the various components in expected
+returns to Schedule 13D ﬁlings.
+Second, our paper contributes to the literature that studies changes in corporate policies
+following shareholder activism (e.g. Brav et al., 2008, 2015; Bebchuk et al., 2015). 4 For
+instance, Brav et al. (2008) describe the rate of success by activists in achieving their goals
+and actual policy changes of target ﬁrms. Brav et al. (2015) and Bebchuk et al. (2015)
+focus on long term changes in productivity of target ﬁrms. This paper contributes to this
+literature by showing that Schedule 13D ﬁlings with higher treatment component of the
+announcement return experience larger improvements in ﬁrm performance as well as lower
+likelihood of a proxy contest.
+Third, our paper informs the literature about costs of activist engagements. Gantchev
+(2013) uses a structural model of the sequential decision process in activist campaigns and
+estimates that a campaign can costs several millions dollars. Contrary to Gantchev (2013),
+we show that activist expected returns net of the cost of activism are large and positive on
+average. This evidence coupled with the estimated loadings on investor-based experience
+variables suggest that there are limits to free entry in the market for activism. Our analysis
+also allows us to go a step further, allowing us to quantify the gains from sharing the cost
+of activism amongst all shareholders by predicting the fraction of Schedule 13G ﬁlings that
+would instead be ﬁled as Schedule 13D. Our identiﬁcation strategy diﬀers from that of
+Gantchev (2013). We use the joint distribution of announcement returns and ﬁling choices
+to identify the cost of activism, whereas Gantchev (2013) infers the cost of activism from
+the activists’ staged decisions along a campaign.
+Finally, our paper is the ﬁrst to use structural estimation to quantify value creation in
+shareholder activism.5 Beginning with Brav et al. (2015), the literature relies on activists
+4See also Greenwood and Schor (2009), Boyson et al. (2017), and Jiang et al. (2018) for the analysis of
+the role of activist hedge funds in corporate takeovers.
+5In the M&A literature, Li et al. (2018) develop a structural model to evaluate the role of mispricing
+and economic synergies in takeovers. Albuquerque and Schroth (2010, 2015) study value creation in block
+7
+Electronic copy available at: https://ssrn.com/abstract=3639636
+that switch from a passive Schedule 13G ﬁling to a Schedule 13D ﬁling on the same target
+ﬁrm to separate value creation from stock picking. The key idea is that the value from
+stock picking is obtained when Schedule 13G is ﬁled, and the value of treatment is identiﬁed
+with the announcement return when the investor switches to Schedule 13D. Our structural
+model builds on this insight but also uses the information from actual Schedule 13G ﬁlings
+to inform the counterfactual gains to a Schedule 13D ﬁling, with the added beneﬁt of a
+large sample to conduct the analysis. Importantly, our approach allows for ﬁrm and investor
+characteristics to change between the Schedule 13G and the consequent Schedule 13D ﬁling.
+That is, in our model the stock picking component obtained when Schedule 13G is ﬁled can
+change by the time the consequent Schedule 13D is ﬁled.
+2. A Structural Model of the Filing Decision
+We model an investor’s decision to ﬁle Schedule 13D or Schedule 13G and the stock
+price reaction to the announcement. The model predicts a joint distribution of ﬁlings and
+announcement returns where the driving force in explained variation of the relation between
+ﬁling choices and announcement returns are expected returns.
+2.1. Valuation gains
+Consider an investor that has identiﬁed a target ﬁrm as an investment opportunity and
+has acquired a stake in order to beneﬁt from the stock’s valuation gains. 6 We denote by
+∆D the random variable that describes the return following the announcement that the
+investor ﬁled Schedule 13D, and denote by ∆ G the random variable that describes the
+return following the announcement that the investor ﬁled Schedule 13G. We interpret the
+former as the gains from a potentially costly intervention campaign, and the later as the
+transactions.
+6We take the stake size as given and focus on the activist’s choice to be an active or a passive investor.
+Back, Collin-Dufresne, Fos, Li and Ljungqvist (2018) provide a model of an activist’s trading behavior and
+study the trade oﬀ between the impact of activist investors on ﬁrm value and market liquidity.
+8
+Electronic copy available at: https://ssrn.com/abstract=3639636
+gains from picking underpriced stocks. These are public valuation gains that beneﬁt every
+investor in the ﬁrm.
+Valuation gains are given by ∆ D = µD +ϵ∆D and ∆G = µG +ϵ∆G. One component
+of valuation gains is the expected return represented by µD and µG. These expected
+returns are common knowledge among investors. The other, unpredictable, component is
+represented by independent normal error terms, ϵ∆D∼ N(0,σ 2
+∆D) and ϵ∆G∼ N(0,σ 2
+∆G).
+This information is summarized by the normal density functions fD (∆D) and fG (∆G),
+respectively.
+In this setup, if µG> 0, then ﬁling a Schedule 13G results in an expected price increase
+that beneﬁts all investors. If µD >µ G, then ﬁling a Schedule 13D results in higher expected
+returns than ﬁling a Schedule 13G. Our model is silent about how the valuation gains come
+about. Instead, we will adopt a parametric linear mapping of observable ﬁrm and investor
+characteristics to expected returns, conditional on the ﬁling choice.
+2.2. Investor’s due diligence
+The investor does not observe ∆ D or ∆G before the ﬁling. However, she conducts due
+diligence on the target ﬁrm before making her ﬁling decision. The due diligence results in
+private information signals,
+sD = ∆ D +εsD,
+sG = ∆ G +εsG.
+The errors in the signals are independent normal, εsD∼N
+(
+0,σ 2
+sD
+)
+and εsG∼N
+(
+0,σ 2
+sG
+)
+.
+By letting σ2
+sD and σ2
+sG diﬀer, we let the precision of the signals vary by ﬁling type.
+Using the projection theorem, we obtain the investor’s mean and variance of returns
+9
+Electronic copy available at: https://ssrn.com/abstract=3639636
+conditional on the value of her signal:
+E (∆D|sD) = µD +
+σ2
+∆D
+σ2
+∆D +σ2sD
+(sD−µD),
+V (∆D|sD) =
+σ2
+∆Dσ2
+sD
+σ2
+∆D +σ2sD
+.
+Similar formulas can be derived for E (∆G|sG) and V (∆G|sG). The ratio σ2
+∆D/σ2
+sD is
+the signal-to-noise ratio. A larger ratio σ2
+∆D/σ2
+sD implies that the investor puts a greater
+weight on the signal when computingE (∆D|sD). This ratio regulates the signal’s usefulness
+relative to the unconditional mean of µD in the investor’s ﬁling choice.
+2.3. Investor’s ﬁling choice
+Activism campaigns are costly. They involve eﬀort spent in aﬀecting control in the
+ﬁrm as well as of proxy advisory and legal expenses (Gantchev, 2013). Let C denote the
+expected value of these costs. We expect C > 0, but because the investor chooses to ﬁle
+Schedule 13D versus Schedule 13G, the costC should be viewed as net of any costs involved
+in ﬁling Schedule 13G. Below, we provide further discussion on the cost C. This cost is
+borne only by the investor and not shared with other shareholders of the target ﬁrm.
+We assume that the investor is risk neutral and seeks to maximize her expected returns
+form ﬁling either Schedule 13D or Schedule 13G. 7 The investor’s expected utilities under
+each ﬁling alternative are
+EUD =E (∆D|sD)−C,
+and
+EUG =E (∆G|sG).
+7The model with risk aversion is developed in the Appendix.
+10
+Electronic copy available at: https://ssrn.com/abstract=3639636
+The investor ﬁles a Schedule 13D if, and only if,
+EUD >EU G. (1)
+Otherwise, she ﬁles Schedule 13G. Moreover, EUD is given by
+EUD = µD +
+σ2
+∆D
+σ2
+∆D +σ2sD
+(sD−µD)−C, (2)
+= µD +
+σ2
+∆D
+σ2
+∆D +σ2sD
+(ϵ∆D +ϵsD)−C. (3)
+The expression for EUG is similar, with subindices G instead of D, but no cost, C.
+Equation (3) shows that the expected utility of ﬁling Schedule 13D can be decomposed
+into the predictable component of the announcement return net of the cost of activism,
+µD−C, and the unpredictable component, ϵ∆D +ϵsD. Moreover, the weight placed on the
+latter is determined by the signal-to-noise ratio, σ2
+∆D/σ2
+sD. Intuitively, we build the model
+to test the extent to which variation in expected returns explains ﬁling choices. However,
+we allow for alternative explanatory variation through the unpredictable noise components.
+The signal-to-noise ratio calibrates the tension between the two explanations.
+2.4. Properties of announcement returns from the econometrician’s perspective
+We assume the econometrician does not observe the due-diligence signals, sD or sG,
+but knows the normal densities of returns, fD (∆D) and fG (∆G). Let the random variable
+z≡EUD−EUG. From the perspective of the econometrician, z∼N (E (z),V (z)), with
+E (z) = µD−µG−C, (4)
+V (z) =
+σ4
+∆D
+σ2
+∆D +σ2sD
++
+σ4
+∆G
+σ2
+∆G +σ2sG
+. (5)
+11
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Further, the econometrician equates the event “Filing Schedule 13D” with the event
+{z >0}, and, likewise, the event “Filing Schedule 13G” with the event {z≤ 0}.
+The econometrician infers that the observed returns to any Schedule 13D ﬁling are not
+distributed with density fD (∆D) because the econometrician only observes realizations
+of ∆ D for which z > 0. Indeed, the econometrician computes the posterior density
+of announcement returns to a Schedule 13D ﬁling as the density of ∆ D conditional on
+{zi> 0}. Following Arnold, Beaver, Groeneveld and Meeker (1983), the conditional density,
+fD (∆D|zi> 0), satisﬁes
+fD (∆D|zi> 0)
+fD (∆D) = 1− Φ (αD)
+1− Φ (α) . (6)
+In this expression, α = −E (z)/
+√
+V (z) and Φ is the cumulative standard normal
+distribution. Hence, 1 − Φ (α) is the unconditional probability of ﬁling Schedule 13D.
+Also, αD =−E (z|∆D)/
+√
+V (z|∆D) andt 1− Φ (αD) is the probability of ﬁling Schedule
+13D conditional on the observed announcement return. Finally,
+E (z|∆D) = E (z) +
+σ2
+∆D
+σ2
+∆D +σ2sD
+(∆D−µD),
+V (z|∆D) = V (z)
+(
+1−ρ2
+zD
+)
+,
+for ρzD =Cov (∆D,z )/
+√
+σ2
+∆DV (z)> 0.
+It is straightforward to check that the right hand side of (6) is an increasing function
+of ∆D that equals zero when ∆ D→−∞ , and equals 1/ (1− Φ (α))≥ 1 when ∆D→∞ .
+That is, higher value gains are more likely under the conditional distribution for Schedule
+13D ﬁlings than under the unconditional distribution.
+We use equation (6) to derive a familiar expression for the mean observed announcement
+12
+Electronic copy available at: https://ssrn.com/abstract=3639636
+return following a Schedule 13D ﬁling (see Greene (2008) and Arnold et al. (1983)): 8
+E (∆D|z >0) =µD +ρzDσ∆DλD (α), (7)
+where λD (α)≡φ (α)/ (1− Φ (α)) is the inverse Mills ratio, and φ is the standard normal
+density function. This expression shows that the ex post average return to ﬁling Schedule
+13D ﬁling is higher that the unconditional mean, µD. This result obtains because investors
+expecting low returns from ﬁling a Schedule 13D choose instead to ﬁle a Schedule 13G.
+The sampling distribution of announcement returns to Schedule 13D ﬁlings is therefore
+truncated. Its mean is biased upwards by an amount proportional to the inverse Mills
+ratio.
+The conditional variance of the announcement return is
+V (∆D|z >0) =σ2
+∆D
+[
+1−ρ2
+zDλD (α) (λD (α)−α)
+]
+. (8)
+Since 0 < λD (α) (λD (α)−α) < 1, then V (∆D|z >0) < V (∆D), i.e., the variance
+of announcement returns is biased downwards. Combining the last two results, sample
+selection in Schedule 13D ﬁlings creates an upward bias on empirical t-statistics of average
+announcement returns.
+8Similar expressions can be obtained for moments of the random variable ∆ G|z <0:
+E (∆G|z <0) =µG−ρzGσ∆GλG (α),
+and
+V (∆G|z <0) =σ2
+∆G
+[
+1−ρ2
+zGλG (α) (λG (α) +α)
+]
+,
+where ρzG = Cov (∆G,z )/
+√
+σ2
+∆GV (z), and λG (α) = φ (α)/Φ (α), with α =−E (z)/
+√
+V (z) as before.
+Note that ρzG < 0. Hence, the mean announcement return is higher than the unconditional mean return
+for Schedule 13G ﬁlings as well.
+13
+Electronic copy available at: https://ssrn.com/abstract=3639636
+2.5. Announcement returns decomposition
+Using equation (7), we decompose announcement returns to Schedule 13D ﬁlings into
+three components:
+E (∆D|z >0) = µD−µG  
+Treatment
+eﬀect
++ µG
+Stock picking
+eﬀect
++ ρzDσ∆DλD (α)  
+Sample selection
+eﬀect
+. (9)
+The stock picking eﬀect is the return the investor gets by ﬁling Schedule 13G and remaining
+passive,µG. The value creation or treatment eﬀect, µD−µG, is the added beneﬁt of ﬁling
+Schedule 13D versus ﬁling Schedule 13G. The last term in the decomposition is the sample
+selection eﬀect described above. Note that the estimation of the stock picking and treatment
+eﬀects requires knowledge of the counterfactual valuation, µG.
+Likewise, we decompose announcement returns to Schedule 13G ﬁlings as
+E (∆G|z <0) = µG
+Stock picking
+eﬀect
+− ρzGσ∆GλG (α)  
+Selection selection
+eﬀect
+. (10)
+The sample selection bias in announcement returns to Schedule 13G ﬁlings is also positive
+because investors do not ﬁle a Schedule 13G when µG is suﬃciently low relative to µD.
+2.6. Discussion
+The activism cost parameter, C, has a central role in the model. As we explain
+below, this cost helps explain ﬁling choices, ﬁling announcement returns, and volatilities of
+announcement returns. As a parameter, it captures various aspects of activism. First, it
+represents expected pecuniary costs of aﬀecting control as indicated in subsection 2.3.
+Second,C includes also the disutility from the risk in announcement returns and in the
+14
+Electronic copy available at: https://ssrn.com/abstract=3639636
+due diligence signals. The Appendix shows that the model in the main text is isomorphic
+to a model with risk averse investors if we adjust the cost parameter appropriately. Third,
+C may also include a penalty for the possibility that some Schedule 13Ds are ﬁled only in
+order to enjoy the larger average announcement returns with no actual intentions to engage
+in activism. In our tests, we can address this possibility by including, in the set of expected
+return determinants, investor-speciﬁc variables that track the number of times the investor
+has ﬁled either Schedules in the past. We return to this topic below.
+Fourth, the activist investor may enjoy private beneﬁts from her large stake (Coﬀee,
+2017). Then, C should be viewed as the activism cost net of these private beneﬁts. Fifth,
+there are transaction costs to accumulating a large stake in a company. For instance, buying
+towards a 5% target is likely to cause upward price pressure before reaching it and ﬁling
+with the SEC. Hence, Schedule 13D and Schedule 13G ﬁlers are unlikely to capture all the
+value they create, implying that C may include the diﬀerence, if any, between the expected
+transaction costs in acquiring a position towards a Schedule 13D or a Schedule 13G ﬁling.
+It remains unclear, however, whether a transaction costs diﬀerential would exist, unless
+the market not only forecasts the intention to cross the 5% threshold that triggers either
+Schedule 13D or 13G ﬁling, but also the type of ﬁling.
+We assume that C is constant across all ﬁlings in the data. One reason for this
+assumption is the lack of proxies for these potential individual cost components. The main
+reason, though, is to keep the model parsimonious. This assumption allows us to focus on
+the role of expected returns as the ﬁrst order eﬀect in explaining the cross section of ﬁlings.
+Ultimately, the performance of the model in explaining the data is a good indication the
+signiﬁcance of treating C constant.
+To conclude the model section, let us address further why we believe the model is
+parsimonious. To be clear, the model has two parameters, mean and volatility, for each of
+the distributions of announcement returns. These parameters would be needed by almost
+15
+Electronic copy available at: https://ssrn.com/abstract=3639636
+all models of returns. In addition, the model has three more parameters, the cost C and the
+two volatilities of the due diligence σ2
+sD and σ2
+sG. The cost parameter has been extensively
+discussed above. The volatilities on due diligence are important because they allow for a
+source of noise that aﬀects selection that is unrelated to returns.
+3. Estimation Approach
+Our main identifying assumption is that each ﬁling choice and the price reaction to its
+announcement are jointly determined as a function of the announcement’s expected return.
+In this section, we construct the likelihood function that results from our model and that
+captures the main identifying assumption.
+3.1. Speciﬁcation of expected returns
+We assume that the expected returns from ﬁling either a Schedule 13D or a Schedule
+13G vary cross sectionally as a function of given target ﬁrm and investor characteristics.
+We specify the expected returns,µD,i andµG,i for each ﬁlingi = 1,...,N , as linear functions
+of a vector of ﬁxed determinants xi,
+µDi = x′
+iβD,
+and
+µGi = x′
+iβG,
+where βD and βG are parameters to estimate.
+Our model is silent about which characteristics inﬂuence expected returns and why.
+We therefore resort to a large literature modeling expected stock returns. The target ﬁrm
+characteristics included in xi are ﬁnancial leverage, book-to-market value of equity, return
+on assets, stock illiquidity, analyst coverage, share of institutional ownership, idiosyncratic
+volatility of stock returns, recent stock return performance, size, ﬁrm age, sales growth,
+16
+Electronic copy available at: https://ssrn.com/abstract=3639636
+and industry sales concentration. All variables are measured as of the end of the ﬁscal year
+that precedes the ﬁling and are deﬁned in Table 1. Potentially unbounded variables are
+winsorized at 1% and 99% for every year in our sample.
+The vector xi also includes two measures of the investor’s past experience in either
+Schedule 13D or Schedule 13G ﬁlings. Speciﬁcally, we include the number of previous
+Schedule 13D ﬁlings as well as the number of previous Schedule 13G ﬁlings by each
+investor.9 An indicator variable for activist hedge funds completes the set of investor-
+speciﬁc characteristics.10
+Finally, the vector xi includes the three Fama-French factors. The reason for this
+inclusion is that, even if the stock’s cumulative abnormal returns are measured in excess
+of the three factors, the adjustment uses backward looking loadings (betas). Controlling
+for these factors on top of the adjustment accounts for the possibility that their loadings
+on the ﬁrm’s expected returns may have changed in response to the news of the SEC ﬁling
+(Patton and Verardo, 2012).
+3.2. Likelihood function
+Letli = 1 if the investor ﬁles Schedule 13D and 0 if the investor ﬁles Schedule 13G. The
+empirical counterpart to the valuation gains ∆ G and ∆D are the stock market cumulative
+announcement returns from 30 days before the ﬁling to 10 days after the ﬁling, denoted by
+ri. We begin the event window 30 days before the ﬁling because Collin-Dufresne and Fos
+(2015) show that price appreciation prior to Schedule 13D ﬁlings likely reﬂects the price
+impact of activist’s trades. We end the event window 10 days after the ﬁlling to make sure
+prices fully reﬂect the information about the ﬁling. Indeed, Brav et al. (2008) show that
+there is no signiﬁcant return reversal during the year subsequent to the ﬁling. Cumulative
+9Brav et al. (2008) use the historical average announcement returns from past ﬁlings as a proxy for a
+hedge fund’s experience, but ﬁnd no signiﬁcant association between the proxy and abnormal announcement
+returns.
+10We thank Wei Jiang for providing the list of activist hedge funds.
+17
+Electronic copy available at: https://ssrn.com/abstract=3639636
+abnormal announcement returns thus measured are a good proxy for valuation gains. The
+data available to the econometrician is therefore {li,ri, xi}i=1,...,N.
+The likelihood of observing N independent Schedule 13D or Schedule 13G ﬁlings in the
+data and the corresponding announcement returns is
+L({li,ri}i=1,...,N|{ xi}i=1,...,N, θ)
+= ΠN
+i=1
+(
+[Pr (zi> 0)fD (ri|zi> 0)]li [Pr (zi< 0)fG (ri|zi< 0)]1−li
+)
+,
+where the parameter vector to be estimated is θ =
+{
+βD, βG,C,σ 2
+∆D,σ 2
+∆G,σ 2
+sD,σ 2
+sG
+}
+,
+Pr (zi> 0)fD (∆D|zi> 0) is the joint density of observing a Schedule 13D ﬁling and the
+announcement returns ∆D, and Pr (zi> 0) = 1− Φ (αi).
+Substituting (6) in the likelihood function, taking logarithms and rewriting as a function
+of the unknown parameters, we have
+lnL
+(
+θ|{li,ri, xi}i=1,...,N
+)
+=
+N∑
+i=1
+[li (lnfD (ri) + ln (1− Φ (αDi))) + (1−li) (lnfG (ri) + ln Φ (αGi))].
+The maximum likelihood (ML) estimator ˆθML maximizes lnL
+(
+θ|{li,ri, xi}i=1,...,N
+)
+.
+3.3. Parameter identiﬁcation
+In this section, we explain the identiﬁcation of parameters and which features of the
+data drive the value of the estimates obtained via the the system of ML’s ﬁrst order
+optimality conditions. Intuitively, the identiﬁcation strategy uses the assumption that the
+announcement return following a Schedule 13G ﬁling is useful to estimate the counterfactual
+expected return to a Schedule 13D ﬁling, and vice-versa. That is, expected returns extracted
+from announcements of Schedule 13G ﬁlings must vary with ﬁrm and investor characteristics
+in a way that is consistent with the investor preferring to ﬁle Schedule 13D versus Schedule
+18
+Electronic copy available at: https://ssrn.com/abstract=3639636
+13G every time expected returns to the former (net of the activism cost) dominate the
+later. “The road not taken” is informative about the path the investor ultimately chooses.
+3.3.1. Expected return loadings, βD and βG
+Consider the ﬁrst order conditions of the ML problem with respect to the sensitivities
+ˆβD. After some simpliﬁcation, we obtain
+N∑
+i=1
+lixi
+[(
+ri− x′
+i ˆβD
+)
+− ˆσD ˆρzDλD (ˆαDi)
+]
+= 0. (11)
+There are two terms to consider. The ﬁrst term in the square bracket would give the OLS
+estimation of ˆβD in a linear regression of returns, ri, on characteristics, xi. OLS requires
+that the estimation residuals, ri− x′
+i ˆβD, be orthogonal to the regressors, xi. Now consider
+the second term. The ML estimator of the structural model chooses ˆβD considering also
+its impact on the probability the investor ﬁles Schedule 13D. This feature explains the
+presence of an inverse Mills ratio, λD (ˆαDi), which corrects for the non-random selection
+of the Schedule 13D sample. In other words, in the structural model, the orthogonality
+condition is written with respect to the residuals that take into account selection, i.e. the
+endogenous choice of ﬁling type. This statement can be made formally. Using equation (7),
+x′
+i ˆβD + ˆσD ˆρzDλD (ˆαDi) is the predicted mean announcement return given that the investor
+ﬁled a Schedule 13D, i.e., ˆE (∆D,i|z >0). Hence, we may write equation (11) as
+N∑
+i=1
+lixi
+(
+ri− ˆE (∆Di|z >0)
+)
+= 0.
+Solving for ˆβD, we obtain
+ˆβD =
+( N∑
+i=1
+lixix′
+i
+)−1 N∑
+i=1
+lixi (ri− ˆσD ˆρzDλD (ˆαDi)). (12)
+19
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Hence, target ﬁrm and investor characteristics that are associated with higher selection-
+adjusted returns carry higher loadings.
+There is another diﬀerence between the structural and OLS estimation of ˆβD. The
+solution to equation (12) is nonlinear because the selection term also depends on ˆβD.11
+Intuitively, the expected return parameters have a dual role in the model: to explain the
+likelihood of Schedule 13D ﬁlings in the cross section as well as cross sectional variation in
+announcement returns to Schedule 13D ﬁlings. This non-linearity illustrates how the model
+imposes constraints about how the outcome variables—ﬁling choices and announcement
+returns—are related to each other and to the determinants, x.
+We omit the discussion of the identiﬁcation of ˆβG because the system of ﬁrst order
+conditions with respect to this parameter vector is isomorphic to that with respect to ˆβD.
+3.3.2. Activism cost, C
+Consider now the ﬁrst order condition with respect to ˆC. Assuming an interior solution,
+this condition simpliﬁes to
+N∑
+i=1
+(
+li
+λD (ˆαDi)√
+V (z|∆D)
+− (1−li) λG (ˆαGi)√
+V (z|∆G)
+)
+= 0. (13)
+The cost ˆC equates the average selection eﬀect, i.e., the inverse Mills ratios, across all
+Schedule 13D and Schedule 13G ﬁlings weighted by their conditional variances V (z|∆D)
+and V (z|∆G), respectively. In the structural model, a marginal increase in ˆC forces the
+investor to be more selective in choosing her Schedule 13D ﬁlings. By symmetry, the
+marginal increase in ˆC makes ﬁling Schedule 13G more likely, which decreases the amount
+of selection in Schedule 13G ﬁlings. In other words, our model and estimation strategy
+would infer a higher ˆC from an otherwise equal dataset with a lower proportion of Schedule
+11While ˆβD enters ˆαDi, it is easy to show that the right hand side of this expression is monotonically
+decreasing in ˆβD. Hence, ˆβD is uniquely identiﬁed.
+20
+Electronic copy available at: https://ssrn.com/abstract=3639636
+13D ﬁlings, or an otherwise equal dataset with a higher diﬀerence between Schedule 13D
+and 13G average announcement returns.
+3.3.3. Variance parameters
+The ﬁrst order condition with respect to ˆσ2
+∆D can be written as
+ˆσ2
+∆D = 1
+ND
+N∑
+i=1
+li (ri− ˆµDi)2−
+2ˆσ4
+∆D
+ND
+N∑
+i=1
+(
+liλD (ˆαDi) dαDi
+dˆσ2
+∆D
+− (1−li)λG (ˆαGi) dαGi
+dˆσ2
+∆D
+)
+,
+(14)
+where ND is the number of Schedule 13D ﬁlings. Under the assumption that ∆ D,i ∼
+N
+(
+x′
+iβD,σ 2
+∆D
+)
+, the ﬁrst term of the right-hand side of this expression is the OLS estimate
+of σ2
+∆D. The second term in equation (14) recognizes that selection introduces conditional
+heteroskedasticity in announcement returns (see Eq. (8)). The ﬁrst order condition
+synthesizes the restrictions imposed by the structural model to back out an estimate of
+the constant σ2
+∆D from conditionally heteroskedastic announcement returns. A similar
+conclusion applies to the estimate of σ2
+∆G.
+Consider last the ﬁrst order condition with respect to ˆσ2
+sD,
+N∑
+i=1
+[
+liλD (ˆαDi)dαDi
+dˆσ2sD
++ (1−li)λG (ˆαGi)dαGi
+dˆσ2sD
+]
+= 0.
+When ˆσ2
+sD is small, the investor has valuable information via her due diligence about ∆ D
+(i.e., the signal to noise ratio ˆσ2
+∆D/ˆσ2
+sD is high). In that case, the choice of ﬁling is more
+aﬀected by randomness from the structural shocks than from cross sectional variation in
+expected returns. Thus, ˆ σ2
+sD helps control the source of variation in selection. At the
+margin, an increase in ˆσ2
+sD equates the marginal increase in selection in Schedule 13D ﬁlings
+against the marginal decrease in selection in Schedule 13G ﬁlings. A similar conclusion
+applies to ˆσ2
+sG.
+21
+Electronic copy available at: https://ssrn.com/abstract=3639636
+3.4. Structural vs reduced form estimation
+We conclude this section with a formal illustration of the diﬀerence between the inference
+made by structural estimation of our model and by previous reduced-form approaches to
+the same data. Formally, let Pr (Filing 13D|x) =F (x′
+iδ) be the model for ﬁling a Schedule
+13D versus ﬁling Schedule 13G, with F (.) as the cumulative distribution function. Also,
+let gD (ri; x′
+iηD) be the density of returns to Schedule 13D ﬁlings with expected returns
+x′
+iηD, and gG (ri; x′
+iηG) be the density of returns to Schedule 13G ﬁlings with expected
+returns x′
+iηG. Then, treating announcement returns and ﬁling choices independently as is
+commonly done in the activism literature, the likelihood of the data set is
+lnL
+(
+{li,ri}i=1,...,N|{ xi}i=1,...,N, δ, ηD, ηG
+)
+=
+N∑
+i=1
+[
+li ln
+[
+F
+(
+x′
+iδ
+)
+gD
+(
+ri; x′
+iηD
+)]
++ (1−li) ln
+[(
+1−F
+(
+x′
+iδ
+))
+gG
+(
+ri; x′
+iηG
+)]]
+. (15)
+Without any constraints across equations, the reduced-form approach likelihood
+function can be separated into two, each with a distinct set of parameters: one for the ﬁling
+choices, δ, and the other for announcement returns, ηD and ηG. Hence, the information
+content in the announcement returns distribution does not contribute to improving the
+performance of the ﬁling choices model.
+Note too that, in principle, one could impose correlation between announcement returns
+and ﬁling probabilities in a reduced-form model. Thus, estimation would use information
+from both outcome variables to make inference about the two diﬀerent sets of parameters.
+But this ad hoc approach would still not require restrictions across the parameters δ, ηD,
+and ηG, so that a counterfactual analysis would be impossible. An example would be the
+two-step Heckman estimator, in which a ﬁrst-stage ﬁling choice model is used to produce
+the Inverse Mills ratio (IMR) that corrects for sample selection bias in the second-stage
+22
+Electronic copy available at: https://ssrn.com/abstract=3639636
+returns model. This approach implies an expected returns expression similar to equation
+(7) without the restriction that the IMR be evaluated at the model statistic αD, itself a
+function of expected returns. We discuss in subsection 5.4 and tabulate in Appendix B
+that, by ignoring this theoretical restriction, the two-step Heckman method understates
+sample selection bias in mean returns of Schedule 13D ﬁlings, but overstates it for mean
+returns of Schedule 13G ﬁlings.
+Our structural model restrictions come mainly from the model primitive that the
+investor ﬁles a Schedule 13D when she expects high returns to Schedule 13D ﬁlings. As
+a result, estimation uses announcement returns data to predict ﬁling options and vice-
+versa. These restrictions are useful not only to recover the parameters that are common
+to both distributions, βD and βG, but also to recover the counterfactual quantities that
+a reduced-form cannot: the treatment, the stock picking, and the selection components of
+announcement returns. Section 5 compares the performance of the structural model to the
+reduced form approach to validate the restrictions imposed by the former.
+4. Data
+Data are compiled from several sources. Stock returns, volume, and prices come from
+the Center for Research in Security Prices (CRSP). Target ﬁrm characteristics come from
+Compustat. Data on institutional ownership come from Thomson Reuters. Data on
+Schedule 13D ﬁlings and Schedule 13G ﬁlings come from EDGAR and are described next.
+First, we identify the universe of all Schedule 13D and Schedule 13G ﬁlings in EDGAR
+from 1996 to 2017. The universe includes 50,708 Schedule 13D ﬁlings and 171,051 Schedule
+13G ﬁlings. For each ﬁling, we extract the CUSIP of the underlying security and the ﬁling
+date. Second, we drop duplicate ﬁlings, merge subject ﬁrms with the CRSP and Compustat
+databases, requiring that data on stock returns be available. This step results in 23,391
+Schedule 13D ﬁlings and 121,373 Schedule 13G ﬁlings.
+23
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Third, we drop the 28,663 Schedule 13G ﬁlings that were ﬁled on February 14 (45 days
+after calendar year-end) because this date indicates ﬁlings by exempt investors. Exempt
+investors are not required to ﬁle within 10 days of crossing the 5% equity stake and can
+ﬁle up to 45 days after calendar year-end. Hence, these ﬁlings are unlikely to carry any
+informational content. Indeed, the average announcement return on Schedule 13G ﬁlings
+ﬁled on February 14 is -0.08% (statistically indistinguishable from 0), whereas Schedule 13G
+ﬁlings ﬁled on any other day experience an average 0.59% announcement return (highly
+statistically signiﬁcant). Finally, we require ﬁrm characteristics used in the analysis to be
+non-missing during the ﬁscal year that precedes the ﬁling.
+[Tables 1 and 2 about here.]
+The ﬁnal sample includes 69,937 ﬁlings, of which 8,703 are Schedule 13D ﬁlings and
+61,234 are Schedule 13G ﬁlings. All variables are deﬁned in Table 1. Summary statistics
+are reported in Table 2. Panel A shows that the average announcement return is 1.31%.
+The price response to a ﬁling announcement varies substantially with the type of ﬁling.
+Speciﬁcally, the average announcement return is 6.33% for Schedule 13D ﬁlings and 0.59%
+for Schedule 13G ﬁlings. When we consider the sub-sample of ﬁlings done by activist hedge
+funds, we ﬁnd that the average announcement return is 5.98% for Schedule 13D ﬁlings and
+1.14% for Schedule 13G ﬁlings. As expected, activist hedge funds ﬁle Schedule 13D ﬁlings
+more often than a typical investor. Speciﬁcally, Schedule 13D ﬁlings constitute about 34%
+(5,012/7,551) of activist hedge funds’ ﬁlings and 12% (8,703/69,937) for all investors in
+our sample. In section 7, we report the main results from our model estimated on the
+sub-sample of activist hedge funds.
+Panel B reports descriptive statistics of ﬁrm characteristics. Since most ﬁrm charac-
+teristics are standard in the literature, we omit their discussion. Panel C reports three
+investor characteristics. 13D Experience (13G Experience) is the number of Schedule 13D
+(Schedule 13G) ﬁlings by each investor in the data up to the ﬁling date. In our sample,
+24
+Electronic copy available at: https://ssrn.com/abstract=3639636
+the average investor ﬁled six Schedule 13D ﬁlings and 536.7 Schedule 13G ﬁlings. Most
+investors have little experience with Schedule 13D ﬁlings. The median investor never ﬁled
+a Schedule 13D prior to the current ﬁling, but ﬁled a Schedule 13G 62 times previously.
+Untabulated results show, however, that about 78% of investors that have ﬁled a Schedule
+13D have also ﬁled at least one Schedule 13G in the whole sample. This evidence suggests
+that a typical Schedule 13D ﬁler is experienced with both Schedule 13D and Schedule 13G.
+Finally, 10.8% of ﬁlers in our sample are activist hedge funds.
+5. Estimation Results
+Table 3 presents the estimates of our model parameters. We estimate the model under
+four diﬀerent speciﬁcations of µD and µG. In speciﬁcation (1), we only include target ﬁrm
+variables: Market capitalization, Amihud illiquidity, Analyst coverage, Book-to-market
+equity, Firm age, Sales growth, HHI, Institutional ownership, Idiosyncratic volatility,
+Leverage, ROA, and the average stock return of the last twelve months. Speciﬁcation
+(2) adds the investor experience variables, speciﬁcation (3) adds a dummy variable for
+activist hedge funds, and speciﬁcation (4) adds three stock return risk factors, the market
+excess return, SMB, and HML.
+[Table 3 about here.]
+Panel A shows that the coeﬃcients on target ﬁrm variables in speciﬁcation (1) are
+jointly signiﬁcantly diﬀerent from 0 with a p-value of the likelihood-ratio (LR) statistic
+smaller than 0.001. Likelihood-ratio tests also reject the hypotheses that the coeﬃcients
+of the investor’s ﬁling experience variables (speciﬁcation (2)), of the activist hedge fund
+indicator (speciﬁcation (3)), or of the stock return risk factors (speciﬁcation (4)), are also
+respectively diﬀerent from zero.
+25
+Electronic copy available at: https://ssrn.com/abstract=3639636
+5.1. Estimates of expected return loadings, βD and βG
+A key result in panel A is that, for all speciﬁcations, the point estimates of the
+parameters in βD and βG associated with target ﬁrm characteristics or stock return factors
+have similar magnitudes. For example, a one-sample standard deviation increase in the
+book-to-market ratio is associated with an equal increase in the expected announcement
+return of 71 basis points for Schedule13D or Schedule 13G ﬁlings (0 .012× 0.592). This is
+not the case for the estimated coeﬃcients of investor experience variables and the activist
+hedge fund indicator. To wit, Schedule 13D ﬁlings by an activist hedge fund investor
+show a signiﬁcant return increase between 50 and 70 basis points (speciﬁcations (3) and
+(4)) relative to Schedule 13D ﬁlings by non-hedge fund investors. On average, there is no
+signiﬁcant estimated hedge fund activist eﬀect on Schedule 13G ﬁlings. As for the investor
+experience variables, for every 10 additional Schedule 13D ﬁlings of prior experience, the
+next Schedule 13D ﬁling by the same investor has an additional expected return of almost
+19 basis points whereas the next 13G ﬁling is associated with a lower expected return by
+almost 25 basis points (speciﬁcation (2)). In contrast, additional Schedule 13G experience
+predicts lower Schedule 13D returns, and it is unrelated to subsequent Schedule 13G ﬁling
+returns. The evidence that greater experience in ﬁling Schedule 13Ds contributes to higher
+announcement returns to Schedule 13D ﬁlings on average, but additional experience in
+Schedule 13G ﬁlings contributes to lower Schedule 13D returns, is consistent with the market
+being able to recognize those investors that ﬁle Schedule 13Ds only in order to enjoy the
+larger average announcement returns without actual intentions to engage in activism from
+those that create value.
+There are two important consequences regarding the key result highlighted above that
+the point estimates of the parameters associated with target ﬁrm characteristics or stock
+return factors have similar magnitudes for 13D or 13G ﬁlings. First, the treatment eﬀect
+from activism, which equals the diﬀerence between expected returns from each ﬁling
+26
+Electronic copy available at: https://ssrn.com/abstract=3639636
+schedule, µD−µG = x′
+i(βD− βG), is not explained by any of the target ﬁrm and risk
+factor variables. Rather, it is the investor variables that almost exclusively explain the
+treatment eﬀect.
+Second, the target ﬁrm variables almost exclusively explain variation in the stock picking
+eﬀect. Hence, we cannot conclude that a particular variable carries a treatment eﬀect
+based solely on its loading on Schedule 13D expected returns. Indeed, the ﬁnding that
+Schedule 13D and Schedule 13G expected returns covary positively with book-to-market
+and negatively with sales growth and past stock return performance is consistent with
+investors pursuing stock-picking strategies. 12 Similarly, we ﬁnd that investments in less
+liquid securities appear to be compensated by higher expected returns regardless of the
+ﬁling schedule, consistent with an illiquidity premium as in Amihud (2002). Conversely, this
+ﬁnding implies that stock market liquidity facilitates Schedule 13D or Schedule 13G ﬁlings
+(Collin-Dufresne and Fos, 2015, 2016). Interestingly, this result contrasts with Edmans
+et al. (2013), where liquidity is positively associated with abnormal returns to Schedule
+13G ﬁlings of hedge funds. We discuss potential reasons for this diﬀerence in sub-section
+5.4.
+Finally, the estimated coeﬃcients of the SMB and HML factors are positive and
+negative, respectively, both for the expected returns to Schedule 13D or 13G ﬁlings. Since
+abnormal ﬁling announcement returns are estimated using backward looking three-factor
+model betas, this evidence indicates that the SMB beta must have increased and the HML
+beta must have decreased following the ﬁling the announcement. This result is consistent
+with the ﬁndings in Patton and Verardo (2012) that market betas change in response to
+earnings news.
+For the remainder of the presentation, given the remarkable stability of the parameter
+12The estimated sign of the average past return performance loading on µD is consistent with the ﬁnding
+in Brav et al. (2008).
+27
+Electronic copy available at: https://ssrn.com/abstract=3639636
+estimates across speciﬁcations, we focus the discussion around the estimates in speciﬁcation
+(4).
+5.2. Estimates of the cost of activism, C
+The estimated cost of activism is 4.6 percentage points (Panel B of Table 3) of the
+ex post value of the ﬁler’s stake. This estimate is signiﬁcantly diﬀerent from zero with
+p-value under 0.01. The estimate of C is equivalent to an average $2.43 million. Noting
+from Table 2 that the mean abnormal return in Schedule 13D ﬁlings is 6.33%, the net
+average abnormal return to activists is thus 1.73%.13 The estimated loading on the investor
+experience variables suggest that there is no free entry in the industry and thus that our
+estimated net abnormal return to activism constitutes an economic rent to activism.
+Figure 1 provides a useful illustration of how our estimate of ˆC is obtained. The left
+panel plots the theoretical values of the announcement returns to Schedule 13D and to
+Schedule 13G ﬁlings against possible values of the cost parameter, C, holding all other
+parameters constant at their maximum likelihood estimates. Because we are holding the
+average values of ˆµD and of ˆµG constant, the only source of variation in either line is the
+size of the selection bias. Moreover, the amount of selection bias in Schedule 13D ﬁlings is
+increasing in C because, the higher the cost, the higher the required diﬀerence in expected
+returns so that the investors chooses to ﬁle a Schedule 13D instead of a Schedule 13G.
+By the symmetry of the problem, the amount of selection bias in Schedule 13G ﬁlings is
+decreasing in C. The right panel of Figure 1 plots the theoretical probability of a Schedule
+13D ﬁling, as a function of C. Clearly, this probability is decreasing in C. Consider now
+the ﬁrst order condition forC (Eq. (13)). The ML estimate of the cost parameter trades oﬀ
+the amount of sample selection bias in Schedule 13D returns against the amount of sample
+selection bias in Schedule 13G returns. Figure 1 shows that, given the values of ˆ µD and
+13This number is higher than the annualized mean value weighted abnormal return of 0.23% found in
+(Gantchev, 2013).
+28
+Electronic copy available at: https://ssrn.com/abstract=3639636
+ˆµG, the estimate ofC is able to produce a sample selection eﬀect that matches the observed
+mean announcement return to Schedule 13D ﬁllings as well as the proportion of 13D ﬁlings,
+but overestimates slightly the amount of sample selection in Schedule 13G ﬁlings and the
+observed mean announcement return to Schedule 13G ﬁllings.
+[Figure 1 about here.]
+5.3. Estimates of volatilities
+Panel B of Table 3 shows that the announcement returns volatilities, σ∆D and σ∆G,
+as well as the due diligence signal volatilities, σsD and σsG, are all precisely estimated.
+Notably, the latter are signiﬁcantly larger than the former. In other words, the model
+infers low signal-to-noise ratios from the data, implying that more of the variation in ﬁling
+choices is determined by the predictable variation in announcement returns µD and µG
+rather than by the unpredictable variation in ϵ∆D and ϵ∆G, or in ϵsD and ϵsG.
+Figure 2 is useful to understand why the ML estimator makes this inference. Recall
+that our estimation procedure targets the joint distribution of announcement returns and
+ﬁling choices. The two panels of the ﬁgure illustrate how the ML estimates of σsD and
+σ∆D are identiﬁed by two important moments of the joint distribution: the frequency of
+Schedule 13D ﬁlings and the volatility of Schedule 13D announcement returns. Indeed,
+the solid black line represents the ( σsD,σ ∆D) combinations for which the model-implied
+Schedule 13D return volatility equals its data analog (0.222). The indiﬀerence curve has a
+negative slope because, in the model, there is a trade oﬀ between either source of noise to
+produce any given level of announcement returns volatility. When the due diligence signal
+is suﬃciently imprecise, then the volatility of the announcement return,σ∆D, is set to equal
+the sample standard deviation of announcement returns, implying from inspection of the
+ﬁrst order condition (14) that the eﬀect of σ∆D on selection is zero.
+The grey line denotes the ( σsD,σ ∆D) combinations for which the model-implied
+frequency of Schedule 13D ﬁlings equals the frequency in the data (0.124). The slope of
+29
+Electronic copy available at: https://ssrn.com/abstract=3639636
+this indiﬀerence curve is positive and increasing, meaning that, in the model, more volatile
+announcement returns can only imply the same 13D ﬁling probabilities for signiﬁcantly
+more volatile due diligence signals.
+The left panel also shows the sensitivity of both estimates to the volatility of Schedule
+13D announcement returns. All other moments constant, had the sample standard
+deviation of Schedule 13D returns been, say 25% higher, the iso-volatility curve would
+have been to the North East, i.e., the dashed black line. In this case, the model would infer
+an even lower signal-to-noise ratio in order to match the same proportion of Schedule 13D
+ﬁlings with higher ﬁling announcement returns. Conversely, a lower announcement returns
+volatility (dotted line) would lead to infer a higher signal-to-noise ratio.
+Finally, the right panel shows that a higher (lower) frequency of Schedule 13D ﬁlings
+in the data would imply an indiﬀerence curve to the southeast (northwest) of the solid
+black line. Therefore, a higher frequency of 13D ﬁlings while keeping the Schedule 13D
+announcement returns volatility constant would lead to higher (lower) estimated signal-to-
+noise ratio.
+The same reasoning applies for the identiﬁcation of σsG and σ∆G. As the ﬁgures are
+isomorphic to those for σsD and σ∆D, they are omitted.
+[Figure 2 about here.]
+5.4. Structural versus reduced-form estimates
+For comparison with the ML estimates of expected return loadings in our structural
+model, we also estimate the reduced-form analog parameters in the log-likelihood function
+(15). We implement the reduced-form estimation via two separate OLS regressions of
+announcement returns to Schedules 13D and 13G ﬁlings and a Probit model of the type
+of ﬁling. Table 4 presents the results. The ﬁrst two columns reproduce the estimates
+of the structural parameters βD and βG from speciﬁcation (4) in Table 3. Columns 3
+30
+Electronic copy available at: https://ssrn.com/abstract=3639636
+and 4 present the OLS estimates of abnormal returns to Schedule 13D and 13G ﬁlings,
+respectively. Column 5 provides estimates of the Probit model.
+[Table 4 about here.]
+The OLS estimates in Table 4 reproduce some reduced-form results in previous
+literature. For example, like Brav et al. (2008) we obtain negative coeﬃcients for market
+capitalization and leverage for Schedule 13D ﬁlings. There are also many diﬀerences
+between the structural and the reduced-form parameter estimates.
+Importantly, note that the structural and reduced-form parameters of announcement
+returns have diﬀerent signs generally when the signs of the former coincide with the signs
+of the Probit model estimates. For example, note that the investor’s Schedule 13D ﬁling
+experience, the activist hedge fund indicator or the book-to-market ratio load positively on
+expected returns to Schedule 13D ﬁlings in our model, whereas Schedule 13G experience
+and institutional ownership load negatively. These variables load with the same sign in the
+Probit model for Schedule 13D ﬁlings versus Schedule 13G ﬁlings, but with the opposite sign
+or insigniﬁcantly in the OLS regression. The reason for this result is that expected returns
+in the model serve two purposes: high expected returns to Schedule 13D help explain why
+realized abnormal returns are high, but they also help explain why the investor chose to ﬁle
+Schedule 13D. Formally, equation (12) shows that estimates of the structural parameters
+depend on how ﬁrm characteristics correlate with selection-adjusted returns.
+Table 5 evaluates the performance of the model and the reduced-from approach in
+matching some ﬁrst and second moments of the data. The numbers for the model-implied
+moments in this table refer to predicted, rather than actual ﬁlings. In panel A, we show
+that the model is able to match the frequencies of Schedules 13D and 13G ﬁlings, whereas
+the Probit model severely overestimates the proportion of Schedule 13G ﬁlings. Our model
+also predicts the individual ﬁling choices much better than the Probit, with a pairwise
+31
+Electronic copy available at: https://ssrn.com/abstract=3639636
+correlation with the actual choices of 0.54 against 0.25, respectively. Most importantly, the
+superior ability to match the distribution of ﬁling choices does not compromise our model’s
+ability to match moments of the cross sectional distribution of returns, where our model
+performs as well as OLS. To summarize, the evidence in Table 5 supports the restrictions
+imposed by our model via the joint distribution of ﬁling choices and returns.
+[Table 5 about here.]
+An alternative reduced-form estimation is the two-step Heckman correction model.
+Clearly, this reduced-form alternative cannot do better than our structural ML estimator:
+it produces exactly the same results as the Probit model in panel A of Table 5, while only
+possibly matching the ﬁrst and second moments of announcement returns as well as our
+model (see Appendix B for the detailed results).
+6. Additional Implications from Model Estimates
+6.1. Expected returns to activism
+Table 6 summarizes the properties of estimated unconditional expected returns to
+activism,µD, and to passive investing,µG. These returns diﬀer from announcement returns
+because they are free from sample selection biases, besides the realized noise in returns.
+They are, however, important for our return decompositions (equations (9) and (10)). Panel
+A focuses on the subsample of actual Schedule 13D ﬁlings and panel B on the subsample
+of actual Schedule 13G ﬁlings.
+[Table 6 about here.]
+Panel A shows that the mean unconditional expected return to a Schedule 13D ﬁling, ˆµD,
+is 5.53% and the counterfactual mean unconditional expected return, ˆµG, to those ﬁlings is
+0.77%. Thus, the mean value creation by activists is 5.53%−0.77% = 4.77%, and the mean
+value of stock picking is 0.77%. These numbers represent 75.2% and 12.2%, respectively, of
+32
+Electronic copy available at: https://ssrn.com/abstract=3639636
+the predicted announcement return of 6.34% shown in Table 5. The mean estimated value
+of sample selection bias is 0 .80%, or 12.6% of the mean predicted announcement return.
+For Schedule 13G ﬁlings, panel B shows that the mean unconditional expected return, ˆµG,
+is 0.64%. Therefore, the average value of stock picking is quite similar across subsamples
+(0.64% versus 0.77%), indicating that a target ﬁrm that was the subject of a Schedule 13D
+ﬁling would have experienced only slightly higher than average announcement returns if
+a Schedule 13G had been ﬁled instead. 14 The mean value of stock picking in Schedule
+13G ﬁlings represent 93% of the predicted announcement return of 0 .69% shown in Table
+5, and the average sample selection component in Schedule 13G announcement returns is
+0.04%, or about 6% of the mean announcement return. For Schedule 13G ﬁlings, the cross
+sectional dispersion of the counterfactual estimate of ˆ µD is much larger than that in the
+subsample of Schedule 13D ﬁlings. These ﬁndings suggest that these target ﬁrms represent
+a signiﬁcantly diﬀerent investment opportunity than the ﬁrms in the subsample of 13D
+ﬁlings, one where the valuation gain comes from stock picking not value creation.
+Our decomposition is the ﬁrst to use information from the ﬁling choices and from the
+observed announcement returns to identify the treatment eﬀect of Schedule 13D ﬁlings
+based on the comparison of Schedule 13D announcement returns to the counterfactual
+Schedule 13G returns. In Figure 3, we plot the estimated empirical distributions of the three
+announcement return components for actual Schedule 13D ﬁlings. The sample selection
+component and the treatment components are positively skewed, whereas the empirical
+distribution of the stock picking component is more volatile and almost symmetric.
+[Figure 3 about here.]
+Panel A of Figure 4 presents the cumulative average buy-and-hold abnormal stock return
+14The higher average stock picking eﬀect in Schedule 13D ﬁlings with respect to 13G ﬁlings is explained
+by the relatively higher average values of the Amihud Illiquidity, Analyst coverage, Book-to-market ratio,
+and Idiosyncratic volatility in the subsample of Schedule 13D ﬁlings. These variables load positively and
+signiﬁcantly on the Schedule 13G expected returns.
+33
+Electronic copy available at: https://ssrn.com/abstract=3639636
+around the date of Schedule 13D ﬁlings in our sample. 15 We super impose on the ﬁgure
+the breakdown of the average price response into its three components. The mean of the
+treatment eﬀect over all Schedule 13D ﬁlings is 75 .2% of the mean announcement return
+(dark gray bar in the ﬁgure). The estimated average stock picking eﬀect accounts for 12.2%
+of the mean announcement return (gray bar in the ﬁgure). The average sample selection
+component for Schedule 13D ﬁlings is 12.6% of the mean announcement return (light gray
+bar in the ﬁgure). 16
+Below we discuss estimation of the model in the subsample of hedge fund activists.
+Panel B of Figure 4 presents the cumulative average buy-and-hold abnormal stock return
+around the date of Schedule 13D ﬁlings but only for hedge fund activists. The ﬁgure shows
+that the value of treatment as a percentage of the price response to the announcement in
+this subsample of investors is signiﬁcantly higher that in the full sample.
+[Figure 4 about here.]
+6.2. The informational content of expected returns
+Our model and estimation assume that the abnormal announcement return to a Schedule
+13D ﬁling reﬂects the shareholders’ anticipation of the value creation by activists, albeit with
+noise. While this assumption is pervasive in the literature since Holderness and Sheehan
+(1985), to the best of our knowledge no study has veriﬁed whether abnormal announcement
+returns eﬀectively forecast changes in target ﬁrm performance.
+We next perform such an analysis and take a step further, asking which of the
+components in our decomposition of ﬁling announcement returns is most informative about
+15There is a discrepancy between the abnormal return at t + 10 in Figure 4 and the number reported in
+Table 2. In the table, returns are winsorized in the full sample of ﬁlings. In the ﬁgure, returns are winsorized
+in the sample of Schedule 13D ﬁlings.
+16Note that it is often the case that Schedule 13D ﬁlings are preceded by Schedule 13G ﬁlings on the
+same target ﬁrm, by the same or other investors. Hence, the stock price reaction to initial Schedule 13G
+ﬁlings may already incorporate the possibility of subsequent 13D ﬁlings. The implication is that the true
+treatment eﬀect may be larger than we estimate.
+34
+Electronic copy available at: https://ssrn.com/abstract=3639636
+future performance. Speciﬁcally, we hypothesize that the treatment eﬀect in Schedule 13D
+ﬁlings is associated with improvements in ﬁrm performance, over and above the information
+in the announcement return. If veriﬁed, this result would imply that our model estimates
+provide a better estimate of future value than announcement returns.
+To address this question, we estimate the following regression:
+yi =αti +αCAR,i +β1CARi +β2Treatmenti +β3Stockpickingi +β4Selectioni +εi, (16)
+where yi is change in a performance metric for Schedule 13D ﬁling i, CARi is the
+announcement return, Treatmenti is the predicted treatment eﬀect, Stockpickingi is the
+predicted stock-picking eﬀect, Selectioni is the predicted sample selection bias, αti are
+calendar year ﬁxed eﬀects, and αCAR,i are 500 dummy variables on announcement return
+groupings (each group captures 0.2% of the sample). Relative to controlling for a linear
+relation between announcement returns and future outcomes using CARi, these dummy
+variables provide a more granular control for the relation between announcement returns
+and future outcomes. For ease of interpretation of the coeﬃcients, the variables have
+been normalized by their sample standard deviation. Note that our estimation procedure
+provides the decomposition of expected returns rather than announcement returns for each
+speciﬁc ﬁling, implying that Treatmenti, Stockpickingi, and Selectioni do not necessarily
+add up to CARi. Therefore, we can include all three components of expected returns as
+well as the announcement return in the regression.
+Panel A in table 7 reports the results for the change in ROA, from one ﬁscal year
+prior to the ﬁling year to one ﬁscal year after the ﬁling year. Column (1) shows that
+cross-ﬁling variation in announcement returns is signiﬁcantly related to ﬁrm performance,
+as measured by ROA. Speciﬁcally, one standard deviation increase in the announcement
+returns leads to 0.54 percentage points increase in ROA, corresponding to more than 10%
+of the unconditional ROA mean (see table 2). This ﬁnding suggests that the stock price
+35
+Electronic copy available at: https://ssrn.com/abstract=3639636
+response at announcement correctly reﬂect improvements in future performance.
+[Table 7 about here.]
+Column (2) shows that Treatmenti and Stockpickingi also positively predict im-
+provements in ROA, whereas the relation between Selectioni and future performance is
+insigniﬁcant. One standard deviation increase in Treatmenti and Stockpickingi leads
+to 2.98 and 1.38 percentage points increase in ROA, respectively. Thus, the economic
+magnitude of Treatmenti andStockpickingi coeﬃcients is much larger than that of CARi
+coeﬃcient. Interestingly, column (3) shows that when we include CARi and the three
+components of the expected return in the regression, the relation between CARi and future
+performance becomes insigniﬁcant. In contrast, we see little change in the relation between
+Treatmenti and Stockpickingi and future performance.
+This ﬁnding suggests that the informational content of Treatmenti and Stockpickingi
+is far larger than the informational content of CARi. To further support this conclusion,
+we next replace CARi with αCAR,i dummies. Column (4) shows that the inclusion of
+these dummies in the regression has little eﬀect on the relation between Treatmenti and
+Stockpickingi and future performance. If anything, their coeﬃcients slightly increase.
+Panel B reports results for regressions of changes in sales turnover (equal to sales to
+assets) on the various components of expected returns as well as on actual announcement
+returns. Our ﬁndings are qualitatively similar. Whereas the relation between CARi and
+changes in sales turnover is positive but insigniﬁcant, Treatmenti and Stockpickingi are
+positively and signiﬁcantly associated with improvements in sales turnover. One standard
+deviation increase in Treatmenti andStockpickingi leads to 7.5 and 2.5 percentage points
+increase in sales turnover, respectively.
+The results so far indicate that Schedule 13D ﬁlings with higher Treatmenti and
+Stockpickingi experience larger improvements in future performance, as measured by ROA
+36
+Electronic copy available at: https://ssrn.com/abstract=3639636
+and sales turnover. The positive relation between Treatmenti and future performance
+suggests that higherTreatmenti could reﬂect a higher probability that the investor succeeds
+in inducing changes in corporate policies as well as a higher gain in case of successful activism
+campaign. In the former case, higher Treatmenti should also predict a lower likelihood that
+the activism campaign initiated with a Schedule 13D ﬁling evolves into a hostile activism
+campaign. We therefore hypothesize that higher Treatmenti should be negatively related
+to the probability of a future hostile engagement.
+To investigate this hypothesis empirically, we next study the relation between the
+three components of expected returns for Schedule 13D ﬁlings, the Schedule 13D ﬁling
+announcement returns, and the probability of a proxy contest. Proxy contests are one of
+most hostile forms of shareholder activism (e.g. Dodd and Warner, 1983; DeAngelo and
+DeAngelo, 1989; Pound, 1988; Fos, 2018). If a Schedule 13D ﬁling has a large treatment
+component, future hostile activism may not be necessary.
+In panel C of table 7, we report the estimates of the coeﬃcients of the regression in (16),
+in which the dependent variable is an indicator that equals 1 if there is a proxy contest
+for the target ﬁrm during the ﬁscal year after the Schedule 13D ﬁling. We ﬁnd that only
+Treatmenti exhibits a robust signiﬁcant relation with the probability of a proxy contest:
+a higher treatment component of expected returns is associated with a lower likelihood
+of a proxy contest. This ﬁnding further validates that Schedule 13D ﬁlings with high
+Treatmenti are eﬀective in enhancing ﬁrm performance.
+6.3. Economic eﬃciency
+In our model, on average an activist investor ﬁles a Schedule 13D if, and only if, the
+treatment eﬀect captured by the investor exceeds the total private cost paid by the investor,
+i.e.,µD−µG>C . Panel B of Table 6 shows that the median value of ˆµD in the subsample
+of Schedule 13G ﬁrms is higher than the median value of ˆ µG. This suggests that there is
+a large number of target ﬁrms that could potentially have been a target of Schedule 13D
+37
+Electronic copy available at: https://ssrn.com/abstract=3639636
+ﬁlings in the absence of an activism cost. A striking 60% of Schedule 13G ﬁlings in the
+data satisfy µD−µG > 0. The cost of activism is an eﬀective deterrent of Schedule 13D
+ﬁlings in our model.
+What if the cost of activism was shared by all the shareholders? If the shareholders
+shared the cost of activism, the average amount of ﬁrm value gained by ﬁling Schedule 13D
+instead of the observed ﬁling of Schedule 13G is $35 .6 million per Schedule 13G ﬁling, or
+about $60 billion on average per year (untabulated). 17
+We note that this exercise is not an endorsement of cost-sharing mechanisms of the
+activism cost. Our calculation serves only to provide an upper bound on the potential
+gains that can be achieved through such a mechanism. A more rigorous analysis of economic
+incentives is necessary to derive policy implications (e.g., this calculation assumes no ex
+post renegotiation of the promised cost-sharing arrangement, and no distortions caused by
+it). In addition, it may not be welfare increasing for the ﬁrm to share all of the cost of
+activism, such as the disutility from risk aversion and the reputational cost discussed in
+subsection 2.6.18
+7. Robustness
+7.1. Activist Hedge Funds
+The sample we use to derive the main results contains investors that never ﬁle a Schedule
+13D or Schedule 13D ﬁlers who may not have had ﬁling a Schedule 13G as an alternative,
+such as individuals in the executive suite whose equity stake crosses the 5% threshold. We
+therefore conduct a robustness test on a smaller sample of ﬁlings by activist hedge funds.
+17We also use the parameter estimates to calculate the number of actual Schedule 13D ﬁlings with an
+estimated negative treatment eﬀect, i.e., where ˆµD < ˆµG. Because of the noise in due diligence, these cases
+do not constitute a post-estimation violation of the assumption that ﬁlers maximize their private expected
+return. Yet, we show that the proportion of such violations is less that 0 .1%, suggesting that due diligence
+noise aﬀects decisions in Schedule 13D ﬁlings only minimally.
+18Li et al. (2018) estimate the welfare losses of M&A transactions in which targets are acquired by the
+most overvalued rather than the most synergistic bidders. Here, the welfare loss is due to transactions, i.e.
+Schedule 13D ﬁlings, that do not occur because the burden of activism is not shared across all shareholders.
+38
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Focusing on the sub-sample of activist hedge funds brings several advantages. First, we
+exclude the uninformative cases of executives whose equity stake crosses the 5% threshold.
+Second, a large fraction of passive investors track performances of indices and never ﬁles a
+Schedule 13D. In contrast, 74% of activist hedge funds have ﬁled both Schedule 13D and
+Schedule 13G in our sample. Third, activist hedge funds are reputed to be good stock
+pickers, facilitating concerns that a ﬁrm that is the subject of a Schedule 13D ﬁling by an
+activist hedge funds would have experienced higher than average announcement returns if
+a Schedule 13G had been ﬁled instead. One disadvantage of focusing on the sub-sample of
+activist hedge funds is, of course, sample size: activist hedge funds are responsible for only
+10.8% of the ﬁlings in our sample.
+In a nutshell, the model is able to match the mean and variance of announcement returns
+and the proportions of 13D and 13G ﬁlings in this subsample as well as in the full sample.
+The full details of this estimation are included in Appendix C. This result underscores the
+robustness of the model’s assumptions, as the model ﬁts the data in the subsample where
+they are most likely to hold. Additionally, the parameter estimates using this subsample
+are almost virtually unchanged. That is, the model makes the same inference about the
+unobserved parameters in a subsample with diﬀerent moments. To wit, the subsample of
+ﬁlings by Activist Hedge Funds contains a signiﬁcantly higher proportion of 13D ﬁlings but
+slightly lower announcement returns than in the full sample and yet the correlation between
+the estimated treatment eﬀect in the hedge fund sample and the estimated treatment in the
+full sample for the same investors is 0.9955. Moreover, the estimates also imply very similar
+signal-to-noise ratios and costs of activism ranging between 3% and 4% of stake size (with
+also very similar implied dollar estimates). This remarkable parameter stability validates
+further the assumptions of the model because it conﬁrms that the same mechanisms seem
+to apply over a very heterogeneous cross section of investors and target ﬁrms. Essentially,
+this result suggests that our model may have a strong out-of-sample performance.
+39
+Electronic copy available at: https://ssrn.com/abstract=3639636
+If the parameters are very similar, the sample diﬀerences do imply a somewhat diﬀerent
+decomposition of announcement returns for ﬁlings by Activist Hedge Funds. Panel B of
+Figure 4 shows that the cumulative average buy-and-hold abnormal stock return around
+the date of Schedule 13D ﬁlings for hedge fund activists only includes an equally important
+sample selection component as in the full sample (panel A), but a relatively higher treatment
+eﬀect at the expense of an almost insigniﬁcant stock picking eﬀect. Speciﬁcally, in the
+activist hedge fund sample, treatment represents 92 .4%, stock picking represents −4%,
+and sample selection bias represents 11.6% of the average predicted announcement returns.
+Intuitively, to match the higher proportion of 13D ﬁlings with slightly lower returns by very
+experienced ﬁlers, the model infers that the counterfactual 13G returns must be very small.
+7.2. Repeated campaigns
+In this section, we consider the possibility that a ﬁrm may have been targeted by multiple
+large investors in a short period of time. One possibility is, as the case for corporate raiders,
+that the presence of a previous Schedule 13D or previous Schedule 13G ﬁler may discourage
+future investors (see Holderness and Sheehan (1985)). Alternatively, value creation may
+depend on the current number of such large investors.
+To address these hypotheses, we reestimate the model adding two new variables to
+speciﬁcation (4) in Table 3: two indicator variables, each equal to 1 if the ﬁrm experienced
+a Schedule 13D or a Schedule 13G ﬁling by any ﬁler at any point in the 365 days prior to
+the ﬁling. The results, which are tabulated in the Appendix, show that the model preforms
+equally well as above. Prior recent Schedule 13D ﬁlings load positively on both µD andµG,
+suggesting a positive complementarity between past activism and future large investments,
+passive or active, in the target ﬁrm. In contrast, there is no evidence of additional value
+creation from recent Schedule 13G ﬁlings.
+40
+Electronic copy available at: https://ssrn.com/abstract=3639636
+8. Conclusion
+This paper presents a model of the joint distribution of activist investors’ ﬁling choices
+and announcement returns. The model, estimated by maximum likelihood, matches several
+key moments of the data and outperforms reduced-form models of the joint determination
+of activist investors’ ﬁling choices and announcement returns. The model’s counterfactuals
+produce estimates of the treatment, stock picking, and sample selection eﬀects embedded
+in the theoretical announcement returns to Schedule 13D ﬁlings.
+We ﬁnd that stock picking is explained mostly by target ﬁrm characteristics whereas
+value creation is almost exclusively explained by investor experience variables. Moreover,
+the treatment and stock picking eﬀects predict future improvements in performance
+following 13D ﬁlings, subsuming the predictive power of the ﬁling’s announcement returns.
+This predictability suggests that our estimate of the treatment component identiﬁes more
+eﬀective activism campaigns.
+Large estimated private cost of activism not only impact the activists’ returns from 13D
+ﬁlings but also the economic eﬃciency of their choice. The mean activist returns, net of
+costs, are 1.73%. However, 60% of Schedule 13G ﬁlings could be ﬁled as 13D were this cost
+shared with dispersed shareholders, representing an average loss in ﬁrm valuations of $60
+billion per year.
+Our results suggest that variation in expected returns is a ﬁrst order determinant of
+the joint distribution of announcement returns and ﬁling choices. Yet, the admittedly more
+complex decision process behind activist interventions could be extended in diﬀerent ways.
+The costs of activism or the precision of due diligence may vary across investors or target
+ﬁrms. Investors may take into account the price impact of their trading before crossing the
+5% ownership threshold. We leave these extensions for future research.
+41
+Electronic copy available at: https://ssrn.com/abstract=3639636
+References
+Albuquerque, R., Schroth, E., 2010. Quantifying private beneﬁts of control from a structural
+model of block trades. Journal of Financial Economics 96, 33–55.
+Albuquerque, R., Schroth, E., 2015. The value of control and the costs of illiquidity. The
+Journal of Finance 70, 1405–1455.
+Arnold, B.C., Beaver, R.J., Groeneveld, R.A., Meeker, W.Q., 1983. The nontruncated
+marginal of a truncated bivariate normal distribution. Psychometrika 58, 471–488.
+Back, K., Collin-Dufresne, P., Fos, V., Li, T., Ljungqvist, A., 2018. Activism, strategic
+trading, and liquidity. Econometrica 86, 1431–1643.
+Bebchuk, L.A., Brav, A., Jiang, W., 2015. The long-term eﬀects of hedge funds activism.
+Columbia Law Review 115, 1085–1155.
+Becht, M., Franks, J., Mayer, C., Rossi, S., 2008. Returns to shareholder activism: Evidence
+from a clinical study of the Hermes UK Focus Fund. Review of Financial Studies 22,
+3093–3129.
+Boyson, N.M., Gantchev, N., Shivdasani, A., 2017. Activism mergers. Journal of Financial
+Economics 126, 54–73.
+Brav, A., Jiang, W., Kim, H., 2010. Hedge fund activism: A review. Foundations and
+Trends in Finance 4, 1–66.
+Brav, A., Jiang, W., Kim, H., 2015. The real eﬀects of hedge fund activism: Productivity,
+asset allocation, and labor outcomes. Review of Financial Studies 28, 2723–2769.
+Brav, A., Jiang, W., Partnoy, F., Thomas, R., 2008. Hedge fund activism, corporate
+governance, and ﬁrm performance. Journal of Finance 63, 1729–1775.
+Cliﬀord, C.P., 2008. Value creation or destruction? Hedge funds as shareholder activists.
+Journal of Corporate Finance 14, 323–336.
+Coﬀee, J.C., 2017. The agency cost of activism: Information leakage, thwarted majorities,
+and the public morality. European Corporate Governance Institute Law Working Paper
+Number 373.
+Collin-Dufresne, P., Fos, V., 2015. Do prices reveal the presense of informed trading? The
+Journal of Finance 70, 1555–1582.
+Collin-Dufresne, P., Fos, V., 2016. Insider trading, stochastic liquidity, and equilibrium
+prices. Econometrica 84, 1441–1475.
+DeAngelo, H., DeAngelo, L., 1989. Proxy contests and the governance of publicly held
+corporations. Journal of Financial Economics 23, 29–59.
+Dodd, P., Warner, J., 1983. On corporate governance: A study of proxy contests. Journal
+of Financial Economics 11, 401–438.
+42
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Edmans, A., Fang, V.W., Zur, E., 2013. The Eﬀect of Liquidity on Governance. The
+Review of Financial Studies 26, 1443–1482.
+Fos, V., 2018. The disciplinary eﬀects of proxy contests. Management Science 63, 655–671.
+Gantchev, N., 2013. The costs of shareholder activism: Evidence from a sequential decision
+model. Journal of Financial Economics 107, 610–631.
+Giglia, K., 2016. A little letter, a big diﬀerence: An empirical inquiry into possible misuse
+of Schedule 13g/13d ﬁlings. Columbia Law Review 116, 105–145.
+Gillan, S.L., Starks, L.T., 2007. The evolution of shareholder activism in the United States.
+Journal of Applied Corporate Finance 19, 55–73.
+Greene, W., 2008. Econometric Analysis. Pearson/Prentice Hall. URL: https://books.
+google.com/books?id=b541vgAACAAJ.
+Greenwood, R., Schor, M., 2009. Investor activism and takeovers. Journal of Financial
+Economics 92, 362–375.
+Guercio, D.D., Hawkins, J., 1999. The motivation and impact of pension fund activism.
+Journal of Financial Economics 52, 293 – 340.
+Holderness, C.G., Sheehan, D.P., 1985. Raiders or saviors? the evidence on six controversial
+investors. Journal of Financial Economics 14, 555–579.
+Jiang, W., Li, T., Mei, D., 2018. Inﬂuencing control: Jawboning in risk arbitrage. The
+Journal of Finance 73, 2635–2675.
+Klein, A., Zur, E., 2009. Entrepreneurial shareholder activism: Hedge funds and other
+private investors. The Journal of Finance 64, 187–229.
+Li, D., Taylor, L.A., Wang, W., 2018. Ineﬃciencies and externalities from opportunistic
+acquirers. Journal of Financial Economics 130, 265–290.
+Patton, A.J., Verardo, M., 2012. Does Beta Move with News? Firm-Speciﬁc Information
+Flows and Learning about Proﬁtability. The Review of Financial Studies 25, 2789–2839.
+Pound, J., 1988. Proxy contests and the eﬃciency of shareholder oversight. Journal of
+Financial Economics 20, 237–265.
+43
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table 1: Variable Deﬁnitions. This table deﬁnes the variables used in this study. The data
+consists of 8,703 Schedule 13D and 61,234 Schedule 13G ﬁlings from 1996 to 2017. Unless noted, all
+variables are measured at the end of the calendar year preceding the date year of each ﬁling.
+Variable Deﬁnition
+CAR Cumulative abnormal (Fama-French three factor model) returns over the
+[t− 30,t + 10] window around the Schedule 13D or 13G ﬁling date ( t)
+Market capitalization Market capitalization, in $ millions
+Amihud illiquidity Average of all the previous calendar year’s daily statistic:
+1000*sqrt(abs(ret)/(abs(prc)*vol))
+Analyst coverage Number of IBES analyst covering the stock, scaled by 10
+Book-to-market The ratio of book value of equity to market value of equity
+Firm age Number of years since the stock’s ﬁrst appearance on CRSP, scaled by 10
+Sales growth Annual sales growth over the previous calendar year
+HHI of SIC3 The Herﬁndahl index of sales among all ﬁrms in the same SIC 3-digit
+Institutional Ownership Total share of institutional ownership
+Idiosynchratic Vol. Annualized idiosyncratic volatility, from daily data, using the Fama-
+French three factor model
+Leverage The ratio of book value of debt to total assets
+ROA The ratio of EBITDA to total assets
+Avg. Stock return The arithmetic mean of the preceding calendar year’s monthly returns
+13D Experience The number of prior Schedule 13D ﬁlings by the same investor
+13G Experience The number of prior Schedule 13G ﬁlings by the same investor
+Activist HF Equals 1 if the ﬁler is an activist hedge fund
+44
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table 2: Summary statistics. This table summarizes the variables used in this study, which
+are all deﬁned in Table 1. The data consists of 8,703 Schedule 13D and 61,234 Schedule 13G ﬁlings
+from 1996 to 2017.
+Variable n mean std p1 p25 p50 p75 p99
+Panel A: Abnormal returns
+CAR, Full sample 69,937 1.31% 17.98% -51.18% -7.57% 0.46% 31.74% 66.11%
+CAR, Schedule 13D ﬁlings 8,703 6.33% 22.14% -51.97% -5.65% 4.01% 16.79% 67.80%
+CAR, Schedule 13G ﬁlings 61,234 0.59% 17.19% -50.30% -7.83% 0.11% 8.40% 58.19%
+CAR, Activist hedge funds 7,551 2.77% 19.40% -51.97% -7.20% 1.41% 11.75% 67.80%
+CAR, Schedule 13D ﬁlings, Activist hedge funds 2,539 5.98% 19.51% -48.46% -4.60% 4.28% 15.67% 67.80%
+CAR, Schedule 13G ﬁlings, Activist hedge funds 5,012 1.14% 19.14% -51.97% -8.48% 0.25% 9.68% 67.80%
+Panel B: Firm characteristics
+Market capitalization ($ million) 69,937 2,238 10,298 7 113 374 1,249 32,932
+Amihud illiquidity 69,937 0.259 0.426 0.007 0.038 0.095 0.270 2.317
+Analyst coverage (scaled by 10) 69,937 0.703 0.824 0.000 0.000 0.500 1.000 3.600
+Book-to-market 69,937 0.624 0.592 -0.642 0.265 0.492 0.820 3.314
+Firm age (scaled by 10) 69,937 1.443 1.517 0.000 0.400 1.000 2.000 7.700
+Sales growth 69,937 23.04% 74.29% -73.18% -2.94% 8.29% 25.52% 467.74%
+HHI of SIC3 69,937 15.43% 14.57% 1.58% 5.54% 10.89% 19.40% 80.72%
+Institutional ownership 69,937 48.26% 35.28% 0.00% 11.16% 52.13% 80.08% 100.00%
+Idiosynchratic Vol. 69,937 51.79% 29.46% 13.17% 30.91% 44.69% 64.54% 158.95%
+Leverage 69,937 23.32% 24.42% 0.00% 1.83% 17.51% 35.83% 100.00%
+ROA 69,937 5.62% 21.16% -85.25% 1.98% 9.68% 16.11% 43.03%
+Avg. Stock return 69,937 1.02% 5.09% -12.40% -1.69% 0.90% 3.49% 17.40%
+Panel C: Investor characteristics
+13D Experience 69,937 6.0 32.3 0.0 0.0 0.0 2.0 55.0
+13G Experience 69,937 536.7 1,018.0 0.0 7.0 62.0 416.0 4,225.0
+Activist HF 69,937 0.108 0.310 0.000 0.000 0.000 0.000 1.000
+45
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table 3: Estimates of the Model’s Structural Parameters
+This table shows the estimates of the costs of activism, C, the volatilties of returns, σ∆D and σ∆G,
+the volatilities of the due diligence signals, σsD and σsG, and the sensitivities of expected returns,
+βD and βG to their determinants, x, for Schedule 13D and Schedule 13G ﬁlings, respectively. For
+each ﬁling i, the expected returns from ﬁling a 13D or 13G schedule are given by
+µi,D = x′
+iβD and µi,G = x′
+iβG.
+The parameters are estimated by maximum likelihood, targeting the model-implied joint distribution
+of ﬁling choices (13D v. 13G) and conditional abnormal announcement returns. The data consists
+of 8,703 Schedule 13D and 61,234 Schedule 13G ﬁlings from 1996 to 2017. Standard errors are
+shown in brackets under each estimate. Estimates followed by∗∗∗,∗∗, and∗ are statistically diﬀerent
+from zero at the 0.01, 0.05, and 0.1 signiﬁcance levels, respectively. The Pseudo R2 statistic is the
+proportion of the total variation of abnormal returns from 13D or 13G ﬁlings that is explained by the
+model variation in expected returns, µD,i and µG,i, respectively. The LR statistic is the likelihood
+ratio for the current specifcation with respect to the speciﬁcation shown on its previous column.
+The p-value is for the null hypothesis that the parameters added to the current speciﬁcation are
+zero.
+Long text to make space Text Text Text Text Text Text Text Text
+(Table continues)
+46
+Electronic copy available at: https://ssrn.com/abstract=3639636
+T able 3: continued
+Panel A: Estimates of βD and βG.
+(1) (2) (3) (4)
+βD βG βD βG βD βG βD βG
+Constant 0 .035∗∗∗−0.001 0 .038∗∗∗−0.000 0 .037∗∗∗−0.001 0 .039∗∗∗ 0.002
+(0.004) (0 .003) (0 .004) (0 .003) (0 .004) (0 .003) (0 .004) (0 .003)
+Market cap −0.000 0 .001∗ 0.001 0 .001∗ 0.001 0 .001∗∗ 0.001 0 .001∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+Amihud Illiquidity 0 .022∗∗∗ 0.019∗∗∗ 0.021∗∗∗ 0.019∗∗∗ 0.021∗∗∗ 0.019∗∗∗ 0.021∗∗∗ 0.019∗∗∗
+(0.002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002)
+Analyst coverage 0 .004∗∗∗ 0.004∗∗∗ 0.004∗∗∗ 0.004∗∗∗ 0.004∗∗∗ 0.004∗∗∗ 0.005∗∗∗ 0.004∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+Book-to-market 0 .012∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.011∗∗∗ 0.011∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+Firm Age −0.000 −0.000 −0.000 −0.000 −0.000 −0.000 −0.000 −0.001
+(0.000) (0 .000) (0 .000) (0 .000) (0 .000) (0 .000) (0 .000) (0 .000)
+Sales growth −0.002∗∗ −0.002∗∗∗−0.002∗∗ −0.002∗∗ −0.002∗∗ −0.002∗∗ −0.002∗∗∗−0.002∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+HHI of SIC3 −0.010∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗ −0.009∗ −0.009∗
+(0.005) (0 .005) (0 .005) (0 .005) (0 .005) (0 .005) (0 .005) (0 .005)
+Institutional Ownership −0.005∗∗ −0.001 −0.004 −0.001 −0.004 −0.001 −0.004∗ −0.002
+(0.002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002)
+Idiosynchratic Vol. 0 .002 0 .004 0 .004 0 .005 0 .004 0 .005 0 .001 0 .001
+(0.003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003)
+Leverage 0 .003 0 .001 0 .003 0 .001 0 .002 0 .001 0 .002 0 .000
+(0.003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003)
+ROA −0.004 −0.003 −0.003 −0.003 −0.003 −0.003 −0.004 −0.004
+(0.004) (0 .004) (0 .004) (0 .004) (0 .004) (0 .004) (0 .004) (0 .004)
+Avg. Stock return −0.533∗∗∗−0.533∗∗∗−0.535∗∗∗−0.533∗∗∗−0.535∗∗∗−0.533∗∗∗−0.541∗∗∗−0.539∗∗∗
+(0.015) (0 .015) (0 .015) (0 .015) (0 .015) (0 .015) (0 .014) (0 .014)
+13D Experience 0 .188∗∗∗−0.245∗∗∗ 0.166∗∗∗−0.181∗∗∗ 0.178∗∗∗−0.219∗∗∗
+(0.025) (0 .027) (0 .000) (0 .000) (0 .025) (0 .027)
+13G Experience −0.160∗∗∗ 0.000 −0.143∗∗∗ 0.000 −0.165∗∗∗−0.000
+(0.003) (0 .001) (0 .003) (0 .001) (0 .004) (0 .001)
+Activist HF 0 .005∗∗ 0.002 0 .007∗∗∗ 0.003
+(0.002) (0 .002) (0 .002) (0 .002)
+Market premium 0.000∗∗ 0.000∗
+(0.000) (0 .000)
+SMB factor 0.002∗∗∗ 0.002∗∗∗
+(0.000) (0 .000)
+HML factor −0.001∗∗∗−0.001∗∗∗
+(0.000) (0 .000)
+Pseudo R2 0 .027 0 .034 0 .035 0 .034 0 .033 0 .034 0 .036 0 .038
+LR statistic (χ2) 133,871 12,695 324 292
+p-value 0 .000 0 .000 0 .000 0 .000
+(Table continues)
+47
+Electronic copy available at: https://ssrn.com/abstract=3639636
+T able 3: continued
+Panel B: Estimates of activism costs and volatilities.
+(1) (2) (3) (4)
+Parameter Standard Parameter Standard Parameter Standard Parameter Standard
+estimate error estimate error estimate error estimate error
+C 0.051∗∗∗ (0.003) 0 .046∗∗∗ (0.003) 0 .046∗∗∗ (0.003) 0 .046∗∗∗ (0.003)
+σ∆D 0.220∗∗∗ (0.001) 0 .219∗∗∗ (0.001) 0 .220∗∗∗ (0.001) 0 .219∗∗∗ (0.001)
+σ∆G 0.169∗∗∗ (0.000) 0 .169∗∗∗ (0.000) 0 .169∗∗∗ (0.000) 0 .169∗∗∗ (0.000)
+σsD 4.896∗∗∗ (0.000) 5 .828∗∗∗ (0.301) 6 .495∗∗∗ (0.000) 5 .581∗∗∗ (0.860)
+σsG 3.605 (4 .550) 5 .227∗∗∗ (0.000) 5 .878∗∗∗ (1.131) 5 .180∗∗∗ (0.000)
+48
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table 4: Comparing Reduced-form and Structural Estimates
+This table shows the parameter estimates of reduced-form models of the ﬁling announcement returns,
+and the probability of either type of ﬁling using the same data set as in Table 3. The ﬁrst column
+reproduces the structural parameter estimates from column (4) of Table 3. The next two columns
+show the OLS coeﬃcients of the regressions of the ﬁling announcement returns for 13D and 13G
+ﬁlings. The last column shows the estimates of a Probit model of whether the ﬁling is a Schedule 13D
+or not. Standard errors are shown in brackets under each estimate. Estimates followed by ∗∗∗,∗∗,
+and∗ are statistically diﬀerent from zero at the 0.01, 0.05, and 0.1 signiﬁcance levels, respectively.
+Expected returns models Filing choice model
+Structural Reduced form Reduced form
+parameters parameters parameters
+βD βG 13D ﬁlings 13G ﬁlings 13D v. 13G ﬁling
+Constant 0 .039∗∗∗ 0.002 0 .056∗∗∗ −0.001 −1.061∗∗∗
+(0.004) (0 .003) (0 .003) (0 .003) (0 .028)
+Market cap 0 .001 0 .001∗∗ −0.003∗∗∗ 0.002∗∗∗ −0.076∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .007)
+Amihud illiquidity 0 .021∗∗∗ 0.019∗∗∗ 0.004∗∗ 0.023∗∗∗ 0.172∗∗∗
+(0.002) (0 .002) (0 .002) (0 .002) (0 .019)
+Analyst coverage 0 .005∗∗∗ 0.004∗∗∗ 0.010∗∗∗ 0.004∗∗∗ 0.058∗∗∗
+(0.001) (0 .001) (0 .002) (0 .001) (0 .015)
+Book-to-market 0 .011∗∗∗ 0.011∗∗∗ −0.007∗∗∗ 0.013∗∗∗ 0.048∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .013)
+Firm age −0.000 −0.001 −0.002∗ −0.001 0 .012∗
+(0.000) (0 .000) (0 .001) (0 .000) (0 .006)
+Sales growth −0.002∗∗∗ −0.002∗∗∗ −0.001 −0.003∗∗∗ 0.006
+(0.001) (0 .001) (0 .001) (0 .001) (0 .009)
+HHI of SIC3 −0.009∗ −0.009∗ −0.008 −0.009∗∗ −0.028
+(0.005) (0 .005) (0 .006) (0 .004) (0 .052)
+Institutional ownership −0.004∗ −0.002 0 .028∗∗∗ −0.003 −0.324∗∗∗
+(0.002) (0 .002) (0 .003) (0 .002) (0 .029)
+Idiosynchratic Vol. 0 .001 0 .001 0 .008∗∗∗ 0.000 −0.052∗
+(0.003) (0 .003) (0 .003) (0 .003) (0 .030)
+Leverage 0 .002 0 .000 −0.023∗∗∗ 0.002 0 .203∗∗∗
+(0.003) (0 .003) (0 .003) (0 .003) (0 .029)
+ROA −0.004 −0.004 −0.034∗∗∗ 0.001 −0.009
+(0.004) (0 .004) (0 .004) (0 .003) (0 .035)
+Avg. Stock return −0.541∗∗∗ −0.539∗∗∗ −0.541∗∗∗ −0.536∗∗∗ −0.040
+(0.014) (0 .014) (0 .017) (0 .014) (0 .148)
+13D Experience 0 .178∗∗∗ −0.219∗∗∗ 0.156 −0.037 24 .113∗∗∗
+(0.025) (0 .027) (0 .010) (0 .076) (0 .859)
+13G Experience −0.165∗∗∗ −0.000 −0.038 −0.001 −4.725∗∗∗
+(0.004) (0 .001) (0 .008) (0 .001) (0 .124)
+Activist HF 0 .007∗∗∗ 0.003 −0.016 0 .006 0 .412∗∗∗
+(0.002) (0 .002) (0 .002) (0 .003) (0 .020)
+Market premium 0 .000∗∗ 0.000∗ −0.001 0 .000 0 .009∗∗∗
+(0.000) (0 .000) (0 .000) (0 .000) (0 .002)
+SMB factor 0 .002∗∗∗ 0.002∗∗∗ 0.002 0 .002 −0.007∗∗∗
+(0.000) (0 .000) (0 .000) (0 .000) (0 .002)
+HML factor −0.001∗∗∗ −0.001∗∗∗ 0.001 −0.001 0 .002
+(0.000) (0 .000) (0 .000) (0 .000) (0 .002)
+R2 / Pseudo R2 0.036 0 .038 0 .028 0 .040 0 .015
+49
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table 5: Comparison of Sample and Model-implied Moments
+This table compares the values of selected moments in the data to those implied by the structural
+model of ﬁling choice and abnormal announcement returns. The model-implied moments are
+calculated by simulating 10,000 samples of the ﬁling types (13D v. 13G) and the abnormal
+annoucement returns of each of the 69,937 ﬁlings, taking as given the determinants of expected
+returns, x and using the estimated parameters βD, βG, σ∆D, σ∆G,σsD, σsG, and C from
+speciﬁcation (4) in Table 3. The table also shows the moments predicted by reduced-form
+estimation using the same derterminants ( x): OLS regressions for the conditional announcement
+returns and probit regressions for the ﬁling choice.
+Panel A: Filing type frequency
+13D ﬁlings 13G ﬁlings
+Data Predicted Data Predicted
+Reduced Reduced
+form Model form Model
+Proportion of ﬁlings 0 .124 0 .021 0 .124 0 .876 0 .979 0 .876
+(0.001) (0 .001) (0 .003) (0 .001) (0 .001) (0 .003)
+corr(Data, Predicted) 0 .254 0 .535 0 .254 0 .535
+(0.004) (0 .003) (0 .004) (0 .003)
+Panel B: Conditional distribution of announcement returns
+13D ﬁlings 13G ﬁlings
+Data Predicted Data Predicted
+Reduced Reduced
+form Model form Model
+Average ﬁling returns 6 .34% 6 .34% 6 .34% 0 .59% 0 .59% 0 .69%
+(0.00%) (0 .00%) (0 .24%) (0 .07%) (0 .00%) (0 .07%)
+Standard deviation 22 .15% 21 .84% 21 .92% 17 .20% 16 .86% 16 .86%
+(0.42%) (0 .41%) (0 .00%) (0 .15%) (0 .15%) (0 .00%)
+Q3 of ﬁling returns 16 .79% 8 .42% 8 .46% 8 .40% 2 .25% 2 .34%
+(0.00%) (0 .00%) (0 .00%) (0 .00%) (0 .00%) (0 .00%)
+corr(Data, Predicted) 0 .168 0 .126 0 .199 0 .198
+(0.011) (0 .011) (0 .004) (0 .004)
+50
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table 6: Estimates of expected returns and the components of announcement
+returns
+This table summarizes the distributions of the estimates of the expected returns returns from
+ﬁling a Schedule 13D, ˆµD, or a Schedule 13G, ˆ µG, as well as the components of announcement
+returns. The total returns for each deal i, conditional on a 13D ﬁling, include a price adjustment
+or mispricing eﬀect, µG,i = x′
+i ˆβG; a treatment eﬀect, µD,i−µG,i = x′
+i(ˆβD− ˆβG); and a selection
+eﬀect, ˆρD,i× ˆσD× ˆλi,D (Panel A). For 13G ﬁlings, the returns are decomposed into a stock picking
+eﬀect µG,i = x′
+i ˆβG and a selection eﬀect, −ˆρG,i× ˆσG× ˆλi,G. These eﬀects are estimated for each
+of the observed 8,703 13D ﬁlings (Panel A) and 61,234 13G ﬁlings (Panel B), taking as given the
+target and activist characteristics, xi and using the estimates of the structural model, ˆβD, ˆβG,
+ˆσ∆D, ˆσsD, ˆσ∆G, and ˆσsG from speciﬁcation (4) in Table 3.
+Panel A: Subsample of Schedule 13D ﬁlings
+Standard
+Observations Mean Deviation Q1 Median Q3
+ˆµD 8,703 5 .53% 4 .19% 3 .36% 5 .29% 7 .71%
+ˆµG (Stock picking eﬀect) 8 ,703 0 .77% 4 .01% −1.09% 0 .87% 2 .97%
+x′(βD−βG) (Treatment eﬀect) 8 ,703 4 .77% 3 .84% 3 .84% 4 .08% 4 .41%
+ρDσDλD (Selection eﬀect) 8 ,703 0 .80% 0 .37% 0 .67% 0 .84% 0 .97%
+Panel B: Subsample of Schedule 13G ﬁlings
+Standard
+Observations Mean Deviation Q1 Median Q3
+ˆµD 61,234 −5.44% 17 .81% −5.73% 1 .28% 4 .41%
+ˆµG (Stock picking eﬀect) 61 ,234 0 .64% 3 .36% −1.17% 0 .50% 2 .29%
+−ρGσGλG (Selection eﬀect) 61 ,234 0 .05% 0 .06% 0 .00% 0 .01% 0 .09%
+51
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table 7: Informational content of expected returns. This table reports estimate of
+the following regression: yi = αt(i) + αCAR,i + β1CAR i + β2Treatment i + β3Stockpicking i +
+β4Selection i +εi, where yi is a performance metric for Schedule 13D ﬁling i, CAR i is ﬁling i
+announcement return, Treatment i is the predicted treatment eﬀect, Stockpicking i is the predicted
+stock-picking eﬀect, Selection i is the predicted sample selection bias, αt(i) are calendar year ﬁxed
+eﬀects, and αCAR,i are 500 dummy variables on announcement return groupings (each group
+captures 0.2% of the sample). For ease of interpretation of the coeﬃcients, the variables have
+been normalized by their sample standard deviation. In panel A, the outcome variable is change in
+ROA, from one ﬁscal year prior to the ﬁling year to one ﬁscal year after the ﬁling year. In panel B,
+the outcome variable is change in sales turnover (equal to sales to assets). In panel C, the outcome
+variable is the indicator of a proxy contest. The indicator takes value 1 if the ﬁrm that experiences
+a Schedule 13D ﬁling is targeted in a proxy contest during the ﬁscal year after Schedule 13D ﬁling
+year, and zero otherwise. Heteroskedasticity-robust standard errors are clustered at the ﬁrm level.
+*, **, and *** indicate statistical signiﬁcance at the 10%, 5%, and 1% levels, respectively.
+(1) (2) (3) (4)
+Panel A: ROA(t+1)-ROA(t-1)
+CAR 0.0054** 0.0040
+[0.0027] [0.0027]
+Treatment 0.0298** 0.0291** 0.0317***
+[0.0127] [0.0126] [0.0120]
+Stockpicking 0.0138*** 0.0132*** 0.0140***
+[0.0028] [0.0028] [0.0028]
+Selection 0.0039 0.0041 0.0036
+[0.0060] [0.0060] [0.0061]
+R2 0.017 0.023 0.024 0.112
+N 5,356 5,356 5,356 5,356
+Panel B: Sales Turnover(t+1)-Sales Turnover(t-1)
+CAR 0.0030 0.0005
+[0.0054] [0.0054]
+Treatment 0.0750** 0.0749** 0.0767**
+[0.0376] [0.0376] [0.0366]
+Stockpicking 0.0249*** 0.0249*** 0.0262***
+[0.0066] [0.0066] [0.0067]
+Selection 0.0179 0.0179 0.0232
+[0.0150] [0.0150] [0.0145]
+R2 0.01 0.015 0.015 0.111
+N 5,356 5,356 5,356 5,356
+Panel C: Proxy Contest Target (t+1)
+CAR 0.0025 0.0025
+[0.0019] [0.0019]
+Treatment -0.0491*** -0.0496*** -0.0461***
+[0.0149] [0.0149] [0.0170]
+Stockpicking -0.0008 -0.0012 -0.0007
+[0.0020] [0.0021] [0.0023]
+Selection -0.0163* -0.0161* -0.0133
+[0.0088] [0.0088] [0.0086]
+R2 0.012 0.014 0.014 0.112
+N 5,032 5,032 5,032 5,032
+Fixed eﬀects:
+Year FE Yes Yes Yes Yes
+CAR bins (500) No No No Yes
+52
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Figure 1: Sensitivity of Model-implied Moments to Activism Costs. This ﬁgure
+shows the sensitivity of the conditional announcement returns for 13D and 13G ﬁlings
+(left panel) and the proportion of 13D ﬁlings (right panel) to the model’s activism costs
+parameters. The left panel plots the 13D ﬁlings’ conditional announcement returns,
+E(∆D|z >0) (blue line), and the 13G ﬁlings’ conditional announcement returns,E(∆G|z <
+0) (red line), as a function ofC and ﬁxing all other structural parameters at their maximum
+likelihood estimates. The horizontal blue and red dashed lines shows the sample mean
+announcement returns for 13D and 13G ﬁlings, respectively. The vertical dotted line
+shows maximum likelihood estimate of activism costs, ˆC. The right panel plots the model-
+simulated average proportion of 13D ﬁlings as a function of C, ﬁxing all other structural
+parameters at their maximum likelihood estimates. The average propotion is calculated
+over 1,000 simulated date sets. The horizontal dashed line shows the actual proportion
+of 13D ﬁlings in the sample an dthe vertical dotted line shows the maximum likelihood
+estimate of the of activism costs, ˆC.
+53
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Figure 2: Sensitivity of Model-Implied Moments to Volatility Parameters. This
+ﬁgure shows the sensitivity of the conditional announcement returns volatility and the ﬁling-
+type probability for 13D ﬁlings (left panel) and 13G ﬁlings (right panel) to the model’s
+volatility parameters. Both panels show the pairs ( σD,σsD) for which the model-implied
+standard deviation of 13D announcement returns equals its sample analog (solid black line),
+or for which the model-implied proportion of 13D ﬁlings equals its sample counterpart (solid
+grey line). The horizontal line shows the actual maximum likelihood estimate of the due
+diligence volatility for 13D ﬁlings, ˆσsD and the vertical line shows the actual maximum
+likelihood estimate of the volatility for activist returns, ˆ σ∆D. The left panel represents
+shifts to the iso-conditional volatility curve: the dotted (dashed) line plots all the (σD,σsD)
+combinations for which the model-implied standard deviation of 13D announcement returns
+equals a counterfactual 13D sample standard deviation that is 25% smaller (larger) that the
+true sample analog. The right panel represents shifts to the iso-proportion of 13D ﬁlings:
+the dotted (dashed) line plots all the ( σD,σsD) combinations for which the model-implied
+proportion of 13D equals a counterfactual 13D sample proportion that is 25% smaller
+(larger) that the true sample analog.
+54
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Figure 3: Estimated decomposition of the expected announcement returns
+conditional on 13D ﬁlings. This ﬁgure shows the distributions of the theoretical
+components of the 13D announcement returns. The total returns for each deali, conditional
+on a 13D ﬁling, include a stock-picking eﬀect,µG,i = xi ˆβG; a treatment eﬀect,µD,i−µG,i =
+xi(ˆβD− ˆβG); and a selection eﬀect, ˆρD,i× ˆσD× ˆλi,D. These eﬀects are estimated for each
+of the observed 8,703 13D ﬁlings, taking as given the target and activist characteristics, xi
+and using the estimates of the structural model, ˆβD, ˆβG, and ˆσD.
+55
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Figure 4: Decomposition of 13D ﬁlings Returns. This ﬁgure shows the decomposition
+of announcement returns to 13D ﬁlings into the stock picking component, the treatment
+eﬀect, and the selection eﬀect. The decomposition in Panel A is for the average ﬁling
+under Schedule 13D, using the parameter estimates obtained with the full sample of 69,937
+ﬁlings. The decomposition in Panel B is for the average ﬁling under Schedule 13D, using the
+parameter estimates obtained with the subsample of 6,742 ﬁlings by activist hedge funds
+only. The the solid line plots the average buy-and-hold stock return around the ﬁling date
+in excess of Fama-French three-factor model, which is estimated from 360 days through 60
+days before the ﬁling date. The abnormal return is plotted from 30 days prior to the ﬁling
+date to 10 days afterwards.
+56
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Internal Appendix for the paper
+“Value creation in Shareholder Activism:
+A Structural Approach”
+Rui Albuquerque, Vyacheslav Fos, Enrique Schroth
+1
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Appendix A. Investor risk aversion
+Suppose the investor has exponential utility with a risk aversion coeﬃcient γ≥ 0 over
+the total valuation gains. Otherwise, the model is identical to the one in Section 2. Let
+ˇC denote the private cost of activism. With exponential utility and normally distributed
+errors, the investor’s certainty equivalents under each ﬁling alternative are
+CED =E (∆D|sD)− γ
+2V (∆D|sD)− ˇC,
+and
+CEG =E (∆G|sG)− γ
+2V (∆G|sG).
+The investor chooses to ﬁles a Schedule 13D if and only if
+CED >CE G. (A.1)
+Otherwise she ﬁles a 13G. Moreover, the certainty equivalent, CED, is given by
+CED = µD +
+σ2
+∆D
+σ2
+∆D +σ2sD
+(sD−µD)− γ
+2
+σ2
+∆Dσ2
+sD
+σ2
+∆D +σ2sD
+− ˇC, (A.2)
+= µD +
+σ2
+∆D
+σ2
+∆D +σ2sD
+(ϵ∆D +ϵsD)− γ
+2
+σ2
+∆Dσ2
+sD
+σ2
+∆D +σ2sD
+− ˇC. (A.3)
+The expression for the certainty equivalent CEG is very similar, with subindices G instead
+of D but no cost, ˇC. Hence, the certainty equivalent diﬀerence, z ≡ CED−CEG, is
+normally distributed z∼N (E (z),V (z)), with
+E (z) = µD−µG− γ
+2
+σ2
+∆Dσ2
+sD
+σ2
+∆D +σ2sD
+− ˇC + γ
+2
+σ2
+∆Gσ2
+sG
+σ2
+∆G +σ2sG
+, and (A.4)
+V (z) =
+σ4
+∆D
+σ2
+∆D +σ2sD
++
+σ4
+∆G
+σ2
+∆G +σ2sG
+. (A.5)
+2
+Electronic copy available at: https://ssrn.com/abstract=3639636
+The only diﬀerence between the models with risk neutrality and risk aversion is the term
+−γ
+2
+(
+σ2
+∆Dσ2
+sD
+σ2
+∆D
++σ2sD
+−
+σ2
+∆Gσ2
+sG
+σ2
+∆G
++σ2sG
+)
+in equation A.4. That is, risk aversion aﬀects only the ﬁler’s
+decision via the disutility of a risky due diligence, but not through the expected returns.
+Hence, we can deﬁne a transformed parameter
+C≡ ˇC− γ
+2
+(
+σ2
+∆Dσ2
+sD
+σ2
+∆D +σ2sD
+−
+σ2
+∆Gσ2
+sG
+σ2
+∆G +σ2sG
+)
+, (A.6)
+which corresponds to the costs estimated under risk neutrality. Hence, the resulting
+estimate of C under risk neutrality must be interpreted more broadly to also include the
+disutility of risky valuation gains and due diligence.
+3
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Appendix B. A Comparison with Heckman’s Two-Step Approach (1979)
+Selection in our model, in which the observed announcement returns depend on whether
+the investor chooses to ﬁle 13D or 13G, is diﬀerent from selection in Heckman (1979),
+in which wages are unobservable for the unemployed. However, both models presume
+a counterfactual action, and hence, both models rqeuire a sample selection correctionto
+estimate the population mean without bias. In this subsection, we describe the diﬀerences
+between our ML estimates and those obtained from a two-step Heckman estimation. The
+coeﬃcient estimates for βD and βG are compared in Table A1. The point estimates of βG
+in the maximum likelihood and in the two-step approach are quite similar. However, the
+point estimates of βD in the maximum likelihood and in the two-step approach are very
+diﬀerent, with the point estimates in the two-step approach much closer to those obtained
+from OLS.
+[Figure A1 about here.]
+The divergence of estimates for 13D loadings of expected returns can be shown via
+estimates of the inverse Mills ratio in both models. The results are in Figure A1. The
+two panels in the ﬁgure display the maximum likelihood estimate of the inverse Mills ratio,
+ˆλ, against the Probit inverse Mills ratio from the two-step approach. Because the Probit
+inverse Mills ratio has a small number of extremely high point estimates, we winsorize this
+variable at the top 0.5%. The left panel displays the results for 13D ﬁlings and the right
+panel displays the results for 13G ﬁlings. The big discrepancy between the two models,
+and also the larger values of selection arise in panel A. There is a cloud of points around
+the 45 degree line, but there is also a substantial amount of ﬁlings for which maximum
+likelihood assigns a much larger role for selection in 13D ﬁlings than Heckman’s two-step
+approach, which gives a convex shape relation between the two variables. The magnitude of
+the selection in ML is about double the size of that in the Probit model for larger values of
+4
+Electronic copy available at: https://ssrn.com/abstract=3639636
+the Probit inverse Mills ratio. Recall that our estimates of the loadings on expected returns
+are required to simultaneously match the distributional properties of the frequency of ﬂings
+and the cross sectional variation in expected returns. A bigger role for selection in ML
+means that our estimates of βD are playing a greater role in explaining the distributional
+properties of the frequency of ﬁlings. Because of the simultaneity involved in deriving the
+optimal ˆβD, a two-step approach is not appropriate in the context of our model.
+5
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table A1: Reduced-form and Structural Estimates
+This table shows the parameter estimates of reduced-form models of the ﬁling announcement returns
+or the probability of either type of ﬁling using the same data set as in Table 3. The ﬁrst column
+reproduces the structural parameter estimates from column (4) of Table 3. The next two columns
+show the OLS coeﬃcients of the regressions of the ﬁling announcement returns for 13D and 13G
+ﬁlings. The ﬁfth column shows the estimates of a Probit model for ﬁling a Schedule 13D or not. The
+last two columns show the 2-step Heckman (1979) estimates of the ﬁling announcement returns for
+13D and 13G ﬁlings, using the Inverse Mills ratio derived from the estimated Probit modelin column
+5. Standard errors are shown in parentheses under each estimate. Estimates followed by ∗∗∗,∗∗, and
+∗ are statistically diﬀerent from zero at the 0.01, 0.05, and 0.1 signiﬁcance levels, respectively.
+Expected returns models Filing choice Heckman (1979)
+model model
+Structural
+parameters Reduced form Reduced form Reduced form
+βD βG 13D 13G 13D v. 13G 13D 13G
+Constant 0 .039∗∗∗ 0.002 0 .056∗∗∗−0.001 −1.061∗∗∗ 0.049∗∗ 0.001
+(0.004) (0 .003) (0 .003) (0 .003) (0 .028) (0 .023) (0 .003)
+Market cap 0 .001 0 .001∗∗ −0.003∗∗∗ 0.002∗∗∗ −0.076∗∗∗ −0.004 0 .002∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .007) (0 .002) (0 .001)
+Amihud Illiquidity 0 .021∗∗∗ 0.019∗∗∗ 0.004∗∗ 0.023∗∗∗ 0.172∗∗∗ 0.004 0 .024∗∗∗
+(0.002) (0 .002) (0 .002) (0 .002) (0 .019) (0 .006) (0 .003)
+Analyst coverage 0 .005∗∗∗ 0.004∗∗∗ 0.010∗∗∗ 0.004∗∗∗ 0.058∗∗∗ 0.010∗ 0.004∗∗∗
+(0.001) (0 .001) (0 .002) (0 .001) (0 .015) (0 .005) (0 .001)
+Book-to-market 0 .011∗∗∗ 0.011∗∗∗−0.007∗∗∗ 0.013∗∗∗ 0.048∗∗∗ −0.007∗ 0.013∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .013) (0 .004) (0 .001)
+Firm age −0.000 −0.001 −0.002∗ −0.001 0 .012∗ −0.002 −0.001
+(0.000) (0 .000) (0 .001) (0 .000) (0 .006) (0 .002) (0 .000)
+Sales growth −0.002∗∗∗−0.002∗∗∗−0.001 −0.003∗∗∗ 0.006 −0.001 −0.003∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .009) (0 .003) (0 .001)
+HHI of SIC3 −0.009∗ −0.009∗ −0.008 −0.009∗∗ −0.028 −0.008 −0.009∗
+(0.005) (0 .005) (0 .006) (0 .004) (0 .052) (0 .017) (0 .005)
+Institutional ownership −0.004∗ −0.002 0 .028∗∗∗−0.003 −0.324∗∗∗ 0.027∗∗∗−0.003
+(0.002) (0 .002) (0 .003) (0 .002) (0 .029) (0 .010) (0 .003)
+Idiosynchratic Vol. 0 .001 0 .001 0 .008∗∗∗ 0.000 −0.052∗ 0.007 0 .000
+(0.003) (0 .003) (0 .003) (0 .003) (0 .030) (0 .009) (0 .003)
+Leverage 0 .002 0 .000 −0.023∗∗∗ 0.002 0 .203∗∗∗ −0.023∗∗ 0.002
+(0.003) (0 .003) (0 .003) (0 .003) (0 .029) (0 .010) (0 .003)
+ROA −0.004 −0.004 −0.034∗∗∗ 0.001 −0.009 −0.034∗∗∗ 0.000
+(0.004) (0 .004) (0 .004) (0 .003) (0 .035) (0 .012) (0 .004)
+Avg. Stock return −0.541∗∗∗−0.539∗∗∗−0.541∗∗∗−0.536∗∗∗ −0.040 −0.541∗∗∗−0.536∗∗∗
+(0.014) (0 .014) (0 .017) (0 .014) (0 .148) (0 .049) (0 .015)
+13D Experience 0 .178∗∗∗−0.219∗∗∗ 0.156 −0.037 24 .113∗∗∗ 0.169∗∗∗−0.001
+(0.025) (0 .027) (0 .010) (0 .076) (0 .859) (0 .049) (0 .087)
+13G Experience −0.165∗∗∗−0.000 −0.038 −0.001 −4.725∗∗∗ −0.059 −0.001
+(0.004) (0 .001) (0 .008) (0 .001) (0 .124) (0 .067) (0 .001)
+Activist Hedge Fund 0 .007∗∗∗ 0.003 −0.016 0 .006 0 .412∗∗∗ −0.013 0 .007∗∗
+(0.002) (0 .002) (0 .002) (0 .003) (0 .020) (0 .009) (0 .003)
+Market premium 0 .000∗∗ 0.000∗ −0.001 0 .000 0 .009∗∗∗ −0.001 0 .000∗∗∗
+(0.000) (0 .000) (0 .000) (0 .000) (0 .002) (0 .001) (0 .000)
+SMB factor 0 .002∗∗∗ 0.002∗∗∗ 0.002 0 .002 −0.007∗∗∗ 0.002∗∗ 0.002∗∗∗
+(0.000) (0 .000) (0 .000) (0 .000) (0 .002) (0 .001) (0 .000)
+HML factor −0.001∗∗∗−0.001∗∗∗ 0.001 −0.001 0 .002 0 .001 −0.001∗∗∗
+(0.000) (0 .000) (0 .000) (0 .000) (0 .002) (0 .001) (0 .000)
+Inverse Mills Ratio 0 .005 −0.007∗∗∗
+(0.015) (0 .006)
+R2 / Pseudo R2 0.036 0 .038 0 .028 0 .040 0 .015 0 .028 0 .040
+6
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Figure A1: Inverse Mills Ratios and model-implied mean selection bias.This ﬁgure
+shows the scatter plots of the Inverse Mills Ratios of each deal in the sample, estimated
+using a reduced-form ﬁling choice probit, against the model-implied Inverse Mills Ratios,
+denoted by λf for f∈{D,G} and computed for each deal using the maximum likelihood
+estimates of the model’s structural parameters. The left panel is for the 8,703 observed
+13D ﬁlings and the right panel for 61,234 observed 13G ﬁlings.
+7
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Appendix C. Hedge fund subsample
+8
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table A2: Summary of variables conditional on ﬁling schedule
+This table shows the means and standard errors (in parentheses) of all target and activist
+characteristics in xi for all 61,234 13G ﬁlings and for all 8,703 13D ﬁlings in the data. The table
+also shows the same comparison for the subsample of ﬁlings by Activist Hedge Funds only. The
+reported t-statistics (T-stat) are for the diﬀerence of means between the Schedule 13D and Schedule
+13G subsamples; the one-tailed p-value is reported underneath it, in brackets.
+Full sample Activist Hedge Funds subsample
+13D ﬁlings 13G ﬁlings T-stat. 13D ﬁlings 13G ﬁlings T-stat.
+Observations / 8,703 61,234 69,935 2,523 4,219 6,740
+Degrees of freedom
+Market cap −1.85 −0.82 −51.04 −1.55 −1.45 −2.51
+(0.02) (0 .01) [0 .00] (0 .03) (0 .02) [0 .01]
+Amihud Illiquidity 0 .47 0 .23 50 .85 0 .37 0 .31 4 .71
+(0.01) (0 .00) [0 .00] (0 .01) (0 .01) [0 .00]
+Analyst coverage 0 .43 0 .74 −33.32 0 .51 0 .52 −0.76
+(0.01) (0 .00) [0 .00] (0 .01) (0 .01) [0 .22]
+Book-to-market 0 .70 0 .61 12 .28 0 .70 0 .63 4 .68
+(0.01) (0 .00) [0 .00] (0 .01) (0 .01) [0 .00]
+Firm age 1 .22 1 .47 −14.71 1 .46 1 .15 9 .52
+(0.01) (0 .01) [0 .00] (0 .03) (0 .02) [0 .00]
+Sales growth 0 .26 0 .23 4 .31 0 .18 0 .25 −3.64
+(0.01) (0 .00) [0 .00] (0 .01) (0 .01) [0 .00]
+HHI of SIC3 0 .15 0 .15 −2.62 0 .16 0 .15 2 .52
+(0.00) (0 .00) [0 .00] (0 .00) (0 .00) [0 .01]
+Institutional ownership 0 .35 0 .50 −39.20 0 .44 0 .44 0 .08
+(0.00) (0 .00) [0 .00] (0 .01) (0 .01) [0 .47]
+Idiosynchratic Vol. 0 .61 0 .51 30 .61 0 .52 0 .57 −6.56
+(0.00) (0 .00) [0 .00] (0 .01) (0 .00) [0 .00]
+Leverage 0 .25 0 .23 7 .20 0 .23 0 .24 −1.68
+(0.00) (0 .00) [0 .00] (0 .00) (0 .00) [0 .05]
+ROA 0 .01 0 .06 −21.22 0 .05 0 .01 7 .31
+(0.00) (0 .00) [0 .00] (0 .00) (0 .00) [0 .00]
+Avg. Stock return 0 .01 0 .01 −8.03 0 .01 0 .01 −1.61
+(0.00) (0 .00) [0 .00] (0 .00) (0 .00) [0 .05]
+13D Experience 0 .02 0 .00 58 .86 0 .08 0 .01 29 .86
+(0.00) (0 .00) [0 .00] (0 .00) (0 .00) [0 .00]
+13G Experience 0 .01 0 .61 −52.09 0 .01 0 .06 −27.05
+(0.00) (0 .00) [0 .00] (0 .00) (0 .00) [0 .00]
+Activist Hedge Fund 0 .29 0 .07 67 .46 1 .00 1 .00 NA
+(0.00) (0 .00) [0 .00] (0 .00) (0 .00) NA
+Prior 13D ﬁling 0 .26 0 .13 33 .62 0 .26 0 .21 4 .02
+(0.00) (0 .00) [0 .00] (0 .01) (0 .01) [0 .00]
+Prior 13G ﬁling 0 .62 0 .68 −10.81 0 .69 0 .72 −2.79
+(0.01) (0 .00) [0 .00] (0 .01) (0 .01) [0 .00]
+Market premium 0 .74 0 .30 8 .62 0 .62 0 .50 1 .15
+(0.05) (0 .02) [0 .00] (0 .08) (0 .07) [0 .12]
+SMB factor 0 .14 0 .59 −8.57 0 .26 0 .21 0 .59
+(0.04) (0 .02) [0 .00] (0 .07) (0 .05) [0 .28]
+HML factor 0 .22 −0.33 12 .32 0 .24 0 .24 0 .04
+(0.03) (0 .02) [0 .00] (0 .06) (0 .05) [0 .48]
+9
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table A3: Estimates of the Model’s Structural Parameters for Activist Hedge
+Fund Investors
+This table shows the estimates of the costs of activism, C, the volatilties of returns, σ∆D and σ∆G,
+the volatilities of the due diligence signals, σsD and σsG, and the sensitivities of expected returns,
+βD and βG to their determinants, x, for Schedule 13D and Schedule 13G ﬁlings, respectively. For
+each ﬁling i, the expected returns from ﬁling a 13D or 13G schedule are given by
+µi,D = x′
+iβD and µi,G = x′
+iβG.
+The parameters are estimated by maximum likelihood, targeting the model-implied joint distribution
+of ﬁling choices (13D v. 13G) and conditional abnormal announcement returns. The estimation
+subsample consists of 2,523 Schedule 13D and 4,219 Schedule 13G ﬁlings by Activist Hedge Fund
+investors from 1996 to 2017. Standard errors are shown in brackets under each estimate. Estimates
+followed by∗∗∗,∗∗, and ∗ are statistically diﬀerent from zero at the 0.01, 0.05, and 0.1 signiﬁcance
+levels, respectively. The Pseudo R2 statistic is the proportion of the total variation of abnormal
+returns from 13D or 13G ﬁlings that is explained by the model variation in expected returns, µD,i
+and µG,i, respectively. The LR statistic is the likelihood ratio for the current specifcation with
+respect to the speciﬁcation shown on its previous column. The p-value is for the null hypothesis
+that the parameters added to the current speciﬁcation are zero.
+Long text to make space Text Text Text Text Text Text Text Text
+(Table continues)
+10
+Electronic copy available at: https://ssrn.com/abstract=3639636
+T able A3: continued
+Panel A: Estimates of βD and βG.
+(1) (2) (3)
+βD βG βD βG βD βG
+Constant 0 .051∗∗∗ 0.016∗ 0.040∗∗∗ 0.018∗ 0.038∗∗∗ 0.018∗
+(0.010) (0 .009) (0 .010) (0 .010) (0 .010) (0 .010)
+Market cap 0 .003 0 .004∗ 0.002 0 .004 0 .002 0 .004
+(0.002) (0 .002) (0 .002) (0 .002) (0 .003) (0 .002)
+Amihud Illiquidity 0 .025∗∗∗ 0.022∗∗∗ 0.024∗∗∗ 0.023∗∗∗ 0.025∗∗∗ 0.023∗∗∗
+(0.007) (0 .007) (0 .007) (0 .007) (0 .007) (0 .007)
+Analyst coverage 0 .003 0 .002 0 .005 0 .004 0 .006 0 .004
+(0.005) (0 .005) (0 .005) (0 .005) (0 .005) (0 .005)
+Book-to-market 0 .002 0 .002 0 .003 0 .002 0 .003 0 .002
+(0.004) (0 .004) (0 .004) (0 .004) (0 .004) (0 .004)
+Firm age 0 .003∗ 0.002 0 .003 0 .002 0 .003 0 .001
+(0.002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002)
+Sales growth −0.004 −0.003 −0.003 −0.003 −0.003 −0.003
+(0.003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003)
+HHI of SIC3 −0.018 −0.019 −0.016 −0.019 −0.017 −0.020
+(0.017) (0 .017) (0 .017) (0 .017) (0 .017) (0 .017)
+Institutional ownership 0 .004 0 .005 −0.002 −0.001 −0.002 −0.000
+(0.009) (0 .009) (0 .009) (0 .009) (0 .009) (0 .009)
+Idiosynchratic Vol. 0 .003 0 .009 0 .002 0 .008 0 .001 0 .008
+(0.010) (0 .010) (0 .010) (0 .010) (0 .011) (0 .011)
+Leverage −0.027∗∗∗−0.026∗∗∗−0.026∗∗∗−0.025∗∗ −0.026∗∗∗−0.025∗∗
+(0.010) (0 .010) (0 .010) (0 .010) (0 .010) (0 .010)
+ROA −0.002 −0.008 −0.005 −0.010 −0.005 −0.011
+(0.013) (0 .013) (0 .013) (0 .013) (0 .013) (0 .013)
+Avg. Stock return −0.491∗∗∗−0.488∗∗∗−0.495∗∗∗−0.491∗∗∗−0.500∗∗∗−0.496∗∗∗
+(0.051) (0 .051) (0 .050) (0 .050) (0 .053) (0 .052)
+13D Experience 0 .181∗∗∗−0.228∗∗∗ 0.188∗∗∗−0.271∗∗∗
+(0.027) (0 .038) (0 .025) (0 .000)
+13G Experience −0.131∗∗∗ 0.003 −0.145∗∗∗ 0.007
+(0.036) (0 .035) (0 .035) (0 .033)
+Market premium −0.000 −0.000
+(0.001) (0 .001)
+SMB factor 0 .002∗∗ 0.002∗∗
+(0.001) (0 .001)
+HML factor 0 .001 0 .001
+(0.001) (0 .001)
+Pseudo R2 0 .017 0 .022 0 .034 0 .023 0 .037 0 .024
+LR statistic (χ2) 29,037 2,032 7
+p-value 0 .000 0 .000 0 .286
+(Table continues)
+11
+Electronic copy available at: https://ssrn.com/abstract=3639636
+T able A3: continued
+Panel B: Estimates of activism costs and volatilities.
+(1) (2) (3)
+Parameter Standard Parameter Standard Parameter Standard
+estimate error estimate error estimate error
+C 0.040∗∗∗ (0.005) 0 .030∗∗∗ (0.006) 0 .028∗∗∗ (0.006)
+σ∆D 0.198∗∗∗ (0.002) 0 .197∗∗∗ (0.002) 0 .197∗∗∗ (0.002)
+σ∆G 0.193∗∗∗ (0.002) 0 .193∗∗∗ (0.002) 0 .193∗∗∗ (0.002)
+σsD 4.206∗∗ (1.754) 3 .938 (3 .714) 3 .222∗∗∗ (0.000)
+σsG 4.740∗∗∗ (0.000) 4 .106∗∗∗ (0.000) 4 .085∗∗∗ (0.000)
+12
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table A4: Comparison of Sample and Model-implied Moments: Activist Hedge
+Funds Subsample
+This table compares the values of selected moments in the data to those implied by the structural
+model of ﬁling choice and abnormal announcement returns. The model-implied moments are
+calculated by simulating 10,000 samples of the ﬁling types (13D v. 13G) and the abnormal
+annoucement returns of each of the 6,742 ﬁlings, taking as given the determinants of expected
+returns, x and using the estimated parameters βD, βG, σ∆D, σ∆G,σsD, σsG, and C from
+speciﬁcation (3) in Table A3. The table also shows the moments predicted by reduced-form
+estimation using the same derterminants ( x): OLS regressions for the conditional announcement
+returns and probit regressions for the ﬁling choice.
+Panel A: Filing type frequency
+13D ﬁlings 13G ﬁlings
+Data Predicted Data Predicted
+Reduced Reduced
+form Model form Model
+Proportion of ﬁlings 0 .37 0 .21 0 .38 0 .63 0 .79 0 .62
+(0.01) (0 .00) (0 .00) (0 .01) (0 .00) (0 .00)
+corr(Data, Predicted) 0 .48 0 .57 0 .48 0 .57
+(0.01) (0 .01) (0 .01) (0 .01)
+Panel B: Conditional distribution of announcement returns
+13D ﬁlings 13G ﬁlings
+Data Predicted Data Predicted
+Reduced Reduced
+form Model form Model
+Average ﬁling returns 6 .04% 6 .04% 6 .04% 1 .19% 1 .19% 1 .68%
+(0.01%) (0 .01%) (0 .39%) (0 .30%) (0 .01%) (0 .30%)
+Standard deviation 19 .94% 19 .59% 19 .65% 19 .54% 19 .26% 19 .28%
+(0.76%) (0 .73%) (0 .00%) (0 .60%) (0 .59%) (0 .00%)
+Q3 of ﬁling returns 15 .63% 8 .00% 7 .77% 9 .96% 2 .93% 3 .35%
+(0.01%) (0 .01%) (0 .01%) (0 .01%) (0 .01%) (0 .01%)
+corr(Data, Predicted) 0 .186 0 .164 0 .168 0 .161
+(0.020) (0 .020) (0 .015) (0 .0154)
+13
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Table A5: Estimates of expected returns and the components of announcement
+returns: Activist Hedge funds subsample
+This table summarizes the distributions of the estimates of the expected returns returns from
+ﬁling a Schedule 13D, ˆµD, or a Schedule 13G, ˆ µG, as well as the components of announcement
+returns. The total returns for each deal i, conditional on a 13D ﬁling, include a price adjustment
+or mispricing eﬀect, µG,i = x′
+i ˆβG; a treatment eﬀect, µD,i−µG,i = x′
+i(ˆβD− ˆβG); and a selection
+eﬀect, ˆρD,i× ˆσD× ˆλi,D (Panel A). For 13G ﬁlings, the returns are decomposed into a stock picking
+eﬀectµG,i = x′
+i ˆβG and a selection eﬀect,−ˆρG,i× ˆσG× ˆλi,G. These eﬀects are estimated for each of
+the observed 2,523 13D ﬁlings (Panel A) and 4,219 13G ﬁlings (Panel B), taking as given the target
+and activist characteristics, xi and using the estimates of the structural model, ˆβD, ˆβG, ˆσ∆D, ˆσsD,
+ˆσ∆G, and ˆσsG from speciﬁcation (3) in Table A3.
+Panel A: Subsample of Schedule 13D ﬁlings
+Standard
+Observations Mean Deviation Q1 Median Q3
+ˆµD 2,523 5 .34% 3 .82% 3 .02% 4 .82% 7 .15%
+ˆµG (Stock picking eﬀect) 2 ,523 −0.24% 4 .97% −1.63% 0 .86% 2 .66%
+x′(βD−βG) (Treatment eﬀect) 2 ,523 5 .58% 6 .85% 2 .32% 2 .79% 3 .99%
+ρDσDλD (Selection eﬀect) 2 ,523 0 .70% 0 .50% 0 .36% 0 .78% 0 .98%
+Panel B: Subsample of Schedule 13G ﬁlings
+Standard
+Observations Mean Deviation Q1 Median Q3
+ˆµD 4,219 3 .03% 3 .32% 1 .07% 3 .05% 4 .94%
+ˆµG (Stock picking eﬀect) 4 ,219 1 .44% 3 .02% −0.25% 1 .43% 3 .11%
+−ρGσGλG (Selection eﬀect) 4 ,219 0 .24% 0 .14% 0 .15% 0 .24% 0 .32%
+14
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Appendix D. Additional speciﬁcations
+Table A6: Estimates of the Model’s Structural Parameters for Additional
+Speciﬁcations
+This table shows the estimates of the costs of activism, C, the volatilties of returns, σ∆D and σ∆G,
+the volatilities of the due diligence signals, σsD and σsG, and the sensitivities of expected returns,
+βD and βG to their determinants, x, for Schedule 13D and Schedule 13G ﬁlings, respectively. For
+each ﬁling i, the expected returns from ﬁling a 13D or 13G schedule are given by
+µi,D = x′
+iβD and µi,G = x′
+iβG.
+The parameters are estimated by maximum likelihood, targeting the model-implied joint distribution
+of ﬁling choices (13D v. 13G) and conditional abnormal announcement returns. The estimation
+sample consists of 8,703 Schedule 13D and 61,234 Schedule 13G ﬁlings from 1996 to 2017. Standard
+errors are shown in brackets under each estimate. Estimates followed by∗∗∗,∗∗, and∗ are statistically
+diﬀerent from zero at the 0.01, 0.05, and 0.1 signiﬁcance levels, respectively. The Pseudo R2 statistic
+is the proportion of the total variation of abnormal returns from 13D or 13G ﬁlings that is explained
+by the model variation in expected returns, µD,i and µG,i, respectively. The LR statistic is the
+likelihood ratio for the current specifcation with respect to the speciﬁcation shown on its previous
+column. The p-value is for the null hypothesis that the parameters added to the current speciﬁcation
+are zero.
+Long text to make space Text Text Text Text Text Text Text Text
+(Table continues)
+15
+Electronic copy available at: https://ssrn.com/abstract=3639636
+T able A6: continued
+Panel A: Estimates of βD and βG.
+(1) (2) (3) (4)
+βD βG βD βG βD βG βD βG
+Constant 0 .035∗∗∗−0.001 0 .037∗∗∗−0.001 0 .035∗∗∗−0.002 0 .037∗∗∗ 0.001
+(0.004) (0 .003) (0 .004) (0 .003) (0 .004) (0 .003) (0 .004) (0 .003)
+Market cap −0.000 0 .001∗ 0.001 0 .001∗∗ 0.001 0 .001∗∗ 0.001 0 .001∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+Amihud Illiquidity 0 .022∗∗∗ 0.019∗∗∗ 0.021∗∗∗ 0.019∗∗∗ 0.021∗∗∗ 0.020∗∗∗ 0.021∗∗∗ 0.019∗∗∗
+(0.002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002)
+Analyst coverage 0 .004∗∗∗ 0.004∗∗∗ 0.004∗∗∗ 0.004∗∗∗ 0.005∗∗∗ 0.004∗∗∗ 0.005∗∗∗ 0.004∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+Book-to-market 0 .012∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.013∗∗∗ 0.011∗∗∗ 0.011∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+Firm age −0.000 −0.000 −0.000 −0.000 −0.000 −0.000 −0.000 −0.001
+(0.000) (0 .000) (0 .000) (0 .000) (0 .000) (0 .000) (0 .000) (0 .000)
+Sales growth −0.002∗∗ −0.002∗∗∗−0.002∗∗ −0.002∗∗ −0.002∗∗ −0.002∗∗∗−0.002∗∗∗−0.002∗∗∗
+(0.001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001) (0 .001)
+HHI of SIC3 −0.010∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗ −0.009∗∗
+(0.005) (0 .005) (0 .005) (0 .005) (0 .005) (0 .005) (0 .005) (0 .005)
+Institutional ownership −0.005∗∗ −0.001 −0.004 −0.001 −0.004 −0.002 −0.005∗ −0.002
+(0.002) (0 .002) (0 .002) (0 .002) (0 .003) (0 .002) (0 .003) (0 .002)
+Idiosynchratic Vol. 0 .002 0 .004 0 .004 0 .005 0 .004 0 .004 0 .000 0 .001
+(0.003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003)
+Leverage 0 .003 0 .001 0 .002 0 .001 0 .002 0 .000 0 .002 −0.000
+(0.003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003) (0 .003)
+ROA −0.004 −0.003 −0.003 −0.003 −0.003 −0.003 −0.004 −0.004
+(0.004) (0 .004) (0 .004) (0 .004) (0 .004) (0 .004) (0 .004) (0 .004)
+Avg. Stock return −0.533∗∗∗−0.533∗∗∗−0.535∗∗∗−0.533∗∗∗−0.535∗∗∗−0.533∗∗∗−0.541∗∗∗−0.539∗∗∗
+(0.015) (0 .015) (0 .015) (0 .015) (0 .015) (0 .015) (0 .015) (0 .014)
+13D Experience 0 .166∗∗∗−0.181∗∗∗ 0.166∗∗∗−0.190∗∗∗ 0.179∗∗∗−0.235∗∗∗
+(0.000) (0 .000) (0 .026) (0 .027) (0 .026) (0 .027)
+13G Experience −0.143∗∗∗ 0.000 −0.146∗∗∗ 0.000 −0.169∗∗∗−0.000
+(0.003) (0 .001) (0 .003) (0 .001) (0 .004) (0 .001)
+Activist Hedge Fund 0 .005∗∗ 0.002 0 .005∗∗ 0.002 0 .007∗∗∗ 0.003
+(0.002) (0 .002) (0 .002) (0 .002) (0 .002) (0 .002)
+Prior 13D ﬁling 0 .007∗∗∗ 0.004∗∗ 0.007∗∗∗ 0.004∗∗
+(0.002) (0 .002) (0 .002) (0 .002)
+Prior 13G ﬁling 0 .001 0 .002 0 .001 0 .001
+(0.001) (0 .001) (0 .001) (0 .001)
+Market premium 0.000∗∗ 0.000∗
+(0.000) (0 .000)
+SMB factor 0.002∗∗∗ 0.002∗∗∗
+(0.000) (0 .000)
+HML factor −0.001∗∗∗−0.001∗∗∗
+(0.000) (0 .000)
+Pseudo R2 0 .027 0 .034 0 .033 0 .034 0 .033 0 .034 0 .036 0 .038
+LR statistic 133,871 13,019 224 284
+p-value 0 .000 0 .000 0 .000 0 .000
+(Table continues)
+16
+Electronic copy available at: https://ssrn.com/abstract=3639636
+T able A3: continued
+Panel B: Estimates of activism costs and volatilities.
+(1) (2) (3) (4)
+Parameter Standard Parameter Standard Parameter Standard Parameter Standard
+estimate error estimate error estimate error estimate error
+C 0.051∗∗∗ (0.003) 0 .046∗∗∗ (0.003) 0 .045∗∗∗ (0.003) 0 .046∗∗∗ (0.003)
+σ∆D 0.220∗∗∗ (0.001) 0 .220∗∗∗ (0.001) 0 .219∗∗∗ (0.001) 0 .219∗∗∗ (0.001)
+σ∆G 0.169∗∗∗ (0.000) 0 .169∗∗∗ (0.000) 0 .169∗∗∗ (0.000) 0 .169∗∗∗ (0.000)
+σsD 4.896∗∗∗ (0.000) 6 .495∗∗∗ (0.000) 6 .296∗∗∗ (0.656) 5 .292∗∗∗ (0.060)
+σsG 3.605 (4 .550) 5 .878∗∗∗ (1.131) 5 .738∗∗∗ (0.462) 4 .800∗∗∗ (0.000)
+17
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Appendix E. Statistical inference
+Next we discuss how sample selection bias aﬀects the t-statistics of sample average
+announcement returns. Recall from equations (7) and (8) that selection bias both increases
+mean returns and decreases the variance of returns, thus biasing t-statistics of sample mean
+returns upwards. In this subsection we assess this bias in empirical t-statistics.
+Figure A2 shows the theoretical distributions of the mean (left), standard deviation
+(center), and t-statistics (right) of unconditional announcement returns (top row), i.e.,
+including all deals, and of announcement returns conditional on a 13D ﬁling (bottom row).
+To construct the top row distributions, we take the values of ˆ µD for those deals ﬁled as
+Schedule 13D as well as for those deals ﬁled as Schedule 13G. We then simulate 1,000
+samples of returns ∆D, each sample with size 67,758 using N(ˆµD, ˆσ2
+D). For each simulation
+we calculate the sample mean return, the sample standard deviation of returns, and the
+sample t-statistic. Looking at the left most panel, we see that unconditional mean returns
+to 13D ﬁlings have a negative domain. This is driven by the unconditional counterfactual
+returnsµD in those ﬁlings that were ﬁled as 13G, since 13G ﬁlings constitute the majority of
+our sample, and since the average of ˆµD in the sample of 13D ﬁlers is positive. Intuitively, if
+the investor ﬁled 13G, the mean counterfactual returns to 13D would have to be low. Why
+are counterfactual returns µD in 13G ﬁlings so negative? The answer to this question lies
+in Table 3. The loading on the variable that describes the investor’s history as a 13G ﬁler
+carries a large negative coeﬃcient for µD. An investor with mainly a history of 13G ﬁlings
+is strongly penalized for doing a 13D ﬁling, and so the counterfactual for that investor is a
+low expected announcement return to ﬁling 13D Schedule.
+[Figure A2 about here.]
+To construct the bottom row distributions, we take the values of ˆµD and of ˆµG for those
+deals ﬁled as Schedule 13D as well as for those deals ﬁled as Schedule 13G. We then simulate
+18
+Electronic copy available at: https://ssrn.com/abstract=3639636
+1,000 samples of returns ∆ D and ∆G, and due diligence signals, each sample with size
+67,758, and allow 13D ﬁlings be chosen as the investor would by evaluating CED≥CEG.
+We then calculate on this smaller sample the mean return, the sample standard deviation of
+returns, and the sample t-statistic. The domain of conditional mean returns to 13D ﬁlings
+is in the positive numbers with an average close to 5.4%, which is the mean announcement
+return to 13D ﬁlings.
+What explains the large diﬀerence in the distribution of returns (left plots) in the top
+(∆D) and bottom rows ( E (∆D|z >0))? Equation (7) says that for those deals ﬁled as
+13D, the diﬀerence between the announcement return,E (∆D|z >0), and the unconditional
+mean return, µD, is a sample selection bias. We know from section 6.2 that this amount of
+selection is on average 0.83%, so it cannot explain the whole diﬀerence in distributions; the
+value of 0.83% is the average sample selection conditional on those deals ﬁled as 13D. The
+remaining diﬀerence in the distribution of returns in the top and bottom rows is tied to the
+low average counterfactual returns to ﬁling 13D in those deals that actually were ﬁled as
+13G. The right most plot at the bottom of the ﬁgure shows that the empirical t-statistic is
+at the center of the theoretical distribution.
+19
+Electronic copy available at: https://ssrn.com/abstract=3639636
+Figure A2: Model-implied simulated announcement returns for 13D ﬁlings. This
+ﬁgure shows the theoretical distributions of the mean (left), standard deviation (center)
+and t-statistics (right) of the average expected returns and announcement returns implied
+by the estimates of the structural model. Each histogram is for the moments of each
+of 1,000 simulated data sets. The moments are computed over all predicted 13D ﬁlings
+in each simulation of a data set of 69,937 ﬁlings, taking as given the activist and target
+characteristic of each deal.
+20
+Electronic copy available at: https://ssrn.com/abstract=3639636
+about ECGI
+The European Corporate Governance Institute has been established to improve corpo-
+rate governance through fostering independent scientific research and related activities.
+The ECGI will produce and disseminate high quality research while remaining close to 
+the concerns and interests of corporate, financial and public policy makers. It will draw on 
+the expertise of scholars from numerous countries and bring together a critical mass of 
+expertise and interest to bear on this important subject.
+The views expressed in this working paper are those of the authors, not those of the ECGI 
+or its members. 
+www.ecgi.global
+ECGI Working Paper Series in Finance
+Editorial Board
+Editor  Mike Burkart, Professor of Finance, London School of   
+ Economics and Political Science
+Consulting Editors Franklin Allen, Nippon Life Professor of Finance, Professor of  
+ Economics, The Wharton School of the University of   
+ Pennsylvania
+ Julian Franks, Professor of Finance, London Business School
+ Marco Pagano, Professor of Economics, Facoltà di Economia
+ Università di Napoli Federico II
+ Xavier Vives, Professor of Economics and Financial   
+ Management, IESE Business School, University of Navarra
+ Luigi Zingales, Robert C. McCormack Professor of   
+ Entrepreneurship and Finance, University of Chicago, Booth  
+ School of Business
+Editorial Assistant Úna Daly, ECGI Working Paper Series Manager
+ 
+ 
+           https://ecgi.global/content/working-papers
+Electronic Access to the Working Paper Series
+The full set of ECGI working papers can be accessed through the Institute’s Web-site 
+(https://ecgi.global/content/working-papers) or SSRN:
+Finance Paper Series  http://www.ssrn.com/link/ECGI-Fin.html 
+Law Paper Series  http://www.ssrn.com/link/ECGI-Law.html 
+https://ecgi.global/content/working-papers

@@ -1,0 +1,4192 @@
+THE JOURNAL OF FINANCE • VOL. LXXXI, NO. 3 • JUNE 2026
+The Voting Premium
+DORON LEVIT, NADYA MALENKO, and ERNST MAUG *
+ABSTRACT
+We develop a uniﬁed theory of blockholder governance and the voting premium in
+a setting without takeovers or controlling shareholders. A voting premium emerges
+when a minority blockholder can inﬂuence shareholder composition by accumulating
+votes and buying shares from dissenting shareholders. Our theory reconciles conﬂict-
+ing empirical ﬁndings by showing that standard measures of the voting premium
+often misrepresent the true value of voting rights, increased conﬂicts between the
+blockholder and small shareholders do not necessarily raise the voting premium, and
+the voting premium can even turn negative when small shareholders free-ride on the
+blockholder’s trades.
+VOTING IS A CENTRAL MECHANISM of corporate governance—it empowers
+shareholders of publicly traded companies to elect directors, approve major
+corporate transactions, and decide on environmental, social, and governance
+(ESG) policies. Most corporations have blockholders that are large enough to
+inﬂuence voting outcomes (La Porta et al. ( 1999), Edmans and Holderness
+*Doron Levit is at the University of Washington. Nadya Malenko is at Boston College. Ernst
+Maug is at the University of Mannheim. We are grateful to the Editor (Thomas Philippon),
+an Associate Editor , two anonymous referees, Rui Albuquerque, Patrick Bolton, Archishman
+Chakraborty , Vicente Cuñat, Amil Dasgupta, Ingolf Dittmann, Alex Edmans, Daniel Ferreira,
+Axel Kind, Thomas Noe, Alessio Piccolo, Uday Rajan, Kristian Rydqvist, Miriam Schwartz-Ziv ,
+Joel Shapiro, Elu von Thadden, Vladimir Vladimirov , Y enan Wang, Sergio Vicente, Paul Voss,
+Shuo Xia, Kostas E. Zachariadis, Jeff Zwiebel; conference participants at the 8th Annual Confer-
+ence on Financial Market Regulation, Cambridge Corporate Finance Theory Symposium, AFA,
+EFA, CICF , FIRS, SFS Cavalcade, MFA, FMA, German Finance Association, Global Corporate
+Governance Colloquium, Owners as Strategists Conference, Craig Holden Memorial Conference
+at Indiana University , Swiss Finance Association, Tel-Aviv University Finance Conference, Adam
+Smith Workshop, 18th Annual Conference in Financial Economics Research by Eagle Labs, JCF
+Conference on Ownership and Corporate Social and Sustainable Policies; and seminar participants
+at Central European University , Duke University , London School of Economics, McGill University ,
+Reichman University , Universidad Carlos III de Madrid, University of British Columbia, Univer-
+sity of Michigan, University of Rochester , and University of Washington for helpful comments
+and discussions; and to Shashwat Agrawal for research assistance. We have read The Journal of
+Finance disclosure policy and have no conﬂicts of interest to disclose.
+Correspondence: Ernst Maug, University of Mannheim; e-mail: ernst.maug@uni-mannheim.de.
+This is an open access article under the terms of the Creative Commons Attribution License, which
+permits use, distribution and reproduction in any medium, provided the original work is properly
+cited.
+DOI: 10.1111/joﬁ.70037
+© 2026 The Author(s). The Journal of Finance published by Wiley Periodicals LLC on behalf of
+American Finance Association.
+1321
+
+1322 The Journal of Finance ®
+(2017), Dasgupta, Fos, and Sautner (2021), and Lewellen and Lewellen ( 2022)).
+Blockholders’ accumulation of voting power can affect stock prices and give
+rise to a voting premium.
+The asset pricing implications of control rights have been studied ex-
+tensively . Theoretical literature following Grossman and Hart ( 1988)a n d
+Harris and Raviv ( 1988) attributes the voting premium almost exclusively
+to takeovers and control contests. This argument is puzzling, however , in
+light of a large empirical literature in this area. First, arguably , the most
+common measure of the voting premium—the dual-class premium—appears
+to be greatest in economies in which contests for majority control are rare,
+and it does not disappear when regulation requires equal treatment of non-
+voting shares in takeovers. 1 Second, while prior work consistently ﬁnds a
+positive voting premium on average, many studies document negative voting
+premiums for some ﬁrms, which is difﬁcult to explain in a model with bidding
+contests. Third, studies that estimate the voting premium by constructing
+nonvoting shares synthetically ﬁnd that it is largest around shareholder
+meetings compared to other periods (e.g., Kalay , Karakas, and Pant ( 2014)),
+which highlights the importance of voting on proposals for the existence of a
+voting premium. Moreover , recent studies that estimate the voting premium
+based on fees in equity lending markets or price changes around record dates
+tend to ﬁnd negligible values for voting rights, which contrasts with earlier
+literature and introduces yet another puzzle.
+Overall, the gaps and conﬂicting conclusions above suggest that the theo-
+retical underpinnings of the voting premium remain incomplete. To address
+these challenges, in this paper , we develop a uniﬁed theory of blockholder
+governance, ownership structure, and the voting premium. We study how and
+why a voting premium emerges in the absence of takeovers or controlling
+shareholders, which is the most relevant setting in most major economies. 2
+Speciﬁcally , we analyze a model with a continuum of small shareholders
+and one minority blockholder . The baseline model features one share, one vote.
+Shareholders ﬁrst trade in a competitive stock market. Those who own shares
+after trading then vote on a proposal at a shareholder meeting. Shareholders
+observe a public signal about the quality of the proposal before they cast a vote,
+and the proposal is approved if enough votes are cast in favor . Shareholders
+differ in their attitudes toward the proposal—some are skeptical and need a lot
+of evidence to vote in favor , while others are more disposed toward the proposal
+and generally support it. The literature provides ample evidence of share-
+holder heterogeneity and its impact on voting behavior , which may arise from
+differences in beliefs or preferences, reﬂecting variation in, for example, envi-
+ronmental, social, and political ideologies, corporate governance philosophies,
+1 See our extensive discussion of the empirical literature in Section VI.
+2 Our framework also captures cases in which the ﬁrm has a controlling shareholder but the
+corporate governance policy requires the majority of minority shareholders to approve the proposal
+(Atanasov , Black, and Ciccotello ( 2011), Gözlügöl ( 2021)). Our analysis applies to such cases if
+we think of the shareholder base in our model as comprising all minority shareholders in such
+a setting.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1323
+attitudes toward management, ownership of other ﬁrms, investment horizons,
+tax status, and risk preferences. 3 The pervasive use of customized voting
+advice and the adoption of pass-through voting testify to the relevance of share-
+holder heterogeneity for voting decisions (Hu, Malenko, and Zytnick ( 2025)).4
+In our framework, the composition of the shareholder base, voting outcomes,
+and asset prices are all endogenous. In equilibrium, the proposal is approved
+if the public signal about the proposal’s quality exceeds a certain cutoff. Since
+shareholders are heterogeneous, the proposal is accepted too often from the
+point of view of some and rejected too often from the perspective of others.
+We refer to the shareholder who fully agrees with the decision rule implied
+by the cutoff as the “median voter .” The median voter’s identity completely
+characterizes the expected voting outcome. Importantly , the median voter can
+be either a small shareholder or a blockholder , with his identity determined
+by the composition of the shareholder base after trading. Hereafter , we use the
+term “median voter” interchangeably with “expected voting outcome.”
+The blockholder and small shareholders trade in anticipation of the expected
+voting outcome and its impact on their valuations. Shareholders’ valuations
+differ because of their heterogeneous beliefs or preferences. Trading reallo-
+cates cash ﬂow rights and voting rights across shareholders, since shares
+are bundles of both. Price-taking small shareholders trade only for cash ﬂow
+reasons, that is, if the share price differs from their private valuations. By
+contrast, the blockholder can be pivotal for the voting outcome, so he may
+also purchase shares to inﬂuence it, that is, to push the median voter in his
+preferred direction.
+The equilibrium share price has two components. The ﬁrst component
+captures the market-clearing price in the hypothetical scenario in which all
+shareholders anticipate the decision rule that actually arises, but take it as
+exogenously given. This price would emerge if the trading of shares did not re-
+allocate voting rights across shareholders, for example, if trade occurred after
+the record date, or if shares did not have voting rights. The second component
+of the stock price arises because the trading of shares reallocates voting rights
+across shareholders, moves the median voter , and thereby changes the value
+of shares for small shareholders. We refer to this term as the voting premium
+and show that it reﬂects the blockholder’s net marginal payoff from buying
+one additional voting right.
+3 See Li, Maug, and Schwartz-Ziv ( 2022) on differences in beliefs, and the following studies on
+different sources of heterogeneity: Bolton et al. ( 2020), Bonnefon et al. ( 2025), and Kim, Ryou,
+and Y ang (2020) on differences in environmental, social, and political ideologies; Bubb and Catan
+(2022), Matvos and Ostrovsky ( 2010), and Jackson and Zytnick ( 2023) on differences in corporate
+governance philosophies and attitudes toward management; Matvos and Ostrovsky ( 2008), He,
+Huang, and Zhao ( 2019), and Cvijanovic, Dasgupta, and Zachariadis ( 2016) on differences in port-
+folio ownership and conﬂicts of interest; Bushee ( 1998) and Gaspar , Massa, and Matos ( 2005)o n
+differences in investor time horizons; Desai and Jin ( 2011) on differences in tax status. Hayden
+and Bodie ( 2008) provide an overview of different sources of shareholder heterogeneity .
+4 BlackRock, 2022, It’s all about choice, Available at https://www .blackrock.com/corporate/
+newsroom/press-releases/article/corporate-one/press-releases/2022-blackrock-voting-choice .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1324 The Journal of Finance ®
+Our theoretical deﬁnition of the voting premium has two appealing empirical
+counterparts. First, it captures the dual-class share premium. In an extension
+to a dual-class setting, we show that the price differential between voting and
+nonvoting shares reﬂects the blockholder’s net marginal payoff from buying
+an additional voting right. Second, the voting premium captures the ex-record
+date price drop. An extension with a second round of trading shows that the dif-
+ference between the share prices before and after the record date corresponds
+to the voting premium. While the expected voting outcome is the same at both
+moments in time, trading after the record date no longer reallocates voting
+rights for the next shareholder meeting. Both extensions relate our model to
+the empirical literature, but our deﬁnition of the voting premium is general
+and applies to single-class ﬁrms and to dates other than the record date.
+We show that a positive voting premium can arise in equilibrium even
+though there are no takeovers in our model and the blockholder does not obtain
+majority control. Intuitively , as the blockholder buys more shares, he moves
+the median voter closer to himself, which helps align the expected voting out-
+come with his preferences. If the blockholder accumulates enough shares, he
+can even become the median voter himself. However , since voting rights are
+not traded separately from cash ﬂow rights, this accumulation of voting power
+requires small shareholders to sell some of their shares. Their heterogeneous
+valuations create an upward-sloping supply function to the blockholder , which
+results in price impact.
+The heterogeneous valuations further imply that those shareholders who
+disagree more strongly with the blockholder have lower reservation prices and
+hence sell disproportionally more shares to him. Thus, the blockholder’s trades
+affect the median voter and the composition of the shareholder base in two
+ways: directly , by the blockholder accumulating more votes, and indirectly , by
+reducing the weight of small shareholders who are less aligned with him. The
+indirect effect ampliﬁes the blockholder’s impact on the voting outcome.
+The blockholder’s payoff from buying an additional vote is determined by his
+beneﬁt from one additional voting right, net of the price impact of this addi-
+tional purchase. If this price impact is signiﬁcant, the blockholder optimally
+limits his accumulation of shares, in which case the net marginal payoff from
+an additional voting right, and hence the voting premium, is positive. Con-
+versely , if price impact is moderate, the blockholder buys sufﬁciently many
+shares to become the median voter . Then, any further purchases would leave
+the voting outcome unchanged, so the net marginal payoff from an additional
+voting right, and hence the voting premium, is zero. Our model can there-
+fore explain empirical studies that document a negligible voting premium (e.g.,
+Christoffersen et al. ( 2007) and Fos and Holderness ( 2023)).
+The case of a zero voting premium illustrates the general principle that the
+voting premium does not reﬂect the economic value of voting rights, because it
+captures only the blockholder’s marginal value from an additional vote. In con-
+trast, the blockholder’s total value of voting rights reﬂects his average willing-
+ness to buy votes, which includes all the inframarginal trades from his initial
+endowment to his equilibrium ownership. In this respect, the voting premium
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1325
+often underestimates the value of voting rights. This observation is important
+for interpreting empirical ﬁndings, since some proxies for the voting premium
+measure the marginal value of a vote (e.g., dual-class share premium and price
+drop on record days), whereas others are more closely related to the average
+value of voting rights (e.g., dual-class tender-offer premium).
+For the same reasons, the voting premium is not a good measure of voting
+power . Voting power is related to the blockholder’s likelihood of being pivotal
+and swinging the voting outcome. However , an increase in the blockholder’s
+voting power decreases his distance from the median voter and in turn his
+valuation of a marginal vote. Thus, in general, the magnitude of the voting
+premium is unrelated to the blockholder’s voting power , with this relation-
+ship even turning negative when the blockholder becomes the median voter
+himself—at which point his voting power is large and the voting premium
+is zero. The voting premium therefore emerges not from the blockholder’s
+accumulation of voting power , but rather from his indirect inﬂuence on the
+voting outcome through the composition of the shareholder base.
+Our model can also rationalize the negative voting premium documented in
+some ﬁrms in most empirical studies. A negative voting premium may appear
+puzzling—after all, the beneﬁt of a marginal vote to the blockholder is always
+positive, since the value of his stake increases if he moves the median voter
+toward himself. However , if the price impact of buying an additional vote is
+sufﬁciently large, the blockholder ends up buying fewer shares compared to
+a scenario in which shares do not have voting rights and the voting premium
+becomes negative. To see how this can arise, consider a scenario in which the
+blockholder opposes a management proposal, but small shareholders are even
+more strongly biased against this proposal than the blockholder himself. As
+the blockholder buys more shares, the proposal is less likely to be approved,
+increasing small shareholders’ valuations. The price at which small sharehold-
+ers supply shares therefore increases, as they free-ride on the blockholder’s
+trades. This price impact can be so large that further purchases would increase
+the stock price even more than the blockholder’s own valuation, inducing the
+blockholder to limit his purchases and giving rise to a negative voting
+premium.
+The discussion above reﬂects the more general insight that the voting rights
+embedded in shares can either amplify or attenuate the price impact of trades.
+If the blockholder’s trades move the median voter in the direction preferred
+by small shareholders, then his trades increase the price at which shares
+are supplied to the blockholder , in which case his price impact is ampliﬁed
+compared to a scenario in which shares do not have voting rights. However , if
+the blockholder is in conﬂict with small shareholders, then his trades push the
+median voter away from their desired point and reduce the price at which they
+are willing to sell, attenuating price impact. Overall, this argument implies
+that liquidity , if measured by price impact, is endogenous in our setting
+and generally differs between voting and nonvoting shares. The empirical
+literature sometimes attributes the negative voting premium noted above to
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1326 The Journal of Finance ®
+the lower liquidity of superior voting shares. 5 In our model, the differential
+liquidity of voting and nonvoting shares arises endogenously from the impact
+of the blockholder’s trades on small shareholders’ valuations. It can therefore
+explain how a negative voting premium may arise.
+The literature often associates the voting premium with conﬂicts between
+blockholders and minority shareholders, and hence sometimes uses it as
+a measure for private beneﬁts of control. The idea is that a large voting
+premium may be associated with a lower payoff to small shareholders, since
+the blockholder uses his voting power to advance his agenda at the expense
+of others. We show that the relationship between the voting premium and
+conﬂicts between shareholders is more nuanced. If the preferences of small
+shareholders are skewed, or if a supermajority requirement exists, then a
+higher voting premium is associated with a higher payoff to both the block-
+holder and small shareholders. As a result, the voting premium is not always
+positively associated with the severity of conﬂicts between shareholders, and
+therefore probably not a good measure of such conﬂicts.
+We extend the model along several dimensions to shed light on additional
+questions. First, we analyze a setting in which voting rights are traded
+separately , for example, through share lending, and show that the price of
+a separately traded vote can be zero even if the voting premium for a share
+in which voting and cash ﬂow rights are combined is strictly positive. Thus,
+the price of a traded vote and the voting premium are conceptually different
+and the former cannot help measure the latter . Second, we allow shareholders
+to trade after the vote and show that shareholders’ concerns about post-vote
+trading proﬁts can affect the voting premium by affecting voting incentives.
+Third, we introduce multiple blockholders and show that competition between
+homogeneous blockholders can decrease the voting premium, while a conﬂict
+between heterogeneous blockholders can increase it. Fourth, in an extension
+incorporating a proxy advisor , we show that the voting premium can become
+zero if some shareholders blindly follow the proxy advisor’s recommendations.
+Fifth, we consider an alternative decision-making process whereby managers,
+instead of shareholders, decide on the proposal, and managers consider the
+preferences of post-trade shareholders. While details differ , the properties of
+the decision rule, the share price premium, and its decomposition are similar
+to those in the baseline model, which suggests that our conclusions generalize
+to decision-making processes other than voting. Finally , we study passive
+investors, who vote but do not actively trade, and we show that their presence
+has important effects on the blockholder’s ability to change the median voter
+and, in turn on the voting premium.
+After concluding our theoretical analysis, in Section VI, we consider im-
+plications of our results for the large number of empirical studies on the
+5 Neumann ( 2003), Odegaard ( 2007), and Broussard and Vaihekoski ( 2022) explain their ob-
+servations of a negative voting premium by liquidity differences between voting and nonvoting
+shares. Porras Prado, Safﬁ, and Sturgess ( 2016) show that voting shares have higher limits to
+arbitrage than nonvoting shares.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1327
+voting premium. In particular , we distinguish six methodologies used to
+measure the voting premium and discuss interpretations of the time-series
+and cross-sectional variation in the voting premium in light of our model.
+Overall, our paper makes three contributions. First, it examines trading be-
+tween small and large shareholders and the ownership structure of the ﬁrm
+in a context in which blockholders affect voting outcomes without majority
+control. Second, it contributes to our understanding of asset prices by showing
+how a voting premium emerges when blockholders can increase their inﬂuence
+through securities in which cash ﬂow rights are bundled with voting rights.
+Third, it provides guidance to the empirical literature by showing how differ-
+ent proxies for the voting premium are related and why they may be different
+from each other .
+This paper is organized as follows. Section I reviews the related literature.
+Section II presents the model, and Section III solves for the equilibrium.
+Section IV presents the main results on the voting premium, while Section V
+considers extensions of the baseline model. Section VI discusses the empirical
+implications. Section VII concludes.
+I. Discussion of the Literature
+We contribute a new theory of the value of voting rights. The primary
+approach in the literature, pioneered by Grossman and Hart ( 1988)a n d
+Harris and Raviv ( 1988), considers settings with control contests of ﬁrms with
+dual-class shares. In this approach, rival bidders and incumbent managers
+differ in their ability to generate cash ﬂows that are shared by all shareholders
+and in their valuation of private beneﬁts from controlling the ﬁrm. Bidders
+compete for control and pay a premium to the holders of the voting shares. 6
+Studies in this literature explore a range of alternative settings, including
+different types of admissible bids, variation in the ability to extract private
+beneﬁts, settings without a free-rider problem, and frictions from asymmetric
+information.7 Moreover , some studies consider deviations from the one share,
+one vote principle through trading in derivatives rather than in nonvoting
+shares (e.g., Blair , Golbe, and Gerard ( 1989), Kalay and Pant ( 2010), Dekel
+and Wolinsky ( 2012), Burkart and Lee ( 2015)). Independent of the details,
+a wide range of settings give rise to a voting premium in a bidding contest.
+Our theory contributes to this literature by showing how a voting premium
+emerges without takeovers and control contests. The critical point of departure
+6 Burkart and Lee ( 2008) survey theoretical work on the role of the security-voting structure
+and the control premium in the context of takeovers.
+7 See Vinaimont and Sercu ( 2003) and Dekel and Wolinsky ( 2012) for types of admissible bids.
+For papers with variation in the party that has private beneﬁts, see Bergström and Rydqvist ( 1992)
+(no party), Grossman and Hart ( 1988) (one party), and Vinaimont and Sercu ( 2003) and Burkart,
+Gromb, and Panunzi (1998) (both parties). See Bergström and Rydqvist ( 1992) for a setting without
+a free-rider problem and Burkart and Lee ( 2015) for a setting with asymmetric information. Some
+empirical contributions also include modeling efforts to motivate speciﬁc empirical analyses (e.g.,
+Zingales (1995) and Rydqvist ( 1996)).
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1328 The Journal of Finance ®
+is the way in which the blockholder’s (respectively , bidder’s) higher willingness
+to pay translates into a higher stock price. In control contests, competition
+among bidders or the free-rider problem force bidders to pay a higher price (see
+Bergström and Rydqvist ( 1992) and Zingales ( 1995) for similar observations).
+However , neither mechanism is present in our model, which does not feature
+majority control. Instead, in our setting the blockholder’s trades move the
+median voter and shift the upward-sloping supply curve of small shareholders
+by affecting their reservation prices. 8 This may give rise to a positive voting
+premium even if the blockholder does not acquire majority control, and a
+negative voting premium may result if this supply curve is sufﬁciently steep.
+A complementary literature analyzes a market in which votes trade sepa-
+rately from shares. 9 While these papers differ signiﬁcantly in terms of both
+settings and conclusions, they consistently ﬁnd that the value of separately
+traded votes is negligible, because either small shareholders value votes in pro-
+portion to their probability of being pivotal (Neeman and Orosel ( 2006), Brav
+and Mathews ( 2011), Speit and Voss ( 2020), Speit, Voss, and Danis ( 2023)) or
+uninformed shareholders would like their votes to be picked up and cast by
+informed shareholders (Esö, Hansen, and White ( 2014)).10 Our extension to a
+separate market for votes emphasizes that the price of a vote that is traded in
+conjunction with cash ﬂow rights is different from the price of a vote traded
+separately—the former can be positive even though the latter is zero. Our fo-
+cus on the voting premium also distinguishes our paper from a complementary
+study by Speit, Voss, and Danis ( 2023), who focus on the decoupling of voting
+and cash ﬂow rights and show that separating votes from cash ﬂows through
+equity lending is different from separating votes from the exposure to cash
+ﬂows through hedging in derivatives markets.
+The only approach that has derived a signiﬁcant voting premium without
+control contests is that of Rydqvist ( 1987), who builds on Milnor and Shapley
+(1978) and introduces the notion of an oceanic Shapley value to the analysis
+of dual-class shares. The critical step here is that the ocean of atomistic share-
+holders can collectively become pivotal and thus value their voting power .
+However , this raises the question of how atomistic shareholders resolve their
+collective action problem. In our setting, each small shareholder maximizes
+only his individual payoff.
+Our paper also contributes to the literature on the equilibrium ownership
+structure of ﬁrms and the analysis of blockholders. The vast majority of this
+8 An upward-sloping supply curve is also present in the takeover models with majority control
+of Stulz ( 1988) and Burkart, Gromb, and Panunzi ( 1998, 2006).
+9 This literature is motivated largely by concerns about the incentives created by decoupling
+votes from cash ﬂow rights (“empty voting”) triggered by Hu and Black ( 2007, 2015).
+10 These papers focus on vote trading by investors of a company . In the context of dynamic
+group decision-making, Garlappi, Giammarino, and Lazrak ( 2017, 2022) analyze how trading of
+votes (or shares) among group members can alleviate inefﬁciencies from differences in beliefs.
+A related literature in political science examines how vote trading allows agents with a higher
+intensity of preferences to buy votes from those who care about the decision less (e.g., Casella,
+Llorente-Saguer , and Palfrey (2012)).
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1329
+literature considers the effects of blockholders through direct interventions
+(“voice”) and trading (“exit”). 11 By contrast, in our setting the blockholder exer-
+cises inﬂuence by affecting the identity of the median voter . This is empirically
+important because many blockholders—notably , ﬁnancial institutions—rely on
+voting to inﬂuence ﬁrms’ policies. 12 Moreover , we emphasize that by trading,
+the blockholder affects voting outcomes not only by accumulating additional
+voting rights, but also by changing the composition of the shareholder base
+as he buys shares from those investors who disagree with him the most. 13 Ef-
+fectively , the market for voting shares helps shareholders coordinate through
+trading—a mechanism that can complement explicit coordination, as analyzed
+by Brav , Dasgupta, and Mathews (2022), Doidge, Dyck, and Y ang (2021), and Pi
+(2020). Dhillon and Rossetto ( 2015), Bar-Isaac and Shapiro ( 2020), Meirowitz
+and Pi ( 2022), and Pinnington ( 2023) also consider blockholder models with
+voting, but distinct from our paper , they do not study the voting premium but
+instead focus on the effects of blockholders on ﬁrm risk-taking or information
+aggregation. Zwiebel ( 1995) applies cooperative game theory to study how a
+blockholder structure emerges endogenously , but does not derive implications
+for the voting premium.
+More broadly , our paper is related to an earlier literature on the existence
+of equilibrium and the objectives of the ﬁrm in a context with incomplete mar-
+kets and shareholders with heterogeneous preferences. 14 In particular , Drèze
+(1985) and DeMarzo ( 1993) develop models with the board of directors as a
+group of controlling blockholders. We contribute to this literature by analyz-
+ing the voting premium and a richer characterization of the interplay between
+small shareholders and blockholders. This also distinguishes our paper from
+Levit, Malenko, and Maug ( 2024), who analyze trading and voting by atomistic
+shareholders, that is, a setting in which the voting premium does not arise.
+II. Model
+Consider a publicly traded ﬁrm that is initially owned by a continuum of
+measure one of small shareholders and one large blockholder . We use the
+assumption of atomistic small shareholders to account not only for retail in-
+vestors but also for small institutions that likely have no meaningful strategic
+11 See Admati, Pﬂeiderer , and Zechner ( 1994), Bolton and von Thadden ( 1998), Kahn and Win-
+ton ( 1998), and Maug ( 1998) for earlier contributions to the “voice” literature, and Admati and
+Pﬂeiderer (2009), Edmans ( 2009), and Edmans and Manso ( 2011) for the “exit” literature. See the
+surveys of Edmans (2014), Edmans and Holderness ( 2017), and Dasgupta, Fos, and Sautner ( 2021)
+for more recent work and further details.
+12 See McCahery , Sautner , and Starks (2016). Our paper therefore contributes to the broader lit-
+erature on corporate voting (e.g., Maug and Rydqvist ( 2009), Levit and Malenko ( 2011), Van Wesep
+(2014), Malenko and Malenko ( 2019) Zachariadis, Cvijanovic, and Groen-Xu ( 2020)).
+13 In this respect, our paper is also related to Huang and Thakor ( 2013), who show that man-
+agers can use stock repurchases to buy out investors with whom they disagree.
+14 See Gevers ( 1974), Drèze ( 1985), DeMarzo ( 1993), and Kelsey and Milne ( 1996).
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1330 The Journal of Finance ®
+impact on either voting outcomes or stock prices. 15 The blockholder is endowed
+with α ∈ (0, 1) shares, and each small shareholder is endowed with 1 − α
+shares, so the total number of outstanding shares is equal to one. 16 In the base-
+line setting, each share has one vote. There is a proposal on which shareholders
+vote. The proposal can relate to director elections, mergers and acquisitions
+(M&As), executive compensation, corporate governance, or social and environ-
+mental policies. The proposal can be either approved ( d = 1) or rejected (d = 0).
+Preferences. Shareholders’ preferences over the proposal depend on two
+factors, which reﬂect a common value and private values. The common-value
+component depends on an unknown state θ∈{ −1, 1}:i f θ=− 1( θ= 1), ac-
+cepting the proposal is value-decreasing (increasing). In other words, the
+common value is maximized if the policy matches the state ( d = 1i f θ= 1),
+as is commonly assumed in the strategic voting literature (e.g., Austen-Smith
+and Banks ( 1996) and Feddersen and Pesendorfer ( 1996)).
+Shareholders also have private values from the proposal, which reﬂect het-
+erogeneity in their preferences or beliefs, as we discuss below . For simplicity ,
+we refer to these private values as biases and denote them by b. A share-
+holder with bias b > 0( b < 0) receives additional (dis)utility if the proposal
+is accepted. The distribution of biases b among the initial small shareholders
+is given by a publicly known, twice-differentiable cumulative distribution
+function (cdf) G, which has full support with positive density function g on
+[− b, b], where b ∈ (0, 1). We offer a more detailed discussion of shareholder
+heterogeneity at the end of this section.
+The value of a share from the perspective of a small shareholder with bias b
+is
+v
+(
+d,θ, b
+)
+= v0 +
+(
+θ+ b
+)
+d, (1)
+where v0 > 0 is large enough to ensure that shareholder value is always non-
+negative. Shareholders apply different hurdle rates for accepting the proposal:
+A shareholder with bias b would like the proposal to be accepted if and only if
+his expectation of θ+ b is positive. We refer to shareholders with a higher b as
+being “more activist.”
+The blockholder’s preferences have the same structure as those of small
+shareholders, except that his bias is β ∈ [− b, b]. Thus, the value of a share
+from the perspective of a blockholder is v
+(
+d,θ,β
+)
+.
+Timeline. All shareholders are initially uninformed about the state θ and
+have the same prior about its distribution, which we specify below . Sharehold-
+ers ﬁrst trade and then vote on the proposal. This timing allows us to focus on
+how trading affects the composition of the voter base, which is crucial for the
+15 Lewellen and Lewellen ( 2022) show that institutional ownership in their sample of U .S. ﬁrms
+over 2015 to 2017 is 73.7% on average, of which 45.3% falls on institutional blocks smaller than
+3%, and 31.5% falls on institutional blocks smaller than 1% (see their table 2).
+16 In Section III.M of the Internet Appendix , we show that our main results also hold for
+α = 0. The Internet Appendix is available in the online version of the article on The Journal of
+Finance website.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1331
+analysis of the voting premium. At the trading stage, each small shareholder
+can buy any number of shares x, where x < 0 corresponds to the shareholder
+selling shares. A small shareholder’s utility from buying x shares given his
+endowment 1 − α is
+u
+(
+d,θ, b, x;γ, 1 − α
+)
+= (1 − α + x)v
+(
+d,θ, b
+)
+− γ
+2 x2, (2)
+where γ> 0 captures trading frictions, such as illiquidity , transaction costs,
+or wealth constraints, which limit shareholders’ ability to build large positions
+in the ﬁrm (e.g., as in Vives ( 1993)).17 Since the mass of investors is ﬁnite and
+γ> 0, our model features limits to arbitrage. We assume
+γ> γ, (3)
+where γ< ∞ is formally deﬁned at the beginning of the Appendix. Assuming
+that γ is sufﬁciently large guarantees several useful properties of the model,
+which we discuss below .
+Similarly , the blockholder can trade any number of shares y, and his utility
+from buying y shares is u
+(
+d,θ,β, y;η,α
+)
+, where u (·) is given by ( 2)a n d η≥ 0
+captures the blockholder’s trading costs. All results hold for η= 0. While small
+shareholders are price takers, the blockholder trades strategically , accounting
+for his expected price impact. For simplicity , we assume that the blockholder
+submits his order y ﬁrst, and small shareholders observe y and submit their
+orders next. In effect, small shareholders can condition their trades on y,w h i c h
+can be interpreted as these shareholders submitting limit orders. 18
+We denote the market-clearing share price by p. After the market clears, but
+before voting takes place, all shareholders observe a public signal about the
+state θ, which may stem from disclosures by management, proxy advisors, or
+analysts.19 Let q = E[θ| public signal] be shareholders’ posterior expectation of
+the state following the signal. For simplicity , we assume that the public signal
+is q itself, and that q is distributed according to cdf F with mean zero and
+full support with a positive, twice-differentiable density function f on [−/Delta1, /Delta1],
+where /Delta1∈
+(
+b, 1
+)
+. Thus, the ex ante expectation of θ is zero. The symmetry of
+the support of q around zero is not necessary for any of the main results. In
+what follows, we refer to H (q∗) ≡ Pr [q > q∗], rather than to the cdf.
+After observing the public signal q, each shareholder votes the shares he
+owns after the trading stage. We therefore assume that the record date, which
+determines who is eligible to participate in the vote, follows the trading stage.
+17 Since each small investor has zero mass, his trade x and endowment 1 − α are inﬁnitesi-
+mal quantities. With a slight abuse of notation, 1 − α also denotes the total endowment held by
+small investors.
+18 Equation ( 35) shows that for γ large enough, the market-clearing price is monotonic in y.
+Thus, whether the limit order is conditioned on the price or on the blockholder’s trade is immaterial
+for our analysis.
+19 In practice, proxy advisors’ recommendations (and management’s response) are released on
+average about one month after the vote record date. See, for example, ﬁgure 1 in Li, Maug, and
+Schwartz-Ziv (2022).
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1332 The Journal of Finance ®
+This timeline applies well to important votes, such as votes on M&As, proxy
+ﬁghts, and high-proﬁle shareholder proposals, which are typically known well
+ahead of the record date. The proposal is accepted if at least fraction τ∈ (0, 1)
+of all shares are cast in favor; otherwise, the proposal is rejected. We assume
+that α< min{τ,1 − τ}. As we show in Lemma IA.2 of the Internet Appendix ,
+this guarantees that if γ> γ, then in equilibrium the blockholder does not
+have the power to veto or accept the proposal unilaterally . This lemma also
+shows that if γ> ¯γ, then neither small shareholders nor the blockholder ﬁnd
+it optimal to short sell in equilibrium.
+We analyze subgame perfect Nash equilibria in undominated strategies of
+the voting game. The restriction to undominated strategies is common in vot-
+ing games, which usually impose the equivalent restriction that small share-
+holders vote as if pivotal. 20 This implies that an investor with bias b,w h e t h e r
+he is a small shareholder or the blockholder , votes in favor of the proposal if
+a n do n l yi f
+b + q ≥ 0. (4)
+A. Discussion of Assumptions
+This section discusses some of the key assumptions of our model and pro-
+vides microfoundations for them.
+On shareholder heterogeneity , our modeling strategy follows prior literature
+in using heterogeneity to generate a downward-sloping demand function for
+shares (e.g., Stulz ( 1988)). This assumption is supported by the empirical
+literature, which shows that shareholders differ in their beliefs or preferences
+(see footnote 3) and documents heterogeneity among retail investors (Jackson
+and Zytnick ( 2023)), among mutual funds (Bolton et al. ( 2020), Bubb and
+Catan ( 2022)), and between these two groups (Zytnick ( 2024)). Assuming
+shareholder heterogeneity is also attractive because it helps explain the large
+trading volume around shareholder meetings and the disassociation between
+trading volume and return volatility (Li, Maug, and Schwartz-Ziv ( 2022)).
+In Section II of the Internet Appendix , we develop four microfoundations to
+study some sources of heterogeneity in more detail and show how they can be
+mapped into our model: (i) differences in beliefs (“sentiment”) about the value
+of the proposal, which shows that our model can accommodate differences of
+beliefs just as well as differences in preferences, and parameters b and β can
+be interpreted in both ways; (ii) heterogeneous time horizons, which builds on
+the literature on short-termism and considers investors who vote between a
+short-termist activist and a long-termist incumbent manager; (iii) differences
+arising from private beneﬁts of control, where the blockholder can dilute the
+assets of the ﬁrm if the proposal is approved, which leads him to favor the
+proposal relative to small shareholders ( β> b); and (iv) differences arising
+from costly monitoring of management by the blockholder .
+20 See, for example, Baron and Ferejohn ( 1989) and Austen-Smith and Banks ( 1996). This re-
+striction helps rule out equilibria in which shareholders are indifferent between voting for or
+against because they are never pivotal.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1333
+Our model abstracts from private information and strategic voting consid-
+erations that may arise with a ﬁnite number of small shareholders. However ,
+our model of the voting stage can be seen as a limiting case of a model with a
+ﬁnite number of privately informed shareholders. Speciﬁcally , Feddersen and
+Pesendorfer ( 1997) study strategic voting with ﬁnitely many voters, hetero-
+geneous preferences, and private information. They show that the fraction of
+voters who vote strategically based on their information goes to zero as the
+number of voters approaches inﬁnity . In the limit, almost all voters ignore
+their private information and vote based on their preferences, and yet the vot-
+ing outcome is the same as if all private information were common knowledge.
+Thus, this limit outcome aligns with the equilibrium outcome of a model with
+a continuum of voters, heterogeneous preferences, and voters who vote “as if
+pivotal” based on public information, which is the voting stage of our model.
+III. Equilibrium
+We begin by showing that for any trading outcome, proposal approval at the
+voting stage takes the form of a cutoff decision rule.
+LEMMA 1: In any equilibrium, there exists q ∗ such that the proposal is ap-
+proved if and only if q > q∗.
+The reason is that all shareholders value the proposal more if it is more
+likely to be value-increasing, that is, if θ= 1 is more likely .
+We proceed in several steps. First, for any possible blockholder’s trade y,
+Sections III.A and III.B characterize the trading of small shareholders and the
+voting stage as a function of y. In Section III.C, we solve for the optimal trade,
+y∗, and for the equilibrium share price.
+A. Trading of Small Shareholders
+Given Lemma 1, suppose that small shareholders expect the proposal to be
+accepted if and only if q > q∗
+e f o rs o m ec u t o f fq∗
+e (we later derive the equilibrium
+cutoff such that shareholders’ expectations are rational). Let v
+(
+b, q∗
+e
+)
+denote
+the valuation of a shareholder with bias b prior to the realization of q,a sa
+function of the cutoff q∗
+e . Then
+v
+(
+b, q∗
+e
+)
+= E
+[
+v
+(
+1q>q∗e ,θ, b
+)]
+, (5)
+where the indicator function 1q>q∗e equals one if q > q∗
+e and zero otherwise, and
+v
+(
+d,θ, b
+)
+is deﬁned by ( 1). We can rewrite ( 5)a s
+v
+(
+b, q∗
+e
+)
+= v0 +
+(
+b + E
+[
+θ|q > q∗
+e
+])
+H
+(
+q∗
+e
+)
+, (6)
+which increases in b.N o t i c et h a tv
+(
+b, q∗
+e
+)
+is a hump-shaped function of q∗
+e with
+a maximum at q∗
+e =− b, that is, the shareholder’s valuation decreases in the
+distance between his bias and the expected decision rule q∗
+e .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1334 The Journal of Finance ®
+Small shareholders are price takers, so for any price p, a small shareholder
+solves
+max
+x
+{
+(1 − α + x)v
+(
+b, q∗
+e
+)
+− xp − γ
+2 x2
+}
+(7)
+and optimally chooses
+x
+(
+b, q∗
+e, p
+)
+= v
+(
+b, q∗
+e
+)
+− p
+γ . (8)
+Thus, shareholder b buys shares if his valuation exceeds the market price,
+v
+(
+b, q∗
+e
+)
+> p, sells shares if v
+(
+b, q∗
+e
+)
+< p, and does not trade otherwise. Given
+the blockholder’s order y, the market clears if and only if
+∫ b
+− b
+x
+(
+b, q∗
+e, p
+)
+g
+(
+b
+)
+db + y = 0, (9)
+which gives the market-clearing price
+p∗(
+y, q∗
+e
+)
+= γy + v
+(
+E
+[
+b
+]
+, q∗
+e
+)
+. (10)
+The equilibrium share price increases in y, and the price impact of the block-
+holder’s trade increases in γ. We can therefore interpret γ as measuring the
+illiquidity of the market, that is, the inverse of γ reﬂects market depth. In
+addition, the share price ( 10) increases in the valuation of the average small
+shareholder . Intuitively , if small shareholders’ valuations (conditional on q∗
+e )
+are higher , they are willing to supply shares to the blockholder only at a
+higher price.
+From (6), (8), and (10), small shareholders’ demand as a function of the block-
+holder’s trade can be written as
+x
+(
+b, y, q∗
+e
+)
+= 1
+γ
+(
+b − E
+[
+b
+])
+H
+(
+q∗
+e
+)
+− y. (11)
+The Post-Trade Ownership Structure . After the trading stage, the block-
+holder owns α + y shares, a small shareholder with bias b owns 1 − α +
+x
+(
+b, y, q∗
+e
+)
+shares, and all small shareholders collectively own 1 − α − y shares.
+Thus, the proportion of shares owned post-trade by small shareholders with
+bias b, conditional on the expected decision rule q∗
+e and blockholder’s trade y,
+is given by
+r
+(
+b; y, q∗
+e
+)
+≡ g
+(
+b
+)1 − α + x
+(
+b, y, q∗
+e
+)
+1 − α − y . (12)
+Note that r
+(
+b; y, q∗
+e
+)
+is a density function, that is,
+∫ b
+− b r
+(
+b; y, q∗
+e
+)
+db = 1. Thus,
+the post-trade preferences of small shareholders are distributed according to
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1335
+cdf R
+(
+b; y, q∗
+e
+)
+given by
+R
+(
+b′; y, q∗
+e
+)
+=
+∫ b′
+− b
+r
+(
+b; y, q∗
+e
+)
+db
+= G
+(
+b′)
+(
+1 − E
+[
+b
+]
+− E
+[
+b|b < b′]
+γ
+H
+(
+q∗
+e
+)
+1 − α − y
+)
+, (13)
+where the second equality follows from ( 11)a n d( 12). The cdf R characterizes
+the post-trade small-shareholder base, whereas G characterizes the pre-trade
+small-shareholder base. Note that R
+(
+b
+)
+< G
+(
+b
+)
+for any b,t h a ti s ,R dominates
+G in the sense of ﬁrst-order stochastic dominance. Hence, trading shifts the
+shareholder base in such a way that more activist shareholders own a larger
+proportion of the ﬁrm after trading. Moreover , R
+(
+b′; y, q∗
+e
+)
+increases in q∗
+e ,a n d
+thus a more activist decision rule (lower q∗
+e ) makes the post-trade shareholder
+base more activist. Intuitively , shareholders’ heterogeneous attitudes toward
+the proposal create gains from trade, so the shareholder base moves in the
+direction of the expected outcome.
+B. Voting
+The composition of the post-trade shareholder base determines the voting
+outcome. We ﬁrst analyze the votes of small shareholders. Denote by s
+(
+q; y, q∗
+e
+)
+the number of votes cast by small shareholders in favor of the proposal if signal
+q is realized, the blockholder traded y shares, and the expected decision rule is
+q∗
+e . Then
+s
+(
+q; y, q∗
+e
+)
+≡ (1 − α − y)
+(
+1 − R
+(
+− q; y, q∗
+e
+))
+, (14)
+which is the number of shares held by small shareholders, 1 − α − y, multiplied
+by the proportion of small shareholders for whom b > − q.
+The blockholder is pivotal for the outcome when his vote sways the decision
+on the proposal, which only happens if at least τ− (α + y) but no more than τ
+small shareholders vote to support the proposal, that is, if and only if
+τ− (α + y) ≤ s
+(
+q; y, q∗
+e
+)
+<τ . (15)
+Otherwise, if s
+(
+q; y, q∗
+e
+)
+<τ − (α + y) (s
+(
+q; y, q∗
+e
+)
+≥ τ), the proposal fails (suc-
+ceeds) independently of the vote of the blockholder . From ( 14), the support
+of small shareholders is increasing in the signal q. Deﬁne the bounds q ≡
+s− 1(
+τ− α − y; y, q∗
+e
+)
+and q ≡ s− 1(
+τ; y, q∗
+e
+)
+. Then the blockholder is pivotal if and
+only if the signal is in the intermediate range, q ∈ [q, q). If q < q (q ≥ q), small
+shareholders’ support for the proposal is so low (high) that the proposal fails
+(succeeds) even if the blockholder supports (rejects) it.
+We describe the voting outcome by characterizing the identity of the median
+voter, who we deﬁne as the shareholder whose individual vote coincides with
+the collective decision on the proposal for every possible realization of the
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1336 The Journal of Finance ®
+Figure 1. The median voter.
+signal q. In other words, whenever the median voter votes in favor (against),
+the proposal is accepted (rejected).
+Let bMV
+(
+β, y, q∗
+e
+)
+denote the bias of the median voter if the expected decision
+rule is q∗
+e , the blockholder traded y shares, and his bias is β. There are three
+possible cases, which together deﬁne bMV
+(
+β, y, q∗
+e
+)
+.
+(i) If β ≥− q, the blockholder is strongly activist and supports the pro-
+posal whenever he is pivotal. The proposal is accepted if and only
+if s
+(
+q; y, q∗
+e
+)
++ α + y ≥ τ, that is, whenever q ≥ q. Hence, the proposal
+passes if and only if the small shareholder with bias b =− q votes in
+favor . This shareholder is then the median voter , that is,bMV
+(
+β, y, q∗
+e
+)
+=
+− q.
+(ii) If β ≤− q, the blockholder has a large bias against the proposal and
+votes against whenever he is pivotal. The proposal is accepted if and
+only if s
+(
+q; y, q∗
+e
+)
+≥ τ, that is, whenever q ≥ q. Hence, it passes if and
+only if the small shareholder with bias b =− q votes in favor . This share-
+holder is then the median voter , that is, bMV
+(
+β, y, q∗
+e
+)
+=− q.
+(iii) If − ¯q <β< − q, the blockholder is pivotal if q ∈ [q, q) and votes in favor
+if and only if q ≥− β. The proposal is therefore accepted if and only if
+the blockholder votes in favor , so the blockholder is the median voter ,
+that is, bMV
+(
+β, y, q∗
+e
+)
+= β.
+We conclude that if shareholders anticipate decision rule q∗
+e when trading,
+then the decision rule at the voting stage is characterized by the three cases
+above. The ﬁrst case is illustrated in Figure 1, which plots the number of votes
+in favor of the proposal as a function of the signal q. Panel A indicates the range
+in which the blockholder is pivotal; Panel B indicates the approval range and
+the location of the median voter . Note that while a small shareholder is never
+pivotal in our setting since he is atomistic, he can often be the median voter .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1337
+For example, in Figure 1, the blockholder is extreme and the median voter is a
+small shareholder closer to the center of the distribution.
+In equilibrium, shareholders’ expectations q∗
+e must be consistent with the
+actual decision rule. Hence, an equilibrium can be found as a ﬁxed point of q∗
+e ,
+such that − bMV
+(
+β, y, q∗
+e
+)
+= q∗
+e , where bMV
+(
+β, y, q∗
+e
+)
+is deﬁned by the three cases
+above. Using this logic, the equilibrium at the voting stage is characterized as
+follows.
+PROPOSITION1 (Voting stage): If the blockholder trades y shares, then the
+proposal is approved if and only if q > q∗ (y), where q∗ (y) solves
+− bMV
+(
+β, y, q∗)
+= q∗. (16)
+If γ> γ, the solution of ( 16) is unique. In this case, there exists y such that if y ≥
+y, the median voter is the blockholder (− q∗ (y) = β), whereas if y < y, the median
+voter is a small shareholder with bias − q∗ (y) ̸= β,a n d |β + q∗ (y)| decreases in
+y.
+In general, there can be multiple solutions to ( 16), and hence multiple
+equilibria at the voting stage. This is because for small γ, shifts in the
+shareholder base are sensitive to the expected decision rule q∗
+e , which can
+give rise to self-fulﬁlling expectations. 21 However , if γ is large enough, then
+small shareholders trade less aggressively , the distribution of the post-trade
+shareholder base is less sensitive to q∗
+e , and the equilibrium is unique.
+Importantly , Proposition1 shows that the blockholder can change the iden-
+tity of the median voter , − q∗ (y), and thus the vote outcome, with his trades
+y. By buying more shares, the blockholder moves the bias of the median voter
+closer to β, which is captured by the result that |β + q∗ (y)| decreases. This can
+be seen in the left panel of Figure 2, which shows that a larger y pushes − q∗ (y)
+to the left, closer to −β. Once the blockholder buys enough shares ( y ≥ y), the
+vote outcome exactly coincides with the blockholder’s own voting rule, so
+the blockholder becomes the median voter (see the right panel in Figure 2).
+The accumulation of shares beyond ¯y increases the probability of the block-
+holder being pivotal, but it does not change the expected vote outcome, that is,
+the identity of the median voter .
+There are two complementary reasons why the accumulation of shares by
+the blockholder moves the median voter closer to him. First, more shares give
+the blockholder more voting rights. Second, as the blockholder buys more, the
+composition of the small shareholder base changes toward those who are more
+aligned with the blockholder . For example, if the blockholder is very activist,
+then small shareholders who hold the ﬁrm after trading are more activist.
+(Recall that R
+(
+b′; y, q∗
+e
+)
+increases in q∗
+e in (13).)
+21 In particular , the cdf of the post-trade shareholder base, given by ( 13), increases in q∗
+e ,a n d
+hence a more activist expected decision rule (lower q∗
+e ) makes the post-trade shareholder base
+more activist. A more activist shareholder base, in turn, is more likely to approve the proposal for
+any given signal, leading to a lower realized cutoff for approving the proposal, conﬁrming the ex
+ante expectations.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1338 The Journal of Finance ®
+Figure 2. The effect of the blockholder’s trade on the equilibrium median voter.
+C. Blockholder Trading
+Given the blockholder’s trade y, all shareholders correctly anticipate that the
+decision rule at the voting stage will be q∗ (y), as given by ( 16), and that the
+market-clearing price will be
+p∗(y) = γy + v
+(
+E
+[
+b
+]
+, q∗(y)
+)
+(17)
+from (10). In equilibrium, the blockholder chooses y to maximize
+/Pi1(y) ≡ (α + y)v
+(
+β, q∗(y)
+)
+− yp∗(y) − η
+2 y2. (18)
+The marginal effect of buying additional shares on the blockholder’s expected
+payoff is
+d/Pi1(y)
+dy = ∂/Pi1(y)
+∂y  
+MP C(y)
++ ∂/Pi1(y)
+∂(− q∗(y))
+∂(− q∗(y))
+∂y  
+MP V(y)
+= MP C(y) + MP V(y). (19)
+The term MPC (y) is the marginal payoff from buying cash ﬂow rights . It can
+be thought of as the blockholder’s marginal payoff from trading in the hypo-
+thetical scenario in which the decision rule is set exogenously at the level q∗ (y)
+and is not affected by the blockholder’s trades. This term equals
+MPC(y) =
+(
+β − E
+[
+b
+])
+H
+(
+q∗(y)
+)
+− (2γ + η)y. (20)
+Intuitively , if β> E
+[
+b
+]
+(β< E
+[
+b
+]
+), the blockholder values shares more (less)
+than the average small shareholder , which creates gains from trade. The term
+MPV (y) is the marginal payoff from buying voting rights . 22 It captures the
+22 The derivative ∂/Pi1(y)
+∂(− q∗(y))
+∂(− q∗(y))
+∂y exists for all y except ¯y.I f y = ¯y, we deﬁne MPV (y) as the left
+derivative: limy↗ ¯y
+∂/Pi1(y)
+∂(− q∗(y))
+∂(− q∗(y))
+∂y .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1339
+blockholder’s additional incentives to trade in order to change the decision rule,
+that is, to shift the median voter − q∗ (y). In Section IV below , we show that
+MPV (y) is closely related to the voting premium.
+The next proposition characterizes the equilibrium, including the block-
+holder’s optimal trading strategy .
+PROPOSITION2 (Equilibrium): The equilibrium exists and is unique. In equi-
+librium:
+(i) The blockholder trades y ∗ shares, where y∗ is the unique solution of
+y∗ = 1
+2γ + η
+(
+β − E
+[
+b
+])
+H(q∗(
+y∗)
+) + 1
+2γ + ησ(β)MPV
+(
+y∗)
+. (21)
+A small shareholder with bias b trades x ∗(
+b
+)
+shares, where
+x∗(
+b
+)
+= 1
+γ
+(
+b − b∗)
+H(q∗(
+y∗)
+) − 1
+2γ + ησ(β)MPV
+(
+y∗)
+. (22)
+Parameter b∗ is deﬁned as
+b∗ = γ
+2γ + ηβ +
+(
+1 − γ
+2γ + η
+)
+E
+[
+b
+]
+, (23)
+and σ (β) ∈ [0, 1] is deﬁned by equation ( A48)i nt h e Appendix.
+(ii) The share price is
+p∗ = v
+(
+b∗, q∗(
+y∗))
++ γ
+2γ + ησ(β)MPV
+(
+y∗)
+. (24)
+(iii) The bias of the median voter is − q∗ (y∗), where q∗ (·) is deﬁned in Propo-
+sition 1.
+The blockholder’s optimal trade y∗ consists of two terms, which are related
+to decomposition ( 19). The ﬁrst term reﬂects trading for cash ﬂow reasons:
+The blockholder has an incentive to buy shares if and only if his valuation
+is higher than that of the average small shareholder , β> E
+[
+b
+]
+. In particular ,
+cash ﬂow considerations can motivate the blockholder to sell shares to small
+shareholders, thereby giving up his inﬂuence over the voting outcome. Thus,
+the tension between exit and voice (e.g., Hirschman ( 1970)) exists in our model
+as well (see Section III.A of the Internet Appendix for details).
+The second term in ( 21) reﬂects the additional trading of voting shares
+because of the embedded voting rights and is proportional to MPV (y∗).23 The
+expression for small shareholders’ trades x∗(
+b
+)
+follows directly from ( 11).
+Intuitively , trading shifts the small-shareholder base toward the expected
+outcome (see the discussion after equation ( 13) above), and their combined
+supply of shares equals the blockholder’s demand. If MPV (y∗) = 0, then the
+23 The function σ (β) is equal to one everywhere, except for a small interval that shrinks to zero
+as γ →∞ . See Proposition 3 and Section III.L in the Internet Appendix for more details.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1340 The Journal of Finance ®
+shareholder with bias b∗ can be interpreted as the marginal trader who is
+indifferent between buying and selling shares at the equilibrium share price;
+in this scenario, all shareholders with a b higher (lower) than b∗ buy (sell)
+shares. Finally , the equilibrium stock price consists of two terms; we focus on
+this decomposition and its properties in the next section.
+IV . The Voting Premium
+This section presents our main results. We proceed in several steps. We
+ﬁrst deﬁne the voting premium in Section IV .Aand clarify its determinants
+in Section IV .B. In Section IV .C, we characterize the equilibrium properties of
+the voting premium. In Section IV .D, we discuss the novel implications about
+the voting premium that emerge from our analysis, and in Section IV .E,w e
+formally analyze several empirical measures of the voting premium.
+A. Deﬁning the Voting Premium
+We start by deﬁning the voting premium and relating it to MPV . Consider
+again the hypothetical scenario in which the voting rule is set exogenously at
+q∗ (y∗). Such a scenario may reﬂect cases in which trading does not reallocate
+voting rights, for example, as in trading of nonvoting shares, so that the
+median voter is unaffected. 24 Since the voting rule is exogenous in this hy-
+pothetical scenario, we have ∂(− q∗(y∗))
+∂y = 0, MPV (y∗) = 0, and the blockholder’s
+ﬁrst-order condition ( 19) reduces to MPC (y∗) = 0. A corollary of Proposition 2
+is that the share price in this scenario reﬂects the valuation of the shareholder
+with bias b∗, deﬁned by ( 23).
+COROLLARY 1: If the voting rule is set exogenously at q ∗ (y∗), the equilibrium
+share price is
+pCF
+(
+q∗(
+y∗))
+= v
+(
+b∗, q∗(
+y∗))
+. (25)
+Equation (25) can be interpreted as the price of a share without voting rights.
+We next deﬁne the voting premium as
+VP
+(
+y∗)
+≡ p∗ − pCF
+(
+q∗(
+y∗))
+, (26)
+that is, the difference between the share price ( 24) that arises when the vot-
+ing rule is determined endogenously by the post-trade shareholder base and
+the share price in the hypothetical scenario when the voting rule is set ex-
+ogenously at the same level q∗ (y∗). Proposition 2 and Corollary 1 imply that
+the voting premium is proportional to the blockholder’s marginal payoff from
+24 This hypothetical scenario also captures cases in which the company’s board and manage-
+ment have decision rights over the proposal and implement a decision rule q∗ (y∗) that is exogenous
+to the composition of the shareholder base.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1341
+buying voting rights,
+VP
+(
+y∗)
+= γσ(β)
+2γ + ηMPV
+(
+y∗)
+. (27)
+Hence, the voting premium reﬂects the additional component of the stock price
+that arises from the blockholder’s incentive to inﬂuence the voting outcome.
+There are two empirical counterparts of our deﬁnition of the voting premium,
+namely , the dual-class premium and the ex-record date price drop (see Sec-
+tion IV .Efor a more extensive discussion).
+B. Determinants of the Voting Premium
+To understand the determinants of the voting premium, we use ( 19)t o
+rewrite (27), as
+VP (y) = ∂(− q∗(y))
+∂y  
+×
+ability to move median voter
+⎡
+⎢⎢⎢⎣(α + y)∂v(β, q∗(y))
+∂(− q∗)  
+marginal beneﬁt of a vote
+− y ∂p∗(y)
+∂(− q∗)  
+price impact of a vote
+⎤
+⎥⎥⎥⎦
+  
+incentives to move median voter = ∂/Pi1(y)
+∂(− q∗(y))
+× γσ(β)
+2γ + η. (28)
+Thus, the voting premium can be decomposed into the blockholder’s ability to
+inﬂuence the identity of the median voter and his incentives to do so. The abil-
+ity of the blockholder to inﬂuence the median voter depends on how his trades
+y affect − q∗ (y). According to Proposition 1, there exists a threshold y such
+that if y ≥ y, then the blockholder is the median voter and the accumulation
+of additional shares does not change the decision rule. Therefore, if y ≥ y,t h e n
+∂(− q∗(y))
+∂y = 0 and the blockholder cannot change the voting outcome even if he
+had the incentives to do so. According to ( 28), the voting premium is then zero.
+Intuitively , since the blockholder’s trades have no impact on the voting out-
+come, he would not be willing to pay a premium for additional voting rights.
+Proposition 1 also shows that if y < y,t h e n∂(− q∗(y))
+∂y ̸= 0 and the blockholder’s
+trades change the identity of the median voter . In this case, the voting pre-
+mium also depends on the incentives of the blockholder to move the median
+voter . Based on (28), these incentives consist of two components. The ﬁrst com-
+ponent captures how a marginal change in the median voter affects the block-
+holder’s valuation of his post-trade stake in the ﬁrm, α + y, which we refer to
+as the marginal beneﬁt of a vote . From ( 6)a n d( 28),
+Marginal beneﬁt of a vote = (α + y)∂v(β, q∗(y))
+∂(− q∗) = (α+ y)
+(
+β + q∗(y)
+)
+f
+(
+q∗(y)
+)
+. (29)
+By buying additional shares, the blockholder moves the median voter − q∗ (y)
+closer to his own bias β (see Proposition 1), which increases the blockholder’s
+valuation of his stake. Thus, the marginal beneﬁt of a vote is always positive
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1342 The Journal of Finance ®
+because the blockholder always values a marginal vote for its impact on his
+own stake.25
+The second component captures how the incentives of the blockholder to
+move the median voter depend on the price impact of his trades. The market-
+clearing stock price is the reservation price at which small shareholders are
+willing to supply one additional share. From ( 17), the effect of a marginal
+change in the median voter − q∗ on the stock price is
+Price impact of a vote = ∂p∗(y)
+∂(− q∗) =
+(
+E
+[
+b
+]
++ q∗(y)
+)
+f
+(
+q∗(y)
+)
+. (30)
+The sign and magnitude of the price impact of a vote depend on whether the
+resulting change in the median voter beneﬁts or hurts small shareholders, that
+is, whether the distance between the bias of the average small shareholder ,
+E
+[
+b
+]
+, and the median voter , − q∗ (y), decreases or increases. We explore this
+issue further in Section IV .D.4.
+C. Properties of the Voting Premium
+The discussion in Section IV .Bhighlights that a key determinant of the vot-
+ing premium is the location of the median voter . The next result character-
+izes the equilibrium median voter and the voting premium as functions of the
+blockholder’s bias β.
+PROPOSITION 3: There exist cutoffs βL
+non-mv <β L
+mv <β H
+mv <β H
+non-mv, all in the
+interval
+(
+− ¯b, ¯b
+)
+, such that:
+(i) If β ∈ [βL
+mv,β H
+mv], then the median voter is the blockholder , the voting pre-
+mium is zero, and σ (β) = 1.
+(ii) If β>β H
+non-mv (β<β L
+non-mv), then the median voter is a small shareholder
+with a smaller (larger) bias toward the proposal than the blockholder ,
+that is, − q∗ (y∗) <β (− q∗ (y∗) >β ), the voting premium is strictly positive
+and increases (decreases) in β, and σ (β) = 1.
+There are two cases to consider . First, if the blockholder is moderate, β ∈
+[βL
+mv,β H
+mv], then he becomes the median voter himself (hence we use subscripts
+“mv” for these cutoffs) and does not need to trade aggressively to achieve this.
+Since the blockholder is the median voter , he cannot further move the median
+voter at the margin, and thus the equilibrium voting premium is zero. This ob-
+servation highlights that the voting premium does not reﬂect the blockholder’s
+voting power . Indeed, if the blockholder’s stake is large enough, he is likely to
+be the median voter , with an associated voting premium of zero.
+25 This discussion simpliﬁes by focusing on the case in which the blockholder is sufﬁciently ac-
+tivist, such that β> − q∗ (y) and (29) is positive. In the opposite case in which β< − q∗ (y) and (29)
+is negative, the derivative ∂(− q∗(y))
+∂y turns negative as well, so that the product of both expressions
+in ( 28) remains positive: The marginal beneﬁt of a vote is always positive. Hence, this simpliﬁca-
+tion is inconsequential.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1343
+Second, if the blockholder’s bias is extreme, β>β H
+non-mv (or β<β L
+non-mv), then
+the blockholder does not become the median voter (hence we use subscripts
+“non-mv” for these cutoffs), as this would require buying too many additional
+shares. The median voter is then a small shareholder with a smaller (larger)
+bias toward the proposal than the blockholder . Now the blockholder does have
+the ability to move the median voter , and he beneﬁts more from doing so the
+further he is from the median voter (see equation ( 29)). Accordingly , the net
+marginal payoff from an additional voting right, and hence the voting pre-
+mium, is positive and increases as β becomes more extreme. Importantly , even
+though the blockholder’s marginal beneﬁt of a vote is positive in equilibrium,
+he refrains from buying more voting shares because he also considers the cost
+from his own price impact.
+Proposition 3 does not characterize the voting premium and the median
+voter if β ∈ [βL
+non-mv,β L
+mv )o r β ∈ (βH
+mv,β H
+non-mv ]. In these regions, the median
+voter can switch back and forth between the blockholder and small sharehold-
+ers. In Proposition 5, we provide a partial characterization and show that the
+voting premium can be negative in the interval [ βL
+non-mv,β L
+mv ).
+D. Implications
+In this section, we discuss the key implications of our analysis of the vot-
+ing premium.
+D.1. Voting Premium Versus Total Value of Voting Rights
+Our analysis highlights that the voting premium is likely to underestimate
+the overall value of voting rights. A zero voting premium does not imply that
+the blockholder does not value voting rights, or that he would not beneﬁt from
+further inﬂuencing the voting outcome. Indeed, the incentives to move the
+median voter , captured by ∂/Pi1(y)
+∂(− q∗) , will generally differ from zero even if the
+blockholder is already the median voter .26 Instead, a zero voting premium only
+implies that the blockholder cannot inﬂuence the position of the median voter
+through additional trades.
+Furthermore, the blockholder’s overall beneﬁts from accumulating voting
+rights can be positive even if his marginal beneﬁts are zero, because these
+marginal beneﬁts are evaluated at the blockholder’s equilibrium trade y∗.B y
+contrast, the overall beneﬁts from owning voting rights also come from the
+blockholder’s inframarginal trades. These inframarginal trades affect the vot-
+ing outcome ( q∗(y∗) ̸= q∗(0)) even if the equilibrium voting premium is zero.
+Hence, empirical measures of the voting premium that measure the value of
+26 To see this, note from ( 28)t o( 30)t h a ti f− q∗ (y) = β,t h e n ∂/Pi1(y)
+∂(− q∗) = y
+(
+β − E
+[
+b
+])
+f (−β),w h i c h
+generally differs from zero. Intuitively , by changing the median voter further , the blockholder
+affects his gains from trade with small shareholders since the effect of the median voter on their
+valuations differs from the effect of the median voter on his own valuation (see Section IV .D.4for
+a more in-depth discussion).
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1344 The Journal of Finance ®
+a marginal vote, such as the dual-class premium or the ex-record date price
+drop, are likely to underestimate the overall value of voting rights.
+D.2. Direct Versus Indirect Inﬂuence on the Voting Outcome
+The voting premium emerges because the blockholder pays for his inﬂu-
+ence on the voting outcome by affecting the composition of the shareholder
+base. This inﬂuence results not only directly from the increased weight of
+the blockholder in the shareholder base, but also indirectly , because he buys
+disproportionally more shares from those small shareholders whose prefer-
+ences are furthest from his own. This reduces the weight of shareholders who
+are least aligned with him, so the indirect effect ampliﬁes the impact of the
+blockholder on the voting outcome. Accordingly , the blockholder does not pay a
+voting premium for being directly in control of the voting outcome. Instead, he
+pays the voting premium for inﬂuencing the identity of the shareholder who is
+the median voter , and this inﬂuence comes from the direct and indirect effects
+noted above.
+As such, the voting premium is generally unrelated, or can even be nega-
+tively related, to measures of voting power . If the blockholder’s voting power
+is large, he is the median voter himself, so the voting premium is zero. In
+contrast, if the blockholder’s voting power is small, his marginal payoff from
+moving the median voter is strictly positive. He thus has both the ability
+to move the median voter and, under the conditions of Proposition 3(ii), the
+incentives to do so. Accordingly , the voting premium is positive as well.
+D.3. Conﬂicts of Interest and the Voting Premium
+Divergence Between the Blockholder and Small Shareholders: The literature
+often relates the voting premium to conﬂicts between blockholders and mi-
+nority shareholders. The idea is that a higher voting premium may indicate a
+lower payoff of minority shareholders, since the blockholder exploits his voting
+power to extract private beneﬁts and advance his own agenda at the expense
+of others. This section shows that this intuition is not always correct. 27
+We start by deﬁning the aggregate equilibrium payoff of small shareholders
+as
+W∗ ≡
+∫ b
+− b
+u∗(
+b
+)
+g
+(
+b
+)
+db, (31)
+where u∗(
+b
+)
+is the expected payoff of a small shareholder with bias b,
+u∗(
+b
+)
+=
+(
+1 − α + x∗(
+b
+))
+v
+(
+b, q∗(
+y∗))
+− x∗(
+b
+)
+p∗ − γ
+2 x∗(
+b
+)2
+, (32)
+27 A related observation regarding the suitability of the block premium for estimating private
+beneﬁts emanates from the analysis in Burkart, Gromb, and Panunzi ( 2000), Nicodano and Sem-
+benelli ( 2004), and Albuquerque and Schroth ( 2010). However , the mechanisms in these papers
+are different from ours.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1345
+Figure 3. Small shareholders’ welfare and voting premium move in the same direction .
+and x∗(
+b
+)
+, q∗ (y∗),a n d p∗ are deﬁned in Proposition 2. From ( 5), (22), and ( 24),
+W∗ can be rewritten as
+W∗ = (1 − α)v
+(
+E
+[
+b
+]
+, q∗)
++ 1
+2γ E
+[(
+v
+(
+b, q∗)
+− p∗)2]
+. (33)
+The ﬁrst term in ( 33) is small shareholders’ aggregate payoff from their en-
+dowment, which increases if the median voter ( − q∗) moves closer to the aver-
+age small shareholder , E
+[
+b
+]
+. 28 The second term reﬂects the aggregate trading
+proﬁts of small shareholders, from trades both among themselves and with
+the blockholder .
+Our main result in this section shows that a larger voting premium does
+not necessarily indicate a greater conﬂict between the blockholder and small
+shareholders.
+PROPOSITION 4: If
+G− 1
+( 1 − τ
+1 − α
+)
+< E
+[
+b
+]
+<β , (34)
+then both W ∗ and the voting premium strictly increase in β.
+The intuition is illustrated in Figure 3. Condition ( 34) implies that β is high
+enough, so that the median voter is a small shareholder who is less activist
+than the blockholder . 29 Then, as β increases and the blockholder becomes
+even more activist, his incentives to change the median voter become stronger ,
+which increases the voting premium from Proposition 3. However , the payoff
+W∗ of small shareholders increases at the same time. To see why , note that
+absent trading, G− 1 ( 1−τ
+1−α ) is the median voter , so condition G− 1 ( 1−τ
+1−α ) < E
+[
+b
+]
+implies that the median voter is less activist than the average small share-
+holder prior to trading. If γ is large enough, the same relationship also holds
+after trading, as shown in Figure 3. Then, the trades of a more activist
+blockholder make the median voter more activist, which moves the median
+voter closer to the average of the small shareholders, thereby increasing their
+28 Formally , ∂v(E[b],q∗)
+∂(− q∗) =
+(
+E
+[
+b
+]
++ q∗)
+f (q∗),s o v
+(
+E
+[
+b
+]
+, q∗)
+is maximized when the median
+voter’s bias is E
+[
+b
+]
+.
+29 In particular , as we show in the Appendix,( 34) implies that β>β H
+non-mv as deﬁned in Propo-
+sition 3.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1346 The Journal of Finance ®
+payoff.30 As a result, the aggregate payoff of small shareholders and the voting
+premium move in the same direction.
+Two scenarios can lead to condition ( 34) and the situation described in
+Figure 3. First, suppose that there is a simple majority requirement but the
+distribution of small shareholders’ preferences is right-skewed. This means
+that more activist small shareholders favor the proposal much more strongly
+than their less activist peers. The median voter does not reﬂect this asymmet-
+ric intensity of preferences and is less activist than the average small share-
+holder , but the intensity of preferences is relevant for shareholders’ aggregate
+payoff W∗, which is based on the average and not the median payoff. Second,
+suppose that the distribution of preferences is symmetric, but the proposal is
+subject to a supermajority requirement ( τ> 0.5). The supermajority require-
+ment introduces a conservative bias into the voting process and thereby re-
+duces the bias of the median voter relative to the average shareholder .
+In both scenarios, the voting rule is too conservative from the perspective
+of an average small shareholder: The median voter in Figure 3 is to the left
+of the average small shareholder . A more activist blockholder then becomes a
+countervailing force against this conservative bias and increases the aggregate
+payoff of small shareholders. Notably , this happens even though the distance
+between the blockholder and the average small shareholder increases with
+β. Hence, what ultimately matters for small shareholders is not whether the
+blockholder is closer to them, but whether he moves the median voter closer
+to them.
+Divergence among Small Shareholders: A positive voting premium emerges in
+our setting only if the blockholder is able to move the median voter . The next
+result shows that this can happen only if there is some heterogeneity among
+small shareholders.
+COROLLARY 2: Suppose that all small shareholders have the same bias b,
+which differs from that of the blockholder , b ̸= β. Then the voting premium
+is zero.
+The situation described in Corollary 2 could arise in a setting in which all
+small shareholders have the same valuation of cash ﬂows and the blockholder
+can reduce these cash ﬂows by diluting the assets of the ﬁrm if the proposal
+is accepted. Then all small shareholders have the same b and b <β ,s i n c e
+the blockholder beneﬁts more from the proposal. This scenario, as well as the
+opposite case with b >β , are discussed in more detail in Sections II.C and II.D
+of the Internet Appendix. The key point is that in our setting, the blockholder
+does not acquire majority control. If small shareholders are homogeneous,
+the median voter is always a small shareholder and the blockholder does not
+have the ability to change his bias. Corollary 2 has an important empirical
+implication: Any aspect of shareholder preferences that is common to all small
+30 This discussion abstracts from the welfare effects of trading proﬁts (the second term in ( 33)).
+The condition E
+[
+b
+]
+<β in ( 34) guarantees that the trading proﬁts of small shareholders also in-
+crease in β.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1347
+shareholders and only creates a conﬂict between them and the blockholder
+(e.g., monitoring, private control beneﬁts) is unlikely to lead to a voting pre-
+mium. By contrast, other aspects of preferences (e.g., environmental and social
+ideologies or tax status), which differ across small shareholders, also give rise
+to a voting premium.
+In Section III.B of the Internet Appendix , we generalize Corollary 2 and
+provide sufﬁcient conditions under which the voting premium rises as small
+shareholders become more heterogeneous. Intuitively , greater heterogeneity
+increases the impact of blockholder trades on the median voter . In addition,
+greater heterogeneity makes the median voter more moderate and moves him
+further from the biased blockholder , which strengthens the blockholder’s in-
+centive to move the median voter . Together , these two forces—increased ability
+and incentives to change the median voter—raise the voting premium.
+D.4. Liquidity of Voting versus Nonvoting Shares
+Price impact is often used as a measure of liquidity . Liquidity measured in
+this way is endogenous in our setting and arises because voting rights are bun-
+dled with cash ﬂow rights in voting shares. Recall that the value of a nonvoting
+share in our model is given by ( 25), which assumes that the decision is exoge-
+nous so that trades cannot move the median voter , that is, ∂(− q∗)
+∂y = 0. To see
+how voting rights affect liquidity , note from ( 17) that the total price impact of
+the blockholder’s trade in a voting share is
+dp∗
+dy = γ + ∂p∗
+∂(− q∗)
+∂(− q∗(y))
+∂y = γ +
+(
+E
+[
+b
+]
++ q∗)
+f
+(
+q∗)
+  
+price impact of a vote
+∂(− q∗(y))
+∂y . (35)
+The ﬁrst term, γ, reﬂects small shareholders’ trading costs and would be
+present even for nonvoting shares. The second term reﬂects the indirect effect
+through the inﬂuence of the blockholder’s trades on the median voter , − q∗ (y),
+and is proportional to the price impact of a vote in equation ( 30). The sign
+of the indirect effect depends on whether the resulting change in the median
+voter beneﬁts or hurts small shareholders.
+If the blockholder’s and the average small shareholder’s interests are aligned
+(e.g., − q∗ (y∗) < min{β, E
+[
+b
+]
+},a si nF i g u r e 3), then the blockholder’s trades
+move the median voter in the direction preferred by both (see Section IV .D.3for
+a discussion of two scenarios in which this can occur). This increases the price
+at which small shareholders supply additional shares; accordingly , the price
+impact of a vote ( 30) is positive. As a result, the liquidity of a voting share is
+smaller compared to that of a nonvoting share. Essentially , small shareholders
+free-ride on the blockholder’s trades.
+By contrast, if the blockholder’s and small shareholders’ interests are in
+conﬂict (e.g., E
+[
+b
+]
+< − q∗ (y∗) <β ), then the blockholder’s trades move the
+median voter away from small shareholders. This hurts small shareholders
+and reduces the price at which they are willing to supply shares, so the price
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1348 The Journal of Finance ®
+impact of a vote is negative. Accordingly , the supply function is ﬂatter , and the
+liquidity of a voting share is now greater than that of a nonvoting share.
+D.5. Price Impact and the Sign of the Voting Premium
+Based on the decomposition of the voting premium in ( 28), the incentive part
+of the voting premium is a combination of the marginal beneﬁt of a vote ( 29)
+and the price impact of a vote ( 30). Hence, the voting premium is positive only
+if moving the median voter increases the value of the blockholder’s stake by
+more than it increases the costs of his trades. This argument has important
+implications for the sign of the voting premium.
+Conﬂict and a Positive Voting Premium: If the blockholder’s trades move the
+median voter in the direction that hurts small shareholders, the voting pre-
+mium is positive. This is because in this case, moving the median voter toward
+the blockholder not only increases the value of the blockholder’s stake, but also
+reduces the price he has to pay to small shareholders for their shares. Inter-
+estingly , this also implies that the voting rights embedded in the shares have
+opposite effects on the price of the shares and the price impact of trades: The
+embedded voting rights increase the share price but decrease the price impact
+of trades.
+Free-Riding and a Negative Voting Premium: If the blockholder’s trades move
+the median voter in the direction that beneﬁts small shareholders, small share-
+holders free-ride on the blockholder’s trades and increase the price at which
+they are willing to sell shares. As a result, the blockholder’s incentives to move
+the median voter ( 28), and hence the voting premium, decrease. Proposition 3
+s h o w st h a ti fβ<β L
+non-mv or β>β H
+non-mv, this force is not strong enough to pre-
+vent a positive voting premium. Intuitively , if the blockholder’s bias is extreme,
+then moving the median voter in his preferred direction, and thus the marginal
+beneﬁt of a vote, is signiﬁcantly more important for him than price impact con-
+siderations. However , if the blockholder’s bias is not extreme, a negative voting
+premium can arise.
+PROPOSITION 5: There exist cutoffs βneg and βneg, satisfying βL
+non-mv <β neg <
+βneg <β L
+mv, such that if
+E
+[
+b
+]
+< G− 1 (1 − τ
+1 − α ) and β ∈ (βneg,βneg ), (36)
+then the blockholder buys shares (y ∗ > 0) and the voting premium is strictly
+negative: p∗ < pCF (q∗ (y∗)) in (26).
+The intuition is illustrated in Figure 4. The ﬁrst condition in ( 36), E
+[
+b
+]
+<
+G− 1 (1 − τ
+1−α ), ensures that for large enough γ, the average small shareholder
+is less activist than the median voter . The second condition, β ∈ (βneg,βneg ),
+guarantees that the blockholder is more activist than the average small share-
+holder but less activist than the median voter , as in Figure 4. For example,
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1349
+Figure 4. Negative voting premium.
+such a situation can occur if the blockholder is more reluctant to support a
+certain management proposal than a typical small shareholder , but a fraction
+of small shareholders are very strongly opposed to the proposal, even more
+strongly than the blockholder himself (i.e., the distribution of small sharehold-
+ers’ preferences is left-skewed). In this scenario, purchases of the blockholder
+make the median voter less activist and closer to his own preferences. However ,
+since small shareholders are on average even less activist than the blockholder ,
+they beneﬁt even more from this change in the median voter than the block-
+holder himself. Thus, the change in the median voter affects the valuation of
+small shareholders and in turn the stock price more than it affects the val-
+uation of the blockholder . Hence, the trading proﬁts for the blockholder from
+buying shares are negative, since the price at which he buys increases by more
+than his own valuation. This negative effect on the blockholder’s trading proﬁts
+dominates the positive beneﬁts from an increased valuation of his endowment
+α as long as α is not too large. (Note that the ﬁrst condition in ( 36) implies
+an upper bound on α.) As a result, the blockholder buys fewer shares than he
+would if he could buy cash ﬂow rights separately , without the attached vot-
+ing rights. Thus, free-riding by small shareholders results in a negative voting
+premium.31
+The negative voting premium is directly related to the differential liquidity
+of voting and nonvoting shares discussed in Section IV .D.4. If the price impact
+of trading voting shares is much stronger than the price impact of trading non-
+voting shares (the second term in ( 35) is large), then the blockholder’s demand
+for voting shares can be smaller than his demand for nonvoting shares, even
+though he values the voting rights per se. This results in a negative premium
+on the price of voting shares, that is, in some sense, an illiquidity discount from
+the attached voting rights.
+E. Measurement
+In this section, we relate our model to three methods used to measure the
+value of voting rights in the empirical literature: the dual-class share pre-
+mium, the ex-record date price drop, and the value of separately traded votes.
+31 Proposition IA.3 in the Internet Appendix shows that a negative voting premium can also
+emerge when the blockholder has no endowment, α = 0. Intuitively , if α = 0, the blockholder’s
+marginal beneﬁt of a vote is also small (see ( 29)), so the price impact considerations can dominate
+and result in a negative voting premium.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1350 The Journal of Finance ®
+Dual-Class Share Premium: The empirical literature commonly measures the
+voting premium using ﬁrms with a dual-class share structure, by comparing
+the price of a share with superior voting rights to the price of a share with
+inferior voting rights (e.g., Zingales ( 1995) and Nenova ( 2003)). Our deﬁnition
+of the voting premium is more general and applies to ﬁrms with only one class
+of shares, but it is closely related to the dual-class premium. To see this, we
+develop an extension with voting and nonvoting shares in Section IV .Aof the
+Internet Appendix . There, we show that the model gives rise to a dual-class
+premium,
+p∗
+voting − p∗
+nonvoting = γσ(β)
+2γ + ηMPV
+(
+y∗, ˆy∗)
+, (37)
+where ˆy∗ is the blockholder’s equilibrium trade of nonvoting shares and
+MPV (y, ˆy) is the analog of MPV (y).32 Note that the dual-class premium ( 37)
+parallels ( 27) for the baseline model. It has the same structure, can be de-
+composed into the same components, and therefore has the same properties
+as the voting premium with a single class of shares. Our analysis also implies
+that whenever the dual-class premium is positive (negative), small sharehold-
+ers have a larger (smaller) demand for nonvoting shares than for more (less)
+expensive voting shares. Moreover , ( 37) shows that the dual-class premium
+exists only if there are trading frictions ( γ> 0). Such limits to arbitrage are
+necessary for a voting premium to emerge.
+Note also that the dual-class voting premium depends on ˆy∗, the trading
+volume in the market for nonvoting shares. This spillover effect is absent in the
+model with only a single class of shares. Intuitively , the blockholder’s position
+in nonvoting shares gives him additional incentives to affect the value of the
+voting shares by shifting the median voter . Moreover , this shift changes small
+shareholders’ valuations and thus the price that the blockholder has to pay for
+both voting and nonvoting shares.
+Ex-Record Date Price Drop: Our baseline model is static, featuring only one
+round of trade prior to the record date. In Section IV .B.1of the Internet Ap-
+pendix, we show that our results hold in a dynamic setting with a second round
+of trade that occurs after the record date and before the realization of the pub-
+lic signal. The difference in the share price between the two rounds of trade
+can be interpreted as the ex-record date price drop used to measure the value
+of voting rights (e.g., Fos and Holderness ( 2023))—in both rounds, the expected
+vote outcome is the same, but trading after the record date no longer reallo-
+cates voting rights across shareholders. The difference between the two share
+prices then becomes
+p∗
+pre− record − p∗
+post− record = γ ˆσ(β)
+2γ + η
+ˆMPV
+(
+y∗
+pre
+)
+, (38)
+32 The expression for MPV (y, ˆy) is given by (IA.66) in the Internet Appendix, which shows that
+it is analogous to expression ( 28)f o r MPV (y) in the baseline model.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1351
+where y∗
+pre is the blockholder’s trade pre-record date. Hence, the ex-record date
+price drop ( 38) captures the voting premium ( 27) from the baseline model and
+ˆMPV
+(
+y∗
+pre
+)
+is the analog of MPV (y∗).33 As in ( 28), the voting premium can
+be decomposed into the blockholder’s ability and incentives to move the me-
+dian voter , where the incentives component reﬂects both the marginal ben-
+eﬁt and the price impact of a vote. However , the incentives component now
+also includes the effect of the median voter on the expected gains from post-
+record date trading. This effect is absent from the baseline model and raises the
+voting premium if aligning the median voter more closely with the blockholder
+increases post-record date disagreement among shareholders, thereby enhanc-
+ing gains from trade. 34
+Prior literature concludes that post-record-date trading affects voting out-
+comes by changing investors’ voting incentives (e.g., by altering their economic
+exposure, as in Brav and Mathews ( 2011)). In our model, it affects voting
+outcomes through a novel channel: Concerns about post-record-date trading
+proﬁts change the blockholder’s incentives to accumulate voting power , thereby
+reshaping the composition of the shareholder base eligible to participate in
+the vote.
+In Section IV .B.2 of the Internet Appendix , we show that the same con-
+clusions apply if post-record date trading occurs after the public signal q
+is revealed. In this latter case, trading volume and share prices are more
+volatile, since they incorporate the newly revealed information. Importantly ,
+the public signal reveals information not only about ﬁrm value conditional on
+the vote outcome, but also about the vote outcome itself, and thus it affects
+how investors trade. Speciﬁcally , trading activity is larger and varies more
+across investors when the expected vote outcome based on the newly revealed
+information induces more disagreement among investors. If one interprets the
+public signal as a proxy advisor’s recommendation, this predicts higher aggre-
+gate trading volume when the proxy advisor supports an activist’s proposal.
+Vote Trading: In our baseline model and in the extensions to dual-class shares
+and post-record date trading, voting rights are bundled with cash ﬂow rights.
+In practice, votes can be traded separately from cash ﬂow rights, for example,
+through share lending. In Section IV .Cof the Internet Appendix , we extend
+the model by adding a separate market for voting rights. The price of a vote
+is zero in this setting, since small shareholders are never pivotal for the
+voting outcome and thus willing to supply their votes for an arbitrarily small
+price. However , the voting premium can still be strictly positive as long as the
+blockholder’s ability to accumulate voting power through the market for votes
+is limited. Thus, the price of a separately traded vote is conceptually different
+from the voting premium for a share in which cash ﬂow and voting rights are
+33 The expression for ˆMPV (y) is given by (IA.72) in the Internet Appendix , showing that it is
+analogous to expression ( 28)f o r MPV (y) in the baseline model.
+34 In our model, disagreement among shareholders is larger when the activist’s proposal is ap-
+proved.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1352 The Journal of Finance ®
+bundled. This is so because small heterogeneous shareholders value only cash
+ﬂow rights, and the bundling gives rise to an upward-sloping supply function.
+V . Extensions
+In this section, we discuss several extensions of the baseline model.
+Trading after the Vote: In Section IV .B.3of the Internet Appendix ,w ea n a -
+lyze a dynamic trading extension where the ﬁrst round of trade occurs before
+the record date, as in the baseline model, and the second round occurs after
+the vote. This extension shares many features of the setting described in Sec-
+tion IV .E, where the second round of trade occurs after the record date but
+before the vote. In particular , the voting premium can be decomposed similarly
+to the baseline model, supporting our key insights. However , it also reveals
+several new insights. First, if the proposal is approved, shareholders who like
+(dislike) it are more likely to buy (sell) shares, consistent with Li, Maug, and
+Schwartz-Ziv (2022), who ﬁnd that mutual funds reduce their holdings if their
+votes opposed the voting outcome. Second, the possibility of trade after the
+vote affects voting incentives: Investors tend to vote in favor of outcomes that
+boost their post-vote trading proﬁts. This force is related to that in Meirowitz
+and Pi ( 2022), where post-vote trading changes investors’ voting incentives,
+but occurs through a different mechanism—heterogeneous preferences, as op-
+posed to private information. Interestingly , the possibility of post-vote trading
+implies that even investors who dislike the proposal may nevertheless support
+it, anticipating proﬁts from selling their shares at a premium to investors who
+like the proposal. This distortion in voting incentives depends on investors’
+pre-vote holdings, which in turn are inﬂuenced by trading prior to the vote.
+Thus, the blockholder’s ability to shift the median voter through his trades is
+now affected by this new distortion, adding a new aspect to the decomposition
+of the voting premium and complementing the results in the baseline model.
+Multiple Blockholders: Section IV .Dof the Internet Appendix generalizes our
+model to the case with multiple blockholders. It shows that the voting premium
+can be decomposed in exactly the same way as in our baseline model, and there-
+fore our main conclusions extend to this setting as well. Moreover , the magni-
+tude of the voting premium depends on whether the blockholders’ preferences
+are aligned or not. If blockholders are sufﬁciently heterogeneous, their trades
+pull the median voter in opposite directions. Then, as the blockholders’ biases
+become more extreme, each blockholder tries harder to gain inﬂuence over the
+voting outcome, which results in a higher voting premium. In contrast, if the
+blockholders are homogeneous, Cournot competition between them drives up
+the share price and reduces their incentives to build up large stakes (e.g., Kyle
+(1989) and Edmans and Manso ( 2011)). With small stakes, blockholders can
+still inﬂuence the identity of the median voter , but no blockholder has incen-
+tives to do so in equilibrium. For this reason, the voting premium vanishes if
+blockholders are homogeneous and their number becomes sufﬁciently large.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1353
+Proxy Advisors: Small institutions often follow proxy advisors’ recommenda-
+tions. This aspect is not necessarily in conﬂict with the assumption that they
+vote based on their own beliefs or preferences. In recent years, the role of proxy
+advisors has evolved from providing benchmark recommendations, which are
+identical for all shareholders, to custom recommendations tailored to individ-
+ual shareholders’ views. 35 For example, according to Hu, Malenko, and Zyt-
+nick ( 2025), 80% of Glass Lewis’ fund clients receive customized advice. The
+strategy of voting according to ( 4) can be interpreted as following such cus-
+tom recommendations: We can conceptualize the proxy advisor as produc-
+ing signal q and combining it with the client’s ideology b to form a custom
+recommendation—vote for if b + q ≥ 0.
+In Section IV .Eof the Internet Appendix , we explore an extension with two
+groups of shareholders: one voting as in the baseline model, and the other
+inﬂuenced by the proxy advisor’s benchmark recommendation, which depends
+on the proxy advisor’s ideology bPA. While our main conclusions hold, the
+proxy advisor’s presence has interesting implications for vote dynamics. The
+key determinant of whether the proxy advisor’s presence beneﬁts or hurts the
+blockholder is not the proximity of their ideologies (i.e.,
+⏐⏐bPA − β
+⏐⏐), but rather
+the ﬁrm’s ownership structure—speciﬁcally , whether the median voter’s ideol-
+ogy lies between that of the proxy advisor and the blockholder , or whether the
+median voter is more (or less) activist than both. The accumulation of shares by
+the blockholder not only makes him more inﬂuential, but can also change the
+effective inﬂuence of the proxy advisor by moving the median voter . The proxy
+advisor’s presence also impacts the voting premium, for example, if the advisor
+coordinates the small shareholders. If a fraction of shareholders blindly follow
+the proxy advisor , then the voting premium can be zero even if the blockholder
+is not the median voter—this happens when the blockholder trades up to the
+point where the proxy advisor becomes the median voter . Generally , the proxy
+advisor’s inﬂuence has an ambiguous effect on the voting premium, as it can
+affect the marginal beneﬁt and price impact of a vote in the same direction.
+Passive Shareholders: The baseline model assumes that all shareholders
+trade. In Section IV .Fin the Internet Appendix, we consider the case in which
+only a fraction of small shareholders trade, whereas the other small share-
+holders are passive investors who vote but do not trade. If passive and ac-
+tively trading investors have the same distribution of preferences, the only
+effect of passive investors is to increase the blockholder’s trading costs, since
+fewer shareholders are willing to trade with the blockholder , reducing liquidity .
+However , if the preferences of passive and actively trading shareholders differ ,
+there is an additional force. As in the baseline model, the blockholder’s trades
+affect the composition of the shareholder base both directly (by changing his
+own weight) and indirectly (by changing the composition of small sharehold-
+ers). But unlike the baseline model, where these two effects always align, they
+35 ISS, Institutional Shareholder Services, 2023, Testimony of Steven Friedman, general coun-
+sel at ISS, available at https://corpgov .law .harvard.edu/2023/07/19/testimony-at-the-committee-
+on-ﬁnancial-servicess-hearing-oversight-of-the-proxy-advisory-industry/ .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1354 The Journal of Finance ®
+can have opposite signs when some investors are passive. For example, if the
+blockholder is more activist than the actively trading shareholders, and these
+are in turn more activist than the passive investors, then the blockholder’s
+purchases from the active traders make the average small shareholder more
+conservative. This indirect effect mitigates the direct effect; however , it can
+never overturn it.
+We also show that if some or all of the passive shareholders are block-
+holders, there are more situations in which the voting premium is zero. The
+reason is that passive blockholders with moderate preferences may become
+median voters, so that a small trade by the active blockholder cannot move the
+median voter anymore. Generally , we should expect that a more concentrated
+ownership base with moderate blockholders, either active or passive, leads to
+more situations in which the voting premium is zero.
+Uncertainty About Biases: In the baseline model, the blockholder knows the
+distribution G of small shareholders’ biases. In practice, small institutional in-
+vestors and individual shareholders do not need to disclose their holdings, so
+their preferences may be unknown. In Section IV .Hof the Internet Appendix ,
+we consider an extension in which the distribution of small shareholders’ bi-
+ases depends on an unknown state and thus the blockholder cannot predict
+exactly how much he needs to buy to become the median voter . The main im-
+plication is that when there is such uncertainty , it is less likely that the voting
+premium is exactly zero.
+Inﬂuencing Management: Blockholders can exert inﬂuence through channels
+other than voting if they can inﬂuence management. In Section IV .Hof the In-
+ternet Appendix , we analyze a version of the model in which decisions are
+made by management rather than by a vote, and management puts some
+weight on the welfare of post-trade shareholders. The blockholder’s trades then
+inﬂuence decisions by changing the shareholder base and in turn the choices
+of management. The decision rule can again be described by the preferences
+of a speciﬁc representative shareholder , whose identity moves with the block-
+holder’s trades. This gives rise to a premium in the share price that can be
+decomposed in the same way as the voting premium in the baseline model and
+has similar properties. Hence, many of our implications extend to settings in
+which voting rights have an indirect inﬂuence on corporate outcomes.
+Shareholder Participation: We assume that small shareholders participate
+in the vote despite their low probability of inﬂuencing the outcome. This
+assumption aligns with observed practices of small institutional investors (see
+footnote 15), who rarely abstain due to regulatory pressure (e.g., SEC Release
+No. IA-5325 and Brav , Cain, and Zytnick ( 2022) ) .I tm a yn o tb ee n t i r e l y
+realistic to assume that retail investors always participate in the vote (Brav ,
+Cain, and Zytnick ( 2022)). Rather , we expect retail investors with stronger
+opinions about the proposal (i.e., larger
+⏐⏐b
+⏐⏐) to participate with a higher prob-
+ability (Zachariadis, Cvijanovic, and Groen-Xu ( 2020)). In Section IV .Iof the
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1355
+Table I
+Empirical Estimates of the Voting Premium
+The table summarizes the results of 40 studies, described in Tables IA.I and IA.II in Section I of
+the Internet Appendix, which together employ six methodologies to estimate the voting premium.
+We ﬁrst take the average estimate of the voting premium for each study and then calculate the
+averages, medians, minimums, and maximums of these estimates across all studies using a given
+methodology . We report these numbers (in percent of the stock price) in columns Avg., Median,
+Min, and Max, respectively . Of the seven studies that present evidence on dual-class tender offers
+(Table IA.II), this table uses only the ﬁve studies that report at least one dual-class tender offer in
+their sample (two others report zero tender offers in their samples). Several studies report results
+on more than one method, so the number of studies (# studies) sums to more than 40. The last
+column (# with neg.) reports the number of studies within each methodology that document a
+negative voting premium for at least some ﬁrms in their sample.
+Methodology Avg. Median Min Max # Studies # with Neg.
+Dual-class shares 22.68 13.58 4.07 81.50 23 18
+Block trades 20.27 16.81 6.79 46.96 6 4
+Dual-class tender offers 42.16 26.59 12.27 130.7 5 0
+Option replication 0.20 0.16 0.09 0.37 5 5
+Equity lending 0.02 0.02 0.01 0.02 3 0
+Record-day trading 0.75 0.75 0.09 1.40 2 0
+Internet Appendix , we illustrate how such selective participation can be
+incorporated into our analysis without affecting our conclusions.
+VI. Empirical Implications
+In this section, we shed more light on the empirical discussion of the voting
+premium by exploring the implications of our model, and we locate the model
+in the context of the empirical literature. Based on our review of 40 empirical
+studies that cover data from a broad range of countries between 1940 and 2018,
+the literature employs six distinct strategies to estimate the value of a vote.
+We summarize these six strategies in Table I. We describe the 40 empirical
+studies that we review in more detail in Tables IA.I and IA.II of the Internet
+Appendix (we do not attempt a systematic survey here, but instead focus on
+key patterns that emerge from these studies). 36
+The most salient feature of the estimates in Table I is their divergence, both
+across methodologies and within-methodology . We next discuss why estimates
+of the voting premium may vary across methodologies (Section VI.A) and ﬁrms
+(Section VI.B).
+A. Methodological Differences across Studies
+Our model offers several ways to interpret the differences in estimates across
+methodologies. Our comparison is only suggestive, since the samples differ
+across studies.
+36 For surveys of this literature, see Rydqvist ( 1992) on earlier studies on dual-class shares and
+Dittmann (2004), Adams and Ferreira ( 2008), and Kind and Poltera ( 2013) for more recent work.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1356 The Journal of Finance ®
+Marginal Values versus Block Values: The methods based on the dual-class
+share premium, option replication, equity lending, and record-day trading all
+measure the value of a marginal vote. In contrast, in block trades and dual-
+class tender offers, blockholders purchase an entire block of shares, which is
+related to the average value of a vote. Based on our theoretical argument, we
+expect this average value to be larger . To see this and relate the estimates in
+Table I to our model, let pB be the price paid for the average voting share,
+in either a block trade or a tender offer . Then the block premium can be ex-
+pressed as pB − p∗, the difference between the price in an entire block of vot-
+ing shares, which reﬂects their average valuation, and the price of a marginal
+voting share. 37 The average block premium is 20.27%, which shows that the
+difference between the average and marginal values of a vote is substantial.
+By contrast, the dual-class premium is p∗ − pCF in our notation, the differ-
+ence between the price of a marginal voting share and the price of a marginal
+nonvoting share in the stock market. Note that our model does not predict any
+relationship between the dual-class premium and the block premium. Finally ,
+the dual-class tender-offer premium is pB − pCF , the difference between the
+price for an average voting share and the price of a nonvoting share . Table I
+shows that the dual-class tender-offer premium (42.16%) signiﬁcantly exceeds
+the dual-class premium (22.68%). This is consistent with our framework, as
+the latter is the premium only for a marginal vote, whereas the former also
+includes the additional value if shares are purchased in a block. Our model
+therefore helps clarify the conceptual differences between methods to measure
+the voting premium, and in turn improves our understanding of systematic
+differences in the estimates.
+Separate versus Joint Trading of Cash Flow and Voting Rights: Another
+important difference between the methodologies is whether they estimate the
+price of the vote that is traded separately , as in the equity lending market, or
+the price of the vote that is traded in conjunction with cash ﬂow rights, as in
+the estimates derived from comparing the price of a stock with superior voting
+rights to the price of a stock with inferior (or no) voting rights. Our analysis
+emphasizes that estimates from these methodologies could be very different.
+Indeed, our extension to a separate market for votes shows that the premium
+on the price of voting shares could be strictly positive even if the price of a
+separately traded vote is zero, consistent with the equity lending methodology
+producing the smallest estimates.
+Capitalized Voting Premiums: Table I shows that studies using dual-class
+shares, dual-class tender offers, and block trades obtain much larger estimates
+than studies using the three other methods. We attribute this at least in part
+to the fact that the ﬁrst three methods capitalize the value of voting rights
+over longer time horizons, which span potentially inﬁnitely many future
+37 We ignore the fact that empirical studies express premiums as percentages by normalizing
+them by the share price. This difference is inconsequential for our qualitative assessment.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1357
+shareholder meetings, while the three other methods estimate the value of
+voting rights over a period of one year or less.
+B. The Cross-Sectional Variation in the Voting Premium
+Negative Values of the Voting Premium: Of the 40 studies we review , no less
+than 27 provide evidence of a negative voting premium for some ﬁrms in their
+sample (see Table I and Table IA.I in the Internet Appendix for details). Many
+researchers note that these ﬁndings are puzzling, since they are difﬁcult to
+interpret in the context of extant theories. Empirical studies often explain a
+negative voting premium by pointing out that voting shares may suffer from a
+liquidity discount relative to nonvoting shares. 38 By contrast, a negative voting
+premium emerges naturally in our model because of the free-rider effect and
+the possibly substantial price impact of the blockholder’s trades (see Proposi-
+tion 5 and the related discussion). Moreover , our explanation also captures the
+liquidity difference between voting and nonvoting shares, if we deﬁne liquid-
+ity as price impact: The voting premium becomes negative in our model only if
+trading has a stronger price impact on voting shares than on nonvoting shares.
+Voting Premiums, Takeovers, and Shareholder Meetings: A standard explana-
+tion for how the blockholder’s willingness to pay for voting control is translated
+into higher prices for voting shares is the takeover mechanism, and several
+empirical studies ﬁnd support for this explanation. 39 However , this theory
+has some limitations. First, since the 1990s, many countries have enacted
+coattail provisions, which mandate equal treatment of all classes of shares
+in control changes, yet the voting premium remains positive after such reg-
+ulatory changes (e.g., Maynes ( 1996) and Nenova ( 2003)).40 Second, in Table
+IA.II of the Internet Appendix we survey seven studies that provide evidence
+on the dual-class premium and the premium paid to superior-voting shares
+in dual-class tender offers. There, the dual-class tender-offer premium refers
+to the premium paid in actual tender offers, whereas the ex ante premium
+weighs the dual-class tender-offer premium by the in-sample frequency with
+which dual-class ﬁrms are acquired, which should provide a reasonable ap-
+proximation to the ex ante expected tender-offer premium. 41 We also provide
+38 See the introduction. Domowitz, Glen, and Madhavan ( 1997) and Gardiol, Gibson-Asner , and
+Tuchschmid (1997) are among the ﬁrst to show how liquidity differences between classes of stock
+differentiated by ownership and voting restrictions lead to price differentials.
+39 See Section I for details on these theories. For empirical evidence, see Bergström and Rydqvist
+(1992), Zingales ( 1995), Rydqvist ( 1996), and Smith and Amoako-Adu ( 1995).
+40 Maynes ( 1996) performs an event study of such coattail implementations and shows that
+a dual-class premium of 8.22% declines by about two percentage points (see her tables 2 and
+3). Hence, about one-quarter of the voting premium could arguably be attributed to preferential
+treatment in takeovers.
+41 This is obviously a back-of-the-envelope calculation. Our calculations may overestimate the
+true ex ante voting premium because we neglect discounting, or underestimate it because we do
+not account for right-censoring of the data as acquisitions may occur after the sample period. We
+know of no study that provides rigorous estimates of the ex ante voting premium.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1358 The Journal of Finance ®
+estimates of the premium paid for superior voting shares in the market, that
+is, the dual-class premium. The average ex ante voting premium accounts
+for only about one-quarter of the dual-class premium (6.08% compared to
+22.49%). Hence, the takeover explanation probably explains only part of
+market premiums on voting shares.
+In contrast to the takeover argument, our paper shows how the voting
+premium can arise without contests for majority control, and solely as a result
+of blockholders’ desire to inﬂuence voting outcomes at shareholder meetings.
+This idea is consistent with the ﬁndings of the recent literature, which ana-
+lyzes the time-series variation and ﬁnds that the voting premium is largest
+around shareholder meetings compared to other times of the year (Kind and
+Poltera (2013), Kalay , Karakas, and Pant (2014), Kind and Poltera ( 2017), and
+Fos and Holderness ( 2023)).
+Voting Premiums and Ownership Structure: Studies on the relationship be-
+tween the voting premium and ownership concentration show that it is often
+nonmonotonic: The value of voting rights is small both if ownership is very
+dispersed and if it is very concentrated with one blockholder who has majority
+control Kind and Poltera ( 2013).42 Moreover , Smith and Amoako-Adu ( 1995)
+show that block ownership (the presence of blockholders with more than 10%
+ownership of the votes) reduces the voting premium (see their table 6, p. 237).
+Our analysis of multiple blockholders suggests a new empirical direction by
+showing that it is not only the concentration of ownership that matters, but
+also the preferences of blockholders. Speciﬁcally , if blockholders have similar
+preferences, then ownership concentration is positively correlated with the
+voting premium, while if blockholders disagree with each other , the voting
+premium increases the more they disagree (see Section IV .Dof the Internet
+Appendix).
+VII. Conclusion
+We develop a uniﬁed theory of blockholder governance, ownership structure,
+and the voting premium. In equilibrium, the voting premium reﬂects the
+blockholder’s marginal willingness to pay for a voting share and to change the
+preferences of the median voter . By trading, the blockholder affects the median
+voter both directly , by accumulating additional voting rights, and indirectly ,
+by buying shares from investors who disagree with him the most.
+Our analysis has several important implications for theoretical and empir-
+ical work in this area. First, a positive voting premium arises even in the
+absence of takeovers and acquisitions of controlling stakes, so future studies
+should pay more attention to voting at shareholder meetings. Second, a small
+voting premium does not necessarily imply that voting rights are worthless;
+42 Commonly analyzed characteristics of the ownership structure are the prevalence and size of
+the ﬁrst- and the second-largest blockholders, oceanic Shapley values (following Rydqvist ( 1987)),
+and insider ownership. Of the 40 studies we review , at least 18 provide evidence for the relevance
+of one of the indicators of ownership for the respective measure of the voting premium.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1359
+instead, it can indicate that the accumulated voting block is relatively large.
+Third, the voting premium is not a good proxy for conﬂicts of interest between
+blockholders and small shareholders. Fourth, the value of votes when they
+are bundled with cash ﬂow rights is different from the value of votes when
+they are traded separately . Last, the voting premium can be negative—this
+happens when the liquidity of voting shares is endogenously lower than that
+of nonvoting shares because of small shareholders free-riding on the block-
+holder’s trades.
+Acknowledgment
+Open access funding enabled and organized by Projekt DEAL.
+Initial submission: November 15, 2023; Accepted: January 12, 2025
+Editors: Antoinette Schoar , Urban Jermann, Leonid Kogan, Jonathan Lewellen, and Thomas Philippon
+Appendix: Proofs
+Our proofs rely on γ being ﬁnite but large enough. In particular , in the proof
+of each result below , we formally deﬁne a separate (ﬁnite) cutoff on γ such that
+if γ exceeds this cutoff, the statement of the result holds. Since the proofs of
+subsequent results build on the proofs of earlier results, in each subsequent
+proof we assume that γ is above the cutoffs deﬁned in the previous proofs. We
+next deﬁne ¯γ (introduced in equation ( 3)) as the maximum of the cutoffs in
+each of the proofs below . Then, for any ﬁnite γ> ¯γ, all the results hold.
+Proof of Lemma 1: Given the realization of q, a shareholder with bias b
+votes for the proposal if and only if q > − b. Denote the fraction of post-trade
+shares voted in favor by /Lambda1(q), and note that /Lambda1(q) is weakly increasing. There
+are three cases. (i) If /Lambda1(/Delta1) ≤ τ for the highest possible q = /Delta1,t h e n q∗ in the
+statement of the lemma equals /Delta1. (ii) If /Lambda1(−/Delta1) >τ for the lowest possible
+q =− /Delta1,t h e n q∗ in the statement of the lemma equals −/Delta1. (iii) Finally , if
+/Lambda1(−/Delta1) ≤ τ</Lambda1(/Delta1), there exists q∗ ∈ [−/Delta1, /Delta1) such that the fraction of votes
+in favor of the proposal exceeds τ if and only if q > q∗, so the proposal is ap-
+proved if and only if q > q∗.
+Proof of Proposition 1: Recall that q = s− 1(
+τ− α − y; y, q∗
+e
+)
+and q =
+s− 1(
+τ; y, q∗
+e
+)
+, and denote the corresponding functions by q
+(
+y, q∗
+e
+)
+and q
+(
+y, q∗
+e
+)
+.
+By the arguments in the main text prior to the proposition, the proposal is
+approved if and only if q > − bMV
+(
+β, y, q∗
+e
+)
+, where
+bMV
+(
+β, y, q∗
+e
+)
+=
+⎧
+⎪⎨
+⎪⎩
+− q
+(
+y, q∗
+e
+)
+if β< − q
+(
+y, q∗
+e
+)
+β if − q
+(
+y, q∗
+e
+)
+≤ β ≤− q
+(
+y, q∗
+e
+)
+− q
+(
+y, q∗
+e
+)
+if − q
+(
+y, q∗
+e
+)
+<β
+(A1)
+is the bias of the median voter .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1360 The Journal of Finance ®
+Since shareholders’ expectations q∗
+e at the trading stage have to be consistent
+with the actual decision rule at the voting stage, the equilibrium at the voting
+stage can be characterized as follows: The proposal is approved if and only if
+q > q∗ (y), where
+− q∗(y) =
+⎧
+⎪⎨
+⎪⎩
+βL (y) if β<β L (y)
+β if βL (y) ≤ β ≤ βH (y)
+βH (y) if βH (y) <β
+(A2)
+is the bias of the median voter , and βL (y) and βH (y) are the solutions of
+βL (y) =− q(y,−βL ) ⇔ s(−βL; y,−βL ) = τ, (A3)
+βH (y) =− q(y,−βH ) ⇔ s(−βH; y,−βH ) = τ− α − y. (A4)
+Using (14), conditions ( A3)a n d( A4) can be rewritten as
+R(βL; y,−βL ) = 1 − τ
+1 − α − y, (A5)
+R(βH; y,−βH ) = 1 − τ− α − y
+1 − α − y. (A6)
+From (13), R
+(
+b′; y, q∗)
+is a cdf, lies in the unit interval, and
+lim
+β→− b
+R(β; y,−β) = 0 and lim
+β→ b
+R(β; y,−β) = 1. (A7)
+According to Lemma IA.2 in the Internet Appendix , there exists ¯γ1 such that
+for any γ> ¯γ1, no shareholder short sells and the blockholder’s optimal trade
+satisﬁes 1 − α − y >τ and α + y <τ . Hence, for such γ, we can restrict atten-
+tion to y satisfying these properties. The right-hand sides of both ( A5)a n d( A6)
+then lie in (0, 1), and since R is continuous, ( A7) implies that solutions to ( A5)
+and ( A6), and therefore, to ( A3)a n d( A4), exist. Note that the function R does
+not depend on β, and hence these solutions do not depend on β either . Us-
+ing ( 13) and simplifying, we can show that the derivative of R (β; y,−β) with
+respect to β is
+∂R(β; y,−β)
+∂β = g(β)
+(
+1 + β − E
+[
+b
+]
+γ
+H(−β)
+1 − α− y
+)
+− G(β) f (−β)
+1 − α − y
+E
+[
+b
+]
+− E
+[
+b|b <β
+]
+γ . (A8)
+From (11)a n d( 12), the ﬁrst term in ( A8) equals r (β; y,−β) > 0. Since E
+[
+b
+]
+>
+E
+[
+b|b <β
+]
+, R (β; y,−β) may be nonmonotonic in β. From ( A8), ∂R(β;y,−β)
+∂β > 0i f
+a n do n l yi f
+G(β)
+g(β) f (−β)
+(
+E
+[
+b
+]
+− E
+[
+b|b <β
+])
++ H(−β)
+(
+E
+[
+b
+]
+− β
+)
+1 − α − y <γ. (A9)
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1361
+Since g (β) is positive, ( A9)i m p l i e st h a tt h e r ee x i s t sγ> ¯γ1 such that if γ> γ,
+then ∂R(β;y,−β)
+∂β > 0 for all y ≥− α and all β ∈
+[
+− ¯b, ¯b
+]
+. In this case, ( A7) implies
+that the solutions to ( A3)a n d(A4) exist, are unique, and lie in
+(
+− ¯b, ¯b
+)
+; as noted
+above, they do not depend on β.
+Suppose γ> γ, such that βL (y) and βH (y) exist and are unique. For y =− α
+(when the blockholder sells his entire endowment), the right-hand sides of ( A5)
+and (A6) are identical, so we can deﬁne
+β∗ ≡ βH (−α) = βL (−α), (A10)
+or equivalently , R (β∗; y,−β∗) = 1 − τ. Auxiliary Lemma IA.1 in the Internet
+Appendix shows that βL (y) is decreasing in y, lim y↗1−τ−α βL (y) =− b, βH (y) is
+increasing in y, and lim y↗τ−α βH (y) = b. Using these properties, there are two
+cases to consider .
+Case 1 : β ∈ (β∗, b]. Then β>β L (y) for all y, and there exists yH such that
+βH (y) ≥ β i fa n do n l yi fy ≥ yH , where from ( A6),
+yH = 1 − α − 1 − τ
+G(β) − 1
+γ
+(
+E
+[
+b
+]
+− E
+[
+b|b <β
+])
+H(−β). (A11)
+Equation (A2) then implies that if y ≥ yH , the median voter is the blockholder
+(i.e., − q∗ (y) = β), and if y < yH , the median voter is a small shareholder with
+bias βH (y). Suppose y < yH .S i n c eβH (y) is increasing in y and β>β H (y),t h e n
+|β + q∗ (y)| = β − βH (y) decreases in y.
+Case 2 : β ∈ [− b,β∗). Then β<β H (y) for all y, and there exists yL such that
+βL (y) >β i fa n do n l yi fy < yL, where from ( A5),
+yL = 1 − α − τ
+1 − G(β) + 1
+γ
+G(β)
+1 − G(β)
+(
+E
+[
+b
+]
+− E
+[
+b|b <β
+])
+H(−β). (A12)
+Equation ( A2) then implies that if y ≥ yL, the median voter is the blockholder
+(i.e., − q∗ (y) = β), and if y < yL, the median voter is a small shareholder with
+bias βL (y). Suppose y < yL.S i n c eβL (y) is decreasing in y and β<β L (y),t h e n
+|β + q∗ (y)| = βL (y) − β decreases in y.
+Setting ¯y as yH if β ∈ (β∗, b]a n da s yL if β ∈ [− b,β∗) completes the proof. Sec-
+tion III.D in the Internet Appendix visualizes the functions βL (y) and βH (y).
+Proof of Proposition 2: Throughout the proof, we assume that γ is large
+enough, γ> ¯γ, where ¯γ does not depend on β. In particular , we use the as-
+sumption of large γ in several places, deﬁning several cutoffs on γ that do not
+depend on β (all formally deﬁned below), above which our derivations hold.
+The overall cutoff ¯γ is the maximum among these cutoffs.
+By Lemma IA.2 in the Internet Appendix , there exists γ1 such that if
+γ> γ1, then for all β, the blockholder’s trade y lies in the interval [−ε,ε] ⊂
+(−α, min{τ− α, 1 − τ− α}) for some ε> 0. Given ( 5), (10), and ( 18), we have
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1362 The Journal of Finance ®
+/Pi1(y,β ) = αv(β, q∗(y)) + y
+(
+β − E
+[
+b
+])
+H(q∗) − (γ + 0.5η)y2
+= αv0 + αE[θ|q > q∗(y)]H(q∗) +
+(
+(α + y)β − yE
+[
+b
+])
+H(q∗) − (γ + 0.5η)y2,
+(A13)
+∂/Pi1(y,β )
+∂y =
+(
+β − E
+[
+b
+])
+H
+(
+q∗(y)
+)
+− (2γ + η)y + ∂(− q∗(y))
+∂y
+[
+α
+(
+q∗(y) + β
+)
++ y
+(
+β − E
+[
+b
+])]
+f
+(
+q∗(y)
+)
+, (A14)
+where q∗ (y) is given by ( A2). Both ∂(− q∗(y))
+∂y and ∂/Pi1(y,β)
+∂y do not exist when
+y ∈ {yL (β) , yH (β)}, where yL (β) and yH (β) are the trades above which the
+blockholder becomes the median voter if β<β ∗ and if β>β ∗, respectively;
+they are deﬁned by ( A12)a n d( A11) and depicted in Figure IA.1 in the Inter-
+net Appendix.
+By Proposition 1, there exists γ2 > γ1, which does not depend on β,s u c h
+that if γ> γ2,t h e nβL (y) and βH (y) are well-deﬁned continuous functions of y;
+these functions do not depend on β. Then /Pi1(y,β ) is a continuous function of y,
+and the optimal y lies in [−ε,ε]. Hence, /Pi1(y,β ) has a maximum on [−ε,ε],
+although its maximizer is not necessarily unique. Recall from ( A10)t h a t
+β∗ = βH (−α) = βL (−α), and that by Lemma IA.1, lim γ→∞ β∗ = G− 1 (1 − τ) ∈(
+− b, b
+)
+. Consider three cases: β<β ∗, β = β∗,a n dβ>β ∗.
+First, suppose β ∈ [− b,β∗). Since β∗ = βL (−α) = βH (−α) ≤ βH (y) for all y,
+we have β<β H (y) for all y. Based on ( A2),
+− q∗(y) =
+{
+βL (y) if β<β L (y)
+β if βL (y) ≤ β, (A15)
+and β<β L (y) ⇔ y < yL, where yL is given by ( A12). We deﬁne it as a function
+of β: yL (β).
+By Lemma IA.1, β′
+L (y) < 0, and hence y′
+L (β) < 0. Deﬁne
+/Pi1mv (y,β ) ≡ αv(β,−β) + y
+(
+β − E
+[
+b
+])
+H(−β) − (γ + 0.5η)y2, (A16)
+/Pi1L
+non-mv (y,β ) ≡ αv(β,−βL (y)) + y
+(
+β − E
+[
+b
+])
+H(−βL (y)) − (γ + 0.5η)y2, (A17)
+which are the payoff functions of the blockholder if he becomes the median
+voter ( q∗ =− β) and if he does not become the median voter ( q∗ =− βL (y)), re-
+spectively . Notice that
+/Pi1(y,β ) =
+{
+/Pi1L
+non-mv (y,β ) if y < yL (β)
+/Pi1mv (y,β ) if y ≥ yL (β). (A18)
+Both functions are continuous. Since /Pi1mv (yL (β) ,β ) = /Pi1L
+non-mv (yL (β) ,β ),i tf o l -
+lows that /Pi1(y,β ) is also continuous. In addition, Lemma IA.2 and Lemma IA.3
+in the Internet Appendix imply that there exists γ3 > γ2 such that if γ> γ3,
+then for any β, the maximizers of /Pi1L
+non-mv (y,β ), /Pi1mv (y,β ),a n d/Pi1H
+non-mv (y,β ) (de-
+ﬁned below by ( A33)) lie in some interval [−ε,ε] ⊂ (−α, min {τ− α, 1 − τ− α})
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1363
+and all three functions are concave. Consider such γ. Then /Pi1mv (y,β ) has a
+unique maximizer , which solves the ﬁrst-order condition
+ymv (β) ≡ 1
+2γ + η
+(
+β − E
+[
+b
+])
+H(−β). (A19)
+Similarly , the unique maximizer of /Pi1L
+non-mv (y,β ) is yL
+non-mv (β),w h i c hi st h e
+unique solution of
+y = 1
+2γ + η
+(
+β − E
+[
+b
+])
+H(−βL (y)) + 1
+2γ + ηMPV L (y,β ), (A20)
+where from ( A14),
+MPV L (y,β ) ≡ ∂βL (y)
+∂y f (−βL (y))[α(β − βL (y)) + y
+(
+β − E
+[
+b
+])
+]. (A21)
+Thus, the maximizer of /Pi1(y,β ) lies in the set {ymv (β) , yL
+non-mv (β) , yL (β)}.N o t e
+that yL
+non-mv (β) could be potentially larger than yL (β) (in which case it is not
+the maximizer), and similarly , ymv (β) could be smaller than yL (β) (in which
+case it is not the maximizer).
+We next deﬁne the right and left derivatives of the blockholder’s payoff func-
+tion at yL (β):
+/Delta1L
+r (β) ≡ ∂/Pi1(y,β )
+∂y |y↘yL (β) = ∂/Pi1mv (y,β )
+∂y |y=yL (β) (A22)
+=
+(
+β − E
+[
+b
+])
+H(−β) − (2γ + η)yL (β);
+/Delta1L
+l (β) ≡ ∂/Pi1(y,β )
+∂y |y↗yL (β) = ∂/Pi1L
+non-mv (y,β )
+∂y |y=yL (β) (A23)
+= /Delta1L
+r (β) + ∂βL (y)
+∂y |y=yL (β)yL (β)
+(
+β − E
+[
+b
+])
+f (−β),
+where we use βL (yL (β)) = β and ∂v(β,q∗(y))
+∂(− q∗) |y=yL (β) =
+(β + q∗ (y)) f (q∗ (y)) |y=yL (β) = 0.
+In Section III.G.3 of the Internet Appendix, we show that there exists a cut-
+off γ4 > γ3 such that if γ> γ4, then for all β ∈ [− b,β∗), we have ∂/Delta1L
+r (β)
+∂β > 0,
+∂/Delta1L
+l (β)
+∂β > 0, /Delta1L
+r (β∗) > 0, and /Delta1L
+l (β∗) > 0. Consider such γ, and deﬁne κL
+r and κL
+l
+as solutions to
+/Delta1L
+r
+(
+κL
+r
+)
+= 0, (A24)
+/Delta1L
+l
+(
+κL
+l
+)
+= 0. (A25)
+Since /Delta1L
+r and /Delta1L
+l are increasing and /Delta1L
+r (β∗) > 0, /Delta1L
+l (β∗) > 0, these solutions,
+if they exist, are unique and are strictly smaller than β∗. In Section III.G.4 of
+the Internet Appendix, we show that if γ> ¯γ4,t h e n− b <κ L
+r ≤ κL
+l <β ∗,
+min
+{
+βL (0), E
+[
+b
+]}
+≤ κL
+r ≤ κL
+l ≤ max
+{
+βL (0), E
+[
+b
+]}
+, (A26)
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1364 The Journal of Finance ®
+and κL
+r <κ L
+l if and only if βL (0) ̸= E
+[
+b
+]
+. We next consider three cases.
+(i) If β ∈ [− b,κL
+r ), then /Delta1L
+l (β) < 0, /Delta1L
+r (β) < 0, so both the left and the right
+derivative of /Pi1(y,β ) are negative at yL (β), and since /Pi1(y,β ) is continuous at
+yL (β), the optimal trade y∗ < yL (β). In particular , /Delta1L
+l (β) < 0 implies that in
+this case yL
+non-mv (β) is smaller than yL (β), and hence y∗ = yL
+non-mv (β).
+(ii) If β ∈ [κL
+r ,κL
+l ), then /Delta1L
+l (β) < 0 ≤ /Delta1L
+r (β). Hence, yL (β) cannot be
+the maximizer , and y∗ ∈{ ymv (β) , yL
+non-mv (β)}.N o t et h a ti f β = κL
+r ,t h e n
+/Delta1L
+l (β) < 0 = /Delta1L
+r (β). Hence, ymv (β) = yL (β) and /Pi1L
+non-mv (yL
+non-mv (β) ,β ) >
+/Pi1mv (ymv (β) ,β ). If β = κL
+l ,t h e n /Delta1L
+l (β) = 0 </Delta1L
+r (β). Hence, yL
+non-mv (β) =
+yL (β) and /Pi1L
+non-mv (yL
+non-mv (β) ,β ) </Pi1mv (ymv (β) ,β ). From the continuity of
+/Pi1L
+non-mv (yL
+non-mv (β) ,β )a n d/Pi1mv (ymv (β) ,β )i n β, there exist bL
+non-mv and bL
+mv that
+satisfy
+κL
+r < bL
+non-mv ≤ bL
+mv <κ L
+l , (A27)
+such that if β ∈ [κL
+r , bL
+non-mv ), then /Pi1L
+non-mv (yL
+non-mv (β) ,β ) >/Pi1mv (ymv (β) ,β ),
+and if β ∈ (bL
+mv,κL
+l ], then /Pi1L
+non-mv (yL
+non-mv (β) ,β ) </Pi1mv (ymv (β) ,β ). Thus, y∗ =
+yL
+non-mv (β) for β ∈ [κL
+r , bL
+non-mv ), and y∗ = yL
+mv (β) for β ∈ (bL
+mv,κL
+l ]. If β ∈
+(bL
+non-mv, bL
+mv ), then y∗ is either ymv (β) or yL
+non-mv (β), depending on the sign of
+/Pi1L
+non-mv (yL
+non-mv (β) ,β ) − /Pi1mv (ymv (β) ,β ). From ( A26), notice that the interval
+[κL
+r ,κL
+l ], and hence [ bL
+non-mv, bL
+mv], collapses to a single point if βL (0) = E
+[
+b
+]
+.
+(iii) If β ∈ [κL
+l ,β∗), then /Delta1L
+r (β) > 0, /Delta1L
+l (β) ≥ 0, and since /Pi1(y,β ) is continu-
+ous at yL (β), the optimal trade y∗ ≥ yL (β). In particular , since ∂/Pi1mv (y,β)
+∂y |y=yL (β) =
+/Delta1L
+r (β),t h e n/Delta1L
+r (β) > 0 implies that in this case ymv (β) is larger than yL (β),s o
+y∗ = ymv (β).
+Combining the three cases above, we conclude that y∗ = ymv (β) if β ∈
+[bL
+mv,β∗), y∗ = ynon-mv (β) if β ≤ [− ¯b, bL
+non-mv], and y∗ is either ymv (β) or
+ynon-mv (β) in ( bL
+non-mv, bL
+mv ), where
+κL
+r < bL
+non-mv ≤ bL
+mv <κ L
+l . (A28)
+Overall, there are two cases.
+(i) If y∗ = ymv (β),t h e nq∗ (y∗) =− β. Using the deﬁnition of MPV (y) in ( 19),
+we get that in this region, MPV (y∗) = ∂/Pi1(y)
+∂(− q∗(y))
+∂(− q∗(y))
+∂y = 0. Next, based on ( 17),
+p∗(
+y∗)
+= γymv (β) + v
+(
+E
+[
+b
+]
+,−β
+)
+(A29)
+= v0 +
+( γ
+2γ + ηβ +
+(
+1 − γ
+2γ + η
+)
+E
+[
+b
+]
++ E[θ|q > −β]
+)
+H(−β)
+= v
+(
+b∗,−β
+)
+= v
+(
+b∗, q∗(
+y∗))
+,
+where b∗ is given by ( 23). Together , this gives ( 21)a n d( 24)i fw es e t σ (β) = 1
+in this region.
+(ii) If y∗ = yL
+non-mv (β),t h e n q∗ (y∗) =− βL (y∗) < −β. Using the deﬁnition
+of MPV (y) in ( 19), MPV (y∗) = ∂/Pi1(y)
+∂(− q∗(y))
+∂(− q∗(y))
+∂y = MPV L(
+yL
+non-mv (β) ,β
+)
+. Next,
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1365
+based on ( 17),
+p∗(
+y∗)
+= γyL
+non-mv (β) + v
+(
+E
+[
+b
+]
+,−βL
+(
+yL
+non-mv (β)
+))
+= γ
+2γ + η
+(
+β − E
+[
+b
+])
+H(−βL
+(
+yL
+non-mv (β)
+)
+)
++ γ
+2γ + ηMPV L(
+yL
+non-mv (β),β
+)
++ v
+(
+E
+[
+b
+]
+,−βL
+(
+yL
+non-mv (β)
+))
+= v
+(
+b∗,−βL
+(
+yL
+non-mv (β)
+))
++ γ
+2γ + ηMPV L(
+yL
+non-mv (β),β
+)
+= v
+(
+b∗, q∗(
+y∗))
++ γ
+2γ + ηMPV
+(
+y∗)
+. (A30)
+This gives ( 21)a n d( 24)i fw es e t σ (β) = 1 in this region. This concludes the
+case β<β ∗.
+Second, suppose β = β∗. Then, for any y > −α,w eh a v e βL (y) <β L (−α) =
+β = βH (−α) <β H (y), and hence by ( A2), − q∗ (y) = β for all y. Hence, the block-
+holder maximizes /Pi1mv (y,β ), so his optimal trade is y∗ = ymv (β∗). Thus, as in
+region (i) of the ﬁrst case, p∗ (y∗) = v
+(
+b∗, q∗ (y∗)
+)
+and MPV (y∗) = 0, which gives
+(21)a n d( 24)i fw es e t σ (β) = 1 in this region. Combined with the ﬁrst case, we
+get y∗ = ymv (β), q∗ (y∗) =− β for all β ∈ [bL
+mv,β∗].
+Third, suppose β ∈ (β∗, b]. Since β∗ = βH (−α) = βL (−α) >β L (y) for all y,w e
+have β>β L (y) for all y. Based on ( A2),
+− q∗(y) =
+{
+β if β ≤ βH (y)
+βH (y) if βH (y) <β , (A31)
+and β>β H (y) ⇔ y < yH , where yH is given by ( A11). We deﬁne it as a function
+of β: yH (β).
+By Lemma IA.1, β′
+H (y) > 0, and hence y′
+H (β) > 0. Note that
+/Pi1(y,β ) =
+{
+/Pi1H
+non-mv (y,β ) if y < yH (β)
+/Pi1mv (y,β ) if y ≥ yH (β), (A32)
+where /Pi1mv (y,β ) is deﬁned as before (by ( A16)), and
+/Pi1H
+non-mv (y,β ) ≡ αv(β,−βH (y)) + y
+(
+β − E
+[
+b
+])
+H(−βH (y)) − (γ + 0.5η)y2. (A33)
+Both functions are continuous. Since /Pi1mv (yH (β) ,β ) = /Pi1H
+non-mv (yH (β) ,β ),
+/Pi1(y,β ) is also continuous. The unique maximizer of /Pi1mv (y,β ) i st h es a m ea s
+before ( ymv (β), given by ( A19)), and the unique maximizer of /Pi1H
+non-mv (y,β ) is
+yH
+non-mv (β), which is the unique solution of
+y = 1
+2γ + η
+(
+β − E
+[
+b
+])
+H(−βH (y)) + 1
+2γ + ηMPV H (y,β ), (A34)
+where
+MPV H (y,β ) ≡ ∂βH (y)
+∂y f (−βH (y))[α(β − βH (y)) + y
+(
+β − E
+[
+b
+])
+]. (A35)
+Thus, the maximizer of /Pi1(y,β ) is in the set {ymv (β) , yH
+non-mv (β) , yH (β)}.N o t e
+that yH
+non-mv (β) could potentially be larger than yH (β) (in which case it is not
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1366 The Journal of Finance ®
+the maximizer), and similarly , ymv (β) could be smaller than yH (β) (in which
+case it is not the maximizer).
+We next calculate the right and left derivatives of the blockholder’s payoff
+function at yH (β):
+/Delta1H
+r (β) ≡ ∂/Pi1(y,β )
+∂y |y↘yH (β) = ∂/Pi1mv (y,β )
+∂y |y=yH (β) (A36)
+=
+(
+β − E
+[
+b
+])
+H(−β) − (2γ + η)yH (β);
+/Delta1H
+l (β) ≡ ∂/Pi1(y,β )
+∂y |y↗yH (β) = ∂/Pi1H
+non-mv (y,β )
+∂y |y=yH (β) (A37)
+= /Delta1H
+r (β) + ∂βH (y)
+∂y |y=yH (β)yH (β)
+(
+β − E
+[
+b
+])
+f (−β).
+In Section III.G.3 of the Internet Appendix , we show that there exists a
+cutoff γ5 > ¯γ4 such that if γ> γ5,t h e n ∂/Delta1H
+r (β)
+∂β < 0,
+∂/Delta1H
+l (β)
+∂β < 0, /Delta1H
+r (β∗) > 0,
+/Delta1H
+l (β∗) > 0, /Delta1H
+r
+(¯b
+)
+< 0, and /Delta1H
+l
+(¯b
+)
+< 0. Consider such γ, and deﬁne κH
+r and
+κH
+l as solutions to
+/Delta1H
+r
+(
+κH
+r
+)
+= 0, (A38)
+/Delta1H
+l
+(
+κH
+l
+)
+= 0. (A39)
+Since /Delta1H
+r and /Delta1H
+l are decreasing and take opposite signs at β∗ and ¯b,t h e s e
+solutions exist, are unique, and lie in
+(
+β∗, ¯b
+)
+. In Section III.G.4 of the Internet
+Appendix, we show that for γ> ¯γ5,w eh a v e
+β∗ <κ H
+r ≤ κH
+l < ¯b, (A40)
+either E
+[
+b
+]
+≤ βH (0) ≤ κH
+r ≤ κH
+l < b or β∗ <κ H
+r ≤ κH
+l <β H (0) < E
+[
+b
+]
+,a n d
+κH
+r <κ H
+l i fa n do n l yi fβH (0) ̸= E
+[
+b
+]
+. Consider three cases:
+(i) If β ∈ (β∗,κH
+r ), then /Delta1H
+r (β) > 0, /Delta1H
+l (β) > 0, so both the left and the right
+derivatives of /Pi1(y,β ) are positive at yH (β), and since /Pi1(y,β ) is continuous
+at yH (β), the optimal trade y∗ > yH (β). In particular , /Delta1H
+r (β) > 0 implies that
+ymv (β) in this case is larger than yH (β),s o y∗ = ymv (β).
+(ii) If β ∈ [κH
+r ,κH
+l ], then /Delta1H
+r (β) ≤ 0 ≤ /Delta1H
+l (β). Hence, y∗ = yH (β) ∈
+[ymv (β) , yH
+non-mv (β)]. Note also that yH (β) is strictly inside
+(
+ymv (β) , yH
+non-mv (β)
+)
+if β ∈
+(
+κH
+r ,κH
+l
+)
+.
+(iii) If β ∈ (κH
+l , ¯b], then /Delta1H
+r (β) < 0, /Delta1H
+l (β) < 0, so both the left and the right
+derivatives of /Pi1(y,β ) are negative at yH (β), and since /Pi1(y,β ) is continuous
+at yH (β), the optimal trade y∗ < yH (β). In particular , /Delta1H
+l (β) < 0 implies that
+yH
+non-mv (β) in this case is smaller than yH (β),s o y∗ = yH
+non-mv (β).
+Combining the three cases above, we conclude that y∗ = ymv (β) if β ∈[
+β∗,κH
+r
+]
+, y∗ = yH (β) if β ∈ [κH
+r ,κH
+l ], and y∗ = yH
+non-mv (β) if β ≥ κH
+l (with the in-
+terval [κH
+r ,κH
+l ] collapsing to a single point if βH (0) = E
+[
+b
+]
+). Consider each of
+the regions separately .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1367
+(i) If β ≤ κH
+r ,t h e ny∗ = ymv (β), q∗ (y∗) =− β,a n d MPV (y∗) = 0. Next, based
+on (17) and repeating the arguments used to derive ( A29),
+p∗(
+y∗)
+= γymv (β) + v
+(
+E
+[
+b
+]
+,−β
+)
+= v
+(
+b∗,−β
+)
+= v
+(
+b∗, q∗(
+y∗))
+. (A41)
+This gives ( 21)a n d( 24)i fw es e t σ (β) = 1 in this region.
+(ii) If β ≥ κH
+l ,t h e n y∗ = yH
+non-mv (β), q∗ (y∗) =− βH (y∗) ≥− β, and by the def-
+inition of MPV (y) in ( 19), MPV (y∗) = ∂/Pi1(y)
+∂(− q∗(y))
+∂(− q∗(y))
+∂y = MPV H(
+yH
+non-mv (β) ,β
+)
+.
+Next, based on ( 17) and repeating the arguments above,
+p∗(
+y∗)
+= v
+(
+b∗,−βH
+(
+yH
+non-mv (β)
+))
++ γ
+2γ + ηMPV H(
+yH
+non-mv (β),β
+)
+(A42)
+= v
+(
+b∗, q∗(
+y∗))
++ γ
+2γ + ηMPV
+(
+y∗)
+.
+Together , this gives (21)a n d( 24)i fw es e t σ (β) = 1 in this region.
+(iii) Last, if β ∈ (κH
+r ,κH
+l ), then y∗ = yH (β) ∈
+(
+ymv (β) , yH
+non-mv (β)
+)
+and q∗ (y∗) =
+−β.N o t et h a t MPV H (yH (β) ,β ) = limy↗yH (β)
+∂/Pi1(y)
+∂(− q∗(y))
+∂(− q∗(y))
+∂y since /Pi1(y) =
+/Pi1H
+non-mv (y,β ) for y < yH (β). Hence, by the deﬁnition of MPV (y) (see the foot-
+note after ( 20)), MPV (yH (β)) = MPV H (yH (β) ,β ).U s i n g(A35)a t y = yH (β)
+and the fact that βH (yH (β)) = β,w eh a v e
+MPV H (yH (β),β ) = ∂βH (y)
+∂y |y=yH (β) f (−β)yH (β)
+(
+β − E
+[
+b
+])
+. (A43)
+Recall that if κH
+r <β<κ H
+l , two cases are possible: (i) either E
+[
+b
+]
+<β H (0) <
+κH
+r <β<κ H
+l and yH (β) > 0, or (ii) κH
+r <β<κ H
+l <β H (0) < E
+[
+b
+]
+and yH (β) <
+0. In both cases, yH (β)
+(
+β − E
+[
+b
+])
+> 0, and hence MPV H (yH (β) ,β ) > 0. Deﬁne
+σ(β) = (2γ + η)yH (β) −
+(
+β − E
+[
+b
+])
+H(−β)
+MPV H (yH (β),β ) . (A44)
+Then
+yH (β) = 1
+2γ + η
+(
+β − E
+[
+b
+])
+H(q∗(yH (β))) + 1
+2γ + ησ(β)MPV H (yH (β),β ), (A45)
+so ( 21) holds. Note that σ (β) ∈ (0, 1): As shown above, whenever β ∈ (κH
+r ,κH
+l ),
+we have /Delta1H
+r (β) < 0 </Delta1H
+l (β), and the latter is equivalent to 0 <σ (β) < 1.
+Next, based on ( 17),
+p∗(y∗) = γyH (β) + v
+(
+E
+[
+b
+]
+,−β
+)
+= γ
+2γ+η
+(
+β − E
+[
+b
+])
+H(−β) + γ
+2γ+ησ(β)MPV H (yH (β),β )
++v
+(
+E
+[
+b
+]
+, −β
+)
+= v
+(
+b∗, −β
+)
++ γ
+2γ+ησ(β)MPV (yH (β)) = v
+(
+b∗, q∗(y∗)
+)
++ γ
+2γ+ησ(β)MPV (y∗).
+(A46)
+Together , this gives (21)a n d( 24)w i t hσ (β) given by ( A44). This concludes the
+case β>β ∗.
+Last, we combine cases β ≤ β∗ and β>β ∗. Recall that for any γ> ¯γ5,w e
+have − ¯b <κ L
+r < bL
+non-mv ≤ bL
+mv <κ L
+l <β ∗ <κ H
+r ≤ κH
+l < ¯b. Deﬁne
+bH
+mv ≡ κH
+r and bH
+non-mv ≡ κH
+l . (A47)
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1368 The Journal of Finance ®
+Then bL
+non-mv ≤ bL
+mv ≤ bH
+mv < bH
+non-mv. Moreover , y∗ = yL
+non-mv (β) for β< bL
+non-mv,
+y∗ ∈
+{
+yL
+non-mv (β) , ymv (β)
+}
+for β ∈ [bL
+non-mv, bL
+mv], y∗ = ymv (β) for β ∈
+[
+bL
+mv, bH
+mv
+]
+,
+y∗ = yH (β) for β ∈ [bH
+mv, bH
+non-mv], and y∗ = yH
+non-mv (β) for β> bH
+non-mv. Hence,
+(21), (23), and ( 24) hold for
+σ(β) =
+{
+1i f β ̸∈ (bH
+mv, bH
+non-mv ),
+in (0, 1) and given by ( A44) if β ∈ (bH
+mv, bH
+non-mv ). (A48)
+In Lemma IA.4 in the Internet Appendix , we show that as γ →∞ , the re-
+gion ( bH
+mv, bH
+non-mv ) becomes inﬁnitesimally small, and hence σ (β) = 1a l m o s t
+everywhere. Finally , expression ( 22) directly follows from ( 11). Note that the
+equilibrium of the game is unique, except for a knife-edge case in the region
+β ∈ [κL
+r ,κL
+l ), where the trades yL
+non-mv (β) and ymv (β) result in the same payoff
+for the blockholder . This completes the proof of the proposition for any γ> ¯γ5.
+In subsequent proofs, we assume that γ> ¯γ5, so that the proposition and its
+arguments apply .
+Proof of Corollary 1: Suppose q∗ (y∗) is ﬁxed (denote it by q∗ for simplic-
+ity). Denote by y∗
+CF the optimal trade driven by the cash ﬂow motive alone.
+Given α> 0, the short-selling constraint does not bind for large enough γ,
+so ( A14)i m p l i e st h a ty∗
+CF = 1
+2γ+η
+(
+β − E
+[
+b
+])
+H (q∗).U s i n g(10), pCF (q∗ (y∗)) =
+γy∗
+CF + v
+(
+E
+[
+b
+]
+, q∗)
+= v
+(
+b∗, q∗ (y∗)
+)
+, as required.
+Proof of Proposition 3: To prove this result, we rely on the proof of Propo-
+sition 2, and in particular , refer to the cutoffs bL
+non-mv ≤ bL
+mv < bH
+mv < bH
+non-mv
+deﬁned in that proof.
+Consider part (i). According to the proof of Proposition 2,i f β ∈ [bL
+mv, bH
+mv],
+then
+y∗ = ymv (β) = 1
+2γ + η
+(
+β − E
+[
+b
+])
+H(−β) (A49)
+and − q∗ (y∗) = β.S i n c eMPV (y∗,β ) = 0, the voting premium is zero. Letting
+βL
+mv ≡ bL
+mv and βH
+mv ≡ bH
+mv (A50)
+completes part (i). We prove part (ii) in several steps.
+Step 1. First, deﬁne
+βH
+non-mv ≡ bH
+non-mv. (A51)
+We will show that for large enough γ,i f β>β H
+non-mv , then (i) the median voter
+is a small shareholder with a smaller bias than the blockholder , (ii) the voting
+premium is strictly positive, and (iii) the voting premium, the blockholder’s
+trade, and the median voter all strictly increase in β. The ﬁrst statement di-
+rectly follows from the proof of Proposition 2, which shows that if β> bH
+non-mv,
+then y∗ = yH
+non-mv (β) and − q∗ (y∗) = βH (y∗) <β , that is, the median voter is a
+small shareholder with bias βH (y∗) <β .
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1369
+To prove the two other statements, recall that yH
+non-mv (β) is the unique so-
+lution of ( A34)a n d( A35). Recall also that bH
+non-mv = κH
+l , which by deﬁnition
+is the solution to /Delta1H
+l
+(
+κH
+l
+)
+= 0. In addition, the proof of Proposition 2 shows
+that /Delta1H
+l
+(
+κH
+r
+)
+≥ 0, with a strict inequality when βH (0) ̸= E
+[
+b
+]
+. Suppose that
+β = κH
+l (= bH
+non-mv). Since /Delta1H
+l
+(
+κH
+l
+)
+= 0, we have ∂/Pi1H
+non-mv (y,β)
+∂y |y=yH (β) = 0, and hence
+yH
+non-mv (β) = yH (β). Recall that in this case y∗ = yH (β), and hence for this β,t h e
+equilibrium MPV satisﬁes
+MPV H(
+yH
+(
+κH
+l
+)
+,κH
+l
+)
+= ∂βH (y)
+∂y |y=yH (κH
+l ) f (−κH
+l )yH
+(
+κH
+l
+)(
+κH
+l − E
+[
+b
+])
+, (A52)
+where we use (A35) and the fact that β − βH (yH (β)) = 0. Next, (A36)a n d(A37)
+imply that
+/Delta1H
+l
+(
+κH
+l
+)
+= /Delta1H
+r
+(
+κH
+l
+)
++ MPV H(
+yH
+(
+κH
+l
+)
+,κH
+l
+)
+. (A53)
+Since /Delta1H
+l
+(
+κH
+r
+)
+≥ 0 = /Delta1H
+l
+(
+κH
+l
+)
+, it follows that ( A53) implies
+MPV H(
+yH
+(
+κH
+l
+)
+,κH
+l
+)
+≥ 0 (with a strict inequality whenever βH (0) ̸= E
+[
+b
+]
+),
+that is, the MPV is nonnegative for β = κH
+l = bH
+non-mv.
+Thus, to prove that the voting premium is strictly positive and increases
+in β for β>β H
+non-mv, it is sufﬁcient to prove that MPV H (yH
+non-mv (β) ,β ) strictly
+increases in β for β> bH
+non-mv. We prove this next. Using ( A35) and noting that
+βH (y) does not depend on β,w eh a v e
+∂MPV H (y,β )
+∂β = ∂βH (y)
+∂y × (α + y) × f (−βH (y)) > 0, (A54)
+∂MPV H (y,β)
+∂y = ∂2βH (y)
+∂y2 ×
+[
+α(β − βH (y)) + y
+(
+β − E
+[
+b
+])]
+× f (−βH (y))
++∂βH (y)
+∂y ×
+( [
+−α∂βH (y)
+∂y +
+(
+β − E
+[
+b
+])]
+× f (−βH (y))
+− ∂βH (y)
+∂y
+[
+α(β − βH (y)) + y
+(
+β − E
+[
+b
+])]
+× f′ (−βH (y))
+)
+.
+(A55)
+Thus, ∂MPV H (y,β)
+∂β does not depend on β,a n d ∂MPV H (y,β)
+∂y can be written as
+βM (y) + S (y), where M (y) and S (y) do not depend on β. Recall from the proof
+of Proposition 2 that y∗ ∈ [−ε,ε] for some ε> 0. The proofs of Lemma IA.1
+and Lemma IA.3 imply that for a large enough γ, there exists C > 0 such that⏐⏐⏐∂βH (y)
+∂y
+⏐⏐⏐ < C and
+⏐⏐⏐∂2βH (y)
+∂y2
+⏐⏐⏐ < C for all y ∈ [−ε,ε].S i n c e f′ (·) is, by assumption,
+continuous and |βH (y)| ≤ ¯b, there exist M > 0a n d S > 0 such that |M (y)| < M
+and
+⏐⏐S (y)
+⏐⏐ < S for all y ∈ [−ε,ε] and γ above some cutoff.
+Since for β> bH
+non-mv we have y∗ = yH
+non-mv (β), which satisﬁes ( A34), we dif-
+ferentiate both sides of ( A34) with respect to β and get
+∂y∗
+∂β =
+H(−βH (y∗)) + ∂MPV H (y∗,β)
+∂β
+2γ + η−
+(
+β − E
+[
+b
+])
+f (−βH (y∗))∂βH (y∗)
+∂y − ∂MPV H (y∗,β)
+∂y
+=
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1370 The Journal of Finance ®
+H(−βH (y∗)) + ∂MPV H (y∗,β)
+∂β
+2γ + η− β
+[
+M(y∗) + f (−βH (y∗))∂βH (y∗)
+∂y
+]
++ E
+[
+b
+]
+f (−βH (y∗))∂βH (y∗)
+∂y − S(y∗)
+, (A56)
+where y∗ stands for y∗ (β), the optimal trade given bias β. For all y ∈ [−ε,ε],w e
+have H(−βH (y)) > 0a n d ∂MPV H (y,β)
+∂β > 0 (from ( A54)), and hence the numerator
+of (A56) is positive for any β. In addition, as the arguments above imply , there
+exists C > 0 such that for all y∗ ∈ [−ε,ε], all the terms |M (y∗)|,
+⏐⏐S (y∗)
+⏐⏐,
+⏐⏐⏐∂βH (y∗)
+∂y
+⏐⏐⏐,
+and f (−βH (y∗) are bounded by C if γ is large enough. Since β ∈
+[
+− b, b
+]
+,t h e n
+these arguments together imply that there exists ¯ γ1 such that for any γ> ¯γ1,
+the denominator of ( A56) is positive as well and hence ∂y∗
+∂β > 0. This implies
+that the blockholder’s trade strictly increases in β.
+Next, consider ( A34) evaluated at y∗ (β), and differentiate it with respect to
+β. This gives
+dMPV H (y∗(β),β )
+dβ =− H(−βH
+(
+y∗(β)
+)
++ ∂y∗
+∂β
+[
+(2γ + η) −
+(
+β − E
+[
+b
+])
+f
+(
+−βH
+(
+y∗))∂βH (y∗)
+∂y
+]
+. (A57)
+Using (A56) and simplifying, dMPV H (y∗(β),β)
+dβ equals
+(
+βM(y∗) + S(y∗)
+)
+H(−βH (y∗)) +
+[
+(2γ + η) −
+(
+β − E
+[
+b
+])
+f (−βH (y∗))∂βH (y∗)
+∂y
+]
+∂MPV H (y∗,β)
+∂β
+2γ + η− β(M(y∗) + f (−βH (y∗))∂βH (y∗)
+∂y ) + E
+[
+b
+]
+f (−βH (y∗))∂βH (y∗)
+∂y − S(y∗)
+, (A58)
+or equivalently , dMPV H (y∗(β),β)
+dβ = N(y∗,β)
+D(y∗,β) , where
+N(y∗,β ) = ∂MPV H (y∗,β)
+∂β + (βM(y∗)+S(y∗))H(−βH (y∗))− (β− E[b]) f (−βH (y∗))
+∂βH (y∗)
+∂y
+∂MPV H (y∗,β)
+∂β
+2γ+η ,
+D(y∗,β ) = 1 −
+β(M(y∗)+ f (−βH (y∗))
+∂βH (y∗)
+∂y )+E[b] f (−βH (y∗))
+∂βH (y∗)
+∂y − S(y∗)
+2γ+η .
+(A59)
+Consider D (y∗,β ). Recall that y∗ ∈ [−ε,ε], β ∈
+[
+− b, b
+]
+and, as discussed above,
+|M (y∗)|,
+⏐⏐S (y∗)
+⏐⏐,
+⏐⏐⏐∂βH (y∗)
+∂y
+⏐⏐⏐,a n d f (−βH (y∗) are all bounded by some constant for
+all y∗ ∈ [−ε,ε] and large enough γ. Hence, for large enough γ, D (y∗,β ) > 0f o r
+all y∗ ∈ [−ε,ε] and β ∈
+[
+− b, b
+]
+. Next, consider N (y∗,β ). From ( A54), we have
+∂MPV H (y∗,β)
+∂β > 0. In addition, since
+⏐⏐⏐∂βH (y∗)
+∂y
+⏐⏐⏐ is bounded by some constant for large
+enough γ,( A54) implies that
+⏐⏐⏐∂MPV H (y∗,β)
+∂β
+⏐⏐⏐ is also bounded by some constant for
+large enough γ. The other functions in the numerator of the second term in
+N (y∗,β ) are bounded as well. Together , this implies that there is a cutoff on γ
+such that N (y∗,β ) > 0 for all y∗ ∈ [−ε,ε] and β ∈
+[
+− b, b
+]
+for γ above this cutoff.
+In sum, we have shown that there exists ¯ γ2 > ¯γ1 such that dMPV H (y∗(β),β)
+dβ >
+0 for all β> bH
+non-mv and all γ> ¯γ2. Together with MPV H (yH
+non-mv (β) ,β ) ≥ 0
+for β = bH
+non-mv, this implies that MPV H (yH
+non-mv (β) ,β ) is strictly positive and
+strictly increasing in β for β> bH
+non-mv and γ> ¯γ2. Since the voting premium
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1371
+in this region equals γ
+2γ+ηMPV H (yH
+non-mv (β) ,β ), the voting premium is also
+strictly positive and strictly increasing in β.
+Finally , note that the median voter in this range is βH
+(
+yH
+non-mv (β)
+)
+.S i n c e
+yH
+non-mv (β) increases in β for γ> ¯γ2 and βH (·) is an increasing function, the
+median voter increases in β in this range as well. This completes the proof for
+the region β> bH
+non-mv.
+The two other steps for part (ii) involve proving the following statements:
+Step 2: If β< bL
+non-mv, then there exists ¯γ3 > ¯γ2 such that for any γ> ¯γ3,t h e
+median voter is a small shareholder with a larger bias toward the proposal
+than the blockholder and the voting premium strictly decreases in β.
+Step 3: There exists ¯ γ4 > ¯γ3 such that for any γ> ¯γ4, there exists βL
+non-mv ∈
+(− b, bL
+non-mv ) such that if β<β L
+non-mv,t h e nMPV L (y∗ (β) ,β ) > 0.
+For brevity , the proof of these two steps is relegated to Section III.H of the
+Internet Appendix. This completes the proof of the proposition for any γ> ¯γ4.
+In subsequent proofs, we assume that γ> ¯γ4, so that the proposition and its
+arguments apply .
+We relegate the proofs of Proposition 4, Corollary 2, and Proposition 5 to
+Sections III.I, III.J,a n d III.K of the Internet Appendix, respectively .
+REFERENCES
+Adams, Renee B., and Daniel Ferreira, 2008, One share, one vote: The empirical evidence, Review
+of Finance 12, 51–91.
+Admati, Anat R., and Paul C. Pﬂeiderer, 2009, The “Wall Street Walk” and shareholder activism:
+Exit as a form of voice, Review of Financial Studies 22, 2445–2485.
+Admati, Anat R., Paul C. Pﬂeiderer, and Josef Zechner, 1994, Large shareholder activism, risk
+sharing, and ﬁnancial market equilibrium, Journal of Political Economy 102, 1097–1130.
+Albuquerque, Rui A., and Enrique Schroth, 2010, Quantifying private beneﬁts of control from a
+structural model of block trades, Journal of Financial Economics 96, 33–55.
+Atanasov, Vladimir, Bernard Black, and Conrad S. Ciccotello, 2011, Law and tunneling, Journal
+of Corporation Law 37, 1–49.
+Austen-Smith, David, and Jeffrey S. Banks, 1996, Information aggregation, rationality , and the
+Condorcet jury theorem, American Political Science Review 90, 34–45.
+Bar-Isaac, Heski, and Joel D. Shapiro, 2020, Blockholder voting, Journal of Financial Economics
+136, 695–717.
+Baron, David P ., and John A. Ferejohn, 1989, Bargaining in legislatures, American Political Sci-
+ence Review 83, 1181–1206.
+Bergström, Clas, and Kristian Rydqvist, 1992, Differentiated bids for voting and restricted voting
+shares in public tender offers, Journal of Banking and Finance 16, 97–114.
+Blair, Douglas H., Devra L. Golbe, and James M. Gerard, 1989, Unbundling the voting rights and
+proﬁt claims of common shares, Journal of Political Economy 97, 420–443.
+Bolton, Patrick, Tao Li, Enrichetta Ravina, and Howard Rosenthal, 2020, Investor ideology , Jour-
+nal of Financial Economics 137, 320–352.
+Bolton, Patrick, and Ernst-Ludwig von Thadden, 1998, Blocks, liquidity , and corporate control,
+Journal of Finance 53, 1–25.
+Bonnefon, Jean-François, Augustin Landier, Parinitha Sastry, and David Thesmar, 2025, The
+moral preferences of investors: Experimental evidence, Journal of Financial Economics 163,
+103955.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1372 The Journal of Finance ®
+Brav, Alon, Matthew D. Cain, and Jonathon Zytnick, 2022, Retail shareholder participation in
+the proxy process: Monitoring, engagement, and voting, Journal of Financial Economics 144,
+492–522.
+Brav, Alon, Amil Dasgupta, and Richmond D. Mathews, 2022, Wolf pack activism, Management
+Science 68, 5557–5568.
+Brav, Alon, and Richmond D. Mathews, 2011, Empty voting and the efﬁciency of corporate gover-
+nance, Journal of Financial Economics 99, 289–307.
+Broussard, John Paul, and Mika Vaihekoski, 2022, Time-variation of dual-class premia, Nordic
+Journal of Business 71, 26–50.
+Bubb, Ryan, and Emiliano Catan, 2022, The party structure of mutual funds, Review of Financial
+Studies 35, 2839–2878.
+Burkart, Mike, Denis Gromb, and Fausto Panunzi, 1998, Why higher takeover premia protect
+minority shareholders, Journal of Political Economy 106, 172–204.
+Burkart, Mike, Denis Gromb, and Fausto Panunzi, 2000, Agency conﬂicts in public and negotiated
+transfers of corporate control, Journal of Finance 55, 647–677.
+Burkart, Mike, Denis Gromb, and Fausto Panunzi, 2006, Minority blocks and takeover premia,
+Journal of Institutional and Theoretical Economics 162, 32–49.
+Burkart, Mike, and Samuel Lee, 2008, The one share–one vote debate: A theoretical perspective,
+Review of Finance 12, 1–49.
+Burkart, Mike, and Samuel Lee, 2015, Signalling to dispersed shareholders and corporate control,
+Review of Economic Studies 82, 922–962.
+Bushee, Brian J., 1998, The inﬂuence of institutional investors on myopic R&D investment behav-
+ior ,Accounting Review 73, 305–333.
+Casella, Alessandra, Aniol Llorente-Saguer, and Thomas R. Palfrey, 2012, Competitive equilib-
+rium in markets for votes, Journal of Political Economy 120, 593–658.
+Christoffersen, Susan E. K., Christopher Geczy, David K. Musto, and Adam V . Reed, 2007, Vote
+trading and information aggregation, Journal of Finance 62, 2897–2929.
+Cvijanovic, Dragana, Amil Dasgupta, and Konstantinos E. Zachariadis, 2016, Ties that bind: How
+business connections affect mutual fund activism, Journal of Finance 71, 2933–2966.
+Dasgupta, Amil, Vyacheslav Fos, and Zacharias Sautner, 2021, Institutional investors and corpo-
+rate governance, Foundations and Trends in Finance 12, 276–394.
+Dekel, Eddie, and Asher Wolinsky, 2012, Buying shares and/or votes for corporate control, Review
+of Economic Studies 79, 196–226.
+DeMarzo, Peter, 1993, Majority voting and corporate control: The rule of the dominant share-
+holder ,Review of Economic Studies 60, 713–734.
+Desai, Mihir A., and Li Jin, 2011, Institutional tax clienteles and payout policy , Journal of Finan-
+cial Economics 100, 68–84.
+Dhillon, Amrita, and Silvia Rossetto, 2015, Ownership structure, voting, and risk, Review of Fi-
+nancial Studies 28, 521–560.
+Dittmann, Ingolf, 2004, Block trading, ownership structure, and the value of corporate votes,
+Working paper , Erasmus University .
+Doidge, Craig, Alexander Dyck, and Liyan Y ang, 2021, Collective activism, Working paper , Uni-
+versity of Toronto.
+Domowitz, Ian, Jack Glen, and Ananth Madhavan, 1997, Market segmentation and stock prices:
+Evidence from an emerging market, Journal of Finance 52, 1059–1085.
+Drèze, Jacques H., 1985, (Uncertainty and) the ﬁrm in general equilibrium theory , Economic Jour-
+nal 95, 1–20.
+Edmans, Alex, 2009, Blockholder trading, market efﬁciency , and managerial myopia, Journal of
+Finance 64, 2481–2513.
+Edmans, Alex, 2014, Blockholders and corporate governance, Annual Review of Financial Eco-
+nomics 6, 23–50.
+Edmans, Alex, and Clifford G. Holderness, 2017, Blockholders: A survey of theory and evidence,
+in Benjamin E. Hermalin, and Michael S. Weisbach, eds.: The Handbook of the Economics of
+Corporate Governance, 541–636 (Elsevier, Amsterdam).
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1373
+Edmans, Alex, and Gustavo Manso, 2011, Governance through trading and intervention: A theory
+of multiple blockholders, Review of Financial Studies 24, 2395–2428.
+Esö, Peter, Stephen Hansen, and Lucy White, 2014, A theory of vote-trading and information
+aggregation, Working paper , University of Oxford.
+Feddersen, Timothy J., and Wolfgang Pesendorfer, 1996, The swing voter’s curse, American Eco-
+nomic Review 86, 408–424.
+Feddersen, Timothy J., and Wolfgang Pesendorfer, 1997, Voting behavior and information aggre-
+gation in elections with private information, Econometrica 65, 1029–1058.
+Fos, Vyacheslav, and Clifford G. Holderness, 2023, The distribution of voting rights to sharehold-
+ers, Journal of Financial and Quantitative Analysis 58, 1878–1910.
+Gardiol, Lucien, Rajna Gibson-Asner, and Nils S. Tuchschmid, 1997, Are liquidity and corporate
+control priced by shareholders? Empirical evidence from Swiss dual class shares, Journal of
+Corporate Finance 3, 299–323.
+Garlappi, Lorenzo, Ron Giammarino, and Ali Lazrak, 2017, Ambiguity and the corporation: Group
+disagreement and underinvestment, Journal of Financial Economics 125, 417–433.
+Garlappi, Lorenzo, Ron Giammarino, and Ali Lazrak, 2022, Group-managed real options, Review
+of Financial Studies 35, 4105–4151.
+Gaspar, José-Miguel, Massimo Massa, and Pedro Matos, 2005, Shareholder investment horizons
+and the market for corporate control, Journal of Financial Economics 76, 135–165.
+Gevers, Louis, 1974, Competitive equilibrium of the stock exchange and Pareto efﬁciency , in
+Jacques H. Drèze, ed.: Allocation under Uncertainty: Equilibrium and Optimality: Proceed-
+ings from a Workshop sponsored by the International Economic Association , 167–191 (Palgrave
+Macmillan, London, UK).
+Gözlügöl, Alperen Af¸sin, 2021, Majority of the minority approval of related party transactions:
+The analysis of institutional shareholder voting, European Company and Financial Law Re-
+view18, 820–862.
+Grossman, Sanford J., and Oliver D. Hart, 1988, One share-one vote and the market for corporate
+control, Journal of Financial Economics 20, 175–202.
+Harris, Milton, and Artur Raviv, 1988, Corporate governance: Voting rights and majority rules,
+Journal of Financial Economics 20, 203–236.
+Hayden, Grant M., and Matthew T . Bodie, 2008, One share, one vote and the false promise of
+shareholder homogeneity, Cardozo Law Review 30, 445–505.
+He, Jie, Jiekun Huang, and Shan Zhao, 2019, Internalizing governance externalities: The role of
+institutional cross-ownership, Journal of Financial Economics 134, 400–418.
+Hirschman, Albert O, 1970, Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations,
+and States (Harvard University Press, Boston, MA).
+Hu, Edwin, Nadya Malenko, and Jonathon Zytnick, 2025, Custom proxy voting advice, ECGI Fi-
+nance Working paper no. 975/2024.
+Hu, Henry T . C., and Bernard Black, 2007, Hedge funds, insiders, and the decoupling of economic
+and voting ownership: Empty voting and hidden (morphable) ownership, Journal of Corporate
+Finance 13, 3443–367.
+Hu, Henry T . C., and Bernard S. Black, 2015, Debt, equity and hybrid decoupling: Governance and
+systemic risk implications, in William W . Bratton, and Joseph A. McCahery , eds.:Institutional
+Investor Activism: Hedge Funds and Private Equity, Economics and Regulation , 349–399 (Ox-
+ford University Press, Oxford, UK).
+Huang, Sheng, and Anjan V . Thakor, 2013, Investor heterogeneity , investor-management disagree-
+ment and share repurchases, Review of Financial Studies 26, 2453–2491.
+Jackson, Robert J., and Jonathon Zytnick, 2023, Individual investor ideology , Working paper , New
+Y ork University.
+Kahn, Charles, and Andrew Winton, 1998, Ownership structure, speculation, and shareholder
+intervention, Journal of Finance 53, 99–129.
+Kalay, Avner, Oguzhan Karakas, and Shagun Pant, 2014, The market value of corporate votes:
+Theory and evidence from option prices, Journal of Finance 69, 1235–1271.
+Kalay, Avner, and Shagun Pant, 2010, Time varying voting rights and the private beneﬁts of
+control, Working paper , Tel Aviv University.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1374 The Journal of Finance ®
+Kelsey, David, and Frank Milne, 1996, The existence of equilibrium in incomplete markets and
+the objective function of the ﬁrm, Journal of Mathematical Economics 25, 229–245.
+Kim, Incheol, Ji Woo Ryou, and Rong Y ang, 2020, The color of shareholders’ money: Institutional
+shareholders’ political values and corporate environmental disclosure, Journal of Corporate
+Finance 64, 101704.
+Kind, Axel, and Marco Poltera, 2013, The value of corporate voting rights embedded in option
+prices, Journal of Corporate Finance 22, 16–34.
+Kind, Axel, and Marco Poltera, 2017, Shareholder proposals as governance mechanism: Insights
+from the market value of corporate voting rights, Working paper , University of Konstanz.
+Kyle, Albert S., 1989, Informed speculation with imperfect competition, Review of Economic Stud-
+ies 56, 317–356.
+La Porta, Rafael, Florencio Lopez-de Silanes, Andrei Shleifer, and Robert Vishny, 1999, Corporate
+ownership around the world, Journal of Finance 54, 471–517.
+Levit, Doron, and Nadya Malenko, 2011, Nonbinding voting for shareholder proposals, Journal of
+Finance 66, 1579–1614.
+Levit, Doron, Nadya Malenko, and Ernst Maug, 2024, Trading and shareholder democracy , Jour-
+nal of Finance 79, 257–304.
+Lewellen, Jonathan, and Katharina Lewellen, 2022, The ownership structure of U .S. corporations,
+Working paper , Dartmouth College.
+Li, Sophia Zhengzi, Ernst G. Maug, and Miriam Schwartz-Ziv, 2022, When shareholders disagree:
+Trading after shareholder meetings, Review of Financial Studies 35, 1813–1867.
+Malenko, Andrey, and Nadya Malenko, 2019, Proxy advisory ﬁrms: The economics of selling infor-
+mation to voters, Journal of Finance 74, 2441–2490.
+Matvos, Gregor, and Michael Ostrovsky, 2008, Cross-ownership, returns, and voting in mergers,
+Journal of Financial Economics 89, 391–403.
+Matvos, Gregor, and Michael Ostrovsky, 2010, Heterogeneity and peer effects in mutual fund
+proxy voting, Journal of Financial Economics 98, 90–112.
+Maug, Ernst, 1998, Large shareholders as monitors: Is there a trade-off between liquidity and
+control?, Journal of Finance 53, 65–98.
+Maug, Ernst, and Kristian Rydqvist, 2009, Do shareholders vote strategically? Voting behavior ,
+proposal screening, and majority rules, Review of Finance 13, 47–79.
+Maynes, Elizabeth, 1996, Takeover rights and the value of restricted shares, Journal of Financial
+Research, 19, 157–173.
+McCahery, Joseph A., Zacharias Sautner, and Laura T . Starks, 2016, Behind the scenes: The cor-
+porate governance preferences of institutional investors, Journal of Finance 71, 2905–2932.
+Meirowitz, Adam, and Shaoting Pi, 2022, Voting and trading: The shareholder’s dilemma, Journal
+of Financial Economics 146, 1073–1096.
+Milnor, John Willard, and Lloyd S. Shapley, 1978, Values of large games II: Oceanic games, Math-
+ematics of Operations Research 3, 290–307.
+Neeman, Zvika, and Gerhard O. Orosel, 2006, On the efﬁciency of vote buying when voters have
+common interests, International Review of Law and Economics 26, 536–556.
+Nenova, Tatiana, 2003, The value of corporate votes and control beneﬁts: A cross-country analysis,
+Journal of Financial Economics 68, 325–351.
+Neumann, Robert, 2003, Price differentials between dual-class stocks: Voting premium or liquidity
+discount?, European Financial Management 9, 315–332.
+Nicodano, Giovanna, and Alessandro Sembenelli, 2004, Private beneﬁts, block transaction premi-
+ums and ownership structure, International Review of Financial Analysis 13, 227–244.
+Odegaard, Bernt Arne, 2007, Price differences between equity classes. Corporate control, foreign
+ownership or liquidity?, Journal of Banking & Finance 31, 3621–3645.
+Pi, Shaoting, 2020, Speaking with one voice: Shareholder collaboration on activism, Working pa-
+per , University of Utah.
+Pinnington, James, 2023, Are passive investors biased voters?, Working paper , Duke University.
+Porras Prado, Melissa, Pedro A. C. Safﬁ, and Jason Sturgess, 2016, Ownership structure, limits
+to arbitrage, and stock returns: Evidence from equity lending markets, Review of Financial
+Studies 29, 3211–3244.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+The Voting Premium 1375
+Rydqvist, Kristian, 1987, The Pricing of Shares with Different Voting Power and the Theory of
+Oceanic Games, ﬁrst edition (Stockholm School of Economics, Stockholm, Sweden).
+Rydqvist, Kristian, 1992, Dual-class shares: A review, Oxford Review of Economic Policy 8, 45–57.
+Rydqvist, Kristian, 1996, Takeover bids and the relative prices of shares that differ in their voting
+rights, Journal of Banking and Finance 20, 1407–1425.
+Smith, Brian F ., and Ben Amoako-Adu, 1995, Relative prices of dual class shares, Journal of Fi-
+nancial and Quantitative Analysis 30, 223–239.
+Speit, Andre, and Paul Voss, 2020, Shareholder votes on sale, Working paper , University of Bonn.
+Speit, Andre, Paul Voss, and Andras Danis, 2023, Decoupling voting and cash ﬂow rights, Working
+paper , Central European University.
+Stulz, René M., 1988, Managerial control of voting rights: Financing policies and the market for
+corporate control, Journal of Financial Economics 20, 25–54.
+Van Wesep, Edward D., 2014, The idealized electoral college voting mechanism and shareholder
+power, Journal of Financial Economics 113, 90–108.
+Vinaimont, Tom, and Piet Sercu, 2003, Deviations from “one share, one vote” can be optimal:
+An entrepreneur’s point of view , Working paper , Nazarbayev University Graduate School of
+Business.
+Vives, Xavier, 1993, How fast do rational agents learn?, Review of Economic Studies 60, 329–347.
+Zachariadis, Konstantinos E., Dragana Cvijanovic, and Moqi Groen-Xu, 2020, Free-riders and
+underdogs: Participation in corporate voting, ECGI Finance Working paper no. 649/2020.
+Zingales, Luigi, 1995, What determines the value of corporate votes?, Quarterly Journal of Eco-
+nomics 110, 1047–1073.
+Zwiebel, Jeffrey, 1995, Block investment and partial beneﬁts of corporate control, Review of Eco-
+nomic Studies 62, 161–185.
+Zytnick, Jonathon, 2024, Do mutual funds represent individual investors?, NYU Law and Eco-
+nomics Research Paper no. 21-04.
+Supporting Information
+Additional Supporting Information may be found in the online version of this
+article at the publisher’s website:
+Appendix S1: Internet Appendix.
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+1376 The Journal of Finance ®
+ 15406261, 2026, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/jofi.70037 by Universitatsbibliothek, Wiley Online Library on [26/05/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License

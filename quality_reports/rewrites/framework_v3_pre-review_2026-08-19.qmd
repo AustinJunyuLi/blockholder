@@ -1,0 +1,366 @@
+---
+title: "Disclosure, Liquidity, and Takeover Premia"
+subtitle: "Repositioning Framework v3: Angle, Simplified Model, and Empirical Design"
+author: "Junyu Li"
+date: "August 19, 2026"
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: article
+    geometry: margin=1.05in
+    fontsize: 11pt
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    colorlinks: true
+abstract: |
+  This memo specifies the repositioning of the paper formerly titled "Liquidity, Activism
+  Disclosure, and Takeover Premia" (draft_v2) for submission to a top finance journal. The new
+  framing: the Schedule 13D disclosure rule is the revelation technology of the market for
+  corporate control. The theory core is simplified to a three-branch model with a provable
+  headline theorem (disclosure attenuation), an honest endpoint-plus-region treatment of the
+  liquidity hump, and a committed empirical section built on the SEC's February 5, 2024
+  acceleration of the 13D filing window. Target: JF/RFS; alternative JFE.
+---
+
+# The Angle {#sec-angle}
+
+## The repositioning in one paragraph
+
+Move from *"a static microstructure model of the exit–voice margin with numerically verified
+comparative statics"* to **"the 13D disclosure rule as the revelation technology of the market
+for corporate control."** The model's disclosed/inferred inference partition is the first
+formalization of *how the market learns about activism-driven control events* — precisely the
+gap that Back, Collin-Dufresne, Fos, Li and Ljungqvist (2018, *Econometrica*) and Burkart and
+Lee (2022, *RFS*) explicitly leave to future work. Nobody — not Ordóñez-Calafi and Bernhardt
+(2022), Cetemen et al. (2026), Albuquerque–Fos–Schroth (2022), Johnson–Swem (2021), or
+Celentano–Levine (2025) — links market liquidity or the disclosure rule to takeover premia,
+theoretically or structurally.
+
+## Why this angle wins
+
+1. **The gap is quotable.** Back et al. (2018) assume a fixed disclosure horizon and call
+   endogenizing the 5%-threshold timing future work; Burkart and Lee (2022) "do not endogenize
+   the acquisition of the toehold in anonymous, predisclosure markets" and leave the
+   pre-/post-disclosure interaction open. We occupy both gaps at once.
+2. **Frontier taste.** Every top-3 theory paper in this space, 2022–2026 (Burkart–Lee RFS 2022;
+   Levit–Malenko–Maug JF 2024 and JF 2026; Kakhbod et al. RFS 2023; Chen–Gupta–Starmans JFE
+   2026), is fully analytical, one-mechanism-elegant, institutionally anchored, and closes with
+   a measurement section. A numerically verified headline result has no precedent; a Brouwer
+   existence argument plus honestly labeled numerical uniqueness is acceptable *if the headline
+   comparative statics are proved*.
+3. **The policy hook is live and unclaimed.** The SEC's Modernization of Beneficial Ownership
+   Reporting (Rel. 33-11253; adopted October 10, 2023; compliance **February 5, 2024**) shortened
+   the initial 13D window from 10 calendar days to 5 business days. No published or SSRN-visible
+   empirical work exploits it yet; one working paper engages the window trade-off theoretically.
+   The window is open but closing.
+4. **Differentiation from the most dangerous competitor.** Celentano and Levine (2025, R&R at
+   RFS) estimate activism's equilibrium effect on M&A with no trading, no price formation, and a
+   stake fixed at the 5% statutory threshold. One sentence on page 1: *they take prices and
+   liquidity as given; we make liquidity and the disclosure rule the state variables, and the
+   takeover premium an equilibrium object of order-flow inference and tender free-riding.*
+
+## Framing device
+
+Following Bond, Edmans and Goldstein (2012) and Goldstein (2023), the paper studies
+**revelatory** price efficiency (RPE) — what the price reveals to a specific decision-maker, the
+bidder — rather than forecasting efficiency. A disclosure *rule* is a policy lever on RPE.
+Goldstein (2023) lists RPE-oriented empirics and feedback interacting with corporate-control
+frictions as open problems; this paper answers both.
+
+# The Simplified Model {#sec-model}
+
+## Players, timing, and information
+
+All players are risk neutral. There is one blockholder ($B$), one noise trader, one competitive
+market maker ($M$), and one potential bidder.
+
+- **$t=0$.** Nature draws firm value $v \sim \mathcal{N}(\mu_v, \sigma_v^2)$. The blockholder
+  privately observes $s = v + \varepsilon$, $\varepsilon \sim \mathcal{N}(0, \sigma_\varepsilon^2)$,
+  and holds an initial stake normalized to one share.
+- **$t=1$ (trade and disclose).** The blockholder chooses an action $(q, a)$ from the
+  three-branch menu
+  $$
+  (q, a) \in \{ \underbrace{(-1, 0)}_{\text{Exit}},\; \underbrace{(0, 1)}_{\text{Quiet}},\;
+  \underbrace{(+1, 1)}_{\text{Public}} \},
+  $$
+  where $q$ is the order and $a \in \{0,1\}$ engagement. (The four-branch menu of draft_v2 is
+  pruned: Hold folds into the trading decision; it collapses at baseline anyway.) Noise demand
+  $z \in \{-1, 0, +1\}$ with
+  $$
+  \Pr(z = 0) = 1 - \kappa, \qquad \Pr(z = +1) = \Pr(z = -1) = \tfrac{\kappa}{2},
+  $$
+  so $\kappa \in [0,1]$ is the liquidity/noise intensity. The market maker observes total order
+  flow $X = q + z \in \{-2, \dots, +2\}$ and the disclosure flag $D = \mathbf{1}\{q = +1\}$, and
+  sets
+  $$
+  P(X, D) = \delta\, \mathbb{E}[Y \mid X, D],
+  $$
+  with $\delta$ a normalization (unit share mass, $\delta = 1$ in the baseline).
+- **$t=1.5$ (bidder entry).** The bidder observes $(P, D)$ and a private synergy shock
+  $\xi \sim \mathcal{N}(0, \sigma_\xi^2)$, and enters iff
+  $$
+  \Pi_B = \bar{S} - P + \xi - \bar{m}(X, D) - K \;\geq\; 0,
+  $$
+  so the entry probability is
+  $$
+  p(P, D) = \Phi\!\left( \frac{\bar{S} - P - \bar{m}(X, D) - K}{\sigma_\xi} \right),
+  \qquad \frac{\partial p}{\partial P} < 0
+  \quad \text{(bid monotonicity, proved)}.
+  $$
+- **$t=2$ (payoffs).** If a bid occurs, $Y = P + m^R(a)$; otherwise $Y = v + a\tilde{\Delta}$.
+  The premium wedge $m_1 > m_0$ is microfounded in the appendix tender game (D7): with
+  free-rider floor $\varphi$, entry probability $q$, and dilution $\psi$,
+  $$
+  \lambda \;=\; 1 - q\,(1 - \gamma)\,\psi \;\in\; [0, 1] \quad \text{(proved, closed form)}.
+  $$
+
+## Disclosure strictness as a model primitive
+
+The key architectural change from draft_v2: disclosure strictness is now an explicit parameter
+$\tau$, not a narrative. A stricter regime (lower threshold, shorter window) shifts ex-ante mass
+from the inferred branch to the disclosed branch:
+$$
+\omega_P = \omega_P(\tau), \qquad \omega_P'(\tau) > 0,
+$$
+and the window length maps to inferred-branch noise through the Back et al. (2018) isomorphism
+$T \leftrightarrow \sigma^2 T$. This is what turns the disclosure result into a policy
+comparative static — the 10-to-5-day acceleration and the 5%-vs-3% cross-country contrast are
+both movements in $\tau$.
+
+## Equilibrium
+
+A perfect Bayesian equilibrium consists of (i) a weakly ordered cutoff strategy
+$k_1 \leq k_0 \leq k_D$ over the signal $s$; (ii) Bayes-consistent posteriors
+$\pi(X, D) = \Pr(a = 1 \mid X, D)$; (iii) the bidder's entry rule; (iv) the competitive price
+fixed point $P = \mathbb{E}[Y \mid X, D]$. Existence follows from Brouwer's theorem on the
+cutoff polytope $\Theta$ (proved, unconditional under (A1), (A2), (A4)). Uniqueness is stated as
+a labeled numerical regularity (multistart convergence), never as a theorem — the EGJ (2015)
+posture of region-wise characterization rather than global uniqueness claims.
+
+# Main Results and Proof Plan {#sec-results}
+
+## Proved objects already in hand
+
+The posterior block is closed form: the disclosed branch is degenerate, $\pi(X, 1) = 1$, and
+$\kappa$-invariant (proved); the inferred branch satisfies $\pi(-2, 0) = 0$ with $\pi(X, 0)$
+rational in $(\omega, \kappa)$ (proved). Bid monotonicity, the dominance lemma pruning the
+action menu, and existence are proved. Endpoint symmetry is proved:
+$$
+\Delta^{\min}(0^{+}) \;=\; \Delta^{\min}(1^{-}),
+$$
+because at both liquidity limits the $D = 0$ posterior law converges to the same two-point
+distribution $\{0, \bar{\pi}\}$.
+
+## T2 — Disclosure attenuation (the headline theorem)
+
+At fixed cutoffs, the expected activism premium decomposes across the two branches as
+$$
+\Delta^{\mathrm{act}}(\kappa; \tau)
+\;=\;
+(\tilde{m} - m_0)\Big[ \omega_P(\tau)\, \bar{p}_1
+\;+\; \big(1 - \omega_P(\tau)\big)\, \mathbb{E}_{D=0}\, h(\kappa) \Big],
+$$
+where $\bar{p}_1$ is the disclosed-branch bid incidence ($\kappa$-invariant) and
+$\mathbb{E}_{D=0} h(\kappa)$ carries all inference sensitivity. Since the disclosed component is
+$\kappa$-free, the liquidity sensitivity satisfies
+$$
+\left| \frac{\partial \Delta^{\mathrm{act}}}{\partial \kappa} \right|
+\;=\;
+(\tilde{m} - m_0)\,\big(1 - \omega_P(\tau)\big)\,
+\left| \frac{\partial}{\partial \kappa} \mathbb{E}_{D=0}\, h(\kappa) \right|,
+$$
+which is **strictly decreasing in $\tau$** whenever $\omega_P'(\tau) > 0$ and the inferred-branch
+term is non-degenerate. The cross-partial sign is one line given the proved $\kappa$-invariance
+of the disclosed branch. **Theorem T2 (general equilibrium, region version):** reusing the D8
+inversion-free bound
+$$
+\left\| \frac{dk}{d\kappa} \right\| \;\leq\; \frac{\| \partial_\kappa T \|}{1 - L},
+\qquad L \leq 0.836 \text{ at baseline},
+$$
+the attenuation sign is certified on a checkable region of primitives, exactly parallel to the
+D8 region theorem. We do not chase a global GE sign — the D8 counterexample logic warns against
+it, and the region statement is the honest, publishable form.
+
+## T4 — The liquidity hump, honestly stated
+
+The hump is **not** the headline. It is presented as three objects, in descending order of
+strength:
+
+1. **Endpoint symmetry (proved):** $\Delta^{\min}(0^{+}) = \Delta^{\min}(1^{-})$.
+2. **Certified region (computed, machine-checked):** strict single-peakedness of
+   $\Delta^{\min}(\kappa)$ is certified on $\kappa \in [0.35, 0.825]$ under the checkable
+   conditions (R1) pointwise dominance and (R2) integral control (D8). Channel (A) is
+   single-peaked at fixed cutoffs iff the chord condition
+   $$
+   \mathcal{C}(\bar{\pi}) \;=\; h(0) - 2 h\!\left(\tfrac{\bar{\pi}}{2}\right) + h(\bar{\pi}) \;<\; 0,
+   \qquad h = \pi \cdot p,
+   $$
+   holds (proved, conditional on $(\mathcal{C}^*)$).
+3. **Falsifiable prediction (numerical elsewhere):** the interior peak $\kappa^\dagger \approx
+   0.59$ and the certified counterexample at $\sigma_\xi = 0.60$ are featured as an *economic
+   boundary*: the hump lives where bidder entry is premium-sensitive. Non-monotonicity is the
+   identification device (the Corum–Levit 2019, Prop. 4 template), not an embarrassment.
+
+## T5 — The premium wedge (appendix microfoundation)
+
+The disagreement-node tender game delivers $\lambda = 1 - q(1-\gamma)\psi$ in closed form, and
+the boundary of the wedge assumption is characterized: $m_1 > m_0$ holds iff not (certain raids
+$\wedge$ $\gamma = 0$ $\wedge$ unblockable offers) — all proved. The measured-premium reversal
+$M(\pi) = \bar{m}/P$ strictly decreasing in $\pi$ for $\lambda < \lambda_{\mathrm{crit}}$ (fixed
+cutoffs) is the object that rationalizes Celentano–Levine's $-13.7\%$ ($-5.2$pp)
+activism–premium estimate.
+
+## No-manipulation discipline
+
+Because takeover entry is a corrective action that can make firm value non-monotone in the state
+(the EGJ 2015 Case-2 warning), draft_v3 states an explicit sufficient condition under which the
+blockholder cannot profitably mislead the bidder — the analog of EGJ's
+$R_H - R_L > \tfrac{4x}{3}$ — as a one-remark lemma.
+
+# Empirical Design {#sec-empirics}
+
+**Discipline.** One dated shock, one signed prediction per test; institutional facts as
+anchoring, never as "tests" without exogenous variation; announcement CARs are *disclosure price
+impact*, never labeled value creation (preempting Ben-David et al., JF 2026).
+
+## Facts section (facts the model must match)
+
+- **F1 (done, committed):** filing-delay compression around the rule change — median delay
+  $7.0 \to 5.0$ business days; share filed within 5 business days $35.7\% \to 75.6\%$
+  ($n = 300$ SC 13D originals, 2023Q2–Q3 vs 2024Q3–Q4). Extend to the full 2022–2025 universe
+  after fixing the 2025 structured-era parser (0.5–1 day).
+- **F2:** stake-at-first-13D distribution; target moments: median $6.2\%$, mean $7.68\%$
+  (Collin-Dufresne–Fos 2015); bunching just above $5\%$.
+- **F3:** announcement CARs pre/post rule (first-pass medians $1.6\% \to 2.6\%$; vet outliers;
+  report quantiles, not means).
+- **F4 (deferred, 1–3 weeks):** campaign$\to$takeover transition via EDGAR submissions API
+  (SC TO-T / DEFM14A / 8-K); benchmarks: Greenwood–Schor's $18.1\%$ within 12 months;
+  Boyson et al.'s $70\%$ within 2 years.
+
+## H1 — Attenuation of the liquidity slope (flagship test of T2)
+
+**Hypothesis.** Shortening the accumulation window moves information release from pre-filing
+inference to the filing event; the sensitivity of 13D announcement returns to pre-event
+liquidity falls after February 5, 2024.
+
+**Specification.**
+$$
+\mathrm{CAR}_i[-1, +1] \;=\;
+\beta_1\, \mathrm{Amihud}_i \;+\;
+\beta_2\, (\mathrm{Amihud}_i \times \mathrm{Post}_i) \;+\;
+\gamma\, \mathrm{Post}_i \;+\; \delta' X_i \;+\; \mathrm{FE} \;+\; \varepsilon_i,
+$$
+with T2's prediction
+$$
+\operatorname{sign}(\beta_2) \;=\; -\operatorname{sign}(\beta_1)
+\qquad \text{(attenuation)}.
+$$
+Also estimated on $\mathrm{CAR}[-10, +1]$ and in quantile regressions (the mean gap is
+outlier-driven; medians are the honest summary).
+
+**Sample and data.** All SC 13D originals 2022-01-01 to 2025-12-31 (9,234 parsed; ~65–70% CRSP
+match), US common stocks. CARs, Amihud illiquidity
+$\mathrm{Amihud}_i = |r_{i,t}| / (P_{i,t} \cdot \mathrm{Vol}_{i,t})$, log-cap, and turnover come
+from the on-disk CRSP daily snapshot (2021–2025, 14,092 PERMNOs); events and stakes from the
+repo's EDGAR pipeline; filer type via name regex with hand spot-checks; Fama–French factors from
+the Ken French library (free) for robustness.
+
+**Confound handling.** (a) Main spec restricts the post window to February–August 2024, before
+the 13G deadline change (September 30, 2024); full-sample robustness adds regime dummies for
+2024-09-30 and the structured-data mandate (2024-12-18). (b) T+1 settlement dummy (2024-05-28).
+(c) Pre window starts 2023 (universal proxy sits inside the earlier pre window). (d) Placebos:
+13G filers (untreated by the 13D change before September 2024); non-activist 13D filers;
+low-activism-exposure targets.
+
+**Selection honesty.** Filing is a choice; report filer-mix diagnostics pre/post; interpret
+$\beta_2$ as a reduced-form information-content change, with an AFS-style selection correction
+as robustness, not headline.
+
+## H2 — Run-up to jump shift (the Collin-Dufresne–Fos template)
+
+The 10-to-5-day compression should shift returns from the pre-filing run-up into the filing-day
+jump. Define the run-up share
+$$
+\rho^{\text{run-up}}_i \;=\; \frac{\mathrm{CAR}_i[-10, -2]}{\mathrm{CAR}_i[-10, +1]},
+$$
+and test $H_2: \mathbb{E}[\rho^{\text{run-up}} \mid \mathrm{Post}] < \mathbb{E}[\rho^{\text{run-up}}
+\mid \mathrm{Pre}]$ against the CDF (2015) benchmark of a ~$7\%$ run-up vs ~$3\%$ jump on
+2001–2010. CDF's finding that Kyle's $\lambda$, PIN, and Amihud *fall* during accumulation is
+the load-bearing institutional fact for the model's architecture: the market learns from the
+disclosure event, not from order-flow inference. Run-up windows use parsed event (trigger)
+dates.
+
+## H3 — The hump as falsifiable cross-section (second leg, weeks-scale)
+
+For 13D-target deals receiving a bid within 12 months, hand-collect offer prices (SC TO-T /
+8-K Item 1.01 / DEFM14A) and compute
+$$
+\mathrm{Premium}_i \;=\; \frac{P^{\mathrm{offer}}_i}{P^{\mathrm{unaffected}}_i} - 1,
+\qquad P^{\mathrm{unaffected}}_i \text{ at } {-42} \text{ trading days (CRSP snapshot)}.
+$$
+Test the non-monotone prediction across Amihud quintiles $q \in \{1, \dots, 5\}$:
+$$
+\mathrm{Premium}_i \;=\; \sum_{q=1}^{5} \theta_q\, \mathbf{1}\{i \in q\} \;+\; \delta' X_i
+\;+\; \varepsilon_i,
+\qquad
+H_3:\; \theta_3 > \theta_1 \;\wedge\; \theta_3 > \theta_5
+$$
+(sign-flip identification — more credible than a monotone claim precisely because it can fail).
+Anchors to confront: Massa–Xu (2013, JFQA): $+10\%$ premium per SD of *target* liquidity (public
+bidders); Huang–Maharjan–Nanda (2024, JCF): $-4.5$pp per SD of *acquirer minus target* liquidity
+difference, stock deals only (cash deals null — the currency-channel falsification);
+Albuquerque–Fos–Schroth (2022): $+0.9$pp per SD Amihud level loading on *both* filing types
+(pure stock-picking — must be partialled out); Celentano–Levine (2025): mean premium $36.6\%$,
+activism interaction $-5.2$pp, as replication targets.
+
+## Calibration moments the model must match
+
+| Moment | Value | Source |
+|---|---|---|
+| 13D announcement CAR | $6.34\%$ ($75.2\%$ treatment) | Albuquerque–Fos–Schroth 2022 |
+| Run-up vs filing-day jump | $\sim 7\%$ vs $\sim 3\%$ | Collin-Dufresne–Fos 2015 |
+| Stake at first 13D | median $6.2\%$, mean $7.68\%$ | Collin-Dufresne–Fos 2015 |
+| Pre-announcement accumulation | $54\%$ of block, $8.5\%$ trading profit | Norli–Østergaard–Schindele 2015 |
+| Liquidity $\to$ targeting sign | positive ($0.33\% \to 0.73\%$, IV) | Norli–Østergaard–Schindele 2015 |
+| Voice$\to$exit mode shift in liquidity | $-6.9$pp on 13D share | Edmans–Fang–Zur 2013 |
+| Mean bid premium | $36.6\%$ | Celentano–Levine 2025 |
+| Activism $\to$ premium interaction | $-13.7\%$ ($-5.2$pp) | Celentano–Levine 2025 |
+| Takeover prob. lift from activism | $+11$pp (12m), $+7.7$pp | Greenwood–Schor 2009; C&L 2025 |
+| Campaign costs by stage | \$1.8M / \$2.9M / \$5.9M | Gantchev 2013 |
+
+# Edit Map: draft_v2 $\to$ draft_v3 {#sec-editmap}
+
+| Area | Action |
+|---|---|
+| Title / abstract / intro | Reframe around disclosure-as-revelation; institutional hook first (1968$\to$2024 compression; the Feb-2024 shock); abstract states exactly what is proved where — no "theorem" for region-certified objects |
+| Literature | Fix misattributions: the $-13.7\%$ premium finding is **Celentano–Levine 2025, not AFS**; delete the unsupported Johnson–Swem window-isomorphism sentence; reframe the EGJ-2015 citation (they prove region-wise uniqueness analytically — cite the posture, not "numerical uniqueness"); add Levit–Malenko–Maug (2024, 2026), Burkart–Lee–Voss (2024), Chen–Gupta–Starmans (2026), Ben-David et al. (2026) |
+| Model | Three-branch menu; $\tau$ as explicit primitive with $\omega_P'(\tau) > 0$; no-manipulation remark; ternary noise + disclosure flag defended as the *minimal* technology partitioning inference (Levit–Malenko–Maug 2024 prove non-Kyle technologies are top-3-acceptable) |
+| Equilibrium | Compact; T2 promoted to full theorem; T3 (GE region version) added; meta-material ($A7$-redundancy, $A5$ split, honesty remarks) collapsed to one remark |
+| Comparative statics | R1 repackaged as endpoint theorem + certified region + falsifiable prediction; sensitivity figures trimmed |
+| Testable implications | Five $\to$ four numbered predictions, each mapped to a dataset; cross-country thresholds as the out-of-sample agenda (motivation exhibit, not a regression leg) |
+| Welfare | Halved: first-best subsection cut; disclosure-wedge proposition downgraded to a remark (its hypothesis (ii) is admittedly untested); positive framing only — optimal-threshold welfare language belongs to Ordóñez-Calafi–Bernhardt |
+| Extensions | Benchmark regimes to one paragraph; noisy rumors kept as the wolf-pack bridge, labeled numerical |
+| Empirical section (new) | Facts + H1 + H2 per Section 4; H3 as the weeks-scale second leg |
+| Appendices | D7/D8 stay as microfoundation/region-theorem records; bargaining appendix compressed to ~2 pages; duplicated curvature and endpoint proofs folded; **honesty labels preserved verbatim — never weakened** |
+
+# Journal Targets and Risks {#sec-targets}
+
+| Target | Fit | Key risk |
+|---|---|---|
+| **JF / RFS** (primary) | Theory-forward + institutional anchor + one clean shock; matches the Levit–Malenko–Maug / Burkart–Lee taste | R2's GE region theorem must land; the hump must be honestly labeled; differentiate from Celentano–Levine on page 1 |
+| **JFE** (alternative) | If the empirical section grows toward 30–35% (premium subsample + transitions) | JFE's activism space is structural-estimation-dominated; the DiD must be bulletproof on bundled confounds |
+| JFQA / RAPS (fallback) | Certain fit | — |
+
+**Risk register.** (i) Another team claims the Feb-2024 shock first — mitigate by executing H1/H2
+now (~3–4 days of work on disk-resident data). (ii) The R1 counterexample invites "the hump is
+fragile" — preempt by featuring the economic boundary. (iii) CAR-critique referees — CARs are
+only ever disclosure price impact; premia come from hand-collected offer prices. (iv) "Too many
+moving parts" — the three-branch cut and appendix exiles are the answer. (v) Reproducibility:
+the Fact-2 execution code must be committed; the gitignored CRSP snapshot must be backed up
+off-repo.
+
+**Execution sequence (post-approval).** (1) Owner approves this angle; (2) theory surgery
+(three-branch menu, $\tau$ primitive, T2/T3 proofs, cut-list); (3) empirics: parser fix $\to$
+Fact-1 universe $\to$ H1/H2 DiD; (4) premium subsample; (5) compile gates (0 errors, 0 undefined
+references) plus `make clean && make all`.

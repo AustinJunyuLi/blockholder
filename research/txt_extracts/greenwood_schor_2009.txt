@@ -1,0 +1,2395 @@
+ARTICLE IN PRESS
+Journal of Financial Economics 92 (2009) 362–375
+
+Contents lists available at ScienceDirect
+
+Journal of Financial Economics
+journal homepage: www.elsevier.com/locate/jfec
+
+Investor activism and takeovers$
+Robin Greenwood a,, Michael Schor b
+a
+b
+
+Harvard Business School, Boston, MA 02163, USA
+Morgan Stanley, New York, NY 10036, USA
+
+a r t i c l e i n f o
+
+abstract
+
+Article history:
+Received 7 February 2008
+Received in revised form
+1 May 2008
+Accepted 12 May 2008
+Available online 13 March 2009
+
+Recent work documents large positive abnormal returns when a hedge fund announces
+activist intentions regarding a publicly listed ﬁrm. We show that these returns are
+largely explained by the ability of activists to force target ﬁrms into a takeover. For a
+comprehensive sample of 13D ﬁlings by portfolio investors between 1993 and 2006,
+announcement returns and long-term abnormal returns are high for targets that are
+ultimately acquired, but not detectably different from zero for ﬁrms that remain
+independent. Firms targeted by activists are more likely than control ﬁrms to get
+acquired. Finally, activist investors’ portfolios perform poorly during a period in which
+market wide takeover interest declined.
+& 2009 Elsevier B.V. All rights reserved.
+
+JEL classiﬁcations:
+G14
+G32
+G34
+Keywords:
+Investor activism
+Event studies
+Hedge funds
+Corporate control
+
+1. Introduction
+Theory predicts that large shareholders should be
+effective monitors of the managers of publicly listed
+ﬁrms, reducing the free-rider problem (e.g., Shleifer and
+Vishny, 1986; Grossman and Hart, 1980). Yet the evidence
+that large shareholders increase shareholder value is
+mixed. In two recent surveys, Karpoff (2001) and Romano
+
+$
+We appreciate funding from the Harvard Business School Division of
+Research and from the Faculty of Arts and Sciences. We are grateful to an
+anonymous referee and to Daniel Bergstresser, Lucian Bebchuk, Alon
+Brav, Lauren Cohen, Julian Franks, Mila Getmansky, April Klein, André
+Perold, Richard Ruback, Stefano Rossi, Andrei Shleifer, Erik Stafford,
+Emmanuel Zur, and seminar participants at the Bank of England, Harvard
+Business School, and Harvard Law School for useful comments. We also
+beneﬁted from the advice of Colin Kingsnorth at Laxey Partners, Daniel
+Loeb at Third Point, Nick Panos at the Securities and Exchange
+Commission, and Barry Rosenstein and Scott Olson at JANA Partners.
+We thank Sonya Lai for research assistance.
+ Corresponding author.
+E-mail address: rgreenwood@hbs.edu (R. Greenwood).
+
+0304-405X/$ - see front matter & 2009 Elsevier B.V. All rights reserved.
+doi:10.1016/j.jﬁneco.2008.05.005
+
+(2001) conclude that activism conducted by large institutional shareholders has had little impact on ﬁrm performance. Karpoff, Malatesta, and Walkling (1996), Wahal
+(1996), and Gillan and Starks (2000) report that shareholder proposals have historically done little to improve
+ﬁrms’ operations. On the few occasions when investors
+have attempted to remove managers from their jobs, they
+generally encountered resistance (Brav, Jiang, Partnoy, and
+Thomas, 2008) or faced high costs (Black, 1990; Roe, 1994;
+Bainbridge, 2005; Kahan and Rock, 2006), and as a result
+were unsuccessful (Black, 1998; Karpoff, 2001; Romano,
+2001; Bebchuk, 2007).
+Recent research suggests that hedge funds might be up
+to the task of monitoring management. Brav, Jiang,
+Partnoy, and Thomas (2008) ﬁnd that the announcement
+of hedge fund activism generates abnormal returns of
+more than 7% in a short window around the announcement. In addition, the authors document modest changes
+in operating performance around the activism. Klein and
+Zur (2009) and Clifford (2007) also document signiﬁcant
+positive abnormal returns around the announcement of
+
+ARTICLE IN PRESS
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+activism.1 Many of these studies also document positive
+abnormal returns in a longer period after the initial ﬁling.
+What accounts for the returns to hedge fund activism?
+While the studies listed above go to great lengths
+to document changes in performance measures following activism, it is still largely unanswered where the
+announcement premium (and the upward drift in stock
+prices thereafter, for that matter) comes from. A reasonable starting hypothesis might be that activism creates
+value by improving the ﬁrm as a going concern, either by
+ﬁring management or by forcing management to institute
+operational, ﬁnancial, or governance reforms. Brav, Jiang,
+Partnoy, and Thomas (2008) and Klein and Zur (2009)
+document modest increases in leverage and the payout
+ratio following activism, but have less success ﬁnding
+evidence of other improvements.
+In this paper, we suggest and test a simple alternate
+hypothesis: returns to investor activism are driven by
+activists’ success at getting target ﬁrms taken over. Under
+this hypothesis, the high returns documented around the
+announcement of activism reﬂect investors’ expectations
+that target ﬁrms will be acquired at a premium to the
+current stock price. From the perspective of the activist,
+exiting the position in the stock via a merger or a takeover
+is doubly beneﬁcial: it generates a high premium, as well
+as allowing the activist to avoid the price pressure
+associated with an exit in the public markets (in a merger
+or acquisition, the activist exits in cash or with stock of a
+larger, more liquid company).
+We construct a comprehensive database of activist
+ﬁlings with the Securities and Exchange Commission
+(SEC) from 1993 to 2006, focusing on instances where
+the target is a US ﬁrm. Our main result is that activism
+targets earn high returns primarily when they are
+eventually taken over. However, the majority of activism
+targets are not acquired and these ﬁrms earn average
+abnormal returns that are not statistically distinguishable
+from zero. These ﬁndings apply both to announcement
+returns and to the drift in long-term returns following the
+initial activist ﬁling. Thus, the returns associated with
+activism are largely explained by the ability of activists
+to force target ﬁrms into a takeover, thereby collecting
+a takeover premium. An interesting observation, in our
+view, is that in many of the events in which we eventually
+observe a takeover, the initial demands of the activist
+were quite different. For example, in 15.7% of incidents in
+which the activist targeted ‘‘corporate governance’’ issues,
+the ﬁnal result was a takeover.
+Our evidence is consistent with many hedge funds’
+characterizations of their activism. The activist Robert
+Chapman, for example, seeks out companies that are
+‘‘digestible’’ in the sense that they are easy to market to
+
+1
+Becht, Franks, Mayer, and Rossi (2008) also ﬁnd that activist
+investments of the UK pension fund Hermes signiﬁcantly outperformed
+benchmarks. Clifford (2007) shows that hedge funds earn a signiﬁcantly
+higher return on their activist positions compared to their passive
+positions, suggesting that hedge funds may use these higher returns to
+counteract the costs of managing and monitoring an activist holding.
+
+363
+
+bidders as potential takeover targets.2 However, our
+characterization differs markedly from previous research
+on investor activism, which tends to attribute high
+announcement returns to improvements in operational
+performance, increases in the leverage or payout ratio,
+or reductions in agency costs. The evidence in our paper
+helps explain why there is no signiﬁcant correlation between accounting-based measures of operational
+change and subsequent returns—the most ‘‘successful’’
+targets of activism are those that leave the public markets
+(and hence the Compustat database) soon after the
+activist becomes involved. Thus, there is a signiﬁcant
+selection bias, in that the ﬁrms with the largest returns
+tend to drop out of the sample by way of takeover.
+In addition to our hypothesis, we consider a closely
+related explanation. Suppose that activist investors make
+no changes, but that the returns associated with their
+involvement reﬂect an ability to pick undervalued stocks.
+Suppose also that these undervalued stocks are probable
+acquisition targets regardless of activist intervention. Put
+differently, perhaps the path of the target and its ultimate
+takeover would have been no different absent the activist
+intervention. Consistent with this, activist targets tend to
+be small ﬁrms with low valuation ratios and thin analyst
+coverage, and have underperformed relative to other ﬁrms
+in their industry. These characteristics could all reasonably be associated with a higher probability of takeover.
+To address this concern, we form a matching portfolio
+based on industry, size, and pre-activism return. We show
+that matching ﬁrms are less likely to be acquired within
+the next year, compared with ﬁrms that are targets of
+activism. In our full sample, activists increase the probability of takeover by about 11 percentage points. That is,
+activists put ﬁrms into play.
+One implication of our work is that the announcement
+returns to investor activism should depend on the overall
+takeover interest in the market. Evidence from the credit
+crunch period from July to September 2007 conﬁrms this
+intuition. During this time, private equity interest in debtﬁnanced buyouts declined dramatically due to changes in
+credit market conditions. Many activists saw corresponding drops in the value of their holdings of target ﬁrms
+whose stock had been purchased in the hope of a takeover,
+the probability of which declined when rates increased.
+In the ﬁnal section of the paper, we gather data on the
+positions of all serial activists during the time of the crisis.
+We show that the value of these activists’ largest positions
+declined sharply during this short period, especially
+surrounding news of failed takeover attempts. This evidence is consistent with our hypothesis that activism
+targets were bought in the expectation of a takeover.
+The paper proceeds as follows. The next section
+describes our data. Section 3 relates activism event
+returns to takeover outcomes and also examines the
+incidence of takeovers in our sample. Section 4 studies
+the implications of the credit crisis in mid-2007 for the
+
+2
+Marcia Vickers, ‘‘Companies
+BusinessWeek, June 10, 2002.
+
+BewareyIt’s
+
+Shark
+
+Season’’,
+
+ARTICLE IN PRESS
+364
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+performance of activists’ portfolios. The ﬁnal section
+concludes.
+2. Data
+2.1. Constructing the sample
+We merge all Schedule 13D and DFAN14A ﬁlings from
+the SEC’s EDGAR database for the 13-year period from the
+third quarter of 1993 through the third quarter of 2006.
+13Ds are ﬁled with the SEC within 10 days of an entity
+attaining 5% or greater share in any class of a company’s
+securities. The ﬁling documents the size of the purchase
+and summarizes the investors’ intentions. Starting in
+2000, activists began occasionally attaching a letter to a
+target ﬁrm’s management or board in their SEC ﬁling.
+13Ds must be ﬁled by institutional money managers
+and hedge funds, as well as for crossholdings formed
+when two ﬁrms merge or form business alliances. Several
+papers, starting with Mikkelson and Ruback (1985),
+note that mergers and takeovers are often preceded
+by the acquisition of a minority stake in the target. Since
+our focus is on portfolio investments, we restrict our
+sample by cross-referencing the 13D ﬁlings with a list
+of investment managers that have ﬁled a Schedule 13F
+holdings report at some point in their history. We do this
+so as not to confuse corporate crossholdings with activism
+from portfolio investors. This restriction limits our data
+somewhat, because only institutions holding more than
+$100 million in US stocks ﬁle 13F reports. However, this
+step is necessary to facilitate the separation of the activist
+ﬁlings from the larger universe of 13D ﬁlings—a total of
+173,078 for our period of study.
+We add to our sample of 13Ds by including all
+deﬁnitive proxy statements ﬁled by non-management
+(DFAN14As). DFAN14As are ﬁled with the SEC by investors
+who intend to or are engaged in a proxy ﬁght with a ﬁrm’s
+management. A proxy ﬁght can be initiated with a stake in
+a company’s securities that comprises less than 5% of the
+shares outstanding, although the mean for our sample is
+10.8%, implying that these activists usually show up on
+both ﬁlings.
+Our initial sample includes 20,771 ﬁlings. From these,
+we exclude targets that are closed-end funds, and ﬁrms
+that are not identiﬁable on the Center for Research in
+Security Prices (CRSP) ﬁles at the time of the initial ﬁling.
+To arrive at a list of events, we read the ‘‘purpose
+of transaction’’ section of each 13D ﬁling to identify
+whether or not the ﬁler is pursuing an activist strategy.
+The overwhelming majority of transactions are for the
+purposes of passive investment only, and we exclude
+them. However, these non-activist ﬁlings serve as a useful
+control group in some of the tests that follow.3
+3
+
+We also exclude several hundred events from Gabelli Investments
+in which the 13D states the ﬁrm’s intention to ‘‘engage management’’.
+Our reasoning is that Gabelli appears to ﬁle identical 13Ds when
+acquiring large stakes, thus we have no reason to believe that these
+ﬁlings are activist. However, when press releases or further clariﬁcations
+on the 13D spell out speciﬁc activist demands, then we do include the
+Gabelli event. Our ﬁnal dataset includes 70 Gabelli events (including
+
+For each activist–target pair, there are typically multiple ﬁlings. These result from small changes in the activist
+position or from formal communication between the
+investor and management. We exclude repeat ﬁlings for
+an activist–target pair for which the purpose of the
+transaction is essentially unchanged—but if there is a
+meaningful change in the purpose of transaction over the
+course of several 13D ﬁlings for the same target–investor
+pair, we code these as separate events. Our results are not
+much affected by whether we throw out these follow-on
+events, which we do in some tests that require unique
+activist–target pairings.
+Following the process described above, we ﬁnd a total
+of 980 activist events covering 811 unique target–activist
+pairs. We use company Web sites, newspaper articles,
+and the Center for International Securities and Derivatives
+Markets (CISDM) hedge fund database to determine
+whether or not the activist is a hedge fund or another
+type of investor (i.e., a mutual fund, pension fund, or
+investment management company). Some of the activists
+classiﬁed as non-hedge funds may indeed have a hedge
+fund, but the fund is not its main product offering to
+investors. We classify these as non-hedge funds.4
+Panel A of Table 1 summarizes the sample. A total of
+784 events were initiated by 139 unique hedge funds, and
+196 events were initiated by 38 unique non-hedge funds.
+Over our sample period, almost four times more hedge
+funds engaged in activism using 13D ﬁlings than did other
+institutional investors. The table also shows that hedgefund ﬁlings grow in number, relative to non-hedge fund
+ﬁlings, in later sample years. Most of the non-hedge fund
+ﬁlings can be traced to the Ontario Teachers Pension Plan
+Board, Franklin Mutual Advisers and Franklin Resources,
+and Gabelli Asset Management, which each participated
+in 10 or more events. There are considerably more serial
+activists among hedge funds. For example, the hedge
+funds Farallon Capital, Steel Partners, ValueAct Partners,
+Wynneﬁeld, Blum Capital, Carl Icahn, Chapman Capital,
+Newcastle Partners, JANA Partners, Third Point, and Pirate
+Capital constitute more than two-thirds of the sample.
+2.2. Classiﬁcation of activist demands
+Every Schedule 13D ﬁling includes a ‘‘purpose of
+transaction’’ section, in which the ﬁler discloses any plans
+or proposals that could relate to or result in a signiﬁcant
+change at the company, whether this is a call for the
+election of an independent director or a bid to acquire
+the target. This section can signal to the market the plan
+the investor intends to follow with regard to its position.
+Often, the investor has no activist plans, but ﬁles a
+Schedule 13D to reserve the right to engage in future
+(footnote continued)
+ﬁlings from Gabelli Funds, GAMCO Investors, and Gabelli Asset Management).
+4
+For example, Gabelli Asset Management is an investment management company that offers mutual funds to retail investors in addition to
+a number of investment advisory services and products to institutional
+and high-net worth individual investors. These products include hedge
+funds.
+
+ARTICLE IN PRESS
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+365
+
+Table 1
+Summary statistics: investor activism 1994–2006.
+An event is deﬁned as an instance in which an activist ﬁles a 13D ﬁling announcing 5% ownership and an intention to inﬂuence the management of the
+company. Events are separated by hedge fund and non-hedge fund activists, where a hedge fund is deﬁned according to CISDM data. Panel A tabulates
+events by year. Panel B tabulates events based on the activist’s initial set of demands. Event classiﬁcations are as follows: engage management (the activist
+intends to engage management or discuss issues with management to increase shareholder value, or makes a general statement that shares are
+undervalued without including speciﬁc proposals); capital structure (the activist requests a recapitalization, stock or debt issuance, restructuring of debt,
+dividends or a stock repurchase); corporate governance (the activist seeks to declassify the board, remove a poison pill, elect activist-selected directors, ﬁre
+a company ofﬁcer or board member, or target other governance issues); business strategy (the activist critiques excess diversiﬁcation and the level of
+investment in some business lines or cites poor operating strategy at the target); strategic alternatives (the activist requests that the target pursue various
+strategic alternatives for the ﬁrm, including a spinoff of an underperforming division); asset sale (the activist calls for the target to sell itself or certain
+assets in order to maximize shareholder value); block merger (the activist tries to block a merger with another ﬁrm or seeks to increase the bid made for
+the target); ﬁnancing/bankruptcy (the activist provides ﬁnancing for the target during bankruptcy or ﬁnancial distress, and may also include an offer to
+ﬁnance the target’s growth or acquisition strategies); proxy contest (the activist ﬁles under Schedule 14A with intention to solicit proxies from
+shareholders). Panel C shows sample means for various event characteristics.
+Hedge fund
+
+Non-hedge fund
+
+Full sample
+
+Panel A: events by year
+1994
+1995
+1996
+1997
+1998
+1999
+2000
+2001
+2002
+2003
+2004
+2005
+2006
+Total
+
+8
+8
+18
+45
+58
+63
+61
+66
+63
+53
+73
+141
+127
+784
+
+2
+2
+12
+21
+16
+27
+23
+17
+26
+14
+14
+12
+10
+196
+
+10
+10
+30
+66
+74
+90
+84
+83
+89
+67
+87
+153
+137
+980
+
+Panel B: events by type of demand
+Engage management—asset undervalued
+Capital structure
+Corporate governance
+Business strategy
+Strategic alternatives
+Asset sale
+Block merger
+Financing/bankruptcy
+Proxy contest
+
+357
+79
+172
+36
+19
+142
+44
+11
+71
+
+44
+12
+95
+12
+10
+26
+20
+4
+6
+
+401
+91
+267
+48
+29
+168
+64
+15
+77
+
+1,775
+59.2
+9.83
+2.71
+3.79
+1.54
+13.13
+
+24,200
+81.7
+12.97
+3.23
+3.29
+1.29
+23.56
+
+6,793
+63.7
+10.47
+2.82
+3.69
+1.49
+15.12
+
+Panel C: other descriptive statistics
+Activist assets under management ($m)
+Market value of stake in target ($m)
+Percent of target shares outstanding (%)
+Mean size decile of positions
+Number of analysts covering target
+Target market-to-book ratio
+Target 24-month return net of industry return (%)
+
+activism. Any subsequent change in holdings or intention
+is then reported in an amended 13D ﬁling.5 If the ﬁler has
+no activist intentions, the SEC allows for the ﬁling of a
+Schedule 13G (instead of a 13D), which indicates that the
+large shareholder is a passive investor.
+In addition to the information contained in the
+‘‘purpose of transaction’’ section, the SEC allows investors
+to ﬁle additional materials as exhibits. These materials,
+along with the formal remarks in the 13D, provide the
+market with detailed explanations of the course of action
+the activist wants the ﬁrm to take. Our reading of the 13D
+
+5
+If the ﬁler has no activist intentions, the SEC allows for the ﬁling of
+a Schedule 13G (instead of a 13D), which indicates that the large
+shareholder is a passive investor.
+
+statements suggests that activist demands fall into
+approximately nine well-deﬁned categories: (1) intention
+to ‘‘engage’’ with management because the stock is undervalued, (2) capital structure issues, (3) corporate
+governance issues, (4) business strategy issues, (5)
+‘‘strategic alternatives’’, (6) explicitly calling for the sale
+of all or part of the target, (7) blocking a proposed merger
+or acquisition because of unfavorable pricing, (8) ﬁnancing for a ﬁrm in distress or other bankruptcy-related
+issues, and (9) the intention to engage in a proxy contest.
+In recent years, ‘‘strategic alternatives’’ appears to be
+synonymous with a spinoff or acquisition. Note that
+activist classiﬁcations are based on what is stated in the
+13D ﬁling, and not on the target company response.
+Additionally, we avoid classifying events as either hostile
+or friendly because potentially friendly investments may
+
+ARTICLE IN PRESS
+366
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+become hostile when management resists activist demands. An event can be assigned to multiple categories;
+however, most events have unique classiﬁcations.
+Panel B of Table 1 categorizes events according to the
+activist demands. Because the categories are non-exclusive, the number of events in each category sums to more
+than 980. The table reveals important differences in the
+demands of hedge funds and non-hedge fund investors.
+Aside from making general ‘‘undervalued’’ statements
+or expressing an intention to engage with management,
+hedge fund activists frequently demand that the target
+sell off all or part of its assets. In practice, activists that
+declare the target to be undervalued often try to locate
+a buyer for the ﬁrm, creating some overlap between the
+two demand categories of calling for an asset sale and
+making a general ‘‘undervalued’’ statement about a target.
+Governance-related activism is also fairly common and
+targets policies relating to poison pills, conﬁdential voting,
+or board structure.
+2.3. Activist and target characteristics
+We collect detailed information on the activist portfolio, summarized in Panel C of Table 1. CDA/Spectrum
+makes available quarterly holdings information for institutional investors compiled from their 13F ﬁlings with
+the SEC. These ﬁlings include all holdings of domestic
+equities for funds that manage $100 million or more.
+We aggregate reported long positions to get a measure of
+the assets under management at the time of the event.
+The table shows that hedge funds tend to manage smaller
+portfolios than non-hedge funds. Yet the market value
+of the stake in the target is similar across the two types of
+institutions, implying that hedge funds tend to take more
+concentrated positions.
+Panel C also highlights a few other important characteristics of activism targets: they tend to be small stocks
+(in the second or third size decile) with low marketto-book ratios and little or no analyst coverage, and
+have underperformed their industry over the previous
+24 months. Both hedge funds and non-hedge funds
+target small ﬁrms, although hedge fund targets are even
+smaller than non-hedge-fund targets. Finally, we observe
+a fair amount of industry concentration of these events
+(not tabulated).
+2.4. Abnormal returns classiﬁed according to
+activist demand
+Abnormal returns around the announcement of the
+13D ﬁling are measured by the difference between the
+return on the target stock and the return on a matching
+portfolio:
+ RMatch
+ARit ¼ RTarget
+t
+it
+
+(1)
+
+Ideally, we would identify matching stocks for each
+target based on size, industry, and book-to-market ratio.
+Compustat accounting data are not available for all ﬁrms
+in our sample, however. We consider cutting the sample
+down to include only Compustat ﬁrms, but this would
+
+result in the removal of smaller activism targets. Therefore, we form a surrogate matched portfolio as follows. We
+start with 100 days of returns in the interval [t110, t10],
+where t denotes the date of the initial 13D ﬁling, and we
+estimate loadings of target ﬁrm returns on the Fama and
+French (1993) HML, SMB, and market return factors:
+M
+ RFt ¼ ai þ bi HMLt þ ci SMBt þ dðRM
+RTarget
+t  Rt Þ þ uit
+it
+
+(2)
+
+Our matching portfolio return in t+1 is then the factor
+loading weighted return on the HML, SMB, and market
+portfolios:
+F
+M
+^
+^ M
+^
+RMatch
+itþ1  Rtþ1 ¼ bi HMLtþ1 þ c i SMBtþ1 þ dðRtþ1  Rtþ1 Þ
+
+(3)
+
+^ c^ ; and d^ are the estimates from the ﬁrst-stage
+where b;
+regression in Eq. (1). On the few occasions where there is
+insufﬁcient pre-event return data to estimate factor
+loadings, we substitute the CRSP value-weighted portfolio
+for the match portfolio.6
+The ﬁnal step is to cumulate abnormal returns from
+Eq. (3). These results are shown for the complete sample, as
+well as by type, in Panel A of Table 2. The table reveals that
+immediate returns to activism are large—approximately
+3.5% over the 15-day event window. Note that announcement returns accrue starting a few days before the ﬁling
+date, which we attribute to the 10-day window during
+which investors are required to ﬁle the 13D. Returns are
+positive when the activist indicates a desire to ‘‘engage
+management’’, when the activist requests an asset sale
+or tries to block a merger, and when the activist wages
+a proxy ﬁght. In contrast, returns are not signiﬁcantly
+different from zero when the activist targets capital
+structure issues, corporate governance, or corporate
+strategy, or proposes a spinoff. These results are broadly
+consistent with our hypothesis that activists generate
+signiﬁcantly positive returns only when they effectively
+put a company in play; other activist demands do not
+seem to garner the same favorable market reaction.
+Monthly abnormal returns surrounding investor activism are computed following the same methodology. We
+start with 24 months of returns in the interval [t25, t1]
+where t denotes the month of the initial 13D ﬁling, and
+estimate loadings of target ﬁrm returns on the FamaFrench (1993) HML, SMB, and market return factors. Our
+matching monthly return is the factor loading weighted
+monthly return on the HML, SMB, and market portfolios.
+Cumulative abnormal monthly returns for the period
+starting one month before the activism and ending 18
+months later are shown in Panel B of Table 2. For the full
+sample of events, abnormal returns for the 18-month
+period are signiﬁcant and just over 10%. A large portion of
+these returns accrue in the [+3 months, +18 months]
+window. In other words, only a modest portion comes
+from the period around announcement, suggesting that
+the market underreacts, on average, to the announcement
+of activism. Another possibility is that the long-term
+6
+One drawback of our procedure is that it is inappropriate if factor
+exposures are changing quickly over time (a problem that does not arise
+if we assign matched ﬁrms to each stock). We are less concerned with
+this because we track performance for a fairly short window after the
+event.
+
+% Acquired
+
+26.1%
+CAR (%)
+
+Engage
+management
+
+Corporate
+governance
+
+[1.1]
+[1.1]
+[1.5]
+[1.7]
+[1.6]
+[1.9]
+[3.0]
+[4.6]
+[5.0]
+
+1.95
+2.34
+2.17
+2.21
+1.68
+0.63
+0.51
+0.72
+1.68
+
+[2.2]
+[1.7]
+[1.6]
+[1.4]
+[1.1]
+[0.4]
+[0.3]
+[0.4]
+[1.0]
+
+1.14
+0.24
+0.42
+0.50
+0.10
+0.98
+1.48
+2.12
+2.30
+
+[2.1]
+[0.3]
+[0.5]
+[0.6]
+[0.1]
+[1.0]
+[1.4]
+[2.1]
+[2.1]
+
+1.48
+2.82
+2.08
+2.55
+2.43
+2.25
+1.26
+1.49
+2.32
+
+[0.9]
+[1.0]
+[0.7]
+[0.9]
+[0.8]
+[0.7]
+[0.4]
+[0.4]
+[0.5]
+
+0.21
+0.13
+0.10
+0.05
+1.01
+2.09
+5.21
+6.00
+6.83
+
+Panel B: cumulative monthly abnormal returns
+1 month
+0.59 [1.2]
+0.90 [1.2]
+Filing month
+3.84
+[5.3]
+2.25
+[2.0]
++1 month
+4.20
+[4.5]
+2.26
+[1.6]
++6 months
+5.32
+[3.0]
+4.08
+[1.6]
++12 months
+7.78
+[2.9]
+6.15
+[1.9]
++18 months
+10.26
+[3.4]
+5.90
+[1.6]
+
+1.03
+1.30
+0.95
+0.62
+4.59
+7.24
+
+[0.7]
+[0.6]
+[0.3]
+[0.1]
+[0.6]
+[0.8]
+
+0.18
+4.85
+5.75
+6.39
+7.40
+13.75
+
+[0.2]
+[3.4]
+[2.9]
+[1.6]
+[1.0]
+[1.6]
+
+3.07
+2.67
+4.62
+0.46
+12.96
+12.56
+
+[1.3]
+[0.8]
+[1.0]
+[0.1]
+[1.5]
+[1.2]
+
+1.23
+5.34
+7.63
+6.04
+10.10
+11.04
+
+Panel A: cumulative daily abnormal returns
+10 days
+0.08 [0.3]
+0.43
+5 days
+0.10
+[0.2]
+0.73
+4 days
+0.29
+[0.7]
+1.01
+3 days
+0.44
+[0.9]
+1.24
+2 days
+0.67
+[1.4]
+1.18
+1 day
+1.27
+[2.5]
+1.40
+Filing date
+2.41
+[4.5]
+2.28
++1 day
+3.22
+[6.1]
+3.34
++5 days
+3.61
+[6.2]
+4.18
+
+[t]
+
+20.8%
+CAR (%)
+
+Asset sale
+
+20.9%
+CAR (%)
+
+[t]
+
+15.7%
+CAR (%)
+
+Corporate
+strategy
+
+[t]
+
+[t]
+
+23.7%
+CAR (%)
+
+Capital structure
+
+[t]
+
+35.7%
+CAR (%)
+
+Block merger
+
+Financing
+related to
+bankruptcy
+
+Strategic
+alternatives
+
+78.1%
+CAR (%)
+
+[t]
+
+26.7%
+CAR (%)
+
+[0.4]
+[0.2]
+[0.1]
+[0.1]
+[1.1]
+[2.0]
+[4.8]
+[5.4]
+[5.7]
+
+2.80
+2.67
+2.67
+3.27
+3.17
+3.16
+4.54
+4.69
+5.91
+
+[1.8]
+[1.5]
+[1.5]
+[1.6]
+[1.4]
+[1.3]
+[1.7]
+[1.8]
+[2.4]
+
+4.68
+1.75
+2.71
+1.89
+1.29
+5.87
+8.37
+9.08
+2.31
+
+[0.6]
+[0.5]
+[0.7]
+[0.5]
+[0.3]
+[0.8]
+[1.2]
+[1.4]
+[0.4]
+
+1.71
+1.90
+0.94
+0.18
+0.78
+0.10
+1.40
+0.99
+1.73
+
+[1.2]
+[3.6]
+[4.2]
+[1.6]
+[2.2]
+[2.2]
+
+3.39
+10.62
+11.02
+14.42
+16.60
+21.02
+
+[1.6]
+[4.0]
+[4.1]
+[4.0]
+[3.7]
+[3.8]
+
+9.34
+9.38
+17.85
+5.13
+13.91
+16.52
+
+[1.6]
+[1.2]
+[1.7]
+[0.3]
+[0.5]
+[0.6]
+
+0.99
+3.11
+0.11
+1.44
+7.41
+8.11
+
+[t]
+
+[t]
+
+31.0%
+CAR (%)
+
+Proxy contest
+
+18.2%
+CAR (%)
+
+[t]
+
+[1.5]
+[1.6]
+[0.5]
+[0.1]
+[0.4]
+[0.0]
+[0.7]
+[0.5]
+[0.8]
+
+0.55
+1.77
+2.42
+3.05
+3.00
+3.24
+3.98
+4.81
+4.56
+
+[0.8]
+[1.4]
+[1.7]
+[2.0]
+[2.0]
+[2.2]
+[2.5]
+[2.9]
+[2.8]
+
+[0.5]
+[0.9]
+[0.0]
+[0.2]
+[0.5]
+[0.5]
+
+2.09
+8.82
+10.74
+8.41
+15.94
+14.93
+
+[1.3]
+[3.7]
+[3.3]
+[1.2]
+[1.7]
+[1.5]
+
+[t]
+
+ARTICLE IN PRESS
+
+All events
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+Table 2
+Returns by activism type.
+Panel A shows cumulative daily abnormal returns; Panel B shows cumulative monthly abnormal returns, estimated as follows. We form a matching portfolio as the factor-loading weighted return on the HML,
+SMB, and market portfolios. Abnormal returns are the difference between the daily or monthly return and the return on the matching portfolio. Cumulative averages are shown for the full sample and for the
+various types of activism, classiﬁed at time of the 13D ﬁling. These event classiﬁcations are deﬁned as follows: engage management (the activist intends to engage management or discuss issues with
+management to increase shareholder value, or makes a general statement that shares are undervalued without including speciﬁc proposals); capital structure (the activist requests a recapitalization, stock or
+debt issuance, restructuring of debt, dividends or a stock repurchase); corporate governance (the activist seeks to declassify the board, remove a poison pill, elect activist-selected directors, ﬁre a company ofﬁcer
+or board member, or target other governance issues); business strategy (the activist critiques excess diversiﬁcation and the level of investment in some business lines or cites poor operating strategy at the
+target); strategic alternatives (the activist requests that the target pursue various strategic alternatives for the ﬁrm, including a spinoff of an underperforming division); asset sale (the activist calls for the target to
+sell itself or certain assets in order to maximize shareholder value); block merger (the activist tries to block a merger with another ﬁrm or seeks to increase the bid made for the target); ﬁnancing/bankruptcy (the
+activist provides ﬁnancing for the target during bankruptcy or ﬁnancial distress, and may also include an offer to ﬁnance the target’s growth or acquisition strategies); proxy contest (the activist ﬁles under
+Schedule 14A with intention to solicit proxies from shareholders). t-Statistics are in brackets.
+
+367
+
+ARTICLE IN PRESS
+368
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+abnormal positive returns reﬂect general undervaluation
+of the target, which reverts to fundamentals over the
+subsequent months. The remaining columns break down
+returns by activism category. Firms targeted for a sale or
+for which the activist tries to block a merger earn the
+largest abnormal returns. For the remaining categories,
+abnormal returns are positive but insigniﬁcant.
+3. Analysis
+In this section, we document the results of investor
+activism, focusing on both qualitative accounts based on
+press articles as well as more formal quantitative accounts
+based on Compustat accounting data. Our objective is to
+identify a correlation between the result of the activism
+and stock market performance. We are most interested in
+the correlation between an eventual takeover and stock
+market performance. However, we also check whether
+hedge fund activists: (a) make operating or governance
+changes that are reﬂected in shareholder value even when
+the target remains independent or (b) simply pick undervalued stocks that are more likely to be acquired
+regardless of activist intervention. In other words, we try
+to shed light on the question of whether the activist
+investor causes the takeover or is simply effective at
+picking a stock that was likely to be taken over in the ﬁrst
+place.
+3.1. Outcomes
+To understand the actions that the target ﬁrm takes in
+response to an activist’s requests, we collect data on what
+happened after each event by reading the subsequent
+13D ﬁlings and communications between management
+and the activist, as well as by searching the newswires for
+information on the outcome. To identify whether the ﬁrm
+merged or was acquired in the year after activism, we look
+at the CRSP delisting code and delisting date and check
+whether it falls within 18 months of the initial complaint
+ﬁling. We classify a target as merged if its delisting
+date falls within 18 months of the initial ﬁling, where the
+CRSP delisting code has a ﬁrst digit of 2 (Mergers) or 3
+(Exchanges).
+Table 3 shows the results of this classiﬁcation. We
+classify the outcomes into four broad outcomes comprising 16 subcategories. The four broad outcomes include:
+asset sales and spinoffs, capital structure, corporate
+governance, and other. We cutoff our searches 18 months
+after the ﬁrst ﬁling. Classiﬁcations are non-exclusive: for
+example, if a target repurchases shares and gives board
+seats to the activist, this event will be categorized with
+two outcomes. Table 3 gives the number of exclusive
+classiﬁcations (i.e., where no other outcome was recorded)
+in parentheses to the right of the non-exclusive outcome
+number.
+For nearly half of the activist events, we ﬁnd no
+additional news following the ﬁrst ﬁling. Not surprisingly,
+these events tend to be concentrated among smaller
+targets. This raises the concern that these ﬁrms are less
+newsworthy than larger ﬁrms, generating fewer search
+
+Table 3
+Outcomes of activism
+Outcomes apply to news announced no later than 18 months after the
+initial 13D activist ﬁling. Each event can have more than one
+classiﬁcation; uniquely classiﬁed outcomes are in parentheses. The
+sample is restricted to initial activist ﬁlings.
+Outcome
+No news
+News
+Asset sale related
+Merger or asset sale completed
+Merger or asset sale announced
+Merger called off or bid increased
+Spinoff completed or announced
+Activist takes over target
+Target hires IB or begins auction
+Capital structure (non asset sale related)
+Shares repurchased/Special Dividend
+Greenmail
+Corporate governance
+Removal of poison pill
+Resignation of CEO/CFO/Chairman
+Board seats granted to activist
+Proxy defeated
+Other
+Activist cuts position below 5%
+Financing/bankruptcy agreement
+
+Number (uniquely classiﬁed)
+379 (379)
+
+178 (178)
+48 (25)
+12 (8)
+7 (2)
+7 (0)
+14 (5)
+23 (9)
+4 (3)
+15 (10)
+25 (5)
+96 (69)
+14 (10)
+35 (31)
+17 (10)
+
+results from the newswires. However, in the 18 months
+subsequent to ﬁling, these events earn average abnormal
+returns close to zero.
+The ﬁrst group of outcomes for which we ﬁnd news
+comprises events in which an asset sale or spinoff is
+announced or completed. In 178 cases, the target is
+acquired. In 48 cases, a merger or asset sale is announced.
+The other outcomes in this category include completion of
+a spinoff (seven events), the activist taking over the target
+entirely (seven events), and the target hiring an investment bank to solicit potential buyers (14 events).
+Our main question is whether the returns to activism
+depend on whether the target is eventually acquired
+or not. These results are shown in Table 4 and plotted in
+Fig. 1. The left-hand columns show average returns
+following the initial 13D ﬁling for the 226 events for
+which an acquisition was announced or completed within
+18 months of the initial 13D ﬁling. The table shows
+that these events earn abnormal announcement returns of
+more than 5%. The rest of the table sorts the remaining
+non-takeover events by outcome. The average announcement return, over all of these events, is 2.36%, about half
+of that earned by ﬁrms that are eventually taken over.
+The right-hand columns further separate these events into
+categories based on the outcome. Events that result
+in changes to the board or a share repurchase do not
+cause signiﬁcant positive returns. Events that result in a
+spinoff earn signiﬁcantly positive announcement returns
+of 6.4%.
+The results in Panel B are more interesting because
+they show the long-term returns to activism, conditional
+on the outcome. Events in which an acquisition was
+announced or completed earn post-ﬁling abnormal
+monthly returns of 25.85%, reﬂecting the takeover
+
+Events in which target is
+acquired within 18
+months of initial ﬁling:
+
+Events in which target remains independent:
+No news
+
+Board/resignations
+
+Spinoff
+
+Share repurchase
+
+Activist reduces
+stakeo5%
+
+CAR (%)
+
+[t]
+
+CAR (%)
+
+[t]
+
+CAR (%)
+
+[t]
+
+CAR (%)
+
+[t]
+
+CAR (%)
+
+[t]
+
+CAR (%)
+
+[t]
+
+CAR (%)
+
+[t]
+
+Panel A: daily returns
+10
+5
+4
+3
+2
+1
+Filing
++1
++5
+
+1.29
+0.87
+1.23
+1.69
+2.00
+2.78
+4.14
+4.75
+5.72
+
+[1.7]
+[1.0]
+[1.4]
+[1.7]
+[1.9]
+[2.5]
+[3.6]
+[4.2]
+[4.9]
+
+0.56
+0.37
+0.20
+0.19
+0.10
+0.34
+1.41
+2.12
+2.36
+
+[1.7]
+[0.7]
+[0.4]
+[0.3]
+[0.2]
+[0.5]
+[2.1]
+[3.1]
+[3.0]
+
+0.23
+0.01
+0.10
+0.25
+0.13
+0.47
+1.36
+2.02
+2.51
+
+[0.6]
+[0.0]
+[0.2]
+[0.4]
+[0.2]
+[0.6]
+[1.8]
+[2.7]
+[2.9]
+
+0.78
+0.83
+1.17
+1.48
+1.15
+0.32
+0.57
+1.24
+1.34
+
+[1.0]
+[0.8]
+[0.9]
+[1.1]
+[0.7]
+[0.2]
+[0.3]
+[0.8]
+[0.8]
+
+0.36
+3.27
+2.96
+3.36
+3.73
+5.01
+4.50
+5.56
+6.40
+
+[0.4]
+[1.0]
+[1.0]
+[1.1]
+[1.5]
+[4.0]
+[2.4]
+[2.8]
+[4.5]
+
+0.67
+1.54
+1.13
+0.17
+0.26
+0.36
+0.20
+0.08
+1.36
+
+[0.6]
+[0.7]
+[0.5]
+[0.1]
+[0.1]
+[0.1]
+[0.1]
+[0.0]
+[0.5]
+
+0.28
+0.55
+1.50
+0.13
+1.97
+1.63
+4.02
+5.56
+4.75
+
+[0.2]
+[0.2]
+[0.5]
+[0.0]
+[0.5]
+[0.4]
+[1.1]
+[1.5]
+[1.2]
+
+Panel B: monthly returns
+1
+Filing
++1
++6
++12
++18
+
+1.39
+7.88
+8.85
+16.84
+22.40
+25.85
+
+[1.3]
+[5.7]
+[5.4]
+[6.1]
+[6.8]
+[7.9]
+
+1.69
+1.78
+1.81
+0.64
+1.50
+2.85
+
+[2.9]
+[1.8]
+[1.4]
+[0.3]
+[0.4]
+[0.6]
+
+2.25
+0.86
+0.45
+1.15
+2.63
+0.00
+
+[3.4]
+[0.8]
+[0.3]
+[0.4]
+[0.5]
+[0.0]
+
+0.67
+4.71
+5.46
+0.57
+0.93
+5.62
+
+[0.6]
+[2.2]
+[2.1]
+[0.1]
+[0.1]
+[0.7]
+
+6.52
+8.76
+8.29
+12.20
+8.34
+3.41
+
+[1.1]
+[2.6]
+[1.0]
+[1.7]
+[0.4]
+[0.1]
+
+3.34
+5.95
+8.01
+18.53
+30.50
+29.97
+
+[0.9]
+[1.0]
+[1.0]
+[1.0]
+[0.9]
+[0.8]
+
+1.35
+1.32
+0.59
+3.41
+1.64
+2.83
+
+[0.5]
+[0.4]
+[0.1]
+[0.3]
+[0.1]
+[0.2]
+
+ARTICLE IN PRESS
+
+All
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+Table 4
+Daily and monthly abnormal returns by outcome.
+Daily and monthly cumulative abnormal returns for activism targets, grouped according to the outcome. Abnormal returns are the difference between the daily or monthly return and the daily or monthly
+return on the matching portfolio. Outcomes are deﬁned as follows: acquisition announced/completed (the target completed or announced a merger or sale of either all or part of its assets); no news (indicates no
+news of an outcome); board or resignations (indicates the announcement of resignations by the target’s CEO and/or CFO and/or chairman of the board and/or the announcement that the activist gains seats on the
+target’s board of directors, either through a proxy contest or a deal with the target); reduces stake to o5% (indicates that the activist reduced its stake in the target to below 5% of the shares outstanding, thereby
+ending its 13D ﬁling requirements). Outcomes apply to news announced no later than 18 months after the initial 13D activist ﬁling. t-Statistics are in brackets.
+
+369
+
+ARTICLE IN PRESS
+370
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+7%
+Acquisitions
+
+Cumulative abnormal return
+
+6%
+5%
+4%
+3%
+
+All other coutcomes
+
+2%
+1%
+
+-15 -14
+
+-13 -12
+
+-11 -10
+
+-9
+
+-8
+
+-7 -6 -5 -4 -3 -2
+Days around Activist Filing
+
+0%
+-1
+0
+-1%
+
++1
+
++2
+
++3
+
++4
+
++5
+
+-2%
+-3%
+30%
+
+Acquisitions
+
+Cumulative abnormal return
+
+25%
+20%
+15%
+10%
+All other coutcomes
+
+5%
+0%
+-1
+0
+-5%
+
++1
+
++2
+
++3
+
++4
+
++5
+
++6 +7 +8 +9 +10 +11 +12 +13 +14 +15 +16 +17 +18
+Months around activist filing
+
+Fig. 1. Abnormal returns around activist ﬁling by outcome. Average cumulative abnormal returns plotted separately for activism targets that were
+acquired and for activism targets that remained independent 18 months after the ﬁrst ﬁling of the 13D. We ﬁrst estimate factor loadings on HML, SMB,
+and the market excess return using 100 days of returns prior to the ﬁrst ﬁling of the 13D. The matching portfolio is the factor-loading weighted return on
+the HML, SMB, and market portfolios. Abnormal returns are the difference between the target return and the return on the matching portfolio. Panel A
+shows cumulative daily abnormal returns during a 20-day interval around the announcement of activism. Panel B shows cumulative monthly abnormal
+returns during a 19-month interval around the announcement of activism. Panel A: short-term cumulative abnormal returns and Panel B: long-term
+cumulative abnormal returns.
+
+premium paid by the acquirer. For the full set of events
+that do not end in acquisition, post-13D ﬁling returns are
+not signiﬁcantly different from zero. These returns do not
+seem to depend on what actually happened—events
+for which there is no news do not have signiﬁcantly
+different monthly returns than events for which good
+news is announced (i.e., board resignations or a spinoff).
+The possible exception is the few events in which the ﬁrm
+agrees to repurchase shares. Monthly returns here are
+positive but not signiﬁcant.
+To summarize, classiﬁcations of activism based
+on the outcome reveal that a takeover is one of the most
+likely events. Both announcement returns and longterm returns in the event of a takeover are high. For
+the remaining outcomes, long-term abnormal returns
+can be positive but are not signiﬁcantly different from
+zero.
+
+3.2. Do targets that remain independent experience
+any improvement?
+Another way to track the performance of ﬁrms postactivism is to study accounting measures before and after
+the activist request (see e.g., Brav, Jian, Partnoy, and
+Thomas, 2008; Klein and Zur, 2009). This is potentially
+problematic for a few reasons. First, the most signiﬁcant
+outcome for a target ﬁrm is a takeover, in which case it is
+dropped from Compustat. Second, a few of the ﬁrms in our
+sample do not supply Compustat data even before the
+event, making a before-versus-after comparison impossible. These caveats notwithstanding, the left-hand column of Table 5 shows changes in accounting-based
+measures of operating performance following activist
+ﬁlings for the subset of targets that remain independent.
+In our discussion, we focus primarily on measures over
+
+ARTICLE IN PRESS
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+371
+
+Table 5
+Operating changes following activist ﬁlings for non-acquired targets
+Descriptive statistics of changes in accounting-based measures of ﬁnancial policy and performance between the ﬁscal year prior to the initial ﬁling of an
+activist Schedule 13D and the ﬁscal year following the initial ﬁling. The accounting variables are constructed from Compustat as follows: leverage is the
+sum of long-term debt (item 9) and current liabilities (item 34) divided by the sum of long-term debt, current liabilities, and the book value of common
+equity (item 60); capital expenditures is capital expenditures (item 128) divided by lagged net property, plant, and equipment (item 8); dividends/earnings
+is the ratio of the sum of common dividends (item 21) and preferred dividends (item 19) to earnings before depreciation, interest, and tax (item 13);
+change in assets is equal to the percentage change in assets for the year after activism (item 6) and the year prior to activism; change in shares is equal to
+the percentage change in shares outstanding (from CRSP) four quarters after activism and four quarters before activism; return on assets is the ratio of
+EBITDA (item 18) to lagged total assets (item 6); and operating return on assets is the ratio of operating cash ﬂow (item 308) to lagged total assets (item 6).
+All accounting variables are winsorized at the 1% and 99% levels to reduce the inﬂuence of outliers. Long-term abnormal returns are calculated 18 months
+after the activist ﬁling. t-Statistics and p-values are in brackets.
+All non-acquired targets
+
+Leverage
+Capital expenditures
+Dividends/Earnings
+DA/At1
+DS/St1
+Return on assets
+Operating ROA
+
+Correlation with long-term abnormal return
+
+D1,1
+
+[t]
+
+r
+
+[p-Value]
+
+0.408
+0.144
+0.019
+0.079
+0.203
+0.001
+0.010
+
+[2.69]
+[4.11]
+[1.31]
+[0.59]
+[1.06]
+[0.15]
+[0.70]
+
+0.031
+0.053
+0.067
+0.022
+0.051
+0.165
+0.018
+
+[0.58]
+[0.34]
+[0.25]
+[0.67]
+[0.24]
+[0.00]
+[0.74]
+
+which management has the most control, such as
+leverage, share repurchases, and payout policy. For
+example, a ﬁnding that activist targets with positive
+earnings shocks experience high returns would not
+necessarily teach us anything about the success of the
+activist as these shocks could be independent of the
+activist demands.
+Performance changes are measured by the difference
+between the ﬁscal year after the 13D ﬁling and the
+ﬁscal year before the ﬁling. The accounting variables
+are constructed as follows: capital expenditures is capital
+expenditures (Compustat item 128) over lagged net
+property, plant, and equipment (item 8); dividends/earnings is the ratio of the sum of common dividends (item 21)
+and preferred dividends (item 19) to earnings before
+depreciation, interest, and tax (item 13); leverage is the
+sum of long-term debt (item 9) and current liabilities
+(item 34) divided by the sum of long-term debt, current
+liabilities, and the book value of common equity (item 60);
+operating return on assets is operating cash ﬂow (item 308)
+lagged total assets (item 6); return on assets is
+the ratio of EBITDA (item 18) to lagged total assets; and
+DA/At1 denotes the percentage change in balance sheet
+assets; DS/St1 denotes the percentage change in adjusted
+shares outstanding. All scaled variables are winsorized at
+the 1% and 99% levels to reduce the inﬂuence of outliers.
+The left-hand column of Table 5 shows that for the full
+sample of events, there is no signiﬁcant change in ROA,
+operating ROA, the payout ratio, asset growth, or share
+growth. We do ﬁnd, however, that ﬁrms reduce investment levels—capital expenditures scaled by property,
+plant, and equipment falls from 36.5% to 22.1% for the
+average ﬁrm in the sample. The table also shows that
+surviving ﬁrms increase their leverage ratio by nearly 40
+percentage points. This effect is far more pronounced
+when the activist initially targets ‘‘capital structure’’
+issues in its initial 13D ﬁling. In these instances, targets
+more than double their leverage ratios from the year
+before the activist ﬁling to the year after.
+
+The more important question is whether any of these
+operating changes are associated with high stock returns.
+Our objective is to ﬁnd evidence of stock price appreciation for targets that execute operational or ﬁnancing
+changes demanded by activists yet ultimately remain
+independent. These correlations, and their associated
+p-values, are shown in the right-hand column of Table 5.
+Any changes in operating ROA, leverage, capital expenditures, dividends, assets, and shares outstanding seem to
+have no signiﬁcant correlation with returns, consistent
+with our hypothesis that activists have few levers in
+creating shareholder value over the long term other than a
+takeover. Return on assets is the only operational change
+that has a signiﬁcant correlation with long-term abnormal
+returns, but it is not obvious that this has any relation to
+the demands raised by the activist.
+
+3.3. Do activists increase the probability that ﬁrms are
+taken over?
+While the evidence thus far is consistent with our
+hypothesis that activists create value by bringing about an
+acquisition of the target, it is also consistent with another
+explanation: the returns associated with activists’ involvement reﬂect their ability to pick undervalued stocks
+that are inherently more likely to be acquired (with or
+without an activist intervention). And to the extent that
+the activists ask target ﬁrms to make operating changes,
+these are changes that were apt to happen anyway.
+Consistent with this alternate hypothesis, activist targets
+tend to have similar characteristics: they are small stocks
+with little or no analyst coverage and low market-to-book
+ratios, and have underperformed relative to other ﬁrms in
+their industry.
+We compare the probability that target ﬁrms are
+acquired with the counterfactual probability that they
+would have been acquired in the absence of activism.
+We obtain a counterfactual probability by matching each
+
+ARTICLE IN PRESS
+372
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+Table 6
+Delisting outcomes for targets and other companies.
+Statistics on the delisting of the target companies for all activist ﬁlings made between 1994 and 2006, hedge fund activist ﬁlings only, other companies
+in an industry, size, and prior-return matched sample, targets of non-activist 13D ﬁlings excluding those that delisted within two months of the ﬁling, and
+the universe of all small CRSP stocks. Delisting information is from CRSP. Delisting data for ‘‘all small stocks’’ are based on an event date of December 31,
+2004 for ﬁrms in the CRSP NYSE third size decile or less.
+
+Hedge fund activist
+events
+
+Industry-sizereturn matched
+sample
+
+Non-activist 13D
+ﬁlings
+
+All small stocks
+
+Panel A: within 12 months of ﬁrst 13D ﬁling
+Still in sample on CRSP
+77.4%
+Delisted
+22.6%
+Acquired
+18.1%
+Other
+4.4%
+
+77.1%
+22.8%
+18.6%
+4.3%
+
+89.4%
+10.6%
+7.2%
+3.5%
+
+84.6%
+15.4%
+12.6%
+2.8%
+
+92.6%
+7.4%
+4.7%
+2.6%
+
+Panel B: Within 18 months of ﬁrst 13D ﬁling
+Still in sample on CRSP
+72.5%
+Delisted
+27.5%
+Acquired
+21.9%
+Other
+5.5%
+
+72.6%
+27.4%
+21.9%
+5.5%
+
+85.7%
+14.3%
+9.1%
+5.2%
+
+80.4%
+19.6%
+16.1%
+3.4%
+
+89.2%
+10.8%
+7.2%
+3.6%
+
+All activist events
+
+activism target with a ﬁrm in the same industry that is
+of similar size and has experienced similar past returns.
+The premise of our matching procedure is that the
+matched ﬁrm is also a candidate for investor activism.
+We then track each of these ﬁrms for a period of one year
+(or 18 months) following the initial activist ﬁling, keeping
+track of whether the ﬁrm is delisted, acquired, or still
+trading at the end of this window.
+Table 6 shows these results. In our sample, 22.6% of
+ﬁrms are delisted within a year of the ﬁrst ﬁling. Of these,
+18.1% are acquired by another ﬁrm and stop trading. In the
+matched sample, only 10.6% of ﬁrms are delisted within a
+year and only 7.2% are acquired. Thus, activists increase
+the probability of takeover by about 11 percentage points.
+One drawback of our matching procedure is the
+potential omitted variable bias: perhaps activists select
+targets on the basis of unobserved characteristics that do
+not enter our match. Put differently, we cannot control for
+some heterogeneity between the ﬁrms that the activist
+actually targeted and the ﬁrms that, albeit similar, are not
+ultimately targeted. While there is no way to fully rule
+out the importance of unobserved characteristics, we try
+another matched sample that is based on 13D ﬁlings in
+which no activist intentions are stated. Thus, this sample
+comprises a group of ﬁrms that also represent large
+positions in the activist investors’ portfolios but about
+which no formal issues were raised. The table shows that
+for this sample, 15.4% of ﬁrms are delisted and 12.6% are
+subsequently acquired within a year of the ﬁrst activism
+complaint ﬁling. Finally, we calculate the probability that
+stocks in the same size cohort as the target stocks are
+delisted. The table shows that only 7.4% of these stocks are
+delisted in a given year, with 4.7% of these being acquired.
+An interesting exercise is to see whether the increase in
+takeover probability can be related to the abnormal
+returns on announcement of activism. A back-of-theenvelope calculation suggests that it is: activists increase
+the probability of takeover by about 11 percentage points.
+Multiplied by an expected takeover premium of 30% (e.g.,
+Cremers, Nair, and John, 2007) yields 3.3% abnormal
+
+returns on announcement, commensurate with what we
+observe in the data.
+To sum up, based on a variety of control samples,
+activists increase the probability that a ﬁrm will be
+acquired. Panel B shows similar results but extends the
+window in which we track the target ﬁrm and its control
+ﬁrm to 18 months.
+In addition to the matched sample analysis, there are
+other reasons to think that activists increase the probability that ﬁrms are acquired. First, announcement
+returns are related to the speciﬁc concerns of the activist.
+As we showed earlier, announcement returns are particularly high when the activist requests that the target
+look into the sale of all or some of the business. Since
+presumably all activist positions are motivated by undervaluation of the target, it would follow that those
+positions that speciﬁcally call for the sale of the target
+should see higher announcement returns only if the
+market believes that the activist will be able to follow
+through on its demands. Thus, the market rationally bids
+up the price of the target stock in anticipation of a
+takeover premium.
+Finally, there is revealing evidence in the statements
+made by third-party buyers of activist targets. As Thomas
+H. Lee, a private equity fund manager, acknowledged in a
+speech in 2007, ‘‘I’d like to thank my friends Carl Icahn,
+Nelson Peltz, Jana Partners, Third Point y for teeing up
+deals because y many times [activist targets] are being
+driven into some form of auction’’.7
+4. Implications: the credit crisis of mid-2007
+One implication of our ﬁndings is that returns to
+investor activism should depend on overall takeover
+interest in the market. Shocks to ﬁnancing availability
+resulting from credit market turmoil from July through
+7
+Andrew Ross Sorkin, ‘‘Will Credit Crisis End the Activists’ Run?’’
+New York Times, August 27, 2007.
+
+ARTICLE IN PRESS
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+373
+
+September 2007 provide an opportunity to conﬁrm or
+reject this hypothesis.
+After a series of defaults by hedge funds and lenders on
+subprime-related investments, credit spreads widened
+during the late summer of 2007. The spread between the
+yield on a Moody’s AAA bond and the yield on the 10-year
+Treasury bond increased from approximately 11 basis
+points in early June 2007 to over 60 basis points in
+September 2007. The Merrill Lynch aggregate credit
+market option adjusted spread over Treasuries increased
+from 94 basis points to 150 basis points over the same
+window; widening also occurred in the CDX and syndicated loan markets. Brunnermeier (2009) provides an
+overview of market conditions during this time.
+From the perspective of a strategic buyer or private
+equity ﬁrm attempting to complete a debt-ﬁnanced
+acquisition, the widening of spreads was an exogenous
+shock to the cost of funding. This shock was soon reﬂected
+in the withdrawal of large buyouts. On July 26, 2007,
+Alliance Boots and Chrysler both announced that buyers
+had been unable to secure ﬁnancing for more than $20
+billion of debt. The next day, Cadbury announced that it
+would delay the sale of its US drinks division, blaming
+turmoil in the credit markets. News accounts in July
+provide additional color—the New York Times reports in
+late July that many bankers and private equity ﬁrms were
+‘‘trying to ﬁgure out what to do with dozens of pending
+deals that are now faced with the higher cost of debt’’.8
+News reports also conﬁrmed that the stock prices of ﬁrms
+that were being considered as takeover targets were
+adversely affected.
+What are the implications of this for activism? If
+activists are primarily focused on operating and governance improvements, the shocks to credit conditions
+should not affect the value of their positions. On the
+other hand, if activists’ main objective is to foster an
+acquisition, we predict negative abnormal portfolio
+returns around the time of the credit crisis.
+We assemble evidence on the performance of activist
+positions during this time to check whether activist
+investments are disproportionately affected by the credit
+market shocks. We isolate all activists that have been
+involved in 10 incidents or more, additionally requiring
+each activist to have been involved in at least one incident
+in 2005 or 2006. Each of these activists must ﬁle quarterly
+13F reports on their holdings. We study reported positions
+at the end of June 2007. For each of these activists, we
+collect the 10 largest positions under the reasoning that
+these positions are most likely subject to activism. A few
+of the targets have already been delisted by early July and
+are thus not available on CRSP. Our ﬁnal sample includes
+144 target companies owned by 16 activist investors.9
+This sample is a conservative place to start, since the
+
+investors had surely not taken an activist role in all of
+these positions.
+We analyze returns over four periods of interest: (1)
+the pre-crisis period, (2) the week during which credit
+spreads ﬁrst spiked and Chrysler and Boots fail to ﬁnd
+adequate funds to secure buyouts, (3) the week during
+which Home Depot slashed its price in a buyout, and (4)
+the full ‘‘crisis’’ period covering July and August.
+We weight returns in two ways, with our baseline
+results equal-weighted. We also show the returns to the
+portfolio in which positions are ﬁrst value-weighted
+within each activist portfolio and then equal-weighted
+across activists. This more elaborate procedure ensures
+that activists that manage more assets do not receive
+more weight, but places more focus on the activists’ most
+important positions. (A simpler value weighting produces
+nearly identical results, but overweights activists with
+more assets under management.) Table 7 shows that
+stocks in activist portfolios lost an average of approximately 5% during the week of July 25.
+While the raw abnormal returns are suggestive, they
+are confounded by volatility in both market returns and
+abnormal returns accruing to value-growth and momentum-based strategies during this time (e.g., Khandani and
+Lo, 2007; Brunnermeier, 2009). Both value and momentum stocks underperformed growth stocks in July, August,
+and September. Identifying the benchmark is particularly
+important in this exercise because of the overlapping
+nature of the event returns. We take a non-parametric
+approach to matching, following Daniel, Grinblatt, Titman,
+and Wermers (1997) and form 125 value-weighted
+matching characteristic portfolios based on size, marketto-book equity, and momentum.10 Abnormal returns for
+each target stock are measured by the excess over the
+returns on the matched portfolio. Fig. 2 conﬁrms that
+activism targets perform poorly during this time relative
+to their style-adjusted benchmarks. From mid-July to the
+end of September, the activist portfolio underperforms
+by more than 3 percentage points.
+Somewhat more formally, Table 7 presents the abnormal returns over several periods of interest along with the
+corresponding t-statistics. Abnormal returns are not
+signiﬁcantly different from zero during the ‘‘pre-crisis’’
+period. However, the portfolio signiﬁcantly underperforms during the week in which Chrysler and Boots fail
+to secure funding for their buyouts. We also ﬁnd weak
+evidence of underperformance during the week in which
+Home Depot announced that it would cut its price in a
+proposed buyout. The bottom lines of the table consider
+the full ‘‘crisis’’ period, from the end of July to the end
+of August, and conﬁrm that the underperformance shown
+in Fig. 2 is statistically signiﬁcant.
+
+8
+Vikas Bajaj and Eric Dash, ‘‘Monday on Wall Street: A Day Filled
+with Jitters Rather than Mergers’’, New York Times, July 30, 2007.
+9
+The funds include Blum Capital Partners, Cannell Capital, Farallon
+Capital, Franklin Resources, Gamco Investors, Jeffrey Halis, Icahn &
+Company, JANA Partners, Newcastle Capital, Nierenberg Investment
+Management, Oracle Investment Management, Pirate Capital, Soros Fund
+Management, Steel Partners, Third Point, and ValueAct Capital.
+
+10
+It is possible that we over control for value and momentum
+exposure, in which case the results shown in Fig. 2 and reported in Table 7
+are attenuated. This is because many market participants claimed that
+the underperformance of value stocks was precisely because many of
+these stocks had been considered as takeover targets. In this case, we
+simply want to de-mean cumulative returns by the market return,
+yielding slightly stronger results (not tabulated).
+
+ARTICLE IN PRESS
+374
+
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+Table 7
+The stock market performance of activism targets during the 2007 credit crisis.
+Cumulative abnormal returns on the portfolio of stocks held by the 16 most active activist investors between June and September 2007, as reported in
+their 13F disclosures in June 2007. The portfolio contains the top 10 positions of these activists, 144 stocks in total. We consider four periods over which to
+calculate event returns: (1) the pre-crisis period between June 1 and July 25; (2) the week during which Chrysler and Boots failed to secure funding for
+$20 billion of buyouts; (3) the week during which Home Depot agreed to slash its price during a buyout; and (4) the period encompassing (2) and (3). The
+table shows both equal- and value-weighted results. In the value-weighted results, stocks are ﬁrst value-weighted according to position size within
+activist portfolios, then equal-weighted across activists. In each panel, the left-hand columns show the average cumulative return (CR); the right-hand
+columns show the cumulative abnormal return (CAR), which is the average cumulative return minus the return on the corresponding Daniel, Grinblatt,
+Titman, and Wermers (1997) characteristic portfolio. The 125 characteristic portfolios are based on lagged size, book-to-market equity, and momentum.
+Equal-weighted
+
+June 1–July 24, 2007
+(pre-crisis period)
+July 25–July 31, 2007
+(Chrysler and Boots fail to secure buyout funds)
+August 25–August 29, 2007
+(Home Depot slashes price in buyout)
+July 25–August 29, 2007
+(Extended period of credit spread widening)
+
+CR (%)
+
+CAR (%)
+
+CR (%)
+
+CAR (%)
+
+1.05
+[1.17]
+4.71
+[11.30]
+0.40
+[1.26]
+4.83
+[6.25]
+
+0.21
+[0.25]
+1.01
+[2.51]
+0.40
+[1.20]
+2.04
+[2.72]
+
+0.14
+[0.15]
+4.67
+[14.15]
+0.35
+[1.31]
+5.57
+[7.79]
+
+0.24
+[0.28]
+1.13
+[3.39]
+0.46
+[1.62]
+2.97
+[4.32]
+
+4.0%
+Cumulative abnormal return
+
+3.0%
+2.0%
+1.0%
+0.0%
+-1.0%
+-2.0%
+-3.0%
+9/21/2007
+
+9/7/2007
+
+8/24/2007
+
+8/10/2007
+
+7/27/2007
+
+7/13/2007
+
+6/29/2007
+
+6/15/2007
+
+-4.0%
+6/1/2007
+
+Value-weighted
+
+Fig. 2. The performance of activism targets during the July–August 2007
+credit crisis. Equal- and value-weighted Daniel, Grinblatt, Titman, and
+Wermers (1997) adjusted abnormal returns on the portfolio of stocks
+held by the most active activists between June and September 2007.
+Matching portfolios are formed based on size, market-to-book equity,
+and momentum. The portfolio includes the 10 largest holdings for each
+activist. In the value-weighted results, stocks are ﬁrst value-weighted
+within activist portfolios, then equal weighted across activists. The
+dashed line at the end of July 2007 marks the public announcement that
+Chrysler and Boots failed to get adequate ﬁnancing for their respective
+buyouts (solid—equal-weighted abnormal returns and dashed—valueweighted abnormal returns).
+
+To summarize, many activists saw drops in the value of
+their portfolios during a period when market-wide takeover interest fell, consistent with the idea that their
+portfolio ﬁrms had been purchased in the hope of securing
+a takeover.
+
+5. Conclusions
+In their survey of shareholder activism, Gillan and
+Starks (1998) deﬁne an activist as an investor who tries to
+
+‘‘change the status quo through ‘voice’, without a change
+in control of the ﬁrm’’. While activist investors do not take
+controlling stakes in ﬁrms, we show that—ironically, from
+the perspective of value creation—activists are most
+successful at creating value when they are able to effect
+a change in control. In addition, we show that activism
+measurably increases the likelihood that an undervalued
+target is ultimately taken over. Hedge funds’ success at
+effecting a takeover accounts for the high returns to
+shareholder activism that have been documented in
+recent work. Events in credit markets in July and August
+2007 provide additional support.
+One implication of our work is that the scope for hedge
+fund activism to have pervasive effects on corporate
+governance is limited. In our view, hedge funds invest in
+small, undervalued companies with the ultimate goal
+of seeing those targets bought out. With the returns
+highest for targets that are acquired within 18 months of
+the activist ﬁling, it follows that the activists are less
+interested in making corporate governance changes that
+might improve the ﬁrm but leave it independent.
+An important question, which we do not answer here,
+is whether the shareholder activism associated with
+takeovers creates long-term value for acquiring company
+shareholders. In principle, activists could create value by
+identifying assets whose value is not being maximized by
+current management. In this case, the takeover premium
+represents the present value of having the assets managed
+more efﬁciently by another party. Another possibility,
+however, is that activists are good at identifying ﬁrms for
+which potential acquirers might overpay. A long tradition
+of papers in corporate ﬁnance, starting with Roll (1986)
+and including Shleifer and Vishny (2003) and Moeller,
+Schlingemann, and Stulz (2005), argues that ﬁrms overpay, on average, for public market acquisitions. In this
+case, the function of the activist is primarily to market the
+stock rather than to identify acquirers with true synergies.
+Given enough data on the future performance of the
+takeovers in our sample, it should be straightforward to
+distinguish between these possibilities.
+
+ARTICLE IN PRESS
+R. Greenwood, M. Schor / Journal of Financial Economics 92 (2009) 362–375
+
+Appendix A. Classiﬁcation of activist events based on
+initial demands
+Engage management: The activist intends to engage
+management or to discuss issues with management to
+increase shareholder value, or makes a general statement
+that shares are ‘‘undervalued’’ without including any
+speciﬁc plans or proposals. This is the least aggressive
+form of activism (45.54% of hedge fund sample and 22.45%
+of non-hedge fund sample).
+Capital structure: This type of activism relates to a
+recapitalization, stock or debt issuance, restructuring of
+debt, dividends, or a stock buyback (10.08% of hedge-fund
+sample and 6.12% of non-hedge fund sample).
+Corporate governance: This type of activism can include
+a call to declassify the board, remove a poison pill, elect
+activist-selected directors, or ﬁre a company ofﬁcer or
+board member. The corporate governance classiﬁcation
+also applies to activism that targets issues of board
+or executive compensation, corporate fraud, and lack of
+transparency (21.94% of the hedge fund sample and
+48.47% of the non-hedge fund sample).
+Business strategy: The activist critiques excess diversiﬁcation and the level of investment in some business lines
+or cites poor operating strategy at the target (4.59% of the
+hedge-fund sample and 6.12% of the non-hedge fund
+sample).
+Asset sale: The activist calls for the target to sell itself or
+certain of its assets in order to maximize shareholder
+value. This classiﬁcation can also represent an offer by the
+activist to take over the target (18.11% of the hedge-fund
+sample and 13.27% of the non-hedge fund sample).
+Block merger: The activist blocks a proposed merger,
+usually because it deems the terms of the deal to be
+unfavorable to target shareholders. Often, the activist will
+demand a higher price (5.61% of the hedge fund sample
+and 10.20% of the non-hedge-fund sample).
+Financing/Bankruptcy: The activist provides ﬁnancing
+for a target in bankruptcy or ﬁnancial distress (1.40% of
+the hedge fund sample and 2.04% of the non-hedge fund
+sample).
+Strategic alternatives: The activist requests that the
+target pursue various strategic alternatives for the ﬁrm,
+including a spinoff of an underperforming division (2.42%
+of the hedge fund sample and 5.10% of the non-hedge
+fund sample).
+Proxy: The activist ﬁles under Schedule 14A with the
+SEC, signaling an intention to solicit proxies from shareholders either to elect its own proposed director(s) or to
+adopt a shareholder proposal that the activist has
+submitted or plans on submitting (9.06% of the hedge
+fund sample and 3.06% of the non-hedge fund sample).
+
+375
+
+References
+Bainbridge, S., 2005. Shareholder activism and institutional investors.
+Unpublished Working Paper, University of California, Los Angeles.
+Bebchuk, L., 2007. The myth of shareholder franchise. Virginia Law
+Review 93, 675–732.
+Becht, M., Franks, J., Mayer, C., Rossi, S., 2008. Returns to shareholder
+activism: evidence from a clinical study of the Hermes UK Focus
+Fund. Review of Financial Studies, forthcoming.
+Black, B., 1990. Shareholder passivity reexamined. Michigan Law Review
+89, 520–608.
+Black, B., 1998. Shareholder activism and corporate governance in the US.
+In: Newman, P. (Ed.), The New Palgrave Dictionary of Economics and
+the Law. Palgrave Macmillan, UK, pp. 459–465.
+Brav, A., Jiang, W., Partnoy, F., Thomas, R., 2008. Hedge fund activism,
+corporate governance and ﬁrm performance. Journal of Finance 63,
+1729–1775.
+Brunnermeier, M., 2009. Deciphering the liquidity and credit crunch
+2007–2008. Journal of Economic Perspectives 23, 77–100.
+Clifford, C., 2007. Value creation or destruction? Hedge funds as
+shareholder activists. Unpublished Working Paper, Arizona State
+University.
+Cremers, K., Nair, V., John, K., 2007. Takeovers and the cross-section of
+returns. Review of Financial Studies 20, 1359–1388.
+Daniel, K., Grinblatt, M., Titman, S., Wermers, R., 1997. Measuring mutual
+fund performance with characteristic based benchmarks. Journal of
+Finance 52, 1035–1058.
+Fama, E., French, K., 1993. Common risk factors in the returns on stocks
+and bonds. Journal of Financial Economics 33, 3–56.
+Gillan, S., Starks, L., 1998. A survey of shareholder activism: motivation
+and empirical evidence. Contemporary Finance Digest 2, 10–34.
+Gillan, S., Starks, L., 2000. Corporate governance proposals and shareholder activism: the role of institutional investors. Journal of
+Financial Economics 57, 275–305.
+Grossman, S., Hart, O., 1980. Takeover bids, the free-rider problem, and
+the theory of the corporation. Bell Journal of Economics 11, 42–64.
+Kahan, M., Rock, E., 2006. Hedge funds in corporate governance and
+corporate control. Institute for Law & Economics Research Paper no.
+06-16, University of Pennsylvania.
+Karpoff, J., 2001. The impact of shareholder activism on target
+companies: a survey of empirical ﬁndings. Unpublished Working
+Paper, University of Washington.
+Karpoff, J., Malatesta, P., Walkling, R., 1996. Corporate governance and
+shareholder initiatives: empirical evidence. Journal of Financial
+Economics 42, 365–395.
+Khandani, A., Lo, A., 2007. What happened to the quants in August 2007?
+Journal of Investment Management 5, 5–54.
+Klein, A., Zur, E., 2009. Entrepreneurial shareholder activism: hedge
+funds and other private investors. Journal of Finance 64, 187–229.
+Mikkelson, W., Ruback, R., 1985. An empirical analysis of the interﬁrm equity
+investment process. Journal of Financial Economics 14, 523–553.
+Moeller, S., Schlingemann, F., Stulz, R., 2005. Wealth destruction on a
+massive scale. Journal of Finance 60, 757–782.
+Roe, M., 1994. Strong Managers, Weak Owners: The Political Roots of
+American Corporate Governance. Princeton University Press, Princeton, NJ.
+Roll, R., 1986. The hubris hypothesis of corporate takeovers. Journal of
+Business 59, 197–216.
+Romano, R., 2001. Less is more: making institutional investor activism a
+valuable mechanism of corporate governance. Yale Journal on
+Regulation 18, 174–251.
+Shleifer, A., Vishny, R., 1986. Large shareholders and corporate control.
+Journal of Political Economy 94, 461–488.
+Shleifer, A., Vishny, R., 2003. Stock market driven acquisitions. Journal of
+Financial Economics 70, 295–311.
+Wahal, S., 1996. Public pension fund activism and ﬁrm performance.
+Journal of Financial and Quantitative Analysis 31, 1–23.
+
+
