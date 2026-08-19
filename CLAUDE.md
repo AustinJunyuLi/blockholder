@@ -121,3 +121,23 @@ Defined in `params.py` — do not change without understanding downstream effect
 - The `figures/` directory (if present) holds archived PDFs superseded by `numerical_output/*.pdf`
 - Solver may produce NA rows at extreme `kappa` values (edge-case non-convergence) — this is expected and the figure functions drop NA rows gracefully
 - No formal test suite; verification is via `make clean && make all` + visual inspection of output PDFs and CSV row counts
+
+## Agent skills
+
+### Issue tracker
+
+Local markdown: specs and one-file-per-ticket issues under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: `CONTEXT.md` (glossary) + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+## v4 effort (2026-08 →)
+
+This checkout is the `v4` worktree. `draft_v2.tex` is frozen (the record the
+supervisor has seen); new work targets `draft_v3.tex`, `framework_v4.*` and the
+tickets in `.scratch/v4-reposition/`. Read `CONTEXT.md` and `docs/adr/` first.
