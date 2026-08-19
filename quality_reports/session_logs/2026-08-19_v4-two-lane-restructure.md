@@ -36,3 +36,14 @@ Claude Code as hands) and an empirics lane (this session, branch `v4`). Plan:
   Orchestrator spot-checked ADRs, glossary diff, T1/T2 tickets: consistent with the plan.
 - 04: `v4` pushed to origin (was local-only). writer-handoff dispatched (opus) →
   quality_reports/handoffs/2026-08-19_theory-lane-handoff.md (in-repo on purpose: crosses machines).
+- 05: handoff reviewed by orchestrator (12.9KB; bibliography conflict resolved as lane-local
+  `sections_v3/theory_refs.bib`; setup block simplified since the branch now exists). Committed c46a877 on
+  `v4`, pushed; `v4-theory` cut from c46a877 and pushed. Theory lane is handed off; this session next runs
+  the empirics lane (tickets 09 E1 → 10 E2 → 11 E3 …) in a fresh context.
+
+## End of session
+Deliverables: ADR-0006/0007, revised CONTEXT.md + spec, tickets 04–20, two-lane plan, theory-lane handoff
+(`quality_reports/handoffs/2026-08-19_theory-lane-handoff.md`), branches `v4` and `v4-theory` on origin.
+Open: the other laptop starts the theory lane from the handoff; E-lane waits only for
+`research/model_v4/HANDOFF_sign.md` (placeholder allowed). Hazards unchanged (Chabakauri, BLV revision,
+calibration re-anchor, parser bug at parse_13d.py:101 → E1).
