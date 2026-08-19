@@ -33,7 +33,7 @@ The department-review deliverable: a full draft (draft_v3) with a clean core mod
 One empirical estimate whose design and data survive the referee checklist and that can be re-run from files in hand.
 
 **Honesty label**:
-The tag every result carries: PROVED, NUMERICAL (verified on a grid), or CONJECTURE. Labels are never weakened by editing.
+The tag every result carries: PROVED, NUMERICAL (verified on a grid), ESTIMATED (an empirical estimate with a standard error and a stated design), or CONJECTURE. Labels are never weakened by editing. Region-certified means PROVED with the region named in the hypothesis; it is not a separate label.
 
 ### The model
 
@@ -44,19 +44,24 @@ _Avoid_: activist (unless the blockholder has chosen voice), investor, fund
 **Core model**:
 The minimal set of primitives, timing and equilibrium notion from which the main result is stated. Rebuilt clean for v4; not a patch of draft_v2.
 
+**Two-round model**:
+The v4 core model's timing: one pooled trading round, then the flag lands or it does not, then one flagged round plus the bidder's decision. The window margin is a primitive here, not a reduced-form parameter, and the stake at filing is an object the model produces.
+
 **Disclosure rule**:
 The legal rule (a stake threshold plus a filing window) that forces public revelation of a stake and its purpose. In the US: Schedule 13D.
 _Avoid_: reporting regime, transparency requirement, 13D filing (when the rule, not the document, is meant)
 
 **Partition**:
 The split of what the market observes into a *flagged* state (disclosure has occurred) and a *pooled* state (it has not). The disclosure rule is the market's partition; this is the paper's identity.
-_Avoid_: signal, information structure
+_Avoid_: signal, information structure, hidden
 
 **Threshold margin**:
 The part of the disclosure rule fixing which stake sizes trigger disclosure (5% in the US, 3% in the UK). Moving it changes who is flagged.
+_Avoid_: key, keys
 
 **Window margin**:
 The part of the disclosure rule fixing how long after crossing the threshold the filing may wait (10 → 5 business days on 2024-02-05). Moving it changes how much trading happens before the flag.
+_Avoid_: key, keys
 
 **Liquidity**:
 Noise-trading intensity, the model's κ; empirically an Amihud-type illiquidity measure inverted. The paper's driving variable.
@@ -74,6 +79,9 @@ The blockholder's four actions in draft_v2: sell; stay passive; engage below the
 **Disclosure attenuation**:
 The claim (draft_v2's T2) that a stricter disclosure rule lowers how much control outcomes move with liquidity. Its sign depends on the margin (threshold vs window).
 
+**Weight effect / Composition effect**:
+The two halves of what a tighter rule does when it moves mass from the pooled state to the flagged one. The weight effect lowers the pooled state's share and so attenuates; the composition effect changes who is left in the pool, and its sign depends on the margin. Provisional — to be confirmed by the theory lane.
+
 **Hump**:
 The claim (draft_v2's R1) that minority gains from control are non-monotone in liquidity. Certified only on a grid; disposable.
 
@@ -82,6 +90,21 @@ The claim (draft_v2's R1) that minority gains from control are non-monotone in l
 **Feb-2024 acceleration**:
 SEC Release 33-11253: 13D window 10 → 5 business days from 2024-02-05; 13D/A 2 business days; 13G changes from 2024-09-30. A candidate anchor, already used by Trivedi, Corum, Polk et al. and the author's `proposal/`.
 _Avoid_: the reform, the shock (say which)
+
+**Timing split**:
+The division of the target's price reaction into the run-up from the trigger date to the filing date and the jump on the filing day itself. The headline test.
+
+**Bindingness dose**:
+The split of filers into those whose pre-rule filing delay ran past five business days — for whom the new deadline binds — and those already filing fast.
+
+**Stake at filing**:
+The percent of the class of shares printed on the 13D itself.
+
+**Bounded null**:
+The arithmetic on the SEC's own tables that caps the aggregate effect of the rule on the bid hazard at about three percentage points. A ceiling, not an estimate.
+
+**Run-up path**:
+The daily price path of the target from the trigger date to the filing date.
 
 **Referee checklist**:
 The fixed list a design must pass: control group or bounded null, confound list (EDGAR cut-off, anticipation, T+1), power/MDE, placebo, pre-trend, parser validation.
