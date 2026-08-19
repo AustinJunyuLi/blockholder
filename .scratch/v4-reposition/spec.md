@@ -30,7 +30,7 @@ Find the best defensible position for the paper by reading the literature in ful
 
 ## Implementation Decisions
 
-- Process: mattpocock main flow with a local `.scratch/` tracker; one ticket per fresh session; each ticket run by a bounded parallel Agent team (≤12), finder ≠ verifier, verifiers prompted to refute; no dynamic Workflow tool (ADR-0005).
+- Process: mattpocock main flow with a local `.scratch/` tracker; one ticket per fresh session; each ticket run by a bounded parallel Agent team (≤12), finder ≠ verifier, verifiers prompted to refute; no dynamic Workflow tool; Fable head, Sonnet/Opus hands — the session model orchestrates only, fresh subagents do all reading/drafting/coding/checking (ADR-0005).
 - Literature access: ego-browser through the author's browser; Wiley (JF, Econometrica), OUP (RFS), NBER open with UCL; JFE via SSRN/NBER/author working-paper versions (ScienceDirect and JSTOR bot-blocked, not bypassed); SSRN and WRDS require the author to log in on request.
 - Reading list: the 16 PDFs in `lit/`, the competitor set, and the papers the positioning judges name as decisive, ~30 total; extracted texts stored under `research/txt_extracts/`; cards under `research/cards/`.
 - Positioning: tournament of independent proposals judged on whitespace, fact anchoring, deliverability by December, supervisor continuity; adversarial verification of the winner against the cards; checkpoint with the author (ADR-0003, 0004).

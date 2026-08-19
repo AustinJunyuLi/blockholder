@@ -141,3 +141,5 @@ Single-context: `CONTEXT.md` (glossary) + `docs/adr/` at the repo root. See `doc
 This checkout is the `v4` worktree. `draft_v2.tex` is frozen (the record the
 supervisor has seen); new work targets `draft_v3.tex`, `framework_v4.*` and the
 tickets in `.scratch/v4-reposition/`. Read `CONTEXT.md` and `docs/adr/` first.
+**Fable head, Sonnet/Opus hands:** the session model orchestrates only; every
+ticket is executed by fresh subagents (see ADR-0005).
