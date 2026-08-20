@@ -20,3 +20,5 @@
 - [ ] Session log entry and commit on `v4-theory`
 
 ## Comments
+
+2026-08-20: decomposed into tickets 21-30 under the agentic lane-v2 protocol (see quality_reports/plans/2026-08-20_theory-lane-agentic.md and ADR-0008). D1/L1/L2 proofs already on file with Opus proof-read PASS (v4-theory d40f113); Thread 1 retired, msg3 never pasted. This ticket stays as the umbrella; done when 21-30 are done.

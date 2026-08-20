@@ -18,3 +18,5 @@
 - [ ] Session log entry and commit on `v4-theory`; the branch pushed so the empirics lane can pull the handoff
 
 ## Comments
+
+2026-08-20: a wave-1 agent for this ticket was launched and killed by a session restart before producing any output. Ticket stands ready; re-run under the lane-v2 protocol (quality_reports/plans/2026-08-20_theory-lane-agentic.md).
