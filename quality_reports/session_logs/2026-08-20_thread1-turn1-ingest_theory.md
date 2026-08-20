@@ -92,3 +92,28 @@ proof turn.
   card. Opus proof-read agent spawned (adversarial, step-by-step); labels stay
   CONJECTURE regardless of the proof-read — PROVED needs Thread 2's independent
   re-derivation on top.
+
+## Turn 2 proof-read outcome (2026-08-20)
+
+- Opus proof-read: D1 PASS (3 repairs: public-observability bridge uncited;
+  Step 8 finiteness incomplete — B^F is continuum-valued, A5 must be read as a
+  measurable selection; P^P at c=0 undefined → card convention P_{−1}^P := E[Y]
+  added). L1 PASS clean. L2 PASS — Steps 3/4/6 verified; 4 repairs (no-feedback
+  must be a numbered hypothesis; cite D1; cite Ω>0 from Step 3; the
+  "equivalently" in h.5 is a theorem, not fiat).
+- Substantive finding L2-R1: injective A7 conflicts with the card's weak
+  ∂_s B_j ≥ 0 — flat signal intervals break injectivity generically. Card §4.2
+  now requires strict monotonicity of s↦(B_j^F, b_j^*) on the flagged set;
+  injective A7 forces B^F continuum-valued. Substance of L2 has migrated into
+  A7; **its satisfiability on an actual plan menu is the largest open risk in
+  the stack** — msg3 asks GPT for a construction this turn.
+- Card gaps fixed: b_0 < τ now maintained; P_{−1}^P convention.
+- Notation rulings: W→Ξ (never bare W), G→Υ, 𝖹 dropped; 𝖲_F/𝓗^P/𝐳^H/u_1,u_2
+  tolerated with rules; ι_F fine. Zero banned words, zero invented refs, zero
+  unused hypotheses.
+- Labels: none moved. D1/L1/L2 = CONJECTURE + "proof on file; Opus proof-read
+  PASS 2026-08-20; awaiting Thread 2 re-derivation".
+- Card restamped to 0c9185b (commit containing the turn-2 answer); msg3
+  amended to request the A7 construction this turn, not later.
+- msg3 requests L3 + L4 proofs (mean-value chord form; C_h=0 case; A(τ) domain
+  must be named; L4 nestedness usage identified by step).

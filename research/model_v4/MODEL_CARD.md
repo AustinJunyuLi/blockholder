@@ -1,8 +1,9 @@
 # MODEL CARD — v4 two-round blockholder disclosure model
 
-**Version stamp: 2026-08-20 · commit `5b34a40`.** An answer written against a stale stamp is
+**Version stamp: 2026-08-20 · commit `0c9185b`.** An answer written against a stale stamp is
 re-asked, not accepted. Regenerated from `threads/thread1_turn1_answer.md` after the turn-1 audit
-(`threads/thread1_turn1_audit.md`). Vocabulary is `CONTEXT.md`.
+(`threads/thread1_turn1_audit.md`), then revised after the turn-2 proof-read
+(`threads/thread1_turn2_audit.md`). Vocabulary is `CONTEXT.md`.
 
 ## 1. Position and object
 
@@ -20,7 +21,9 @@ lower $T$ = tighter window margin.
    plan $j$ from a finite ordered menu.
 2. **Round 1 — pooled trading.** The plan's stake path executes over business days
    $d = 0,\dots,H$. Market makers see pooled order flow and set $P_d^P = \mathbb E[Y \mid
-   \mathcal H_d^P]$. No within-window re-optimisation.
+   \mathcal H_d^P]$. **No within-window re-optimisation** — hence no feedback from realised order
+   flow or prices into the path: $B_j(s,d)$, $q_{jd}(s)$ and $Q_j^F$ are functions of $(j,s,d)$ and
+   $(j,s,\tau,T)$ alone. L2 Steps 3 and 6 fail without this; cite it as a numbered hypothesis.
 3. **Disclosure node.** The flag lands iff $D = 1$, i.e. iff the plan engages, crosses $\tau$ at
    some date $c < \infty$, and $c + T \le H$. The filing reveals $F = (B^F, a = 1)$.
 4. **Round 2 — flagged trading, then the bidder.** If $D = 1$ the blockholder submits $Q^F$, the
@@ -58,7 +61,7 @@ $\mathcal T(k;\vartheta)$; $k = \mathcal T(k;\vartheta)$. Uniqueness is **not** 
 | $\tau$ | stake threshold | lower $\tau$ = tighter |
 | $T$ | filing window, business days | $T \in \{1,\dots,H\}$; lower $T$ = tighter |
 | $H$ | control-decision horizon (business days) | $H$ finite |
-| $b_0, \bar b$ | initial and maximum stake | $0 \le b_0 \le \bar b$ |
+| $b_0, \bar b$ | initial and maximum stake | $0 \le b_0 \le \bar b$; **maintained $b_0 < \tau$** — a pre-existing crossing is outside the core (turn-2 audit D1-O1) |
 
 ### 4.2 Plans and legal timing
 
@@ -66,7 +69,7 @@ $\mathcal T(k;\vartheta)$; $k = \mathcal T(k;\vartheta)$. Uniqueness is **not** 
 |---|---|---|
 | $\mathcal J$, $j$ | finite ordered plan menu, least to most aggressive; plan index | $|\mathcal J| = J < \infty$ |
 | $a_j$ | engagement attached to plan $j$ | $a_j \in \{0,1\}$; $a_j = 1$ for Voice, $0$ for Exit/Hold |
-| $B_j(s,d)$ | cumulative pooled stake at day $d$; $B_j(s,-1) = b_0$ | $\in [0,\bar b]$; for Voice: $\partial_d B_j \ge 0$ and $\partial_s B_j \ge 0$; Hold constant, Exit weakly decreasing |
+| $B_j(s,d)$ | cumulative pooled stake at day $d$; $B_j(s,-1) = b_0$ | $\in [0,\bar b]$; for Voice: $\partial_d B_j \ge 0$ and $\partial_s B_j \ge 0$; Hold constant, Exit weakly decreasing. **Continuum-valued** — A2's finiteness covers the plan menu, $\Gamma$'s image, the noise support and the calendar, *not* the stake level. On the flagged set, $s\mapsto(B_j^F,b_j^*)$ must be **strictly** increasing for Voice, or A7's injective form fails on any flat interval (turn-2 audit L2-R1) |
 | $b_j^*(s) = B_j(s,H)$ | terminal target stake | $\in [0,\bar b]$ |
 | $c_j(s;\tau) = \inf\{d : B_j(s,d) \ge \tau\}$ | threshold-crossing date | $+\infty$ if never |
 | $f_j = c_j + T$ | legal filing date | flag lands iff $f_j \le H \iff B_j(s,H-T) \ge \tau$ |
@@ -88,7 +91,7 @@ $\mathcal T(k;\vartheta)$; $k = \mathcal T(k;\vartheta)$. Uniqueness is **not** 
 | $\pi(\mathcal I) = \Pr(a=1\mid\mathcal I)$ | engagement posterior | $\in[0,1]$; $=1$ on $\mathcal C_F$ |
 | $p(\mathcal I)$ | bidder-entry probability $1 - \Phi\big((P+K+m_0+\pi\Delta_m-\bar S)/\sigma_\xi\big)$ | $\in(0,1)$ |
 | $\mathsf B$, $Y$ | entry indicator; terminal shareholder payoff $ (1-\mathsf B)(v + a\Delta_V) + \mathsf B(P + m_0 + a\Delta_m)$ | — |
-| $P_d^P$, $P^F$ | competitive pooled price; flagged price $P(F,Q^F)$ | $P(\mathcal I) = \mathbb E[Y\mid\mathcal I]$ (inner fixed point) |
+| $P_d^P$, $P^F$ | competitive pooled price; flagged price $P(F,Q^F)$ | $P(\mathcal I) = \mathbb E[Y\mid\mathcal I]$ (inner fixed point). **Convention $P_{-1}^P := \mathbb E[Y]$**, the pre-trading pooled price — needed whenever $c=0$, which $T=H$ forces on every flagged history (turn-2 audit D1-R3) |
 | $P_{\mathrm{ND}}(\mathcal H_{f^-}^P)$ | counterfactual pooled price at the **same realised order flow**, no flag | $= P_{f^-}^P$ by construction |
 | $R_d = P_d^P - P_{c^-}^P$, $R = P_{f^-}^P - P_{c^-}^P$ | run-up path, cumulative run-up | unsigned |
 | $J = P^F - P_{\mathrm{ND}}$ | filing-day jump | unsigned; **not** claimed $\kappa$-invariant |
@@ -125,6 +128,17 @@ $\mathcal T(k;\vartheta)$; $k = \mathcal T(k;\vartheta)$. Uniqueness is **not** 
 | $\mathcal B_r^{GE} = \lvert\Delta_{\kappa k}\rvert\bar k_r + (\lvert\Delta_{kr}\rvert + \lvert\Delta_{kk}\rvert\bar k_r)\bar k_\kappa + \lvert\Delta_k\rvert\bar k_{\kappa r}$ | GE remainder bound (cross-derivative analogue of D8's $\bar B$) | $\ge 0$; C1 needs $g_r^{PE} > \mathcal B_r^{GE}$ |
 | $\mathcal R_r$, $\eta_r = g_r^{PE} - \mathcal B_r^{GE}$ | certified region; slack | $\eta_r > 0$ on certified nodes; region may be empty |
 
+### 4.6 Proof-local notation (turn-2 rulings, binding)
+
+L2's proof symbols, after the turn-2 notation audit: $\Xi := (v,s,\xi)$ (**renamed from $W$** — $W$ is
+draft_v2's total surplus *and* its D5 wedge *and* the card's $W_\tau/W_T$; **never a bare $W$**);
+$\Upsilon_{j,s}$, noise $\to$ pre-filing pooled history (**renamed from $G$** — draft_v2's $G_{EH},
+G_{HQ}, G_{QP}$ payoff gaps and D7's bargaining surplus); $\mathsf Z$ **dropped** (write "each object
+listed"); $\mathsf S_F=(B^F,Q^F,a{=}1)$ kept, introduced once as "$F$ augmented by $Q^F$", **never
+bare**; $\mathcal H^P$ kept as shorthand for $\mathcal H_{f^-}^P$, subscript written at first use in
+every proof; $\mathbf z^H$ kept, $z_{0:H}$ preferred; $\iota_F$ free; $u_1,u_2$ proof-local, never a
+bare $u$.
+
 ## 5. Standing hypotheses
 
 - **A1 Independent primitives.** $v,\varepsilon,\xi$ and all $z_d$ mutually independent; all
@@ -143,6 +157,12 @@ $\mathcal T(k;\vartheta)$; $k = \mathcal T(k;\vartheta)$. Uniqueness is **not** 
   of the selected plan; conditional on it, the pooled order-flow residual is pure noise, independent
   of $(v,s,\xi)$. Stronger convenient form: $(j,s)\mapsto(B_j^F,Q_j^F,a_j)$ is injective on the
   flagged set.
+  *Note (turn-2 proof-read).* **L2's proof uses the injective form and the weak wording is not
+  sufficient** — it permits two $(j,s)$ pairs with different pooled paths, which is exactly L2's
+  first failure case. Injectivity needs the strict-monotonicity row in §4.2 and forces $B^F$
+  continuum-valued. Whether it is *satisfiable* on a plan menu is open and is Thread 2's target.
+  Injective + measurable already gives the measurable inverse (standard Borel spaces); no separate
+  assumption is needed.
 - **A8 Interior crossing.** $0 < \Omega(\kappa,\tau,T) < 1$. Required only for positive cell mass,
   never for the structural partition.
 - **A($\tau$) Threshold chord restriction.** The pooled posterior law has the symmetric ternary
@@ -156,15 +176,16 @@ $\mathcal T(k;\vartheta)$; $k = \mathcal T(k;\vartheta)$. Uniqueness is **not** 
 
 ## 6. Result ledger
 
-Evidence path for all eight: `threads/thread1_turn1_answer.md` (statements only, no proofs, no
-executed checks). Label for all eight: **CONJECTURE**.
+Label for all eight: **CONJECTURE**. D1, L1, L2 now have full proofs on file that passed the Opus
+proof-read; the protocol still requires **independent re-derivation PASS *plus* proof-read PASS**
+before PROVED, so they stay CONJECTURE until Thread 2 answers. P1 and L3–C1 remain statements only.
 
 | ID | Statement | Label | Evidence |
 |---|---|---|---|
-| D1 | $D=\mathbf 1\{a=1,\ c(\tau)+T\le H\}$ maps every control-node history into exactly one cell, and each flagged history yields $B^F, R_d, R, J$ with $P^F - P_{c^-}^P = R + J$. | CONJECTURE | `threads/thread1_turn1_answer.md` |
+| D1 | $D=\mathbf 1\{a=1,\ c(\tau)+T\le H\}$ is **measurable** and maps every control-node history into exactly one cell; for every Voice plan $f_j\le H \iff B_j(s,H-T)\ge\tau$; and each flagged history yields $B^F, R_d, R, J$ with $P^F - P_{c^-}^P = R + J$. | CONJECTURE | statement `threads/thread1_turn1_answer.md`; **proof on file (`threads/thread1_turn2_answer.md`); Opus proof-read: PASS 2026-08-20** (3 non-blocking repairs: uncited public-flag bridge, $B^F$ continuum-valued not finite, $P_{-1}^P$ convention); **awaiting Thread 2 re-derivation** |
 | P1 | Under A1–A7 a cutoff PBE over complete contingent plans exists; under A8 both cells are on path. | CONJECTURE | `threads/thread1_turn1_answer.md` |
-| L1 | Whenever $0<\Omega<1$, $\Delta^{\mathrm{act}} = \Omega M_F + (1-\Omega)M_P$. | CONJECTURE | `threads/thread1_turn1_answer.md` |
-| L2 | At fixed cutoff and execution policies, A7 makes the flagged posterior, price, entry probability and $M_F$ invariant to $\kappa$. | CONJECTURE | `threads/thread1_turn1_answer.md` |
+| L1 | Whenever $0<\Omega<1$, $\Delta^{\mathrm{act}} = \Omega M_F + (1-\Omega)M_P$; at $\Omega=1$ it degenerates to $\Delta^{\mathrm{act}}=M_F$ and at $\Omega=0$ to $\Delta^{\mathrm{act}}=M_P$, the null-cell average being undefined rather than imputed. | CONJECTURE | statement `threads/thread1_turn1_answer.md`; **proof on file (`threads/thread1_turn2_answer.md`); Opus proof-read: PASS 2026-08-20** (clean; one cosmetic repair); **awaiting Thread 2 re-derivation** |
+| L2 | At fixed cutoff and execution policies, under A1, A4, A5, **A7 in its injective form**, the no-feedback timing of §2, and **$\Omega>0$**: $(B^F,Q^F,a{=}1)$ makes the pre-filing pooled history conditionally independent of $(v,s,\xi)$ on the flagged set, so the flagged posterior, price, entry probability and $M_F$ are invariant to $\kappa$. | CONJECTURE | statement `threads/thread1_turn1_answer.md`; **proof on file (`threads/thread1_turn2_answer.md`); Opus proof-read: PASS 2026-08-20** (4 non-blocking repairs; largest open risk is whether injective A7 is satisfiable — audit L2-R1); **awaiting Thread 2 re-derivation** |
 | L3 | Under A($\tau$) the pooled cell's interior $\kappa$-motion is proportional to $C_h(\bar\pi)$, and $C_h = \tfrac14 h''(0)\bar\pi^2 + o(\bar\pi^2)$, so it vanishes as $\bar\pi\downarrow 0$. | CONJECTURE | `threads/thread1_turn1_answer.md` |
 | L4 | At fixed policies a lower $\tau$ weakly raises $\Omega$, weakly lowers $\bar\pi$ in the pooled class, and — under L3 and monotone $\lvert C_h\rvert$ — weakly lowers $\mathcal S_P$. | CONJECTURE | `threads/thread1_turn1_answer.md` |
 | T1 | At fixed policies threshold tightening attenuates $\mathcal S$; window tightening attenuates it **iff** its weight effect dominates its composition effect ($W_T C_T \le 1$, equivalently $\partial_{r_T}\mathcal S_P/\mathcal S_P \le \Omega_{r_T}/(1-\Omega)$). | CONJECTURE | `threads/thread1_turn1_answer.md` |
