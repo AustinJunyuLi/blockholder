@@ -2,8 +2,10 @@
 
 Approach: quarterly ``form.idx`` master indexes enumerate every filing
 (form type, company, CIK, date filed, path); we filter exact form types
-(``SC 13D``, ``SC 13G``) and fetch each filing's master ``.txt`` submission
-for parsing. Throttled well below the SEC's 10 requests/second guidance.
+(``SC 13D``/``SCHEDULE 13D``, ``SC 13G``/``SCHEDULE 13G`` -- EDGAR renamed
+the former to the latter around 2024Q3) and fetch each filing's master
+``.txt`` submission for parsing. Throttled well below the SEC's 10
+requests/second guidance.
 
 Usage:
     .venv/bin/python -m empirics.edgar_fetch --quarters 2023Q2 2023Q3 2024Q3 2024Q4
@@ -64,15 +66,42 @@ def download_form_index(year: int, quarter: int) -> str:
     return path
 
 
-def list_filings(idx_path: str, form_types: tuple = ("SC 13D", "SC 13G")) -> list:
-    """Parse a form.idx into rows for exactly the requested form types.
+# EDGAR renamed 'SC 13D'/'SC 13G' to 'SCHEDULE 13D'/'SCHEDULE 13G' (and their
+# '/A' amendments) around 2024Q3. Aliases apply both directions so a caller
+# asking for either spelling transparently gets both -- callers that pass an
+# explicit form_types= (bypassing the alias-aware default below) still see
+# renamed rows instead of silently dropping them.
+_FORM_ALIASES = {
+    "SC 13D": "SCHEDULE 13D", "SCHEDULE 13D": "SC 13D",
+    "SC 13G": "SCHEDULE 13G", "SCHEDULE 13G": "SC 13G",
+    "SC 13D/A": "SCHEDULE 13D/A", "SCHEDULE 13D/A": "SC 13D/A",
+    "SC 13G/A": "SCHEDULE 13G/A", "SCHEDULE 13G/A": "SC 13G/A",
+}
+
+
+def _expand_form_type_aliases(form_types: tuple) -> set:
+    return set(form_types) | {_FORM_ALIASES[f] for f in form_types if f in _FORM_ALIASES}
+
+
+def list_filings(idx_path: str,
+                  form_types: tuple = ("SC 13D", "SC 13G",
+                                        "SCHEDULE 13D", "SCHEDULE 13G")) -> list:
+    """Parse a form.idx into rows for exactly the requested form types
+    (plus their EDGAR-renamed aliases -- see ``_FORM_ALIASES``).
 
     Returns dicts: form, company, cik, date_filed, edgar_path.
-    (Amendments 'SC 13D/A' are distinct form strings and excluded unless
-    requested explicitly.)
+    (Amendments 'SC 13D/A' / 'SCHEDULE 13D/A' are distinct form strings and
+    excluded unless requested explicitly.)
+
+    The form-type column is NOT a fixed 12-char field -- 'SCHEDULE 13D/A'
+    (14 chars) overflows a hard ``line[:12]`` slice and gets truncated to
+    look like the un-amended 'SCHEDULE 13D', so the field is split on the
+    first run of 2+ spaces (the real column separator) instead.
     """
     import re
     tail = re.compile(r"(\d+)\s+(\d{4}-\d{2}-\d{2})\s+(edgar/\S+?\.txt)\s*$")
+    form_field = re.compile(r"^(\S+(?: \S+)*?)\s{2,}")
+    wanted = _expand_form_type_aliases(form_types)
     rows = []
     with open(idx_path, "r", encoding="latin-1") as fh:
         in_body = False
@@ -82,14 +111,17 @@ def list_filings(idx_path: str, form_types: tuple = ("SC 13D", "SC 13G")) -> lis
                 continue
             if not in_body or line.startswith("---"):
                 continue
-            form = line[:12].strip()
-            if form not in form_types:
+            fm = form_field.match(line)
+            if not fm:
+                continue
+            form = fm.group(1)
+            if form not in wanted:
                 continue
             m = tail.search(line)
             if not m:
                 continue
             cik, date_filed, path = m.group(1), m.group(2), m.group(3)
-            company = line[12:m.start()].strip()
+            company = line[fm.end():m.start()].strip()
             rows.append({"form": form, "company": company, "cik": cik,
                          "date_filed": date_filed, "edgar_path": path})
     return rows

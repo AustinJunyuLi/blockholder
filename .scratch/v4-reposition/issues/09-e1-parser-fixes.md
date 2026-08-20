@@ -28,6 +28,13 @@
   XML path for percent-of-class — None for 2025 filings; (iii) event-date
   label split across HTML tags in some pre-XML filings. Plus stale module
   docstring naming the old XML tag.
+- 2026-08-20 (Fable, 09b close-out): all four addendum defects fixed + a 5th
+  stacked one (hard 12-char slice truncated `SCHEDULE 13D/A` into originals).
+  Root fix for the rename: alias map inside `list_filings`, so explicit
+  caller tuples (facts.py) get both spellings. 11/11 checks; verifier caught
+  the builder's form.idx counts being originals+amendments sums (true 2025Q1:
+  538 SCHEDULE 13D + 2394 /A) and the facts.py call-site miss — both fixed
+  and re-verified fresh ("nothing new").
 - Committed `fact1_filings.csv` is all pre-XML (max date_filed 2024-12-16), so
   the XML event-date path is verified against live EDGAR fetches, not against
   committed pipeline output. Full re-parse to be bundled with the next ticket

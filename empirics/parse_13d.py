@@ -7,7 +7,7 @@ after, 5 business days (SEC release 33-11253; structured XML mandatory for
 filings from Dec 18, 2024).
 
 Two parsing paths:
-  * structured XML (post Dec-2024): <eventDateRequiresFilingThisStatement>
+  * structured XML (post Dec-2024): <dateOfEvent>
   * cover-page regex (any era): the date adjacent to the label
     "(Date of Event Which Requires Filing of this Statement)"
 plus header fields (FILED AS OF DATE, ACCESSION NUMBER, SUBJECT COMPANY /
@@ -80,13 +80,18 @@ def parse_event_date(text: str) -> Optional[dt.date]:
                 d = _to_date(m, idx)
                 if d:
                     return d
-    lab = EVENT_LABEL.search(text)
+    # HTML cover pages sometimes split the label across tags, e.g.
+    # "...Requires</P>\n<P ...>Filing of this Statement)" -- the label
+    # regex needs plain text between the words, so strip tags first (same
+    # approach as parse_percent_of_class).
+    plain = RE_TAG.sub(" ", text)
+    lab = EVENT_LABEL.search(plain)
     if not lab:
         return None
     # the date is printed adjacent to the label -- search a window BEFORE the
     # label first (standard cover-page layout), then after.
-    for window in (text[max(0, lab.start() - 400):lab.start()],
-                   text[lab.end():lab.end() + 400]):
+    for window in (plain[max(0, lab.start() - 400):lab.start()],
+                   plain[lab.end():lab.end() + 400]):
         candidates = []
         for idx, pat in enumerate(DATE_PATTERNS):
             for m in pat.finditer(window):
@@ -102,6 +107,8 @@ def parse_event_date(text: str) -> Optional[dt.date]:
 RE_PERCENT = re.compile(
     r"PERCENT\s+OF\s+CLASS\s+REPRESENTED.*?([0-9]{1,3}(?:\.[0-9]+)?)\s*%", re.I | re.S)
 RE_TAG = re.compile(r"<[^>]+>")
+XML_PERCENT = re.compile(
+    r"<percentOfClass>\s*([0-9]{1,3}(?:\.[0-9]+)?)\s*</percentOfClass>", re.I)
 
 
 def parse_percent_of_class(text: str) -> Optional[float]:
@@ -117,14 +124,22 @@ def parse_percent_of_class(text: str) -> Optional[float]:
     followed by ``<font style="...line-height:120%">`` before the real
     number; without stripping tags first, the CSS percentage itself gets
     matched as if it were the ownership stake. Strip tags before matching.
+
+    Post-Dec-2024 structured-XML filings carry ``<percentOfClass>`` per
+    reporting person instead of a free-text label; check that path too
+    (before tag-stripping, since stripping removes the tag itself) and take
+    the max across both sources.
     """
+    vals = [float(raw) for raw in XML_PERCENT.findall(text)]
     plain = RE_TAG.sub(" ", text)
-    vals = []
     for raw in RE_PERCENT.findall(plain):
         try:
             vals.append(float(raw))
         except ValueError:
             continue
+    # >100% is impossible -- can only be noise (e.g. a stray boilerplate
+    # number); drop it rather than let it corrupt the max-across-persons.
+    vals = [v for v in vals if v <= 100]
     return max(vals) if vals else None
 
 
