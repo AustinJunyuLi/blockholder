@@ -4,6 +4,11 @@ Card v4.0 received and ingested. The regenerated MODEL_CARD (stamp **2026-08-20 
 `5b34a40`**) is attached in the Project and replaces the previous file — use it, not your turn-1
 text, whenever the two differ. This message states corrections only; it does not restate the card.
 
+One setup correction on our side: **`CONTEXT.md` — the project glossary — was missing from the
+Project during turn 1.** It is attached now. Its vocabulary governs wherever it and your turn-1
+text differ; the card's §4 is the reconciliation, and the notation instructions below are where
+that lands. Nothing from turn 1 needs re-doing.
+
 ---
 
 ## 1. Audit outcome
