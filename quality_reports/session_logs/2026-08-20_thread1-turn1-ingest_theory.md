@@ -117,3 +117,27 @@ proof turn.
   amended to request the A7 construction this turn, not later.
 - msg3 requests L3 + L4 proofs (mean-value chord form; C_h=0 case; A(τ) domain
   must be named; L4 nestedness usage identified by step).
+
+## Lane restructure: courier → agentic (2026-08-20, evening)
+
+- Austin: courier loop too slow. Decisions (AskUserQuestion + follow-ups):
+  (1) verification stays in-house — Fable-orchestrated Opus (Sonnet plumbing),
+  and Fable may reason the hardest bits directly (scoped grant, ADR-0008);
+  (2) GPT Pro = one end-of-stack review + failure escalation only;
+  (3) msg3 is NOT pasted — Thread 1 retired with turns 1–2 as its record; msg3
+  re-purposed as the local L3/L4 spec.
+- Plan approved and saved: quality_reports/plans/2026-08-20_theory-lane-agentic.md.
+- A first wave of 6 agents (L3, L4, P1, impl design, ticket 05, ticket 04) was
+  launched and killed by a session restart before any output landed — no
+  partial files. Austin then redirected: capture as tickets, nothing runs
+  tonight.
+- Tickets 21–30 written on `v4` (.scratch/v4-reposition/issues/): L3, L4, P1
+  proofs; A7 satisfiability (Fable-led — the sum B^F+Q^F = b* observation may
+  weaken the card's strict-pair patch to strictness of the terminal target
+  alone; to be worked in ticket 24); numerical_v4 implementation (Fable design
+  review checkpoint); T1; verification pipeline (proof-reads + statements-only
+  re-derivations + label moves); check scripts; C1 region certificate; ship
+  bundle (model_v4.tex, two-round HANDOFF_sign, the one GPT paste).
+- ADR-0008 recorded on `v4`; memory updated (scoped Fable exception).
+- Open: everything above is ready-for-agent; nothing started tonight per
+  Austin. HANDOFF_sign.md still unpublished (ticket 05, unchanged priority).
