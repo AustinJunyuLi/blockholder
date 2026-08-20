@@ -72,3 +72,13 @@ proof turn.
 - T0 (lit cards, Chabakauri first) and T1/O-1 re-run (ticket 05) not started in
   this lane on this machine — handoff says they need no GPT and should run in
   parallel; `HANDOFF_sign.md` still unpublished, empirics lane is waiting on it.
+
+## Author correction (2026-08-20, post-ingest)
+
+- Author reports: message 1 was **attached** to the ChatGPT thread as a file
+  (protocol said paste), and **CONTEXT.md was never uploaded to the Project** —
+  turn 1 was answered without the glossary. Explains the symbol collisions the
+  audit caught; repair already in the card/renames. msg2 amended (d19c057) to
+  tell GPT the glossary is now attached and governs. Author to upload
+  CONTEXT.md + new MODEL_CARD.md before pasting msg2. Message-1 file still to
+  be committed as thread1_msg1.md once the author supplies it.
