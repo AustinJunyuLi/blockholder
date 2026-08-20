@@ -35,8 +35,8 @@ EVENT_LABEL = re.compile(
     r"\(?\s*Date\s+of\s+Event\s+Which\s+Requires\s+Filing\s+of\s+(?:this|the)\s+Statement\s*\)?",
     re.I)
 XML_EVENT = re.compile(
-    r"<eventDateRequiresFilingThisStatement>\s*(\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})\s*"
-    r"</eventDateRequiresFilingThisStatement>", re.I)
+    r"<dateOfEvent>\s*(\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})\s*"
+    r"</dateOfEvent>", re.I)
 
 MONTHS = {m: i + 1 for i, m in enumerate(
     ["january", "february", "march", "april", "may", "june", "july",
@@ -100,7 +100,32 @@ def parse_event_date(text: str) -> Optional[dt.date]:
 
 
 RE_PERCENT = re.compile(
-    r"PERCENT\s+OF\s+CLASS\s+REPRESENTED.*?([0-9]{1,2}(?:\.[0-9]+)?)\s*%", re.I | re.S)
+    r"PERCENT\s+OF\s+CLASS\s+REPRESENTED.*?([0-9]{1,3}(?:\.[0-9]+)?)\s*%", re.I | re.S)
+RE_TAG = re.compile(r"<[^>]+>")
+
+
+def parse_percent_of_class(text: str) -> Optional[float]:
+    """Percent of class from the cover page.
+
+    A 13D cover page repeats the "PERCENT OF CLASS REPRESENTED" block once
+    per reporting person (joint filers each report their own row-11 value,
+    which can differ). Take the max across all matches -- the group's
+    largest disclosed stake -- rather than the first, which may belong to a
+    minor joint filer.
+
+    Many filings are HTML cover pages where the label is immediately
+    followed by ``<font style="...line-height:120%">`` before the real
+    number; without stripping tags first, the CSS percentage itself gets
+    matched as if it were the ownership stake. Strip tags before matching.
+    """
+    plain = RE_TAG.sub(" ", text)
+    vals = []
+    for raw in RE_PERCENT.findall(plain):
+        try:
+            vals.append(float(raw))
+        except ValueError:
+            continue
+    return max(vals) if vals else None
 
 
 def parse_filing(text: str) -> dict:
@@ -116,10 +141,6 @@ def parse_filing(text: str) -> dict:
     m = RE_FILER_CIK.search(text)
     out["filer_cik"] = m.group(1) if m else None
     out["event"] = parse_event_date(text)
-    m = RE_PERCENT.search(text)
-    try:
-        out["pct_of_class"] = float(m.group(1)) if m else None
-    except ValueError:
-        out["pct_of_class"] = None
+    out["pct_of_class"] = parse_percent_of_class(text)
     out["has_xml"] = bool(XML_EVENT.search(text))
     return out

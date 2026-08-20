@@ -15,6 +15,7 @@ Outputs (committed):
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import os
 
 import numpy as np
@@ -62,11 +63,63 @@ def sample_window(label: str, quarters: list, per_window: int,
     return parsed
 
 
+def _nth_weekday(year: int, month: int, weekday: int, n: int) -> dt.date:
+    """n-th (1-indexed) occurrence of `weekday` (Mon=0) in year-month."""
+    d = dt.date(year, month, 1)
+    return d + dt.timedelta(days=(weekday - d.weekday()) % 7 + 7 * (n - 1))
+
+
+def _last_weekday(year: int, month: int, weekday: int) -> dt.date:
+    d = (dt.date(year, month + 1, 1) if month < 12 else dt.date(year + 1, 1, 1)
+         ) - dt.timedelta(days=1)
+    return d - dt.timedelta(days=(d.weekday() - weekday) % 7)
+
+
+def _observed(d: dt.date) -> dt.date:
+    """Weekend-observance shift used for US federal holidays: Sat -> Fri, Sun -> Mon."""
+    if d.weekday() == 5:
+        return d - dt.timedelta(days=1)
+    if d.weekday() == 6:
+        return d + dt.timedelta(days=1)
+    return d
+
+
+def us_federal_holidays(years) -> list:
+    """US federal holidays (5 U.S.C. 6103) for the given years, weekend-shifted.
+
+    SEC/EDGAR is closed on these dates, so the 2024 five-business-day 13D
+    deadline skips them -- ``np.busday_count``'s default weekmask-only
+    calendar does not.
+    """
+    out = []
+    for y in years:
+        out += [
+            _observed(dt.date(y, 1, 1)),    # New Year's Day
+            _nth_weekday(y, 1, 0, 3),       # MLK Day (3rd Mon Jan)
+            _nth_weekday(y, 2, 0, 3),       # Washington's Birthday (3rd Mon Feb)
+            _last_weekday(y, 5, 0),         # Memorial Day (last Mon May)
+            _observed(dt.date(y, 6, 19)),   # Juneteenth (federal since 2021)
+            _observed(dt.date(y, 7, 4)),    # Independence Day
+            _nth_weekday(y, 9, 0, 1),       # Labor Day (1st Mon Sep)
+            _nth_weekday(y, 10, 0, 2),      # Columbus Day (2nd Mon Oct)
+            _observed(dt.date(y, 11, 11)),  # Veterans Day
+            _nth_weekday(y, 11, 3, 4),      # Thanksgiving (4th Thu Nov)
+            _observed(dt.date(y, 12, 25)),  # Christmas Day
+        ]
+    return out
+
+
+# Covers the sample years with a one-year buffer on each side.
+FEDERAL_HOLIDAYS = np.array(
+    sorted(us_federal_holidays(range(2021, 2027))), dtype="datetime64[D]")
+
+
 def business_delay(event, filed) -> float:
     if pd.isna(event) or pd.isna(filed):
         return np.nan
     return float(np.busday_count(np.datetime64(event, "D"),
-                                 np.datetime64(filed, "D")))
+                                 np.datetime64(filed, "D"),
+                                 holidays=FEDERAL_HOLIDAYS))
 
 
 def main(argv=None) -> int:
