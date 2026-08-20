@@ -82,3 +82,13 @@ proof turn.
   tell GPT the glossary is now attached and governs. Author to upload
   CONTEXT.md + new MODEL_CARD.md before pasting msg2. Message-1 file still to
   be committed as thread1_msg1.md once the author supplies it.
+
+## Turn 2 ingested (2026-08-20)
+
+- Thread 1 turn 2 arrived: full proofs of D1, L1, L2, each claiming PROVED.
+  Saved verbatim to threads/thread1_turn2_answer.md. Notable: L2 is proved
+  under a *strengthened* hypothesis set (A7's injective form + Ω>0) and says
+  the weaker verbal A7 is insufficient — a refinement, to be reflected in the
+  card. Opus proof-read agent spawned (adversarial, step-by-step); labels stay
+  CONJECTURE regardless of the proof-read — PROVED needs Thread 2's independent
+  re-derivation on top.
