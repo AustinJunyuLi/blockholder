@@ -277,3 +277,17 @@ cadence the tickets ask for.
   §2 gains flag-terminates-pooled-round reading; A8 honestly a condition on
   the fixed point. **ALL SEVEN RESULTS NOW HAVE TWO-PASS EVIDENCE. Ledger
   pass + card regeneration dispatched.**
+- **TICKET 27 LEDGER PASS EXECUTED (commit 627642c).** Seven moves:
+  D1 | CONJ→PROVED; L1 | CONJ→PROVED (as-stated); L2 | CONJ→PROVED (A7′
+  on-path a.s.); L3 | CONJ→PROVED under A(τ); L4 | CONJ→PROVED (legs 1-2
+  outright, leg 3 under A(br) five-clause); P1 | CONJ→PROVED (A2′, A5
+  derived, definitional round-2 set, m_0≥0, objective row); T1 |
+  CONJ→PROVED at fixed policies ("equivalently" quantified on-average).
+  Full log in research/model_v4/LABEL_LEDGER.md. Card regenerated: A2→A2′,
+  A(τ)+(τ-i)/(τ-ii), A(br) recorded (br-i..br-v), m_0≥0 adopted, π̄
+  reglossed, 𝓘_H filled, P_ND reworded, U_j row added, flag-terminates
+  reading in §2, §9 gains the OPEN A(τ)-membership item + the C_T>1
+  refutation fact. C1 stays CONJECTURE (ticket 29 in flight). Fable
+  reviewed the full diff before commit — approved; the regeneration's one
+  beyond-brief edit (§4.2 Borel rider) accepted as required by D1's
+  re-derivation verdict.
