@@ -252,3 +252,13 @@ cadence the tickets ask for.
   the π̄-ruling one: H14 leg 2 restated as the share inequality with (br-iv)
   carrying it to the endpoint). T1 proof-read evidence now PASS-equivalent;
   awaiting its statements-only re-derivation for the second pass.
+- **T1 re-derivation (statements-only, fresh opus): PASS** (PROVED-AS-STATED
+  parts A/B/B-local/C; PROVED-WITH-CHANGES only on the "equivalently"
+  quantifier — the integrated/average reading, identical to what the fix
+  round adopted; ledger row gains the quantifier at regeneration).
+  Strengthenings: H6 derivable outright (S4); H18 confirmed non-load-bearing;
+  (br-v) confirmed required AND independent of (br-i)–(br-iv) — third
+  independent confirmation; O-1 numbers + proved W_T≤1 force C_T>1, so the
+  window analogue of L4 leg 3 is REFUTED at calibration (positioning fact
+  for the paper). **T1 two-pass evidence COMPLETE. Six of seven results done
+  (D1, L1, L2, L3, L4, T1); P1 re-derivation pending.**
