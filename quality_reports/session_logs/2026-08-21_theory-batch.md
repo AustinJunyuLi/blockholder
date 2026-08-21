@@ -304,3 +304,14 @@ cadence the tickets ask for.
   grid used 0.10. Card-owner flags: §4.5 norm unfixed for |·| bars; L_ℛ sup
   domain unstated; companion inversion-using bound certifies 22 vs 18 —
   worth adding as a second bound. Proof-reader dispatched.
+- **C1 pipeline complete except re-run.** Proof-read PASS (0 FAIL, 13
+  reporting repairs — applied 13/13, one came out stronger than framed);
+  re-derivation PASS as PROVED-WITH-CHANGES (route identical term-for-term;
+  ADDED N1 norm convention — dual-pairing counterexample shows wrong norm
+  silently voids certificates, auditor confirmed the CODE uses correct
+  pairings; ADDED N2 two-sided neighbourhood, κ∉{0,1}; H8 confirmed unused;
+  𝒮 vs 𝒮^GE naming split needed — card §4.4 binds 𝒮 to fixed-policy;
+  bonus: ℬ_r^GE = O((1−L_ℛ)^{-3}) — certified nodes cubically bounded away
+  from L_ℛ=1, checkable log-log slope 3). Adjudicated label plan: C1
+  theorem → PROVED (region-as-hypothesis, N1/N2/𝒮^GE folded in); 18 nodes
+  → NUMERICAL after the separate re-run. Executed at final ledger update.
