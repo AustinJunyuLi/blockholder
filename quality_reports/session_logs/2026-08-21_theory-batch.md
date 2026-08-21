@@ -136,3 +136,13 @@ cadence the tickets ask for.
   activism from pooled order flow; their Table 6 splits pre-filing at the
   10-day deadline; Table 10 col.5 has an Amihud null on 13D CARs. Version
   read: LSE AAM (Feb 2025) — page cites must be re-mapped before draft_v3.
+- **Ticket 26 (T1 proof) LANDED** (812 lines). 𝒮=(1−Ω)𝒮_P from L1+L2+PE-Ω
+  (H6, shown available under frozen cutoffs, fails in GE — C1's term); ALSO
+  proved for the total-variation aggregate (so theorem and O-1 evidence share
+  a functional). Threshold: W_τC_τ≤1 with BOTH ratios in [0,1] (L4 legs 1+3,
+  A(br) carried). Window: W_T≤1 DISCHARGED from D1's clock equivalence
+  (removes turn-1 h.6); exact iff proved both directions; no window sign.
+  Ledger wording repair flagged: "equivalently" false if read as
+  finite⟹local-at-every-value (Step 21c: one point only, by mean value).
+  O-1 read through the factorisation: composition factors 1.105/1.359/1.591/
+  0.756 — composition flips the sign, weight always attenuates.
