@@ -146,3 +146,21 @@ cadence the tickets ask for.
   finite⟹local-at-every-value (Step 21c: one point only, by mean value).
   O-1 read through the factorisation: composition factors 1.105/1.359/1.591/
   0.756 — composition flips the sign, weight always attenuates.
+- **Batch-1 proof-read (fresh opus): L3 PASS, L4 PASS, P1 PASS.** FAIL 0,
+  REPAIR 18, OBSERVATION 12; all executed checks reproduce (P1's inner fixed
+  point: 20k random draws, 0 multiplicity, 0 sign failures; L3's numbers to
+  ≤2e-18). Substantive: P1-R1 h.11's primary form UNSATISFIABLE with finite
+  menu (survives on definitional reading — adjudicated: definitional form
+  becomes THE hypothesis); L4-R1 π̄ two-reading agnosticism must collapse
+  (adjudicated: support-point reading, identity branch excluded as degenerate
+  per L3 Step 19); L3-R1 kernel-depends-on-posterior-only made explicit;
+  L3-R2 "two independent derivations" claim dropped (hypothesis sets proved
+  equivalent by L3's own Step 14); P1-R8 intermediate-date pricing rescoped
+  to tower expectation. Card gaps for regeneration: no blockholder payoff
+  row (U_j); §4.3 Y-row ambiguity; A(τ) to carry the kernel clause.
+- **Dispatched:** repair-b1 (opus — applies the 18 repairs + notation fixes
+  with the adjudications above); 4 statements-only re-derivers (opus):
+  core D1/L1/L2, L3, L4 (amended statement + A(br) verbatim), P1 (amended
+  statement + h.11 definitional + h.12). Re-derivers forbidden from proofs/
+  and threads/. T1 proof-reader (batch 2) still out; builder still out;
+  card-verifier still out. Live agents: 8.
