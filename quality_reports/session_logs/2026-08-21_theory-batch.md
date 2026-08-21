@@ -334,3 +334,17 @@ cadence the tickets ask for.
   all 8 scripts (~6.5h). Ticket-30 legs dispatched in parallel: model-note
   writer (model_v4.tex+md) and HANDOFF two-round update (marked
   pre-verification).
+- **Ticket 30 legs landed; Fable coherence read (part 1) done.** HANDOFF
+  two-round entry committed (window ATTENUATES at implemented calibration,
+  W_T·C_T = 0.1818/0.1818/0.2055/0.4299/0.7724 at H=10, 0.1099/…/1.0000
+  chord-route at H=12; reversal vs repo model explained via T1's iff; A(τ)
+  honesty section; provenance nit fixed by orchestrator — JSON's embedded
+  stamp string predates the build). model_v4.tex+md+PDF committed (16pp,
+  xelatex clean; Fable adjudicated the P1 corner-FAIL gloss from "solver
+  coverage" to "cause undiagnosed" — the check itself ruled out seed
+  coverage by a 30-seed re-run). Coherence spot-checks PASS: handoff
+  numbers byte-faithful to t2_t1 JSON (both H=10 and H=12 columns, 0 nodes
+  above one); model-note ledger table matches card §6 (7 PROVED + C1
+  CONJECTURE-pending). Awaiting the 8-script re-runner; then final ledger
+  update (C1 move + evidence fold-in + pre-verification flag flip), bundle
+  assembly, coherence read part 2, final report.
