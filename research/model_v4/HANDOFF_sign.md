@@ -1,11 +1,15 @@
 # HANDOFF — the window-margin sign
 
-**Status: PROVISIONAL.** Repo model (`draft_v2`, the `numerical/` package), fixed cutoffs,
-partial equilibrium. **Date: 2026-08-21.** Ticket 05 (T1).
+**Status: TWO ENTRIES, BOTH LIVE.** §1–§6 are the **repo-model** entry (`draft_v2`, the
+`numerical/` package), fixed cutoffs, partial equilibrium — status **PROVISIONAL**, retained
+in full and not overwritten. §8 is the **two-round model** entry (`numerical_v4`), added
+2026-08-21, status **pre-verification** (an independent re-run of its source JSONs is in
+progress; its numbers are final on that re-run's PASS). **The two entries carry opposite
+signs, and §8.1 says why both are honest.** **Date: 2026-08-21.** Tickets 05 (T1) and 30.
 
 This is the empirics lane's only dependency on the theory lane. The empirics lane **may
-consume the number below now.** It will be replaced — not overwritten — when the two-round
-model lands (see "Two-round model" at the bottom).
+consume the numbers below now**, taking the repo-model entry and the two-round entry as
+answers to two different experiments — see §8.1 before quoting either as "the" sign.
 
 Notation follows `research/model_v4/MODEL_CARD.md` §4.4: **κ** is noise-trading intensity
 (liquidity), **Ω** is the unconditional flagged weight `Pr(D=1)` (this is `draft_v2`'s
@@ -150,7 +154,8 @@ and it needs a source outside the current card set.
 
 ## 7. Two-round model
 
-**[PLACEHOLDER — lands with tickets 25 / 30.]**
+**[LANDED — see §8 below. This section stays as written; it is the pre-registration of what
+§8 was expected to deliver.]**
 
 The re-run of this same experiment in the two-round model (one pooled trading round → the
 flag lands or not → one flagged round plus the bidder's decision, per ADR-0007) will be
@@ -167,5 +172,103 @@ iff has to accommodate.
 
 ---
 
-*Written by the ticket-05 agent, theory lane, `v4-theory`. Reproduce with
-`.venv/bin/python quality_reports/fixes/t1_o1_rerun_check.py` from the worktree root.*
+## Two-round model (2026-08-21)
+
+**Pre-verification: an independent re-run of the source JSONs is in progress; the numbers in
+this section are final on its PASS.** Nothing above this line is changed by it.
+
+### 8.1 The answer in one line — and why it points the other way from §1
+
+**Shortening the disclosure window makes the takeover premium LESS sensitive to liquidity at
+the implemented two-round calibration.** Cutting the window from `T = 10` to `T = 5` cuts the
+κ-sensitivity of the activism premium to between **18% and 77%** of its long-window value —
+attenuation, at every node checked.
+
+**This reverses §1's Branch-B amplification, and both are honest, because they are not the
+same experiment.** §1 moves a *disclosure regime* (flag on vs flag off) in the static repo
+model at **Ω = 0.037**; §8 moves the *window* `T` in the two-round model at **Ω ≈ 0.138**, and
+T1's theorem states the window margin as an **iff** between the weight effect `W_T` and the
+composition effect `C_T` — it signs nothing unconditionally, so the calibration decides, and
+these two calibrations decide differently. Neither result refutes the other. The empirics
+lane should treat §1 as the answer to "what does flagging do", §8 as the answer to "what does
+a shorter window do", and quote the second when writing about the 2024 five-business-day rule.
+
+| | |
+|---|---|
+| **Sign** | **Attenuation.** `W_T · C_T ≤ 1` at every node: 0/5 nodes above one at `H = 10`, 0/5 at `H = 12`. Equivalently the short window is *less* liquidity-sensitive, i.e. **δ > 0** on `LIQ × Post` given `β < 0` on RUNUP5 — the **opposite branch from §1**. |
+| **Magnitude** | `W_T · C_T` for `(T', T) = (5, 10)`, by τ-quantile: **0.1818 / 0.1818 / 0.2055 / 0.4299 / 0.7724**. Weight leg `W_T` = 0.8559 / 0.8559 / 0.8622 / 0.9176 / 0.9730; composition leg `C_T` = 0.2124 / 0.2124 / 0.2384 / 0.4686 / 0.7939. `C_T` carries the effect; `W_T` is a 3–14% shave. |
+| **Grid** | κ ∈ [0.15, 0.85], 71 nodes. τ ∈ {0.084627, 0.087884, 0.090764, 0.093376, 0.096028} (quantiles 0.1/0.3/0.5/0.7/0.9 of the seed-equilibrium Voice terminal-stake distribution). `H = 10`, `M = 2`, `T ∈ {5, 10}`. Sensitivity measured as total variation of `Δ^act` over the κ grid. 710 model evaluations, 826,686 feasible histories, 0 discarded mass. |
+| **Condition** | **Fixed policies** — cutoffs frozen at the baseline equilibrium at every node (H5); no GE cutoff-shift term is signed here either. **The implemented calibration only**, i.e. `k = (1.240576, 1.531022)`, Ω = **13.8396%**, ω_a = `Pr(D=1\|a=1)` = **61.1473%**, `M_F` = **0.552818 pp**, `M_P` = **0.222798 pp**, π̄ = `Pr(a=1\|D=0)` = 10.2061%. |
+| **Corner caveat** | At `H = 10` the long window is the corner `T = H = 10`, which drives `Ω(10)` to **6.81e-04** and makes the comparison corner-vs-interior rather than the two-interior-window comparison the theorem contemplates. The check flags its own result as suspect for exactly this reason (`suspected_forced_attenuation_bug: true` is an audit flag, not a detected bug — `C_T` is computed from independently enumerated `S_P` levels and is never clipped or signed). **The `H = 12` re-run, where `T = 10` is strictly interior, confirms attenuation**: `W_T · C_T` = 0.1099 / 0.1099 / 0.2406 / 0.5772 / 1.0000, with Ω(T=5) = 0.1687 → Ω(T=10) = 0.0289. The 0.9-quantile node returns exactly 1.0 there because the τ ladder stops biting, not because the product crosses. At `H = 12` the enumerated `S_P` is unavailable (8,503,056 × 14 = 1.19e8 exceeds the design's 1e8 gate, respected not overridden), so that column's `C_T` is the chord route. |
+| **Model version** | `numerical_v4` two-round model, built 2026-08-21 on `v4-theory` (ticket 25; current card stamp 2026-08-21 · `627642c`). The check JSONs' embedded provenance strings read "`0c9185b` / 2026-08-20" — the scripts captured the card stamp field as it stood when their provenance block was templated, not the build commit; params hashes `8ef7c5c2d3896bf8` (checks) / `b4482d7fee83a8e8` (smoke baseline) are the binding identifiers. Design: `research/model_v4/impl_design.md` §13 APPROVED. |
+| **Evidence** | `quality_reports/fixes/t2_t1_check.json` (blocks 1–6 + `t1_H12_window_robustness`), `quality_reports/fixes/t2_l2_check.json`, `numerical_v4/smoke_output.txt`. |
+
+### 8.2 Supporting checks that passed
+
+- **Threshold margin (block 2).** The τ ladder gives the same direction: **0 of 8 pairs**
+  have `W_τ · C_τ > 1`. The three pairs that reclassify real mass (all at `T = 5`) give
+  **0.5566 / 0.4780 / 0.8846**; the other **5 pairs reclassify zero mass** and return
+  1.000 to within 3e-16 — Step 14's null case, reported explicitly rather than inferred.
+  Max identity residual **5.55e-16** (tolerance 1e-10).
+- **Factorisation (block 1).** `S = (1-Ω) S_P` holds to machine noise: max pointwise
+  residual **2.06e-16**, max TV residual **3.47e-18**, both against a 1e-10 tolerance. This
+  is **wiring, not evidence** — at frozen policy Ω and `M_F` are κ-free by construction.
+- **Ω flat in κ (block 1).** `max_κ |Ω(κ) - Ω(κ₀)| = 0.0` exactly, over all 71 κ nodes. H6
+  is implemented, not merely asserted; a nonzero value here would have invalidated §8.1.
+- **Flagged-side invariance (`t2_l2`).** Every flagged object is **exactly** κ-invariant —
+  range 0.0 for `v̂`, `π_flagged`, `P^F`, `p_bid`, `M_F` and Ω, pointwise over the flagged
+  quadrature nodes, and all four central-difference derivatives return exactly 0.0. The
+  target is not vacuous: the pooled `M_P` moves **0.0722 premium pp** over the same grid,
+  and the filing jump `J` moves **5,090 bp**.
+- **O-1 benchmark (block 6) — repo model, reproduced.** The four committed ratios come back
+  as **1.06397 / 1.18373 / 1.13631 / 0.37798** at Ω = 0.037252 / 0.128950 / 0.285804 / 0.500,
+  max absolute difference **2.09e-06**; the bisected boundary reproduces at `k_D* = 1.286184`,
+  **Ω\* = 0.342840**. Composition factors `C_O1` = 1.10514 / 1.35897 / 1.59104 / 0.75596
+  against a predicted 1.1051 / 1.3590 / 1.5910 / 0.7560, max difference 4.32e-05. **§3 stands
+  exactly as written**; nothing in the two-round work disturbs it.
+- **Not evaluable: the local form (block 5).** `numerical_v4`'s legal clock computes the
+  filing date as `f = c + T` with `c` an integer trading date and indexes the stake path at
+  `int(f)+1`, so a fractional `T` is truncated rather than interpolated. The (21a) integral
+  check of ρ and the count of nodes with ρ > 0 are therefore **unavailable**, and are reported
+  as such rather than skipped. The finite form of Step 20 is still exercised by block 4.
+
+### 8.3 Honesty: the theorem stack does not explain these numbers mechanically
+
+**The chord mechanism `A(τ)` fails at the implemented pooled cell, in two independent
+places, and neither failure was smoothed.**
+
+- **`t2_t1` block 3 (magnitude).** The residual `|S_P − Δ_m |A'_κ| |C_h(π̄)||` is
+  **0.006279 (0.628 premium pp)** against a 1e-10 tolerance — a **relative** residual of up
+  to **3.63**, i.e. the closed form is off by a factor of roughly four, not by a rounding.
+  Read as an implied coefficient, the enumerated sensitivity needs `|A'_κ|` in
+  **[0.997, 1.158]**, where Example A supplies **0.25**. The chord's *shape* is fine —
+  `|C_h(π̄)|/π̄²` is constant to **0.48%** between the two smallest π̄ nodes, well inside 5%.
+  It is the *level* that does not transfer.
+- **`t2_l2` placebo (orientation).** `A(τ)`'s maintained `C_h(π̄) ≤ 0` predicts
+  `∂κ M_P ≤ 0`. The enumerated pooled `M_P` is instead **hump-shaped in κ** — rising to a
+  peak near **κ = 0.55** and falling after, with **10 of 18** increments positive and one
+  sign change. The prediction does not hold globally on this law.
+
+**What this costs, stated plainly.** The theorem stack's *conditional* legs — anything that
+runs through `A(τ)`'s three-atom closed form, including L4's prediction 5 and the chord route
+to `C_τ` — **do not explain the §8.1 numbers mechanically.** The numbers stand on the executed
+enumeration; the theorems stand on their stated hypotheses; the two are not currently joined
+at this calibration. This is a failed hypothesis about `A(τ)`'s applicability to the two-round
+pooled law, **not** a wiring error: the design ruled from the outset that the enumeration
+never imposes `A(τ)`, so measuring this gap is what the build was for, and L3's Example B
+independently shows the manuscript's four-atom structure lies outside `A(τ)`. Two consequences
+for the empirics lane: **(i)** do not write any mechanism sentence that leans on the chord
+formula; **(ii)** the `H = 12` column's `C_T` travels the chord route, so treat it as
+directional corroboration of the corner audit, not as a second independent magnitude.
+
+One further limit worth naming: all five `T = 10` nodes at `H = 10` are flagged
+**degenerate** — flagged-cell mass 0.000681 is below the 0.01 threshold — which is the same
+corner §8.1 already discloses, seen from the mass side.
+
+---
+
+*Written by the ticket-05 agent, theory lane, `v4-theory`. Reproduce §1–§6 with
+`.venv/bin/python quality_reports/fixes/t1_o1_rerun_check.py` from the worktree root.
+§8 added by the ticket-30 agent, 2026-08-21, from the committed
+`quality_reports/fixes/t2_t1_check.json`, `t2_l2_check.json` and
+`numerical_v4/smoke_output.txt`.*
