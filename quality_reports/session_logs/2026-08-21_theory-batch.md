@@ -262,3 +262,18 @@ cadence the tickets ask for.
   window analogue of L4 leg 3 is REFUTED at calibration (positioning fact
   for the paper). **T1 two-pass evidence COMPLETE. Six of seven results done
   (D1, L1, L2, L3, L4, T1); P1 re-derivation pending.**
+- **P1 re-derivation (statements-only, fresh opus): PASS as
+  PROVED-WITH-CHANGES.** Architecture agrees with the writer (scalar pricing
+  reduction; A7′ inverse elementary; Brouwer on 𝒯). h.11 binds twice
+  (sequential optimality + off-path beliefs — drop it and the flagged round
+  is a continuum-signalling game with generic FOC failure). h.12 trades for
+  A5: A5 DERIVABLE (third independent convergence: P1 writer, builder's
+  structural uniqueness, re-deriver's counterexample when m_0<0). MAJOR CARD
+  FINDING: A2's "prices and payoffs bounded" is FALSE under Gaussian v +
+  unbounded flagged region → A2′ (finiteness clauses unchanged; local
+  boundedness + E[max|U|]<∞). Also: objective row missing (h.13-obj —
+  matches batch-1 card gap; NB collides with writer's h.13 stake-ordering,
+  rename at regeneration); A6 continuity genuinely assumed, repair named;
+  §2 gains flag-terminates-pooled-round reading; A8 honestly a condition on
+  the fixed point. **ALL SEVEN RESULTS NOW HAVE TWO-PASS EVIDENCE. Ledger
+  pass + card regeneration dispatched.**
