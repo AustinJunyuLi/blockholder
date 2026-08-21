@@ -44,7 +44,7 @@ C1 | CONJECTURE (unchanged) | no proof on file; ticket 29 in flight | — | 2026
 
 ## Move — ticket 29 close-out, 2026-08-22
 
-C1 | CONJECTURE→PROVED (certificate implication, region-as-hypothesis; 18 certified nodes NUMERICAL evidence; region-level certification NOT claimed) | proof `proofs/C1_proof.md` (repairs 13/13); audit `threads/2026-08-21_C1_proofread_audit.md` (PASS, 0 FAIL); re-derivation `rederive/C1_rederivation.md` (PASS as PROVED-WITH-CHANGES: N1 norm convention, N2 two-sided openness; H8 unused); executed check `quality_reports/fixes/t2_c1_region_check.py/.json`, independently re-run 2026-08-22 ALL REPRODUCE (`quality_reports/fixes/t2_rerun_verify_note.md`) | theory-lane batch (Fable orchestrating) | 2026-08-22 | commit: recorded at commit time
+C1 | CONJECTURE→PROVED (certificate implication, region-as-hypothesis; 18 certified nodes NUMERICAL evidence; region-level certification NOT claimed) | proof `proofs/C1_proof.md` (repairs 13/13); audit `threads/2026-08-21_C1_proofread_audit.md` (PASS, 0 FAIL); re-derivation `rederive/C1_rederivation.md` (PASS as PROVED-WITH-CHANGES: N1 norm convention, N2 two-sided openness; H8 unused); executed check `quality_reports/fixes/t2_c1_region_check.py/.json`, independently re-run 2026-08-22 ALL REPRODUCE (`quality_reports/fixes/t2_rerun_verify_note.md`) | theory-lane batch (Fable orchestrating) | 2026-08-22 | commit: 403ac8e
 
 ## Evidence note — independent re-run of every check script, 2026-08-22
 
