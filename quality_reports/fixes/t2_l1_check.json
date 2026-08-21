@@ -1,0 +1,747 @@
+{
+  "checks": [
+    {
+      "name": "l1_decomposition_residual",
+      "kind": "wiring",
+      "pass": true,
+      "vacuous": false,
+      "request": "err_4 = |Delta^act - (Omega M_F + (1-Omega) M_P)|, both sides from the same solved equilibrium object; predicted 0, required below 1e-12",
+      "tol": 1e-12,
+      "max_err4": 8.673617379884035e-19,
+      "n_nodes": 25,
+      "n_skipped_non_interior": 25,
+      "skipped": [
+        {
+          "kappa": 0.15,
+          "T": 10,
+          "tau": 0.08462696676439771,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.15,
+          "T": 10,
+          "tau": 0.08788437014471917,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.15,
+          "T": 10,
+          "tau": 0.09076405861553302,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.15,
+          "T": 10,
+          "tau": 0.09337594348697996,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.15,
+          "T": 10,
+          "tau": 0.09602833824479486,
+          "Omega": 0.0006812715261460648,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.35,
+          "T": 10,
+          "tau": 0.08462696676439771,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.35,
+          "T": 10,
+          "tau": 0.08788437014471917,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.35,
+          "T": 10,
+          "tau": 0.09076405861553302,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.35,
+          "T": 10,
+          "tau": 0.09337594348697996,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.35,
+          "T": 10,
+          "tau": 0.09602833824479486,
+          "Omega": 0.0006812715261460648,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.55,
+          "T": 10,
+          "tau": 0.08462696676439771,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        },
+        {
+          "kappa": 0.55,
+          "T": 10,
+          "tau": 0.08788437014471917,
+          "Omega": 0.0006812715261460647,
+          "why": "outside the request's interior filter 0.01 <= Omega <= 0.99"
+        }
+      ],
+      "integration": "deterministic: exact Phi-difference atom masses plus 20-node Gauss-Legendre per atom; no Monte Carlo",
+      "why_wiring": "total_premium sums Delta^act over the same enumeration the two-term form reads; the residual cannot falsify L1",
+      "rows": [
+        {
+          "kappa": 0.15,
+          "T": 5,
+          "tau_quantile": 0.1,
+          "tau": 0.08462696676439771,
+          "corner": false,
+          "Omega": 0.14465741548984065,
+          "Delta_act_pp": 0.20871798099650177,
+          "M_F_pp": 0.5781240792474046,
+          "M_P_pp": 0.14624321076187763,
+          "two_term_pp": 0.20871798099650177,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.15,
+          "T": 5,
+          "tau_quantile": 0.3,
+          "tau": 0.08788437014471917,
+          "corner": false,
+          "Omega": 0.1446574154898407,
+          "Delta_act_pp": 0.2087179809965017,
+          "M_F_pp": 0.5781240792474042,
+          "M_P_pp": 0.14624321076187768,
+          "two_term_pp": 0.2087179809965017,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.15,
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau": 0.09076405861553302,
+          "corner": false,
+          "Omega": 0.1383963119314466,
+          "Delta_act_pp": 0.20949439126721728,
+          "M_F_pp": 0.552817848535105,
+          "M_P_pp": 0.15434757499494428,
+          "two_term_pp": 0.20949439126721725,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.15,
+          "T": 5,
+          "tau_quantile": 0.7,
+          "tau": 0.09337594348697996,
+          "corner": false,
+          "Omega": 0.08303778676423275,
+          "Delta_act_pp": 0.21735072650384615,
+          "M_F_pp": 0.33067147617283865,
+          "M_P_pp": 0.20708868504657468,
+          "two_term_pp": 0.2173507265038461,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.15,
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau": 0.09602833824479486,
+          "corner": false,
+          "Omega": 0.02767926159701934,
+          "Delta_act_pp": 0.24718672732299737,
+          "M_F_pp": 0.111337098812026,
+          "M_P_pp": 0.2510539876383427,
+          "two_term_pp": 0.24718672732299737,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.35,
+          "T": 5,
+          "tau_quantile": 0.1,
+          "tau": 0.08462696676439771,
+          "corner": false,
+          "Omega": 0.14465741548984065,
+          "Delta_act_pp": 0.2365133422663554,
+          "M_F_pp": 0.5781240792474046,
+          "M_P_pp": 0.178739384544423,
+          "two_term_pp": 0.23651334226635537,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.35,
+          "T": 5,
+          "tau_quantile": 0.3,
+          "tau": 0.08788437014471917,
+          "corner": false,
+          "Omega": 0.1446574154898407,
+          "Delta_act_pp": 0.23651334226635531,
+          "M_F_pp": 0.5781240792474042,
+          "M_P_pp": 0.178739384544423,
+          "two_term_pp": 0.23651334226635537,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.35,
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau": 0.09076405861553302,
+          "corner": false,
+          "Omega": 0.1383963119314466,
+          "Delta_act_pp": 0.24213053594805142,
+          "M_F_pp": 0.552817848535105,
+          "M_P_pp": 0.19222594660915387,
+          "two_term_pp": 0.24213053594805142,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.35,
+          "T": 5,
+          "tau_quantile": 0.7,
+          "tau": 0.09337594348697996,
+          "corner": false,
+          "Omega": 0.08303778676423275,
+          "Delta_act_pp": 0.28625142390543895,
+          "M_F_pp": 0.33067147617283865,
+          "M_P_pp": 0.28222885593590363,
+          "two_term_pp": 0.2862514239054389,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.35,
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau": 0.09602833824479486,
+          "corner": false,
+          "Omega": 0.02767926159701934,
+          "Delta_act_pp": 0.3798704769606992,
+          "M_F_pp": 0.111337098812026,
+          "M_P_pp": 0.38751487384306615,
+          "two_term_pp": 0.3798704769606992,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.55,
+          "T": 5,
+          "tau_quantile": 0.1,
+          "tau": 0.08462696676439771,
+          "corner": false,
+          "Omega": 0.14465741548984065,
+          "Delta_act_pp": 0.2608348420018674,
+          "M_F_pp": 0.5781240792474046,
+          "M_P_pp": 0.20717418970432333,
+          "two_term_pp": 0.26083484200186735,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.55,
+          "T": 5,
+          "tau_quantile": 0.3,
+          "tau": 0.08788437014471917,
+          "corner": false,
+          "Omega": 0.1446574154898407,
+          "Delta_act_pp": 0.2608348420018674,
+          "M_F_pp": 0.5781240792474042,
+          "M_P_pp": 0.2071741897043234,
+          "two_term_pp": 0.2608348420018674,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.55,
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau": 0.09076405861553302,
+          "corner": false,
+          "Omega": 0.1383963119314466,
+          "Delta_act_pp": 0.26850958710758577,
+          "M_F_pp": 0.552817848535105,
+          "M_P_pp": 0.222842170198758,
+          "two_term_pp": 0.26850958710758577,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.55,
+          "T": 5,
+          "tau_quantile": 0.7,
+          "tau": 0.09337594348697996,
+          "corner": false,
+          "Omega": 0.08303778676423275,
+          "Delta_act_pp": 0.3429545211797668,
+          "M_F_pp": 0.33067147617283865,
+          "M_P_pp": 0.3440668427753335,
+          "two_term_pp": 0.34295452117976677,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.55,
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau": 0.09602833824479486,
+          "corner": false,
+          "Omega": 0.02767926159701934,
+          "Delta_act_pp": 0.4773597195791536,
+          "M_F_pp": 0.111337098812026,
+          "M_P_pp": 0.4877793634996158,
+          "two_term_pp": 0.4773597195791537,
+          "err4": 8.673617379884035e-19
+        },
+        {
+          "kappa": 0.75,
+          "T": 5,
+          "tau_quantile": 0.1,
+          "tau": 0.08462696676439771,
+          "corner": false,
+          "Omega": 0.14465741548984065,
+          "Delta_act_pp": 0.22537557077113587,
+          "M_F_pp": 0.5781240792474046,
+          "M_P_pp": 0.16571796868495436,
+          "two_term_pp": 0.22537557077113587,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.75,
+          "T": 5,
+          "tau_quantile": 0.3,
+          "tau": 0.08788437014471917,
+          "corner": false,
+          "Omega": 0.1446574154898407,
+          "Delta_act_pp": 0.22537557077113574,
+          "M_F_pp": 0.5781240792474042,
+          "M_P_pp": 0.16571796868495428,
+          "two_term_pp": 0.2253755707711358,
+          "err4": 4.336808689942018e-19
+        },
+        {
+          "kappa": 0.75,
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau": 0.09076405861553302,
+          "corner": false,
+          "Omega": 0.1383963119314466,
+          "Delta_act_pp": 0.22885211308167216,
+          "M_F_pp": 0.552817848535105,
+          "M_P_pp": 0.17681465827525022,
+          "two_term_pp": 0.22885211308167216,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.75,
+          "T": 5,
+          "tau_quantile": 0.7,
+          "tau": 0.09337594348697996,
+          "corner": false,
+          "Omega": 0.08303778676423275,
+          "Delta_act_pp": 0.26628388690266674,
+          "M_F_pp": 0.33067147617283865,
+          "M_P_pp": 0.2604531091117123,
+          "two_term_pp": 0.26628388690266674,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.75,
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau": 0.09602833824479486,
+          "corner": false,
+          "Omega": 0.02767926159701934,
+          "Delta_act_pp": 0.3533571200905467,
+          "M_F_pp": 0.111337098812026,
+          "M_P_pp": 0.36024675559465746,
+          "two_term_pp": 0.3533571200905467,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.85,
+          "T": 5,
+          "tau_quantile": 0.1,
+          "tau": 0.08462696676439771,
+          "corner": false,
+          "Omega": 0.14465741548984065,
+          "Delta_act_pp": 0.21003670704069968,
+          "M_F_pp": 0.5781240792474046,
+          "M_P_pp": 0.14778496264945978,
+          "two_term_pp": 0.21003670704069968,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.85,
+          "T": 5,
+          "tau_quantile": 0.3,
+          "tau": 0.08788437014471917,
+          "corner": false,
+          "Omega": 0.1446574154898407,
+          "Delta_act_pp": 0.21003670704069963,
+          "M_F_pp": 0.5781240792474042,
+          "M_P_pp": 0.14778496264945978,
+          "two_term_pp": 0.21003670704069963,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.85,
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau": 0.09076405861553302,
+          "corner": false,
+          "Omega": 0.1383963119314466,
+          "Delta_act_pp": 0.21126249149795517,
+          "M_F_pp": 0.552817848535105,
+          "M_P_pp": 0.15639967882785788,
+          "two_term_pp": 0.21126249149795517,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.85,
+          "T": 5,
+          "tau_quantile": 0.7,
+          "tau": 0.09337594348697996,
+          "corner": false,
+          "Omega": 0.08303778676423275,
+          "Delta_act_pp": 0.22287560602615933,
+          "M_F_pp": 0.33067147617283865,
+          "M_P_pp": 0.2131138837325893,
+          "two_term_pp": 0.22287560602615933,
+          "err4": 0.0
+        },
+        {
+          "kappa": 0.85,
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau": 0.09602833824479486,
+          "corner": false,
+          "Omega": 0.02767926159701934,
+          "Delta_act_pp": 0.264964469219798,
+          "M_F_pp": 0.111337098812026,
+          "M_P_pp": 0.2693378123009743,
+          "two_term_pp": 0.264964469219798,
+          "err4": 0.0
+        }
+      ]
+    },
+    {
+      "name": "l1_degenerate_Omega_1",
+      "kind": "wiring",
+      "pass": true,
+      "vacuous": false,
+      "request": "one all-flagged policy with Omega = 1: verify Delta^act = M_F and record the zero-mass cell average as UNDEFINED rather than imputing it",
+      "construction": "all-Voice menu (k = (s_lo, s_lo)) with tau = 0.0302337771 <= inf_s B(s, H-T) = 0.0302597524",
+      "tol_err5": 1e-10,
+      "Omega": 1.0,
+      "err5": 6.938893903907228e-18,
+      "Delta_act_pp": 4.694626206538875,
+      "M_F_pp": 4.694626206538876,
+      "M_P": null,
+      "M_P_is_nan": true,
+      "clause_with_content": "isnan(M_P) is asserted, not a tolerance: an implementation returning M_P = 0 would pass err_4 while violating the clause the lemma actually adds",
+      "degenerate": [
+        "pooled cell mass 0 < 0.01"
+      ]
+    },
+    {
+      "name": "l1_degenerate_Omega_0",
+      "kind": "wiring",
+      "pass": true,
+      "vacuous": false,
+      "request": "one all-pooled policy with Omega = 0: verify Delta^act = M_P and record M_F as UNDEFINED",
+      "construction": "tau = 0.1200 > b_bar = 0.1, so no type ever crosses",
+      "tol_err5": 1e-10,
+      "Omega": 0.0,
+      "residual_Delta_act_minus_M_P": 0.0,
+      "Delta_act_pp": 0.5761873596989027,
+      "M_P_pp": 0.5761873596989027,
+      "M_F": null,
+      "M_F_is_nan": true,
+      "degenerate": [
+        "flagged cell mass 0 < 0.01"
+      ]
+    },
+    {
+      "name": "l1_H12_not_evaluable",
+      "kind": "wiring",
+      "pass": true,
+      "vacuous": false,
+      "request": "design section 13, ruling 2: H = 12 robustness is cheap for L1",
+      "outcome": "NOT EVALUABLE. Every object in L1's identity -- Delta^act and M_P -- runs through the pooled enumeration, and at H = 12 the feasible history count is 8,503,056, so 8,503,056 x N_theta 14 = 1.19e8 exceeds the design's own build-step-4 gate of 1e8 (working set ~2.5 GB). The gate is respected rather than overridden; L1 is reported at H = 10 only.",
+      "feasible_history_count_H12": 8503056,
+      "gate_limit": 100000000.0
+    }
+  ],
+  "n_fail": 0,
+  "n_vacuous": 0,
+  "provenance": {
+    "model_card_stamp": "2026-08-20 (commit 0c9185b)",
+    "commit": "0c9185b -- MODEL_CARD stamp as recorded in numerical_v4/smoke.py; this script does not shell out to git",
+    "params_hash": "8ef7c5c2d3896bf8",
+    "design": "research/model_v4/impl_design.md section 13 APPROVED",
+    "request": "research/model_v4/threads/thread1_turn2_answer.md, L1 NUMERICAL CHECK REQUEST; core_D1_L1_L2_rederivation.md section B",
+    "classification": "design section 0 rules L1 a WIRING check: both sides run through the same enumeration, so the residual is machine noise by construction and is not evidence for the lemma"
+  },
+  "grid": {
+    "kappa": [
+      0.15,
+      0.35,
+      0.55,
+      0.75,
+      0.85
+    ],
+    "tau": [
+      0.08462696676439771,
+      0.08788437014471917,
+      0.09076405861553302,
+      0.09337594348697996,
+      0.09602833824479486
+    ],
+    "tau_quantiles": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "T": [
+      5,
+      10
+    ],
+    "H": 10,
+    "M": 2,
+    "tau_frozen_from": "percentiles of the seed-equilibrium (tau=0.05) Voice b*(s) distribution, design section 6.2",
+    "policy": "frozen at the baseline equilibrium k",
+    "interior_filter": "0.01 <= Omega <= 0.99",
+    "units": "Delta^act, M_F, M_P in premium percentage points, never normalised indices"
+  },
+  "counts": {
+    "n_hist": 4194304,
+    "n_hist_feasible": 826686,
+    "n_theta": 12,
+    "n_atoms_baseline": 19,
+    "discarded_mass": 0.0
+  },
+  "degenerate_nodes": [
+    {
+      "kappa": 0.15,
+      "T": 10,
+      "tau": 0.08462696676439771,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.15,
+      "T": 10,
+      "tau": 0.08788437014471917,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.15,
+      "T": 10,
+      "tau": 0.09076405861553302,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.15,
+      "T": 10,
+      "tau": 0.09337594348697996,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.15,
+      "T": 10,
+      "tau": 0.09602833824479486,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.35,
+      "T": 10,
+      "tau": 0.08462696676439771,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.35,
+      "T": 10,
+      "tau": 0.08788437014471917,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.35,
+      "T": 10,
+      "tau": 0.09076405861553302,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.35,
+      "T": 10,
+      "tau": 0.09337594348697996,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.35,
+      "T": 10,
+      "tau": 0.09602833824479486,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.55,
+      "T": 10,
+      "tau": 0.08462696676439771,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.55,
+      "T": 10,
+      "tau": 0.08788437014471917,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.55,
+      "T": 10,
+      "tau": 0.09076405861553302,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.55,
+      "T": 10,
+      "tau": 0.09337594348697996,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.55,
+      "T": 10,
+      "tau": 0.09602833824479486,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.75,
+      "T": 10,
+      "tau": 0.08462696676439771,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.75,
+      "T": 10,
+      "tau": 0.08788437014471917,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.75,
+      "T": 10,
+      "tau": 0.09076405861553302,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.75,
+      "T": 10,
+      "tau": 0.09337594348697996,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.75,
+      "T": 10,
+      "tau": 0.09602833824479486,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.85,
+      "T": 10,
+      "tau": 0.08462696676439771,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.85,
+      "T": 10,
+      "tau": 0.08788437014471917,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.85,
+      "T": 10,
+      "tau": 0.09076405861553302,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.85,
+      "T": 10,
+      "tau": 0.09337594348697996,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "kappa": 0.85,
+      "T": 10,
+      "tau": 0.09602833824479486,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    }
+  ],
+  "multiple_root_nodes": 0,
+  "baseline": {
+    "k": [
+      1.2405757282617416,
+      1.5310222869296415
+    ],
+    "tau": 0.09076405861553302,
+    "T": 5,
+    "H": 10,
+    "Omega": 0.1383963119314466,
+    "Delta_act_pp": 0.268471939827342,
+    "M_F_pp": 0.552817848535105,
+    "M_P_pp": 0.2227984757708382,
+    "cutoff_scale": 2.595657022652631e-11,
+    "payoff_scale": 0.0
+  },
+  "seconds": 84.9344951249659,
+  "all_pass": true
+}

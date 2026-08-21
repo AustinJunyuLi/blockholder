@@ -1,0 +1,875 @@
+{
+  "checks": [
+    {
+      "name": "p1_inner_root_single_crossing",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 2: exactly one sign change of rho(P) on a 2001-point grid over [v_hat-5 sigma_v, v_hat+5 sigma_v+m1]",
+      "predicted_frac_multiroot": 0.0,
+      "tol_frac": 0.0001,
+      "by_cell": {
+        "pooled": {
+          "n_information_sets": 4000,
+          "n_scanned": 2000,
+          "frac_sign_changes_ne_1": 0.0,
+          "min_sign_changes": 1,
+          "max_sign_changes": 1,
+          "pctl5_abs_g_slope": 0.6179980268160226,
+          "min_abs_g_slope": 0.6179980268160226,
+          "max_abs_rho_slope": 1.7331930440948806,
+          "min_abs_rho_slope": 1.0963053330930996,
+          "mean_p_bid_at_root": 0.25906290062863024,
+          "all_rho_slopes_negative": true
+        },
+        "flagged": {
+          "n_information_sets": 5000,
+          "n_scanned": 1667,
+          "frac_sign_changes_ne_1": 0.0,
+          "min_sign_changes": 1,
+          "max_sign_changes": 1,
+          "pctl5_abs_g_slope": 1.000000021640895,
+          "min_abs_g_slope": 1.0000000068645196,
+          "max_abs_rho_slope": 1.0942970064326445,
+          "min_abs_rho_slope": 1.000000008804862,
+          "mean_p_bid_at_root": 0.013289500180212304,
+          "all_rho_slopes_negative": true
+        }
+      }
+    },
+    {
+      "name": "p1_inner_root_transversality",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 2: rho' < 0 strictly at the root; 5th percentile of |g'| (the >= 1-p bound's own residual form) > 0.05",
+      "tol_pctl5": 0.05,
+      "by_cell": {
+        "pooled": {
+          "pctl5_abs_g_slope": 0.6179980268160226,
+          "min_abs_g_slope": 0.6179980268160226,
+          "max_abs_rho_slope": 1.7331930440948806,
+          "min_abs_rho_slope": 1.0963053330930996,
+          "mean_p_bid_at_root": 0.25906290062863024,
+          "all_rho_slopes_negative": true
+        },
+        "flagged": {
+          "pctl5_abs_g_slope": 1.000000021640895,
+          "min_abs_g_slope": 1.0000000068645196,
+          "max_abs_rho_slope": 1.0942970064326445,
+          "min_abs_rho_slope": 1.000000008804862,
+          "mean_p_bid_at_root": 0.013289500180212304,
+          "all_rho_slopes_negative": true
+        }
+      }
+    },
+    {
+      "name": "p1_flagged_family_single_valued",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 3: single-valued and strictly increasing in v_hat; two independent solvers must agree",
+      "n_tuples": 5000,
+      "max_abs_disagreement_bisection_vs_brentq": 8.881784197001252e-16,
+      "strictly_increasing_in_s": true,
+      "min_dP": 6.167306076720891e-06
+    },
+    {
+      "name": "p1_flagged_family_slope",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 3: slope in (0,1]; numerical vs analytic below 1e-6; predicted 0.60 +- 0.10 at p ~ 0.85",
+      "tol": 1e-06,
+      "max_abs_gap_numeric_vs_analytic": 3.6105862744051365e-10,
+      "slope_min": 0.9138286900522985,
+      "slope_max": 0.9999999914800384,
+      "slope_mean": 0.9771539654272577,
+      "p_bid_mean": 0.013281039826058163,
+      "slope_in_0_1": true,
+      "note": "p_bid here is far from the request's illustrative 0.85, so the 0.60 +- 0.10 point prediction is reported, not enforced"
+    },
+    {
+      "name": "p1_flagged_sequential_h11",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 4: under h.11 (round 2 restricted to the plan-generated set) max gain = 0 to 1e-9 premium pp",
+      "tol_pp": 1e-09,
+      "max_gain_restricted_pp": 0.0,
+      "max_gain_full_interval_pp": 5.551115123125783e-15,
+      "n_tuples": 30,
+      "finding": "The request predicts a strictly positive gain of order 1e-2 premium pp once round 2 is opened to the full interval. On this menu the gain is 0 to machine precision, because at the equilibrium flagged price family E[Y] - P^F = 0 identically (P^F = v_hat + Delta_V + p m1/(1-p) makes the blockholder exactly indifferent over Q'). h.11 therefore buys nothing here; that is a finding about the menu, not a refutation of P1, and it is reported rather than tuned away.",
+      "max_abs_EY_minus_P_F": 2.9753977059954195e-14,
+      "rows": [
+        {
+          "s": 1.7919690277957754,
+          "B_F": 0.0911079560923789,
+          "Q_F": 0.0,
+          "P_F": 1.6376751930581825,
+          "p_bid": 0.052703411431464176,
+          "EY_minus_P_F": 0.0,
+          "gain_full_interval_pp": 2.7755575615628914e-15
+        },
+        {
+          "s": 1.8149221725375557,
+          "B_F": 0.09143561264653498,
+          "Q_F": 0.0,
+          "P_F": 1.648226173059458,
+          "p_bid": 0.04992663042931844,
+          "EY_minus_P_F": 0.0,
+          "gain_full_interval_pp": 2.7755575615628914e-15
+        },
+        {
+          "s": 1.837875317279336,
+          "B_F": 0.09174784981240325,
+          "Q_F": 0.0,
+          "P_F": 1.658818181524341,
+          "p_bid": 0.047257679669576946,
+          "EY_minus_P_F": 0.0,
+          "gain_full_interval_pp": 2.7755575615628914e-15
+        },
+        {
+          "s": 1.8971789939845638,
+          "B_F": 0.09248865614793234,
+          "Q_F": 0.0,
+          "P_F": 1.686366174443057,
+          "p_bid": 0.04084920127328073,
+          "EY_minus_P_F": -2.220446049250313e-16,
+          "gain_full_interval_pp": 0.0
+        },
+        {
+          "s": 1.9335295259480108,
+          "B_F": 0.09289984425701535,
+          "Q_F": 0.0,
+          "P_F": 1.7033746092519668,
+          "p_bid": 0.03725763616469713,
+          "EY_minus_P_F": 0.0,
+          "gain_full_interval_pp": 2.7755575615628914e-15
+        },
+        {
+          "s": 1.9698800579114577,
+          "B_F": 0.09328161596256279,
+          "Q_F": 0.0,
+          "P_F": 1.7204706897845838,
+          "p_bid": 0.03391182307327445,
+          "EY_minus_P_F": 2.220446049250313e-16,
+          "gain_full_interval_pp": 2.7755575615628914e-15
+        }
+      ]
+    },
+    {
+      "name": "p1_both_cells_on_path",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 5: 0 < Omega < 1 at every interior (tau,T) node; Omega in 0.03..0.30 at the card calibration",
+      "Omega": 0.1383963119314466,
+      "Pr_a": 0.2263326705885291,
+      "omega_a": 0.6114729772399935,
+      "pi_bar_pr": 0.10206126073370039,
+      "in_predicted_band_0.03_0.30": true,
+      "degenerate": []
+    },
+    {
+      "name": "p1_threshold_reformulation",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 5: Omega = 1 - Phi_s(s_F) wherever h.13 holds, agreement to 1e-10; disagreement tests h.13",
+      "tol": 1e-10,
+      "s_F": 1.7690158830539948,
+      "flagged_set_is_upper_interval": true,
+      "Omega_direct": 0.1383963119314466,
+      "Omega_from_s_F": 0.1383963119314466,
+      "abs_gap": 0.0,
+      "note": "Phi_s is renormalised on the +-6 sigma_s truncated support, matching the atom masses evaluate() integrates."
+    },
+    {
+      "name": "p1_Omega_monotone_tau_T",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 5: Omega weakly increasing as tau falls and as T falls; Omega = 0 exactly at tau > b_bar",
+      "grid_tau": [
+        0.05,
+        0.075,
+        0.09076405861553302,
+        0.098
+      ],
+      "grid_T": [
+        1,
+        2,
+        5,
+        10
+      ],
+      "Omega": {
+        "T=1": [
+          0.2263326705885291,
+          0.22633267058852904,
+          0.1383963119314466,
+          0.002329388426713565
+        ],
+        "T=2": [
+          0.2263326705885291,
+          0.22633267058852904,
+          0.1383963119314466,
+          0.002329388426713565
+        ],
+        "T=5": [
+          0.2263326705885291,
+          0.17565414119031927,
+          0.1383963119314466,
+          0.002329388426713565
+        ],
+        "T=10": [
+          0.043340421572277237,
+          0.0006812715261460645,
+          0.0006812715261460647,
+          0.0006812715261460645
+        ]
+      },
+      "violations_tau": [],
+      "violations_T": [],
+      "Omega_at_tau_above_b_bar": 0.0
+    },
+    {
+      "name": "p1_multistart_existence_core",
+      "kind": "substantive",
+      "pass": true,
+      "request": "item 1: 30-seed multistart at every node; at least one seed converges. BINDING = payoff scale < 1e-9 (design 13.4); cutoff scale 1e-10 diagnostic only",
+      "node": {
+        "kappa": 0.5,
+        "tau": 0.09076405861553302,
+        "T": 5,
+        "H": 10
+      },
+      "n_seeds": 30,
+      "early_stop": false,
+      "tol_payoff_binding": 1e-09,
+      "tol_cutoff_diagnostic": 1e-10,
+      "median_best_cutoff_scale": 1.78974612907723e-11,
+      "rows": [
+        {
+          "seeds_run": 30,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.7891910175649173e-11,
+          "k": [
+            1.2405757282617416,
+            1.5310222869296415
+          ],
+          "seconds": 1170.7947851659264,
+          "variant": "baseline",
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 30,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.793942772110313e-11,
+          "k": [
+            1.1914476463226624,
+            1.5618677486891202
+          ],
+          "seconds": 1311.4214346249355,
+          "variant": "sigma_xi -20%",
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 30,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.9182877508683305e-11,
+          "k": [
+            1.2813763702926402,
+            1.4993846885500108
+          ],
+          "seconds": 1507.7841297499835,
+          "variant": "sigma_xi +20%",
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 30,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.78974612907723e-11,
+          "k": [
+            1.2332683694860702,
+            1.5292054120873009
+          ],
+          "seconds": 1617.3796074589482,
+          "variant": "Delta_m -20%",
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 30,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.749156375296934e-11,
+          "k": [
+            1.2465041564227206,
+            1.5334466239604543
+          ],
+          "seconds": 1234.026818000013,
+          "variant": "Delta_m +20%",
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 30,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.2691404311103724e-11,
+          "k": [
+            1.2833763295489828,
+            1.4465322079021048
+          ],
+          "seconds": 781.319002791075,
+          "variant": "C0 -20%",
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 30,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.7322809853226318e-11,
+          "k": [
+            1.2102901035268387,
+            1.5987153792882898
+          ],
+          "seconds": 701.4820968329441,
+          "variant": "C0 +20%",
+          "converged_payoff": true,
+          "converged_cutoff": true
+        }
+      ]
+    },
+    {
+      "name": "p1_multistart_existence_sweep",
+      "kind": "substantive",
+      "pass": false,
+      "request": "item 1 across the policy grid, early-stopping multistart (seeds 0..4, stop at the first seed meeting the binding criterion). The request's 30-seed ask is carried by node set A; this sweep is grid coverage, capped at 5 seeds so a non-converging node costs 2 min rather than 14",
+      "n_seeds_cap": 5,
+      "grid": {
+        "kappa": [
+          0.15,
+          0.5,
+          0.85
+        ],
+        "tau": [
+          0.05,
+          0.075,
+          0.09076405861553302
+        ],
+        "T": [
+          1,
+          5,
+          10
+        ]
+      },
+      "n_nodes": 27,
+      "n_converged": 23,
+      "median_best_cutoff_scale": 2.7496227517076477e-11,
+      "rows": [
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.1351586337582376e-11,
+          "k": [
+            0.9848656471040279,
+            1.405443837554305
+          ],
+          "seconds": 13.32870533305686,
+          "kappa": 0.15,
+          "tau": 0.05,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 5,
+          "best_payoff_scale": 0.001488170939392311,
+          "best_cutoff_scale": 1.8952395208771122e-11,
+          "k": [
+            1.0074676693103841,
+            1.5613050961812023
+          ],
+          "seconds": 85.2498247079784,
+          "kappa": 0.15,
+          "tau": 0.05,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": false,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.934363863005274e-11,
+          "k": [
+            1.0261792633655062,
+            1.7247476202912642
+          ],
+          "seconds": 34.48688045900781,
+          "kappa": 0.15,
+          "tau": 0.05,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 5,
+          "best_payoff_scale": 0.0010592282017965887,
+          "best_cutoff_scale": 1.2545520178264269e-14,
+          "k": [
+            1.0039258750690332,
+            1.5361669836666294
+          ],
+          "seconds": 83.91239004197996,
+          "kappa": 0.15,
+          "tau": 0.075,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": false,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.9973357129620126e-11,
+          "k": [
+            1.0269292934852638,
+            1.7188164187922315
+          ],
+          "seconds": 24.662359042093158,
+          "kappa": 0.15,
+          "tau": 0.075,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.4831471040774886e-11,
+          "k": [
+            1.0232161239375368,
+            1.7288567020075272
+          ],
+          "seconds": 37.3102034580661,
+          "kappa": 0.15,
+          "tau": 0.075,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.0443202686237782e-11,
+          "k": [
+            1.0235134306069529,
+            1.6886239853940521
+          ],
+          "seconds": 26.589181166957133,
+          "kappa": 0.15,
+          "tau": 0.09076405861553302,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.45770079235308e-11,
+          "k": [
+            1.0271277351914962,
+            1.7218534313570004
+          ],
+          "seconds": 28.960273541975766,
+          "kappa": 0.15,
+          "tau": 0.09076405861553302,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.4831471040774886e-11,
+          "k": [
+            1.0232161239375388,
+            1.7288567020075274
+          ],
+          "seconds": 37.957647374947555,
+          "kappa": 0.15,
+          "tau": 0.09076405861553302,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 4.3553827211439966e-11,
+          "k": [
+            1.35358624390523,
+            1.35358624390523
+          ],
+          "seconds": 9.421609582961537,
+          "kappa": 0.5,
+          "tau": 0.05,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.3427259304421568e-11,
+          "k": [
+            1.3124648122403926,
+            1.4188874333035122
+          ],
+          "seconds": 14.469053499982692,
+          "kappa": 0.5,
+          "tau": 0.05,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.0220047858288126e-11,
+          "k": [
+            1.209953101041571,
+            1.5427418820422603
+          ],
+          "seconds": 27.900847374927253,
+          "kappa": 0.5,
+          "tau": 0.05,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.486832879038502e-11,
+          "k": [
+            1.3329053753496902,
+            1.3856452728203859
+          ],
+          "seconds": 15.497320082969964,
+          "kappa": 0.5,
+          "tau": 0.075,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.818700745559454e-11,
+          "k": [
+            1.2474379654606653,
+            1.5275078110677354
+          ],
+          "seconds": 21.655889875022694,
+          "kappa": 0.5,
+          "tau": 0.075,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.082845090318642e-11,
+          "k": [
+            1.1751647692528333,
+            1.5524833105541282
+          ],
+          "seconds": 28.79393050004728,
+          "kappa": 0.5,
+          "tau": 0.075,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.7496227517076477e-11,
+          "k": [
+            1.2629896052256364,
+            1.4853933354309685
+          ],
+          "seconds": 23.003384666983038,
+          "kappa": 0.5,
+          "tau": 0.09076405861553302,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.595657022652631e-11,
+          "k": [
+            1.2405757282617416,
+            1.5310222869296415
+          ],
+          "seconds": 24.27560908300802,
+          "kappa": 0.5,
+          "tau": 0.09076405861553302,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.082845090318642e-11,
+          "k": [
+            1.1751647692528333,
+            1.5524833105541285
+          ],
+          "seconds": 28.617705083917826,
+          "kappa": 0.5,
+          "tau": 0.09076405861553302,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 1.2283285499847807e-11,
+          "k": [
+            1.1157977627393094,
+            1.4012599049980128
+          ],
+          "seconds": 13.083739583962597,
+          "kappa": 0.85,
+          "tau": 0.05,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 5,
+          "best_payoff_scale": 0.00039841768806352096,
+          "best_cutoff_scale": 2.2122526033285794e-11,
+          "k": [
+            1.0871354370969635,
+            1.548848450728854
+          ],
+          "seconds": 86.30552520800848,
+          "kappa": 0.85,
+          "tau": 0.05,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": false,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.68594044175552e-11,
+          "k": [
+            1.061826796222292,
+            1.6910736046667811
+          ],
+          "seconds": 32.80734025000129,
+          "kappa": 0.85,
+          "tau": 0.05,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 5,
+          "best_payoff_scale": 0.0003061479141195228,
+          "best_cutoff_scale": 2.173439206387684e-11,
+          "k": [
+            1.088861883430131,
+            1.5387849788427397
+          ],
+          "seconds": 82.52846516598947,
+          "kappa": 0.85,
+          "tau": 0.075,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": false,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.4767743411757692e-11,
+          "k": [
+            1.066803889468342,
+            1.6819731495707522
+          ],
+          "seconds": 26.277260291972198,
+          "kappa": 0.85,
+          "tau": 0.075,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.622768751654348e-11,
+          "k": [
+            1.050545549572742,
+            1.696911726592003
+          ],
+          "seconds": 35.871342208003625,
+          "kappa": 0.85,
+          "tau": 0.075,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.2281954887025677e-11,
+          "k": [
+            1.0722997080636352,
+            1.6400179955678202
+          ],
+          "seconds": 28.385986541979946,
+          "kappa": 0.85,
+          "tau": 0.09076405861553302,
+          "T": 1,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 2.887023953235257e-11,
+          "k": [
+            1.0657183897027622,
+            1.6873782038086496
+          ],
+          "seconds": 29.420030874898657,
+          "kappa": 0.85,
+          "tau": 0.09076405861553302,
+          "T": 5,
+          "corner": false,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        },
+        {
+          "seeds_run": 1,
+          "best_payoff_scale": 0.0,
+          "best_cutoff_scale": 3.622702138272871e-11,
+          "k": [
+            1.050545549572741,
+            1.6969117265920035
+          ],
+          "seconds": 36.78525491594337,
+          "kappa": 0.85,
+          "tau": 0.09076405861553302,
+          "T": 10,
+          "corner": true,
+          "converged_payoff": true,
+          "converged_cutoff": true
+        }
+      ]
+    }
+  ],
+  "n_fail": 1,
+  "provenance": {
+    "model_card_stamp": "2026-08-20 (commit 0c9185b)",
+    "commit": "0c9185b -- MODEL_CARD stamp as recorded in numerical_v4/smoke.py; this script does not shell out to git",
+    "params_hash": "8ef7c5c2d3896bf8",
+    "design": "research/model_v4/impl_design.md section 13 APPROVED",
+    "request": "research/model_v4/proofs/P1_proof.md, NUMERICAL CHECK REQUEST",
+    "binding_criterion": "payoff scale, no adjacent-plan deviation above 1e-9 (design section 13, ruling 4); cutoff-scale 1e-10 diagnostic only",
+    "H12_robustness": "excluded for P1 by design section 13, ruling 2"
+  },
+  "grid": {
+    "kappa": [
+      0.15,
+      0.5,
+      0.85
+    ],
+    "tau": [
+      0.05,
+      0.075,
+      0.09076405861553302
+    ],
+    "tau_excluded": {
+      "0.03": "equals b0; violates the maintained b0 < tau",
+      "0.10": "equals b_bar; no type crosses, Omega = 0 (checked directly in p1_Omega_monotone_tau_T instead)"
+    },
+    "T": [
+      1,
+      5,
+      10
+    ],
+    "T_excluded": {
+      "2": "dropped for runtime; T=1 already exercises the short-window end"
+    },
+    "H": 10,
+    "M": 2,
+    "tau_frozen_from": "median of the seed-equilibrium (tau=0.05) Voice b*(s) distribution, design section 6.2",
+    "n_seeds": 30,
+    "sizing": "One cold solve_policy ~= 27 s. The request's full grid (19 kappa x 4 tau x 5 T x 7 parameter variants x 30 seeds) is ~600 h and is not runnable. Cut to NODE SET A = 7 parameter variants x 30 seeds (no early stop, ~95 min) at kappa=0.5, tau=tau_50, T=5, plus NODE SET B = 3 kappa x 3 tau x 3 T early-stopping multistart capped at 5 seeds (~12 min typical, ~60 min worst case). Both sets are stated in the check details."
+  },
+  "counts": {
+    "n_hist": 4194304,
+    "n_hist_feasible": 826686,
+    "n_theta": 12,
+    "n_atoms": 19,
+    "n_flagged_atoms": 10,
+    "discarded_mass": 0.0,
+    "n_pooled_information_sets_sampled": 4000,
+    "n_flagged_tuples": 5000
+  },
+  "degenerate_nodes": [],
+  "multiple_root_nodes": 0,
+  "baseline": {
+    "k": [
+      1.2405757282617416,
+      1.5310222869296415
+    ],
+    "kappa": 0.5,
+    "tau": 0.09076405861553302,
+    "T": 5,
+    "H": 10,
+    "Omega": 0.1383963119314466,
+    "M_F_pp": 0.552817848535105,
+    "M_P_pp": 0.2227984757708382,
+    "cutoff_scale": 2.595657022652631e-11,
+    "payoff_scale": 0.0,
+    "slopes": [
+      -0.005427536789101572,
+      -0.03996569598908872
+    ],
+    "a7_passes": true,
+    "a7_min_slope": 0.00021992796519100947,
+    "max_Q_F": 0.0
+  },
+  "seconds": 9349.987605500035,
+  "all_pass": false
+}

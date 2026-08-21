@@ -1,0 +1,1590 @@
+{
+  "checks": [
+    {
+      "name": "l4_sign_Omega_up",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "Omega(tau') - Omega(tau) >= 0 at every tightening step, every kappa and both T",
+      "n_steps": 16,
+      "n_violations": 0,
+      "violations": [],
+      "min_d_Omega": 0.022633267058852102
+    },
+    {
+      "name": "l4_sign_pi_bar_down",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "pi_bar_pr(tau') - pi_bar_pr(tau) <= 0 at every tightening step",
+      "n_steps": 16,
+      "n_violations": 0,
+      "violations": [],
+      "max_d_pi_bar_pr": -0.018765572006326142
+    },
+    {
+      "name": "l4_sign_S_P_down",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "S_P(tau') - S_P(tau) <= 0 at every tightening step, with S_P = Delta_m |A'_kappa| |C_h(pi_bar)| -- the request's own formula, which is the chord route",
+      "n_steps": 16,
+      "n_violations": 0,
+      "violations": [],
+      "max_d_S_P_chord": -9.471395101699196e-05,
+      "note": "a single violation would be a failed hypothesis, not sampling error: there is no sampling in this computation"
+    },
+    {
+      "name": "l4_pred1_step11_identity",
+      "kind": "wiring",
+      "pass": true,
+      "vacuous": false,
+      "request": "prediction 1: |pi_bar_pr(tau) - [(1-nu/rho_P) pi_bar_pr(tau') + nu/rho_P]| < 1e-12; machine precision is the right tolerance because nothing here is approximated",
+      "tol": 1e-12,
+      "max_residual": 1.249000902703301e-16,
+      "rows": [
+        {
+          "T": 5,
+          "tau_quantile": 0.9,
+          "nu": 0.022633267058852626,
+          "rho_P": 0.9773667329411471,
+          "residual": 5.551115123125783e-17
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.8,
+          "nu": 0.02263326705885306,
+          "rho_P": 0.9547334658822945,
+          "residual": 2.7755575615628914e-17
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.7000000000000001,
+          "nu": 0.022633267058852963,
+          "rho_P": 0.9321001988234414,
+          "residual": 8.326672684688674e-17
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.6000000000000001,
+          "nu": 0.022633267058853143,
+          "rho_P": 0.9094669317645884,
+          "residual": 8.326672684688674e-17
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.5,
+          "nu": 0.02263326705885267,
+          "rho_P": 0.8868336647057352,
+          "residual": 8.326672684688674e-17
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.4,
+          "nu": 0.02263326705885324,
+          "rho_P": 0.8642003976468826,
+          "residual": 5.551115123125783e-17
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.30000000000000004,
+          "nu": 0.022633267058852602,
+          "rho_P": 0.8415671305880293,
+          "residual": 1.249000902703301e-16
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.2,
+          "nu": 0.02263326705885288,
+          "rho_P": 0.8189338635291767,
+          "residual": 1.0408340855860843e-16
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.9,
+          "nu": 0.02263326705885229,
+          "rho_P": 0.9773667329411471,
+          "residual": 2.7755575615628914e-17
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.8,
+          "nu": 0.022633267058853386,
+          "rho_P": 0.9547334658822948,
+          "residual": 0.0
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.7000000000000001,
+          "nu": 0.022633267058852963,
+          "rho_P": 0.9321001988234414,
+          "residual": 2.7755575615628914e-17
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.6000000000000001,
+          "nu": 0.02263326705885313,
+          "rho_P": 0.9094669317645884,
+          "residual": 5.551115123125783e-17
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.5,
+          "nu": 0.022633267058852644,
+          "rho_P": 0.8868336647057353,
+          "residual": 2.7755575615628914e-17
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.4,
+          "nu": 0.022633267058853268,
+          "rho_P": 0.8642003976468826,
+          "residual": 1.3877787807814457e-17
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.30000000000000004,
+          "nu": 0.022633267058852102,
+          "rho_P": 0.8415671305880293,
+          "residual": 2.7755575615628914e-17
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.2,
+          "nu": 0.022633267058853324,
+          "rho_P": 0.8189338635291773,
+          "residual": 9.71445146547012e-17
+        }
+      ]
+    },
+    {
+      "name": "l4_pred2_flat_in_kappa",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "prediction 2: max_kappa |Omega(tau,T,kappa) - Omega(tau,T,0.5)| < 1e-12, and the same for pi_bar_pr. A residual above 1e-8 would mean the execution path is reading realised order flow, i.e. the no-feedback timing has been violated in the code",
+      "tol": 1e-12,
+      "max_flat_residual": {
+        "Omega": 0.0,
+        "pi_bar_pr": 0.0
+      },
+      "n_kappa_nodes": 71
+    },
+    {
+      "name": "l4_pred3_tau_grid_bites",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "prediction 3: omega_a(tau_p) = Pr(B >= tau_p | a=1) should run from ~0.9 at the 10th percentile to ~0.1 at the 90th; deviation above 0.02 at any decile means the grid is not the percentile grid it claims to be",
+      "tol": 0.02,
+      "max_deviation": 2.4980018054066022e-15,
+      "Omega_span_ratio": {
+        "T=5": 8.99999999999998,
+        "T=10": 8.999999999999979
+      },
+      "predicted_span": "roughly ninefold",
+      "rows": [
+        {
+          "T": 5,
+          "tau_quantile": 0.1,
+          "omega_a": 0.8999999999999997,
+          "predicted": 0.9,
+          "deviation": 3.3306690738754696e-16
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.2,
+          "omega_a": 0.7999999999999997,
+          "predicted": 0.8,
+          "deviation": 3.3306690738754696e-16
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.30000000000000004,
+          "omega_a": 0.7000000000000014,
+          "predicted": 0.7,
+          "deviation": 1.4432899320127035e-15
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.4,
+          "omega_a": 0.5999999999999998,
+          "predicted": 0.6,
+          "deviation": 2.220446049250313e-16
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.5,
+          "omega_a": 0.5000000000000009,
+          "predicted": 0.5,
+          "deviation": 8.881784197001252e-16
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.6000000000000001,
+          "omega_a": 0.39999999999999986,
+          "predicted": 0.3999999999999999,
+          "deviation": 5.551115123125783e-17
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.7000000000000001,
+          "omega_a": 0.29999999999999966,
+          "predicted": 0.29999999999999993,
+          "deviation": 2.7755575615628914e-16
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.8,
+          "omega_a": 0.19999999999999893,
+          "predicted": 0.19999999999999996,
+          "deviation": 1.0269562977782698e-15
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.9,
+          "omega_a": 0.10000000000000021,
+          "predicted": 0.09999999999999998,
+          "deviation": 2.3592239273284576e-16
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.1,
+          "omega_a": 0.8999999999999997,
+          "predicted": 0.9,
+          "deviation": 3.3306690738754696e-16
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.2,
+          "omega_a": 0.7999999999999977,
+          "predicted": 0.8,
+          "deviation": 2.3314683517128287e-15
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.30000000000000004,
+          "omega_a": 0.7000000000000015,
+          "predicted": 0.7,
+          "deviation": 1.5543122344752192e-15
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.4,
+          "omega_a": 0.5999999999999998,
+          "predicted": 0.6,
+          "deviation": 2.220446049250313e-16
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.5,
+          "omega_a": 0.500000000000001,
+          "predicted": 0.5,
+          "deviation": 9.992007221626409e-16
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.6000000000000001,
+          "omega_a": 0.3999999999999998,
+          "predicted": 0.3999999999999999,
+          "deviation": 1.1102230246251565e-16
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.7000000000000001,
+          "omega_a": 0.29999999999999966,
+          "predicted": 0.29999999999999993,
+          "deviation": 2.7755575615628914e-16
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.8,
+          "omega_a": 0.19999999999999746,
+          "predicted": 0.19999999999999996,
+          "deviation": 2.4980018054066022e-15
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.9,
+          "omega_a": 0.10000000000000021,
+          "predicted": 0.09999999999999998,
+          "deviation": 2.3592239273284576e-16
+        }
+      ]
+    },
+    {
+      "name": "l4_pred4_quadratic_corollary",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "prediction 4 (L3's quadratic corollary): at the two smallest pi_bar points, S_P/pi_bar^2 should agree within 5%. If this fails while 1-3 pass, the failure is in h's regularity, not in L4",
+      "tol": 0.05,
+      "by_T": {
+        "T=5": {
+          "pi_bar_two_smallest": [
+            0.05684603819004282,
+            0.11054991406175543
+          ],
+          "S_P_over_pi_bar2": [
+            0.010841150112949574,
+            0.010616464685766649
+          ],
+          "relative_gap": 0.020725239005273247
+        },
+        "T=10": {
+          "pi_bar_two_smallest": [
+            0.05684603819004281,
+            0.11054991406175642
+          ],
+          "S_P_over_pi_bar2": [
+            0.010841150112949635,
+            0.010616464685766661
+          ],
+          "relative_gap": 0.020725239005277608
+        }
+      }
+    },
+    {
+      "name": "l4_pred5_A_prime_kappa_channel",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "prediction 5: under the equality version of (br-iii), C_tau = S_P(tau')/S_P(tau) should equal |C_h(pi_bar(tau'))|/|C_h(pi_bar(tau))|. REPORT THE RESIDUAL AS A NUMBER, NOT PASS/FAIL: it IS the size of the A'_kappa channel -- how much of the composition effect comes from the pooled weights reshaping rather than from the chord shortening, and it is what T1's C_tau inherits",
+      "verdict": "REPORTED, not gated -- the request forbids a pass/fail here",
+      "C_tau_uses": "the MODEL route S_P = |d_kappa M_P| at kappa = 0.5; the chord ratio is the request's closed form. On the chord route the two coincide by construction, so the model route is the only one that can measure the channel",
+      "median_abs_residual": 0.035197279978000706,
+      "max_abs_residual": 0.121292279856974,
+      "rows": [
+        {
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau_prime_quantile": 0.8,
+          "C_tau_model": 0.8553419852440902,
+          "chord_ratio": 0.8392979663206694,
+          "residual": 0.016044018923420778,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.8,
+          "tau_prime_quantile": 0.7000000000000001,
+          "C_tau_model": 0.7354278799179113,
+          "chord_ratio": 0.8147172733269992,
+          "residual": 0.07928939340908792,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.7000000000000001,
+          "tau_prime_quantile": 0.6000000000000001,
+          "C_tau_model": 0.7811335712876109,
+          "chord_ratio": 0.7832996695002818,
+          "residual": 0.002166098212670997,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.6000000000000001,
+          "tau_prime_quantile": 0.5,
+          "C_tau_model": 0.774420523738143,
+          "chord_ratio": 0.7419282938872818,
+          "residual": 0.0324922298508612,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau_prime_quantile": 0.4,
+          "C_tau_model": 0.6091562322853169,
+          "chord_ratio": 0.6853210135486675,
+          "residual": 0.07616478126335058,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.4,
+          "tau_prime_quantile": 0.30000000000000004,
+          "C_tau_model": 0.6007852102287234,
+          "chord_ratio": 0.6038547692068341,
+          "residual": 0.003069558978110676,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.30000000000000004,
+          "tau_prime_quantile": 0.2,
+          "C_tau_model": 0.44056956578555345,
+          "chord_ratio": 0.4784718958906557,
+          "residual": 0.037902330105102244,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.2,
+          "tau_prime_quantile": 0.1,
+          "C_tau_model": 0.14871720786079773,
+          "chord_ratio": 0.2700094877177717,
+          "residual": 0.121292279856974,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.9,
+          "tau_prime_quantile": 0.8,
+          "C_tau_model": 0.8553419852440679,
+          "chord_ratio": 0.8392979663206693,
+          "residual": 0.016044018923398573,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.8,
+          "tau_prime_quantile": 0.7000000000000001,
+          "C_tau_model": 0.7354278799179435,
+          "chord_ratio": 0.814717273327,
+          "residual": 0.0792893934090565,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.7000000000000001,
+          "tau_prime_quantile": 0.6000000000000001,
+          "C_tau_model": 0.7811335712877209,
+          "chord_ratio": 0.7832996695002843,
+          "residual": 0.0021660982125634165,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.6000000000000001,
+          "tau_prime_quantile": 0.5,
+          "C_tau_model": 0.7744205237381786,
+          "chord_ratio": 0.7419282938872794,
+          "residual": 0.03249222985089917,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.5,
+          "tau_prime_quantile": 0.4,
+          "C_tau_model": 0.6091562322847248,
+          "chord_ratio": 0.6853210135486675,
+          "residual": 0.07616478126394266,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.4,
+          "tau_prime_quantile": 0.30000000000000004,
+          "C_tau_model": 0.6007852102288728,
+          "chord_ratio": 0.6038547692068341,
+          "residual": 0.003069558977961351,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.30000000000000004,
+          "tau_prime_quantile": 0.2,
+          "C_tau_model": 0.4405695657832671,
+          "chord_ratio": 0.47847189589066463,
+          "residual": 0.03790233010739752,
+          "S_P_model_undefined": false
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.2,
+          "tau_prime_quantile": 0.1,
+          "C_tau_model": 0.14871720786155607,
+          "chord_ratio": 0.270009487717768,
+          "residual": 0.12129227985621194,
+          "S_P_model_undefined": false
+        }
+      ]
+    },
+    {
+      "name": "l4_model_route_S_P",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "the model route reported beside the request's chord formula, so the two are never conflated",
+      "verdict": "REPORTED, not gated",
+      "n_sign_violations_model_route": 0,
+      "violations_model_route": [],
+      "reading": "S_P = |d_kappa M_P| is measured at kappa = 0.5, which on this calibration sits within 0.05 of the peak of the hump-shaped M_P(kappa) profile, so the model-route level is small and its tau-ordering is not the chord route's. The request's verdict binds on the chord formula it writes down; this column is the diagnostic that shows the two are different objects."
+    },
+    {
+      "name": "l4_H12_robustness",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "design section 13, ruling 2: H = 12 robustness, cheap for L4",
+      "scope": "Omega, omega_a, pi_bar_pr and the chord-route S_P -- none of which touch the pooled enumeration",
+      "not_evaluable_at_H12": "the model route S_P = |d_kappa M_P| runs through the enumeration; at H = 12 the feasible history count is 8,503,056 and 8,503,056 x N_theta 14 = 1.19e8 exceeds the design build-step-4 gate of 1e8 (~2.5 GB working set). The gate is respected.",
+      "policy": "cutoffs frozen at the H = 10 baseline equilibrium; H = 12 cannot be re-solved for the same reason",
+      "n_sign_violations": 0,
+      "violations": [],
+      "rows": [
+        {
+          "T": 5,
+          "tau_quantile": 0.1,
+          "tau": 0.07586332924848985,
+          "Omega": 0.20369940352967594,
+          "omega_a": 0.8999999999999988,
+          "pi_bar_pr": 0.028423019095021682,
+          "S_P_chord": 3.50328736655376e-05,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.2,
+          "tau": 0.08206662693528996,
+          "Omega": 0.18106613647082348,
+          "omega_a": 0.8000000000000008,
+          "pi_bar_pr": 0.055274957030877425,
+          "S_P_chord": 0.00012974682468252992,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.30000000000000004,
+          "tau": 0.0897601074265302,
+          "Omega": 0.15843286941197068,
+          "omega_a": 0.7000000000000014,
+          "pi_bar_pr": 0.08068257267737478,
+          "S_P_chord": 0.0002711691654135942,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.4,
+          "tau": 0.09089137143817187,
+          "Omega": 0.1357996023531174,
+          "omega_a": 0.5999999999999998,
+          "pi_bar_pr": 0.10475934572805422,
+          "S_P_chord": 0.0004490635484584747,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau": 0.09197763253912061,
+          "Omega": 0.11316633529426473,
+          "omega_a": 0.5000000000000009,
+          "pi_bar_pr": 0.127607171218308,
+          "S_P_chord": 0.0006552601475521293,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.6000000000000001,
+          "tau": 0.09303125238357923,
+          "Omega": 0.09053306823541162,
+          "omega_a": 0.3999999999999999,
+          "pi_bar_pr": 0.1493178010217843,
+          "S_P_chord": 0.0008831852794276673,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.7000000000000001,
+          "tau": 0.09407139027595574,
+          "Omega": 0.06789980117655864,
+          "omega_a": 0.2999999999999996,
+          "pi_bar_pr": 0.16997407533219594,
+          "S_P_chord": 0.001127519024731756,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.8,
+          "tau": 0.09513374043270158,
+          "Omega": 0.04526653411770558,
+          "omega_a": 0.19999999999999896,
+          "pi_bar_pr": 0.18965097898133854,
+          "S_P_chord": 0.0013839390198852565,
+          "degenerate": []
+        },
+        {
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau": 0.09631173355658933,
+          "Omega": 0.022633267058852952,
+          "omega_a": 0.1000000000000002,
+          "pi_bar_pr": 0.208416550987665,
+          "S_P_chord": 0.0016489245481580218,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.1,
+          "tau": 0.047198748468183685,
+          "Omega": 0.20369940352967617,
+          "omega_a": 0.8999999999999999,
+          "pi_bar_pr": 0.028423019095021415,
+          "S_P_chord": 3.5032873665537254e-05,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.2,
+          "tau": 0.049524985100733734,
+          "Omega": 0.1810661364708234,
+          "omega_a": 0.8000000000000006,
+          "pi_bar_pr": 0.055274957030877425,
+          "S_P_chord": 0.00012974682468252992,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.30000000000000004,
+          "tau": 0.052410040284948826,
+          "Omega": 0.15843286941197068,
+          "omega_a": 0.7000000000000014,
+          "pi_bar_pr": 0.08068257267737475,
+          "S_P_chord": 0.0002711691654135942,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.4,
+          "tau": 0.056096302044930796,
+          "Omega": 0.1357996023531177,
+          "omega_a": 0.6000000000000011,
+          "pi_bar_pr": 0.10475934572805386,
+          "S_P_chord": 0.0004490635484584712,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.5,
+          "tau": 0.060988816269560306,
+          "Omega": 0.11316633529426477,
+          "omega_a": 0.500000000000001,
+          "pi_bar_pr": 0.127607171218308,
+          "S_P_chord": 0.0006552601475521293,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.6000000000000001,
+          "tau": 0.061515626191789616,
+          "Omega": 0.09053306823541159,
+          "omega_a": 0.39999999999999974,
+          "pi_bar_pr": 0.1493178010217843,
+          "S_P_chord": 0.0008831852794276673,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.7000000000000001,
+          "tau": 0.06844283416557344,
+          "Omega": 0.06789980117655899,
+          "omega_a": 0.30000000000000115,
+          "pi_bar_pr": 0.16997407533219566,
+          "S_P_chord": 0.001127519024731756,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.8,
+          "tau": 0.07885030532452618,
+          "Omega": 0.04526653411770558,
+          "omega_a": 0.19999999999999896,
+          "pi_bar_pr": 0.18965097898133856,
+          "S_P_chord": 0.0013839390198852565,
+          "degenerate": []
+        },
+        {
+          "T": 10,
+          "tau_quantile": 0.9,
+          "tau": 0.09631173355658933,
+          "Omega": 0.022633267058852952,
+          "omega_a": 0.1000000000000002,
+          "pi_bar_pr": 0.208416550987665,
+          "S_P_chord": 0.0016489245481580218,
+          "degenerate": []
+        }
+      ]
+    }
+  ],
+  "n_fail": 0,
+  "n_vacuous": 0,
+  "provenance": {
+    "model_card_stamp": "2026-08-20 (commit 0c9185b)",
+    "commit": "0c9185b -- MODEL_CARD stamp as recorded in numerical_v4/smoke.py; this script does not shell out to git",
+    "params_hash": "8ef7c5c2d3896bf8",
+    "design": "research/model_v4/impl_design.md section 13 APPROVED",
+    "request": "research/model_v4/proofs/L4_proof.md, NUMERICAL CHECK REQUEST; L4_rederivation.md",
+    "frozen_inputs": "k and B_j(s,.) solved once at the reference threshold tau_50 and held fixed across the entire tau grid, per the request's Frozen inputs clause"
+  },
+  "grid": {
+    "kappa": [
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21,
+      0.22,
+      0.23,
+      0.24,
+      0.25,
+      0.26,
+      0.27,
+      0.28,
+      0.29,
+      0.3,
+      0.31,
+      0.32,
+      0.33,
+      0.34,
+      0.35,
+      0.36,
+      0.37,
+      0.38,
+      0.39,
+      0.4,
+      0.41,
+      0.42,
+      0.43,
+      0.44,
+      0.45,
+      0.46,
+      0.47,
+      0.48,
+      0.49,
+      0.5,
+      0.51,
+      0.52,
+      0.53,
+      0.54,
+      0.55,
+      0.56,
+      0.57,
+      0.58,
+      0.59,
+      0.6,
+      0.61,
+      0.62,
+      0.63,
+      0.64,
+      0.65,
+      0.66,
+      0.67,
+      0.68,
+      0.69,
+      0.7,
+      0.71,
+      0.72,
+      0.73,
+      0.74,
+      0.75,
+      0.76,
+      0.77,
+      0.78,
+      0.79,
+      0.8,
+      0.81,
+      0.82,
+      0.83,
+      0.84,
+      0.85
+    ],
+    "kappa_for_model_route": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "tau": {
+      "T=5": [
+        0.07299687117045922,
+        0.07393121647665091,
+        0.08122294922274018,
+        0.09089137143817187,
+        0.09197763253912061,
+        0.09303125238357923,
+        0.09407139027595574,
+        0.09513374043270158,
+        0.09631173355658933
+      ],
+      "T=10": [
+        0.037166145195076536,
+        0.037321869412775155,
+        0.03853715820379003,
+        0.04014856190636198,
+        0.04032960542318677,
+        0.042606250476715846,
+        0.04601784756898893,
+        0.0462834351081754,
+        0.052103911185529775
+      ]
+    },
+    "tau_quantiles": [
+      0.1,
+      0.2,
+      0.30000000000000004,
+      0.4,
+      0.5,
+      0.6000000000000001,
+      0.7000000000000001,
+      0.8,
+      0.9
+    ],
+    "tau_definition": "deciles of B_{j(s)}(s, H-T) over Voice signals -- L4's own object, T-dependent",
+    "T": [
+      5,
+      10
+    ],
+    "H": 10,
+    "H_robustness": 12,
+    "M": 2,
+    "tau_frozen_from": "the baseline equilibrium at tau_50 = 0.09076406; policy frozen there",
+    "A_prime_kappa": 0.25,
+    "A_prime_kappa_source": "Example A of card section 4.4 / L3 Step 16: A_1 = A_0 = (2-kappa)/4, A_{1/2} = kappa/2, so A'_kappa = -1/4",
+    "n_nodes": 1278
+  },
+  "counts": {
+    "n_hist": 4194304,
+    "n_hist_feasible": 826686,
+    "n_theta": 12,
+    "discarded_mass": 0.0
+  },
+  "degenerate_nodes": [],
+  "multiple_root_nodes": 0,
+  "node_table": [
+    {
+      "T": 5,
+      "tau_quantile": 0.1,
+      "tau": 0.07299687117045922,
+      "corner": false,
+      "Omega": 0.20369940352967614,
+      "Pr_a": 0.22633267058852913,
+      "omega_a": 0.8999999999999997,
+      "pi_bar_pr": 0.02842301909502141,
+      "pi_bar_level_symmetric": 0.05684603819004282,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.0007006574733107451,
+      "abs_C_h": 0.0007006574733107451,
+      "S_P_chord": 3.5032873665537254e-05,
+      "S_P_chord_pp": 0.003503287366553725,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.000455251240516265,
+        "kappa=0.5": 2.96580129724567e-05,
+        "kappa=0.75": 0.00042249382830430684
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.00296580129724567
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.2,
+      "tau": 0.07393121647665091,
+      "corner": false,
+      "Omega": 0.18106613647082326,
+      "Pr_a": 0.22633267058852916,
+      "omega_a": 0.7999999999999997,
+      "pi_bar_pr": 0.05527495703087772,
+      "pi_bar_level_symmetric": 0.11054991406175543,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.0025949364936505848,
+      "abs_C_h": 0.0025949364936505848,
+      "S_P_chord": 0.00012974682468252922,
+      "S_P_chord_pp": 0.012974682468252922,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0009274648425652958,
+        "kappa=0.5": 0.00019942556345071508,
+        "kappa=0.75": 0.0010313629800905984
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.019942556345071506
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.30000000000000004,
+      "tau": 0.08122294922274018,
+      "corner": false,
+      "Omega": 0.15843286941197066,
+      "Pr_a": 0.22633267058852907,
+      "omega_a": 0.7000000000000014,
+      "pi_bar_pr": 0.08068257267737476,
+      "pi_bar_level_symmetric": 0.16136514535474952,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.005423383308271884,
+      "abs_C_h": 0.005423383308271884,
+      "S_P_chord": 0.0002711691654135942,
+      "S_P_chord_pp": 0.02711691654135942,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0014340629976518815,
+        "kappa=0.5": 0.00045265397099123535,
+        "kappa=0.75": 0.0017882768274080916
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.045265397099123535
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.4,
+      "tau": 0.09089137143817187,
+      "corner": false,
+      "Omega": 0.13579960235311742,
+      "Pr_a": 0.2263326705885291,
+      "omega_a": 0.5999999999999998,
+      "pi_bar_pr": 0.10475934572805422,
+      "pi_bar_level_symmetric": 0.20951869145610844,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.008981270969169494,
+      "abs_C_h": 0.008981270969169494,
+      "S_P_chord": 0.0004490635484584747,
+      "S_P_chord_pp": 0.04490635484584747,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0020757970432046216,
+        "kappa=0.5": 0.000753437273895119,
+        "kappa=0.75": 0.002688389257085986
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.0753437273895119
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.5,
+      "tau": 0.09197763253912061,
+      "corner": false,
+      "Omega": 0.11316633529426474,
+      "Pr_a": 0.2263326705885291,
+      "omega_a": 0.5000000000000009,
+      "pi_bar_pr": 0.127607171218308,
+      "pi_bar_level_symmetric": 0.255214342436616,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.013105202951042588,
+      "abs_C_h": 0.013105202951042588,
+      "S_P_chord": 0.0006552601475521293,
+      "S_P_chord_pp": 0.06552601475521293,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0027752827822195153,
+        "kappa=0.5": 0.001236853920165137,
+        "kappa=0.75": 0.0037652658069869645
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.1236853920165137
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.6000000000000001,
+      "tau": 0.09303125238357923,
+      "corner": false,
+      "Omega": 0.0905330682354116,
+      "Pr_a": 0.2263326705885291,
+      "omega_a": 0.39999999999999986,
+      "pi_bar_pr": 0.14931780102178435,
+      "pi_bar_level_symmetric": 0.2986356020435687,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.01766370558855329,
+      "abs_C_h": 0.01766370558855329,
+      "S_P_chord": 0.0008831852794276645,
+      "S_P_chord_pp": 0.08831852794276644,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.003649920024506657,
+        "kappa=0.5": 0.0015971347378486548,
+        "kappa=0.75": 0.005079685628406147
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.15971347378486547
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.7000000000000001,
+      "tau": 0.09407139027595574,
+      "corner": false,
+      "Omega": 0.06789980117655864,
+      "Pr_a": 0.22633267058852904,
+      "omega_a": 0.29999999999999966,
+      "pi_bar_pr": 0.16997407533219594,
+      "pi_bar_level_symmetric": 0.3399481506643919,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.02255038049463512,
+      "abs_C_h": 0.02255038049463512,
+      "S_P_chord": 0.001127519024731756,
+      "S_P_chord_pp": 0.1127519024731756,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.004862626747702971,
+        "kappa=0.5": 0.0020446371741723477,
+        "kappa=0.75": 0.006550721100592601
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.20446371741723476
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.8,
+      "tau": 0.09513374043270158,
+      "corner": false,
+      "Omega": 0.04526653411770558,
+      "Pr_a": 0.2263326705885291,
+      "omega_a": 0.19999999999999893,
+      "pi_bar_pr": 0.18965097898133856,
+      "pi_bar_level_symmetric": 0.3793019579626771,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.027678780397705133,
+      "abs_C_h": 0.027678780397705133,
+      "S_P_chord": 0.0013839390198852565,
+      "S_P_chord_pp": 0.13839390198852564,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.006175482165796232,
+        "kappa=0.5": 0.0027802007919533467,
+        "kappa=0.75": 0.008255659079688737
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.27802007919533467
+    },
+    {
+      "T": 5,
+      "tau_quantile": 0.9,
+      "tau": 0.09631173355658933,
+      "corner": false,
+      "Omega": 0.022633267058852952,
+      "Pr_a": 0.22633267058852904,
+      "omega_a": 0.10000000000000021,
+      "pi_bar_pr": 0.20841655098766498,
+      "pi_bar_level_symmetric": 0.41683310197532997,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.03297849096316044,
+      "abs_C_h": 0.03297849096316044,
+      "S_P_chord": 0.0016489245481580218,
+      "S_P_chord_pp": 0.16489245481580217,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.007271354342393273,
+        "kappa=0.5": 0.003250396730098496,
+        "kappa=0.75": 0.010085351285624496
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.3250396730098496
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.1,
+      "tau": 0.037166145195076536,
+      "corner": true,
+      "Omega": 0.20369940352967605,
+      "Pr_a": 0.22633267058852902,
+      "omega_a": 0.8999999999999997,
+      "pi_bar_pr": 0.028423019095021405,
+      "pi_bar_level_symmetric": 0.05684603819004281,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.0007006574733107486,
+      "abs_C_h": 0.0007006574733107486,
+      "S_P_chord": 3.503287366553743e-05,
+      "S_P_chord_pp": 0.003503287366553743,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.000455251240516265,
+        "kappa=0.5": 2.965801297243863e-05,
+        "kappa=0.75": 0.0004224938283042346
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.002965801297243863
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.2,
+      "tau": 0.037321869412775155,
+      "corner": true,
+      "Omega": 0.18106613647082273,
+      "Pr_a": 0.22633267058852904,
+      "omega_a": 0.7999999999999977,
+      "pi_bar_pr": 0.05527495703087821,
+      "pi_bar_level_symmetric": 0.11054991406175642,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.0025949364936506333,
+      "abs_C_h": 0.0025949364936506333,
+      "S_P_chord": 0.00012974682468253166,
+      "S_P_chord_pp": 0.012974682468253165,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0009274648425654042,
+        "kappa=0.5": 0.00019942556344957666,
+        "kappa=0.75": 0.0010313629800918632
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.019942556344957667
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.30000000000000004,
+      "tau": 0.03853715820379003,
+      "corner": true,
+      "Omega": 0.15843286941197063,
+      "Pr_a": 0.226332670588529,
+      "omega_a": 0.7000000000000015,
+      "pi_bar_pr": 0.08068257267737478,
+      "pi_bar_level_symmetric": 0.16136514535474955,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.005423383308271884,
+      "abs_C_h": 0.005423383308271884,
+      "S_P_chord": 0.0002711691654135942,
+      "S_P_chord_pp": 0.02711691654135942,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0014340629976519177,
+        "kappa=0.5": 0.00045265397099100046,
+        "kappa=0.75": 0.0017882768274082542
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.045265397099100046
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.4,
+      "tau": 0.04014856190636198,
+      "corner": true,
+      "Omega": 0.13579960235311736,
+      "Pr_a": 0.22633267058852904,
+      "omega_a": 0.5999999999999998,
+      "pi_bar_pr": 0.1047593457280542,
+      "pi_bar_level_symmetric": 0.2095186914561084,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.008981270969169494,
+      "abs_C_h": 0.008981270969169494,
+      "S_P_chord": 0.0004490635484584747,
+      "S_P_chord_pp": 0.04490635484584747,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0020757970432047843,
+        "kappa=0.5": 0.0007534372738945408,
+        "kappa=0.75": 0.0026883892570859678
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.07534372738945408
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.5,
+      "tau": 0.04032960542318677,
+      "corner": true,
+      "Omega": 0.11316633529426472,
+      "Pr_a": 0.226332670588529,
+      "omega_a": 0.500000000000001,
+      "pi_bar_pr": 0.127607171218308,
+      "pi_bar_level_symmetric": 0.255214342436616,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.013105202951042588,
+      "abs_C_h": 0.013105202951042588,
+      "S_P_chord": 0.0006552601475521293,
+      "S_P_chord_pp": 0.06552601475521293,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0027752827822194793,
+        "kappa=0.5": 0.0012368539201653898,
+        "kappa=0.75": 0.003765265806986314
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.12368539201653898
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.6000000000000001,
+      "tau": 0.042606250476715846,
+      "corner": true,
+      "Omega": 0.09053306823541159,
+      "Pr_a": 0.22633267058852907,
+      "omega_a": 0.3999999999999998,
+      "pi_bar_pr": 0.1493178010217843,
+      "pi_bar_level_symmetric": 0.2986356020435686,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.017663705588553347,
+      "abs_C_h": 0.017663705588553347,
+      "S_P_chord": 0.0008831852794276673,
+      "S_P_chord_pp": 0.08831852794276673,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0036499200245066208,
+        "kappa=0.5": 0.001597134737848908,
+        "kappa=0.75": 0.005079685628406074
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.15971347378489079
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.7000000000000001,
+      "tau": 0.04601784756898893,
+      "corner": true,
+      "Omega": 0.06789980117655862,
+      "Pr_a": 0.226332670588529,
+      "omega_a": 0.29999999999999966,
+      "pi_bar_pr": 0.16997407533219594,
+      "pi_bar_level_symmetric": 0.3399481506643919,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.02255038049463512,
+      "abs_C_h": 0.02255038049463512,
+      "S_P_chord": 0.001127519024731756,
+      "S_P_chord_pp": 0.1127519024731756,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.004862626747703044,
+        "kappa=0.5": 0.0020446371741723837,
+        "kappa=0.75": 0.0065507211005926365
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.20446371741723837
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.8,
+      "tau": 0.0462834351081754,
+      "corner": true,
+      "Omega": 0.04526653411770524,
+      "Pr_a": 0.22633267058852907,
+      "omega_a": 0.19999999999999746,
+      "pi_bar_pr": 0.1896509789813388,
+      "pi_bar_level_symmetric": 0.3793019579626776,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.027678780397705105,
+      "abs_C_h": 0.027678780397705105,
+      "S_P_chord": 0.0013839390198852552,
+      "S_P_chord_pp": 0.13839390198852553,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.006175482165796196,
+        "kappa=0.5": 0.0027802007919532743,
+        "kappa=0.75": 0.00825565907968787
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.27802007919532745
+    },
+    {
+      "T": 10,
+      "tau_quantile": 0.9,
+      "tau": 0.052103911185529775,
+      "corner": true,
+      "Omega": 0.02263326705885295,
+      "Pr_a": 0.22633267058852902,
+      "omega_a": 0.10000000000000021,
+      "pi_bar_pr": 0.20841655098766496,
+      "pi_bar_level_symmetric": 0.4168331019753299,
+      "pi_bar_enumerated_support_max": {
+        "kappa=0.25": 1.0,
+        "kappa=0.5": 1.0,
+        "kappa=0.75": 1.0
+      },
+      "C_h": -0.03297849096316041,
+      "abs_C_h": 0.03297849096316041,
+      "S_P_chord": 0.0016489245481580205,
+      "S_P_chord_pp": 0.16489245481580206,
+      "flat_in_kappa_Omega": 0.0,
+      "flat_in_kappa_pi_bar_pr": 0.0,
+      "degenerate": [],
+      "S_P_model_abs_dM_P_dkappa": {
+        "kappa=0.25": 0.0072713543423929845,
+        "kappa=0.5": 0.003250396730098496,
+        "kappa=0.75": 0.010085351285623916
+      },
+      "S_P_model_pp_at_kappa_0.5": 0.3250396730098496
+    }
+  ],
+  "tightening_steps": [
+    {
+      "T": 5,
+      "tau": 0.09631173355658933,
+      "tau_prime": 0.09513374043270158,
+      "tau_quantile": 0.9,
+      "tau_prime_quantile": 0.8,
+      "d_Omega": 0.022633267058852626,
+      "d_pi_bar_pr": -0.01876557200632642,
+      "d_S_P_chord": -0.0002649855282727653,
+      "d_S_P_model": -0.0004701959381451493,
+      "reclassified_mass": 0.022633267058852626
+    },
+    {
+      "T": 5,
+      "tau": 0.09513374043270158,
+      "tau_prime": 0.09407139027595574,
+      "tau_quantile": 0.8,
+      "tau_prime_quantile": 0.7000000000000001,
+      "d_Omega": 0.02263326705885306,
+      "d_pi_bar_pr": -0.019676903649142624,
+      "d_S_P_chord": -0.00025641999515350054,
+      "d_S_P_model": -0.0007355636177809989,
+      "reclassified_mass": 0.02263326705885306
+    },
+    {
+      "T": 5,
+      "tau": 0.09407139027595574,
+      "tau_prime": 0.09303125238357923,
+      "tau_quantile": 0.7000000000000001,
+      "tau_prime_quantile": 0.6000000000000001,
+      "d_Omega": 0.022633267058852963,
+      "d_pi_bar_pr": -0.020656274310411588,
+      "d_S_P_chord": -0.00024433374530409145,
+      "d_S_P_model": -0.0004475024363236929,
+      "reclassified_mass": 0.022633267058852963
+    },
+    {
+      "T": 5,
+      "tau": 0.09303125238357923,
+      "tau_prime": 0.09197763253912061,
+      "tau_quantile": 0.6000000000000001,
+      "tau_prime_quantile": 0.5,
+      "d_Omega": 0.022633267058853143,
+      "d_pi_bar_pr": -0.02171062980347635,
+      "d_S_P_chord": -0.00022792513187553515,
+      "d_S_P_model": -0.00036028081768351783,
+      "reclassified_mass": 0.022633267058853143
+    },
+    {
+      "T": 5,
+      "tau": 0.09197763253912061,
+      "tau_prime": 0.09089137143817187,
+      "tau_quantile": 0.5,
+      "tau_prime_quantile": 0.4,
+      "d_Omega": 0.02263326705885267,
+      "d_pi_bar_pr": -0.022847825490253784,
+      "d_S_P_chord": -0.00020619659909365464,
+      "d_S_P_model": -0.00048341664627001805,
+      "reclassified_mass": 0.02263326705885267
+    },
+    {
+      "T": 5,
+      "tau": 0.09089137143817187,
+      "tau_prime": 0.08122294922274018,
+      "tau_quantile": 0.4,
+      "tau_prime_quantile": 0.30000000000000004,
+      "d_Omega": 0.02263326705885324,
+      "d_pi_bar_pr": -0.024076773050679456,
+      "d_S_P_chord": -0.00017789438304488048,
+      "d_S_P_model": -0.0003007833029038836,
+      "reclassified_mass": 0.02263326705885324
+    },
+    {
+      "T": 5,
+      "tau": 0.08122294922274018,
+      "tau_prime": 0.07393121647665091,
+      "tau_quantile": 0.30000000000000004,
+      "tau_prime_quantile": 0.2,
+      "d_Omega": 0.022633267058852602,
+      "d_pi_bar_pr": -0.025407615646497045,
+      "d_S_P_chord": -0.000141422340731065,
+      "d_S_P_model": -0.0002532284075405203,
+      "reclassified_mass": 0.022633267058852602
+    },
+    {
+      "T": 5,
+      "tau": 0.07393121647665091,
+      "tau_prime": 0.07299687117045922,
+      "tau_quantile": 0.2,
+      "tau_prime_quantile": 0.1,
+      "d_Omega": 0.02263326705885288,
+      "d_pi_bar_pr": -0.026851937935856305,
+      "d_S_P_chord": -9.471395101699196e-05,
+      "d_S_P_model": -0.00016976755047825838,
+      "reclassified_mass": 0.02263326705885288
+    },
+    {
+      "T": 10,
+      "tau": 0.052103911185529775,
+      "tau_prime": 0.0462834351081754,
+      "tau_quantile": 0.9,
+      "tau_prime_quantile": 0.8,
+      "d_Omega": 0.02263326705885229,
+      "d_pi_bar_pr": -0.018765572006326142,
+      "d_S_P_chord": -0.0002649855282727653,
+      "d_S_P_model": -0.00047019593814522174,
+      "reclassified_mass": 0.02263326705885229
+    },
+    {
+      "T": 10,
+      "tau": 0.0462834351081754,
+      "tau_prime": 0.04601784756898893,
+      "tau_quantile": 0.8,
+      "tau_prime_quantile": 0.7000000000000001,
+      "d_Omega": 0.022633267058853386,
+      "d_pi_bar_pr": -0.019676903649142874,
+      "d_S_P_chord": -0.00025641999515349924,
+      "d_S_P_model": -0.0007355636177808905,
+      "reclassified_mass": 0.022633267058853386
+    },
+    {
+      "T": 10,
+      "tau": 0.04601784756898893,
+      "tau_prime": 0.042606250476715846,
+      "tau_quantile": 0.7000000000000001,
+      "tau_prime_quantile": 0.6000000000000001,
+      "d_Omega": 0.022633267058852963,
+      "d_pi_bar_pr": -0.020656274310411643,
+      "d_S_P_chord": -0.00024433374530408863,
+      "d_S_P_model": -0.00044750243632347584,
+      "reclassified_mass": 0.022633267058852963
+    },
+    {
+      "T": 10,
+      "tau": 0.042606250476715846,
+      "tau_prime": 0.04032960542318677,
+      "tau_quantile": 0.6000000000000001,
+      "tau_prime_quantile": 0.5,
+      "d_Omega": 0.02263326705885313,
+      "d_pi_bar_pr": -0.021710629803476295,
+      "d_S_P_chord": -0.00022792513187553797,
+      "d_S_P_model": -0.00036028081768351805,
+      "reclassified_mass": 0.02263326705885313
+    },
+    {
+      "T": 10,
+      "tau": 0.04032960542318677,
+      "tau_prime": 0.04014856190636198,
+      "tau_quantile": 0.5,
+      "tau_prime_quantile": 0.4,
+      "d_Omega": 0.022633267058852644,
+      "d_pi_bar_pr": -0.022847825490253798,
+      "d_S_P_chord": -0.00020619659909365464,
+      "d_S_P_model": -0.0004834166462708491,
+      "reclassified_mass": 0.022633267058852644
+    },
+    {
+      "T": 10,
+      "tau": 0.04014856190636198,
+      "tau_prime": 0.03853715820379003,
+      "tau_quantile": 0.4,
+      "tau_prime_quantile": 0.30000000000000004,
+      "d_Omega": 0.022633267058853268,
+      "d_pi_bar_pr": -0.02407677305067943,
+      "d_S_P_chord": -0.00017789438304488048,
+      "d_S_P_model": -0.0003007833029035403,
+      "reclassified_mass": 0.022633267058853268
+    },
+    {
+      "T": 10,
+      "tau": 0.03853715820379003,
+      "tau_prime": 0.037321869412775155,
+      "tau_quantile": 0.30000000000000004,
+      "tau_prime_quantile": 0.2,
+      "d_Omega": 0.022633267058852102,
+      "d_pi_bar_pr": -0.025407615646496566,
+      "d_S_P_chord": -0.00014142234073106255,
+      "d_S_P_model": -0.00025322840754142377,
+      "reclassified_mass": 0.022633267058852102
+    },
+    {
+      "T": 10,
+      "tau": 0.037321869412775155,
+      "tau_prime": 0.037166145195076536,
+      "tau_quantile": 0.2,
+      "tau_prime_quantile": 0.1,
+      "d_Omega": 0.022633267058853324,
+      "d_pi_bar_pr": -0.026851937935856805,
+      "d_S_P_chord": -9.471395101699423e-05,
+      "d_S_P_model": -0.00016976755047713802,
+      "reclassified_mass": 0.022633267058853324
+    }
+  ],
+  "baseline": {
+    "k": [
+      1.2405757282617416,
+      1.5310222869296415
+    ],
+    "tau_reference": 0.09076405861553302,
+    "T": 5,
+    "H": 10,
+    "Omega": 0.1383963119314466,
+    "pi_bar_pr": 0.10206126073370039,
+    "M_P_pp": 0.2227984757708382,
+    "M_F_pp": 0.552817848535105,
+    "cutoff_scale": 2.595657022652631e-11,
+    "payoff_scale": 0.0
+  },
+  "seconds": 414.66308566601947,
+  "all_pass": true
+}
