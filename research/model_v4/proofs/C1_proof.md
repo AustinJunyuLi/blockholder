@@ -91,9 +91,9 @@ ones:
   the equilibrium cutoff vector**. This is what Steps 1–4 need, and it is what the companion
   script measures.
 - **(H2b) over-$\Theta$ reading.** $L_{\mathcal R}=\sup_{\vartheta\in\mathcal R}\sup_{k\in\Theta}
-  \lVert D_k\mathcal T(k;\vartheta)\rVert$. Strictly stronger. It is **not** used by any step
-  below and is **not** measured; it is recorded here only because it is what would upgrade
-  Step 1's *local* uniqueness to a global one on $\Theta$ (Step 12).
+  \lVert D_k\mathcal T(k;\vartheta)\rVert$. Strictly stronger, and **not** measured. **No step in
+  the proof of (A)–(D) uses it**; Step 12 discusses what it would add, namely the upgrade of
+  Step 1's *local* uniqueness to a global one on $\Theta$.
 
 Where "$L_{\mathcal R}<1$" appears below without qualification, H2a is meant. [Steps 1–4, 7, 12]
 
@@ -114,8 +114,10 @@ $\Delta_{\kappa r}$ — together with those named in $\bar k_{\kappa r}$ —
 $\mathcal T_{\kappa r},\mathcal T_{\kappa k},\mathcal T_{rk},\mathcal T_{kk}$ — are finite there.
 This is the turn-1 C1 hypothesis 4 ("all required first and second derivatives of
 $\Delta^{\mathrm{act}}$ and $\mathcal T$ are bounded on the region"), stated with the
-differentiability it presupposes. Card §5's A2 (bounded prices and payoffs) is **not** cited for
-it: boundedness is not differentiability. [Steps 5, 6, 9]
+differentiability it presupposes. Card §5's **A2′** — local boundedness of prices and payoffs
+together with $\mathbb E[\max_j\lvert U_j\rvert]<\infty$, the clause that replaced A2's flat
+boundedness when the latter was found false — is **not** cited for it: boundedness is not
+differentiability, and A2′ is further from supplying it than A2 was. [Steps 5, 6, 9]
 
 **H5 — Non-vanishing equilibrium liquidity derivative.**
 $d\Delta^{\mathrm{act}}\!\left(k(\kappa,r),\kappa,r\right)/d\kappa\neq0$ at every
@@ -165,20 +167,32 @@ $$
 \lvert\Delta_{kr}\rvert=\sum_j\lvert\Delta_{k_jr}\rvert,\quad
 \lvert\Delta_{kk}\rvert=\sum_{j,l}\lvert\Delta_{k_jk_l}\rvert .
 $$
-These are the dual pairings that make $\lvert A[u,v]\rvert\le\lvert A\rvert\lVert u\rVert\lVert
-v\rVert$ hold; card §4.5 writes the bars without fixing a norm, and NOTATION DELTA flags the
+These are the dual pairings that make the displayed products valid: for the bilinear objects,
+$\lvert\mathcal T_{kk}[w_1,w_2]\rvert\le\lvert\mathcal T_{kk}\rvert\lVert w_1\rVert\lVert
+w_2\rVert$ and likewise for $\Delta_{kk}$; for the linear ones,
+$\lvert\Delta_{\kappa k}[w]\rvert\le\lvert\Delta_{\kappa k}\rvert\lVert w\rVert$ and likewise
+for $\mathcal T_{\kappa k},\mathcal T_{rk},\Delta_{kr},\Delta_k$. (Card §4.6 rules $u_1,u_2$
+proof-local and forbids a bare $u$, so the arguments here are written $w,w_1,w_2$; $w$ carries no
+card meaning.) Card §4.5 writes the bars without fixing a norm, and NOTATION DELTA flags the
 choice for the card owner. Any other consistent pairing changes the numerical value of
 $\mathcal B_r^{GE}$ but not one line of the argument.
 
 ### Part A — the implicit-function step
 
 **Step 1 (the equilibrium is a twice continuously differentiable function of the parameters).**
-Define $\Psi(k;\vartheta)=k-\mathcal T(k;\vartheta)$ on the interior of $\Theta$ times
-$\mathcal R_r$. By H2 $\mathcal T$ is twice continuously differentiable there, so $\Psi$ is, and
-$D_k\Psi=I-D_k\mathcal T$. Fix $\vartheta\in\mathcal R_r$ and let $u$ satisfy $\lVert
-u\rVert=1$. By the reverse triangle inequality and H2a,
+Define $\Psi(k;\vartheta)=k-\mathcal T(k;\vartheta)$ on a neighbourhood $\mathcal N\subseteq
+\operatorname{int}\Theta\times\mathcal R_r$ of the equilibrium graph
+$\{(k(\vartheta),\vartheta):\vartheta\in\mathcal R_r\}$ — **the same domain H4 chooses for
+$\Delta^{\mathrm{act}}$, and the weakest one Steps 1–4 use**; every $\mathcal T$ derivative below
+is evaluated at $(k(\vartheta);\vartheta)$, so smoothness away from the graph is never called on.
+(Card §5's AGE says the outer map is twice continuously differentiable "on a candidate region
+$\mathcal R$" without saying over which $k$ — the same ambiguity H2a/H2b flags for the norm.
+NOTATION DELTA carries it as a card-owner flag; taking the weaker reading here means no step
+depends on how it is resolved.) By H2 $\mathcal T$ is twice continuously differentiable on
+$\mathcal N$, so $\Psi$ is, and $D_k\Psi=I-D_k\mathcal T$. Fix $\vartheta\in\mathcal R_r$ and let
+$w$ satisfy $\lVert w\rVert=1$. By the reverse triangle inequality and H2a,
 $$
-\lVert(I-D_k\mathcal T)u\rVert\ \ge\ \lVert u\rVert-\lVert D_k\mathcal T\,u\rVert
+\lVert(I-D_k\mathcal T)w\rVert\ \ge\ \lVert w\rVert-\lVert D_k\mathcal T\,w\rVert
 \ \ge\ 1-L_{\mathcal R}\ >\ 0 .
 $$
 A linear map on a finite-dimensional space that is bounded below is injective, hence invertible.
@@ -356,7 +370,15 @@ $$
 \mathcal S(\kappa,r_1)-\mathcal S(\kappa,r_0)=\int_{r_0}^{r_1}\partial_r\mathcal S\,dr
 \ \le\ -\int_{r_0}^{r_1}\eta_r\,dr\ <\ 0 ,
 $$
-the last inequality because $\eta_r>0$ (H6) and continuous on a segment of positive length. This
+the last inequality because $\eta_r>0$ (H6) and continuous on a segment of positive length.
+Continuity of $\eta_r$ is not an extra assumption; it is already on the table. $g_r^{PE}$ is
+continuous because $\partial_{\kappa r}\Delta^{\mathrm{act}}$ is (H4's $C^2$ clause, along the
+$C^2$ path $k(\cdot)$ of Step 1) and its $\pm1$ prefactor is constant on $\mathcal R_r$ (Step 7);
+$\mathcal B_r^{GE}$ is continuous because each factor in it is a continuous derivative of
+$\mathcal T$ or $\Delta^{\mathrm{act}}$ (H2, H4) composed with the continuous $\bar k_x$, all
+divided by the **region-constant** $1-L_{\mathcal R}$. A positive continuous function on a
+segment of positive length has a positive integral. (Measurability plus positivity would suffice
+just as well, and is the cheaper route if one prefers not to invoke H4 here.) This
 is Part (D), and it is the form an empirical comparison of two rules can use: a bound on the
 level change, not merely a sign at a point.
 
@@ -456,28 +478,75 @@ stands.
 
 ## LABEL CLAIMED
 
-**CONJECTURE.** Three reasons, in increasing order of what would have to change:
+**CONJECTURE**, and two reasons carry it independently:
 
-1. **Protocol.** Card §6: a result becomes PROVED only after an independent re-derivation PASS
-   *and* a proof-read PASS. This file is neither.
-2. **Contingency on a nonempty region.** Card §6's intended-label row reads "C1 PROVED on a named
-   **nonempty** region, NUMERICAL off-region, dropped if the region is empty." Parts (A), (B) and
-   (C) above are implications; whether their antecedent is ever satisfied at the maintained
-   calibration is decided by the companion script, not by this file. An empty region does not
-   falsify (A)–(D); it removes C1 from the paper, and the paper then ships T1's fixed-policy
-   theorem only. **The run did not come back empty** — 18 of 80 nodes certify, nine of them in
-   one contiguous sign-homogeneous block — but that is a set of *nodes*. Naming a *region* needs
-   Step 11's modulus of continuity, which no run in hand supplies, so the row's antecedent
-   ("a named nonempty region") is not yet met either.
-3. **Inherited openness.** The economic content of the phrase "attenuation" is T1's, and T1 is
-   CONJECTURE with its own open items — A($\tau$)'s applicability to the two-round pooled cell is
-   declared OPEN by the L3 writer, A(br) and its clause (br-v) are assumed, and L2 rides on A7 in
-   its injective form (card §4.2's A7′ row, card §5's ticket-24 note). C1 propagates whatever
-   sign T1 delivers; it cannot be more established than T1.
+1. **Protocol.** Card §6: a result becomes PROVED only after an independent statements-only
+   re-derivation PASS *and* an adversarial proof-read PASS, by different agents. The proof-read
+   passed on 2026-08-21; the re-derivation is outstanding. This file is one half of the gate.
+2. **No named region.** Card §6's intended-label row reads "C1 PROVED on a named **nonempty**
+   region, NUMERICAL off-region, dropped if the region is empty." Parts (A)–(D) are implications;
+   whether their antecedent is ever satisfied at the maintained calibration is decided by the
+   companion script, not by this file. **The run did not come back empty** — 18 of 80 nodes
+   certify, nine of them in one contiguous sign-homogeneous block — but that is a set of *nodes*.
+   Naming a *region* needs Step 11's modulus of continuity, which no run in hand supplies, so the
+   row's antecedent is not met either.
+
+### The three objects, and the label each can carry
+
+Passing both halves of the gate would not license one label but three, on three different
+objects. Only the second has ever been in doubt.
+
+1. **The certificate implication — (A), (B), (C), (D) read as conditionals** ("on a region where
+   H2–H8 hold, …"). This is a pure implication. Its truth does not depend on any region being
+   nonempty, and it is the object this file actually proves. **PROVED-eligible**, pending the
+   re-derivation, with $\mathcal R_r$ carried as a **named hypothesis** — which is exactly what
+   card §7 means by "Region-certified is not a fifth label: it is PROVED with the region named in
+   the hypothesis." Card §6's C1 row must absorb the full hypothesis set before any label
+   attaches: the row names only $L_{\mathcal R}<1$ and $g_r^{PE}>\mathcal B_r^{GE}$, omitting H3
+   (interior equilibrium on a single branch), H4 ($C^2$ premium), H5 (non-vanishing equilibrium
+   liquidity derivative) and H7 (a smooth strictness domain), and it does not separate H8's
+   naming role from H6's use. Labelled against the row as written, C1 would be labelled against a
+   statement this file does not prove.
+2. **The 18 certified nodes — NUMERICAL, and nothing more.** Card §7's definition — "verified on
+   a grid by an executed, committed check script with committed output" — fits them exactly. They
+   are evidence that H2–H8 are jointly satisfiable at the maintained calibration. They are not a
+   region.
+3. **"C1 PROVED on a named nonempty region $\mathcal R_r$" — not available, and not obtainable
+   from any run of this script.** That phrasing asserts the antecedent, and asserting it needs a
+   set with interior plus a genuine supremum over that set. Step 11's Lipschitz constant $M$ is
+   not estimated, and $L_{\mathcal R}$ is measured *pointwise along the equilibrium path*, node
+   by node — a supremum over $\mathcal R$ cannot be read off finitely many evaluations. **No
+   amount of grid refinement fixes this**: it needs a modulus of continuity for $\eta_r$ and a
+   genuine supremum for $L_{\mathcal R}$, not more nodes. A live in-repo template for the
+   promotion already exists — `quality_reports/fixes/d8_ge_dominance_check.py` certifies a
+   *region* rather than a node set, by "(R1) pointwise dominance off an $\varepsilon$-ball around
+   the channel-A peak and (R2) integral control inside it", and Part (D)'s integral form is the
+   natural (R2) analogue here. A follow-on ticket should start from that construction rather than
+   from a bare Lipschitz estimate.
+
+The ledger row this file supports, once the re-derivation passes, is therefore: *C1 — the
+certificate implication — **PROVED**, with $\mathcal R_r$ a hypothesis and H2–H8 named in full;
+**NUMERICAL**: 18 of 80 nodes satisfy the hypothesis set at the maintained calibration, 9 of them
+contiguous and sign-homogeneous; the promotion of certified nodes to a certified region
+**OPEN**.* Until then the label is CONJECTURE and this file does not edit the ledger
+(NOT CLAIMED 11).
+
+### What C1 inherits from upstream, and what it does not
+
+The economic content of the word "attenuation" is T1's, and C1 inherits T1's **conditionality**,
+not its label. Card §6 now carries **T1 = PROVED at fixed policies** (proof-read, fix round
+closed, re-derivation PASS, 2026-08-21). What propagates is the openness underneath it:
+A($\tau$)'s applicability to the two-round pooled cell (card §9 item 1, **OPEN**); A(br) with its
+clause (br-v) **assumed**; and A7′, whose *satisfiability* is resolved (card §5's ticket-24 note,
+card §9) while its equilibrium selection — whether an equilibrium in which the separating plan is
+actually *chosen* exists — remains card §9 item 2, **OPEN**. None of this moves C1's label in
+either direction: reasons 1 and 2 above each hold it at CONJECTURE on their own.
 
 The certificate's own hypotheses AGE, H3 and H4 are additionally not verified anywhere: the
 companion script *measures* $L_{\mathcal R}$ along the equilibrium path but does not establish
-AGE's differentiability clause, and no run can (WHERE IT FAILS 8).
+AGE's differentiability clause, and no run can (WHERE IT FAILS 8). H3 is tested only as
+$k_1<k_2$, which rules out the collapse faces of $\Theta$ but not its outer box faces, and H4 is
+probed only by the curvature-to-slope diagnostic reported in the OUTCOME.
 
 ---
 
@@ -522,8 +591,8 @@ named in the output. Any node with $L_{\mathcal R}\ge1$ is to be listed, not ave
 
 *Block 2 — the bound must contain the truth (the only verdict that can fail on substance).*
 Compute $\partial^2_{r\kappa}\Delta^*$ twice by routes that do not share the bound's arithmetic:
-by re-solving the equilibrium at the four corners $(\kappa\pm h_\kappa,\tau\pm h_\tau)$ and
-cross-differencing, and by the implicit-function assembly of Steps 3–5. Then require
+by re-solving the equilibrium at the four corners $(\kappa\pm\varepsilon_\kappa,
+\tau\pm\varepsilon_\tau)$ and cross-differencing, and by the implicit-function assembly of Steps 3–5. Then require
 $$
 \bigl\lvert\partial^2_{r\kappa}\Delta^*-\Delta_{\kappa r}\bigr\rvert\ \le\ \mathcal B_r^{GE}
 $$
@@ -592,6 +661,24 @@ unchanged. Every number below is in the JSON, and none of it moves the ledger (N
 $\eta_r>0$), all at $T=5$ and at the 50th, 70th and 90th $\tau$ percentiles. Slack on the
 certified nodes: $\eta_r$ minimum $0.0595$, median $0.3467$, maximum $1.7227$.
 
+**Live margin against null margin — every ratio in this section is reported on the live subset.**
+Of the 80 nodes, **24 carry a live threshold margin** ($\lvert g_r^{PE}\rvert$ above rounding
+scale) and **56 do not**: at those 56 the flagged set does not move with $\tau$, so $g_r^{PE}$
+and $\mathcal B_r^{GE}$ are both at $10^{-13}$ and every ratio built from them is a ratio of
+rounding noise (WHERE IT FAILS 7(ii)). Pooling the two populations moves every aggregate
+magnitude below, and not in one direction, so each is given three ways:
+
+| Statistic | Pooled (80 nodes) | **Live margin (24)** | Null margin (48 with $\mathcal B_r^{GE}>0$) |
+|---|---|---|---|
+| realised remainder $/\ \mathcal B_r^{GE}$, median | 0.219 | **0.094** | 0.314 |
+| realised remainder $/\ \mathcal B_r^{GE}$, maximum | 1.00 | **0.306** | 1.00 |
+| $\mathcal B_r^{GE}/\mathcal B_r^{GE,\text{sharp}}$, median | 2.09 | **2.41** | 1.92 |
+| $\mathcal B_r^{GE}/\mathcal B_r^{GE,\text{sharp}}$, maximum | 10.3 | **8.29** | 10.3 |
+
+On the nodes that carry content the bound is *tighter* than the pooled figure suggests ($0.094$,
+not $0.22$) and the Neumann step is *costlier* ($2.41$, not $2.09$). All 18 certified nodes are
+live-margin nodes.
+
 **One contiguous, sign-homogeneous block.** AGE's constancy clause is what carves the certified
 nodes into candidate regions, and it bites: **all ten** $(\tau,T)$ slices show exactly one sign
 change of the equilibrium liquidity derivative, between $\kappa=0.45$ and $\kappa=0.55$ — the
@@ -607,13 +694,40 @@ positive) 9 of 12 nodes certify but not contiguously. **Nine certified nodes are
 nodes and not a region** — Step 11 stands, and promoting them needs the modulus of continuity the
 script does not estimate.
 
-**Checks.** All four PASS/FAIL verdicts pass, no FAILs, eight RECORDs. In particular
+**Checks.** All four PASS/FAIL verdicts pass, no FAILs, eight RECORDs.
 $\lvert\partial^2_{r\kappa}\Delta^*-\Delta_{\kappa r}\rvert\le\mathcal B_r^{GE}$ holds at every
-node under both readings: at the eight validation nodes the four-corner re-solve gives a realised
-remainder at most $0.51$ of the bound, and at all 80 nodes the implicit-function remainder stays
-inside it. The two readings of $d\Delta^*/d\kappa$ agree to $1.8\times10^{-3}$ relative. Where
-the ratio reaches $1.00$ the bound and the remainder are both at rounding scale
-($\sim2.6\times10^{-13}$) on a null-margin node, which is tightness in a trivial sense only.
+node under both readings, and the two readings differ in how much they are worth:
+
+- *Implicit-function reading, all 80 nodes.* No violation. Maximum ratio $1.00$ pooled and
+  **$0.306$ on the live-margin subset**. The ratio reaches $1.00$ only at
+  $(T{=}10,\text{q}50,\kappa{=}0.35)$ and $(T{=}10,\text{q}50,\kappa{=}0.45)$, where bound and
+  remainder are both at rounding scale ($\mathcal B_r^{GE}=1.6$ and $2.6\times10^{-13}$) —
+  tightness in a trivial sense only. The containment test carries an **absolute** slack of
+  $10^{-6}$, which at the 56 null-margin nodes exceeds both quantities on its own, so the check's
+  headline "80 nodes checked, 0 violations" has an effective coverage of **24**. (Containment
+  does hold at all 80 with the slack removed — maximum ratio $1.00$ — so nothing is being
+  concealed; the count is simply broader than the evidence behind it.)
+- *Four-corner re-solve — the only route that shares no arithmetic with the bound.* It runs at 8
+  validation nodes, **four of which are null-margin**, and it touches **2 of the 18 certified
+  nodes**, $(T{=}5,\text{q}50,\kappa{=}0.25)$ and $(T{=}5,\text{q}50,\kappa{=}0.85)$. On the four
+  live-margin validation nodes the realised remainder is at most **$0.310$** of the bound. The
+  pooled maximum $0.511$ comes from $(T{=}10,\text{q}10,\kappa{=}0.55)$, where
+  $\mathcal B_r^{GE}=7.6\times10^{-13}$ against a remainder of $3.9\times10^{-13}$ — noise over
+  noise, and not a statement about tightness. The independent cross-validation of this
+  certificate is therefore narrower than "eight validation nodes" sounds.
+- *The two independent readings of the equilibrium derivatives, and the run's strongest evidence.*
+  On the **first** derivative they agree to $1.8\times10^{-3}$ relative, inside the
+  $5\times10^{-3}$ gate; this is the executed test of Step 3's linear system. On the **cross**
+  derivative the check records a pooled `max_rel_diff_cross` of $0.535$, which is a null-margin
+  artefact: node by node the large disagreements are $0.78$, $1.23$ and $1.00$ at three
+  null-margin nodes (a fourth is $0/0$), while **on every live-margin validation node the two
+  readings of the equilibrium cross-derivative agree to better than $0.4\,\%$** — $3.8\times
+  10^{-3}$, $2.8\times10^{-3}$, $1.6\times10^{-3}$ and $2.2\times10^{-4}$. Two routes that share
+  no arithmetic — a four-corner equilibrium re-solve and the implicit-function assembly of
+  Steps 3–5 — land within four parts in a thousand of each other wherever the margin is live.
+  That is what licenses reading the equilibrium cross-derivative off the free implicit-function
+  formula at the 72 unvalidated nodes, and it is the single strongest thing the run establishes.
+
 $L_{\mathcal R}\in[0.264,0.501]$ at every node, none at or above one. Fixed-policy and
 equilibrium liquidity-derivative signs agree at every one of the 80 nodes, so H8 holds throughout
 and $g_r^{PE}$ deserves its name here.
@@ -632,6 +746,40 @@ and $g_r^{PE}$ deserves its name here.
 - **2 nodes: $g_r^{PE}<0$** — fixed-policy amplification, both at $\kappa=0.55$, i.e. adjacent to
   the sign change, where the region would be void anyway.
 
+**H4's $\tau$-smoothness was measured at every node, and it did not bite where it would matter.**
+WHERE IT FAILS 7(i) is the hazard that the quantised legal clock — the implementation takes
+$c=\lceil\cdot\rceil$ — puts a jump of $\Delta^{\mathrm{act}}$ *inside* a $\tau$-stencil, which
+would void H4 exactly where the certificate needs it. The obvious adversarial reading of
+WHERE IT FAILS 7 is that (i) and (ii) exhaust the possibilities, so that any node with
+$g_r^{PE}\neq0$ must be one whose stencil straddles a jump — that is, that the certified nodes
+would be precisely the nodes where H4 fails. The script carries a diagnostic that settles this,
+$$
+\text{(kink ratio)}\;=\;
+\frac{\bigl\lvert\partial^2_{\tau\tau}\Delta^{\mathrm{act}}\bigr\rvert\,\varepsilon_\tau}
+{\bigl\lvert\partial_\tau\Delta^{\mathrm{act}}\bigr\rvert},
+$$
+the curvature-to-slope ratio over one stencil half-width, which blows up when a jump sits inside
+the stencil. **At all 18 certified nodes it is finite and below $0.68$** — minimum $0.047$,
+median $0.317$, maximum $0.673$ — so the second-order term is a fraction of the first over one
+stencil width and the certified nodes sit in smooth $\tau$-patches. Nineteen nodes have a ratio
+above one, and **every one of them is a null-margin node** (cells $(T{=}5,\text{q}10)$,
+$(T{=}5,\text{q}30)$ and all of $T=10$), where $\lvert\partial_\tau\Delta^{\mathrm{act}}\rvert$
+is at rounding scale and the ratio is noise in its denominator. This does not *verify* H4, which
+no run can (NOT CLAIMED 7); it converts WHERE IT FAILS 7(i) from an unmeasured hazard into a
+measured one that did not fire on any node that certifies. It is the only executed evidence in
+the run that bears on H4.
+
+**Block 7 — the finite-scale secant, answered.** Across the four adjacent pairs of the five
+frozen $\tau$ percentiles at each $(\kappa,T)$ — 64 pairs — the fixed-policy and equilibrium
+secant margins, oriented by the equilibrium sign, agree in orientation at **45**. The 19 that
+disagree are not live disagreements: in every one of them the fixed-policy secant is at rounding
+scale ($\lvert\cdot\rvert\le4.9\times10^{-14}$), so what is being compared is the orientation of
+noise. **All 24 pairs whose fixed-policy secant is above rounding scale agree in orientation.**
+Block 7 is explicitly not the certificate — the certificate is a derivative statement and this is
+the finite-difference reading of the same question — and it is labelled NUMERICAL wherever
+quoted; but Part (D)'s finite-scale claim is the place a reader will want this number, so it is
+recorded beside it rather than left in the JSON.
+
 **$T=10$ is the corner, and it is degenerate.** All 40 $T=10$ nodes report flagged-cell mass
 $\Omega=0.00068$, far below the $0.01$ floor, so A8 fails there: with $H=10$, $T=H$ forces
 $c=0$ on every flagged history and only the very top of the Voice region can file in time. The
@@ -646,11 +794,17 @@ looked at); worst equilibrium residual $4.2\times10^{-11}$, inside the $10^{-8}$
 **The inversion-free step is what is binding, and that is a card-owner finding.** Block 9's
 companion bound — the same three groups with the exactly solved
 $\lVert\partial_rk\rVert,\lVert\partial_\kappa k\rVert,\lVert\partial^2_{\kappa r}k\rVert$ in
-place of $\bar k_r,\bar k_\kappa,\bar k_{\kappa r}$ — is a median factor $2.09$ smaller than
-$\mathcal B_r^{GE}$ (maximum factor $10.3$), and certifies **22** nodes against the card bound's
-18. The realised remainder is a median $0.22$ of $\mathcal B_r^{GE}$. So at this calibration the
-Neumann step, not the GE channel, is what most uncertified $T=5$ nodes with a live margin fail
-on. **This does not certify anything** (NOT CLAIMED 5): the sharp companion needs
+place of $\bar k_r,\bar k_\kappa,\bar k_{\kappa r}$ — is, **on the live-margin nodes**, a median
+factor $2.41$ smaller than $\mathcal B_r^{GE}$ with a maximum factor $8.29$ (the pooled figures
+$2.09$ and $10.3$ mix in 48 rounding-scale nodes), and it certifies **22** nodes against the card
+bound's 18. The realised remainder is a median $0.094$ of $\mathcal B_r^{GE}$ on those nodes
+($0.22$ pooled). The four extra nodes the sharp companion certifies are **exactly** the four
+genuine-GE-failure nodes $(T{=}5,\text{q}50,0.35)$, $(T{=}5,\text{q}50,0.55)$,
+$(T{=}5,\text{q}70,0.35)$, $(T{=}5,\text{q}90,0.25)$; the only other uncertified live-margin
+nodes are the two with $g_r^{PE}<0$, which no bound of any size could rescue. So at this
+calibration **every uncertified live-margin node that any bound could rescue is rescued by
+dropping the Neumann step** — it, and not the GE channel, is what binds.
+**This does not certify anything** (NOT CLAIMED 5): the sharp companion needs
 $(I-D_k\mathcal T)^{-1}$, which is exactly what card §4.5's rows are written to avoid. It is
 offered to the card owner as evidence that a second, inversion-using bound would be worth adding
 alongside the inversion-free one, not as a result of this file.
@@ -669,14 +823,25 @@ Symbols used here that are not in card §4, each defined at first use above:
 | $\partial_\kappa k,\ \partial_rk,\ \partial^2_{\kappa r}k$ | the equilibrium cutoff vector's derivatives | card §4.5 names only their **bounds** $\bar k_x,\bar k_{\kappa r}$; the derivatives themselves are unnamed there. Written in $\partial$ form rather than as new letters |
 | $\lVert\cdot\rVert=\lVert\cdot\rVert_\infty$ and the pairings $\lvert\mathcal T_{kk}\rvert=\max_i\sum_{j,l}\lvert\cdot\rvert$, $\lvert\Delta_{kk}\rvert=\sum_{j,l}\lvert\cdot\rvert$, etc. | the norms that make card §4.5's bars into valid multilinear bounds | **card-owner flag.** Card §4.5 writes $\lvert\partial_x\mathcal T\rvert$, $\lvert\Delta_{kk}\rvert$ and the rest without fixing a norm. With $J-1>1$ the numerical value of $\mathcal B_r^{GE}$ depends on the choice; the argument does not. Proposed as a parenthesis in the §4.5 rows |
 | $\eta_{\min}$, $M$, $\delta$ | the smallest slack over a node set, a Lipschitz constant for $\eta_r$, and the node spacing | proof-local (Step 11), used only to state what a grid does **not** deliver |
-| (H2a), (H2b) | the along-the-path and over-$\Theta$ readings of $L_{\mathcal R}=\sup_{\mathcal R}\lVert D_k\mathcal T\rVert$ | **card-owner flag.** Card §4.5's row and card §5's AGE do not say whether the supremum runs over $k\in\Theta$ as well as over $\vartheta\in\mathcal R$. Steps 1–4 need only (H2a); only Step 12's uniqueness remark needs (H2b) |
+| $\mathcal T_{\kappa r},\ \mathcal T_{\kappa k},\ \mathcal T_{rk},\ \mathcal T_{kk}$ | subscript shorthand for the second partials of the outer map at $(k(\vartheta);\vartheta)$ | proof-local (CLAIM (A), Step 4). Card §4.5 *names* $\bar k_{\kappa r}$ but never displays its formula, so these four shorthands appear nowhere on the card |
+| $\Delta_\kappa,\ \Delta_{\kappa r}$ | $\partial_\kappa\Delta^{\mathrm{act}}$ and $\partial_{\kappa r}\Delta^{\mathrm{act}}$ at frozen $k$ | proof-local (Step 5). The card's $\mathcal B_r^{GE}$ row carries $\Delta_{\kappa k},\Delta_{kr},\Delta_{kk},\Delta_k$, but its $g_r^{PE}$ row writes the cross-derivative out as $\partial_{\kappa r}\Delta^{\mathrm{act}}$ and never as $\Delta_{\kappa r}$. Same object, shorter subscript |
+| $\lvert\partial_\kappa\mathcal T\rvert,\ \lvert\partial_r\mathcal T\rvert$ (bars, in the CLAIM) | $\lVert\partial_x\mathcal T\rVert_\infty$ — the one pairing the preamble list does not fix, and the CLAIM writes it with bars where Step 3 writes it with a norm | **no new object**: for a vector the two coincide under $\lVert\cdot\rVert_\infty$. Written with bars in the CLAIM to match card §4.5's $\bar k_x$ row verbatim |
+| $\mathcal B_r^{GE,\text{sharp}}$ | the same three groups of Step 6 with the exactly solved $\lVert\partial_xk\rVert,\lVert\partial^2_{\kappa r}k\rVert$ in place of $\bar k_x,\bar k_{\kappa r}$ | proof-local (Block 9, NUMERICAL CHECK REQUEST). **Not a card object and it certifies nothing** — it needs $(I-D_k\mathcal T)^{-1}$, which card §4.5's rows are written to avoid |
+| $\varepsilon_\kappa,\ \varepsilon_\tau$ | the stencil half-widths in $\kappa$ and $\tau$ | proof-local (Block 2 and the kink-ratio diagnostic). Written $\varepsilon$ and **not** $h$: $h$ is card §4.4's engagement-premium kernel $h=\pi p$ and is not available |
+| $r_0,\ r_1$ | the endpoints of the strictness segment in Part (D) | proof-local (CLAIM (D), Step 10), with $r_1>r_0$ (higher $r$ = tighter) |
+| $w,\ w_1,\ w_2$ | the unit vector of Step 1 and the arguments of the multilinear bounds | proof-local. Card §4.6 rules $u_1,u_2$ proof-local and forbids a **bare $u$**; $w$ carries no card meaning, where $\Xi$, $\Upsilon$ and $\iota_F$ are already spoken for |
+| $\mathcal N$ | a neighbourhood of the equilibrium graph $\{(k(\vartheta),\vartheta):\vartheta\in\mathcal R_r\}$ inside $\operatorname{int}\Theta\times\mathcal R_r$ | proof-local (Step 1), the weakest domain on which Steps 1–4 need $\mathcal T$ smooth |
+| (H2a), (H2b) | the along-the-path and over-$\Theta$ readings of $L_{\mathcal R}=\sup_{\mathcal R}\lVert D_k\mathcal T\rVert$ | **card-owner flag 1.** Card §4.5's row and card §5's AGE do not say whether the supremum runs over $k\in\Theta$ as well as over $\vartheta\in\mathcal R$. Steps 1–4 need only (H2a); only Step 12's uniqueness remark needs (H2b) |
+| the $k$ at which card §4.5's $\Delta$-derivatives are read | $\partial_{\kappa r}\Delta^{\mathrm{act}}$ inside $g_r^{PE}$, and $\Delta_k,\Delta_{kk},\Delta_{\kappa k},\Delta_{kr}$ inside $\mathcal B_r^{GE}$ | **card-owner flag 2.** Card §4.5 does not say **at which cutoff vector** these are evaluated. Step 8 needs all of them at $k(\vartheta)$ — the equilibrium cutoff vector at the *same* $\vartheta$ — because that is where Step 5's identity puts them; read at any other frozen policy, Step 8's cancellation of the first group against $-g_r^{PE}$ fails and the certificate compares unlike objects. The proof and the companion script are consistent throughout on the $k(\vartheta)$ reading (the script's stencil sits at $x_0=(k_1^*,k_2^*,\kappa,\tau)$); the card should say so |
+| the $k$ over which AGE's $C^2$ clause runs | card §5's "on a candidate region $\mathcal R$ the outer map is twice continuously differentiable" | **card-owner flag 3.** The clause does not say over which $k$ — the identical ambiguity flag 1 raises for the norm. Step 1 takes the *weaker* reading, smoothness on $\mathcal N$ only, so no step here depends on the resolution |
 
 The card's $\sigma_\kappa$ is **not** used: card §4.5 rules that the sign is written inline and
 that no symbol is available for it, and every occurrence above is written
 $\operatorname{sgn}(d\Delta^{\mathrm{act}}/d\kappa)$ in full. No card symbol is renumbered or
 re-keyed: $\kappa$ is noise-trading intensity, bare $\lambda$ and $\psi$ (D7's appropriability
 coefficient and pivotality) appear nowhere, upright $T$ is the window and $\mathcal T$ is the
-outer map, and $\Omega=\Pr(D=1)$ wherever it is mentioned.
+outer map, $h$ is left to card §4.4's engagement-premium kernel $h=\pi p$, no bare $u$ appears
+(card §4.6), and $\Omega=\Pr(D=1)$ wherever it is mentioned.
 
 ---
 
@@ -716,3 +881,45 @@ outer map, and $\Omega=\Pr(D=1)$ wherever it is mentioned.
 10. **No welfare, no optimal rule, no empirical value for $\omega_a$**, and no claim about where
     $\Omega$ sits in the data. Card §9's boundaries are respected.
 11. **No label move.** C1 stays CONJECTURE and the card's ledger is not edited by this file.
+
+---
+
+## Repairs applied (2026-08-21, C1 audit)
+
+Source: `research/model_v4/threads/2026-08-21_C1_proofread_audit.md` (adversarial proof-read,
+verdict PASS, FAIL 0 · REPAIR 13). **No step, hypothesis, bound or conclusion changed** — every
+repair is at the reporting or citation level, and every number below was recomputed from
+`quality_reports/fixes/t2_c1_region_check.json` before it was written in.
+
+| ID | Change |
+|---|---|
+| **C1-R1** | OUTCOME: added the live-margin (24) against null-margin (56) split with a three-way table, and reported every ratio on the live subset — realised remainder / $\mathcal B_r^{GE}$ median **0.094** (0.22 pooled), $\mathcal B_r^{GE}/\mathcal B_r^{GE,\text{sharp}}$ median **2.41** (2.09 pooled). Recorded that the containment test's $10^{-6}$ **absolute** slack gives its "80 nodes" headline an effective coverage of 24 |
+| **C1-R2** | Corrected "at most $0.51$ of the bound": that maximum is the dead node $(T{=}10,\text{q}10,0.55)$ ($\mathcal B_r^{GE}=7.6\times10^{-13}$); the live-node figure is **0.310**. Stated that the independent four-corner route touches **2 of the 18** certified nodes. Added the omitted strongest evidence: the two independent readings of the equilibrium **cross**-derivative agree to better than **0.4 %** at every live-margin validation node (the pooled `max_rel_diff_cross` 0.535 is a null-margin artefact) |
+| **C1-R3** | OUTCOME: surfaced the script's `tau_kink_ratio` diagnostic — the only executed evidence bearing on H4. Finite and $\le0.673$ at all 18 certified nodes (min 0.047, median 0.317); all 19 ratios above one are null-margin nodes. Converts WHERE IT FAILS 7(i) from an unmeasured hazard into a measured one that did not fire |
+| **C1-R4** | Answered Block 7, which the request made and the OUTCOME never returned: 64 pairs, 45 same orientation; all 19 disagreements have a fixed-policy secant at rounding scale ($\le4.9\times10^{-14}$), and all 24 pairs with a live fixed-policy secant agree |
+| **C1-R5** | NOTATION DELTA: added card-owner flag 2 — card §4.5 does not say **at which $k$** its $\Delta$-derivatives are evaluated, and Step 8 needs them at $k(\vartheta)$ |
+| **C1-R6** | LABEL CLAIMED: replaced the stale reason 3. T1 is **PROVED at fixed policies** on the current card and A7′ satisfiability is resolved; what C1 inherits is conditionality (A($\tau$) OPEN for the two-round pooled cell, A(br)(br-v) assumed, A7′'s equilibrium selection OPEN), not a label. Stated that reasons 1–2 each carry CONJECTURE on their own |
+| **C1-R7** | H4: A2 → **A2′**, with its replaced clause (local boundedness plus $\mathbb E[\max_j\lvert U_j\rvert]<\infty$) named; the point that boundedness is not differentiability strengthens |
+| **C1-R8** | Card §4.6 ruling honoured: the bare $u,v,A$ of the norm preamble and Step 1 are now $w,w_1,w_2$, with the multilinear bound written on the actual objects instead of a generic form |
+| **C1-R9** | NOTATION DELTA: added the ten missing symbols — $\mathcal T_{\kappa r},\mathcal T_{\kappa k},\mathcal T_{rk},\mathcal T_{kk}$; $\Delta_\kappa,\Delta_{\kappa r}$; the CLAIM's $\lvert\partial_x\mathcal T\rvert$ bars; $\mathcal B_r^{GE,\text{sharp}}$; the stencil half-widths (renamed $h_\kappa,h_\tau\to\varepsilon_\kappa,\varepsilon_\tau$, since $h$ is card §4.4's kernel $h=\pi p$); $r_0,r_1$ — plus $w,w_1,w_2$ and $\mathcal N$ |
+| **C1-R10** | Step 1: $\Psi$'s domain restricted from $\operatorname{int}\Theta\times\mathcal R_r$ to a neighbourhood $\mathcal N$ of the equilibrium graph — the domain H4 already chooses — and the unflagged strengthening turned into card-owner flag 3 (AGE does not say over which $k$ its $C^2$ clause runs) |
+| **C1-R11** | Step 10: continuity of $\eta_r$ argued rather than asserted, from H4's $C^2$ clause, Step 7's constant sign and the region-constant $1-L_{\mathcal R}$; the measurability route noted as the cheaper alternative |
+| **C1-R12** | Block 9: "what **most** uncertified $T=5$ nodes with a live margin fail on" → **"every uncertified live-margin node that any bound could rescue"** — the sharp companion's four extra nodes are exactly the four genuine-GE-failure nodes, and the other two live failures have $g_r^{PE}<0$ |
+| **C1-R13** | H2b: "not used by any step below" → "no step in the proof of (A)–(D) uses it; Step 12 discusses what it would add", which is what the H2 bracket `[Steps 1–4, 7, 12]` already implied |
+| **C1-O2** | (observation, applied where the audit directed it) LABEL CLAIMED object 3 now cites `quality_reports/fixes/d8_ge_dominance_check.py`'s $\varepsilon$-ball plus integral-control construction as the live in-repo template for a future node-to-region promotion, with Part (D) as its (R2) analogue |
+
+**Also recut, per the auditor's three-object split (orchestrator adjudication, binding):**
+LABEL CLAIMED now separates (1) the certificate implication — PROVED-eligible pending the
+re-derivation, with $\mathcal R_r$ a named hypothesis and card §6's C1 row required to absorb
+H2–H8 first; (2) the 18 certified nodes — NUMERICAL via the executed committed check; (3) "PROVED
+on a named nonempty region" — declared **not obtainable from any run of this script**, since it
+needs a modulus of continuity for $\eta_r$ and a genuine supremum for $L_{\mathcal R}$, neither of
+which more grid nodes can supply.
+
+**Not applied.** C1-O1 (the stamp-hash gap: git was out of scope for the audit and is out of scope
+here), C1-O3 (H3's $k_1<k_2$ test is weaker than interiority — the OUTCOME's existing hedge
+"everywhere it was looked at" already carries it, and the point is now also stated in LABEL
+CLAIMED), C1-O4 (three cross-file attributions to `proofs/T1_proof.md`, left for the
+re-derivation to confirm against T1 directly), C1-O6 and C1-O5 (card-owner items, recorded in
+LABEL CLAIMED object 1 but not actionable in this file), C1-O7 (the $M_P$-hump attribution wants
+one hedging word; an observation, not a repair, and left for the writer).
