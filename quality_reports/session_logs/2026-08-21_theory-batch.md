@@ -315,3 +315,22 @@ cadence the tickets ask for.
   from L_ℛ=1, checkable log-log slope 3). Adjudicated label plan: C1
   theorem → PROVED (region-as-hypothesis, N1/N2/𝒮^GE folded in); 18 nodes
   → NUMERICAL after the separate re-run. Executed at final ledger update.
+- **Ticket 28 SCRIPTS LANDED (3.1h runtime), committed with honest FAILs.**
+  D1/L1/L3/L4 all_pass. L2 core EXACT (all κ-ranges 0.0, both placebos
+  live) with one ancillary FAIL: the implemented pooled cell violates
+  A(τ)'s orientation (M_P hump-shaped). T1: factorisation to 3.5e-18, O-1
+  benchmark + composition factors exact, window product ≤1 everywhere incl.
+  H=12 interior column (Block-4 paranoia flag raised and traced to the
+  corner), one FAIL: chord-magnitude bridge off ~4× (implied |A′_κ|≈1 vs
+  ternary 0.25). P1: 23/27 multistart (4 corner nodes at π̄_pr=0 fail the
+  payoff criterion; all 27 pass the cutoff criterion; h.11 buys nothing on
+  this menu — E[Y]−P^F ≡ 0). COMBINED FINDING (L2-placebo + T1-block3):
+  **the two-round pooled cell FAILS A(τ) at the implemented baseline** —
+  the card's OPEN item resolves NO at this calibration; the conditional
+  legs (L3, L4-leg3, T1-B) stay PROVED as conditionals; L4's SIGNS hold
+  numerically regardless (zero violations). Q^F ≡ 0 at EVERY T on the
+  pinned menu (vacuity recorded). H=12 L1 column absent (gate 1.19e8 >
+  1e8, honestly declined). Batched re-runner (fresh opus) dispatched for
+  all 8 scripts (~6.5h). Ticket-30 legs dispatched in parallel: model-note
+  writer (model_v4.tex+md) and HANDOFF two-round update (marked
+  pre-verification).
