@@ -348,3 +348,36 @@ cadence the tickets ask for.
   CONJECTURE-pending). Awaiting the 8-script re-runner; then final ledger
   update (C1 move + evidence fold-in + pre-verification flag flip), bundle
   assembly, coherence read part 2, final report.
+
+## End of batch (2026-08-22)
+
+- **Re-run verdict: ALL REPRODUCE** (8/8 scripts, bit-identical up to timing
+  fields; JSONs restored byte-for-byte; verdict note committed). One MISCITED
+  gloss (P1 failing-node description) corrected in model_v4.tex/md per the
+  MISCITED rule. Clean pass → proceeded e2e per Austin's standing instruction.
+- **C1 moved CONJECTURE→PROVED** (certificate implication, region-as-
+  hypothesis; 18 nodes NUMERICAL; region-level certification explicitly not
+  claimed; aspiration line retired as structurally undeliverable). All eight
+  ledger rows settled. HANDOFF flipped to VERIFIED.
+- **Bundle assembled:** threads/gpt_end_review_bundle.md — 748 KB ≈ 187k
+  tokens (ask / card / ledger / 8 proofs verbatim / 9 JSONs with hashed
+  elisions / re-run verdict). Fable coherence read part 2: structure, demote-
+  only clause, current card stamp, 8 move lines, C1 split, chronology pointer
+  — all pass. If a single paste exceeds GPT Pro's input cap, split at the
+  §5 boundary (part 1 = ask+card+ledger+proofs ≈ 115k tokens; part 2 =
+  checks+re-run) into the same thread.
+- **Parked items: NONE.** No claim failed twice; the three standing check
+  FAILs are recorded findings (A(τ) fails at the implemented pooled cell —
+  twice-confirmed; P1's four κ-extreme nodes, cause undiagnosed; both named
+  in card/§9 and the bundle), not parked claims.
+- **Next:** Austin pastes the bundle into a fresh GPT Pro thread (the lane's
+  one courier moment; review can demote, never promote). Ticket 08
+  (sections_v3 model/theorem/proofs .tex) is next work, blocked on that
+  outcome. Empirics lane: HANDOFF_sign.md final and pushed.
+- Workflow-rule outcome note: ~35 agents across the batch (opus writers/
+  verifiers/re-derivers, sonnet fetch+plumbing), 1 retry fired (T1 Step 15 —
+  fixed, re-checked, closed), 0 aborts, 0 parked, every landed unit
+  committed+pushed. Verification caught: 1 false proof step, 1 unsatisfiable
+  hypothesis form, 1 false card assumption (A2 boundedness), 1 wrong ticket
+  author name, 1 dead whitespace quote, 2 MISCITED citation sets — all
+  before anything shipped.

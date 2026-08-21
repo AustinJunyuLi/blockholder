@@ -40,7 +40,7 @@ T1 | CONJECTURE→PROVED at fixed policies | proof `proofs/T1_proof.md`; audit `
 
 ## Not moved
 
-C1 | CONJECTURE (unchanged) | no proof on file; ticket 29 in flight | — | 2026-08-21 | —
+C1 | CONJECTURE (unchanged as of 2026-08-21) | no proof on file; ticket 29 in flight | — | 2026-08-21 | — **(superseded by the 2026-08-22 move below)**
 
 ## Move — ticket 29 close-out, 2026-08-22
 
