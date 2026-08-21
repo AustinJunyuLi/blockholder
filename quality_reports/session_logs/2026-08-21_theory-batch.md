@@ -108,3 +108,11 @@ cadence the tickets ask for.
 - **Dispatched:** impl-builder (opus), batch-1 proof-reader for L3/L4/P1
   (fresh opus, turn2-audit format), T1 writer (opus; carries A(br) verbatim
   + π̄ ruling + O-1 numbers as the window failure case).
+- **Ticket 04, BLV Dec-2025 card LANDED.** D7 appropriability SAFE (no
+  lambda/q/gamma/psi analogue; bargaining still one exogenous Nash weight).
+  Paper now JF-FORTHCOMING. 11 of 19 old-card quotes broke in revision —
+  including the headline whitespace quote Q1 "Market liquidity plays no role
+  in our analysis" (DELETED; replacement lean: the Kyle/Kyle–Vila abstraction
+  at printed pp. 54–55). Margin still unoccupied; fn. 13 concedes disclosure
+  regulation + liquidity limit stakes, then abstracts. Draft_v3 must not cite
+  the dead quote.
