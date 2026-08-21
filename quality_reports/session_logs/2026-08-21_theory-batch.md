@@ -215,3 +215,17 @@ cadence the tickets ask for.
   conservatively, none resolved beyond mandate. Regeneration items now
   queued in-file: card payoff row (U_j), §4.3 Y-row ambiguity, §4.4 π̄ gloss,
   A(τ) kernel + κ-free-π̄ clauses, A(br) five-clause canonicalisation.
+- **Core re-derivation (D1/L1/L2, statements-only, fresh opus): PASS.**
+  L1 PROVED-AS-STATED (non-identification of the null cell proved, not
+  asserted). D1 PROVED-WITH-CHANGES (Borel rider on non-Voice paths for
+  part c; 𝓘_H content must be filled — card §4.3 has "—"). L2
+  PROVED-WITH-CHANGES (A7′ consumed ALMOST SURELY on the flagged set — the
+  only coherent on-path reading with continuum tuples; + A2/table
+  restrictions, D1, explicit entry-rule condition as bookkeeping).
+  Independent findings: ∂_κΩ=0 free at fixed policies but asserted nowhere
+  (the §4.4 𝒮-row needs it); M_P κ-differentiability supplied by NO card
+  hypothesis (card gap; T1 carries it as H7 in-proof); Lusin–Souslin
+  confirmed fallback-only; §4.3 P_ND row wording fix ("not-yet-disclosed").
+  Two L2 placebos specified (M_P and J must MOVE with κ) so the invariance
+  check can't pass vacuously — ticket 28 should adopt them.
+  **Two-pass evidence now COMPLETE for D1, L1, L2, L3, L4.** P1 and T1 pend.
