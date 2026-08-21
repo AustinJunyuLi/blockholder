@@ -186,3 +186,17 @@ cadence the tickets ask for.
   exactly κ-invariant (mean-preserving spread). Card regeneration will fold
   CH1–CH3, CH6 into A(τ)/§4.4. Writer and re-deriver agree on substance —
   no adjudication conflict; L3 two-pass evidence COMPLETE pending ledger.
+- **L4 re-derivation (statements-only, fresh opus): PROVED-WITH-CHANGES —
+  PASS after reconciliation.** Legs 1-2 as stated; leg 3 with ONE added
+  clause: (br-ii′) τ-invariance of the kernel h across thresholds — THE SAME
+  GAP the T1 proof-reader found independently as "(br-v)". Adjudication:
+  canonical name (br-v); A(br) becomes five clauses at regeneration; L4_proof
+  and T1_proof cite it consistently. Also: (br-iv) SHARPENED to
+  ρ(τ′)/ρ(τ) ≥ π̄_pr(τ′)/π̄_pr(τ) with ρ = ½A_{1/2}+A_1 provably κ-free
+  (π̄ = π̄_pr/ρ — consistent with the π̄ ruling); (br-ii)'s trailing formula
+  DERIVED not assumed; L3 citation redundant for leg 3 (chord product form
+  direct from br-i+br-ii); C_h≤0 never used in leg 3 (no C_h=0 case split
+  needed there); new H5 (Ω(τ′)<1) and H11 (common κ) made explicit;
+  b_0<τ′ confirmed load-bearing. No writer-vs-re-deriver conflict — same
+  conclusions, tighter hypothesis accounting. L4 two-pass evidence COMPLETE
+  pending ledger (label target: PROVED under A(br) five-clause).
