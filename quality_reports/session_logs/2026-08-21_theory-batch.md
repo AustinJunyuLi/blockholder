@@ -200,3 +200,18 @@ cadence the tickets ask for.
   b_0<τ′ confirmed load-bearing. No writer-vs-re-deriver conflict — same
   conclusions, tighter hypothesis accounting. L4 two-pass evidence COMPLETE
   pending ledger (label target: PROVED under A(br) five-clause).
+- **T1 retry fix LANDED** (fresh writer): H18 threshold-side smoothness closes
+  T1-F1; H16 (no-feedback, numbered), H17 (=(br-v), T1-local); R1–R9 applied;
+  five boxed displays byte-identical. Fresh checker dispatched (fix-round
+  closure) + T1 re-deriver dispatched in parallel (statements-only via
+  extracted T1_statement_sheet.md, committed).
+- **Batch-1 repairs APPLIED, 18/18** (repair-b1, opus): L3 +H8 kernel clause
+  +H9 D1-by-statement, Landau-Θ purged, two-derivations claim rewritten;
+  L4 (br-iv) collapsed to support-point ruling with identity branch excluded,
+  bare Δ purged, citations repointed; P1 h.11 closure form STRUCK (cardinality
+  contradiction written out; definitional reading is the hypothesis), bare g
+  → 𝒢_F, card §2.10 cites replaced by in-proof h.14 with card-gap flags,
+  Step 5 split control-node/tower. Three near-substance flags all recorded
+  conservatively, none resolved beyond mandate. Regeneration items now
+  queued in-file: card payoff row (U_j), §4.3 Y-row ambiguity, §4.4 π̄ gloss,
+  A(τ) kernel + κ-free-π̄ clauses, A(br) five-clause canonicalisation.

@@ -65,7 +65,7 @@ Each is used at the step named; no hypothesis is carried unused.
    pooled block's expectation of $h$ has the symmetric ternary representation
    $\mathbb E_\kappa[h]=A_0(\kappa)h(0)+A_{1/2}(\kappa)h(\bar\pi/2)+A_1(\kappa)h(\bar\pi)$, and the
    three evaluation points $0,\bar\pi/2,\bar\pi$ do not vary with $\kappa$. *(Card §5, A($\tau$).)*
-   **Used at Steps 7, 12, 14.**
+   **Used at Steps 7, 8′, 14; Step 12 consumes it only through Step 8.**
 2. **(A($\tau$), derivative part.)** $A_0,A_{1/2},A_1$ are differentiable on $\mathcal K$ with
    $A_0'=A_1'=A'_\kappa$ and $A_{1/2}'=-2A'_\kappa$, and $A'_\kappa$ is bounded on $[0,1]$.
    *(Card §5 A($\tau$) and §4.4 $A'_\kappa$ row.)* **Used at Steps 8, 12, 13, 14.**
@@ -84,10 +84,28 @@ Each is used at the step named; no hypothesis is carried unused.
 6. **($\kappa$-free pooled mass and pooled engagement moment.)** At fixed policies $j=j(s)$,
    $a=a_{j(s)}$, and $D=\mathbf 1\{a_j=1\}\cdot\mathbf 1\{B_j(s,H-T)\ge\tau\}$, so $a$ and $D$ are
    functions of $s$ alone and carry no $\kappa$; the law of $s$ contains no $\kappa$. Hence
-   $\Pr(D=0)$ and $\Pr(a=1,D=0)$ do not vary with $\kappa$. *(Card D1 row's product formula; card §2
-   no-feedback timing bullet; card §4.1, which puts $\kappa$ in the $z_d$ row and nowhere else.)*
-   **Used at Steps 9, 15.**
+   $\Pr(D=0)$ and $\Pr(a=1,D=0)$ do not vary with $\kappa$. *(The product form of $D$ is Hypothesis 9
+   (D1) by its card-ledger statement; card §2 no-feedback timing bullet; card §4.1, which puts
+   $\kappa$ in the $z_d$ row and nowhere else.)* **Used at Steps 8′, 9, 15.**
 7. **($h(0)=0$.)** *(Card §4.4, $h$ row.)* **Used at Step 13 and in the numerical check.**
+8. **(Kernel is a function of the engagement posterior alone.) [ADDITION — not in the card as
+   written.]** At fixed policies and for every $\kappa\in\mathcal K$, the premium kernel depends on the
+   control-node information set **only through the engagement posterior**: $h(\mathcal I)=h(\pi(\mathcal
+   I))$, so the three numbers $h(0)$, $h(\bar\pi/2)$, $h(\bar\pi)$ are $\kappa$-free. This is a
+   restriction, not a reading. Card §4.4 gives $h(\mathcal I)=\pi(\mathcal I)p(\mathcal I)$ and card
+   §4.3's entry row makes $p$ depend on the price $P(\mathcal I)$ as well as on $\pi$, so in the model
+   $h=\pi\,p(\hat v,\pi)$ is a function of **two** scalars; the restriction says the standalone-value
+   channel and the engagement channel do not co-move inside the pooled cell in a way that moves $h$ at
+   a fixed posterior. Card §4.4's $C_h$ row and A($\tau$) both write $h$ with a single posterior
+   argument and so commit the same elision, and L4's (br-ii) names this same object as an assumption it
+   does not prove; this hypothesis prices the object the same way rather than consuming it silently.
+   **Card gap, regeneration item: A($\tau$) should carry this clause explicitly at the card's next
+   regeneration.** **Used at Step 7, and hence wherever Step 7 is consumed (Steps 8, 8′, 10–13).**
+9. **(D1, by its card-ledger statement.)** $D=\mathbf 1\{a=1,\ c(\tau)+T\le H\}$ is measurable and maps
+   every control-node history into exactly one cell; for every Voice plan
+   $f_j\le H\iff B_j(s,H-T)\ge\tau$. *(Card §6 ledger, D1 row.)* D1's own proof is neither read nor
+   used, and D1 carries the card label **CONJECTURE**, so L3 inherits that conditionality.
+   **Used inside Hypothesis 6 (the product form of $D$), and hence at Steps 8′, 9, 15.**
 
 ---
 
@@ -150,8 +168,10 @@ is genuinely all that is consumed, and differentiability at zero is not.
 **Step 7.** Fix $\kappa\in\mathcal K$. By Hypothesis 1 the pooled block's expectation is the
 three-term sum $\mathbb E_\kappa[h]=A_0(\kappa)h(0)+A_{1/2}(\kappa)h(\bar\pi/2)+A_1(\kappa)h(\bar\pi)$
 in which the three numbers $h(0),h(\bar\pi/2),h(\bar\pi)$ do not vary with $\kappa$, because
-Hypothesis 1 fixes the three evaluation points and $h$ itself is a function of the posterior value
-only. A finite sum of products (constant) $\times$ (differentiable function of $\kappa$) is
+Hypothesis 1 fixes the three evaluation points and **Hypothesis 8** makes $h$ a function of the
+posterior value alone. Hypothesis 8 is load-bearing here and is not free: without it the
+differentiation below carries the extra term $\sum_i A_i(\kappa)\,\partial_\kappa h(\pi_i)$ and
+CLAIM (ii) is false. A finite sum of products (constant) $\times$ (differentiable function of $\kappa$) is
 differentiable in $\kappa$, with derivative the corresponding sum, by Hypothesis 2's
 differentiability of the weights:
 $$\partial_\kappa\mathbb E_\kappa[h]\;=\;A_0'(\kappa)h(0)+A_{1/2}'(\kappa)h\!\left(\tfrac{\bar\pi}{2}\right)+A_1'(\kappa)h(\bar\pi).$$
@@ -241,10 +261,13 @@ $$\big\lvert\partial_\kappa\mathbb E_\kappa[h]\big\rvert
 whenever the last supremum stays bounded, which Hypothesis 5 supplies on $[0,\delta)$. The vanishing
 conclusion is more robust than the quadratic rate, and this is worth separating because the card's
 maintained orientation is a weak one: by Step 8 the motion is $A'_\kappa C_h(\bar\pi)$, and
-$C_h(\bar\pi)=h(0)-2h(\bar\pi/2)+h(\bar\pi)\to h(0)-2h(0)+h(0)=0$ using only continuity of $h$ at $0$
-and Hypothesis 2's bound on $A'_\kappa$. So the pooled cell's interior $\kappa$-motion vanishes as
-$\bar\pi\downarrow0$ under continuity alone; Hypothesis 4 buys the exact mean-value representation
-and Hypothesis 5 buys the $\bar\pi^{2}$ rate.
+$C_h(\bar\pi)=h(0)-2h(\bar\pi/2)+h(\bar\pi)\to h(0)-2h(0)+h(0)=0$ using only continuity of $h$ at $0$,
+Hypothesis 2's bound on $A'_\kappa$, and **Hypothesis 5's first clause** — one and the same kernel $h$
+must serve the whole shrinking family, or the three evaluations being compared belong to different
+functions and no limit statement is available. So the pooled cell's interior $\kappa$-motion vanishes
+as $\bar\pi\downarrow0$ under continuity of $h$ at $0$ plus that one clause of Hypothesis 5;
+Hypothesis 4 buys the exact mean-value representation and Hypothesis 5's remaining clauses buy the
+$\bar\pi^{2}$ rate.
 
 **Step 13 (the $C_h=0$ case, explicitly — requirement (b)).** Suppose $C_h(\bar\pi)=0$. Step 8 gives
 $\partial_\kappa\mathbb E_\kappa[h]=A'_\kappa\cdot0=0$ at every $\kappa\in\mathcal K$, so
@@ -475,8 +498,9 @@ under Hypothesis 3's reading does it say anything.
    on $[0,1]$. It is continuous on $[0,\bar\pi]$ and twice differentiable on $(0,\bar\pi)$, so
    Hypothesis 4 and Step 6 hold; but $h''(\pi)=\tfrac34\pi^{-1/2}\to\infty$ as $\pi\downarrow0$, so
    Hypothesis 5 fails. Direct computation gives
-   $C_h(\bar\pi)=\bar\pi^{3/2}\big(1-2^{-1/2}\big)\approx0.2929\,\bar\pi^{3/2}$, which is
-   $\Theta(\bar\pi^{3/2})$ and therefore **not** $\tfrac14h''(0)\bar\pi^{2}+o(\bar\pi^{2})$ for any
+   $C_h(\bar\pi)=\bar\pi^{3/2}\big(1-2^{-1/2}\big)\approx0.2929\,\bar\pi^{3/2}$, which is of **exact
+   order $\bar\pi^{3/2}$** — bounded above and below by positive multiples of $\bar\pi^{3/2}$ — and
+   therefore **not** $\tfrac14h''(0)\bar\pi^{2}+o(\bar\pi^{2})$ for any
    finite constant. The vanishing conclusion of Step 12 still holds — $\bar\pi^{3/2}\to0$ — at a
    slower rate. This case separates CLAIM (i) from CLAIM (iii) cleanly and is the reason the two are
    stated apart.
@@ -502,16 +526,25 @@ under Hypothesis 3's reading does it say anything.
 
 ## LABEL CLAIMED
 
-**PROVED**, for CLAIM (i), (ii), (iii) and (iv), under Hypotheses 1–7 as listed — subject to the
+**PROVED**, for CLAIM (i), (ii), (iii) and (iv), under Hypotheses 1–9 as listed — subject to the
 lane's protocol, which is that the ledger entry stays **CONJECTURE** until an independent
 re-derivation and a proof-read both pass. I have not touched the ledger.
 
 *Why PROVED is the right claim for these four parts.* (i) is two applications of the mean value
 theorem to explicitly named functions on explicitly named intervals, with the interval inclusions
 verified by inequality at Step 5; nothing is approximated. (ii) is term-by-term differentiation of a
-three-term finite sum plus one factorisation, and it is derived twice by routes that do not share a
-step — Step 8 from the weight derivatives, Step 8′ from the chord-gap decomposition plus the
-conservation laws — which agree. (iii) is a substitution plus a limit whose only ingredient beyond
+three-term finite sum plus one factorisation, carried out under Hypothesis 8's kernel restriction,
+which is named rather than assumed silently. **Step 8′ is not offered as a second, independent
+derivation of (ii), and must not be counted as one:** Step 8 consumes Hypothesis 2's three weight
+restrictions, Step 8′ consumes $A_{1/2}'=-2A'_\kappa$ plus Hypothesis 6's two conservation laws, and
+Step 14 proves those two input sets are **logically equivalent** — the routes share no *step*, but
+they share their *content*. What Step 8′ genuinely adds is threefold and is claimed as that: it
+displays the mechanism (the affine part of $h$ contributes no interior motion, and the whole motion is
+carried by the mass of the single middle atom); it locates precisely where the three-point symmetry is
+used (it is what collapses the chord-gap sum to one term); and it generalises to
+$\partial_\kappa\mathbb E_\kappa[h]=\sum_iA_i'(h-\ell_h)(\pi_i)$, which is the form that transfers to
+the multi-atom structure of Example B and hence to the frozen manuscript (Step 17), where Step 8's
+clean proportionality does not. (iii) is a substitution plus a limit whose only ingredient beyond
 (i) is the named extra regularity of Hypothesis 5. (iv) is arithmetic plus a counterexample that
 rules out the converse.
 
@@ -632,8 +665,15 @@ Every symbol used above that is not in card §4, plus the one rename the card re
 - **$\delta$** — the radius of the right-neighbourhood of $0$ in Hypothesis 5. Free in the card.
 - **$\alpha$, $c$** — the two constants of the Example A′ weight family (Step 16). Proof-local.
 - **Reading of $h$ as a function of a number.** $h$ is used as a function of the posterior *value*
-  $\pi\in[0,1]$, $h(\pi)=\pi p(\pi)$. This is the card's own reading, not a new object: card §4.4
-  already evaluates $h$ at the three numbers $0$, $\bar\pi/2$ and $\bar\pi$ in the $C_h$ row.
+  $\pi\in[0,1]$, $h(\pi)=\pi p(\pi)$. Card §4.4 already evaluates $h$ at the three numbers $0$,
+  $\bar\pi/2$ and $\bar\pi$ in the $C_h$ row, so the *notation* is the card's; the *content* — that
+  $h$ does not also move with the price at a fixed posterior — is **Hypothesis 8**, a named
+  restriction, not a reading. Card gap, regeneration item.
+- **Asymptotic notation.** Only small-$o$ is used, in the card's own sense ($f=o(\bar\pi^2)$ means
+  $f/\bar\pi^2\to0$ as $\bar\pi\downarrow0$); exact orders are written in words ("of exact order
+  $\bar\pi^{3/2}$", WHERE-IT-FAILS 3). **No Landau $\Theta$ or $O$ appears**: $\Theta$ is the card
+  §4.5 compact ordered cutoff polytope and card §8 rule 4 forbids re-keying it, so it is never used
+  as a growth-rate symbol in this file.
 
 Card rules observed: no bare $C$, no bare $W$, no bare $\mathsf S$, no bare $u$, no bare $\lambda$;
 $\kappa$ is noise-trading intensity throughout with no drift toward depth, volume or turnover;
@@ -672,3 +712,26 @@ manuscript's signal-leverage object of the same shape is not used.
    in $(0,\bar\pi)$.
 9. **Not claimed: a label change.** The card ledger is untouched. L3 stays CONJECTURE until an
    independent re-derivation and a proof-read both pass.
+
+---
+
+## Repairs applied (2026-08-21, batch-1 audit)
+
+Source: `threads/2026-08-21_batch1_proofread_audit.md` (Opus proof-read, verdict PASS, no failing
+steps). Every change below is a citation, a hypothesis lift, a wording fix or a notation
+declaration. **No claim, hypothesis or step conclusion was altered in substance, and no step was
+renumbered.** The label is untouched: L3 remains CONJECTURE.
+
+| Finding | Change made |
+|---|---|
+| **L3-R1** | Added **Hypothesis 8** — the kernel depends on the control-node information set only through the engagement posterior — as a numbered [ADDITION], cited at Step 7 where it is consumed, with the extra term it excludes written out and the "card gap, regeneration item" flag on A($\tau$) recorded in the hypothesis and in the NOTATION DELTA. |
+| **L3-R2** | LABEL CLAIMED reworded: the "two derivations that do not share a step" ground for (ii) is withdrawn (Step 14 proves the two input sets equivalent); Step 8′ is now claimed for what it adds — the mechanism, the location of the three-point symmetry, and the multi-atom form that transfers to Example B. |
+| **L3-R3** | WHERE-IT-FAILS 3's Landau "$\Theta(\bar\pi^{3/2})$" replaced by "of exact order $\bar\pi^{3/2}$"; NOTATION DELTA now declares the asymptotic convention and records that $\Theta$ is the card §4.5 polytope and never a growth rate. |
+| **L3-R4(a)** | Hypothesis-use table corrected: Hypothesis 1 now reads "Steps 7, 8′, 14; Step 12 consumes it only through Step 8"; Hypothesis 6 now lists Step 8′. |
+| **L3-R4(b)** | **Hypothesis 9** added — D1 by its card-ledger statement — and Hypothesis 6's parenthetical now cites it instead of naming D1 inline, so D1's CONJECTURE status propagates visibly into L3. |
+| **L3-R5** | Step 12's "under continuity alone" sentence now cites Hypothesis 5's first clause (one and the same $h$ across the shrinking family) alongside the continuity of $h$ at $0$. |
+| **Notation scan** | NOTATION DELTA completed: asymptotic convention declared; the $h$-as-a-function-of-a-number bullet now points at Hypothesis 8 rather than calling the restriction "the card's own reading". |
+
+Not applied here, by scope: L3-O1 … L3-O4 are OBSERVATIONs, not REPAIRs. L3-O4's recommendation
+(the card should pin $A'_\kappa$ to the conditional normalisation) is a card edit and belongs to the
+orchestrator's regeneration list, not to this file.

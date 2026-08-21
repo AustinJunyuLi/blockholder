@@ -3,8 +3,11 @@
 **Card version stamp acted on: 2026-08-20 · commit `0c9185b`.** Ticket 22 (T2b). Written against
 `research/model_v4/MODEL_CARD.md` §4 (notation), §5 (hypotheses), §8 (answer template), the turn-3
 instruction `threads/thread1_msg3.md` §3 "L4", and the turn-1 statement
-`threads/thread1_turn1_answer.md` §L4. L3 is cited **by its card-ledger statement only**; D1 is cited
-**by its card-ledger statement only**.
+`threads/thread1_turn1_answer.md` §L4. D1 is cited **by its card-ledger statement only**. L3 is cited
+by its card-ledger statement only **with one declared exception**: (br-iv) and Step 14 cite **L3's
+Step 19** directly, by orchestrator adjudication of 2026-08-21 (batch-1 audit finding L4-R1), because
+that step is what excludes one of the two $\bar\pi$ readings this file used to carry. That is the only
+place in this file where L3's proof, rather than its ledger statement, is read.
 
 ---
 
@@ -38,22 +41,49 @@ The three legs do not carry the same burden, and the card's own row hides that.
 >   function of the posterior* do not move with $\kappa$. Hence
 >   $\partial_\kappa M_P = \Delta_m A'_\kappa C_h(\bar\pi)$ exactly, with no
 >   composition-through-$\kappa$ remainder.
+>   **What (br-ii) buys, stated exactly.** Read against the card's *literal* A($\tau$) display — in
+>   which $\bar\pi$ and $h$ carry no $\kappa$ argument — (br-i) already localises every
+>   $\kappa$-dependence in the weights and (br-ii) would be a restatement. (br-ii) is not written
+>   against that reading. It is written against the **honest** one: in the model
+>   $h(\mathcal I)=\pi(\mathcal I)p(\mathcal I)$ and card §4.3's entry row makes $p$ depend on the
+>   price as well as on $\pi$, so $h=\pi\,p(\hat v,\pi)$ is a function of **two** scalars. "$h$ as a
+>   function of the posterior is $\kappa$-free" is therefore real content that A($\tau$)'s notation
+>   hides, and (br-ii) is the clause that repairs that card ambiguity rather than a fourth
+>   independent restriction. L3's Hypothesis 8 names the same object and prices it the same way.
 > * **(br-iii) Coefficient stability across the threshold margin.**
 >   $\lvert A'_\kappa(\tau')\rvert \le \lvert A'_\kappa(\tau)\rvert$. Weakest sufficient form:
 >   equality — reclassification changes *which* histories are pooled, not the $\kappa$-responsiveness
 >   of the pooled weights.
-> * **(br-iv) Endpoint linkage.** A($\tau$)'s chord endpoint $\bar\pi$ is a weakly increasing
->   function of the pooled prior engagement share $\bar\pi_{\mathrm{pr}} = \Pr(a=1\mid D=0)$, the same
->   function at $\tau$ and at $\tau'$.
+> * **(br-iv) Endpoint linkage.** $\bar\pi$ is A($\tau$)'s chord endpoint — the **upper support
+>   point** of the pooled posterior law — and it is a weakly increasing function of the pooled prior
+>   engagement share $\bar\pi_{\mathrm{pr}} = \Pr(a=1\mid D=0)$, **the same function at $\tau$ and at
+>   $\tau'$**.
 
-(br-iv) exists because card §4.4 glosses $\bar\pi$ as "pre-order pooled engagement share in the
-chord" while A($\tau$) uses $\bar\pi$ as the chord's **upper support point**. Under the level-symmetric
-reading $A_0 = A_1$ — which A($\tau$) does not state, it states only $A_0' = A_1'$ — the martingale
-property of Bayesian posteriors gives
-$\mathbb E[\Pi_\kappa] = A_{1/2}\bar\pi/2 + A_1\bar\pi = \bar\pi/2$, so the two readings differ by a
-factor of two: $\bar\pi = 2\bar\pi_{\mathrm{pr}}$. (br-iv) is written to cover both readings, because
-both make $\bar\pi$ weakly increasing in $\bar\pi_{\mathrm{pr}}$ and that is all Leg 3 needs.
-A side consequence worth recording: under the factor-two reading, $\bar\pi \le 1$ forces
+**The $\bar\pi$ ruling (orchestrator adjudication, 2026-08-21, batch-1 audit L4-R1 — binding).**
+$\bar\pi$ is the **upper support point** of the pooled posterior law in A($\tau$). The pooled
+engagement share is the *mean* $\mathbb E[\Pi_\kappa]$, which is strictly below $\bar\pi$ in any
+non-degenerate case. Card §4.4's gloss — "pre-order pooled engagement share in the chord" — is the
+wording that generated the confusion and is flagged for adjudication at the card's next regeneration;
+it must not be read as "$\bar\pi$ is the mean".
+
+An earlier draft of this file offered two readings and declared them interchangeable. **The identity
+branch — $\bar\pi = \bar\pi_{\mathrm{pr}}$, i.e. $\bar\pi$ read as the mean of the pooled law — is now
+EXCLUDED**, on L3's Step 19 (cited directly per the exception declared at the head of this file): with
+support $\{0,\bar\pi/2,\bar\pi\}$, conditional weights summing to $1$ and mean equal to $\bar\pi$, the
+moment equation forces $A_0 = A_1 - 1 \le 0$, hence $A_0=0$, $A_1=1$, $A_{1/2}=0$ — a point mass at
+$\bar\pi$ with $A'_\kappa = 0$ and zero interior motion for **every** kernel. Under that branch
+$\mathcal S_P(\tau)=\mathcal S_P(\tau')=0$ identically, so leg 3 would hold only because both sides
+vanish. A mean cannot equal the maximum of its own support unless the law is degenerate.
+
+What survives is the non-degenerate reading, and (br-iv) is now stated only for it. Under the
+level-symmetric reading $A_0 = A_1$ — which A($\tau$) does not state, it states only $A_0' = A_1'$ —
+the martingale property of Bayesian posteriors gives
+$\mathbb E[\Pi_\kappa] = A_{1/2}\bar\pi/2 + A_1\bar\pi = \bar\pi/2$, i.e.
+$\bar\pi = 2\bar\pi_{\mathrm{pr}}$: the support point is twice the pooled share, which is exactly the
+strict gap the ruling requires. L3's Example A instantiates it ($\bar\pi=1$, pooled share
+$\tfrac12$). All (br-iv) itself needs, and all leg 3 consumes, is that the map
+$\bar\pi_{\mathrm{pr}}\mapsto\bar\pi$ is weakly increasing and is the same map at both thresholds.
+A side consequence worth recording: under the factor-two form, $\bar\pi \le 1$ forces
 $\bar\pi_{\mathrm{pr}} \le 1/2$, which is a restriction on A($\tau$)'s domain that L4 inherits and
 does not resolve.
 
@@ -78,7 +108,13 @@ $b_0 < \tau' < \tau$ and suppose $\Omega(\tau',T) < 1$. Then:
    $\mathcal S_P(\tau',T) \le \mathcal S_P(\tau,T)$, with equality whenever
    $C_h(\bar\pi(\tau)) = 0$.
 
-Legs 1–3 are unconditional given the hypotheses below; leg 4 is conditional on A(br).
+**Leg numbering, fixed once for the whole file** (batch-1 audit L4-R5; the file previously ran two
+schemes). The three *legs* are the three results named in the VERDICT and in the Part headings:
+**leg 1** = the $\Omega$ result (CLAIM item 2, Part II), **leg 2** = the $\bar\pi_{\mathrm{pr}}$
+result (CLAIM item 3, Part III), **leg 3** = the $\mathcal S_P$ result (CLAIM item 4, Part IV).
+CLAIM item 1 is the nested-reclassification inclusion of Part I, which is an input to legs 1 and 2
+rather than a leg of its own. There is no "leg 4". Legs 1 and 2, and item 1, are unconditional given
+the hypotheses below; **leg 3 alone is conditional on A(br)**.
 
 ---
 
@@ -106,8 +142,8 @@ Each is used at the step named. Nothing is carried that is not used.
    this is what rules out the early/strategic-filing counterexample in WHERE IT FAILS case 3.)*
 7. **Card §4.2's disclosure restriction $D=1 \Rightarrow a=1$.** *(Used: Step 9 — the step that
    consumes "every newly flagged history is Voice".)*
-8. **A8 at the tighter threshold: $\Omega(\tau',T) < 1$** (which by leg 2 also gives
-   $\Omega(\tau,T) < 1$). *(Used: Steps 10, 11.)*
+8. **A8 at the tighter threshold: $\Omega(\tau',T) < 1$** (which by **leg 1** — Step 7's
+   $\Omega(\tau,T)\le\Omega(\tau',T)$ — also gives $\Omega(\tau,T) < 1$). *(Used: Steps 10, 11.)*
 9. **L3, by its card-ledger statement.** Under A($\tau$) the pooled cell's interior $\kappa$-motion
    is proportional to $C_h(\bar\pi)$, and $C_h = \tfrac14 h''(0)\bar\pi^2 + o(\bar\pi^2)$, so it
    vanishes as $\bar\pi \downarrow 0$. L3's *proof* is not read and not relied on. *(Used: Step 15.)*
@@ -156,8 +192,8 @@ environments.
 
 **Step 2.** By Hypothesis 2, $B_j(s,d)$ is a function of $(j,s,d)$ alone. Composing with Step 1's
 fixed selection map, the map $d \mapsto B_{j(s)}(s,d)$ is a function of $s$ and $d$ alone: it does
-not depend on the noise draw $z_{0:H}$, on the realised pooled order flow $X_{0:H}$, on the pooled
-prices $P_d^P$, or on $\kappa$.
+not depend on the noise draw $z_{0:H}$, on the realised pooled order flow $(X_0,\dots,X_H)$, on the
+pooled prices $P_d^P$, or on $\kappa$.
 
 **Step 3 (product form of the disclosure indicator).** For every plan $j \in \mathcal J$, every
 signal $s$, and each of the two thresholds,
@@ -195,8 +231,11 @@ $B_j(s,H-T)\ge\tau > \tau'$ gives $B_j(s,H-T)\ge\tau'$. The *same* number $B_j(s
 comparisons — this is exactly where Hypothesis 1 (fixed policies) and Step 1 are consumed: without
 path-fixity, the left-hand side of the $\tau'$ comparison would be a different path's stake and the
 implication would not go through. Applying Step 3 at $\tau'$ to the same $(j,s)$ therefore gives
-$D_j(s;\tau',T)=1$. Since the history was arbitrary, and since card §2.5 defines
-$\mathcal C_F(\tau,T) = \{(j,s,z_{0:H}) : D_j(s;\tau,T)=1\}$,
+$D_j(s;\tau',T)=1$. Since the history was arbitrary, and since the flagged cell is
+$\mathcal C_F(\tau,T) = \{(j,s,z_{0:H}) : D_j(s;\tau,T)=1\}$ — card §4.3's $\mathcal C_F/\mathcal C_P$
+row (the two cells are exclusive and exhaustive by construction) read together with card §4.2's
+$D_j(s;\tau,T)$ row, which is where the indicator is defined; **the card has no §2.5**, and the
+§2.5 that carries this display is a section of `threads/thread1_turn1_answer.md`, not of the card —
 $$\mathcal C_F(\tau,T)\;\subseteq\;\mathcal C_F(\tau',T).$$
 
 *Remark on the citation (not part of the proof).* Step 5 uses D1's equivalence only to convert a
@@ -296,11 +335,17 @@ claim.
 
 **Step 14 (transfer to A($\tau$)'s chord endpoint).** Step 12 is a statement about the pooled prior
 engagement share $\bar\pi_{\mathrm{pr}}$. A($\tau$)'s chord is written in the endpoint $\bar\pi$.
-Hypothesis 11, clause (br-iv), says $\bar\pi$ is a weakly increasing function of
-$\bar\pi_{\mathrm{pr}}$, the same function at both thresholds. Applying that function to Step 12,
+Hypothesis 11, clause (br-iv), says $\bar\pi$ — the **upper support point** of the pooled posterior
+law — is a weakly increasing function of $\bar\pi_{\mathrm{pr}}$, the same function at both
+thresholds. Applying that function to Step 12,
 $$\bar\pi(\tau')\;\le\;\bar\pi(\tau).$$
-Under the level-symmetric reading $A_0=A_1$ the function is $\bar\pi=2\bar\pi_{\mathrm{pr}}$; under
-the card §4.4 gloss it is the identity; (br-iv) covers both and nothing below depends on which.
+Under the level-symmetric reading $A_0=A_1$ the function is $\bar\pi=2\bar\pi_{\mathrm{pr}}$, and the
+pooled share $\mathbb E[\Pi_\kappa]=\bar\pi/2$ sits strictly below the support point. **The identity
+map $\bar\pi=\bar\pi_{\mathrm{pr}}$ — $\bar\pi$ read as the mean of the pooled law — is excluded**, by
+the binding ruling at the head of this file and by L3's Step 19: it forces the pooled law to a point
+mass at $\bar\pi$ with $A'_\kappa=0$, under which Step 19 below returns
+$\mathcal S_P(\tau)=\mathcal S_P(\tau')=0$ and leg 3 holds only because both sides vanish. So this
+step is stated on the support-point reading alone, and leg 3 has content under it.
 
 ### Part IV — Leg 3: a lower $\tau$ weakly lowers $\mathcal S_P$
 
@@ -322,8 +367,13 @@ support points or the kernel $h$ moved with $\kappa$, the total derivative would
 of the form
 $\bigl[\tfrac12 A_{1/2}h'(\bar\pi/2)+A_1h'(\bar\pi)\bigr]\partial_\kappa\bar\pi$ plus a term in
 $\partial_\kappa h$, neither of which L3 bounds. Hypothesis 11, clauses (br-i) and (br-ii), close
-exactly that gap and no more: (br-i) makes the representation available at both thresholds, (br-ii)
-localises all $\kappa$-dependence in the weights, and together they give, at each threshold,
+exactly that gap and no more: (br-i) makes the representation available at both thresholds, and
+(br-ii) localises all $\kappa$-dependence in the weights. The two are **not** independent under the
+card's literal A($\tau$) display, where $\bar\pi$ and $h$ carry no $\kappa$ argument and (br-i)
+already localises everything; what (br-ii) genuinely buys is stated at the head of this file — against
+the honest reading $h=\pi\,p(\hat v,\pi)$, a function of two scalars, "$h$ as a function of the
+posterior is $\kappa$-free" is real content that A($\tau$)'s notation hides, and (br-ii) is the clause
+that repairs that card ambiguity. Together they give, at each threshold,
 $$\partial_\kappa M_P=\Delta_m A'_\kappa\,C_h(\bar\pi),
 \qquad\text{hence}\qquad
 \mathcal S_P=\Delta_m\,\lvert A'_\kappa\rvert\,\lvert C_h(\bar\pi)\rvert .$$
@@ -388,12 +438,12 @@ $\bar\pi_{\mathrm{pr}}$, and Step 5's inclusion are all invariant to $\kappa$ at
    plans cross in the core" fails, and D1's clock equivalence is being cited off its stated domain.
    Step 3's product form is then unavailable at $\tau'$ and the whole chain stops at Step 3.
 3. **Threshold change bundled with a window change, or early/strategic filing (kills Step 5).**
-   Suppose the tighter threshold $\tau'$ comes with a longer window $T+\Delta$ — a de minimis
-   easement of exactly the kind real rules carry. Take a history with
+   Suppose the tighter threshold $\tau'$ comes with a longer window $T+\Delta_T$, $\Delta_T\ge1$ — a
+   de minimis easement of exactly the kind real rules carry. Take a history with
    $c(\tau)=H-T$, so it is flagged at $(\tau,T)$. At $\tau'$ the crossing is weakly earlier,
-   $c(\tau')\le c(\tau)$, but the filing lands at $c(\tau')+T+\Delta$, which exceeds $H$ whenever
-   $\Delta>c(\tau)-c(\tau')$. The history is flagged at $(\tau,T)$ and unflagged at
-   $(\tau',T+\Delta)$: the inclusion of Step 5 fails outright. The same failure is produced by any
+   $c(\tau')\le c(\tau)$, but the filing lands at $c(\tau')+T+\Delta_T$, which exceeds $H$ whenever
+   $\Delta_T>c(\tau)-c(\tau')$. The history is flagged at $(\tau,T)$ and unflagged at
+   $(\tau',T+\Delta_T)$: the inclusion of Step 5 fails outright. The same failure is produced by any
    departure from A4 that lets the filing date be chosen rather than pinned at $c+T$.
 4. **The bridge fails at (br-iii): the reclassification reshapes the pooled weights (kills leg 3
    only).** Suppose the pooled class at $\tau$ contains a large mass of uninformative Hold histories
@@ -452,7 +502,9 @@ discarded.
 $$\Omega(\tau,T)=\mathbb E_s\Bigl[\mathbf 1\{a_{j(s)}=1\}\,\mathbf 1\{B_{j(s)}(s,H-T)\ge\tau\}\Bigr],
 \qquad
 \bar\pi_{\mathrm{pr}}(\tau,T)=\frac{\Pr\bigl(a=1,\ D(\tau,T)=0\bigr)}{1-\Omega(\tau,T)},$$
-$$\bar\pi=2\,\bar\pi_{\mathrm{pr}}\ \text{(report the identity-map variant in a second column)},\qquad
+$$\bar\pi=2\,\bar\pi_{\mathrm{pr}}\ \text{(level-symmetric form; report the directly enumerated
+pooled support maximum in a second column. The identity map }\bar\pi=\bar\pi_{\mathrm{pr}}
+\text{ is excluded — Step 14)},\qquad
 C_h(\bar\pi)=h(0)-2h(\bar\pi/2)+h(\bar\pi),\qquad
 \mathcal S_P=\Delta_m\lvert A'_\kappa\rvert\,\lvert C_h(\bar\pi)\rvert .$$
 
@@ -462,8 +514,11 @@ $T\in\{5,10\}$ business days (the card's own $W_T$ example). $\kappa\in\{0.15,0.
 points. $H$ as in the calibration; report it in the JSON.
 
 **Predicted signs.** For every tightening step $\tau\to\tau'$ (adjacent percentiles), at every one of
-the 71 $\kappa$ values and both $T$:
-$\Delta\Omega\ge 0$, $\Delta\bar\pi_{\mathrm{pr}}\le 0$, $\Delta\mathcal S_P\le 0$.
+the 71 $\kappa$ values and both $T$, written as explicit differences rather than with a bare
+difference operator:
+$$\Omega(\tau')-\Omega(\tau)\ge 0,\qquad
+\bar\pi_{\mathrm{pr}}(\tau')-\bar\pi_{\mathrm{pr}}(\tau)\le 0,\qquad
+\mathcal S_P(\tau')-\mathcal S_P(\tau)\le 0.$$
 These are exact set-theoretic and arithmetic consequences, not statistical tendencies. **A single
 sign violation is a failed hypothesis, not sampling error** — it means the script re-optimised, or
 $b_0\ge\tau'$ somewhere on the grid, or A(br) is being violated at (br-iii).
@@ -508,9 +563,16 @@ Symbols used above that are not in card §4. Nothing existing is renumbered or r
 | $\bar\pi_{\mathrm{pr}}$ | pooled **prior** engagement share $\Pr(a=1\mid D=0)$, kept distinct from the card's $\bar\pi$ (A($\tau$)'s chord endpoint) | subscripted, never a bare variant of $\bar\pi$ |
 | A(br) | the chord–sensitivity bridge hypothesis, clauses (br-i)–(br-iv) | named in the A1–A8 / A($\tau$) / AGE family; deliberately not lettered "B", which would collide with $\mathsf B$ (entry indicator) and $B_j$ (stake) |
 | $\Pi_\kappa$ | the pooled posterior random variable whose law A($\tau$) represents | appears in the turn-1 A($\tau$) block; used here only in the top-of-file remark on (br-iv) |
+| $A'_\kappa(\tau)$, $A'_\kappa(\tau')$ | the card §4.4 coefficient $A'_\kappa$ **evaluated on the pooled class generated by the named threshold** — a card symbol given an argument, not re-keyed and not given a second meaning | the pooled class differs across thresholds, so the coefficient must be indexed to say which class it belongs to (Step 18); read throughout under the **conditional** normalisation, the one $\mathcal S_P=\lvert\partial_\kappa M_P\rvert$ requires |
+| $\bar\pi(\tau)$, $\bar\pi(\tau')$ | likewise the card §4.4 chord endpoint evaluated on each threshold's pooled class; $\bar\pi$ is the **upper support point** of that class's posterior law, per the binding ruling at the head of this file | not a new symbol and not a second meaning; the argument names the class |
+| $\Delta_T$ | window increment in WHERE IT FAILS 3, $\Delta_T\in\{1,\dots,H\}$, so the bundled policy is $(\tau',T+\Delta_T)$ | decorated, matching the card's uniformly decorated $\Delta$ family ($\Delta_m,\Delta_V,\Delta^{\mathrm{act}},\Delta_{\kappa k},\Delta_{kr},\Delta_{kk},\Delta_k$); $\Delta_T$ is free in the card |
+| $s^\ast$ | one particular signal value, just above the top cutoff $k_{J-1}$, used only in WHERE IT FAILS 1 | $s$ is the card §4.1 signal; the star marks a named realisation, not a new variable |
 
 Bare-symbol rules observed. The letter $C$ appears only as $C_h$, $C_\tau$, $\mathcal C_F$,
-$\mathcal C_P$. The card's reserved bare letters — the sans-serif entry-indicator/filing-tuple pair,
+$\mathcal C_P$. **No bare $\Delta$ appears**: every $\Delta$ is decorated ($\Delta_m$, $\Delta_T$),
+and the check block's predicted signs are written as explicit differences of named quantities rather
+than with a difference operator — the same rule L3's notation delta declares.
+The card's reserved bare letters — the sans-serif entry-indicator/filing-tuple pair,
 the total-surplus letter, the utility letter, and D7's appropriability coefficient — do not appear
 anywhere in this file in bare form, and the D7 coefficient does not appear at all. $\kappa$ is
 noise-trading intensity throughout, with no drift toward depth, volume or turnover; upright $T$ is
@@ -530,10 +592,13 @@ the window, and the best-response map $\mathcal T$ does not appear.
 4. **A($\tau$) is not claimed to be satisfiable on the two-round pooled cell.** msg3 §3 flags that as
    open for L3; L4 inherits the question and does not answer it. Nor is A($\tau$)'s
    $\lvert C_h\rvert$ monotonicity derived — it is used as maintained.
-5. **The $\bar\pi$ definitional tension is not resolved.** Whether the card's $\bar\pi$ is the pooled
-   prior share or twice it (A($\tau$)'s upper support point) is left open; (br-iv) is written to be
-   agnostic. The associated domain restriction $\bar\pi_{\mathrm{pr}}\le 1/2$ under the factor-two
-   reading is flagged, not resolved.
+5. **The $\bar\pi$ reading is now fixed by ruling, and the card wording is not.** Per the binding
+   adjudication of 2026-08-21, $\bar\pi$ is A($\tau$)'s **upper support point** and the pooled share
+   is the strictly smaller mean $\mathbb E[\Pi_\kappa]$; the identity reading is excluded by L3's
+   Step 19. What is **not** claimed here is that card §4.4's gloss ("pre-order pooled engagement
+   share in the chord") has been corrected — that is a card edit and a regeneration item. Nor is the
+   associated domain restriction $\bar\pi_{\mathrm{pr}}\le 1/2$ under the level-symmetric form
+   resolved: it is flagged, not resolved.
 6. **Nothing about the window margin.** The $T$ comparison is T1's iff condition and is untouched
    here; L4's $T$ is held fixed throughout.
 7. **The decomposition $\mathcal S=(1-\Omega)\mathcal S_P$ is not used and not claimed.** It belongs
@@ -543,3 +608,24 @@ the window, and the best-response map $\mathcal T$ does not appear.
 8. **No claim about $\Delta^{\mathrm{act}}$'s own sign, the hump, $J$'s $\kappa$-invariance, or any
    calibration number.**
 9. **No label move.** L4 remains CONJECTURE; the card ledger is not edited by this file.
+
+---
+
+## Repairs applied (2026-08-21, batch-1 audit)
+
+Source: `threads/2026-08-21_batch1_proofread_audit.md` (Opus proof-read, verdict PASS, no failing
+steps), together with the orchestrator's binding adjudications of the same date. Every change below
+is a citation, a restatement of a hypothesis in the form the ruling fixes, a wording fix or a
+notation declaration. **No claim, hypothesis or step conclusion was altered in substance, and no step
+was renumbered.** The label is untouched: L4 remains CONJECTURE.
+
+| Finding | Change made |
+|---|---|
+| **L4-R1** (with the binding $\bar\pi$ ruling) | The two-reading agnosticism is collapsed. $\bar\pi$ is now stated throughout as the **upper support point** of the pooled posterior law, with the pooled engagement share the strictly smaller mean $\mathbb E[\Pi_\kappa]$; (br-iv) is restated for that reading only; the **identity branch is excluded**, on L3's Step 19 (point mass, $A'_\kappa=0$, leg 3 identically zero). Recorded at the head of the file, at Step 14, in the check block, and in NOT CLAIMED 5; card §4.4's gloss is flagged as a regeneration item. |
+| — citation discipline | The head-of-file discipline note now declares the **one exception**: (br-iv) and Step 14 cite L3's Step 19 directly, by orchestrator adjudication. Everywhere else L3 and D1 are still cited by ledger statement only. |
+| **L4-R2** | (br-ii) restated to say what it actually buys: under the card's literal A($\tau$) display it would restate (br-i); against the honest reading $h=\pi\,p(\hat v,\pi)$ — two scalars — it is the clause that repairs a card ambiguity. Written into the A(br) block and into Step 16's framing. |
+| **L4-R3** | Step 5's "card §2.5" removed: the display is now sourced to card §4.3's $\mathcal C_F/\mathcal C_P$ row plus card §4.2's $D_j$ row, with an inline note that the card has no §2.5 and that the §2.5 carrying this display belongs to `threads/thread1_turn1_answer.md`. |
+| **L4-R4** | NOTATION DELTA completed. (a) **No bare $\Delta$**: WHERE IT FAILS 3's window increment is now the decorated $\Delta_T$ (declared), and the check block's predicted signs are written as explicit differences. (b) Threshold-indexed $A'_\kappa(\tau)$, $A'_\kappa(\tau')$, $\bar\pi(\tau)$, $\bar\pi(\tau')$ declared, with the conditional normalisation pinned. (c) $X_{0:H}$ removed in favour of $(X_0,\dots,X_H)$ at Step 2. (d) $s^\ast$ declared. |
+| **L4-R5** | One leg-numbering scheme fixed in the CLAIM: leg 1 = $\Omega$, leg 2 = $\bar\pi_{\mathrm{pr}}$, leg 3 = $\mathcal S_P$, CLAIM item 1 = the Part I inclusion, no "leg 4". Hypothesis 8's parenthetical corrected from "leg 2" to "leg 1". |
+
+Not applied here, by scope: L4-O1 … L4-O3 are OBSERVATIONs, not REPAIRs.
