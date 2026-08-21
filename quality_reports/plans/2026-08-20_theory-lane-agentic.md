@@ -118,3 +118,23 @@ GPT Pro per the failure rule).
   two planned ones.
 - End state: all eight results labelled per their evidence, `make`-runnable
   check scripts committed with raw JSON, and one paste-ready GPT bundle.
+
+## Batch run ("run the theory batch")
+
+One command from Austin runs every ticket that needs no author attention, in
+this order; Fable orchestrates the whole graph in one session and does its own
+checkpoints (A7 reasoning, impl design review, adjudications) inline:
+
+- **Wave A (parallel):** 04, 05, 21, 22, 23, 24, 25-design.
+- **Wave B:** 25-build (after Fable's design review); 26 (after L3/L4
+  statements confirm); 27 proof-reads start incrementally as proofs land.
+- **Wave C:** 27 re-derivations + label moves; 28; 29.
+- **Wave D:** 30 assembled up to — and stopping at — the GPT paste; the
+  paste-ready bundle is handed to Austin.
+
+Rules: ≤ 12 live agents; WRONG → one retry with the failure output injected;
+a claim failing twice is PARKED (ticket comment + final report), never
+silently dropped — GPT escalation waits for Austin's paste. The batch ends
+with one report: labels moved, checks committed, parked items, and the bundle
+file. The session must stay alive for the duration — agents die if the
+process exits (observed 2026-08-20).
