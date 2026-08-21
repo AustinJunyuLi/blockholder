@@ -1,6 +1,6 @@
 # MODEL CARD — v4 two-round blockholder disclosure model
 
-**Version stamp: 2026-08-20 · commit `0c9185b`.** An answer written against a stale stamp is
+**Version stamp: 2026-08-21 · commit `a175202`+ (surgical edit: A7 note and §4.2 patch row replaced per ticket 24's surviving construction; full regeneration pending ticket 27).** An answer written against a stale stamp is
 re-asked, not accepted. Regenerated from `threads/thread1_turn1_answer.md` after the turn-1 audit
 (`threads/thread1_turn1_audit.md`), then revised after the turn-2 proof-read
 (`threads/thread1_turn2_audit.md`). Vocabulary is `CONTEXT.md`.
@@ -69,7 +69,7 @@ $\mathcal T(k;\vartheta)$; $k = \mathcal T(k;\vartheta)$. Uniqueness is **not** 
 |---|---|---|
 | $\mathcal J$, $j$ | finite ordered plan menu, least to most aggressive; plan index | $|\mathcal J| = J < \infty$ |
 | $a_j$ | engagement attached to plan $j$ | $a_j \in \{0,1\}$; $a_j = 1$ for Voice, $0$ for Exit/Hold |
-| $B_j(s,d)$ | cumulative pooled stake at day $d$; $B_j(s,-1) = b_0$ | $\in [0,\bar b]$; for Voice: $\partial_d B_j \ge 0$ and $\partial_s B_j \ge 0$; Hold constant, Exit weakly decreasing. **Continuum-valued** — A2's finiteness covers the plan menu, $\Gamma$'s image, the noise support and the calendar, *not* the stake level. On the flagged set, $s\mapsto(B_j^F,b_j^*)$ must be **strictly** increasing for Voice, or A7's injective form fails on any flat interval (turn-2 audit L2-R1) |
+| $B_j(s,d)$ | cumulative pooled stake at day $d$; $B_j(s,-1) = b_0$ | $\in [0,\bar b]$; for Voice: $\partial_d B_j \ge 0$ and $\partial_s B_j \ge 0$; Hold constant, Exit weakly decreasing. **Continuum-valued** — A2's finiteness covers the plan menu, $\Gamma$'s image, the noise support and the calendar, *not* the stake level. On the flagged set the **composed terminal target** $s \mapsto b^*_{j(s)}(s)$ must be strictly increasing **for every cutoff vector $k \in \Theta$** (hypothesis A7′, `proofs/A7_construction.md`) — for a menu this amounts to each $b_j^*$ strictly increasing and no backtracking of $b^*_j$ across any admissible plan switch. Strictness of $B^F$ is neither necessary (it fails at crossing-date jumps on the pro-rata menu) nor sufficient (multi-Voice backtracking). Replaces the 2026-08-20 strict-pair patch (turn-2 audit L2-R1) per ticket 24 |
 | $b_j^*(s) = B_j(s,H)$ | terminal target stake | $\in [0,\bar b]$ |
 | $c_j(s;\tau) = \inf\{d : B_j(s,d) \ge \tau\}$ | threshold-crossing date | $+\infty$ if never |
 | $f_j = c_j + T$ | legal filing date | flag lands iff $f_j \le H \iff B_j(s,H-T) \ge \tau$ |
@@ -159,10 +159,21 @@ bare $u$.
   flagged set.
   *Note (turn-2 proof-read).* **L2's proof uses the injective form and the weak wording is not
   sufficient** — it permits two $(j,s)$ pairs with different pooled paths, which is exactly L2's
-  first failure case. Injectivity needs the strict-monotonicity row in §4.2 and forces $B^F$
-  continuum-valued. Whether it is *satisfiable* on a plan menu is open and is Thread 2's target.
-  Injective + measurable already gives the measurable inverse (standard Borel spaces); no separate
-  assumption is needed.
+  first failure case. Injectivity needs the A7′ row in §4.2 and forces $B^F$
+  continuum-valued. Injective + measurable already gives the measurable inverse (standard Borel
+  spaces); no separate assumption is needed.
+  *Note (ticket 24, 2026-08-21).* **Satisfiability is resolved.** A7′ + a fixed cutoff policy +
+  $\Omega > 0$ deliver the **on-path** injective form (positive-probability flagged tuples) with an
+  explicit inverse; a satisfying menu exists — the pro-rata single-Voice menu with terminal target
+  strictly increasing on all of $\mathbb R$, which also satisfies the joint $(j,s)$ form
+  (`proofs/A7_construction.md`; adversarial attack verdict SURVIVES WITH REPAIRS,
+  `proofs/A7_attack_verdict.md`, repairs applied 2026-08-21). The joint form additionally needs
+  $b^*$ strictly increasing off the Voice region — a target flat below the Voice cutoff breaks it
+  (40-collision executed check) while leaving the on-path form intact. Failure boundary: a binding
+  stake cap, quantized stakes, a composed target repeating values across Voice-plan switches,
+  $\Omega = 0$, and policy-dependence when the condition is stated only at one equilibrium's
+  cutoffs. A7′ menus are fully separating on the flagged set — the burden moves to P1's incentive
+  compatibility, not away.
 - **A8 Interior crossing.** $0 < \Omega(\kappa,\tau,T) < 1$. Required only for positive cell mass,
   never for the structural partition.
 - **A($\tau$) Threshold chord restriction.** The pooled posterior law has the symmetric ternary

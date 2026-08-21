@@ -116,3 +116,23 @@ cadence the tickets ask for.
   at printed pp. 54–55). Margin still unoccupied; fn. 13 concedes disclosure
   regulation + liquidity limit stakes, then abstracts. Draft_v3 must not cite
   the dead quote.
+- **Ticket 24 COMPLETE.** Attack verdict: SURVIVES WITH REPAIRS (nothing
+  refuted; witness table exact in rational arithmetic; Step 8 necessity and
+  Step 4 σ-field logic confirmed; L2 verified to consume on-path form only).
+  All repairs R-A/R-B/R1–R9 applied by Fable: b* now strictly increasing on
+  ALL of ℝ (R5 — fixes the 40-collision joint-form failure and the R6
+  policy-dependence), patch↔A7′ shown NON-NESTED (patch neither necessary
+  nor sufficient), conditional-independence line displayed, Ω>0 added as
+  hypothesis 7, four new failure cases (sharpest: A7′ menus fully separating
+  — risk relocated to P1's incentive compatibility). Card edited per ticket
+  24: §4.2 strict-pair patch REPLACED by A7′ (quantified over Θ); §5 A7 note
+  marks satisfiability RESOLVED; stamp bumped (surgical, regeneration pends
+  ticket 27).
+- **Ticket 04, CFJ card LANDED — the whitespace verdict: NO REFUTATION.**
+  Chabakauri–Fos–Jiang (RoF 2026, 30(3) 921–948 — repo's "(2022)" cite is
+  wrong) has no disclosure rule in the model (pp. 11–18: zero hits for
+  disclosure/13D/Schedule), no bidder/tender/premium in 79 pages. Partition
+  whitespace HOLDS. Live risks carded: they own third-party inference of
+  activism from pooled order flow; their Table 6 splits pre-filing at the
+  10-day deadline; Table 10 col.5 has an Amihud null on 13D CARs. Version
+  read: LSE AAM (Feb 2025) — page cites must be re-mapped before draft_v3.
