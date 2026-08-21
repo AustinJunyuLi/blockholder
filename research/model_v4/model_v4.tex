@@ -958,14 +958,17 @@ $\Omega$ in $(\tau,T)$, and \emph{existence at the core nodes} under the full 30
 multistart. \textbf{The failure is the grid sweep}: 23 of 27 policy nodes met the
 binding payoff-scale criterion ($10^{-9}$) and 4 did not, at best payoff scales
 $1.5\times10^{-3}$, $1.1\times10^{-3}$, $4.0\times10^{-4}$, $3.1\times10^{-4}$ ---
-all four at extreme liquidity $\kappa\in\{0.15,0.85\}$ on policies whose pooled
-prior engagement share is exactly zero (every Voice type files). Seed coverage is
+all four at extreme liquidity $\kappa\in\{0.15,0.85\}$, at
+$\tau\in\{0.05,0.075\}$ and $T\in\{5,1\}$ (the independent re-run corrected an
+earlier gloss here: these are \emph{not} zero-engagement-share or $T{=}H$ corner
+nodes --- every actual corner row converged, and the recorded pooled prior
+engagement share is $0.102$). Seed coverage is
 \emph{ruled out} as the cause: the check re-ran all four nodes at the full 30
 seeds and found identical best residuals, with most seeds landing on the same
 cutoff vector. All 27 nodes do converge on the cutoff-scale criterion. The cause
 is undiagnosed --- candidates are a failure of A3's single crossing at those
-corners (the adjacent-plan payoff gap is a sawtooth on this menu, and single
-crossing is a calibration fact, not structural) or a genuine boundary
+$\kappa$ extremes (the adjacent-plan payoff gap is a sawtooth on this menu, and
+single crossing is a calibration fact, not structural) or a genuine boundary
 non-existence outside P1's hypothesis set; either way P1's theorem is untouched
 (its hypotheses include A3) and the four nodes are named, not smoothed. \\
 \addlinespace

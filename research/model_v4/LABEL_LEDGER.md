@@ -41,3 +41,17 @@ T1 | CONJECTURE→PROVED at fixed policies | proof `proofs/T1_proof.md`; audit `
 ## Not moved
 
 C1 | CONJECTURE (unchanged) | no proof on file; ticket 29 in flight | — | 2026-08-21 | —
+
+## Move — ticket 29 close-out, 2026-08-22
+
+C1 | CONJECTURE→PROVED (certificate implication, region-as-hypothesis; 18 certified nodes NUMERICAL evidence; region-level certification NOT claimed) | proof `proofs/C1_proof.md` (repairs 13/13); audit `threads/2026-08-21_C1_proofread_audit.md` (PASS, 0 FAIL); re-derivation `rederive/C1_rederivation.md` (PASS as PROVED-WITH-CHANGES: N1 norm convention, N2 two-sided openness; H8 unused); executed check `quality_reports/fixes/t2_c1_region_check.py/.json`, independently re-run 2026-08-22 ALL REPRODUCE (`quality_reports/fixes/t2_rerun_verify_note.md`) | theory-lane batch (Fable orchestrating) | 2026-08-22 | commit: recorded at commit time
+
+## Evidence note — independent re-run of every check script, 2026-08-22
+
+All eight `t2_*` scripts (D1, L1, L2, L3, L4, T1, P1, C1-region) were re-run in full by a fresh
+agent that wrote none of them: **ALL REPRODUCE** — every fresh JSON bit-identical to its committed
+twin except wall-clock timing fields; zero numeric differences at any magnitude. One MISCITED
+gloss corrected (the P1 failing-node description; the numbers were never wrong). Verdict:
+`quality_reports/fixes/t2_rerun_verify_note.md`. The three substantive FAILs (L2's A(τ)-orientation
+placebo, T1's chord-magnitude bridge, P1's four κ-extreme nodes) reproduce exactly and stand as
+findings, not as errors.

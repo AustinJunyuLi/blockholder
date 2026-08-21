@@ -3,9 +3,10 @@
 **Status: TWO ENTRIES, BOTH LIVE.** §1–§6 are the **repo-model** entry (`draft_v2`, the
 `numerical/` package), fixed cutoffs, partial equilibrium — status **PROVISIONAL**, retained
 in full and not overwritten. §8 is the **two-round model** entry (`numerical_v4`), added
-2026-08-21, status **pre-verification** (an independent re-run of its source JSONs is in
-progress; its numbers are final on that re-run's PASS). **The two entries carry opposite
-signs, and §8.1 says why both are honest.** **Date: 2026-08-21.** Tickets 05 (T1) and 30.
+2026-08-21, status **VERIFIED** (independent re-run of all source scripts 2026-08-22:
+ALL REPRODUCE, bit-identical up to timing fields — `quality_reports/fixes/t2_rerun_verify_note.md`).
+**The two entries carry opposite signs, and §8.1 says why both are honest.**
+**Date: 2026-08-22.** Tickets 05 (T1) and 30.
 
 This is the empirics lane's only dependency on the theory lane. The empirics lane **may
 consume the numbers below now**, taking the repo-model entry and the two-round entry as
@@ -174,8 +175,10 @@ iff has to accommodate.
 
 ## Two-round model (2026-08-21)
 
-**Pre-verification: an independent re-run of the source JSONs is in progress; the numbers in
-this section are final on its PASS.** Nothing above this line is changed by it.
+**VERIFIED (2026-08-22): an independent agent re-ran every source script in full; all JSONs
+reproduced bit-identically up to wall-clock timing fields
+(`quality_reports/fixes/t2_rerun_verify_note.md`). The numbers in this section are final.**
+Nothing above this line was changed by the re-run.
 
 ### 8.1 The answer in one line — and why it points the other way from §1
 
