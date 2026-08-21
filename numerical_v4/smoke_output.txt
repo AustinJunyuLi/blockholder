@@ -1,0 +1,111 @@
+
+==============================================================================
+PROVENANCE
+==============================================================================
+  model card stamp     2026-08-20 (commit 0c9185b)
+  design               research/model_v4/impl_design.md, section 13 APPROVED
+  params hash          b4482d7fee83a8e8
+  H = 10   T = 5   M = 2 marks   J = 3 plans
+  seed tau             0.050000  (statutory 13D 5%)
+  b0 = 0.03  b_bar = 0.1  n_scale = 4.0  C0 = 0.014
+
+==============================================================================
+BUILD STEP 4 -- ENUMERATION PROBE (GO/NO-GO GATE)
+==============================================================================
+  n_hist (4^(H+1))        4,194,304
+  n_hist feasible         826,686
+  N_theta                 12   (populated at seed k: 1)
+  feasible n_hist x N_th  9.920e+06   gate limit 1e+08
+  int8 array (n0 + feas)  96.0 MB
+  one evaluation          0.372 s
+  GATE                    PASS
+
+==============================================================================
+TAU FREEZING (design section 6.2)
+==============================================================================
+  seed equilibrium k      (1.31246481, 1.41888743)   |k-T(k)| = 1.343e-11
+  median Voice b*(s)      0.09076406
+  tau frozen at           0.09076406   (reused at every node)
+
+==============================================================================
+SMOKE 1 -- ONE BASELINE EQUILIBRIUM  (kappa = 0.5, T = 5, H = 10)
+==============================================================================
+  solve + evaluate        23.7 s
+
+  k                       (1.2405757283, 1.5310222869)
+  outer residual  |k-T(k)|_inf   2.596e-11   (P1 diagnostic scale, target 1e-10)
+  outer residual  payoff scale   0.000e+00   (P1 BINDING criterion, target 1e-9)
+  local gap slopes d(U_j-U_j')/ds (-5.4275e-03, -3.9966e-02)
+
+  Omega   Pr(D=1)         13.839631 %
+  Pr(a=1)                 22.633267 %
+  omega_a Pr(D=1|a=1)     61.147298 %
+  pi_bar  Pr(a=1|D=0)     10.206126 %
+
+  M_F                     0.5528178485 premium pp
+  M_P                     0.2227984758 premium pp
+  Delta^act               0.2684719398 premium pp
+  L1 residual |D - (Om M_F + (1-Om) M_P)|   0.000e+00   [WIRING, not evidence for L1]
+
+  R  (mean run-up)        389.177095 bp
+  J  (mean filing jump)   2590.523450 bp
+  D1 identity residual    0.000e+00   (TOL_IDENTITY = 1e-12)   [WIRING]
+  identity verdict        PASS
+
+  a7_certificate
+    min |db*/ds| flagged  2.199280e-04   (gate 1e-8)
+    flat sub-intervals    0
+    (B^F,Q^F) collisions  0
+    cross-plan collisions 0
+    flagged atoms         10
+    PASSES                True
+
+  atoms                   19 (10 flagged)
+  N_theta populated here  5 of 12   (the seed tau flagged every Voice type; the frozen tau does not)
+  feasible histories      826,686
+  pooled mass error       2.220e-16
+  max inner price residual 2.184e-16
+  max b* inversion error  5.862e-14
+  GL-20 vs GL-40 on M_F   2.602e-18   (raise the order if > 1e-13)
+  max Q^F                 0.000000 pp of shares
+  T == H corner           False
+  degenerate_nodes        []
+  multiple_root_nodes     0
+
+==============================================================================
+SMOKE 2 -- FROZEN-POLICY KAPPA SWEEP  (policy held fixed)
+==============================================================================
+  10 nodes in 5.2 s
+
+  range_kappa M_F         0.000000e+00   (TOL_INVARIANCE = 1e-10)
+  L2 verdict              PASS   [SUBSTANTIVE -- the flagged path must never touch kappa]
+
+   kappa      M_F (pp)        M_P (pp)      Delta^act (pp)     dM_P/dkappa      S_P = |dM_P/dkappa|
+   0.050   0.5528178485   0.1505616880   0.2062324571    4.990164e-03   4.990164e-03
+   0.150   0.5528178485   0.1543475750   0.2094943913    8.450195e-02   8.450195e-02
+   0.250   0.5528178485   0.1684900146   0.2216795694    1.963995e-01   1.963995e-01
+   0.350   0.5528178485   0.1922259466   0.2421305359    2.641534e-01   2.641534e-01
+   0.450   0.5528178485   0.2162310052   0.2628133830    1.833554e-01   1.833554e-01
+   0.550   0.5528178485   0.2228421702   0.2685095871   -7.398512e-02   7.398512e-02
+   0.650   0.5528178485   0.2032398321   0.2516201403   -2.660317e-01   2.660317e-01
+   0.750   0.5528178485   0.1768146583   0.2288521131   -2.569398e-01   2.569398e-01
+   0.850   0.5528178485   0.1563996788   0.2112624915   -1.284738e-01   1.284738e-01
+   0.950   0.5528178485   0.1506005349   0.2062659277   -9.282079e-03   9.282079e-03
+
+  S_P profile shape       non-monotone: M_P is hump-shaped in kappa (peak near kappa = 0.55, 1 sign change(s) in dM_P/dkappa), so S_P = |dM_P/dkappa| is V-shaped about that peak
+  S_P min / max           4.990164e-03 / 2.660317e-01  premium pp per unit kappa
+  S = (1-Omega) S_P       6.374586e-02  at kappa = 0.55
+
+==============================================================================
+CHORD MODULE (design section 8, standalone route)
+==============================================================================
+   pi_bar        C_h              |C_h|/pi_bar^2     headroom
+  1e-01   -2.131930266007e-03   2.1319302660e-01   1.15e-17
+  1e-02   -2.209674483169e-05   2.2096744832e-01   1.24e-18
+  1e-03   -2.217916734934e-07   2.2179167349e-01   1.25e-19
+  1e-04   -2.218746346921e-09   2.2187463469e-01   1.25e-20
+  (C_h <= 0 is the card's maintained orientation; the ratio should settle as pi_bar falls)
+
+==============================================================================
+SMOKE COMPLETE in 64.8 s
+==============================================================================

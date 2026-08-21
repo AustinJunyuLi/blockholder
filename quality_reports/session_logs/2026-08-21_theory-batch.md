@@ -229,3 +229,19 @@ cadence the tickets ask for.
   Two L2 placebos specified (M_P and J must MOVE with κ) so the invariance
   check can't pass vacuously — ticket 28 should adopt them.
   **Two-pass evidence now COMPLETE for D1, L1, L2, L3, L4.** P1 and T1 pend.
+- **Ticket 25 BUILD LANDED and accepted** (opus builder; 8 modules, 2,040
+  lines + smoke_output.txt). Gate PASS (feasible 826,686 hist × 12 types =
+  9.9e6, 10× under limit; 0.44 s/eval). Smoke: equilibrium residual 0.0
+  payoff-scale; Ω=13.84%, ω_a=61.15%, M_F=0.553pp, M_P=0.223pp; a7_cert
+  passes (0 collisions); multiple_root_nodes=0 — STRUCTURAL: P = V̂ +
+  m̃p/(1−p) has strictly decreasing RHS, so A5 is a consequence here
+  (converges with P1's h.12 derivation). **L2 frozen-sweep range_κ M_F =
+  0.0 bit-identical** (substantive PASS). M_P hump-shaped in κ; |C_h|/π̄²
+  → 0.2219 (L3 quadratic clean). Six deviations all named, all accepted
+  (off-path 1e-14 belief floor implements §3(vi); solver injected as arg to
+  preserve purity guard; per-type accumulation instead of chunking; 241
+  bracket grid for sawtooth gaps; independent Δ^act summation; Menu
+  excludes τ,T). Findings for the lane: Q^F ≡ 0 at T=5 on this family
+  (ticket 28's Q^F T-monotonicity check vacuous at T≥5 — use small-T column
+  or record vacuity); A3 single crossing is a CALIBRATION fact on sawtooth
+  gaps (P1 WHERE-IT-FAILS material).
