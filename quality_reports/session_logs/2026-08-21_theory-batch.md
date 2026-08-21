@@ -75,3 +75,36 @@ cadence the tickets ask for.
   (CFJ via LSE eprint; BLV Dec-2025 via ECGI long-timeout; Zeng IA via
   Springer supplement). Ticket's "Van Schepdechen" author name corrected to
   Voss by repo evidence. o1-rerun (opus) PASS. L4-writer (opus) PASS.
+- **Ticket 05 verifier (fresh opus): PASS.** Re-run exit 0, JSON byte-identical,
+  independent recompute matched all four ratios to 5 dp, all six ω_a anchors
+  verified verbatim. 1 WRONG (handoff said "Five checks", JSON has six) and
+  1 MISCITED (referee-report range 113–120 → 114–124) — both repaired by the
+  orchestrator, JSON regenerated (exit 0, 6/6 pass), committed. Non-blocking
+  note kept: TOL_MATCH=5e-3 is loose vs 4dp record (passed at 3.1e-5).
+- **Ticket 25 design review (Fable) DONE** — appended as impl_design.md §13.
+  APPROVED with 7 rulings: M=2; H=10 with mandatory H=12 robustness for T1;
+  NO discount factor (card is spec; multiple_root_nodes nonempty at baseline
+  = builder stop-and-report); P1 verdict binds on payoff scale; L3 relative
+  tolerance amendment (logged as approved deviation from turn-1 request);
+  check scripts stay at quality_reports/fixes/t2_* per ticket 28 (tickets
+  outrank design preference); A7′ resolved by ticket 24's construction —
+  design's independent "sum-monotone" finding converged with it. Build
+  dispatched (opus).
+- **Tickets 21 (L3) and 23 (P1) LANDED** (proofs committed). L3: mean-value
+  chord form proved; ∂_κE[h]=A′_κ·C_h derived twice independently; A(τ)
+  derivative restrictions shown equivalent to κ-invariant pooled mass+moment
+  (only the support condition has bite); draft_v2's own pooled law FAILS
+  A(τ) (worked example); two-round-cell membership declared OPEN with named
+  sufficient conditions S1/S2. P1: pricing fixed point reduced to (v̂,π);
+  under added h.12 (m_0≥0) inner existence+uniqueness DERIVED (A5's real
+  content = continuity in k); sequential optimality needs new h.11 "flagged
+  closure" — card's "under A1–A7" overstates; A6 continuity assumed with
+  weakest replacement named; A8 given bite only under h.13.
+- **Fable ruling (π̄), now firm:** π̄ = UPPER SUPPORT POINT of the pooled
+  posterior in A(τ), not the pooled engagement share; share = E[Π_κ],
+  κ-invariant under A(τ), = π̄/2 only in the level-symmetric case. Both L3
+  and L4 flagged the same tension independently; card §4.4 gloss to be
+  corrected at ticket-27 regeneration. T1 writer instructed accordingly.
+- **Dispatched:** impl-builder (opus), batch-1 proof-reader for L3/L4/P1
+  (fresh opus, turn2-audit format), T1 writer (opus; carries A(br) verbatim
+  + π̄ ruling + O-1 numbers as the window failure case).
