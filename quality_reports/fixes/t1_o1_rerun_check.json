@@ -239,7 +239,7 @@
     }
   ],
   "committed_claim": {
-    "source": "quality_reports/reports/2026-08-19_framework_v3_referee_report.md:113-120 (claim); research/review_v3/verify_theory.md:32,42-53 (independent re-execution, 41-point grid)",
+    "source": "quality_reports/reports/2026-08-19_framework_v3_referee_report.md:114-124 (claim); research/review_v3/verify_theory.md:32,42-53 (independent re-execution, 41-point grid)",
     "baseline_cutoffs": {
       "k1": 0.8217375899,
       "k0": 0.8217375899,

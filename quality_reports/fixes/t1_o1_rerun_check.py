@@ -23,7 +23,7 @@ reproduced by the v3 verifier):
   window-margin attenuation FAILS.
 
 Committed claim being reproduced
-  quality_reports/reports/2026-08-19_framework_v3_referee_report.md:113-120
+  quality_reports/reports/2026-08-19_framework_v3_referee_report.md:114-124
   research/review_v3/verify_theory.md:32,42-53  (independent re-execution)
   docs/adr/0007-one-theorem-two-round-model-two-lanes.md:7  (decision record)
 
@@ -70,7 +70,7 @@ TOL_MATCH = 5e-3  # committed ratios are quoted to 2 dp
 # Committed claim, verbatim from verify_theory.md's executed table.
 COMMITTED = {
     "source": (
-        "quality_reports/reports/2026-08-19_framework_v3_referee_report.md:113-120 "
+        "quality_reports/reports/2026-08-19_framework_v3_referee_report.md:114-124 "
         "(claim); research/review_v3/verify_theory.md:32,42-53 (independent "
         "re-execution, 41-point grid)"
     ),

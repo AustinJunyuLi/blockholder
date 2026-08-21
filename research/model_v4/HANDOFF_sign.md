@@ -28,7 +28,7 @@ a bounded null is the realistic outcome.
 | **Magnitude** | Ratio of κ-sensitivities (disclosed ÷ pooled), total variation over κ ∈ [0.15, 0.85]: **1.064** at the baseline Ω = 0.0373; **1.184** at Ω = 0.129; **1.136** at Ω = 0.286. Sign flips to **0.378** at Ω = 0.50. At the baseline the two curves are all but on top of each other — ranges 0.01107 vs 0.01117, a **0.9%** gap, at most **2.5%** apart at any κ. |
 | **Condition** | Holds for **Ω < 0.343** (the crossing, located by bisection this run — see §3). Fixed cutoffs (partial equilibrium): the blockholder's `(k₁, k₀)` are pinned at the baseline equilibrium and only `k_D` moves. No general-equilibrium cutoff-shift term is signed. |
 | **Model version** | Current repo model, `numerical/` package as of `v4-theory` 2026-08-21 (the static `draft_v2` model). Not the two-round model. |
-| **Evidence** | `quality_reports/fixes/t1_o1_rerun_check.py` → `t1_o1_rerun_check.json`. Five checks, all pass. Run: `.venv/bin/python quality_reports/fixes/t1_o1_rerun_check.py` |
+| **Evidence** | `quality_reports/fixes/t1_o1_rerun_check.py` → `t1_o1_rerun_check.json`. Six checks, all pass. Run: `.venv/bin/python quality_reports/fixes/t1_o1_rerun_check.py` |
 
 ## 2. What the experiment actually is
 
@@ -49,7 +49,7 @@ means the flag makes premia *more* liquidity-sensitive — attenuation fails.**
 ## 3. The numbers, and how they compare with the committed claim
 
 The committed claim lives in
-`quality_reports/reports/2026-08-19_framework_v3_referee_report.md` (lines 113–120), and
+`quality_reports/reports/2026-08-19_framework_v3_referee_report.md` (lines 114–124), and
 was independently re-executed by the v3 verifier in
 `research/review_v3/verify_theory.md` (row O-1, lines 32 and 42–53). The decision built on
 it is `docs/adr/0007-one-theorem-two-round-model-two-lanes.md`.
