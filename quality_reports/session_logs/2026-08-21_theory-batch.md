@@ -245,3 +245,10 @@ cadence the tickets ask for.
   (ticket 28's Q^F T-monotonicity check vacuous at T≥5 — use small-T column
   or record vacuity); A3 single crossing is a CALIBRATION fact on sawtooth
   gaps (P1 WHERE-IT-FAILS material).
+- **T1 fix-round CLOSED.** Fresh checker: T1-F1 discharged (H18 delivers all
+  four things Step 15 signs; scope claim verified — nothing consumes it;
+  boxed displays unchanged). Four one-clause citation items N1–N4 applied by
+  the orchestrator per the checker's close-after-edit recommendation (N2 was
+  the π̄-ruling one: H14 leg 2 restated as the share inequality with (br-iv)
+  carrying it to the endpoint). T1 proof-read evidence now PASS-equivalent;
+  awaiting its statements-only re-derivation for the second pass.

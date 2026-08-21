@@ -160,8 +160,10 @@ Step 11 item 3 needs a fifth that L4 does not carry, and it is stated separately
 than smuggled into this quotation. [Steps 8, 11, 15, 17]
 
 **H14 — L4 (as landed by the L4 writer; amended).** At fixed policies, for $b_0<\tau'<\tau$:
-*leg 1*, lower $\tau$ weakly raises $\Omega$, and *leg 2*, lower $\tau$ weakly lowers $\bar\pi$
-in the pooled class, are **proved outright** (given D1's clock equivalence and $b_0<\tau'<\tau$);
+*leg 1*, lower $\tau$ weakly raises $\Omega$, and *leg 2*, lower $\tau$ weakly lowers the pooled
+prior engagement share $\bar\pi_{\mathrm{pr}}$ (the share, not the chord endpoint $\bar\pi$ —
+the step from share to endpoint is A(br)'s (br-iv)), are **proved outright** (given D1's clock
+equivalence and $b_0<\tau'<\tau$);
 *leg 3*, lower $\tau$ weakly lowers $\mathcal S_P$, holds **only under A(br)**, and holds **with
 equality whenever $C_h(\bar\pi(\tau))=0$** — the L4 writer's own qualifier, carried here because
 $C_h=0$ is inside A($\tau$)'s maintained weak orientation and card §5's A($\tau$) row requires it
@@ -290,7 +292,7 @@ a function of $s$ alone once the policies are frozen. The law of $s$ carries no 
 cited reasons together: **A1** (card §5) gives $v$ and $\varepsilon$ independent with strictly
 positive variances, and **card §4.1's distributional rows** give $s=v+\varepsilon\sim
 N(\mu_v,\sigma_v^2+\sigma_\varepsilon^2)$ with no $\kappa$ in either row — $\kappa$ appears in
-exactly one row of the card, the $z_d$ noise-mark law of §4.2, which enters observed order flow
+exactly one row of the card, the $z_d$ noise-mark law of §4.1 (the $\bar z$ row), which enters observed order flow
 $X_d$ and nothing that $D$ depends on. Hence $\Omega=\Pr(D=1)$ is literally the same number at
 every $\kappa$: **constant**, which is H6 in the form Step 7 needs, with
 $\partial_\kappa\Omega=0$ as its corollary. The derivation consumes H5 in full: it is the **freezing of the
@@ -658,8 +660,8 @@ nobody reads the ledger's "equivalently" as "finite $\Rightarrow$ local everywhe
 exact coincidence in the limit. That is what this file means by "equivalently", and it is the
 only sense in which it is asserted.
 
-**Step 22 (no unconditional window sign — and the live case).** Nothing in H1–H15 signs $C_T$
-(Step 17) or $\rho$ (Step 20), so nothing in H1–H15 signs $\partial_{r_T}\mathcal S$ or
+**Step 22 (no unconditional window sign — and the live case).** Nothing in H1–H18 signs $C_T$
+(Step 17) or $\rho$ (Step 20), so nothing in H1–H18 signs $\partial_{r_T}\mathcal S$ or
 $W_TC_T-1$. Both branches are consistent with every hypothesis maintained here:
 $W_TC_T\le 1$ (attenuation) and $W_TC_T>1$ (amplification) each require only a value of $C_T$
 that the hypotheses leave free. The committed O-1 record supplies a measured instance of the
@@ -769,8 +771,10 @@ kernel is affine across the three support points $\{0,\bar\pi/2,\bar\pi\}$, so t
 without its endpoint vanishing. This is **inside** A($\tau$), not outside it: A($\tau$)'s
 maintained orientation is the weak $C_h\le0$, and draft_v2's (C\*) is the strict version, so a
 maintained-hypothesis-satisfying model can sit here. Three consequences, and they are worth
-separating. First, by H11's monotonicity of $\lvert C_h\rvert$ in $\bar\pi$ and H14 leg 2's
-$\bar\pi(\tau')\le\bar\pi(\tau)$, $C_h(\bar\pi(\tau))=0$ forces
+separating. First, by H11's monotonicity of $\lvert C_h\rvert$ in $\bar\pi$ (whose comparison
+across the two policies is licensed by H17 = (br-v)) and the endpoint inequality
+$\bar\pi(\tau')\le\bar\pi(\tau)$ — H14 leg 2's share inequality carried to the endpoint by
+A(br)'s (br-iv) — $C_h(\bar\pi(\tau))=0$ forces
 $\lvert C_h(\bar\pi(\tau'))\rvert\le 0$, hence $C_h(\bar\pi(\tau'))=0$ as well: the degeneracy at
 the looser threshold propagates to the tighter one, and $\mathcal S_P$ vanishes at **both**
 compared policies. Second, H14 leg 3 then holds **with equality** — the qualifier H14 now carries
@@ -1047,3 +1051,12 @@ mandate, which was T1-F1 plus R1–R9. Three of them are card-owner-facing rathe
 reading; **T1-O2**, L4's ambiguous leg numbering in the source). **T1-O1** (Step 8 sits under the
 Part A heading but is consumed only in Part B) and **T1-O4**/**T1-O5** (two clarifying sentences)
 are left for the re-derivation round. **No label moves: T1 remains CONJECTURE.**
+
+### Recheck items N1–N4 applied (2026-08-21, orchestrator)
+
+Per `threads/2026-08-21_T1_fix_recheck.md` (verdict: T1-F1 discharged; four
+one-clause citation items; close after edit, no re-proof-read): N1 — noise-mark
+law repointed §4.2 → §4.1. N2 — H14 leg 2 restated as the SHARE inequality
+(π̄_pr), the endpoint step attributed to (br-iv), per the binding π̄ ruling.
+N3 — the cross-policy |C_h| comparison in Step 22 now cites H17 = (br-v).
+N4 — Step 22's hypothesis range H1–H15 → H1–H18. Fix round CLOSED.
