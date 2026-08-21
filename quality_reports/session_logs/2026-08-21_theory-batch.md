@@ -291,3 +291,16 @@ cadence the tickets ask for.
   reviewed the full diff before commit — approved; the regeneration's one
   beyond-brief edit (§4.2 Borel rider) accepted as required by D1's
   re-derivation verdict.
+- **Ticket 29 (C1) LANDED — REGION NOT EMPTY.** C1_proof.md (H1-H8; Neumann →
+  inversion-free bounds → 4-group chain rule → dominance ⟹ ∂_r𝒮 ≤ −η_r) +
+  t2_c1_region_check.py/.json EXECUTED (2.9h, 80 nodes, 0 errors, 4 PASS /
+  0 FAIL / 8 RECORD). 18/80 nodes certify; largest contiguous block T=5,
+  τ∈{50,70,90}pct, κ∈{0.65,0.75,0.85} (9 nodes, η_r med 0.374). L_ℛ ∈
+  [0.264,0.501] everywhere. Failure anatomy: 56 nodes g_r^PE=0 (clock
+  quantisation makes Ω locally constant in τ — discretisation artifact),
+  4 genuine GE dominations, 2 negative margins at κ=0.55. T=10 degenerate
+  (Ω=6.8e-4, the known H=T corner; finite-difference only, 34/40
+  attenuating). Fine grid (0.01) declined honestly (8h+), recorded in JSON;
+  grid used 0.10. Card-owner flags: §4.5 norm unfixed for |·| bars; L_ℛ sup
+  domain unstated; companion inversion-using bound certifies 22 vs 18 —
+  worth adding as a second bound. Proof-reader dispatched.
