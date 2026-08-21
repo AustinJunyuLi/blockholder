@@ -42,7 +42,7 @@ Can corporate insiders — officers and directors — work out that an activist 
 | R14 | The response is entirely **C-level executives and board members** (0.0068\*\*\* / 0.0075\*\*\*); "all other insiders" (incl. 10% blockholders) show −0.0003 (ns) | ESTIMATED | Table C7, OA p. 23 |
 | R15 | The response is in the **low**-13D-likelihood subsample (buy 0.0116\*\* / 0.0132\*\*\*), not the high one (0.0025 / 0.0024, ns) — so it is not generic vulnerability monitoring | ESTIMATED | p. 35 and Table C6, OA p. 22 |
 | R16 | It survives in the hostile-campaign subsample (buy 0.0040\*\* [0.0018] / 0.0037\* [0.0021]; net sell insignificant), against a leakage story | ESTIMATED | p. 34 and Table C5, OA p. 21 |
-| R17 | Activists tilt their pre-13D trading into insiders' blackout days: 14.2% of activist trade-days fall in the "not free date" window inside the 60-day period vs 11.2% outside; "the difference is highly statistically significant" — **no test statistic is printed** | ASSERTED (proportions ESTIMATED; the significance claim carries no SE or t) | p. 30 |
+| R17 | Activists tilt their pre-13D trading into insiders' blackout days: 14.2% of activist trade-days fall in the "not free date" window inside the 60-day period vs 11.2% outside; "the difference is highly statistically significant" — **no test statistic is printed** | ASSERTED (proportions ESTIMATED; the significance claim carries no SE or t) | pp. 30–31 *(page corrected by verifier: the proportions are on p. 30, the significance clause on p. 31 — the sentence straddles the page break)* |
 | R18 | Only 0.04% of 177,520 newly formed institutional blocks (13F) were built in the quarter just before a 13D filing, "not statistically different from a level under the null" — **no test statistic printed** | ASSERTED | p. 34 |
 | R19 | Baseline daily insider-buy probability is 0.80%; the Figure-1 excess bars are day 0 and day +3, everything in [−5,+5] else flat | ESTIMATED | Figure 1, p. 9 (numbers = Table 7 Panel A) |
 
@@ -55,7 +55,7 @@ Can corporate insiders — officers and directors — work out that an activist 
 - **Rule 10b5-1 plans** and the safe harbour that lets insiders *cancel* precommitted sales, so "informed non-trading" is legal (p. 8; fn. 18, p. 22).
 - **Blackout windows** are not disclosed, so they are proxied from Bettis, Coles and Lemmon (2000): free trade = [t+4, t+14], not-free = [t−14, t+2] around the earnings date (p. 22).
 - **Market-surveillance vendors as of 2024**: Nasdaq IR Intelligence (with an "activism unit" and "surveillance analysts"), S&P Global, Diligent Market Intelligence, FIS, Q4 (fn. 11, p. 10).
-- **Activist trading footprint**: filers trade on 29.2% of window days, taking 26.3% of daily turnover in the 60-day window and **30.1% in the last ten days**; daily turnover 0.63% overall vs 1.23% on filer-trade days; 13D turnover 0.00% vs 0.23% (pp. 9, 20; Table 2, p. 44).
+- **Activist trading footprint**: filers trade on 29.2% of window days, taking 26.3% of daily turnover in the 60-day window and **30.1% in the last ten days** (pp. 20–21 — the sentence completes on p. 21); daily turnover 0.63% overall vs 1.23% on filer-trade days (**p. 8**, *page corrected by verifier — p. 9 carries the 13D-turnover pair, not this one*); 13D turnover 0.00% vs 0.23% (p. 9). All four figures also print in Table 2, p. 44.
 - Sample: 1996–2018; 64 events in 2004 to 185 in 2007, mean 124/yr (p. 20; Figure C2, OA p. 15).
 
 ## 5. Referee-facing strengths / weaknesses
@@ -148,4 +148,149 @@ Body text in the source is double-spaced, so a quoted sentence spans several lin
 
 ## 9. Verification log
 
-*(To be filled by the adversarial verifier: per quote / result → OK / WRONG / MISCITED / UNCHECKED, with what was checked against. Note for the verifier: page numbers are the **printed AAM pages** described in the header — body 2–39, tables 43–53, Online Appendix "OA p. 1–23" — not the RoF 921–948 pagination; and body quotes are line-joined, so grep the single-line fragment given in the last column of §8.)*
+**Verifier: opus, adversarial, 2026-08-21 (ticket 04 batch).** Independent of the reader; the papers
+were not read for content, every item was checked by executed search against the source text.
+**Source of record:** `/private/tmp/…/scratchpad/lit/chabakauri_fos_jiang_2022.txt` (`pdftotext`
+extraction of the LSE AAM PDF beside it), split on form feeds into **79 page blocks**.
+**Page map re-derived independently, not taken from the card:** the printed folio at the foot of the
+page was read off PDF pp. 4, 5, 12, 13, 20 and 55 → **printed = PDF − 2** for pp. 2–53; the Online
+Appendix restarts at **PDF p. 56 = OA p. 1**, so **OA p. N = PDF p. 55 + N**; PDF p. 79 is an empty
+trailer. This reproduces the card's stated convention exactly (body 2–39, refs 40–42, tables 43–53,
+OA 1–23). All searches Unicode-normalised (curly quotes, dashes, ligatures folded) and
+whitespace-collapsed, so line-joined body quotes match as whole sentences, not just as fragments.
+
+**Counts: 58 OK · 0 WRONG · 2 MISCITED · 1 UNCHECKED.**
+
+### DECISION-CRITICAL — the §6a whitespace verdict. **SURVIVES, re-run from scratch.**
+
+Every grep below was executed by the verifier on the raw text file, not taken from the card.
+
+| Claim in §6 / §6a | Verifier's own count | Verdict |
+|---|---|---|
+| `disclos*`, `13D`, `Schedule` = 0 each on printed pp. 11–18 | **0, 0, 0** (PDF pp. 13–20). Also `filing` = 0 and `SEC` = 0 on those pages. The bracket pages do carry them: `13D` ×3 + `Schedule` ×1 on p. 10 (§2.2, which ends with the surveillance-vendor list), `13D` ×1 + `Schedule` ×1 on p. 19 (§4.1 "Data sources", confirmed by reading the section head on that page) | **OK** |
+| `bidder` | **0** | OK |
+| `tender` | **0** | OK |
+| `acquirer` | **0** | OK |
+| `merger` | **0** | OK |
+| `entry` | **0** | OK |
+| `welfare` | **0** | OK |
+| `partition` | **0** | OK |
+| `five business` | **0** | OK |
+| `takeover` = 1, p. 3 | **1, printed p. 3** — "those betting on takeover prospects or earnings surprises" | OK |
+| `premium` = 3, p. 24 + 2 in the reference list p. 41, no takeover premium | **3: printed p. 24 ×1, printed p. 41 ×2** | OK |
+| `liquidity` = 13, never a model parameter | **13**, on printed pp. 2, 3, 13, 15, 21, 27, 31, 36, 40 (×2), 43, 53, and OA p. 21 — none of them inside pp. 11–18 except p. 13 (the stock-picker paragraph, where the word is "liquidity trader"-adjacent prose, not a parameter) | OK |
+| `threshold` = 5, pp. 7 / 19 ×2 / 25 / 34 | **5, on exactly those pages** | OK |
+
+**Verdict on the decisive question: the card's one-sentence answer stands unaltered.** The model
+economy on printed pp. 11–18 contains no filing node, no 5% trigger, no filing window, and the paper
+contains no bidder, tender offer, merger or takeover premium in 79 pages.
+
+### Quotes (§8) — **16/16 OK.**
+
+Each quote was matched as a **whole normalised sentence** (not merely the single-line grep fragment),
+and the page returned was compared with the cited page. Every one matched on exactly one page block
+and that page equalled the citation: Q1 p. 3 · Q2 p. 7 · Q3 p. 11 · Q4 p. 11 · Q5 p. 12 · Q6 p. 13 ·
+Q7 p. 14 · Q8 p. 17 · Q9 p. 18 · Q10 p. 25 · Q11 p. 26 · Q12 p. 25 · Q13 p. 31 · Q14 p. 36 ·
+Q15 OA p. 12 · Q16 OA p. 13. No quote was altered, truncated misleadingly, or attached to the wrong
+page.
+
+### Results (§3) — 19 checked, 18 OK, 1 MISCITED on page only.
+
+- **R1–R5 (theory) OK on anchors.** Proposition A1 + eq. (A2) on OA p. 2 under the heading "Appendix A.
+  First-stage equilibrium"; eq. (B6) OA pp. 2 and 5 (proof spans 3–5); Proposition 1 on printed p. 17;
+  price (B7) OA p. 6; conditions (B21) OA p. 11; Lemma A1 + (B22)–(B23) OA pp. 12–13; §**B2**, titled
+  "Parametric restrictions", with Figure A1 and the printed existence ranges, on OA p. 13. R5's
+  NUMERICAL label is right: the ranges follow a fixed parameterisation stated in the same paragraph.
+- **R6 OK exactly** (Table 3, p. 45): 0.93% / 0.80% / 0.12% / t = 4.17; 1.39% / 2.17% / −0.78% /
+  t = −22.49; net −0.90% / t = −20.13. Panel A average insider buy 0.80% confirms **R19**.
+- **R7 OK exactly** (Table 4, p. 46): 0.0006 [0.0005], 0.0002 [0.0005]; −0.0077\*\*\*, −0.0091\*\*\*
+  [0.0008]; −0.0083\*\*\*, −0.0093\*\*\* [0.0010]; N 31,899,356 / 31,363,930.
+- **R8 OK exactly** (Table 5, p. 47): 0.0062\*\*\* [0.0014] / 0.0069\*\*\* [0.0016]; 0.0004 / 0.0002 ns;
+  −0.0057\*\*\* / −0.0066\*\*\*; N 115,712 / 115,499 (col. 6 prints 115,459 — not a card error, the card
+  cites the buy columns).
+- **R9 OK exactly** (Table 6, p. 48): Panel A 0.0053\*\*\* / 0.0063\*\*\*; Panel B 0.0104\*\*\* / 0.0118\*\*\*,
+  N 19,121 / 18,849.
+- **R10 OK exactly** (Table 7, pp. 49–50): day 0 = 0.0068\*\*\* [0.0015], day +3 = 0.0018\*\* [0.0008],
+  every other lead/lag insignificant; Panel B day 0 = 0.0475\*\*\* [0.0128], **T+2 = 0.0023 [0.0087]**.
+- **R11 OK exactly** (Table 9, p. 52): drop-positive-SUE −0.0084\*\* [0.0038]; positive-SUE −0.0009
+  [0.0033] ns.
+- **R12 OK exactly** (Table 10, p. 53): 0.0176\*\*\* [0.0054]; 0.0097\*\* [0.0038]; 0.1723\*\* / 0.1822\*\*;
+  **Amihud illiquidity (lagged) −0.0013 [0.0054]**; N 2,823 / 2,449; R² 0.004–0.021 (the card's
+  "0.002–0.021" is the full column range including col. 2's 0.002 — correct).
+- **R13 OK** (Table C1, OA p. 17): 0.2438\*\*\* / 0.2090\*\*\* / 0.2368\*\*\*, SEs 0.0747 / 0.0715 / 0.0744.
+- **R14 OK** (Table C7, OA p. 23): 0.0068\*\*\* / 0.0075\*\*\*; Panel B −0.0003 ns. The card's parenthetical
+  "(incl. 10% blockholders)" is not in the table note but **is** supported by the body, printed p. 35:
+  other "legal insiders" are described as "outside investors holding over a 10% block".
+- **R15 OK** (Table C6, OA p. 22): low-likelihood 0.0116\*\* / 0.0132\*\*\*; high 0.0025 / 0.0024 ns.
+- **R16 OK** (Table C5, OA p. 21): 0.0040\*\* [0.0018] / 0.0037\* [0.0021]; net sell −0.0051 / −0.0042 ns.
+- **R17 MISCITED (page only).** The 14.2% / 11.2% proportions are on printed p. 30, but the clause the
+  ASSERTED label hangs on — "The difference is highly statistically significant." — sits on printed
+  **p. 31**; the sentence straddles the page break. **Fixed above: R17 now reads pp. 30–31.** The
+  substance is right: no SE and no t-statistic is printed anywhere near it.
+- **R18 OK** (printed p. 34): 177,520, 0.04%, and the phrase "not statistically different from a level
+  under the null", with no test statistic. ASSERTED label correct.
+- **R19 OK** (printed p. 9): "the probabilities that insider buys occur are 0.68 and 0.18 basis points
+  higher than the normal level", benchmark 0.80%.
+
+### Version-risk box — all four slips **CONFIRMED**, this is the card's best work.
+
+- (a) Printed p. 36 does say the return is "on average 0.97% lower"; Table 10 col. 2 prints **+0.0097\*\***
+  and the introduction (printed p. 6) says the return is higher when insiders "refrain more from
+  selling". The p. 36 sign is backwards. **OK.**
+- (b) Printed p. 9 prints "0.68 and 0.18 basis points"; Table 7 Panel A prints 0.0068 and 0.0018, i.e.
+  68 and 18 bp. **OK.**
+- (c) Printed p. 5: "13 (78) basis points higher (lower) … amounts to 15% (37%) of the normal pace";
+  printed p. 22: "13 basis points or by 17%" and "0.77 percentage points or by 36%"; Table 3 prints
+  0.12% and −0.78%. All three disagree as the card says. **OK** (note: "13 and 78 basis points" is the
+  card's paraphrase of the print's "13 (78) basis points", not a quotation).
+- (d) Printed p. 40 prints Back et al. (2018) as "1431-1643". **OK on the print.**
+
+### Institutional facts (§4) — 8 OK, 1 MISCITED.
+
+Confirmed on the source: ten-day rule fn. 8 p. 7 with `five business` = 0 in 79 pages; 60-day
+retrospective disclosure fn. 5 p. 5 **and** printed p. 20 ("all trades made by the filers during the
+60-day period prior to filing"); Form 4 within 48 hours fn. 6 p. 5 and "within two days" p. 28; T+3
+settlement fn. 6 p. 5 and pp. 27–28; 10b-5 plans and the cancellation safe harbour p. 8 with Rule
+10b5-1 named in fn. 18 p. 22; Bettis–Coles–Lemmon blackout proxy p. 22; vendor list with "activism
+unit" and "surveillance analysts" fn. 11 p. 10; sample 2,847 events / 115,841 event-days / 31,899,356
+firm-days; 64 events in 2004 to 185 in 2007, "an average of 124 events per year", p. 20; filers trade
+on 29.2% of window days, "26. 3% of the daily turnover during the 60-day window", rising "to 30.1%
+during the last ten days before filing" (the sentence completes on p. 21).
+
+- **MISCITED (page only):** the turnover bullet cites "(pp. 9, 20; Table 2, p. 44)" for
+  "daily turnover 0.63% overall vs 1.23% on filer-trade days". That prose sentence is on printed
+  **p. 8**; printed p. 9 carries the 13D-turnover pair (0.00% → 0.23%). Table 2, p. 44, prints both
+  correctly. **Fixed above.**
+
+### Version / venue (check 4) — **OK.**
+
+LSE cover (PDF p. 1): "Review of Finance, 30(3), 921 - 948. https://doi.org/10.1093/rof/rfaf065",
+"Version: Accepted Version", "Licence: Creative Commons: Attribution 4.0". Title page (PDF p. 2,
+unnumbered): "This Version: February 2025" and the acknowledgement footnote thanking "Marcin
+Kacperczyk (editor), an anonymous referee, and an Associate Editor". Every header claim holds.
+
+### UNCHECKED (named, not triaged away — neither is decision-critical)
+
+1. **The published-RoF text.** Only the LSE accepted manuscript is on disk. Whether the copy-editor
+   fixed the four slips in the version-risk box, and whether the published version added a footnote on
+   the Feb-2024 five-business-day amendment, **cannot be checked from this file**. The card already
+   says so; keep the warning in place until someone opens the RoF PDF.
+2. **Back et al. (2018) actual page range.** The card asserts the true range is 1431–1463 against the
+   paper's printed "1431-1643". The print is confirmed; the *correct* range is an external fact not
+   verified here.
+
+### Omissions (check 5) — none material found.
+
+The card already carries the four items a reader is most likely to drop: the p. 36 sign error, the
+Table 4 window-level null, the OA p. 11–12 admission that the fully revealing cells are an artefact of
+binary strategies (with the *unmodelled diversification motive* that breaks the insider's indifference
+— confirmed verbatim on OA p. 11: "her motivation to diversify her portfolio, which is not formally
+modeled in our set-up"), and the Table 10 Amihud null. Nothing bearing on liquidity × disclosure-rule ×
+control outcomes was found in the 79 pages that the card does not already record.
+
+**Overall verdict: the card SURVIVES.** Zero WRONG. The whitespace verdict in §6a is fully sourced and
+re-derived independently; all 16 quotes are verbatim and correctly paged; every printed coefficient,
+standard error and sample size in R6–R16 and R19 matches the source exactly; the four version-risk
+slips are real. Two page slips fixed (R17 → pp. 30–31; the turnover prose → p. 8). The §7 positioning
+consequences — retire as refuter, keep as adjacent competitor, and carry the four overlap risks —
+are supported by the source as written.

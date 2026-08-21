@@ -385,8 +385,12 @@ event study), 5.48% at FD+5 (so FD→FD+5 = +2.01, body says +1.9%), **6.06% at 
 peak 1.88% at FD+8, 1.68% at FD+18 (body: 1.7% total). **No confidence band is plotted in either
 panel, so R1 still has no standard error of any kind.**
 
-*Confirmed:* Q5's "the price run-up begins precisely on the trigger date" (p. 1310) is exactly right
-for 13Ds — the pre-TD path drifts *down*, and the first upward move is the segment TD−1 → TD.
+*Confirmed, with one correction by the verifier:* Q5's "the price run-up begins precisely on the
+trigger date" (p. 1310) reads fair on the figure for 13Ds — the path drifts *down* through TD−5 and the
+first **large** move is TD−1 → TD (≈ +0.95 pp in one day, the biggest anywhere before the filing). But
+it is **not** true that there is no upward movement before TD: the readings above (−0.51% at TD−5 →
+−0.22% at TD−1) are themselves a +0.29 pp rise over four days. Do not claim a flat-or-falling path
+right up to TD.
 
 **Fig. IA.2 (13D filer accumulation path).** Ownership (left axis): **3.02% at TD−20 → 4.58% at
 TD−1 → 5.97% at TD → 6.90% at FD**, confirming R15's 3.0 / 4.6 / 6.9 exactly. Daily volume traded by
@@ -422,3 +426,115 @@ appendix contains no liquidity, premium, control-outcome or rule-length content 
 weaknesses were found against the paper (a third "both groups" overclaim in IA.2, and the ROA/horizon
 slippage in fn. 11 vs IA.9), and one honest caveat against us (the negative `Illiquidity` level
 control) is now on the record in §7.2.
+
+---
+
+## 9c. Verification of §9b (independent verifier, opus, adversarial, 2026-08-21)
+
+Separate agent from the one who read the Internet Appendix; never saw that reader's reasoning. Source
+of record: `research/txt_extracts/zeng_2026_ras_internet_appendix.txt` (14 form-feed blocks, 13 with
+content), plus the 300-dpi renders of IA PDF pp. 1–2 read as images, plus
+`research/txt_extracts/zeng_2026_ras.txt` for the body gloss. All searches Unicode-normalised and
+whitespace-collapsed.
+
+**Counts on §9b: 41 OK · 0 WRONG · 1 MISCITED · 0 UNCHECKED.**
+
+**Structure claim — OK.** 14 IA PDF pages, 13 with content, and the item order is exactly as §9b
+states: Fig. IA.1 (p. 1) · Fig. IA.2 (p. 2) · IA.1 (p. 3) · IA.2 (p. 4) · IA.3 (p. 5) · IA.4 (p. 6) ·
+IA.5 (p. 7) · IA.6 (pp. 8–9) · IA.7 (p. 10) · IA.8 (p. 11) · IA.9 (pp. 12–13). Only p. 1 carries a
+printed folio ("1"); every other page ends in prose. The "cite by PDF page index" convention is
+therefore correct and necessary.
+
+### DECISION-CRITICAL — IA.2. **Every number confirmed. The verdict in §9b(b) stands unchanged.**
+
+Read straight off IA PDF p. 4:
+
+| | (1) Smaller, TD−20→FD−1 | (2) Larger, TD−20→FD−1 | (3) Smaller, TD−5→FD−1 | (4) Larger, TD−5→FD−1 |
+|---|---|---|---|---|
+| Pre-disclosure | 0.026 (1.27) | 0.032\*\* (2.46) | 0.066 (1.64) | 0.041\* (1.95) |
+| Illiquidity | −0.025\* (−1.75) | 0.076 (0.80) | −0.033\*\* (−2.22) | 0.055 (0.49) |
+| N | 241,360 | 241,264 | **221,590** | **221,811** |
+| R² | 0.021 | 0.036 | 0.022 | 0.037 |
+
+Column headers confirmed: the dependent variable is **Daily Net Insider Purchases** across all four;
+cols 1–2 are **TD-20 to FD-1**, cols 3–4 are **TD-5 to FD-1**; cols 1 and 3 are **Smaller firms**,
+cols 2 and 4 **Larger firms**. The Size and Daily Returns rows in §9b's reproduction also match
+(−0.171\*\*\* / −0.121\*\*\* / −0.185\*\*\* / −0.128\*\*\*; 0.386\*\*\* / −0.392 / 0.306\*\* / −0.358).
+
+**IA-Q1 … IA-Q5 all resolve to IA PDF p. 4 and to no other page** under normalised matching. **The
+whole table note was read: it contains no test of the difference between the two subsamples** — it
+ends "…and zero if it falls into the control period." The §9b(b) claim that "the difference is not
+statistically significant" is an assertion rather than a printed result is therefore **correct**.
+
+**The body gloss it is measured against — OK.** "While unexpected insider trading is slightly more
+pronounced in larger firms, the difference is not statistically significant, suggesting that
+managerial learning about blockholder trades occurs in both large and small firms (Internet Appendix
+Table IA.2)." matches verbatim, **exactly one hit, printed p. 1322** of the article.
+
+**Consequence for our position: unchanged and sound.** On (TD−5, FD−1) — the window whose length the
+Feb-2024 rule compresses — the smaller-firm point estimate (0.066) is 61% larger than the larger-firm
+one (0.041), on near-identical N. The κ opening is not pre-empted.
+
+### The rest of §9b(c) — every printed figure re-checked, all OK.
+
+- **IA.1 (p. 3).** All six purchase rows exact, control mean **0.059**: −0.016/−27.0/−1.637/0.102 ·
+  −0.009/−15.8/−1.158/0.247 · **0.040/67.8/2.884/0.004** · **0.091/154.5/6.657/0.000** ·
+  0.034/57.7/3.479/0.001 · −0.018/−30.5/−1.859/0.063. Sales panel, control mean **0.135**: the only two
+  significant windows are TD−20→TD−6 (−0.034, −25.4%, *t* = −2.967, *p* = 0.003) and FD→FD+10 (−0.029,
+  −21.3%, *t* = −2.136, *p* = 0.033); **TD→FD−1 is +0.023, *t* = 1.203, ns** — so §9b's "sales do NOT
+  fall inside the disclosure window" is right, and the net effect inside the window is
+  purchase-driven.
+- **IA.8 (p. 11).** Control mean 0.048; TD−5→TD−1 +0.030 (+63.6%, *t* = 6.015); **TD→FD−1 +0.132
+  (+274.9%, *t* = 25.711)**; sales inside the window +0.036 (+25.6%, *t* = 5.672); all four
+  outside-window rows insignificant (*t* = −1.455, 0.588, 0.399, 1.369). Exact.
+- **IA.3 (p. 5).** 0.036\*\* (2.10) / 0.029\* (1.80) / **0.039 (1.40) / 0.076\*\* (2.14)**; N 234,326 /
+  248,315 / 215,186 / 228,232. Exact, and the note prints **no difference test** — §9b's second
+  "missing test" catch holds.
+- **IA.4 (p. 6)** 0.031\*\*\* (2.60) / 0.055\*\* (2.45), N 482,641 / 443,418 — exact. **IA.5 (p. 7)**
+  0.030\*\* (2.42) / 0.048\*\* (2.12), N 286,426 / 247,203 — exact. **IA.6 (pp. 8–9)** 0.033\*\*\* (2.77) /
+  0.056\*\* (2.49), N 482,641 / 443,418, and the added macro controls are confirmed as GDP, CPI and
+  unemployment — exact. **IA.7 (p. 10)** 0.042\*\*\* (3.01) / 0.076\*\*\* (2.89), N 382,761 / 351,533, and
+  the note confirms the subsample is "2,150 13D filings, where the blockholders have no activism plans
+  and only mention investment purposes or intentions to communicate with management" — exact,
+  including the −0.046\*\*\* / −0.053\*\*\* `Illiquidity` loadings.
+- **IA.9 (pp. 12–13).** 13D ΔREV 0.007\*\* (2.53) / 0.010\*\*\* (3.23) / 0.011\*\*\* (3.57) / 0.006\*\*
+  (2.07), N 2,302 / 2,179 / 2,096 / 2,019. 13D ΔROA **0.004\*\* (2.01) / 0.000 (0.23) / 0.006\*\* (2.36)
+  / 0.001 (0.23)**, N 2,482 / 2,359 / 2,273 / 2,184. 13G ΔREV 0.004\*\* in all four quarters,
+  N 11,683 / 11,617 / 11,485 / 11,354; 13G ΔROA fades to 0.002 (1.33) at q+3. All exact. The table note
+  reads "…future operating performance **in quarter q when the 13D/13G is filed and the following three
+  quarters**", which confirms §9b's horizon catch: fn. 11's "over the 120 trading days following the
+  disclosure" does not describe this design.
+
+### §9b(d) grep counts — **all exact.**
+
+`premium` 0 · `takeover` 0 · `bidder` 0 · `spread` 0 · `order flow` 0 · `Amihud` 0 · `noise` 0 ·
+`2024` 0 · `business day` 0 · `5 business` 0 · standalone `liquidity` (net of `Illiquidity`) **0** ·
+`Illiquidity` **6**, one per page on IA pp. 4, 5, 6, 7, 8, 10 — i.e. exactly one control row in each of
+Tables IA.2–IA.7, as claimed.
+
+### §9b(e) the two figures — re-read off the renders. Values reproduce; **one description MISCITED.**
+
+- **Fig. IA.2 — every reading reproduces.** Ownership line: ≈3.0% at TD−20, ≈4.55% at TD−1, ≈5.95% at
+  TD, ≈6.9% at FD. Bars are on the **right** axis (0–1.6%) while the gridlines are the left axis
+  (0–8.0%): the TD bar tops at 6.7 left-axis units = **6.7/8.0 × 1.6 = 1.34%**, the TD−1 bar at 0.92
+  units = 0.184%, the TD−20…TD−10 bars at ≈0.26 units = ≈0.05%. So the "1.34% on the trigger day,
+  ≈7× the previous day and ≈27× the baseline" claim is arithmetically correct, and so is the decay
+  through the normalised window (0.42 / 0.26 / 0.21 / 0.17 / 0.075). The figure note confirms the
+  hand-collection from Item 5(c) and the 0%–100% normalisation of the TD→FD interval.
+- **Fig. IA.1 — levels reproduce** (13D: trough ≈−0.5% around TD−5/−4, ≈+0.7% at TD, ≈3.5% at FD,
+  ≈4.9% at FD+1, ≈6.05% at FD+20; 13G: ≈0.65% at TD, ≈1.6% at FD, peak ≈1.88% around FD+8, ≈1.7% at
+  FD+18). **No confidence band is plotted in either panel** — confirmed; R1 genuinely has no standard
+  error of any kind. The x-axis normalisation between TD and FD (20%/40%/60%/80% ticks) is as §9b
+  describes.
+- **MISCITED (fixed below).** §9b(e) closed with "the pre-TD path drifts *down*, and the first upward
+  move is the segment TD−1 → TD." Its own readings contradict that: −0.51% at TD−5 rising to −0.22% at
+  TD−1 is a +0.29 pp move over four days, and the render shows it. The accurate statement is that the
+  path drifts down **through TD−5**, edges modestly back up to TD−1, and the first *large* move — about
+  +0.95 pp in a single day, the biggest anywhere before the filing — is TD−1 → TD. Q5's "the price
+  run-up begins precisely on the trigger date" (p. 1310) still reads as fair on the figure; the card
+  should just not claim there is *no* upward movement before TD.
+
+**Overall: §9b SURVIVES intact.** Zero WRONG. Every printed coefficient, *t*-statistic, sample size and
+grep count in the Internet Appendix block matches the source exactly; the IA.2 verdict that the body's
+gloss is only half-supported and that no difference test is printed is correct; the fn. 11-vs-IA.9
+ROA/horizon catch is correct. One over-stated sentence about Fig. IA.1's pre-TD path corrected.

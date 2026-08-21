@@ -49,7 +49,7 @@ microfounded premium wedge comparable to D7.** This is a clean negative on all t
 | `appropriab` | **0** |
 | `lambda`, `λ` | **0** |
 | `wedge` | **0** |
-| `psi`, `ψ` | **0** (the only `psi` substrings are inside the surname "Lipsius" in a reference) |
+| `psi`, `ψ` | **0 as a symbol.** `ψ` = 0. The literal string `psi` returns **2** substring hits, both inside ordinary words — "Li**psi**us" (reference list, printed p. 38) and "u**psi**de" (IA A.1, printed p. 52) *(count corrected by verifier; the card said the only substring was "Lipsius")* |
 | `gamma`, `γ` | **0** |
 | `disclos` | 3 — two are the boilerplate "no conflicts of interest to be disclosed", one is footnote 13 (Q4 below) |
 | `13D`, `Schedule`, `window`, `filing`, `Williams Act` | **0** each |
@@ -248,7 +248,7 @@ whole-file, on the Dec-2025 text:
 | `13D`, `Schedule`, `window`, `filing`, `five business`, `Hart-Scott` | 0 | **0** | — |
 | `Williams` | 1 (inside "McWilliams") | **1** (inside "McWilliams", Denes–Karpoff–McWilliams reference, printed p. 38) | no Williams Act |
 | `liquid` | 2 lines | **3 lines** | footnote 13 "stock market liquidity" (p. 17); "liquidate or sell the company" inside the 1976 Icahn quote (p. 35); the Maug (1998) reference title (p. 40) |
-| `toehold` | 2 | **10** | pp. 21, 25, 53, 61, 64 — mostly the new IA A.5/A.8 arguments |
+| `toehold` | 2 | **10** | pp. 21 (×2), 25, 53, **56**, 61 (×2), **65** (×3) *(page list corrected by verifier; the card said "21, 25, 53, 61, 64" — the count 10 was right, the pages were not)* — mostly the new IA A.3/A.5/A.9 passages |
 | `5 percent` | 0 | **1** | Barclay & Holderness sample cut, printed p. 29 |
 
 **The margin is still unoccupied.** There is still no disclosure rule, no filing window, no Schedule
@@ -366,7 +366,7 @@ Checked by whitespace-normalised substring match against the Dec-2025 full text,
 | Q4 (Kyle/Kyle–Vila) | SURVIVES verbatim → **now Q5**, moved to IA A.3, p. 54 |
 | Q5 ("intentionally abstract … orthogonal") | SURVIVES verbatim → **now Q6**, moved to IA A.3, p. 55 |
 | Q6 "Strikingly, the control allocation is fully efficient…" | **BROKEN — deleted.** Replaced by the plainer "The control allocation in Proposition 1 is efficient: All firms are successfully restructured." (p. 15). The word "Strikingly" and the "for any initial stake size α > 0 however small" clause are gone |
-| Q7 "Our theory posits that a growing influx…" | SURVIVES verbatim, p. 29 (was p. 32) |
+| Q7 "Our theory posits that a growing influx…" | **BROKEN as a string — one word changed** *(corrected by verifier 2026-08-21; the card said "SURVIVES verbatim")*. The Dec-2025 print reads "…causes a shift from direct takeovers **towards** takeover activism" (printed p. 29); the 2024 card's string has "toward". Zero exact matches in the file. Substance and page are right — re-quote from the new text, do **not** paste the 2024 string |
 | Q8 "…warrant further scrutiny that is beyond the scope of this paper." | **BROKEN — deleted** with the whole cross-over collusion paragraph. Use Q9 instead |
 | Q9 "…considerably overstate the growth of the subset of funds…" | **BROKEN — deleted**, softened to "Not all of this growth maps directly into a growth of the 'control-oriented investors' in our model" (p. 30) |
 | Q10 Brav Table 1 campaign objectives | **BROKEN as a string** — the two categories were swapped in the sentence: now "'Governance' and 'Sale of target' … respectively, about 35.5% and 18.5% of activist campaigns" (p. 33). Same numbers, re-quote from the new text |
@@ -380,8 +380,13 @@ Checked by whitespace-normalised substring match against the Dec-2025 full text,
 | Q18 "…the market does not attain full efficiency in Case (b)." | **BROKEN as a string** — "Case" → "case". Re-quote as Q7 above, p. 23 |
 | Q19 "In the extant literature, this shift is commonly attributed to…" | **BROKEN — rewritten.** The revision's body says "In the extant literature this shift is usually attributed to the proliferation of takeover defenses and legal changes that facilitate shareholder activism. We contend that this does not provide a comprehensive explanation." (p. 5) — note "usually", the dropped "We agree that these changes impact the market for corporate control", and the different list. Re-quote from the new text; the concession is now weaker |
 
-**Score: 8 of 19 old quotes survive verbatim (5 of them relocated into the Internet Appendix), 11 are
-broken.** Of the broken ones, four (Q1, Q6, Q8, Q9) are outright deletions with no replacement sentence.
+**Score: 7 of 19 old quotes survive verbatim (4 of them relocated into the Internet Appendix), 12 are
+broken.** *(Corrected by verifier 2026-08-21: the card said 8 / 5 / 11. Q7 is a one-word change, not a
+survival — see its row.)* The seven survivors are **Q2** (p. 2), **Q4** (IA A.3, p. 54), **Q5** (IA A.3,
+p. 55), **Q11** (IA A.1, p. 51), **Q13** (p. 36), **Q14** (p. 7, fn. 6) and **Q16** (IA A.1, p. 52); the
+four in the Internet Appendix are Q4, Q5, Q11 and Q16. Of the broken ones, four (Q1, Q6, Q8, Q9) are
+outright deletions with no replacement sentence; the rest are rewordings, of which Q7's is the
+smallest and therefore the easiest to paste in by mistake.
 
 ## 9. Verification log
 
@@ -407,3 +412,128 @@ p. = PDF page − 3, confirmed by reading the printed folio at the foot of PDF p
 PDF and is carried over from the 2024 card's §9b fetch log; the document itself is dated November 22,
 2025 (title page) / December 2025 (ECGI cover), and the PDF was created 30 Dec 2025. Nothing in the
 card's substance depends on which of these dates is used.
+
+---
+
+### Independent verification (opus, adversarial, 2026-08-21 — ticket 04 batch)
+
+Separate agent; did not read the paper for content and never saw the reader's reasoning. Everything
+below was executed against `…/scratchpad/lit/blv_2025dec_ecgi.txt` (73 form-feed blocks), with the page
+map **re-derived, not assumed**: the printed folio was read off PDF pp. 53 (→ 50) and 69 (→ 66), giving
+**printed = PDF − 3**, and PDF p. 73 is an empty trailer. All searches Unicode-normalised and
+whitespace-collapsed. PDF metadata read directly: **72 pages, Creator/Producer "Adobe Acrobat (64-bit)
+25.1.20997", CreationDate 30 Dec 2025** — the header's production claims hold.
+
+**Counts: 61 OK · 1 WRONG · 3 MISCITED · 1 UNCHECKED.**
+
+#### DECISION-CRITICAL 1 — the D7-safety verdict (§0). **SURVIVES. Greps re-run from scratch.**
+
+| Term | Verifier's own count | Verdict |
+|---|---|---|
+| `appropriab` | **0** | OK |
+| `lambda` / `λ` | **0 / 0** | OK |
+| `wedge` | **0** | OK |
+| `ψ` | **0** | OK |
+| `gamma` / `γ` | **0 / 0** | OK |
+| `13D`, `Schedule`, `window`, `filing`, `five business`, `Hart-Scott` | **0 each** | OK |
+| `Williams` | **1**, inside "McWilliams", printed p. 38 (reference list) — no Williams Act | OK |
+| `disclos` | **3** — printed p. −1 (ECGI inner cover) and printed p. 1 (the paper's own title page), both the boilerplate "There are no conflicts of interest to be disclosed"; plus **one substantive**, footnote 13, printed p. 17 | OK on the count; see MISCITED 3 on where the two boilerplate hits sit |
+| `liquid` | **3 lines**, printed pp. 17, 35, 40 — exactly the three the card describes | OK |
+| `5 percent` | **1**, printed p. 29 | OK |
+| `prize`, `award`, `Intesa`, `Sanpaolo` | **0 each** | OK |
+| `psi` (literal string) | **2** — see MISCITED 1 | MISCITED |
+| `toehold` | **10**, but on different pages — see MISCITED 2 | MISCITED |
+
+**Test 2 (role) — every supporting anchor confirmed.** "any winning bid by B would result in an
+expected loss due to the winner's curse" is on printed **p. 51**, under the IA A.1 heading
+"Counter-bids" (both on that page). "α is sufficiently small so that the combined stake of multiple Ls
+never exceeds 1/2" is on printed **p. 17**. The bargaining protocol with the single weight `ρ` is on
+printed **p. 9** (`ρ` occurs 100 times across pp. 9–46; the ASCII string `rho` occurs 0 times, so the
+card's `rho` is a transliteration, not a quotation). Grossman–Perry credible beliefs (A2) confirmed on
+pp. 9, 10, 42. **Test 3** — the IA A.9 add-on synergy `θ_i ~ G[0,1]` is on printed pp. 65–66, eq. (17)
+and the `1/1.1` vs `1` example are on printed **p. 66**, and the "Bidder Heterogenity" typo returns
+**0** hits (fixed, as the card says); the A.9 heading now reads "Bidder Heterogeneity", printed p. 65.
+
+**Verdict: D7 is safe, exactly as §0 claims.** No `lambda`, no appropriability coefficient, no
+microfounded wedge; and no primitive plays `q`, `gamma` or `psi`.
+
+#### DECISION-CRITICAL 2 — is the 2024 card's Q1 really deleted? **YES. Confirmed, hard.**
+
+"Market liquidity plays no role in our analysis, whose distinct feature is that the large shareholder
+chooses which party ultimately acquires control and implements the restructuring." was searched
+whole-file, normalised, and then progressively shortened. **Not only the full sentence but the
+three-word fragment "plays no role" returns zero hits in all 73 page blocks.** The sentence does not
+exist in the Dec-2025 revision in any form. §7 item 3 ("if it goes into draft_v3 it is a false citation
+to a JF-forthcoming paper") is correct and should be treated as a hard rule.
+
+#### Quotes (§8) — **14/14 OK.**
+
+Each matched as a whole normalised sentence and returned exactly one page block, equal to the citation:
+Q1 p. 7 · Q2 p. 7 · Q3 p. 13 · Q4 p. 17 · Q5 p. 54 · Q6 p. 55 · Q7 p. 23 · Q8 p. 52 · Q9 p. 58 ·
+Q10 p. 63 · Q11 p. 36 · Q12 p. 29 · Q13 p. 63 · Q14 p. 1. Q4's "initial take" (not "initial stake") is
+genuinely the print. The IA-location flags on Q5, Q6, Q8, Q9, Q10 and Q13 are all correct.
+
+#### §8b survival audit — 18 of 19 rows correct, **1 WRONG.**
+
+Every 2024-card quote was normalised and searched across all 73 blocks. Seventeen rows reproduced the
+card's verdict exactly (Q1, Q3, Q6, Q8, Q9, Q10, Q12, Q15, Q17, Q18, Q19 absent everywhere; Q2 p. 2,
+Q4 p. 54, Q5 p. 55, Q11 p. 51, Q13 p. 36, Q14 p. 7, Q16 p. 52 present verbatim on the cited pages).
+
+- **WRONG — Q7.** The card said "SURVIVES verbatim, p. 29". It does not: the Dec-2025 print reads
+  "…causes a shift from direct takeovers **towards** takeover activism" (printed p. 29) against the
+  2024 card's "toward". Zero exact matches. **Fixed in §8b, and the score line corrected from
+  "8 survive / 5 in the IA / 11 broken" to "7 survive / 4 in the IA / 12 broken".** Substance
+  unaffected — the sentence is still there, on the page the card names.
+
+#### §2, §3, §4, §5, §6 anchors — all OK.
+
+- **Page-map table.** "Main Proofs" heading on printed p. 41; Internet Appendix heading on printed
+  p. 50; §5 "Disciplinary Ownership Changes: Empirical Patterns" on printed p. 29; last printed folio
+  66. Layout as the card states.
+- **§3 re-anchor table — every row confirmed.** Lemma 1 p. 11 (proof p. 41) · Prop 1 p. 13 (proof
+  pp. 41–44, i.e. from "Proof of Proposition 1" on p. 41 to "Proof of Proposition 2" on p. 44) ·
+  Corollary 1 p. 15 · Prop 2 p. 19 (proof pp. 44–45) · Prop 3 p. 21 (proof pp. 45–46) · Prop 4 p. 26
+  (proof p. 46) · Prop 5 p. 26 (proof pp. 46–47) · Prop 6 p. 28 (proof pp. 47–49) · Prop 7 p. 28
+  (proof p. 49) · Lemma 2 p. 66 · Fig. 4 example p. 14 (0.67, 0.6, 0.86, α = 25% all on that page) ·
+  eqs. (7)–(8) p. 24. **Enumeration confirmed: 7 propositions + 2 lemmas + 1 corollary**, and
+  **12 distinct figure numbers** (Figs. 1–12), with the three data figures captioned on pp. 31–33.
+- **§2 delta table.** "Discussion of Assumptions. Internet Appendix A.1 discusses…" p. 16; the IA A.3
+  pointer p. 25; IA A.3's own heading "Discussion of Market Modeling Assumptions" p. 54; `0.958851`
+  p. 19; IMAA named on p. 31 and World Bank on p. 32 (Figs. 10–11 sources); Renneboog cited pp. 32–33.
+- **§4 new institutional facts.** Sharara & Hoke-Witherspoon p. 30 · "reform of shareholder
+  communication laws in 1992" p. 63 · "106 block trades" and "5 percent" p. 29 · Fos 39% p. 33 and 29%
+  p. 34 · Greenwood–Schor 18.11% p. 35 · "about 35.5% and 18.5%" p. 33 (order swapped, as the card
+  says) · 175 funds p. 34 · "Not all of this growth maps directly…" p. 30.
+- **§5.** "Market Growth without Frictions" heading p. 60 · "a formal analysis of this is not feasible
+  in the market model" p. 21 · "cumbersome" p. 56.
+- **§6.** "The control allocation in Proposition 1 is efficient" p. 15 · "The equilibrium features a
+  simple cut-off structure" p. 3 · "this shift is usually attributed to the proliferation of takeover
+  defenses" p. 5 · "each consecutive block trade further truncates" p. 61 · the reworded "The fact that
+  L abstained…" sentence on printed **p. 27** (found; the card's exact-substring test would fail only
+  because the extractor floats the superscript ∗ — see MISCITED 3).
+
+#### MISCITED (3, all fixed above, none affecting substance)
+
+1. **§0 Test 1, `psi` row.** The literal string returns **2** hits, not 0-with-one-Lipsius: "Lipsius"
+   (p. 38) and "upside" (p. 52). `ψ` as a symbol is genuinely 0, so the D7 conclusion is untouched.
+2. **§6 term table, `toehold` pages.** Count 10 is right; the pages are 21 (×2), 25, 53, **56**,
+   61 (×2), **65** (×3) — the card listed "21, 25, 53, 61, 64", missing p. 56 and mis-numbering 65.
+3. **Two small placement/transcription slips, noted not fixed.** (i) §6 calls both boilerplate `disclos`
+   hits "front matter"; one of them is on the paper's own printed p. 1. (ii) The §6 rendering of the
+   p. 27 sentence prints the truncation set as "[0, V̄_1]" where the source carries an asterisk
+   (V̄₁\*, floated onto the previous line by the extractor). Re-quote from the PDF, not from the card,
+   if that sentence goes into draft_v3.
+
+#### UNCHECKED (named, not decision-critical)
+
+- **"ECGI's working-paper page gives 'last revised 29 December 2025'."** External to the PDF; not
+  verifiable from any file on disk. Everything internal to the document — title page "November 22,
+  2025", ECGI cover "December 2025", PDF creation 30 Dec 2025, SSRN id 4709037, WP N° 956/2024 — is
+  confirmed. The card's own open flag already says nothing depends on it.
+
+**Overall verdict: the card SURVIVES, and its two decision-critical calls are both correct.** D7 is
+safe on a re-run of every term test, and the deletion of the 2024 card's headline whitespace quote is
+confirmed to the point where even a three-word fragment of it is absent. One WRONG (§8b Q7, with the
+score line corrected), three MISCITED, one external UNCHECKED. The positioning advice in §7 — swap Q1
+for Q5/Q6, position the wedge against footnote 11, pair Q4 with Q5/Q6 — is supported by the source as
+written.

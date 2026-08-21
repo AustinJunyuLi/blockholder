@@ -164,3 +164,12 @@ cadence the tickets ask for.
   statement + h.11 definitional + h.12). Re-derivers forbidden from proofs/
   and threads/. T1 proof-reader (batch 2) still out; builder still out;
   card-verifier still out. Live agents: 8.
+- **Ticket 04 COMPLETE.** Batched card verifier (fresh opus): CFJ 58 OK /
+  0 WRONG / 2 MISCITED; BLV 61/1/3; Zeng 41/0/1. All three decision-critical
+  verdicts SURVIVE (whitespace holds — re-derived page map, re-ran greps;
+  D7 safe + Q1 deletion confirmed at zero hits even for the fragment; IA.2
+  numbers exact with no difference-test in the table note). The 1 WRONG (BLV
+  Q7 "toward"→"towards", survivor count 8→7) and 6 MISCITED fixed in place.
+  UNCHECKED (2, named, non-critical): published RoF text vs LSE AAM;
+  ECGI site revision date (PDF metadata corroborates). All four ticket-04
+  checkboxes now satisfied.
