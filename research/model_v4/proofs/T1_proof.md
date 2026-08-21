@@ -1,8 +1,10 @@
 # T1 — Partition attenuation theorem (fixed policies)
 
 **Ticket 26 (T2f). Written against `research/model_v4/MODEL_CARD.md`, version stamp
-2026-08-20 · commit `0c9185b`.** Card §4 notation is binding; the answer template is card §8
-rule 6. Upstream results are cited by their card-ledger IDs (D1, L1, L2, L3, L4) and, where the
+2026-08-21 · commit `a175202`+** (re-stamped in the 2026-08-21 retry round; the four citations
+that read A7's injective satisfiability as open are re-pointed to §5's ticket-24 note, which
+records it as **resolved**, and the §4.2 A7′ row is now cited where it bites). Card §4 notation is
+binding; the answer template is card §8 rule 6. Upstream results are cited by their card-ledger IDs (D1, L1, L2, L3, L4) and, where the
 L3 and L4 writers amended their statements on landing, by the amended statement as quoted in
 HYPOTHESES below.
 
@@ -28,7 +30,8 @@ W_\tau=\frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)},\quad
 C_\tau=\frac{\mathcal S_P(\kappa,\tau',T)}{\mathcal S_P(\kappa,\tau,T)} ,
 $$
 because **both** ratios lie in $[0,1]$: $W_\tau\le 1$ by L4's first leg, $C_\tau\le 1$ by L4's
-third leg **under A($\tau$) and A(br)**. No dominance condition is needed at this margin.
+third leg **under A($\tau$) and A(br)** — A(br) as the L4 writer stated it, plus the comparability
+clause (br-v) that this file adds as H17. No dominance condition is needed at this margin.
 
 **(C) Window margin — an iff, and no sign.** For $T'<T$ at a common threshold $\tau$, with
 $W_T=\bigl(1-\Omega(\tau,T')\bigr)/\bigl(1-\Omega(\tau,T)\bigr)$ and
@@ -56,14 +59,14 @@ in this file.**
 
 Every hypothesis below is used; the step that consumes it is named in brackets.
 
-**H1 — Card and stamp.** MODEL_CARD.md, stamp 2026-08-20 · `0c9185b`. All symbols carry their
+**H1 — Card and stamp.** MODEL_CARD.md, stamp 2026-08-21 · `a175202`+. All symbols carry their
 card §4 meanings: $\kappa$ is noise-trading intensity; $\Omega=\Pr(D=1)$ is the unconditional
 flagged weight (draft_v2's $\omega_P$), distinct from $\omega_a=\Pr(D=1\mid a=1)$; upright $T$
 is the filing window and $\mathcal T$ is the outer best-response map; $\Delta_m>0$.
 [all steps]
 
 **H2 — A8, interior crossing, at every policy compared.** $0<\Omega(\kappa,\tau,T)<1$ at
-$(\tau,T)$, at $(\tau',T)$ and at $(\tau,T')$. [Steps 1, 6, 9, 18, 20]
+$(\tau,T)$, at $(\tau',T)$ and at $(\tau,T')$. [Steps 1, 6, 9, 10, 12, 13, 15, 16, 18, 20, 21]
 
 **H3 — L1 (card ledger, verbatim).** *"Whenever $0<\Omega<1$,
 $\Delta^{\mathrm{act}}=\Omega M_F+(1-\Omega)M_P$; at $\Omega=1$ it degenerates to
@@ -75,7 +78,13 @@ A5, **A7 in its injective form**, the no-feedback timing of §2, and $\Omega>0$:
 $(B^F,Q^F,a{=}1)$ makes the pre-filing pooled history conditionally independent of $(v,s,\xi)$
 on the flagged set, so the flagged posterior, price, entry probability and $M_F$ are invariant
 to $\kappa$."* L2's own hypotheses travel with it and are maintained here, in particular A7 in
-its injective form, whose satisfiability the card records as open (§5, turn-2 note). [Steps 3, 7]
+its injective form and the no-feedback timing (carried here as H16). The card's **ticket-24 note
+(§5, 2026-08-21)** records A7-injective's satisfiability as **resolved**: A7′ (card §4.2) with a
+fixed cutoff policy and $\Omega>0$ delivers the **on-path** injective form with an explicit
+inverse, and a satisfying menu exists — the pro-rata single-Voice menu (adversarial verdict
+SURVIVES WITH REPAIRS). What is *not* resolved, and what Step 3 therefore still rides on, is
+whether the menu this model runs on satisfies A7′; the card names the failure boundary and
+WHERE IT FAILS 6 carries it. [Steps 3, 7]
 
 **H5 — Fixed policies.** The plan menu $\mathcal J$, the execution policies
 $B_j(\cdot,\cdot),\,b_j^*(\cdot),\,Q_j^F(\cdot)$ and the cutoff vector $k$ are frozen: frozen in
@@ -83,9 +92,14 @@ $\kappa$, and frozen across the two rules compared at each margin. Nothing in th
 $k$ to solve $k=\mathcal T(k;\vartheta)$ afresh at the second rule. [Steps 3, 4, 9, 16, 18]
 
 **H6 — PE-$\Omega$: the flagged weight does not move with liquidity.**
-$\partial_\kappa\Omega(\kappa,\tau,T)=0$ at every policy compared. This is a **hypothesis of the
+$\Omega(\cdot,\tau,T)$ is **constant in $\kappa$** at every policy compared — the same number at
+every $\kappa$ in the maintained set, not merely a map with a vanishing derivative at the $\kappa$
+of interest. The derivative form $\partial_\kappa\Omega(\kappa,\tau,T)=0$ is its corollary and is
+what Steps 2 and 4 use; the **constancy** is what Step 7 uses, since a vanishing derivative at one
+point would not give "$\Omega$ common to two grid nodes". Step 5 derives constancy outright, so
+nothing is lost by stating the hypothesis in the stronger form. This is a **hypothesis of the
 partial-equilibrium comparison**, not a property of the disclosure rule; Step 5 records why it
-is available under H5 and why it fails in general equilibrium. [Steps 4, 5, 7]
+is available under H5 and why it fails in general equilibrium. [Steps 2, 4, 5, 7]
 
 **H7 — $\kappa$-differentiability of the pooled cell premium.** $\kappa\mapsto M_P(\kappa,\tau,T)$
 is differentiable at the $\kappa$ of interest, at every policy compared. Used only for the
@@ -93,7 +107,7 @@ derivative statements; Step 7's total-variation statement does not use it. [Step
 
 **H8 — Non-degenerate pooled sensitivity.** $\mathcal S_P>0$ at every policy that appears in a
 denominator: at $(\tau,T)$ for Part B and at $(\tau,T)$ and $(\tau,T')$ for Part C, and on the
-whole interpolating interval for Steps 20–22. [Steps 6, 9, 18, 20]
+whole interpolating interval for Steps 20–22. [Steps 6, 9, 15, 18, 20, 21]
 
 **H9 — D1 (card ledger, verbatim).** *"$D=\mathbf 1\{a=1,\ c(\tau)+T\le H\}$ is **measurable**
 and maps every control-node history into exactly one cell; for every Voice plan
@@ -141,20 +155,84 @@ here that passes through H11 or H12, i.e. by the whole of Part B. [Steps 8, 11]
 > at $\tau$ and $\tau'$.
 
 A(br) is quantified **over the threshold pair only**. Step 17 records that this is not a
-drafting accident and that no window counterpart is assumed. [Steps 8, 11, 17]
+drafting accident and that no window counterpart is assumed. The four clauses above are L4's;
+Step 11 item 3 needs a fifth that L4 does not carry, and it is stated separately as H17 rather
+than smuggled into this quotation. [Steps 8, 11, 15, 17]
 
 **H14 — L4 (as landed by the L4 writer; amended).** At fixed policies, for $b_0<\tau'<\tau$:
 *leg 1*, lower $\tau$ weakly raises $\Omega$, and *leg 2*, lower $\tau$ weakly lowers $\bar\pi$
 in the pooled class, are **proved outright** (given D1's clock equivalence and $b_0<\tau'<\tau$);
-*leg 3*, lower $\tau$ weakly lowers $\mathcal S_P$, holds **only under A(br)**. [Steps 10, 11]
+*leg 3*, lower $\tau$ weakly lowers $\mathcal S_P$, holds **only under A(br)**, and holds **with
+equality whenever $C_h(\bar\pi(\tau))=0$** — the L4 writer's own qualifier, carried here because
+$C_h=0$ is inside A($\tau$)'s maintained weak orientation and card §5's A($\tau$) row requires it
+to be handled explicitly (WHERE IT FAILS case 4). [Steps 10, 11, 15]
 
 **H15 — Smooth window interpolation** (Part C's local form only). There is an open interval
 $I\subset\mathbb R$ of window values containing $[T',T]$ and continuously differentiable
 extensions $r\mapsto\Omega(r)$ and $r\mapsto\partial_\kappa M_P(r)$ on $\{-t:t\in I\}$, agreeing
 with the card's integer-valued objects at $r=-T$ and $r=-T'$, with $\Omega(r)\in(0,1)$ and
-$\mathcal S_P(r)>0$ throughout. Card §4.5 sanctions $r_T=-T$ as the window strictness
-coordinate; because the card's $T$ ranges over $\{1,\dots,H\}$, the interpolation is an added
-hypothesis and is carried as one. [Steps 20, 21, 22]
+$\mathcal S_P(r)>0$ throughout, **and with $r\mapsto\Omega(r)$ weakly increasing on that set**.
+Card §4.5 sanctions $r_T=-T$ as the window strictness coordinate; because the card's $T$ ranges
+over $\{1,\dots,H\}$, the interpolation is an added hypothesis and is carried as one. The
+monotonicity clause is part of the hypothesis and is **not** a consequence of Step 16: Step 16
+compares two **integer** windows, so an extension agreeing with the card's objects at $r=-T$ and
+$r=-T'$ is otherwise free to dip in between. Requiring it costs nothing — the endpoints already
+satisfy it, by Step 16 — and Step 20 therefore cites H15, not Step 16, for $\Omega_{r_T}\ge0$.
+[Steps 20, 21, 22]
+
+**H16 — No-feedback timing (card §2, bullet 2), carried as a numbered hypothesis.** There is no
+within-window re-optimisation, hence no feedback from realised order flow or realised prices into
+the executed path: $B_j(s,d)$ and $q_{jd}(s)$ are functions of $(j,s,d)$ alone and $Q_j^F$ of
+$(j,s,\tau,T)$ alone. The card states this in terms and instructs that it be cited as a numbered
+hypothesis rather than as background. It also travels inside H4's quoted L2 statement, but Step 5
+uses it **independently of L2** — Step 5 derives H6, it does not invoke L2 — which is why it is
+numbered here. [Steps 3, 5]
+
+**H17 — (br-v) Comparability of the chord functional across the threshold pair. T1-LOCAL: an
+addition beyond L4's A(br).** For the compared thresholds $\tau'<\tau$ at fixed policies, the
+chord functional $C_h(\cdot)$ — equivalently the univariate section of the kernel $h$ in its
+posterior argument — is **the same function at $\tau$ and at $\tau'$**, so that
+$\lvert C_h(\bar\pi(\tau'))\rvert$ and $\lvert C_h(\bar\pi(\tau))\rvert$ are two values of one
+functional rather than values of two different functionals.
+
+This clause is **not carried by A(br) as the L4 writer stated it**, and this file does not claim
+that it is: (br-i) fixes the representation, the chord endpoints and the weight-derivative
+coefficients at the two policies; (br-ii) freezes the support points and the kernel **along
+$\kappa$**, not along $\tau$; (br-iii) compares the coefficients; and (br-iv) says "the same
+function at $\tau$ and $\tau'$" of the **endpoint map** only, with no counterpart for $h$. Step 11
+item 3 nonetheless evaluates one chord functional at two policies, so the premise is used and is
+stated here. It is uncomfortable rather than innocuous, and Step 17 says why: at fixed policies a
+change in $\tau$ moves which histories are pooled, which moves the pooled price $P$, which enters
+$h$ through the entry probability $p$. It is proposed as a fifth clause of A(br) for the card
+owner; until A(br) carries it, the threshold leg rests on A($\tau$), A(br) **and** (br-v).
+[Steps 11, 15]
+
+**H18 — Threshold-side smoothness** (Part B's local form only; the analogue of H15 at the other
+margin). There is an open interval $I_\tau\subset(b_0,\infty)$ of threshold values containing the
+compared pair $\tau'<\tau$ such that, at the common window $T$ and the frozen policies of H5:
+
+1. the maps $t\mapsto\Omega(t,T)$ and $t\mapsto\partial_\kappa M_P(\kappa,t,T)$ are continuously
+   differentiable on $I_\tau$, equivalently $r_\tau\mapsto\Omega$ and
+   $r_\tau\mapsto\partial_\kappa M_P$ are continuously differentiable on $\{-t:t\in I_\tau\}$;
+2. $\Omega(t,T)\in(0,1)$ and $\mathcal S_P(\kappa,t,T)>0$ at every $t\in I_\tau$ (H2 and H8
+   extended from the two compared policies to the interval); and
+3. H13's A(br) together with H17's (br-v) holds for **every** pair $t'<t$ in $I_\tau$, not only
+   for the named pair $\tau'<\tau$.
+
+This is an **added hypothesis and is carried as one**, for a sharper reason than H15's. Card §4.1
+places no discreteness on $\tau$, so the *domain* is already continuous — what is missing is
+smoothness of the maps on it, and the card positively permits its failure. Card §4.2 requires only
+**weak** $\partial_sB_j\ge0$ for Voice plans, and the 2026-08-21 A7′ row constrains only the
+composed **terminal** target $s\mapsto b^*_{j(s)}(s)$, not the interior date $B_j(s,H-T)$. A flat
+stretch of $s\mapsto B_j(s,H-T)$ inside the Voice region therefore puts an **atom** in the law of
+the date-$(H-T)$ stake, at which $t\mapsto\Omega(t,T)$ jumps and $\Omega_{r_\tau}$ does not exist.
+Clause 1 assumes that away on $I_\tau$; an atomless law of $B_{j(s)}(s,H-T)$ over that range, with
+a $C^1$ distribution function there, is sufficient for the $\Omega$ half. Clause 3 is what lets
+H14's endpoint legs be read along the interval rather than only at its ends.
+
+H18 is consumed by **Step 15 alone**. No boxed conclusion of this file rests on it: Part B's
+conclusion is Step 13, which is finite-difference throughout, and Parts A and C never mention
+$r_\tau$. If H18 fails, Step 15 is void and nothing else moves. [Step 15]
 
 ---
 
@@ -169,22 +247,34 @@ $$
 +\bigl(1-\Omega(\kappa,\tau,T)\bigr)M_P(\kappa,\tau,T).
 $$
 
-**Step 2 (differentiate in $\kappa$).** $\Omega$ is bounded and $M_F,M_P$ are bounded by A2
-(card §5), and $M_P$ is differentiable in $\kappa$ by H7; differentiating the right-hand side of
-Step 1 by the product rule gives
+**Step 2 (differentiate in $\kappa$).** Two of the three factors on the right of Step 1 do not
+move with $\kappa$ at all: $M_F$ is constant in $\kappa$ by H4 (L2) at fixed policies (H5), and
+$\Omega$ is constant in $\kappa$ by H6. Both constancies are established at Steps 3 and 5, neither
+of which uses this step, so nothing here is circular. With those two factors constant,
+$\kappa\mapsto\Delta^{\mathrm{act}}$ is an **affine image** of $\kappa\mapsto M_P$, which H7 makes
+differentiable; hence $\partial_\kappa\Delta^{\mathrm{act}}$ exists and equals
+$(1-\Omega)\,\partial_\kappa M_P$. Note which hypothesis does which job: boundedness (A2, card §5)
+is not what licenses the differentiation and is not cited for it — boundedness is not
+differentiability.
+
+The same computation, written as one term per factor that can carry $\kappa$, reads
 $$
 \partial_\kappa\Delta^{\mathrm{act}}
 =\Omega\,\partial_\kappa M_F+(1-\Omega)\,\partial_\kappa M_P
-+(\partial_\kappa\Omega)\,(M_F-M_P).
++(\partial_\kappa\Omega)\,(M_F-M_P),
 $$
-Three terms, one per factor that can carry $\kappa$: the flagged cell's own motion, the pooled
-cell's own motion, and the reallocation of mass between cells.
+the three terms being the flagged cell's own motion, the pooled cell's own motion, and the
+reallocation of mass between cells. This display is bookkeeping: Steps 3 and 4 record which
+constancy kills which term, and it is worth seeing them killed one at a time. The derivative
+statement in the previous paragraph is what Part A actually uses.
 
 **Step 3 (the first term is zero).** By H4 (L2), at fixed policies (H5) $M_F$ is invariant to
 $\kappa$, so $\partial_\kappa M_F=0$ and the first term of Step 2 vanishes. This is the step at
 which L2's own hypothesis stack — A1, A4, A5, A7 in its injective form, the no-feedback timing
-of card §2, and $\Omega>0$ (supplied by H2) — is consumed. If A7's injective form is
-unsatisfiable on the plan menu, this step is void and so is everything after it.
+of card §2 (H16), and $\Omega>0$ (supplied by H2) — is consumed. If the plan menu violates A7′
+(card §4.2), so that A7's injective form is unavailable on it, this step is void and so is
+everything after it; the card's ticket-24 note settles that such menus are not the only ones —
+a satisfying menu exists — but not that this model's menu is one (WHERE IT FAILS 6).
 
 **Step 4 (the third term is zero).** By H6, $\partial_\kappa\Omega=0$ at fixed policies (H5), so
 the third term of Step 2 vanishes. Note what is being discarded: $(M_F-M_P)$ is not assumed
@@ -193,10 +283,17 @@ premia are close.
 
 **Step 5 (why H6 is a hypothesis, and what it costs).** Under H5 and H9's clock equivalence,
 $D=\mathbf 1\{a_{j(s)}=1,\ B_{j(s)}(s,H-T)\ge\tau\}$, where $j(s)$ is the plan the frozen cutoff
-vector assigns to the signal $s$. The no-feedback timing of card §2 makes $B_j(s,d)$ a function
-of $(j,s,d)$ alone — no realised order flow and no realised price enters it — so $D$ is a
-function of $s$ alone once the policies are frozen, and by A1 the law of $s$ carries no $\kappa$.
-Hence $\partial_\kappa\Omega=0$. The derivation consumes H5 in full: it is the **freezing of the
+vector assigns to the signal $s$. **H16** (the no-feedback timing of card §2, numbered because
+this step uses it independently of L2 — it is deriving H6, not invoking L2) makes $B_j(s,d)$ a
+function of $(j,s,d)$ alone — no realised order flow and no realised price enters it — so $D$ is
+a function of $s$ alone once the policies are frozen. The law of $s$ carries no $\kappa$ for two
+cited reasons together: **A1** (card §5) gives $v$ and $\varepsilon$ independent with strictly
+positive variances, and **card §4.1's distributional rows** give $s=v+\varepsilon\sim
+N(\mu_v,\sigma_v^2+\sigma_\varepsilon^2)$ with no $\kappa$ in either row — $\kappa$ appears in
+exactly one row of the card, the $z_d$ noise-mark law of §4.2, which enters observed order flow
+$X_d$ and nothing that $D$ depends on. Hence $\Omega=\Pr(D=1)$ is literally the same number at
+every $\kappa$: **constant**, which is H6 in the form Step 7 needs, with
+$\partial_\kappa\Omega=0$ as its corollary. The derivation consumes H5 in full: it is the **freezing of the
 cutoff vector**, not any property of the disclosure rule, that removes $\kappa$ from $\Omega$.
 In equilibrium $k$ solves $k=\mathcal T(k;\vartheta)$ and moves with $\kappa$, $\Omega$ moves
 with it, and the discarded term $(\partial_\kappa\Omega)(M_F-M_P)$ reappears at full size. That
@@ -220,8 +317,10 @@ $\mathcal S_P$ inherits the differentiability of $\partial_\kappa M_P$ in any po
 
 **Step 7 (aggregation invariance — the factorisation survives the measurement convention).**
 Fix any grid $\kappa_0<\kappa_1<\dots<\kappa_n$ inside the maintained parameter set, with H2
-holding at each node. By Step 1 at $\kappa_i$ and $\kappa_{i+1}$, H4 ($M_F$ common to both) and
-H6 ($\Omega$ common to both),
+holding at each node. By Step 1 at $\kappa_i$ and $\kappa_{i+1}$, H4 ($M_F$ common to both nodes)
+and H6 **in its constancy form** ($\Omega$ common to both nodes — a vanishing derivative at one
+$\kappa$ would not deliver this, which is why H6 is stated as constancy and the derivative form is
+its corollary; Step 5 derives the constancy outright),
 $$
 \Delta^{\mathrm{act}}(\kappa_{i+1})-\Delta^{\mathrm{act}}(\kappa_i)
 =(1-\Omega)\bigl[M_P(\kappa_{i+1})-M_P(\kappa_i)\bigr].
@@ -300,7 +399,13 @@ inch of the argument — it is cited, not re-derived:
    moves a **share**, the chord moves an **upper support point**, and (br-iv) is precisely the
    assumed link between the two. Without it, leg 2 says nothing about $\bar\pi$;
 3. a weakly lower $\bar\pi$ gives a weakly smaller $\lvert C_h(\bar\pi)\rvert$ — H11's
-   maintained monotonicity of $\lvert C_h\rvert$ in $\bar\pi$;
+   maintained monotonicity of $\lvert C_h\rvert$ in $\bar\pi$, **together with H17's clause
+   (br-v)**. Both are needed and they do different jobs: H11's monotonicity is a property of
+   $C_h(\cdot)$ *at a policy*, so it orders two values of **one** functional, while the comparison
+   here reads that functional at $\tau$ and at $\tau'$. (br-v) is what makes them one functional.
+   It is **this file's addition**, not something L4's A(br) carries — (br-i) fixes the endpoints
+   and the coefficients, (br-ii) freezes the support points and the kernel along $\kappa$ only,
+   and (br-iv)'s "same function at $\tau$ and $\tau'$" is about the endpoint map, not about $h$;
 4. $\lvert A'_\kappa(\tau')\rvert\le\lvert A'_\kappa(\tau)\rvert$ — H13 clause (br-iii);
 5. multiplying the two nonnegative factors of Step 8's product form, using items 3 and 4,
    $\mathcal S_P(\kappa,\tau',T)\le\mathcal S_P(\kappa,\tau,T)$, which is leg 3.
@@ -308,9 +413,9 @@ inch of the argument — it is cited, not re-derived:
 Items 3–5 are unavailable without H11's representation holding at **both** policies, which is
 H13 clause (br-i). Item 5 is unavailable without (br-ii), because a
 composition-through-$\kappa$ remainder in $\partial_\kappa M_P$ would break Step 8's product
-form. The theorem's threshold leg therefore rests on all four clauses of A(br) plus A($\tau$),
-and A($\tau$)'s applicability to the two-round pooled cell is **open** (H12). This is why the
-label below stays CONJECTURE even for Part B.
+form. The theorem's threshold leg therefore rests on all four clauses of A(br), **on (br-v)
+(H17), which A(br) does not supply**, and on A($\tau$), whose applicability to the two-round
+pooled cell is **open** (H12). This is why the label below stays CONJECTURE even for Part B.
 
 **Step 12 (both ratios are nonnegative).** $W_\tau\ge 0$ because $1-\Omega>0$ at both policies
 (H2). $C_\tau\ge 0$ because $\mathcal S_P$ is an absolute value (card §4.4) and its denominator
@@ -337,21 +442,46 @@ $\tau'\le B_j(s,H-T)<\tau$ — then $\Omega$, $\bar\pi_{\mathrm{pr}}$, $\bar\pi$
 $\mathcal S_P$ are all unchanged, both ratios equal one, and Step 13 delivers equality. No
 strict attenuation is claimed from a null reclassification.
 
-**Step 15 (local threshold form, for symmetry with Part C).** Treat $\tau$ as continuous (card
-§4.1 places no discreteness on it) and write $r_\tau=-\tau$ (card §4.5), so higher $r_\tau$ is
-tighter. Differentiating Step 6 in $r_\tau$, with $\mathcal S_P$ differentiable in $r_\tau$ (the
-differentiability of $\lvert\cdot\rvert$ at a nonzero argument, Step 6's second consequence,
-plus H8):
+**Step 15 (local threshold form, under H18, for symmetry with Part C).** **This step is
+conditional on H18 and on nothing else new; it is consumed by no later step.** Card §4.1 places
+no discreteness on $\tau$, so the domain is continuous, but a continuous domain is not a smooth
+map: H18 is what supplies the derivatives, and H18 is an added hypothesis exactly as H15 is at the
+window margin. Without it the display below need not exist — a flat stretch of
+$s\mapsto B_j(s,H-T)$ inside the Voice region puts an atom in the law of the date-$(H-T)$ stake,
+at which $t\mapsto\Omega(t,T)$ jumps, and H14 leg 1 gives only a **weak inequality between two
+thresholds**, which is monotonicity and not differentiability. The same gap sits on the other
+factor: Step 6's second consequence transfers differentiability of $\partial_\kappa M_P$ to
+$\mathcal S_P$, it does not create it, and H7 supplies differentiability in $\kappa$ only.
+
+Adopt H18 and write $r_\tau=-t$ for $t\in I_\tau$ (card §4.5), so higher $r_\tau$ is tighter. By
+H18 clause 1 both $r_\tau\mapsto\Omega$ and $r_\tau\mapsto\partial_\kappa M_P$ are $C^1$ on
+$\{-t:t\in I_\tau\}$; by H18 clause 2, $\mathcal S_P>0$ there, so $\lvert\cdot\rvert$ is
+differentiable at $\partial_\kappa M_P\ne0$ and $\mathcal S_P$ is $C^1$ in $r_\tau$ (Step 6's
+second consequence, whose antecedent H18 clause 1 now supplies). Differentiating Step 6:
 $$
 \partial_{r_\tau}\mathcal S=-\Omega_{r_\tau}\mathcal S_P+(1-\Omega)\,\partial_{r_\tau}\mathcal S_P .
 $$
-H14 leg 1 gives $\Omega_{r_\tau}\ge 0$, so the first term is $\le 0$ (using $\mathcal S_P>0$,
-H8); H14 leg 3 under H13 gives $\partial_{r_\tau}\mathcal S_P\le 0$, so the second term is $\le 0$
-(using $1-\Omega>0$, H2). A sum of two nonpositive terms is nonpositive:
-$\partial_{r_\tau}\mathcal S\le 0$. The local threshold criterion
+Now the two signs. Each comes from an endpoint leg of H14 read along the whole interval rather
+than at its ends, which is what H18 clause 3 is for. H14 leg 1 holds for **every** pair $t'<t$ in
+$I_\tau$ — it needs only H9's clock equivalence
+and $b_0<t'<t$, both available throughout $I_\tau\subset(b_0,\infty)$ — so $t\mapsto\Omega(t,T)$
+is weakly decreasing on $I_\tau$, hence $r_\tau\mapsto\Omega$ is weakly increasing, and its
+derivative, which exists by H18 clause 1, satisfies $\Omega_{r_\tau}\ge0$. **H14 leg 1 alone does
+not give this; H14 leg 1 plus H18's differentiability does.** Likewise H14 leg 3, which H18 clause
+3 makes available at every pair in $I_\tau$ (under H13 and H17), makes $\mathcal S_P$ weakly
+decreasing in $r_\tau$ there, so $\partial_{r_\tau}\mathcal S_P\le0$. The first term is then $\le0$
+(using $\mathcal S_P>0$, H8 extended by H18 clause 2) and the second is $\le0$ (using
+$1-\Omega>0$, H2 extended by H18 clause 2). A sum of two nonpositive terms is nonpositive:
+$\partial_{r_\tau}\mathcal S\le 0$ on $I_\tau$. The local threshold criterion
 $\partial_{r_\tau}\mathcal S_P/\mathcal S_P\le\Omega_{r_\tau}/(1-\Omega)$ is satisfied with the
 left side nonpositive and the right side nonnegative — it holds with slack on both sides of zero,
 which is the same statement as Step 13's "no dominance condition needed".
+
+**Scope, stated so it cannot be misread.** What this step adds to Part B is a *reading*, not a
+result. Part B's conclusion is the boxed weak inequality of Step 13, which is finite-difference
+throughout and cites neither H18 nor any derivative in $r_\tau$; the global legs of Part B —
+Steps 9–14 — are untouched by H18 and stand or fall without it. If H18 fails at some threshold in
+the compared range, this step is void there and Step 13 is unaffected.
 
 ### Part C — the window margin
 
@@ -449,8 +579,14 @@ second consequence). Differentiating Step 6's factorisation in $r$,
 $$
 \partial_{r_T}\mathcal S=-\Omega_{r_T}\,\mathcal S_P+(1-\Omega)\,\partial_{r_T}\mathcal S_P .
 $$
-By Step 16, $\Omega_{r_T}\ge 0$, so the first term is the attenuating weight effect and the
-second is the unsigned composition effect. Dividing by the strictly positive number
+By **H15's monotonicity clause**, $\Omega_{r_T}\ge 0$, so the first term is the attenuating weight
+effect and the second is the unsigned composition effect. The citation is H15 and **not** Step 16:
+Step 16 compares two **integer** windows and delivers $\Omega(\tau,T')\ge\Omega(\tau,T)$ at the
+endpoints, and nothing outside H15 forbids an extension that dips in between. Note what does and
+does not depend on this. The boxed equivalence below is pure algebra — dividing by the strictly
+positive $\mathcal S$ — and holds whether or not the interpolant is monotone; only the *reading*
+of the first term as attenuating, and Block 5's predicted sign for $\Omega_{r_T}$, use the sign.
+Dividing by the strictly positive number
 $\mathcal S=(1-\Omega)\mathcal S_P$ (H2, H8, Step 6),
 $$
 \frac{\partial_{r_T}\mathcal S}{\mathcal S}
@@ -608,13 +744,42 @@ two thresholds; L4 leg 2 moves a share, the chord moves an upper support point, 
 connects them. In each case Part B's $C_\tau\le 1$ is lost while Step 9's identity survives, so
 the threshold conclusion degrades from "attenuation" to the same kind of iff Part C states.
 
-**4. $\mathcal S_P=0$ at a compared policy.** H8 fails. Two distinct breakages: the ratios $C_\tau$
-and $C_T$ are $0/0$ or have a zero denominator, and $\mathcal S_P=\lvert\partial_\kappa M_P\rvert$
-is not differentiable in $r_T$ at that point, so Step 20's derivative form does not exist. Step
-18's iff can be salvaged as "$\mathcal S(\tau,T')\le\mathcal S(\tau,T)$" read directly off Step 6,
-but the product criterion is uninformative there. Step 8 says this is the $\bar\pi\downarrow 0$
-regime, where $\mathcal S_P=O(\bar\pi^2)$ — the small-$\bar\pi$ corner is exactly where the ratio
-form loses resolution.
+**4. $\mathcal S_P=0$ at a compared policy — three routes, not one.** H8 fails. Two breakages
+follow in every route: the ratios $C_\tau$ and $C_T$ are $0/0$ or have a zero denominator, and
+$\mathcal S_P=\lvert\partial_\kappa M_P\rvert$ is not differentiable in $r_T$ (or, with H18, in
+$r_\tau$) at that point, so Steps 15 and 20's derivative forms do not exist. Step 18's iff can be
+salvaged as "$\mathcal S(\tau,T')\le\mathcal S(\tau,T)$" read directly off Step 6, but the product
+criterion is uninformative there. Step 8's product form
+$\mathcal S_P=\Delta_m\lvert A'_\kappa\rvert\lvert C_h(\bar\pi)\rvert$ vanishes exactly when one
+of its factors does, and there are three ways for that to happen — the file's earlier draft named
+only the first.
+
+*(a) $\bar\pi\downarrow 0$.* $\mathcal S_P=O(\bar\pi^2)$ by Step 8, so the small-$\bar\pi$ corner
+is where the ratio form loses resolution first. This is the graceful case: everything degrades
+continuously.
+
+*(b) $A'_\kappa=0$ at $\bar\pi$ bounded away from zero.* The pooled weights are $\kappa$-insensitive
+even though the chord is non-degenerate: the pooled cell has no liquidity response at all, so
+$\mathcal S_P=0$ and, by Step 6, $\mathcal S=0$ at that policy. Card §4.4 asks only that
+$A'_\kappa$ be bounded on $[0,1]$; nothing signs it away from zero. Every ratio statement at that
+policy is undefined while Step 6's identity survives, and the theorem is true but empty there.
+
+*(c) $C_h(\bar\pi)=0$ with $\bar\pi>0$ — the case card §5 demands be handled explicitly.* The
+kernel is affine across the three support points $\{0,\bar\pi/2,\bar\pi\}$, so the chord vanishes
+without its endpoint vanishing. This is **inside** A($\tau$), not outside it: A($\tau$)'s
+maintained orientation is the weak $C_h\le0$, and draft_v2's (C\*) is the strict version, so a
+maintained-hypothesis-satisfying model can sit here. Three consequences, and they are worth
+separating. First, by H11's monotonicity of $\lvert C_h\rvert$ in $\bar\pi$ and H14 leg 2's
+$\bar\pi(\tau')\le\bar\pi(\tau)$, $C_h(\bar\pi(\tau))=0$ forces
+$\lvert C_h(\bar\pi(\tau'))\rvert\le 0$, hence $C_h(\bar\pi(\tau'))=0$ as well: the degeneracy at
+the looser threshold propagates to the tighter one, and $\mathcal S_P$ vanishes at **both**
+compared policies. Second, H14 leg 3 then holds **with equality** — the qualifier H14 now carries
+— and Step 13's inequality reads $0\le0$: true, weakly, and with no content. Third, the ratio form
+that delivers it is unavailable ($C_\tau$ is $0/0$), so at such a policy Part B's conclusion must
+be read off Step 6 directly — $\mathcal S=(1-\Omega)\cdot0=0$ at both thresholds — rather than
+through $W_\tau C_\tau$. The honest statement is that the threshold theorem survives the
+$C_h=0$ case only as an empty statement and says nothing there; a numerical run that reports
+$C_\tau=\text{NaN}$ at some $\tau$ is showing this case, not a bug.
 
 **5. $\Omega$ moves with $\kappa$ — the general-equilibrium failure.** H6 fails whenever the
 cutoff vector is allowed to re-solve $k=\mathcal T(k;\vartheta)$ at each $\kappa$. Then Step 4's
@@ -623,11 +788,17 @@ false, and every ratio statement in Parts B and C loses its base. Nothing in thi
 that failure except Step 1. This is not a remote case: it is the ordinary equilibrium behaviour
 of the model, and bounding the returned term is precisely C1's job.
 
-**6. L2's A7-injective form is unsatisfiable on the plan menu.** The card records (§5, turn-2
-note) that L2's proof needs A7's injective form and that whether it is satisfiable is open. If it
-is not, $M_F$ retains direct $\kappa$-dependence, Step 3 fails, and
+**6. The plan menu violates A7′, so L2's injective form is unavailable on it.** The card's
+**ticket-24 note (§5, 2026-08-21)** settles *satisfiability*, which the earlier draft of this file
+recorded as open: A7′ (card §4.2) with a fixed cutoff policy and $\Omega>0$ delivers the on-path
+injective form with an explicit inverse, and the pro-rata single-Voice menu is a satisfying menu.
+The live case is therefore narrower and is a property of the **menu**, not of the hypothesis. The
+card names the boundary: a binding stake cap, quantized stakes, a composed terminal target that
+repeats values across a Voice-plan switch, $\Omega=0$, and a condition stated at one equilibrium's
+cutoffs rather than for every $k\in\Theta$ (A7′ is quantified over the whole polytope). On any menu
+at that boundary $M_F$ retains direct $\kappa$-dependence, Step 3 fails, and
 $\partial_\kappa\Delta^{\mathrm{act}}$ carries an $\Omega\,\partial_\kappa M_F$ term that neither
-margin's ratio form accommodates.
+margin's ratio form accommodates. This file verifies no clause of A7′ on the two-round menu.
 
 **7. A cell empties.** H2 fails at $\Omega=1$ or $\Omega=0$. L1 then degenerates
 ($\Delta^{\mathrm{act}}=M_F$ or $=M_P$) with the null cell's conditional average undefined rather
@@ -652,10 +823,15 @@ which is sufficient:
 2. **Upstream labels.** T1 consumes D1, L1, L2, L3 and L4, all of which are themselves
    CONJECTURE in the card ledger. A result cannot be labelled above its inputs.
 3. **Open hypotheses.** Part B rests on A($\tau$), whose applicability to the two-round pooled
-   cell L3 declares OPEN (H12), and on A(br), which is an assumption the L4 writer introduced
-   rather than a proved property. Part A rests on L2's A7-injective form, whose satisfiability the
-   card records as open. Even a passed re-derivation would deliver "PROVED under A($\tau$) and
-   A(br) at fixed policies", with the hypotheses named in the statement.
+   cell L3 declares OPEN (H12), on A(br), which is an assumption the L4 writer introduced rather
+   than a proved property, and on the further clause (br-v) that this file adds (H17) and that
+   A(br) does not carry. Part A rests on L2's A7-injective form; the card's ticket-24 note now
+   records its **satisfiability as resolved** (a satisfying menu exists), so that is no longer a
+   reason the label stays put — what is left is whether the two-round model's own menu satisfies
+   A7′, which this file does not check (WHERE IT FAILS 6). Step 15's local threshold form rests in
+   addition on H18, an added smoothness hypothesis consumed by no other step. Even a passed
+   re-derivation would deliver "PROVED under A($\tau$) and A(br)+(br-v) at fixed policies", with
+   the hypotheses named in the statement.
 
 What this file does claim to have settled, subject to re-derivation: Part A's factorisation and
 its aggregation-invariant form (Step 7) use only L1, L2 and PE-$\Omega$; Step 16's
@@ -724,7 +900,10 @@ and $0.286$. The script must print the count of nodes with $W_TC_T>1$ explicitly
 compute $\Omega_{r_T}$ and $\partial_{r_T}\mathcal S_P$ by central differences and report
 $\rho=\partial_{r_T}\mathcal S_P/\mathcal S_P-\Omega_{r_T}/(1-\Omega)$ and
 $\partial_{r_T}\mathcal S/\mathcal S$ at every node.
-*Predicted sign:* the two agree in sign at every node, and $\Omega_{r_T}\ge 0$ everywhere.
+*Predicted sign:* the two agree in sign at every node, and $\Omega_{r_T}\ge 0$ everywhere **under
+H15's monotonicity clause** — a node with $\Omega_{r_T}<0$ falsifies that clause of H15 (or the
+interpolation scheme the implementation chose), not the boxed iff of Step 20, which does not use
+the sign. Report such nodes rather than clipping them.
 *Predicted magnitude:* $\lvert\partial_{r_T}\mathcal S/\mathcal S-\rho\rvert$ below $10^{-8}$
 (central-difference tolerance); and, as the check of (21a), the trapezoidal integral of $\rho$
 over $r\in[-10,-5]$ equals $\log(W_TC_T)$ from Block 4 to within $10^{-6}$. Report the count of
@@ -757,6 +936,9 @@ Symbols used here that are not in card §4, each defined at first use above:
 | $\Pi_\kappa$ | the pooled engagement posterior as a random variable, so that A($\tau$)'s representation reads $\mathbb E[h(\Pi_\kappa)]$ | the turn-1 answer's symbol (§3, A($\tau$)); card §5 writes the same object as $\mathbb E[h]$. Used here only in the ruling on $\bar\pi$ |
 | $g$, $\zeta$ | $g$ is the univariate section of the kernel $h$ in its posterior argument; $\zeta\in(0,\bar\pi)$ is the mean-value point in $C_h(\bar\pi)=\tfrac14\bar\pi^2 g''(\zeta)$ | the L3 writer's symbols in the amended (as-landed) L3 statement, quoted here unchanged. $g$ is not otherwise used in this file |
 | A(br), (br-i)–(br-iv) | the chord–sensitivity bridge hypothesis and its four clauses | hypothesis label introduced by the L4 writer, quoted verbatim in H13. Proposed for card §5 alongside A($\tau$) |
+| (br-v) | comparability of the chord functional across the threshold pair: $C_h(\cdot)$ and the univariate section of the kernel $h$ are the same functions of the posterior at $\tau$ and at $\tau'$ | **this file's addition (H17), not carried by L4's A(br)**. Needed by Step 11 item 3, which reads one chord functional at two policies. Proposed as a fifth clause of A(br); until the card carries it, Part B's hypothesis list is "A($\tau$) and A(br)+(br-v)" |
+| $\Omega^\*$, $k_D^\*$ | the flagged weight at which the static O-1 experiment's sensitivity ratio crosses one ($\approx0.343$ in that run), and the cutoff at which the bisection located it ($1.28618$) | O-1-record notation (`HANDOFF_sign.md` §3), used in WHERE IT FAILS 1, Block 6 and NOT CLAIMED 10. $k_D$ enters card §4.5 only as a draft_v2 alias inside the $k$ row; neither starred object is a card symbol and neither is a prediction of this theorem |
+| $I$, $I_\tau$ | the open **window** interval of H15 and the open **threshold** interval of H18, the sets on which the two smoothness hypotheses are posed | proof-local (H15, H18; Steps 15, 20–22). Both are sets of policy values; the strictness coordinates on them, $r_T=-T$ and $r_\tau=-\tau$, are card §4.5 |
 | $\mathcal S^{\mathrm{TV}}$, $\mathcal S_P^{\mathrm{TV}}$ | total variation of $\Delta^{\mathrm{act}}$ and of $M_P$ over a stated $\kappa$-grid | proof-local (Step 7); introduced because the committed O-1 record measures sensitivity this way |
 | $r_0=-T$, $r_1=-T'$, $\rho(r)$ | the two window-strictness coordinates of a finite tightening, and the log-derivative gap $\rho=\partial_r\mathcal S_P/\mathcal S_P-\Omega_r/(1-\Omega)$ | proof-local (Steps 20–21). $r_T$ itself is card §4.5 |
 | $W_{O1}$, $C_{O1}$ | weight and composition ratios for the **rule-on/rule-off** margin of the static O-1 experiment: $W_{O1}=1-\Omega$, $C_{O1}=\mathcal S_P^{\mathrm{TV}}(\Omega)/\mathcal S_P^{\mathrm{TV}}(0)$ | proof-local, used only in WHERE IT FAILS case 1c and Block 6. Subscripted to respect the card §4.4 rule that the weight-effect and composition-effect letters never appear without a margin subscript. **They are not $W_T,C_T$**: the static model has no window primitive |
@@ -769,13 +951,26 @@ $\omega_a$; and the reserved bare letters — D7's appropriability coefficient, 
 the weight-effect and composition-effect letters without a margin subscript, L2's proof-local
 utility letters, and the filing-tuple letter — appear nowhere in this file.
 
-**One statement-level flag for the card owner.** The ledger's T1 row writes the two window
-criteria as "$W_T C_T\le 1$, equivalently $\partial_{r_T}\mathcal S_P/\mathcal S_P\le\Omega_{r_T}/(1-\Omega)$".
-Step 21 proves that "equivalently" is exact in the infinitesimal reading (21d) and exact as
-"product = exponentiated integral of the local gap" (21a), but that the finite product criterion
-does **not** imply the local inequality at every window value (21c). If the row is kept as-is, it
-should be read in the infinitesimal sense. This is a wording repair, not a label move, and the
-ledger is untouched.
+**One statement-level flag for the card owner: the ledger's "equivalently" needs a quantifier, not
+a demotion.** The ledger's T1 row writes the two window criteria as "$W_T C_T\le 1$, equivalently
+$\partial_{r_T}\mathcal S_P/\mathcal S_P\le\Omega_{r_T}/(1-\Omega)$". Read **pointwise at every
+$r$**, the second criterion is strictly stronger than the first: it implies the product form
+(21b) but is not implied by it (21c, whose counterexample shape is a live configuration inside
+H15's own freedom). Read as an **average along the tightening path**, the two are *exactly*
+equivalent at finite scale, and that is (21a):
+$$
+W_TC_T\le1
+\quad\Longleftrightarrow\quad
+\int_{-T}^{-T'}\Bigl[\frac{\partial_r\mathcal S_P}{\mathcal S_P}-\frac{\Omega_r}{1-\Omega}\Bigr]dr\;\le\;0 .
+$$
+The row is therefore **ambiguous, not wrong**, and the repair is to supply the missing quantifier
+rather than to demote the row to an infinitesimal statement — which would discard the better
+reading and the exact finite-scale equivalence with it. Proposed wording, in card §5's A($\tau$)
+house style: *"… $W_TC_T\le1$, equivalently $\int\rho\le0$ **on average along the tightening
+path**, where $\rho=\partial_{r_T}\mathcal S_P/\mathcal S_P-\Omega_{r_T}/(1-\Omega)$; pointwise
+$\rho\le0$ is the local (marginal) form and is **sufficient, not necessary**."* The infinitesimal
+reading (21d) remains exact as a limit statement and is a third, weaker thing again. This is a
+wording repair, not a label move, and the ledger is untouched by this file.
 
 ---
 
@@ -790,10 +985,14 @@ ledger is untouched.
    term.
 3. **No claim that A($\tau$) holds for the two-round pooled cell.** H12 carries L3's OPEN
    declaration unchanged. Part B is conditional on it.
-4. **No claim that A(br) is satisfiable**, or that any of its four clauses can be verified on the
-   two-round plan menu. It is assumed where used and named where it binds.
-5. **No claim that A7's injective form is satisfiable.** L2 is cited with its own hypothesis stack
-   intact, including the open satisfiability question the card records.
+4. **No claim that A(br) is satisfiable**, or that any of its four clauses — or the fifth, (br-v),
+   that this file adds as H17 — can be verified on the two-round plan menu. They are assumed where
+   used and named where they bind, and (br-v) is flagged as T1's own addition rather than
+   attributed to L4.
+5. **No claim about A7′ on this model's menu.** The card's ticket-24 note establishes that the
+   injective form is **satisfiable** — a satisfying menu exists — and this file does not dispute
+   that; what it does not claim is that the two-round model's plan menu is such a menu. No clause
+   of A7′ is verified here. L2 is cited with its own hypothesis stack intact.
 6. **No strict attenuation at the threshold margin.** Step 13 gives a weak inequality; Step 14
    gives equality when the threshold move reclassifies no mass.
 7. **No claim that the O-1 numbers are computations of $W_TC_T$ in the two-round model.** They
@@ -810,3 +1009,41 @@ ledger is untouched.
     for $\omega_a$ exists in the repo.
 11. **No uniqueness, no welfare, no optimal rule.** Card §9's boundaries are respected in full.
 12. **No label move.** T1 stays CONJECTURE and the ledger is not edited.
+13. **No unconditional local threshold form.** Step 15's $\partial_{r_\tau}\mathcal S\le0$ is
+    claimed **only under H18**, the added threshold-side smoothness hypothesis. It is not claimed
+    that $\tau\mapsto\Omega(\tau,T)$ is differentiable — the card's weak $\partial_sB_j\ge0$
+    permits an atom in the stake law at $H-T$ at which it jumps — and no other step, and no boxed
+    conclusion, uses Step 15.
+
+---
+
+## Retry fixes applied (2026-08-21, batch-2 audit)
+
+Round: the one-retry rule on ticket 27's batch-2 proof-read
+(`threads/2026-08-21_batch2_T1_proofread_audit.md`, verdict FAIL at Step 15). Applied by a fresh
+writer who wrote neither the file nor the audit. **No boxed claim's substance changed**: the
+factorisation (Step 6), the threshold attenuation inequality (Step 13), the window iff (Step 18),
+the local iff (Step 20) and "no unconditional window sign" (Step 22) stand verbatim. Every change
+below either adds a named hypothesis, fixes a citation, or widens a failure case.
+
+| Finding | Change |
+|---|---|
+| **T1-F1** (FAIL, Step 15) | Added **H18**, threshold-side smoothness on an open interval $I_\tau$: $C^1$ maps $t\mapsto\Omega(t,T)$ and $t\mapsto\partial_\kappa M_P(\kappa,t,T)$, with $\Omega\in(0,1)$ and $\mathcal S_P>0$ there, and A(br)+(br-v) at every pair in $I_\tau$. Step 15 rewritten to cite it, to say that H14 leg 1 **plus** differentiability (not leg 1 alone) gives $\Omega_{r_\tau}\ge0$, and to state its scope: conditional on H18, consumed by no later step, Steps 9–14 and the boxed Step 13 untouched. |
+| **T1-R1** (Step 2) | Differentiation now licensed by H4 and H6 (two factors constant in $\kappa$, so $\Delta^{\mathrm{act}}$ is an affine image of $M_P$) with H7 on $M_P$; boundedness (A2) explicitly demoted — it is not differentiability. Three-term display kept as bookkeeping. Non-circularity of the forward citations recorded. |
+| **T1-R2** (Step 5) | Added **H16**, the no-feedback timing of card §2, as a numbered hypothesis (the card instructs this), cited at Steps 3 and 5. The $\kappa$-freedom of the law of $s$ now cites A1 **and** card §4.1's distributional rows plus the fact that $\kappa$ enters only the $z_d$ row. |
+| **T1-R3** (H6, Step 7) | H6 restated as **constancy** of $\Omega$ in $\kappa$, with the derivative form as its corollary; Step 7 now cites the constancy form, which is what "common to both nodes" needs. |
+| **T1-R4** (Step 11 item 3) | Added **H17**, clause **(br-v)**: $C_h(\cdot)$ and the kernel $h$ are the same functions of the posterior at $\tau$ and $\tau'$. Labelled T1-LOCAL and marked as **this file's addition beyond L4's A(br)**, not attributed to L4. Cited at Step 11 item 3; the clause tally, the CLAIM, LABEL CLAIMED, NOT CLAIMED 4 and NOTATION DELTA all updated. |
+| **T1-R5** (Step 20) | Monotonicity of $r\mapsto\Omega(r)$ moved into **H15** (free at the endpoints, and the interpolant is otherwise unconstrained between integer windows); Step 20 now cites H15, not Step 16, for $\Omega_{r_T}\ge0$, and records that the boxed iff is pure algebra and unaffected either way. Block 5's predicted sign re-pointed to H15. |
+| **T1-R6** (WHERE IT FAILS 4) | Case 4 split into three routes: $\bar\pi\downarrow0$, $A'_\kappa=0$, and $C_h(\bar\pi)=0$ at $\bar\pi>0$. The last is handled explicitly as card §5 demands, including that H11's monotonicity forces the degeneracy to propagate to the tighter threshold, that H14 leg 3 then holds with equality, and that Step 13 must be read off Step 6 rather than through $W_\tau C_\tau$. L4's equality qualifier carried into **H14**. |
+| **T1-R7** (stale card) | Re-stamped to **2026-08-21 · `a175202`+** in the header and H1; the four citations reading A7-injective satisfiability as *open* (H4, WHERE IT FAILS 6, LABEL CLAIMED 3, NOT CLAIMED 5) re-pointed to §5's ticket-24 note (**resolved**), with the live risk narrowed to whether this model's menu satisfies **A7′** (card §4.2), whose failure boundary is now named. |
+| **T1-R8** (NOTATION DELTA) | Added rows for $\Omega^\*$/$k_D^\*$ and for $I$/$I_\tau$; added a row for (br-v). |
+| **T1-R9** (the ledger's "equivalently") | The card-owner flag rewritten to propose the **quantifier fix** — "equivalently, on average along the tightening path", with pointwise $\rho\le0$ named as sufficient but not necessary — instead of demoting the row to the infinitesimal reading. The exact finite-scale equivalence of Step 21a is displayed. |
+| Housekeeping | Bracketed step-lists on H2, H6, H8, H13, H14 corrected (T1-O7); NOT CLAIMED 13 added for Step 15's conditionality. |
+
+**Not applied, and why.** The audit's seven OBSERVATIONS (T1-O1 … T1-O7) are outside this round's
+mandate, which was T1-F1 plus R1–R9. Three of them are card-owner-facing rather than file-facing
+(**T1-O6**, the ledger's threshold row must read "under A($\tau$) and A(br)" — now also "+(br-v)";
+**T1-O3b**, the $\bar\pi_{\mathrm{pr}}\le1/2$ restriction L4 inherits under the level-symmetric
+reading; **T1-O2**, L4's ambiguous leg numbering in the source). **T1-O1** (Step 8 sits under the
+Part A heading but is consumed only in Part B) and **T1-O4**/**T1-O5** (two clarifying sentences)
+are left for the re-derivation round. **No label moves: T1 remains CONJECTURE.**
