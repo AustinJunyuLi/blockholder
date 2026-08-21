@@ -173,3 +173,16 @@ cadence the tickets ask for.
   UNCHECKED (2, named, non-critical): published RoF text vs LSE AAM;
   ECGI site revision date (PDF metadata corroborates). All four ticket-04
   checkboxes now satisfied.
+- **L3 re-derivation (statements-only, fresh opus): PROVED-WITH-CHANGES —
+  counts as PASS after reconciliation.** All three parts derive independently;
+  regularity sharpened (Darboux, weaker than C²); constant ¼ confirmed;
+  π^{3/2} sign-violation example found independently (converges with the
+  writer's). Seven changes, all hypothesis-explicitness: CH1 = π̄ ruling
+  (already adjudicated); CH2 NEW — π̄ must be explicitly κ-free (conclusion
+  FALSE otherwise; a first-order term appears); CH3 = kernel-through-posterior
+  (already adjudicated); CH4/5 minimal regularity (improvement); CH6 A′_κ
+  uniformity along π̄↓0 (the L3→L4 seam); CH7 if-not-iff (matches writer).
+  Bonus supporting the π̄ ruling: under A(τ) the pooled share E[Π_κ] is
+  exactly κ-invariant (mean-preserving spread). Card regeneration will fold
+  CH1–CH3, CH6 into A(τ)/§4.4. Writer and re-deriver agree on substance —
+  no adjudication conflict; L3 two-pass evidence COMPLETE pending ledger.
