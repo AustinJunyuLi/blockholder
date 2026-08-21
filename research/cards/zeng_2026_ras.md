@@ -3,7 +3,7 @@
 **Venue / status:** *Review of Accounting Studies* (2026) 31:1301–1341, https://doi.org/10.1007/s11142-026-09958-z. Received 24 Apr 2023, accepted 31 Mar 2026, published online 8 May 2026. Sole author, National University of Singapore. Based on the author's May 2020 Berkeley (Haas) dissertation; earlier title "Do Managers Exploit Private Information about Their Firm's Investor Base?" (p. 1339).
 **Full text from:** `research/txt_extracts/zeng_2026_ras.txt` (extracted from `research/txt_extracts/zeng_2026_ras.pdf`) · **Reader:** opus · **Read:** full text, pp. 1301–1341 (41 printed pages; PDF page *i* = printed page 1300+*i*).
 **Page numbering:** printed journal pages of the published RAS version (1301–1341), as they appear in the running heads.
-**Not in the file:** the Internet Appendix. The article cites Tables IA.1–IA.9 and Figures IA.1–IA.2 twelve times but the supplementary file is a separate download and is **not** bundled in this PDF. Every IA number reported below is quoted from the body text, not read off an IA table.
+**Internet Appendix — READ 2026-08-21.** `research/txt_extracts/zeng_2026_ras_internet_appendix.pdf` / `.txt` (Springer supplementary file linked from the article landing page; 13 pp of content + 1 blank, Tables IA.1–IA.9 and Figures IA.1–IA.2, all of them). **Page numbering for IA items: PDF page index of the supplementary file** — only its p. 1 carries a printed number, so every other page is cited as "IA PDF p. *n*". Everything the IA settles is in **§9b**; the body-text-only caveats below have been updated accordingly.
 **Type:** empirical (event-window / pooled event-day OLS) **Role for us:** antecedent + measurement (institutional plumbing of the trigger-date → filing-date window); **not** a competitor.
 
 ## 1. Question
@@ -28,8 +28,8 @@ Do corporate insiders find out that a blockholder is accumulating their stock *b
 
 | # | Result (one line) | Label | Where (page / table) |
 |---|---|---|---|
-| R1 | 13D disclosure moves price: +2.8% run-up TD→FD, +1.9% on FD and the next five days, **+6.1% total by FD+20**; 13G: +0.9%, +0.4%, **+1.7%**; no reversal over six months | ESTIMATED — point estimates verified against body print, but **no SE/t is printed anywhere**; the plot is IA Fig. IA.1, not in file. *(verifier: the intro, p. 1303, instead states "6%" for 13Ds and 1.7% for 13Gs over a (t−10, t+10) window — a different window from the 6.1% figure, so quote the window whenever you use the number.)* | p. 1309–1310 |
-| R2 | Insiders buy 0.040 bp/day more over (TD−5, TD−1) = +67.8%, and 0.091 bp/day more over (TD, FD−1) = +154.5% vs control; sales fall 0.034 bp/day (−25.4%) over (TD−20, TD−6) | ESTIMATED for the magnitudes (all six numbers verified against body print, p. 1319–1320); **UNCHECKED for significance** — the SEs live in IA Table IA.1, not in file | p. 1319–1320 |
+| R1 | 13D disclosure moves price: +2.8% run-up TD→FD, +1.9% on FD and the next five days, **+6.1% total by FD+20**; 13G: +0.9%, +0.4%, **+1.7%**; no reversal over six months | ESTIMATED — **all four headline numbers now reproduced off Fig. IA.1 itself** (§9b): 13D TD = 0.73%, FD = 3.47% (diff 2.74), day +20 = 6.06%; 13G TD = 0.63%, FD = 1.61% (diff 0.98), day +18 = 1.68%. **Still no SE/t anywhere and no confidence band on the figure.** *(verifier: the intro, p. 1303, instead states "6%" for 13Ds and 1.7% for 13Gs over a (t−10, t+10) window — a different window from the 6.1% figure, so quote the window whenever you use the number.)* | p. 1309–1310; Fig. IA.1, IA PDF p. 1 |
+| R2 | Insiders buy 0.040 bp/day more over (TD−5, TD−1) = +67.8%, and 0.091 bp/day more over (TD, FD−1) = +154.5% vs control; sales fall 0.034 bp/day (−25.4%) over (TD−20, TD−6) | ESTIMATED — **significance now checked in IA Table IA.1**: t = 2.884 (p = 0.004), t = 6.657 (p = 0.000), t = −2.967 (p = 0.003). Control means 0.059 bp (purchases) / 0.135 bp (sales) confirmed. Nothing before TD−5 is significant (§9b) | p. 1319–1320; Table IA.1, IA PDF p. 3 |
 | R3 | Cumulative insider purchases by FD are 45% above control; cumulative sales 8% below | ESTIMATED — figure readings described in body text; no SE | p. 1319 (Figs. 2–3, printed in the article) |
 | R4 | Pre-disclosure dummy: purchases +0.017 (t=1.93, *), sales −0.016 (t=−1.66, *), net +0.032 (t=2.75, ***) on (TD−20, FD−1); on (TD−5, FD−1): purchases +0.057 (t=3.33, ***), sales +0.002 (t=0.09), net +0.056 (t=2.48, **). N = 482,641 / 443,418 | ESTIMATED | p. 1321, Table 2 |
 | R5 | Insider purchases **peak precisely on the trigger date** — the day the blockholder crosses 5% | ESTIMATED (figure-based; the peak itself is read off Fig. 2, not a coefficient) | pp. 1304, 1319 |
@@ -40,8 +40,8 @@ Do corporate insiders find out that a blockholder is accumulating their stock *b
 | R10 | By role: 13D executives +0.021 (t=2.63); **13D independent directors +0.008 (t=0.78, insignificant)**; 13G executives +0.025 (t=3.50), 13G independent directors +0.040 (t=3.13). Text claims "both … adjust their trading" | ESTIMATED — the text's "both" claim is ASSERTED for the 13D independent-director cell | Table 6 on p. 1329; the "both" sentence on p. 1328. N = 482,641 (13D cols), 2,206,048 (13G cols) |
 | R11 | By investor type: 13D institutional +0.043 (t=3.40); **13D non-institutional +0.004 (t=0.14, insignificant)**; 13G non-institutional +0.129 (t=5.28), institutional +0.032 (t=2.34) | ESTIMATED — the text's "both" claim is ASSERTED for the 13D non-institutional cell | Table 7 on p. 1330; the "both" sentence on p. 1329. N = 143,357 / 339,284 / 747,662 / 1,458,386 |
 | R12 | Enforcement intensity does not deter: SEC Budget 0.053 (t=0.77) 13D / **+0.115\*\* (t=2.43) 13G**; SEC Staff **+0.067\* (t=1.67) 13D** / **+0.071\*\* (t=2.44) 13G**; SDNY×PostBharara −0.113 (t=−1.04) / −0.098 (t=−0.35) | ESTIMATED — but the *interpretation* ("no evidence that insider trading declines") is ASSERTED; **three of the four enforcement-intensity coefficients are positive and significant** (two at 5%, SEC Staff 13D at 10%) *(verifier: card previously said "two of four"; the 13D SEC-Staff coefficient carries one star)* | Table 8 on p. 1331 |
-| R13 | Robustness: results hold by firm size, pre/post-2010, filing FE, pre-only control window, macro controls, and on the 2,150 13Ds with no explicit activism plan | **UNCHECKED** — every coefficient lives in IA Tables IA.2–IA.7, not in this file; only the author's one-line description of each is in the body (p. 1322). **(added by verifier)** The size split (IA.2) is described as *slightly more pronounced in LARGER firms, difference not statistically significant* — see §7.2 | p. 1322 |
-| R14 | Pre-disclosure insider net purchases predict higher revenue growth and ROA over the 120 trading days *following the disclosure* | **UNCHECKED** — IA Table IA.9, not in file; only the fn. 11 sentence is printed | p. 1310 fn. 11 |
+| R13 | Robustness: results hold by firm size, pre/post-2010, filing FE, pre-only control window, macro controls, and on the 2,150 13Ds with no explicit activism plan | ESTIMATED — **all six tables (IA.2–IA.7) now read**. Five of the six replicate cleanly (filing FE, pre-only control, macro controls, nonconfrontational subsample, both period halves). **The size split (IA.2) does not say what the body says it says — see §9b(b) and §7.2** | p. 1322; Tables IA.2–IA.7, IA PDF pp. 4–10 |
+| R14 | Pre-disclosure insider net purchases predict higher revenue growth and ROA over the 120 trading days *following the disclosure* | ESTIMATED — **IA Table IA.9 now read**. Revenue holds in all four quarters (13D 0.007\*\* / 0.010\*\*\* / 0.011\*\*\* / 0.006\*\*). **ROA does not**: for 13Ds only q and q+2 are significant (0.004\*\*, 0.000, 0.006\*\*, 0.001), so "and ROA" is a half-claim. Design is a filing-level cross-section (N ≈ 2,300) with industry × year FE, not a causal estimate; and it spans quarter q *through* q+3, not the "120 trading days following" | p. 1310 fn. 11; Table IA.9, IA PDF pp. 12–13 |
 | R15 | Blockholder accumulation path: mean ownership 3.0% at TD−20 → 4.6% at TD−1 → >1% bought on TD itself → 6.9% by FD; 4.02% already held at TD−5. Panel B also: mean (median) filer buys 4.2% (3.1%) of shares over 60 days, trades on 15 (13) days = 35.7% (31%) of trading days, is 29.8% (21.6%) of daily volume when trading, and makes 6.2 (4) large trades | ESTIMATED (means from hand-collected Item 5(c); the path itself is plotted in IA Fig. IA.2 and only *described* in the body) | Panel B stats pp. 1316–1318; path p. 1319; **the 4.02% figure is on pp. 1305 and 1323, not p. 1318** *(page corrected by verifier)* |
 
 ## 4. Institutional facts used
@@ -73,7 +73,7 @@ Do corporate insiders find out that a blockholder is accumulating their stock *b
 - **Two "both groups" claims are not supported by their own tables.** *(verifier: both confirmed against the printed tables.)* Independent directors on 13Ds: 0.008, t=0.78, no stars (Table 6 col. 2, p. 1329) against the text's "both executives and independent directors adjust their trading" (p. 1328). Non-institutional filers on 13Ds: 0.004, t=0.14, no stars (Table 7 col. 1, p. 1330) against "abnormal insider purchases occur in both institutional and non-institutional filings" (p. 1329).
 - **Table 8 arguably cuts against the paper's own reading.** SEC Budget and SEC Staff enter *positively and significantly* in the 13G columns. The author reads this as "no deterrence"; a referee can read it as the enforcement proxies picking up a time trend, which then also indicts the year fixed effects elsewhere.
 - **Selection on the window itself.** Dropping every 13D filed later than 13 days after TD removes exactly the filers with the most to hide, and it is the sample cut most exposed to the 2024 window change (see §6).
-- R2, R3, R13, R14 all live in an Internet Appendix that is not part of this PDF; their standard errors cannot be checked from this file.
+- **A third "both groups" overclaim, now confirmed in the Internet Appendix.** The body says the size split shows learning "occurs in both large and small firms" (p. 1322); in IA Table IA.2 **neither small-firm coefficient is significant** (t = 1.27 and t = 1.64) and no test of the difference is printed anywhere. Same pattern as R10 and R11 — this is a habit, not an accident, and a referee who pulls the IA will find three instances.
 - Typographical slip on p. 1331: "As reported in Table 8, 8 find no evidence…".
 - Amihud illiquidity is a nuisance control, and its coefficient wanders in sign across tables (−0.025** in Table 2 col. 3, +0.154*** in Table 8 col. 4) with no discussion.
 
@@ -103,7 +103,7 @@ Do corporate insiders find out that a blockholder is accumulating their stock *b
 So: **market liquidity is present only as an Amihud control** (never a treatment, never an interaction, never a split); **no control outcome exists anywhere in the paper.**
 
 *(added by verifier)* Two qualifications a referee will make, both stand:
-- She **does** run a size split (median market cap, IA Table IA.2, described p. 1322) and reports the effect is *slightly more pronounced in larger firms, difference not statistically significant*. Size is a coarse liquidity proxy, so "nobody has looked at anything liquidity-adjacent" is too strong — but the split is a nuisance-robustness table, not a liquidity test, and its point estimate runs *against* a naive thin-stock story.
+- She **does** run a size split (median market cap, IA Table IA.2, described p. 1322), so "nobody has looked at anything liquidity-adjacent" is too strong. But now that the table has been read (§9b), the body's gloss is only half right: **the direction reverses by window.** On the long window (TD−20, FD−1) larger firms lead, 0.032\*\* vs 0.026 (ns); on the **short window (TD−5, FD−1) the smaller-firm point estimate is the bigger one, 0.066 vs 0.041\***, and it is insignificant only because its standard error is larger (t = 1.64). No test of the difference is printed. The split is a nuisance-robustness table, not a liquidity test, and it does **not** deliver a clean null against a thin-stock story.
 - Control outcomes are absent from **her** design, but she names a concurrent paper where control defence *is* the object: Chabakauri et al. (2022) "show that corporate insiders detect activist trades ahead of the public and **retain ownership to defend control rights**" (p. 1306). Duong et al. (2025) is the other concurrent paper (hedge-fund activists, personal-gain framing). Neither is in this file.
 
 **Margin.** The 5% threshold and the 10-day window are used as **LEVEL / background plumbing** — they define the event dates and the sample screen. Neither is varied, interacted, or shifted. There is **no comparison across thresholds** (no UK 3%, no 5% vs 10%) and **no comparison across window lengths.**
@@ -124,7 +124,9 @@ So: **market liquidity is present only as an Amihud control** (never a treatment
 
 1. **The pooled state is not clean.** Our partition assumes the market is in the *pooled* state until the flag. Zeng shows a specific set of agents — the target's own managers, via surveillance vendors and IR contact — are partially flagged before the filing, and that they trade on it. If we want the partition to be the market's information structure, we should say explicitly that our "pooled" state is pooled *for the price-setting market*, and cite Zeng for why insiders are a documented exception. A referee who knows this paper will ask.
 
-2. **Liquidity is where Zeng has nothing, and that is our opening — with one caveat we must state first.** Two body-text uses of the word, both about insiders' personal liquidity needs; Amihud only as a nuisance control (§6 table). *(added by verifier)* The caveat: she **already ran a size split** (IA Table IA.2, p. 1322) and found the effect *slightly larger in big firms, insignificantly so*. So the honest claim is not "nobody looked" but "the only look was a size split on a robustness table, which is not a liquidity test and whose sign runs the other way" — and market cap is a poor κ proxy anyway (her median target is a $186m firm with mean Amihud 0.384, Table 1 Panel C, p. 1317, so the whole sample is thin). Nobody in this paper asks whether the pre-filing leakage is larger in thin stocks *conditional on size* — even though her own mechanism (blockholders trading 29.8% of daily volume on trading days, 6.2 large trades of >20% of volume each, p. 1316 Table 1 Panel B) is *mechanically* a κ story: in a thin stock the blockholder's footprint is bigger, so detection is easier. A κ-interaction on her own design is directly available and unclaimed.
+2. **Liquidity is where Zeng has nothing, and the one thing that looked like a pre-emption does not pre-empt us.** Two body-text uses of the word, both about insiders' personal liquidity needs; Amihud only as a nuisance control (§6 table); the Internet Appendix adds **no** liquidity content — the standalone word "liquidity" appears **zero** times in all 13 IA pages, and `Illiquidity` appears six times, once as a control row in each of Tables IA.2–IA.7 (§9b). *(rewritten 2026-08-21 after reading IA.2.)* The size split we were worried about is **not** the clean null the body's one-liner implies. On the window that matters most for us — **(TD−5, FD−1)**, the one whose length the Feb-2024 rule compresses — the **smaller-firm coefficient is 61% larger** than the larger-firm one (0.066 vs 0.041\*), and it fails significance only on its standard error (t = 1.64 vs 1.95). IA.2 prints **no test of the difference**, so the body's "the difference is not statistically significant" is an assertion, not a result. So the honest sentence is: *the only liquidity-adjacent cut in the paper is a two-way median-market-cap split on a robustness table; it does not test liquidity, it reports no difference test, and in the short window its point estimate runs with, not against, a thin-stock story.* Market cap is a poor κ proxy anyway (her median target is a $186m firm with mean Amihud 0.384, Table 1 Panel C, p. 1317, so the whole sample is thin). Nobody in this paper asks whether the pre-filing leakage is larger in thin stocks *conditional on size* — even though her own mechanism (blockholders trading 29.8% of daily volume on trading days, 6.2 large trades of >20% of volume each, p. 1316 Table 1 Panel B; and **1.34% of shares outstanding traded on the trigger day alone**, Fig. IA.2, §9b) is *mechanically* a κ story: in a thin stock the blockholder's footprint is bigger, so detection is easier. A κ-interaction on her own design is directly available and unclaimed.
+
+   **One honest caveat that cuts the other way, and it is new from the IA.** The `Illiquidity` control loads **negatively and significantly** on daily net insider purchases in the smaller-firm subsample (−0.025\*, −0.033\*\*) and is insignificant in the larger-firm one (0.076, 0.055) — and it is most negative of all in the nonconfrontational subsample (−0.046\*\*\*, −0.053\*\*\*, IA.7). Read naively that says insiders net-buy *less* in more illiquid stocks. It is a level control, not an interaction with `Pre_disclosure`, so it does **not** test whether the *leak* is bigger in thin stocks — but it is the one number in the paper a referee can wave at a κ story, and we should pre-empt it by running the interaction ourselves.
 
 3. **Empirical craft we should copy, and one trap.** Copy: the trigger-date extraction script from the 13D cover page, the Item 5(c) 60-day trade-schedule hand-collection, and the control-period construction (same firm, ±3–7 months). The trap: her sample screen keeps only 13Ds filed **1–13 calendar days** after TD (p. 1312 fn. 13). Under the post-Feb-2024 five-business-day rule that screen is no longer neutral — the filing-date cluster moves left, so a naive "1–13 day" filter applied across 2024-02-05 changes the composition of the sample on both sides of the cut-off. Our referee checklist's "EDGAR cut-off" line should name this explicitly.
 
@@ -196,7 +198,7 @@ So: **market liquidity is present only as an Amihud control** (never a treatment
 5. **p. 1323 fn. — large-trade cutoff robustness** (10% and 30% alternatives to the 20%-of-volume definition). Relevant if we reuse the Table 3 design. Added to §4.
 6. **p. 1312 — same-day filers are excluded** as well as late ones. Added above; matters for anyone rebuilding the screen.
 
-**UNCHECKED and decision-critical — named, not triaged away.** R13's size-split result (IA.2) is the single most decision-critical claim in this card for our positioning: if a referee reads IA.2 as "liquidity/size already tested and null", our κ opening narrows. Its coefficient and SE are **not in this PDF** — we have only the author's one-sentence description. Someone must pull the Internet Appendix from the Springer supplementary link before §7.2 is used in the paper. Same status, lower stakes: R2's SEs (IA.1), R13's other five tables (IA.3–IA.7), R14 (IA.9), the control-period means 0.059 bp (13D, IA.1) and 0.048 bp (13G, IA.8), and IA Figs. IA.1–IA.2.
+**UNCHECKED and decision-critical — ~~named, not triaged away~~ RESOLVED 2026-08-21, see §9b.** R13's size-split result (IA.2) was the single most decision-critical claim in this card for our positioning: if a referee reads IA.2 as "liquidity/size already tested and null", our κ opening narrows. The Springer supplementary file has now been pulled and read in full; **all five IA-dependent items are closed** — IA.2 (verdict in §9b(b)), R2's SEs (IA.1), IA.3–IA.7, R14 (IA.9), the control-period means 0.059 bp (13D, IA.1) and 0.048 bp (13G, IA.8), and Figs. IA.1–IA.2 (read as rendered images, §9b(e)). Nothing decision-critical remains unchecked on this card.
 
 **Overall verdict: the card SURVIVES.** Its two headline "text vs table" catches (R10, R11) are correct against the printed tables, its Table 8 criticism is correct and in fact understated, the `premium` = 0 and Feb-2024-absent claims hold exactly, and the fn. 13 screen is as described. Three small grep/count errors and two page slips fixed; five IA-dependent results relabelled UNCHECKED; six omissions added, of which the Chabakauri (2022) order-flow/control-rights link and the IA.2 size split are the two that change how we should write §7.
 
@@ -206,4 +208,217 @@ So: **market liquidity is present only as an Amihud control** (never a treatment
 - File identity: running heads "Review of Accounting Studies (2026) 31:1301–1341", DOI 10.1007/s11142-026-09958-z, title and author match the assignment. 41 printed pages + 1 blank trailing form-feed page. Not truncated: text runs from the abstract through the closing Springer rights notice on p. 1341.
 - All 14 quotes above located by whitespace-normalised exact substring match against the extracted text; each returned exactly one page. Q1's hyphenation closed as noted in the §8 header.
 - Grep counts in §6 produced by case-insensitive `re.findall` over the whole file; `liquidity` reported net of the 10 `illiquidity` hits.
-- **Unchecked:** every number attributed to an Internet Appendix table (R2, R3, R13, R14 and the control-period means 0.059 bp and 0.048 bp) — the IA is not in this PDF and was read only through the body text's own description.
+- **Unchecked:** every number attributed to an Internet Appendix table (R2, R3, R13, R14 and the control-period means 0.059 bp and 0.048 bp) — the IA is not in this PDF and was read only through the body text's own description. **← superseded 2026-08-21: the IA has been fetched and read in full; see §9b.**
+
+---
+
+## 9b. Internet Appendix (verified 2026-08-21)
+
+**Source of record.** `research/txt_extracts/zeng_2026_ras_internet_appendix.pdf`, the Springer
+supplementary file linked from `link.springer.com/article/10.1007/s11142-026-09958-z`; text layer
+re-extracted with `pdftotext -layout` to `…_internet_appendix.txt`, and pp. 1–2 (the two figures)
+additionally rendered at 300 dpi with `pdftoppm` and read as images, because their content is
+vector chart, not text. **14 PDF pages, 13 with content; ALL of Tables IA.1–IA.9 and Figures
+IA.1–IA.2 are present and were read.** Only PDF p. 1 carries a printed page number ("1"), so IA
+items below are cited by **PDF page index**. Reader: opus.
+
+Order in the file: Fig. IA.1 (p. 1) · Fig. IA.2 (p. 2) · IA.1 (p. 3) · IA.2 (p. 4) · IA.3 (p. 5) ·
+IA.4 (p. 6) · IA.5 (p. 7) · IA.6 (pp. 8–9) · IA.7 (p. 10) · IA.8 (p. 11) · IA.9 (pp. 12–13).
+
+---
+
+### (a) Table IA.2 — the decision-critical table, verbatim
+
+**Title (IA PDF p. 4):** "Internet Appendix Table IA.2 / Unexpected Insider Trading Prior to 13D
+Filings: / Analyzing Variation by Market Capitalization". Dependent variable in all four columns:
+**Daily Net Insider Purchases**. Columns 1–2 use the window **TD−20 to FD−1**; columns 3–4 use
+**TD−5 to FD−1**. Columns 1 and 3 are **Smaller firms**, columns 2 and 4 **Larger firms** (median
+market-cap split). Robust *t*-statistics in parentheses; stars as in Table 2 (\*\*\* 1%, \*\* 5%, \* 10%).
+
+| | (1) Smaller, TD−20→FD−1 | (2) Larger, TD−20→FD−1 | (3) Smaller, TD−5→FD−1 | (4) Larger, TD−5→FD−1 |
+|---|---|---|---|---|
+| **Pre-disclosure** | **0.026** | **0.032\*\*** | **0.066** | **0.041\*** |
+| *t* | **(1.27)** | **(2.46)** | **(1.64)** | **(1.95)** |
+| Illiquidity | −0.025\* (−1.75) | 0.076 (0.80) | −0.033\*\* (−2.22) | 0.055 (0.49) |
+| Size | −0.171\*\*\* (−6.03) | −0.121\*\*\* (−4.00) | −0.185\*\*\* (−6.05) | −0.128\*\*\* (−3.99) |
+| Daily Returns | 0.386\*\*\* (2.58) | −0.392 (−1.56) | 0.306\*\* (1.99) | −0.358 (−1.28) |
+| Firm & Year FE | Y | Y | Y | Y |
+| **N** | **241,360** | **241,264** | **221,590** | **221,811** |
+| R-squared | 0.021 | 0.036 | 0.022 | 0.037 |
+
+**Unique search strings for a verifier** (whitespace-normalised exact substrings of the IA text; each
+returns IA PDF p. 4 and nothing else):
+
+| # | String (verbatim) | Where |
+|---|---|---|
+| IA-Q1 | `Pre-disclosure            0.026             0.032**               0.066            0.041*` | IA p. 4, coefficient row |
+| IA-Q2 | `(1.27)            (2.46)                (1.64)           (1.95)` | IA p. 4, *t*-stat row |
+| IA-Q3 | `N                          241,360            241,264               221,590        221,811` | IA p. 4, sample sizes |
+| IA-Q4 | `Illiquidity               -0.025*           0.076                 -0.033**         0.055` | IA p. 4, the only liquidity-adjacent coefficient in the split |
+| IA-Q5 | "This table explores size heterogeneity by dividing the sample firms into larger and smaller firms based on the median market capitalization and then replicates Table 2 Columns 3 and 6 for each of the two subsamples." | IA p. 4, table note — **the whole note; there is no difference test in it** |
+
+**The body-text gloss the v4 position leans on** (p. 1322 of the article, verbatim, one hit):
+"While unexpected insider trading is slightly more pronounced in larger firms, the difference is not
+statistically significant, suggesting that managerial learning about blockholder trades occurs in
+both large and small firms (Internet Appendix Table IA.2)."
+
+---
+
+### (b) Verdict on IA.2 — one plain sentence
+
+**IA.2 weakens the gloss rather than supporting it: the "larger firms" direction holds only in the
+long window (0.032\*\* vs 0.026), reverses in the short window closest to the trigger date, where the
+small-firm estimate is 61% bigger than the large-firm one (0.066, t = 1.64, vs 0.041\*, t = 1.95),
+and the table prints no test of the difference at all, so "the difference is not statistically
+significant" is an assertion and "occurs in both large and small firms" is contradicted by the two
+insignificant small-firm cells.**
+
+Three consequences, stated flatly:
+
+1. **Our κ opening is not closed.** The one thing a referee could have used against us — "she already
+   tested size and found nothing bigger in small firms" — is not what the table says on the window
+   whose *length* the Feb-2024 rule compresses. Small-firm point estimates are the larger ones there.
+2. **The insignificance is a standard-error story, not a coefficient story.** 0.066 with t = 1.64
+   implies SE ≈ 0.040; 0.041 with t = 1.95 implies SE ≈ 0.021. The small-firm SE is roughly twice the
+   large-firm SE on nearly identical N (221,590 vs 221,811). Thin stocks are noisy, not quiet.
+3. **The "both" habit is now three-for-three.** Same overclaim pattern as R10 (Table 6, independent
+   directors) and R11 (Table 7, non-institutional filers) — recorded in §5.
+
+---
+
+### (c) The rest of the appendix — what bears on our position
+
+**Table IA.1 (IA PDF p. 3) — 13D event-window means, *with the t-statistics the body omits*.** This is
+the strongest single piece of evidence in the whole paper for **our window-margin anchor**, and it was
+invisible from the article. Daily insider purchases, bp of shares outstanding; control mean **0.059**:
+
+| Window | 13D obs. | Control | Diff. | % Diff. | *t* | *p* |
+|---|---|---|---|---|---|---|
+| TD−30 to TD−21 | 0.043 | 0.059 | −0.016 | −27.0 | −1.637 | 0.102 |
+| TD−20 to TD−6 | 0.050 | 0.059 | −0.009 | −15.8 | −1.158 | 0.247 |
+| **TD−5 to TD−1** | 0.099 | 0.059 | **0.040** | **67.8** | **2.884** | **0.004** |
+| **TD to FD−1** | 0.150 | 0.059 | **0.091** | **154.5** | **6.657** | **0.000** |
+| FD to FD+10 | 0.093 | 0.059 | 0.034 | 57.7 | 3.479 | 0.001 |
+| FD+10 to FD+20 | 0.041 | 0.059 | −0.018 | −30.5 | −1.859 | 0.063 |
+
+Sales (control mean **0.135**) move only in two windows: TD−20 to TD−6 at −0.034 (−25.4%, *t* = −2.967,
+*p* = 0.003) and FD to FD+10 at −0.029 (−21.3%, *t* = −2.136, *p* = 0.033). **Sales do NOT fall inside
+the disclosure window** — TD to FD−1 is +0.023 (*t* = 1.203, ns). So the whole net effect inside the
+window is purchase-driven.
+
+*Why this matters to us:* the abnormal buying is **confined to the legally created interval**. It is
+flat-to-negative and insignificant for the whole month before TD−5, jumps at TD−5, peaks in
+(TD, FD−1) at +154.5% of the control mean, and is gone by FD+10. That is not a slow drift that a
+shorter window would merely re-time — it is a step function whose support *is* the window. Search
+string: `day TD to FD-1                  0.150        0.059       0.091      154.5       6.657      0.000`.
+
+**Table IA.8 (IA PDF p. 11) — the 13G mirror is even sharper.** Control mean 0.048; TD−5 to TD−1
++0.030 (+63.6%, *t* = 6.015); **TD to FD−1 +0.132 (+274.9%, *t* = 25.711)**; everything outside the
+window insignificant. Sales also rise inside the window here (+0.036, +25.6%, *t* = 5.672) — the body
+does not mention this — but net is still purchase-dominated 0.132 vs 0.036. Search string:
+`day TD to FD-1                  0.179         0.048        0.132    274.900      25.711      0.000`.
+
+**Table IA.3 (IA PDF p. 5) — the leak is *bigger* in the modern period, not decaying.** Pre-2010 vs
+post-2010 on net purchases: long window 0.036\*\* (2.10) vs 0.029\* (1.80); **short window 0.039 (1.40)
+vs 0.076\*\* (2.14)** — the post-2010 short-window effect is nearly double the pre-2010 one and is the
+only one of the two that is significant. N = 234,326 / 248,315 / 215,186 / 228,232. Again **no
+difference test is printed**, though the body claims one ("the difference is not statistically
+significant", p. 1322). For us this is good news twice over: the phenomenon is alive in the sample
+half that abuts our 2024 experiment, and the body's second "no significant difference" claim rests on
+the same missing test as the first.
+
+**Tables IA.4–IA.7 — five clean replications, one of which changes the interpretation.**
+
+| Table | What changes | Pre-disclosure, net purchases (TD−20→FD−1 / TD−5→FD−1) | N |
+|---|---|---|---|
+| IA.4 (p. 6) | filing FE instead of firm × year FE | 0.031\*\*\* (2.60) / 0.055\*\* (2.45) | 482,641 / 443,418 |
+| IA.5 (p. 7) | pre-only control window (−7 to −3 months) | 0.030\*\* (2.42) / 0.048\*\* (2.12) | 286,426 / 247,203 |
+| IA.6 (pp. 8–9) | + GDP, CPI, unemployment (all insignificant) | 0.033\*\*\* (2.77) / 0.056\*\* (2.49) | 482,641 / 443,418 |
+| IA.7 (p. 10) | 2,150 **nonconfrontational** 13Ds only | **0.042\*\*\* (3.01) / 0.076\*\*\* (2.89)** | 382,761 / 351,533 |
+
+**IA.7 is the one that matters for our framing.** The effect is *larger* on the subsample where the
+filer states no activism plan (0.076\*\*\* vs 0.056\*\* in the full sample). So the pre-filing leak is
+about **ownership-change detection**, not about anticipating a control fight. That supports Zeng's own
+generality claim (Q9) and it protects our position from a referee who says "your window story is
+really a control-contest story" — in her data the window leaks *hardest* where there is no stated
+control contest. Note also that IA.7 carries the most negative `Illiquidity` loadings anywhere
+(−0.046\*\*\*, −0.053\*\*\*) — see the caveat in §7.2.
+
+**Table IA.9 (IA PDF pp. 12–13) — the performance-prediction claim is half a claim.** 13D Panel A,
+`I (Abnormal Net Purchases)` on ΔREV: 0.007\*\* (2.53), 0.010\*\*\* (3.23), 0.011\*\*\* (3.57), 0.006\*\*
+(2.07), N = 2,302 / 2,179 / 2,096 / 2,019. On ΔROA: **0.004\*\* (2.01), 0.000 (0.23), 0.006\*\* (2.36),
+0.001 (0.23)**, N = 2,482 / 2,359 / 2,273 / 2,184. 13G Panel B is uniformly significant on ΔREV
+(0.004\*\* in all four quarters, N ≈ 11,400–11,700) and fades on ΔROA by q+3 (0.002, t = 1.33). Design:
+filing-level cross-section, industry and year FE, robust *t*. Two honest points: **(i)** fn. 11's
+"higher revenue growth and improved return on assets (ROA)" is supported for revenue and only
+half-supported for ROA on 13Ds; **(ii)** fn. 11 says "over the 120 trading days following the
+disclosure" but IA.9 runs from **quarter q — the quarter in which the filing occurs, part of which
+precedes the disclosure — through q+3**, which is roughly 250 trading days, not 120. Cite fn. 11 only
+with that correction.
+
+---
+
+### (d) Grep counts over all 13 IA pages (case-insensitive)
+
+`premium` **0** · `takeover` **0** · `bidder` **0** · `spread` **0** · `order flow` **0** · `Amihud` **0** ·
+`noise` **0** · `2024` **0** · `business day` **0** · `5 business` **0** · standalone `liquidity`
+(net of `Illiquidity`) **0** · `Illiquidity` **6** — exactly one control row in each of Tables
+IA.2–IA.7. **The Internet Appendix adds nothing to the liquidity, premium, control-outcome or
+window-length axes.** §6's scope-boundary verdict is unchanged and now covers the appendix too.
+
+---
+
+### (e) The two figures, read off the rendered pages
+
+Values below are **pixel extractions from the 300-dpi renders** (axis calibrated on the printed tick
+labels, series traced by continuity), accurate to about ±0.1 pp — they are the reader's own
+measurements, not printed numbers, and should be labelled NUMERICAL if used.
+
+**Fig. IA.1 Panel A (13D).** Flat and slightly negative before the crossing: −0.01% at TD−20, trough
+**−0.51% at TD−5**, −0.22% at TD−1. Then **+0.73% at TD** — a one-day move of about **+0.95 pp, the
+largest single day anywhere before the filing**. Through the normalised window: 1.31% (20%), 1.80%
+(40%), 2.19% (60%), 2.65% (80%), **3.47% at FD**. So **TD → FD = +2.74 pp**, which reproduces the
+body's "+2.8%" (p. 1309) exactly. Post-filing: 4.85% at FD+1 (a **+1.38 pp jump on the day *after*
+the filing, larger than the filing day itself** — relevant to how we set the CAR window in our own
+event study), 5.48% at FD+5 (so FD→FD+5 = +2.01, body says +1.9%), **6.06% at FD+20** (body: 6.1%).
+**Panel B (13G):** −0.04% at TD−20, 0.63% at TD, **1.61% at FD (TD→FD = +0.98, body says +0.9%)**,
+peak 1.88% at FD+8, 1.68% at FD+18 (body: 1.7% total). **No confidence band is plotted in either
+panel, so R1 still has no standard error of any kind.**
+
+*Confirmed:* Q5's "the price run-up begins precisely on the trigger date" (p. 1310) is exactly right
+for 13Ds — the pre-TD path drifts *down*, and the first upward move is the segment TD−1 → TD.
+
+**Fig. IA.2 (13D filer accumulation path).** Ownership (left axis): **3.02% at TD−20 → 4.58% at
+TD−1 → 5.97% at TD → 6.90% at FD**, confirming R15's 3.0 / 4.6 / 6.9 exactly. Daily volume traded by
+the filer (right axis): ≈0.05% of shares outstanding per day from TD−20 to TD−10, rising to 0.18% at
+TD−1, then **1.34% on the trigger day itself** — roughly **7× the previous day and 27× the TD−20
+baseline** — then decaying through the window: 0.42% (20%), 0.26% (40%), 0.21% (60%), 0.17% (80%),
+0.075% (FD).
+
+**Two numbers we should take straight into the position.** (i) The blockholder's footprint is a
+one-day spike of ~1.34% of shares outstanding on the crossing day; in a thin stock that is an enormous
+share of daily volume, which is the κ mechanism stated in her own data. (ii) Only about **0.93 pp of
+accumulation happens inside the whole trigger-to-filing window** (5.97% → 6.90%), and it is
+front-loaded. So shortening the window 10 → 5 business days truncates the *tail* of the accumulation,
+not its bulk — a quantitative discipline on how large a stake-size effect we should predict from the
+Feb-2024 rule, and a caution against overclaiming one.
+
+---
+
+### (f) Status of every previously-UNCHECKED item on this card
+
+| Item | Was | Now |
+|---|---|---|
+| IA.2 size split (decision-critical) | UNCHECKED | **READ — body gloss only half-supported; see (b)** |
+| R2 significance (IA.1) | UNCHECKED | **OK — t = 2.884 / 6.657 / −2.967 as reported in (c)** |
+| Control means 0.059 (13D) / 0.048 (13G) | UNCHECKED | **OK — IA.1 p. 3, IA.8 p. 11** |
+| R13 tables IA.3–IA.7 | UNCHECKED | **OK — five clean replications; IA.3 and IA.7 add content, see (c)** |
+| R14 (IA.9) | UNCHECKED | **PARTLY MISCITED — revenue holds, 13D ROA is 2-of-4, and the horizon is q…q+3, not "120 trading days following"** |
+| Figs. IA.1–IA.2 | UNCHECKED | **OK on every body number; read as images, see (e)** |
+
+**Net effect on the card: the position gets stronger, not weaker.** The one result that could have
+pre-empted our κ angle does not, the window-margin anchor gains a printed *t* = 6.657, and the
+appendix contains no liquidity, premium, control-outcome or rule-length content of any kind. Two new
+weaknesses were found against the paper (a third "both groups" overclaim in IA.2, and the ROA/horizon
+slippage in fn. 11 vs IA.9), and one honest caveat against us (the negative `Illiquidity` level
+control) is now on the record in §7.2.
