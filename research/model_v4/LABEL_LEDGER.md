@@ -46,6 +46,10 @@ C1 | CONJECTURE (unchanged as of 2026-08-21) | no proof on file; ticket 29 in fl
 
 C1 | CONJECTURE→PROVED (certificate implication, region-as-hypothesis; 18 certified nodes NUMERICAL evidence; region-level certification NOT claimed) | proof `proofs/C1_proof.md` (repairs 13/13); audit `threads/2026-08-21_C1_proofread_audit.md` (PASS, 0 FAIL); re-derivation `rederive/C1_rederivation.md` (PASS as PROVED-WITH-CHANGES: N1 norm convention, N2 two-sided openness; H8 unused); executed check `quality_reports/fixes/t2_c1_region_check.py/.json`, independently re-run 2026-08-22 ALL REPRODUCE (`quality_reports/fixes/t2_rerun_verify_note.md`) | theory-lane batch (Fable orchestrating) | 2026-08-22 | commit: 403ac8e
 
+## Move — GPT end review + audit, 2026-08-23
+
+P1 | PROVED→CONJECTURE | GPT Pro end review `threads/2026-08-22_gpt_end_review.md` finding 1, upheld by `threads/2026-08-23_gpt_end_review_audit.md`: the proof's h.7 consumes the joint injective form of A7 while the card row and the re-derivation carry the on-path form — the two-pass gate never covered a single statement; independently, Step 12 lacks a continuation-cost clause (sunk-cost gap, live for multi-Voice menus) and Step 9's positivity claim fails at κ=1 under card §4.1's noise law. The pinned single-Voice menu instance is untouched by all three gaps. Demotion per standing note 2 (the review may demote, never promote); approved by Austin 2026-08-23. Repair: ticket 35. | theory lane (Fable orchestrating) | 2026-08-23 | commit: recorded at commit time
+
 ## Evidence note — independent re-run of every check script, 2026-08-22
 
 All eight `t2_*` scripts (D1, L1, L2, L3, L4, T1, P1, C1-region) were re-run in full by a fresh
