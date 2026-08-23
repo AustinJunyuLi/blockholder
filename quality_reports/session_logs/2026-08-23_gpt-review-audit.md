@@ -29,3 +29,17 @@ wording/attribution repair plus two cheap executed checks (A(τ) support enumera
 
 **Open for Austin:** approve the demotion + repair batch; approve the two checks; sequence the P1
 repair vs ticket 08; SPEC/ADR-0007 corrigendum handling.
+
+## Decision round + planning (same day, later)
+
+Austin answered the nine-question round: demote now; one wording batch; both checks; P1 repair
+route A (general theorem, honest hypotheses); repair before ticket 08; SPEC corrigendum yes
+(dated addendum); ADR-0007 corrigendum drafted for his paste; GPT re-review deferred (bundle
+with ticket 08 output); naming package adopted (A7′ vs A7-J, dominance-and-contraction node,
+disclosure-regime margin — CONTEXT.md half is his).
+
+Planning artifacts written and pushed on `v4` (commit b9913ad): spec
+`quality_reports/specs/2026-08-23_post-review-repairs.md`; tickets 31–37 (R series) in
+`.scratch/v4-reposition/issues/`; execution prompt
+`quality_reports/plans/2026-08-23_post-review-execution.md`. Austin executes in a fresh window.
+This session ends here; no label moves were made in it (the demotion itself is ticket 31).
