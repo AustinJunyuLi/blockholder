@@ -7,33 +7,53 @@ and L2-R1/L2-R2 on the injective form of A7 and the no-feedback timing).
 
 **Patched 2026-08-25 (ticket 35 / R5) against MODEL CARD stamp 2026-08-23 · commit `d2ccf62`**, to
 match the amended P1 row: A7-J in place of A7′ at h.7, the new h.16, the $\kappa$ boundary in Step 9,
-and the objective display at h.14. Every change is listed in *Repairs applied (2026-08-25)* at the
+and the objective display at h.14. **Round 2, same date**, applies the sanctioned repair round after
+the two passes came back (proof-read FAIL on one finding; re-derivation PASS-WITH-CHANGES): Step 12
+is restructured into the price-invariance-and-cancellation lemma that discharges card §3(ii) at
+*every* flagged pair, h.2 is corrected to A2′, h.5 is struck, h.17 is added, and eight further
+repairs land. Every change is listed in the two *Repairs applied (2026-08-25)* tables at the
 foot of this file and traces to a numbered finding of
-`threads/2026-08-23_gpt_end_review_audit.md`. **No step conclusion is weakened and no label moves:
-P1 remains CONJECTURE** pending ticket 35's two fresh passes.
+`threads/2026-08-23_gpt_end_review_audit.md` or of the two passes. **No step conclusion is weakened
+and no label moves: P1 remains CONJECTURE** — the label is the orchestrator's to move, on the
+passes, not this file's to claim.
 
 ---
 
 ## CLAIM
 
-Fix the parameter vector $\vartheta$. Under hypotheses h.1–h.12, h.14 and h.16 below — A1–A6 of card
-§5 together with A7 in its **A7-J (joint tuple injectivity)** form, the card's §2 no-feedback timing,
-D1, the round-2 action-set stipulation h.11, the continuation-cost equivalence h.16, the sign
-convention h.12, and the blockholder payoff definition h.14 (card §4.3's $U_j$ row, absorbed there at
-the 2026-08-23 regeneration) — the two-round model has, **at every $\kappa\in[0,1]$**, at least one
+Fix the parameter vector $\vartheta$. Under hypotheses h.1–h.4, h.6, h.7, h.9–h.12, h.14, h.16 and
+h.17 below (h.5 is **struck**, h.8 is used only for the addendum, h.13 and h.15 only for Step 20) —
+A1–A4 and A6 of card
+§5 together with A7 in its **A7-J (joint tuple injectivity)** form, the card's §2 no-feedback timing
+read with the flag-terminates-the-pooled-round clause,
+D1 by statement with its own hypotheses travelling, the round-2 action-set stipulation h.11, the
+continuation-cost equivalence h.16, the sign
+convention h.12, the blockholder payoff definition h.14 (card §4.3's $U_j$ row, absorbed there at
+the 2026-08-23 regeneration) and the card's §4.1–§4.3 table restrictions h.17 — the two-round model
+has, **at every $\kappa\in[0,1]$**, at least one
 **cutoff perfect Bayesian equilibrium over
 complete contingent plans** in the sense of card §3: a weakly ordered cutoff vector
 $k^\star\in\Theta$ with $k^\star=\mathcal T(k^\star;\vartheta)$, together with pooled and flagged
 price families at their inner fixed points, Bayes-consistent on-path beliefs, off-path beliefs
-obtained as limits of full-support perturbations over **plans** at every pooled history reachable
-under some plan profile, flagged-tuple beliefs **pinned by h.7** at every tuple in the image of the
-flagged-pair map $(j,s)\mapsto(B^F_j,Q^F_j,a_j)$ — on path and off — with no tuple outside that image
-arising under h.11 (Step 10), the card §4.3 bidder-entry rule, and a
-sequentially optimal flagged component. Under A8 evaluated at $k^\star$, both cells $\mathcal C_F$
-and $\mathcal C_P$ carry strictly positive probability, hence both are on path.
+obtained as limits of one full-support perturbation family over **plans** — fixed once and used to
+define the price system at every $k\in\Theta$, not only at $k^\star$ — at every pooled history
+reachable with positive probability
+under some plan profile; flagged-tuple beliefs given by **the point mass that h.7 supplies** at every
+tuple in the image of the
+flagged-pair map $(j,s)\mapsto(B^F_j,Q^F_j,a_j)$ — on path and off, this being a version of the
+conditional law at every image tuple and the version this equilibrium selects — with no tuple outside
+that image arising under h.11 (Step 10); the card §4.3 bidder-entry rule; and a
+sequentially optimal flagged component **at every flagged pair $(j,s)$, selected or not** (Step 12).
+Under A8 (h.8) evaluated at $k^\star$, both cells $\mathcal C_F$
+and $\mathcal C_P$ carry strictly positive probability, hence both are on path; A8 is used for that
+addendum and for nothing in the existence half.
 
-*On the belief clause.* The qualifier "reachable" is Step 9's, and it is a precision about which
+*On the belief clause.* "Reachable **with positive probability**" is Step 9's, and it is a precision
+about which
 information sets carry a card §3(vi) requirement, not a weakening of the requirement at any of them.
+The positive-probability qualifier is load-bearing in its own right (pass-2 N7): a history reachable
+only through a $\Phi_s$-null set of signals has probability zero under every profile just as surely as
+one needing a mark outside $\mathrm{supp}(z_d)$, and Step 9(c) covers both.
 At $\kappa\in\{0,1\}$ the noise support degenerates — $\mathrm{supp}(z_d)=\{0\}$ at $\kappa=0$ and
 $\{-\bar z,+\bar z\}$ at $\kappa=1$ — and a pooled history that needs a mark outside it has
 probability zero under **every** plan profile and every perturbation stage, so it is null under
@@ -54,21 +74,40 @@ Each is cited by number at the step that consumes it. Items marked **[ADDITION]*
 
 1. **h.1 = A1 (independent primitives).** $v,\varepsilon,\xi$ and all $z_d$ mutually independent,
    all variances strictly positive. *Used: Steps 4, 7, 9, 10.*
-2. **h.2 = A2 (finite model).** Plan menu $\mathcal J$, the image of $\Gamma$, the noise support
-   $\{-\bar z,0,+\bar z\}$ and the calendar horizon $H$ are finite; prices and payoffs bounded on
-   the maintained parameter set. *Used: Steps 3, 9, 13, 16.*
+2. **h.2 = A2′ (finite model, amended boundedness).** Plan menu $\mathcal J$, the image of $\Gamma$,
+   the noise support $\{-\bar z,0,+\bar z\}$ and the calendar horizon $H$ are finite; prices and
+   payoffs are **locally bounded in $(s,\vartheta)$** on the maintained parameter set, and
+   $\mathbb E[\max_{j}\lvert U_j\rvert]<\infty$ for every $k\in\Theta$.
+   *Amended 2026-08-25 (round 2, pass-1 finding 2) from "A2 … prices and payoffs bounded on the
+   maintained parameter set": card §5 struck that flat bound as **false** and inconsistent with the
+   rest of the card ($v$ is Gaussian and the flagged region is unbounded in $s$), and the card's P1
+   row cites A2′. Carrying a card-declared-false clause would have proved the row vacuously rather
+   than validly. Every use survives: Steps 3 and 9 consume the finiteness clauses only, and Step 13
+   needs finiteness of the menu together with finiteness of each $U_j(s;k)$, which A2′ supplies
+   pointwise (local boundedness) and in expectation (integrability). The 2026-08-25 round-1 staleness
+   sweep (P1-R15) reached LABEL CLAIMED and Step 14 and missed this.* *Used: Steps 3, 9, 13.*
 3. **h.3 = A3 (ordered plans, single crossing).** At every belief/price system, adjacent-plan
    payoff differences cross zero at most once in $s$, and the preferred plan is weakly increasing
    in $s$. *Used: Steps 1, 13.*
 4. **h.4 = A4 (legal-clock discipline).** $c$ is the first date the path reaches $\tau$; the filing
    lands exactly at $c+T$; filings truthfully reveal stake and purpose; only Voice plans cross in
    the core; $D=1\Rightarrow a=1$. *Used: Steps 2, 6, 19.*
-5. **h.5 = A5 (inner pricing regularity), consumed as a measurably selected family.** Each
-   public-history pricing map has a unique fixed point, continuous in beliefs, cutoffs and
-   parameters. Because the flagged information sets are continuum-indexed (D1-R2), the uniqueness
-   clause is read here as delivering a **family** $\sigma_F\mapsto P^F(\sigma_F;k)$ that is
-   measurable in the flagged tuple and continuous in $k$ — not a finite list of numbers.
-   *Used: Steps 5, 6, 15.*
+5. **h.5 — STRUCK 2026-08-25 (round 2, pass-1 finding 3). A5 is not a hypothesis of P1.** The slot is
+   kept, not renumbered, so that every "h.6"…"h.16" citation in this file and in the audit record
+   still resolves. The card's P1 row says "**A5 is not assumed**"; this file carried A5 as a numbered
+   hypothesis and consumed it at Steps 5(a), 6(b) and 15 — a proof-vs-row mismatch of the same
+   species as the A7 one that caused the demotion. It is eliminable inside the file, use by use:
+   (a) Step 5(a)'s unique pooled control-node root is **derived** at Step 7 from h.12 ($m_0\ge0$);
+   (b) Step 6(b)'s single-valuedness of $\mathcal G_F$ likewise from Step 7(iii), and its
+   continuity in the belief — the one genuinely load-bearing use, since Step 6(d) composes a Borel
+   map with a continuous one — from Step 8's implicit-function argument ($\varrho$ is $C^1$ jointly
+   in $(P,\hat v)$ and $\partial_P\varrho<0$ strictly at every root by Step 7(iii)); Steps 7–8 do not
+   depend on Step 6, so the re-citation is not circular;
+   (c) Step 15's "by h.5 the inner prices are continuous in the cutoffs" is **non-load-bearing**,
+   because this proof's route to continuity of $\mathcal T$ is h.6 asserting it outright (Steps 15–16)
+   — it is marked there as commentary.
+   What remains of A5's *measurable-selection* content is delivered by h.7 (A7-J) plus h.17's Borel
+   clause at Step 6(c)–(d), not by an assumption. *Used: nowhere. Cited historically at Steps 5, 6, 15.*
 6. **h.6 = A6 (compact outer self-map).** All best-response cutoffs lie in a common compact ordered
    polytope $\Theta$; $\mathcal T$ is continuous and maps $\Theta$ into itself. Steps 13–15 split
    this into three parts and show only two of them are genuine assumptions. *Used: Steps 14, 15, 16.*
@@ -95,11 +134,19 @@ Each is cited by number at the step that consumes it. Items marked **[ADDITION]*
    written, so P1 inherited that conditionality; **at stamp `d2ccf62` D1 is PROVED** (moved
    2026-08-21 with both passes on file), and what P1 inherits is D1's own hypothesis set as listed in
    the card's D1 row, not a provisional label. *Used: Steps 2, 6, 19, 20.*
-10. **h.10 = the card §2 no-feedback timing.** No within-window re-optimisation: $B_j(s,d)$,
+10. **h.10 = the card §2 no-feedback timing, read with the flag-terminates-the-pooled-round clause.**
+    *(i) No within-window re-optimisation:* $B_j(s,d)$,
     $q_{jd}(s)$ and $Q_j^F$ are functions of $(j,s,d)$ and $(j,s,\tau,T)$ alone, never of realised
     order flow or realised prices. The turn-2 audit (L2-R2) required this to be lifted from prose
     into a numbered hypothesis for L2; P1 needs it at the same load-bearing places.
-    *Used: Steps 2, 11, 12.*
+    *(ii) The flag terminates the pooled round* (card §2 bullet 3, added here 2026-08-25 on pass-1
+    finding 9): pooled trading stops when the filing lands, the flagged round follows it, and the
+    bidder acts after that — so the pooled execution runs over $d\le f_j(s)$ and
+    $Q_j^F=b_j^*(s)-B_j^F(s)$ is the blockholder's **whole** residual position. The card's P1 row
+    lists the timing hypothesis in exactly this two-clause form; clause (ii), not clause (i), is what
+    Step 11's decomposition consumes when it sums the pooled bracket to $f_j$ and treats $Q^F_j$ as
+    the entire remaining position, and what Step 12(c) consumes when it calls the pooled execution
+    sunk at round 2. *Used: Steps 2, 11, 12.*
 11. **h.11 [ADDITION] — the round-2 action set is the plan-generated set.** For every
     $j\in\mathcal J$ and every $s$ on the flagged set, the blockholder's round-2 action set at
     $(j,s)$ **is** $\mathcal Q_j(s):=\{Q_{j'}^F(s):j'\in\mathcal J\text{ shares }j\text{'s pooled
@@ -155,49 +202,37 @@ Each is cited by number at the step that consumes it. Items marked **[ADDITION]*
     Equivalently: within a deviation set the engagement cost is a function of $(a_j,s)$ alone and not
     of which round-2 order the plan carries. *Used: Step 12.*
 
-    **Why this clause is needed (audit Finding 1(b)).** Step 12 defeats a round-2 deviation by moving
-    it back to date 0, so the two comparisons have to be the same comparison. Write Step 11's
-    decomposition as $U_j=G_j-a_jC_j-E_j$, with
-    $G_j(s;k)=b_j^*(s)\mathbb E[Y\mid s,j,D=1]-P^F(\sigma_F)Q_j^F(s)$ the **trading terms** of the
-    first bracket and $E_j$ the pooled-execution second bracket. On a deviation set $E_{j'}=E_j$
-    (identical pooled paths) and $a_{j'}=a_j=1$ (h.4), so the *only* wedge between "the deviation
-    improves the flagged continuation" and "$U_{j'}>U_j$" is $C_{j'}(s)-C_j(s)$. A round-2 deviator
-    has already sunk the engagement — the filing has landed and $D=1\Rightarrow a=1$ is public (h.4),
-    so the engagement cannot be unmade — and therefore compares continuations holding that cost
-    fixed. Without h.16 the wedge is live and the contradiction fails; the pre-repair Step 12 closed
-    it silently.
-
-    **Why the sunk-cost restatement does not replace it (spec MAY-11, both routes worked out).**
-    Two readings of the deviation's continuation are available and the card fixes neither (card
-    §4.3's $U_j$ row does not date $C_j$): **(α) plan completion** — submitting $Q_{j'}^F(s)$ *is*
-    completing plan $j'$, so the deviator bears $C_{j'}(s)$ and the continuation is $G_{j'}-C_{j'}$;
-    **(β) sunk cost** — the engagement cost is already booked, so the continuation is $G_{j'}-C_j$.
-    Under (α) Step 12 needs no extra clause, but (α) is the reading that begs the question, since the
-    deviation is precisely a *departure* from plan $j'$'s date-0 commitment. Under (β), date-0
-    optimality of $j$ delivers only $G_j-G_{j'}\ge C_j-C_{j'}$, while (β)-optimality needs
-    $G_j-G_{j'}\ge 0$; the implication therefore requires $C_{j'}(s)\le C_j(s)$ at the selected $j$
-    — a one-sided clause, not no clause. And once it is a hypothesis of P1 the one-sided form
-    collapses onto h.16's equality. Two reasons, both needed:
-    *(1) the sharing relation is symmetric.* If $j'$ agrees with $j$ on the pooled path up to
-    $f_j(s)$ then $c_{j'}(s)=c_j(s)$ — the crossing date is a first-hitting index of a path they
-    share, and $c_j\le f_j-T\le f_j$ — hence $f_{j'}(s)=f_j(s)$, so $j$ agrees with $j'$ up to
-    $f_{j'}(s)$ as well; with $a_{j'}=a_j$, "shares the pooled path and the engagement flag" is an
-    equivalence relation on the flagged set at each $s$, and each h.11 deviation set is one of its
-    classes.
-    *(2) the hypothesis must be uniform on $\Theta$.* Brouwer does not say which $k^\star$ it
-    returns, and at every $s<\overline s$ each $j\in\mathcal J$ is the selected plan at some
-    $k\in\Theta$ (choose cutoffs with $j_k(s)=j$; only the right endpoint $s=\overline s$ is
-    exceptional, where $k_i\le\overline s$ forces $j_k(\overline s)=J$ — a single signal point, and
-    h.16 is imposed as an equality at every $s$ regardless, so nothing turns on it). A hypothesis of
-    P1 therefore cannot be indexed by the equilibrium's selection. Imposing
-    $C_{j'}\le C_j$ for every selectable $j$ and every $j'$ in its class imposes it in both
-    directions across the class: $C_{j'}=C_j$. **MAY-11's route therefore lands on this same clause**,
-    which is why it is stated once, as h.16, rather than twice.
-    **A bonus of h.16, and the reason it is the cleaner discharge:** under it (α) and (β) are the
-    *same number* on every deviation set, so Step 12 is valid whichever date the engagement cost is
-    booked at, and the proof does not have to adjudicate a card ambiguity it has no standing to
-    settle. **Card ambiguity, regeneration item: card §4.3's $U_j$ row should say when $C_j(s)$ is
-    incurred.**
+    **Why this clause is needed, and where (audit Finding 1(b); restated 2026-08-25 round 2 on
+    pass-2 R16–R17).** Step 12 shows that on a deviation class the flagged price is invariant and the
+    flagged order cancels out of the payoff, leaving
+    $V(j')=B_j^F(s)P^F(s)-\text{(engagement cost)}$. **The engagement cost is therefore the only
+    thing that can move across the class**, and whether it does is exactly h.16. Two conventions are
+    available and the card fixes neither (card §4.3's $U_j$ row does not date $C_j$): **(α) plan
+    completion** — submitting $Q_{j'}^F(s)$ *is* completing plan $j'$, so the deviator bears
+    $C_{j'}(s)$; **(β) sunk cost** — the filing has landed and $D=1\Rightarrow a=1$ is public (h.4),
+    so the engagement cannot be unmade and the deviator bears $C_j(s)$ whatever order is submitted.
+    Under (β) the continuation is constant on the class with no clause at all. Under (α) it is
+    constant **iff** the cost is constant on the class, which is h.16.
+    *Where it bites:* under (α) at a **selected** $j$, date-0 optimality already suffices — Step 12(c)
+    gives $U_{j'}=B_j^FP^F-C_{j'}-E_j$ within the class, so $U_j\ge U_{j'}$ *is* $C_j\le C_{j'}$ —
+    but at a **non-selected** flagged pair there is no date-0 optimality to appeal to, and the
+    deviator strictly prefers the class member with the smallest $C_{j'}(s)$. Those non-selected
+    flagged nodes are pass-1 finding 1's node class, they carry card §3(ii) exactly as the selected
+    ones do, and h.16 is what discharges them under (α).
+    **Why it is stated as an equality rather than one-sidedly.** (1) *The sharing relation is
+    symmetric.* If $j'$ agrees with $j$ on the pooled path up to $f_j(s)$ then $c_{j'}(s)=c_j(s)$ —
+    the crossing date is a first-hitting index of a path they share, and $c_j\le f_j-T\le f_j$ —
+    hence $f_{j'}(s)=f_j(s)$, so the agreement is mutual; with $a_{j'}=a_j$, "shares the pooled path
+    and the engagement flag" is an equivalence relation on the flagged set at each $s$, and each h.11
+    deviation set is one of its classes. A clause imposed at every pair of a class in one direction
+    is imposed in both. (2) *The clause cannot be indexed by the equilibrium's selection*: Brouwer
+    does not say which $k^\star$ it returns, and the requirement lands at flagged pairs that **no**
+    cutoff vector selects, where "the selected $j$" does not name anything. So the uniform equality is
+    the honest form, and it is also what **spec MAY-11's** alternative route arrives at: restating
+    round-2 optimality against the sunk-cost continuation is convention (β), which settles the step
+    only by settling a card ambiguity this proof has no standing to settle. **h.16 makes (α) and (β)
+    the same number**, so the conclusion is convention-free. **Card ambiguity, regeneration item: card
+    §4.3's $U_j$ row should say when $C_j(s)$ is incurred.**
 
     **Satisfiability.** h.16 is **trivially true on any single-Voice menu**, the pinned pro-rata menu
     included: on the flagged set $a_j=1$ (h.4), so a deviation set contains only Voice plans, and
@@ -205,6 +240,26 @@ Each is cited by number at the step that consumes it. Items marked **[ADDITION]*
     (`proofs/A7_construction.md` Steps 5–7: Exit and Hold never cross $\tau$ when $b_0<\tau$). It is
     a genuine restriction only on menus carrying two or more Voice plans that share a pooled path
     (WHERE IT FAILS 7).
+17. **h.17 [ADDITION 2026-08-25, round 2] — the card's §4.1–§4.3 table restrictions, enumerated
+    rather than silently consumed.** Added on pass-2 findings N1–N4, which showed several load-bearing
+    card rows were absent from the hypothesis list of both this file and the card's P1 row (they are
+    on the **card**, so nothing new is assumed; they were simply never cited). The card row now cites
+    the same block. Four items:
+    * **(h.17-a) §4.3's $Y$ row and the price convention $P(\mathcal I)=\mathbb E[Y\mid\mathcal I]$**,
+      with §4.3's entry row for $p(\mathcal I)$. Without it "prices at their inner fixed points" in
+      the conclusion names an equation the antecedent never supplied. *Used: Steps 4–8, 12.*
+    * **(h.17-b) §4.2's Borel-regularity clause for *every* plan including Exit** —
+      $s\mapsto B_j(s,d)$ Borel, the clause the card calls "a genuine addition for Exit". Needed
+      **directly**, not through h.9: D1's conclusion is measurability of $D$ and of the cell map, not
+      of the flagged tuple. *Used: Steps 2, 3, 6, 9.*
+    * **(h.17-c) §4.2's structural rows** — $D=1\Rightarrow a=1$; the definitions of
+      $c_j,f_j,B_j^F,Q_j^F,b_j^*$; $\partial_sB_j\ge0$ and $\partial_dB_j\ge0$ on Voice, Hold
+      constant, Exit weakly decreasing. *Used: Steps 2, 3, 12, 19, 20.*
+    * **(h.17-d) §4.1's distributional forms** — $v,\varepsilon,\xi$ Gaussian with the projection
+      $\beta$, $\Delta_m>0$, $\Delta_V\ge0$, $\kappa\in[0,1]$ with the ternary noise law, $b_0<\tau$.
+      *Used: Steps 4, 7, 8, 9, 10, 12, 20.*
+    None of these is a new restriction on the model: each is a card row P1 was consuming already, and
+    listing them is what card §8 rule 6 (every hypothesis enumerated and used) requires.
 
 ---
 
@@ -230,8 +285,13 @@ Step 13 returns to that.
 By h.10 the pooled path carries no feedback from realised order flow or prices, so for each
 $j\in\mathcal J$ the objects $B_j(s,d)$ ($d=0,\dots,H$), $q_{jd}(s)=\Gamma(B_j(s,d)-B_j(s,d-1))$,
 $c_j(s;\tau)$, $f_j(s)=c_j(s)+T$, $B_j^F(s)=B_j(s,f_j(s))$ and $Q_j^F(s)=b_j^*(s)-B_j^F(s)$ are
-functions of $(j,s)$ and the policy pair $(\tau,T)$ alone. Measurability in $s$: $B_j(\cdot,d)$ is
-monotone by card §4.2, hence Borel; $\Gamma$ is a finite ordered coarsening (h.2), hence Borel;
+functions of $(j,s)$ and the policy pair $(\tau,T)$ alone. Measurability in $s$: $s\mapsto B_j(s,d)$
+is Borel **for every plan by h.17-b**, card §4.2's explicit Borel-regularity clause — *corrected
+2026-08-25 (round 2, pass-1 finding 8) from "monotone by card §4.2, hence Borel", which is false for
+Exit: §4.2 imposes $\partial_sB_j\ge0$ on **Voice** only, Exit is weakly decreasing in $d$ and
+unrestricted in $s$, and the card supplies Borel-in-$s$ for Exit as a separate clause it calls "a
+genuine addition for Exit". The correction is load-bearing, since Step 9's reachability and the
+pooled prices integrate over all types including Exit;* $\Gamma$ is a finite ordered coarsening (h.2), hence Borel;
 $c_j(\cdot;\tau)=\inf\{d:B_j(\cdot,d)\ge\tau\}$ is the pointwise minimum over the finite calendar
 (h.2) of the indices of the Borel sets $\{B_j(\cdot,d)\ge\tau\}$, hence Borel with values in
 $\{0,\dots,H\}\cup\{+\infty\}$; and — this is the D1-R2 repair written out —
@@ -289,16 +349,19 @@ The card's requirement $P(\mathcal I)=\mathbb E[Y\mid\mathcal I]$ is the scalar 
 $\mathcal P_{\mathcal I}(P)=P$. **The map depends on $\mathcal I$ only through the two scalars
 $(\hat v(\mathcal I),\pi(\mathcal I))$.** That is the fact Steps 5–7 use.
 
-**Step 5 (pooled layer: A5 on a finite index set — stated in two parts, because only one of them is
-a fixed point).**
+**Step 5 (pooled layer on a finite index set — stated in two parts, because only one of them is
+a fixed point; the inner root comes from Steps 7–8, not from A5).**
 By Step 3 there are finitely many pooled public histories. Step 4's map is derived at a **control
 node**, which is where $\mathsf B$ is a function of $\xi$ alone given the conditioning, so the two
 layers of the pooled family must be treated separately.
 
 (a) *The pooled control-node cell ($D=0$ at date $H$).* Here $\mathcal I=\mathcal I_H$ is a control
-node, Step 4 applies as derived, and h.5 supplies a unique fixed point of $\mathcal P_{\mathcal I}$,
-continuous in beliefs and cutoffs. This is a genuine fixed point: the price appears on both sides
-through the entry indicator.
+node, Step 4 applies as derived, and **Step 7 supplies a unique fixed point** of
+$\mathcal P_{\mathcal I}$ from h.12 ($m_0\ge0$), with continuity in the belief from Step 8. This is a
+genuine fixed point: the price appears on both sides
+through the entry indicator. *(Re-cited 2026-08-25, round 2, pass-1 finding 3: this clause read "h.5
+supplies …" while the card's P1 row says A5 is not assumed. Steps 7–8 do not depend on Step 5, so
+the re-citation is not circular, and h.5 is struck.)*
 
 (b) *Intermediate pooled dates $d<H$.* $\mathcal H_d^P$ is **not** a control node. Card §4.3's $Y$ row
 writes the takeover branch as $\mathsf B(P+m_0+a\Delta_m)$ with $P$ unqualified; under the natural
@@ -314,13 +377,15 @@ means** (batch-1 audit P1-R8).
 The conclusion this step is used for survives on either reading, and that is why nothing downstream
 turns on the adjudication: a finite family requires no selection argument, and the pooled price family
 $k\mapsto (P_d^P(\mathcal H_d^P;k))_{\mathcal H_d^P}$ is a finite vector of continuous functions of
-$k$ — at the control-node cell by (a) with h.5 and Step 7, and at $d<H$ by (b) as a finite-sum
+$k$ — at the control-node cell by (a) with Steps 7–8, and at $d<H$ by (b) as a finite-sum
 conditional expectation of continuous functions — on those histories that carry positive probability
-under the conjecture $k$. Histories of zero probability under $k$ are handled in Step 9.
+under the conjecture $k$. Histories of zero probability under $k$, and histories of zero probability
+under every profile, are handled in Step 9(b) and 9(c) respectively.
 
-**Step 6 (flagged layer: A5 consumed as a measurably selected family — the D1-R2 point).**
+**Step 6 (flagged layer: a measurably selected family, built from Steps 7–8 rather than assumed —
+the D1-R2 point).**
 By Step 3 the flagged information sets are indexed by the continuum
-$\sigma_F\in[0,\bar b]^2\times\{1\}$. A pointwise reading of h.5 — "at each $\sigma_F$ there is a
+$\sigma_F\in[0,\bar b]^2\times\{1\}$. A pointwise statement — "at each $\sigma_F$ there is a
 unique root" — does not by itself yield a *function* of $\sigma_F$ that the model can integrate
 against, which is what card §4.4's $M_F=\Delta_m\mathbb E[h\mid D=1]$ and h.9's timing split both
 require. The family is constructed as follows.
@@ -332,8 +397,13 @@ event of the control-node history, so $\Pr(a=1\mid\sigma_F,D=1)=1$, matching car
 (b) By Step 4 the flagged pricing map therefore depends on $\sigma_F$ only through the single
 scalar $\hat v(\sigma_F;k)=\mathbb E[v\mid\sigma_F,D=1]$. Write $\mathcal G_F(\cdot)$ for the map
 sending a belief $\hat v$ to the unique root of $\mathcal P(\cdot)-\mathrm{id}$ at $(\hat v,\pi=1)$.
-h.5's uniqueness clause makes $\mathcal G_F$ single-valued and h.5's continuity-in-beliefs clause
-makes $\mathcal G_F$ continuous. (The symbol is $\mathcal G_F$ and not $g$: the turn-2 notation ruling
+**Step 7(ii)–(iii) makes $\mathcal G_F$ single-valued** (existence and uniqueness of the root under
+h.12) **and Step 8 makes it continuous** in the belief — indeed 1-Lipschitz, since
+$\partial P/\partial\hat v\in(0,1]$ there. *Re-cited 2026-08-25 (round 2, pass-1 finding 3) from
+"h.5's uniqueness clause … h.5's continuity-in-beliefs clause"; this was the one genuinely
+load-bearing A5 use in the file, because (d) below composes a Borel map with a continuous one. Steps
+7–8 are self-contained and do not depend on Step 6, so there is no circularity.* (The symbol is
+$\mathcal G_F$ and not $g$: the turn-2 notation ruling
 reserves $g$ for L3's mean-value form, and card §4.5 carries $g_r^{PE}$.)
 
 (c) $\sigma_F\mapsto\hat v(\sigma_F;k)$ is Borel measurable. Two routes, both available: it is a
@@ -346,14 +416,16 @@ projection coefficient. Injectivity plus measurability already delivers the meas
 separate assumption is introduced.
 
 (d) Therefore $P^F(\sigma_F;k)=\mathcal G_F\bigl(\hat v(\sigma_F;k)\bigr)$ is the composition of a Borel map
-with a continuous map, hence Borel. **This is the measurably selected family that h.5 must be read
-as supplying, and it is pinned rather than chosen: uniqueness at each $\sigma_F$ leaves no freedom,
+with a continuous map, hence Borel. **This is the measurably selected family — built here from
+h.7 and h.17-b at (c) and from Steps 7–8 at (b), not read off A5 — and it is pinned rather than
+chosen: uniqueness of the root at each $\sigma_F$ leaves no freedom,
 so no selection principle is invoked and no two runs of the argument can produce different
-families.** The turn-2 audit flagged (D1-R2) that D1 Step 11 and L2 Steps 8–9 both consume this
+families.** (This is a statement about the *price* family given the belief; the sense in which the
+flagged *belief* is pinned is Step 10's, and is weaker — a version, not a forcing.) The turn-2 audit flagged (D1-R2) that D1 Step 11 and L2 Steps 8–9 both consume this
 reading; P1 consumes it here, at the point where the flagged price enters the blockholder's payoff.
 
-**Step 7 (under h.12 the inner root exists and is unique by derivation, so h.5's inner clause is not
-carrying the weight it appears to).**
+**Step 7 (under h.12 the inner root exists and is unique by derivation — which is why A5 is not a
+hypothesis of P1 and h.5 is struck).**
 Write $A=\hat v+\pi\Delta_V$ and $\varrho(P)=\mathcal P_{\mathcal I}(P)-P=(1-p(P))(A-P)+p(P)\bar m$,
 continuous in $P$ because $\Phi$ is. By h.12, $\bar m\ge 0$.
 
@@ -375,9 +447,11 @@ $\varrho'(P_1)<0$ forces $\varrho<0$ immediately to the right of $P_1$, and sinc
 $(P_1,P_2)$ it is negative throughout that interval; $\varrho'(P_2)<0$ forces $\varrho>0$ immediately to
 the left of $P_2$. The two conclusions contradict each other, so there is at most one root.
 
-Consequently, on the maintained sign h.12 the existence-and-uniqueness half of h.5 is a theorem
-rather than an assumption, and what h.5 genuinely contributes to P1 is *continuity in the
-conjecture $k$*. Step 15 uses that and says where it, in turn, is assumed.
+Consequently, on the maintained sign h.12 the existence-and-uniqueness content of A5 is a theorem
+rather than an assumption, and Step 8 adds its continuity-in-the-belief content. What is left over is
+continuity of the *composition* in the conjecture $k$, which runs through the conditioning
+$(\hat v,\pi)$ rather than through the pricing map; Step 15 takes that up and says where it is
+assumed. This is why h.5 is struck rather than retained in weakened form.
 
 **Step 8 (the inner root is monotone and non-expansive in the belief, which is the object the
 numerical check can hit).**
@@ -417,29 +491,68 @@ across plans. This is the whole-history form, and it is what the argument needs 
 whose marks is individually attainable under *some* plan need not be attainable under any *one*
 plan.
 
-*(b) The limit exists at every reachable history.* By h.2 the plan menu is finite and by Step 3 the
-pooled history alphabet is finite, so for each pooled history the perturbed
-posterior over plans is a ratio whose numerator and denominator are finite sums of terms
+*(b) The limit exists at every reachable history — and it is the limit of the **joint** $(j,s)$
+posterior, not merely of the posterior over plans.* Write $w_n(j\mid s)$ for the stage-$n$ mixing
+weight ($\ge1/n$ for every $j$), $\varphi_s$ for the signal density and
+$L_j(\mathcal H_d^P\mid s)=\prod_{d'\le d}\Pr(z_{d'}=X_{d'}-q_{jd'}(s))\cdot\mathbf 1\{\text{flag
+coordinate}=\mathbf 1\{f_j(s)\le d\}\}$ for the likelihood of Step 9(a). The stage-$n$ joint density
+over $(j,s)$ at the history is
+$$\mu_n(j,s)=\frac{w_n(j\mid s)\,L_j(\mathcal H_d^P\mid s)\,\varphi_s(s)}
+{\sum_{j'\in\mathcal J}\int w_n(j'\mid \sigma)\,L_{j'}(\mathcal H_d^P\mid \sigma)\,\varphi_s(\sigma)\,
+\mathrm d\sigma}.$$
+By h.2 the plan menu is finite and by Step 3 the pooled history alphabet is finite, so numerator and
+denominator are finite sums of terms
 polynomial in $1/n$ with coefficients that do not depend on $n$. At a reachable history the
 denominator is strictly positive for every $n$: the witnessing pair $(j,S)$ contributes at least
-$(1/n)\int_S\prod_{d'\le d}\Pr\bigl(z_{d'}=X_{d'}-q_{jd'}(s)\bigr)\,\mathrm d\Phi_s(s)$, with $\Phi_s$
-the signal c.d.f. of the NOTATION DELTA, and it is strictly
+$(1/n)\int_S L_j(\mathcal H_d^P\mid s)\,\varphi_s(s)\,\mathrm ds$, strictly
 positive because each factor is positive on $S$ by the definition of reachability and, by h.2, the
-mark $q_{jd'}(\cdot)$ takes finitely many values, so the product takes finitely many positive values
+mark $q_{jd'}(\cdot)$ takes finitely many values, so $L_j$ takes finitely many positive values
 on $S$ and is bounded below by their minimum; every other term in the denominator is nonnegative.
 A ratio of polynomials in $1/n$ with a denominator that is nonzero
-for all large $n$ converges as $n\to\infty$. Hence the limiting belief exists at every **reachable**
-pooled history, on path and off, and on path it agrees with the Bayes posterior. This is where h.2's
+for all large $n$ converges as $n\to\infty$, **pointwise in $(j,s)$**, and the limit is the
+plan-uniform-weighted joint law restricted to the history. This is where h.2's
 finiteness pays: with a continuum of pooled histories the limit would need a separate argument.
 
-*(c) Unreachable histories carry no requirement, and no step consumes one.* An unreachable history
+The joint form is what the step must deliver, not a flourish (pass-1 finding 4): Step 4 shows the
+pricing map depends on the information set through $(\hat v,\pi)$, and while $\pi$ is a functional of
+the *plan* posterior alone, $\hat v(\mathcal I)=\mathbb E[v\mid\mathcal I]$ is a functional of the
+**signal** posterior. Integrating $s$ out first would deliver $\pi$ and leave $\hat v$ undefined.
+Passing from $\mu_n$ to $\hat v$: $\hat v_n=\sum_j\int\bigl(\mu_v+\beta(s-\mu_v)\bigr)\mu_n(j,s)\,
+\mathrm ds$,
+and $\mu_n\to\mu_\infty$ pointwise with $\lvert\mu_v+\beta(s-\mu_v)\rvert\,\mu_n$ dominated by an
+integrable envelope under h.17-d's Gaussian tail and h.2's integrability clause, so dominated
+convergence gives $\hat v_n\to\hat v_\infty$ and, by Step 8's 1-Lipschitz bound, the prices converge
+with them. Hence the limiting belief **and the limiting price** exist at every reachable
+pooled history, on path and off, and on path the belief agrees with the Bayes posterior.
+*Load-bearing where it is least obvious:* Step 13 evaluates $U_j(s;k)$ for **every** $j\in\mathcal J$,
+including plans carrying zero probability under $k$ on a collapse face, whose pooled-execution
+bracket reads prices at $k$-null histories — so those prices must be defined, not merely
+constrained.
+
+*(c) Unreachable histories carry no requirement; a convention makes the payoff defined at every
+signal anyway.* An unreachable history
 has probability zero under **every** plan profile, perturbed or not — it is null under nature, not
 off path under the players — so card §3(vi) asks nothing of it and card §3(iv) prices nothing there.
-Nothing downstream evaluates one: Step 11's pooled-execution bracket integrates
-$P_d^P(\mathcal H_d^P)$ against the law of $z_{0:H}$ under the plan actually played, which puts mass
-only on reachable histories, and the same holds for every deviation in h.11's action set, since those
-share $j$'s pooled path and hence its reachable set. So no payoff comparison anywhere in Parts D–E
-reads a price at an unreachable history.
+Almost everything downstream is already clear of them: Step 11's pooled-execution bracket integrates
+$P_d^P(\mathcal H_d^P)$ against the law of $z_{0:H}$ under the plan actually played, which for
+$\Phi_s$-almost every $s$ puts mass only on reachable histories, and the same holds for every
+deviation in h.11's action set, since those share $j$'s pooled path.
+
+**The exceptional signals, said plainly (pass-1 finding 6).** Reachability in (a) requires a
+*positive-probability* signal set. The joint mark-and-flag vector
+$\bigl((q_{jd'}(s))_{d'\le d},\mathbf 1\{f_j(s)\le d\}\bigr)$ takes finitely many values (h.2), so its
+level sets partition $\mathbb R$ into finitely many Borel cells — and a particular cell may be
+$\Phi_s$-null while being nonempty. At such an $s$, plan $j$'s own realised pooled histories are
+unreachable and Step 11's bracket would read a price that (b) has not defined. **Convention adopted
+here:** fix once and for all the assignment $P_d^P(\mathcal H_d^P):=\mathbb E[Y]$ (card §4.3's
+$P_{-1}^P$ convention) at every unreachable pooled history. Then $U_j(s;k)$ is defined at **every**
+$(j,s,k)$, and no §3 item is touched: §3(iii), §3(iv) and §3(vi) constrain beliefs and prices only at
+histories carrying positive probability under some profile, and these carry none. The choice is not
+innocuous in one narrow respect and the file does not pretend otherwise: it can change $U_j(s;k)$ on a
+$\Phi_s$-null set of signals, hence can move $\mathcal T_i(k)$, which is an infimum over a pointwise
+condition. What follows is that the theorem is an existence statement **about the object built from
+this fixed convention** — a different admissible convention yields another equilibrium, not a failure
+of this one (NOT CLAIMED 13).
 
 *(d) The $\kappa$ boundary (audit Finding 1(c)).* The pre-repair text asserted that "every noise mark
 carries positive probability whenever $\kappa>0$", with $\kappa=0$ special-cased. That is **false at
@@ -453,12 +566,25 @@ reachable ones carry a limit. Note the correction runs the other way too: the pr
 "the limiting belief exists at every pooled history" was false as stated at $\kappa\in\{0,1\}$, so
 naming the reachable set is a repair of a false assertion, not a retreat from a true one.
 
-**Step 10 (flagged off-path beliefs are pinned by h.7, not chosen).**
+**Step 10 (the flagged belief is the point mass at the generating pair — a version, at every image
+tuple, and the one this equilibrium selects).**
 By h.7 the map $(j,s)\mapsto\sigma_F$ is injective on the flagged set, so each flagged tuple in its
-image is generated by exactly one pair $(j,s)$. Under the stage-$n$ perturbation of Step 9 that
-pair has strictly positive weight, so the perturbed posterior at $\sigma_F$ places probability one
-on $\iota_F(\sigma_F)$, independently of $n$; the limit is the same point mass. Therefore the
-flagged belief is $\hat v(\sigma_F)=\mu_v+\beta(\iota_F(\sigma_F)_s-\mu_v)$ at every flagged tuple,
+image is generated by exactly one pair $(j,s)$, and $\iota_F$ of Step 6(c) returns it.
+**The version, stated explicitly (pass-1 finding 5).** The signal is Gaussian (h.17-d), so the pair
+$(j,s)$ carries probability zero under every stage-$n$ perturbation — what carries positive weight is
+the *plan* conditional on the type. A conditional law given $\sigma_F$ is therefore defined only up to
+$\Phi_s$-null sets, and the sentence "that pair has strictly positive weight, so the perturbed
+posterior at $\sigma_F$ places probability one on $\iota_F(\sigma_F)$" — which this file carried
+before 2026-08-25 — applies a positive-probability argument to a null event. What is true, and is all
+that is needed: because $\iota_F$ is a genuine pointwise Borel map, $\delta_{\iota_F(\sigma_F)}$ is a
+**version** of the regular conditional law given $\sigma_F$ at every stage $n$ — the defining
+disintegration identity holds tuple by tuple, since the conditioning $\sigma$-field separates the
+generating pairs — and it is invariant in $n$, so it is also its own limit. This proof **selects that
+version**, at every tuple in the image; any $\Phi_s$-a.e.-equal version satisfies card §3(iii) and
+§3(vi) equally well, and nothing below distinguishes them. So "pinned" is a statement that the
+point mass is available and forced up to null sets, not that no other version exists — the same hedge
+`proofs/A7_construction.md` NOT CLAIMED already carries ("pinned only up to null sets"). Therefore the
+flagged belief is $\hat v(\sigma_F)=\mu_v+\beta(\iota_F(\sigma_F)_s-\mu_v)$ at every image tuple,
 on path and off, and Step 6's family is simultaneously the on-path Bayes family and the off-path
 limit family. **What "off path" covers here, said precisely (batch-1 audit P1-R3).** It covers flagged
 tuples generated by $(j,s)$ pairs the conjecture $k$ does not select. It does *not* by itself cover
@@ -476,9 +602,12 @@ independent of the pooled residual given $s$, so nothing further is needed to pr
 **Step 11 (the blockholder has exactly two decision points, and the flagged continuation is
 deterministic given $(j,s)$).**
 Card §2 places the plan choice at date 0 and, when $D=1$, the flagged order $Q^F$ in round 2, with
-no within-window re-optimisation in between (h.10). So there is no pooled decision node after date
+no within-window re-optimisation in between (h.10(i)). So there is no pooled decision node after date
 0: item (ii) of card §3, read on the pooled component, is satisfied by the timing itself rather
 than by an argument, and the only genuine sequential-optimality requirement is the round-2 order.
+Two features of the decomposition below are **h.10(ii)**, the flag-terminates-the-pooled-round clause,
+and not h.10(i): that the pooled execution runs over $d\le f_j$ and stops there, and that
+$Q_j^F=b_j^*(s)-B_j^F(s)$ is the blockholder's whole residual position (pass-1 finding 9).
 
 On the flagged branch, by Step 2 the objects $B_j^F(s)$ and $Q_j^F(s)$ are deterministic in
 $(j,s)$; by Step 6 the flagged price $P^F$ is a function of $\sigma_F$ alone and hence deterministic
@@ -497,62 +626,107 @@ Steps 5 and 9 supply. The noise enters the first bracket
 nowhere: $\mathbb E[Y\mid s,j,D=1]$ depends on $(v,\xi)$ and on $P^F$, and $\xi$ is independent of
 $z$ by h.1 while $P^F$ is $z$-free by Step 6.
 
-**Step 12 (h.11 and h.16 make the flagged component sequentially optimal, and nothing in A1–A7
-does).**
-Let $k$ be a conjecture and let $j=j_k(s)$ maximise $U_{\cdot}(s;k)$ over $\mathcal J$ at a flagged
-$(j,s)$. Write Step 11's decomposition as
-$$U_j(s;k)=G_j(s;k)-a_jC_j(s)-E_j(s;k),\qquad
-G_j(s;k):=b_j^*(s)\,\mathbb E\bigl[Y\mid s,j,D=1\bigr]-P^F(\sigma_F)\,Q_j^F(s),$$
-with $G_j$ the **trading terms** of the first bracket and $E_j$ the pooled-execution second bracket.
-Suppose some
-round-2 order $Q'$ available at $(j,s)$ strictly improves the flagged continuation, holding the
-market's flagged pricing schedule at the family of Step 6. By **h.11** the available orders are
-exactly $\mathcal Q_j(s)$, the plan-generated set, so $Q'=Q_{j'}^F(s)$ for some $j'\in\mathcal J$ with
-the same pooled path up to $f_j(s)$ and the same engagement flag. Identical
-pooled paths give identical order marks $q_{j'd}=q_{jd}$ for $d\le f_j$ (h.10, Step 2), hence
-identical realised pooled histories for every noise draw and therefore $E_{j'}=E_j$; and
-$a_{j'}=a_j=1$ on the flagged set by h.4. Note also $B_{j'}^F(s)=B_j^F(s)$ — the shared path pins the
-stake at the shared filing date — so the deviation's flagged tuple is
-$\sigma_F'=(B_j^F(s),Q_{j'}^F(s),1)$ and its terminal stake is $b_{j'}^*(s)$: the deviation's trading
-terms are exactly $G_{j'}(s;k)$.
+**Step 12 (the flagged component is sequentially optimal at *every* flagged pair, selected or not:
+price invariance, cancellation, and h.16 — and nothing in A1–A7 does this).**
+*Restructured 2026-08-25 (round 2) on pass-1 finding 1 and pass-2 R16–R17. The pre-round-2 argument
+ran the deviation back to date-0 optimality and therefore reached only the flagged nodes on the
+selected plan; h.11 defines an action set $\mathcal Q_j(s)$ at **every** flagged pair, and a date-0
+deviation to a non-selected plan that flags creates a genuine round-2 information set carrying card
+§3(ii). The argument below discharges the requirement at all of them, and it does so **without
+appealing to date-0 optimality**, which is exactly what lets it cover the non-selected nodes.*
 
-**The comparison must be cost-honest (audit Finding 1(b)).** The deviation's continuation is
-$G_{j'}-C_{j'}(s)$ if submitting $Q^F_{j'}(s)$ counts as completing plan $j'$ and paying its
-engagement cost, and $G_{j'}-C_j(s)$ if the engagement cost is already sunk at round 2 — which it is,
-the filing having landed with $D=1\Rightarrow a=1$ public (h.4). The card dates $C_j$ under neither
-reading. **Under h.16 the two are the same number**, $C_{j'}(s)=C_j(s)$ on the deviation set, so the
-supposition "$Q'$ strictly improves the flagged continuation" says $G_{j'}(s;k)>G_j(s;k)$ on either
-reading. Then
-$$U_{j'}(s;k)-U_j(s;k)=\bigl[G_{j'}-G_j\bigr]-\bigl[C_{j'}-C_j\bigr]-\bigl[E_{j'}-E_j\bigr]
-=G_{j'}-G_j\;>\;0,$$
-contradicting the optimality of $j$ at $s$. Hence no available flagged
-deviation improves, which is sequential optimality of the flagged component.
+Fix a flagged pair $(j,s)$ — no assumption that $j=j_k(s)$ — and let $j'$ range over the class
+generating h.11's action set: $j'$ agrees with $j$ on the pooled path up to $f_j(s)$ and
+$a_{j'}=a_j$. The shared path forces $c_{j'}(s)=c_j(s)$, hence $f_{j'}(s)=f_j(s)$ and
+$B_{j'}^F(s)=B_j^F(s)$ (Step 2, h.9); $a_{j'}=a_j=1$ on the flagged set (h.4). So the deviation's
+flagged tuple is $\sigma_F(j',s)=(B_j^F(s),Q_{j'}^F(s),1)$ — in the image of the flagged-pair map,
+where Step 10 applies — and it differs from $\sigma_F(j,s)$ in the $Q^F$ coordinate alone.
 
-**What h.16 is doing, and why the sunk-cost route does not do it instead (spec MAY-11).** Drop h.16
-and the middle bracket survives: date-0 optimality of $j$ gives only $G_j-G_{j'}\ge C_j-C_{j'}$,
-while sunk-cost round-2 optimality needs $G_j-G_{j'}\ge0$, so the step would need
-$C_{j'}(s)\le C_j(s)$ at the selected $j$. It can fail. With $C_j(s)=0.01$, $C_{j'}(s)=0.99$ and
-$G_{j'}-G_j=0.5$, plan $j$ is date-0 optimal ($U_{j'}-U_j=0.5-0.98=-0.48<0$) while the round-2
-deviation raises the sunk-cost continuation by $0.5$: a fixed point of $\mathcal T$ then satisfies
-items (i), (iii)–(vi) of card §3 and fails item (ii) at the flagged node (the GPT end review's
-arithmetic; WHERE IT FAILS 7). Nor is the one-sided clause a weaker hypothesis than h.16: h.16's
-"why" note shows the deviation set is an equivalence class and that P1's hypotheses must hold
-uniformly on $\Theta$, so $C_{j'}\le C_j$ imposed at every selectable $j$ *is* $C_{j'}=C_j$.
-**Restating round-2 optimality against the sunk-cost continuation therefore lands on h.16, and h.16
-additionally makes the two readings agree, so this step never has to adjudicate the card's
-ambiguity.** The clause is vacuous on any single-Voice menu, where $\mathcal Q_j(s)$ is a singleton,
-and live on any admissible menu with two Voice plans sharing a pooled path.
+**(a) The flagged price does not move across the class.** By Step 10 the belief at $\sigma_F(j',s)$
+is the point mass at $(j',s)$, so $\hat v(\sigma_F(j',s))=\mu_v+\beta(s-\mu_v)$ — a function of $s$
+alone, the same for every class member — and $\pi=1$ on the flagged cell (Step 6(a)), so
+$\bar m=m_1$. By Step 4 the inner pricing map depends on the information set only through
+$(\hat v,\pi)$. Hence
+$$P^F\bigl(\sigma_F(j',s)\bigr)=\mathcal G_F\bigl(\hat v(s)\bigr)=:P^F(s)\qquad\text{for every }j'
+\text{ in the class:}$$
+**the round-2 order carries no price impact across the menu.** Uniqueness of the inner root (Step 7)
+is what makes $P^F(s)$ a number rather than a selection.
 
-The converse direction is the honest part. Without h.11 — i.e. if round 2 offers the full interval
-$[0,\bar b-B_j^F(s)]$ — date-0 optimality over $\mathcal J$ constrains only those round-2 orders that
-appear as the flagged component of some menu element paired with the same pooled path; an order
-outside that set is never compared, so a fixed point of $\mathcal T$ can fail item (ii) of card §3 at
-the flagged node while satisfying every other item. **Sequential optimality of the flagged component
-does not follow from A1–A7 and is not a free consequence of complete contingent plans; h.11 is *a*
-sufficient condition that delivers it, and it is a restriction on the round-2 action set rather than
-on the menu.** Strengthening A7 to **A7-J** does not change this: WHERE IT FAILS 2's menu may be
-taken with $b^*$ strictly increasing on all of $\mathbb R$, so it satisfies A7-J and still fails
-item (ii). The turn-1 statement of P1 listed "sequential optimality of the flagged component" as
+**(b) At a flagged node the blockholder values a share at exactly $P^F(s)$.** The blockholder knows
+$(j,s)$ and the realised pooled history; given $(j,s)$ the latter is a function of $z_{0:f_j}$
+(Step 2), and $z\perp(v,\varepsilon,\xi)$ by h.1, so it carries no information about $Y$:
+$\mathbb E[Y\mid s,j',\mathcal H_{f^-}^P,D=1]=\mathbb E[Y\mid s,j',D=1]$. By h.1 again $\mathsf B$ is a
+function of $\xi$ alone given the $\sigma_F$-measurable $P^F$, so with $p=p(P^F(s))$ from Step 4,
+$$\mathbb E[Y\mid s,j',D=1]=(1-p)\bigl(\mathbb E[v\mid s]+\Delta_V\bigr)+p\bigl(P^F(s)+m_1\bigr).$$
+**A7-J makes the market's flagged posterior the blockholder's own** — $\hat v(\sigma_F(j',s))
+=\mathbb E[v\mid s]$ by (a) — so the right-hand side is $\mathcal P_{\mathcal I}(P^F(s))$ at the
+flagged information set, which equals $P^F(s)$ because $P^F(s)$ solves the inner fixed point (Steps 4,
+6). Hence
+$$\mathbb E\bigl[Y\mid s,j',\mathcal H_{f^-}^P,D=1\bigr]=P^F(s).$$
+There is no informational rent left in round 2: full separation is what A7-J buys, and this is what
+it costs.
+
+**(c) The $Q^F$ terms cancel.** The flag terminates the pooled round (h.10), so at round 2 the pooled
+execution is complete, sunk, and common to every class member — Step 11's second bracket $E_j(s;k)$,
+which the shared path makes identical across the class for every noise draw. The continuation of
+choosing $Q_{j'}^F(s)$ is the terminal position valued at the control node, less what the flagged
+order costs, less the engagement cost the deviator bears:
+$$V(j')=\bigl(B_j^F(s)+Q_{j'}^F(s)\bigr)\,\mathbb E[Y\mid\cdot]\;-\;P^F(s)\,Q_{j'}^F(s)\;-\;
+\text{(engagement cost)}\;=\;B_j^F(s)\,P^F(s)\;-\;\text{(engagement cost)},$$
+using (b) for $\mathbb E[Y\mid\cdot]=P^F(s)$ and (a) for the price at the deviation tuple. **Every
+appearance of $Q_{j'}^F$ has cancelled, and with it every appearance of $b_{j'}^*$**: the class
+member's identity survives only through the engagement cost. In Step 11's notation the same
+computation reads $G_{j'}(s;k)=B_j^F(s)P^F(s)$ for every class member, so on flagged plans
+$U_{j}(s;k)=B_j^F(s)P^F(s)-C_j(s)-E_j(s;k)$.
+
+**(d) h.16 closes it, and the conclusion is convention-free.** The card does not say at which date
+$C_j(s)$ is incurred, so the engagement cost in (c) is $C_{j'}(s)$ under the **plan-completion**
+convention (submitting $Q_{j'}^F$ is completing plan $j'$ and paying its engagement cost) and
+$C_j(s)$ under the **sunk** convention (the filing has landed and $D=1\Rightarrow a=1$ is public by
+h.4, so the engagement cannot be unmade). Under the sunk convention $V$ is constant on the class
+outright. Under the plan-completion convention **h.16** gives $C_{j'}(s)=C_j(s)$ and $V$ is constant
+again. Either way
+$$V(j')=B_j^F(s)\,P^F(s)-C_j(s)\qquad\text{for every }j'\text{ in the class,}$$
+so every element of $\mathcal Q_j(s)$ — the specified $Q_j^F(s)$ included — attains the maximum.
+**The flagged component is sequentially optimal at every flagged pair $(j,s)$, on the selected plan
+and off it**, which is card §3(ii)'s flagged half in full. $\square$
+
+**Where h.16 bites, exactly.** Under the sunk convention h.16 is not consumed at this step. Under the
+plan-completion convention: at a **selected** $j$, date-0 optimality would already do the work — by
+(c) $U_{j'}=B_j^FP^F-C_{j'}-E_j$ within the class, so "$U_j\ge U_{j'}$" *is* "$C_j\le C_{j'}$", which
+is what defeats the deviation — but at a **non-selected** flagged pair there is no date-0 optimality
+to appeal to, and without h.16 the deviator strictly prefers the class member with the smallest
+$C_{j'}(s)$. So h.16's bite is precisely: **PBE at flagged nodes off the equilibrium plan under the
+plan-completion convention**, and it is what makes the conclusion hold under both conventions without
+this proof adjudicating a card silence. It stays vacuous on any single-Voice menu (singleton class)
+and a restriction only on menus with two or more Voice plans sharing a pooled path (WHERE IT FAILS 7).
+
+**Refutation note: a shared-path class on which the *trading* terms differ cannot be built.** A
+witness that fixes $G_{j'}(s;k)-G_j(s;k)=\delta>0$ across a class — $G_j$ being Step 11's trading
+terms — is inconsistent with card §3(iv) and §3(vi) in force: by (a)–(b), at pinned beliefs and
+inner-fixed-point prices $G_{j'}=B_j^F(s)P^F(s)$ for **every** class member, so $\delta=0$
+necessarily. Such a witness fixes as a primitive ($G$, equivalently a trading gain on the flagged
+order) what equilibrium determines; it is available only where the flagged price is not the fixed
+point of card §4.3's pricing equation, or the flagged belief is not the one A7-J pins. This disposes
+of the trading-gain framing of audit Finding 1(b) that this file's own first 2026-08-25 draft
+carried, and of pass-1 finding 1's witness: **the review's arithmetic is right about the cost wedge
+and about the demotion, and wrong only in locating the wedge in $G$**. It also makes the
+class-argmax construction proposed as finding 1's bounded repair unnecessary — all class members tie,
+so the equilibrium object is unchanged and no selection has to be specified.
+
+The converse direction is the honest part, and it is about **h.11**, not about the argument above.
+Without h.11 — if round 2 offers the full interval $[0,\bar b-B_j^F(s)]$ — an order outside the
+plan-generated set produces a flagged tuple **outside the image** of $(j,s)\mapsto\sigma_F$, where
+Step 10 pins nothing and no step assigns a belief; the deviation's price, and with it the whole
+comparison, is then undefined until a belief is supplied, and the supplied belief decides the answer.
+By (c) the on-image flagged payoff is $B_j^F(s)P^F(s)-C_j(s)$ with the order cancelled out, so an
+off-image deviation is profitable or not entirely according to how the assigned off-image belief
+compares with $\mathbb E[v\mid s]$ — and Step 9's plan-only perturbation constrains that choice at no
+$n$. **Sequential optimality of the flagged component does not follow from A1–A7 and is not a free
+consequence of complete contingent plans; h.11 is *a* sufficient condition that delivers it, and it is
+a restriction on the round-2 action set rather than on the menu.** Strengthening A7 to **A7-J** does
+not change this: WHERE IT FAILS 2's menu may be taken with $b^*$ strictly increasing on all of
+$\mathbb R$, so it satisfies A7-J and still fails item (ii). The turn-1 statement of P1 listed "sequential optimality of the flagged component" as
 its Hypothesis 6 without content; h.11 is one way of supplying that content.
 
 **Not claimed: that h.11 is the *weakest* such condition (batch-1 audit P1-R2).** An earlier draft
@@ -562,19 +736,26 @@ requires off-path beliefs to be limits of full-support perturbations, and Step 9
 perturbs **only the plan menu** (each type plays each $j\in\mathcal J$ with weight $\ge1/n$). Round-2
 orders outside the menu image are then reached at no $n$, so their limit beliefs are unconstrained by
 that perturbation and the modeller may choose them. Whether some admissible choice deters every
-off-menu deviation is a genuine question and not an obvious one — a punishing (high) off-path $P^F$
-makes the deviation purchase dearer but also raises the takeover-branch value of $Y$ — and **no step
-in this proof addresses it**. So: h.11 delivers Step 12; whether an off-path-belief route also
-delivers item (ii), and whether it would be weaker, is **open**.
+off-menu deviation is a genuine question and not an obvious one: by Step 12(c) an off-image deviation
+to $Q'$ at belief $\hat v'$ earns $B_j^F\,\mathbb E[Y\mid\cdot]+Q'\bigl(\mathbb E[Y\mid\cdot]-P'\bigr)$
+less the cost, so the assigned belief moves the deviation's gain and the incumbent's own valuation at
+once, in opposite directions — and **no step in this proof addresses it**. So: h.11 delivers Step 12;
+whether an off-path-belief route also delivers item (ii), and whether it would be weaker, is **open**.
 
 ### Part E — the outer map and Brouwer
 
 **Step 13 (h.3 gives a well-defined weakly ordered best-response map; A6's ordering content is a
 consequence, not an assumption).**
 Fix $k\in\Theta$. Steps 5, 6, 9 and 10 determine the pooled and flagged price families and the
-belief system; Step 11 then determines $U_j(s;k)$ for every $j$ and $s$, finite and bounded by h.2.
+belief system; Step 11 then determines $U_j(s;k)$ for every $j$ and $s$ — at **every** $s$, by Step
+9(c)'s convention — and each $U_j(s;k)$ is finite by h.2 (A2′: locally bounded in $(s,\vartheta)$
+pointwise, integrable in expectation; the struck flat bound of the old A2 is not used).
 By h.3 the preferred plan is weakly increasing in $s$, so there is a weakly increasing selection
-$j^\star(\cdot;k)$ from $\arg\max_{j\in\mathcal J}U_j(\cdot;k)$. Define
+$j^\star(\cdot;k)$ from $\arg\max_{j\in\mathcal J}U_j(\cdot;k)$. **The selection is named, not merely
+asserted to exist** (pass-2 N8): take $j^\star(s;k):=\max\arg\max_{j}U_j(s;k)$, the largest maximiser,
+which is weakly increasing in $s$ under h.3 and is defined at every $s$; ties are therefore broken
+upward, and a plan that is optimal nowhere simply never appears in the range, which is the corner
+convention Step 13's $\inf\emptyset:=\overline s$ already encodes. Define
 $$
 \mathcal T_i(k;\vartheta)\;=\;\inf\bigl\{s\in[\underline s,\overline s]:j^\star(s;k)\ge i+1\bigr\},
 \qquad i=1,\dots,J-1,\qquad \inf\emptyset:=\overline s .
@@ -611,8 +792,12 @@ therefore **assumed**, and it is the first of the two things h.6 is doing.
 
 **Step 15 (continuity: this is where h.6 assumes rather than derives, and here is exactly what it is
 assuming).**
-$U_j(s;k)$ is continuous in $k$ for each fixed $(j,s)$: by h.5 the pooled and flagged inner prices
-are continuous in the cutoffs, and by Step 4 they enter $U_j$ only through $(\hat v,\pi)$, which are
+$U_j(s;k)$ is continuous in $k$ for each fixed $(j,s)$: the pooled and flagged inner prices
+are continuous in the cutoffs — *commentary, not a consumed hypothesis (pass-1 finding 3): this
+clause read "by h.5", but h.5 is struck and this step's actual route to continuity of $\mathcal T$ is
+h.6 asserting it outright at Step 16; what is derived rather than assumed is that the pricing map is
+continuous in its belief arguments (Step 8), and the belief arguments move continuously with $k$ only
+under (i) below* — and by Step 4 they enter $U_j$ only through $(\hat v,\pi)$, which are
 ratios of integrals over signal intervals with endpoints $k$ and are continuous in $k$ wherever the
 conditioning event has probability bounded away from zero; at histories of vanishing probability
 the Step 9 perturbation limit supplies the value. **That is continuity in $k$ at fixed $(j,s)$, and it
@@ -623,8 +808,9 @@ things that the card does not supply:
 
  (i) *joint continuity*: $(s,k)\mapsto U_j(s;k)$ is continuous on
  $[\underline s,\overline s]\times\Theta$ for each $j$ — **stated as the condition, not inferred from
- the two separate continuities**. It is plausible from the structure (finitely many $j$ by h.2, inner
- prices continuous in $k$ by h.5, and $(\hat v,\pi)$ ratios of integrals over signal intervals with
+ the two separate continuities**. It is plausible from the structure (finitely many $j$ by h.2, the
+ inner root 1-Lipschitz in the belief by Step 8, and $(\hat v,\pi)$ ratios of integrals over signal
+ intervals with
  endpoints $k$), and what it needs in the signal direction is
  $s\mapsto\bigl(B_j(s,\cdot),b_j^*(s),C_j(s)\bigr)$ continuous, so
  that $s\mapsto U_j(s;k)$ is continuous. Card §4.2 imposes monotonicity on the stake path and
@@ -651,28 +837,52 @@ there, which is the turn-2 audit's L2-R1 finding seen from the other side, so th
 continuity by weakening monotonicity.
 
 **Step 16 (Brouwer).**
-By Step 1, $\Theta$ is nonempty, compact and convex. By Step 13, $\mathcal T(\cdot;\vartheta)$ maps
-$\Theta$ into $\Theta$. By h.6 (as decomposed in Steps 14–15), $\mathcal T(\cdot;\vartheta)$ is
-continuous on $\Theta$. Brouwer's fixed-point theorem gives $k^\star\in\Theta$ with
+By Step 1 and card §4.5's $\Theta$ row, $\Theta$ is **nonempty**, compact and convex — nonemptiness is
+not decoration, since Brouwer is vacuous without it (pass-2 N9). By Step 13,
+$\mathcal T(\cdot;\vartheta)$ is a **single-valued** self-map of $\Theta$ under the named
+largest-maximiser tie-break and the $\inf\emptyset:=\overline s$ corner convention, and this is the
+reading of h.6 the step uses: h.6 asserts that $\mathcal T$, so selected, is a continuous self-map of
+$\Theta$ (pass-2 N8 — a correspondence cannot be called continuous, so the selection must be named
+before the hypothesis can be applied). Brouwer's fixed-point theorem then gives $k^\star\in\Theta$ with
 $k^\star=\mathcal T(k^\star;\vartheta)$. The fixed point may lie on a collapse face, in which case
 the corresponding plan carries zero probability; card §3's weak inequalities admit this, and it is
 the shape the frozen manuscript's baseline takes when the passive action collapses.
 
 **Step 17 (assembling the six items of card §3).**
 Take $k^\star$ from Step 16 and check the definition item by item.
-(i) *Weakly ordered cutoff vector.* $k^\star\in\Theta$ by Step 16, and $j_{k^\star}$ of Step 1 is
-the induced plan map.
+(i) *Weakly ordered cutoff vector.* $k^\star\in\Theta$ by Step 16, and the equilibrium plan map is
+**$j^\star(\cdot;k^\star)$ of Step 13** — the largest-maximiser selection — which is weakly increasing
+and is represented by $k^\star$. *Changed 2026-08-25 (round 2, pass-1 finding 7) from $j_{k^\star}$,
+Step 1's induced map.* The two agree off the cutoff points and can differ **at** them: $\mathcal T_i$
+is an infimum that need not be attained, so at $s=k_i^\star$ one may have
+$j^\star(k_i^\star;k^\star)\le i$ while Step 1's $\le$ convention gives $j_{k^\star}(k_i^\star)\ge
+i+1$. Card §3(i) asks for a weakly ordered vector mapping $s$ into a plan and does not pin the tie
+convention at the cutoffs themselves, so taking the map to be $j^\star$ — optimal at **every** $s$ by
+construction — is admissible and is what (ii) needs. **Consistency with the conjecture the prices are
+built on:** Steps 5, 6 and 9 price against the conjecture $k^\star$, whose induced map is Step 1's
+$j_{k^\star}$; that map and $j^\star(\cdot;k^\star)$ agree off the finitely many cutoff points, hence
+$\Phi_s$-almost surely, so every conditional probability, posterior and price is the same under
+either — the disagreement is invisible to (iii), (iv) and (v), which are statements about
+probabilities.
 (ii) *Sequentially optimal pooled and flagged components.* Pooled: no decision node after date 0
-(Step 11). Flagged: Step 12 under h.11 **and h.16**. Date-0 plan optimality: $k^\star$ is a fixed point of
-$\mathcal T$, so $j_{k^\star}(s)\in\arg\max_j U_j(s;k^\star)$ for every $s$ off the finitely many
-cutoff points, and at the cutoff points the two adjacent plans are indifferent (Step 13's
-construction), so either choice is optimal.
+(Step 11). Flagged: Step 12 under h.11 **and h.16**, at every flagged pair, selected or not. Date-0
+plan optimality: $k^\star$ is a fixed point of
+$\mathcal T$ and the plan map is $j^\star(\cdot;k^\star)$, so
+$j^\star(s;k^\star)\in\arg\max_j U_j(s;k^\star)$ at **every** $s$ by the definition of the selection —
+no appeal to indifference at the cutoff points is needed, and none is available: indifference there
+would require continuity of $s\mapsto U_j(s;k)$, which is Step 15(i), explicitly not a hypothesis and
+explicitly not derived (NOT CLAIMED 11), and WHERE IT FAILS 4 exhibits a card-legal plan making
+$U_j(\cdot;k)$ jump.
 (iii) *Bayes-consistent on-path beliefs.* Step 9 for pooled histories of positive probability under
-$k^\star$; Step 10 for flagged tuples, where injectivity makes the posterior the point mass on
-$\iota_F(\sigma_F)$.
+$k^\star$; Step 10 for flagged tuples, where injectivity supplies the point mass on
+$\iota_F(\sigma_F)$ as the selected version.
 (iv) *Competitive pooled and flagged prices at their fixed points.* Step 5 for the finite pooled
-family, Step 6 for the measurable flagged family, both evaluated at the beliefs of (iii), both
-solving $P(\mathcal I)=\mathbb E[Y\mid\mathcal I]$ by Step 4.
+family and Step 6 for the measurable flagged family, both solving
+$P(\mathcal I)=\mathbb E[Y\mid\mathcal I]$ by Step 4 — **at the beliefs of (iii) where the history
+carries positive probability under $k^\star$, and at Step 9(b)'s limit belief at the reachable
+histories that do not** (pass-1 observation 12; those are the histories the deviation payoffs of
+Step 13 read, so (iv) has to reach them). At unreachable histories §3(iv) requires nothing and
+Step 9(c)'s convention supplies a value.
 (v) *Bidder-entry rule.* Card §4.3's $p(\mathcal I)$ is the entry probability implied by the same
 $(P,\pi)$ at each control-node information set, by Step 4's derivation.
 (vi) *Off-path beliefs as limits of full-support perturbations.* Steps 9 and 10.
@@ -696,7 +906,10 @@ recorded as a remark; see NOT CLAIMED.
 **Step 19 (A8 gives positive mass to both cells).**
 At $k^\star$, h.9 makes $\mathcal C_F=\{D=1\}$ and $\mathcal C_P=\{D=0\}$ exclusive and exhaustive,
 so $\Pr(\mathcal C_F)=\Omega(\kappa,\tau,T)$ and $\Pr(\mathcal C_P)=1-\Omega(\kappa,\tau,T)$ with
-$\Omega$ evaluated under the equilibrium plan map $j_{k^\star}$. h.8 asserts
+$\Omega$ evaluated under the equilibrium plan map $j^\star(\cdot;k^\star)$ of Step 17(i)
+*(symbol updated 2026-08-25 round 2 with P1-R23; $\Omega$ is unaffected by the change, since
+$j^\star(\cdot;k^\star)$ and Step 1's $j_{k^\star}$ can differ only at the finitely many cutoff
+points, a $\Phi_s$-null set)*. h.8 asserts
 $0<\Omega<1$, so both probabilities are strictly positive: both cells are reached with positive
 probability under the equilibrium, that is, both are on path. This is also the condition under
 which card §4.4's $M_F$ and $M_P$ are defined, which is what the cell decomposition needs; h.4's
@@ -714,10 +927,11 @@ engagement flags $a_j$ are $1$ exactly on an upper set of the ordered menu — (
 on Voice plans (card §4.2), and (c) h.13. Of these only (b) is card-backed; (a) and (c) are both
 [ADDITION]s, numbered as h.15 and h.13 and cited here, which is the one step that consumes them. Then
 the flagged set
-$\{s:a_{j_{k^\star}(s)}=1\text{ and }B_{j_{k^\star}(s)}(s,H-T)\ge\tau\}$ — the equivalence
+$\{s:a_{j^\star(s;k^\star)}=1\text{ and }B_{j^\star(s;k^\star)}(s,H-T)\ge\tau\}$ — the equivalence
 $f_j\le H\iff B_j(s,H-T)\ge\tau$ is h.9 — is an upper interval of signals: the first condition is
-an upper set because $j_{k^\star}$ is weakly increasing and h.15; within it, $s\mapsto
-B_{j_{k^\star}(s)}(s,H-T)$ is weakly increasing because it increases in $s$ at fixed plan by (b) and
+an upper set because $j^\star(\cdot;k^\star)$ is weakly increasing (Step 13's selection) and h.15;
+within it, $s\mapsto
+B_{j^\star(s;k^\star)}(s,H-T)$ is weakly increasing because it increases in $s$ at fixed plan by (b) and
 increases across plans by (c). Writing $s_F(k^\star)$ for the infimum of that upper interval,
 $\Omega=1-\Phi_s\bigl(s_F(k^\star)\bigr)$ with $\Phi_s$ the signal c.d.f., and h.8 is equivalent to
 $s_F(k^\star)$ being finite and strictly above $-\infty$. **Conditions (a) and (c) are h.15 and h.13,
@@ -731,7 +945,10 @@ $\blacksquare$
 
 ## WHERE IT FAILS
 
-1. **h.5 fails at the flagged layer only, and h.12 does not rescue it.** Let $m_0<0$ be large enough
+1. **h.12 fails: the inner root is not unique at the flagged layer.** *(Retitled 2026-08-25, round 2:
+   the case used to be filed under h.5, which is now struck — with A5 no longer assumed, nothing in
+   the hypothesis set can be invoked to restore uniqueness, so this case is if anything sharper.)*
+   Let $m_0<0$ be large enough
    in absolute value that $\bar m=m_0+\Delta_m<0$ on the flagged cell. Then Step 7(i) breaks, roots
    below $A$ become possible, and $\varrho$ can dip below zero, rise, and fall again — three roots at a
    positive-measure set of flagged tuples. A measurable selection still exists (the root
@@ -744,9 +961,16 @@ $\blacksquare$
    blockholder the full interval $[0,\bar b-B^F]$ in round 2 rather than the plan-generated set
    $\mathcal Q_j(s)$. Take
    $\mathcal J=\{\text{Exit},\text{Hold},\text{one Voice plan}\}$ with the Voice plan's terminal
-   target $b^*(s)$ chosen for its pooled-execution properties. The round-2 problem
+   target $b^*(s)$ chosen for its pooled-execution properties, **and extend the flagged pricing
+   schedule to off-image orders by any rule under which the market's posterior mean at
+   $(B^F,Q',a{=}1)$ falls short of $\mathbb E[v\mid s]$ for some feasible $Q'$** — the extension is
+   the modeller's to choose, since Step 10 pins nothing off the image and Step 9's plan-only
+   perturbation reaches no such tuple (Step 12's converse paragraph). Then the round-2 problem
    $\max_{Q}\ b^*Y-P(F,Q)Q$ has a first-order condition that the single plan-generated
-   $Q^F=b^*-B^F$ generically does not satisfy, and the improving $Q'$ is now available. The fixed point of $\mathcal T$ then exists and satisfies items
+   $Q^F=b^*-B^F$ generically does not satisfy, and the improving $Q'$ is available.
+   *(Clause added 2026-08-25 round 2: on the plan-generated set no such gain can exist — Step 12(c)
+   cancels the order out — so this case is genuinely about what happens off the image, and it needs
+   the extension named rather than assumed into existence.)* The fixed point of $\mathcal T$ then exists and satisfies items
    (i), (iii)–(vi) of card §3 but fails item (ii) at the flagged node: it is a date-0 equilibrium,
    not a PBE. This is one of the two concrete cases in which P1's claim is false as stated under
    A1–A7 alone — case 7 is the other — and it survives the strengthening of A7 to A7-J: take the
@@ -777,16 +1001,22 @@ $\blacksquare$
    an empty pooled cell.
 7. **h.16 fails: two Voice plans share a pooled path at different engagement costs.** Take an
    admissible menu with Voice plans $j\ne j'$ agreeing on the pooled path up to $f_j(s)$ and
-   differing only in the flagged order — then h.11's deviation set at $(j,s)$ is a genuine pair, not
-   a singleton — with $C_j(s)=0.01$, $C_{j'}(s)=0.99$ and trading terms $G_{j'}-G_j=0.5$ (Step 12's
-   notation). Plan $j$ is date-0 optimal, $U_{j'}-U_j=0.5-0.98=-0.48<0$, so Step 13's construction
-   and Brouwer run unchanged and the fixed point satisfies items (i), (iii)–(vi) of card §3. But the
-   round-2 deviator has sunk $C_j(s)=0.01$, and the deviation to $Q^F_{j'}(s)$ raises the sunk-cost
-   continuation by $0.5$: item (ii) fails at the flagged node, and the object is a date-0
-   equilibrium, not a PBE. This is the GPT end review's arithmetic (audit Finding 1(b)), and it is
-   the second case — with case 2 — in which P1's claim is false as stated without its [ADDITION]
-   hypotheses. It is **vacuous on any single-Voice menu**, the pinned pro-rata menu included, where
-   $a_{j'}=a_j=1$ forces $j'=j$; that is why the paper's instance is untouched by it.
+   differing only in the flagged order — then h.11's deviation class at $(j,s)$ is a genuine pair,
+   not a singleton — with $C_j(s)=0.99$ and $C_{j'}(s)=0.01$, and adopt the plan-completion
+   convention (α) of h.16. By Step 12(a)–(c) the flagged price is common to the class and the order
+   cancels, so the continuations are $V(j)=B_j^F(s)P^F(s)-0.99$ and $V(j')=B_j^F(s)P^F(s)-0.01$: the
+   deviation to $Q^F_{j'}(s)$ gains $0.98$. Nothing upstream is disturbed — Step 13's construction
+   and Brouwer run unchanged and the fixed point satisfies items (i), (iii)–(vi) of card §3 — and
+   item (ii) fails at the flagged node, so the object is a date-0 equilibrium, not a PBE. Two things
+   to keep straight. *First*, this is the GPT end review's arithmetic (audit Finding 1(b)) with the
+   wedge in the **engagement cost**, which is where equilibrium leaves room for one; a witness that
+   put the wedge in the trading terms would not be constructible (Step 12's refutation note).
+   *Second*, at a **selected** $j$ date-0 optimality forces $C_j\le C_{j'}$ and kills this deviation,
+   so the live failure is at flagged pairs the cutoff vector does not select — pass-1 finding 1's
+   node class — which is precisely the range of nodes Step 12 now covers and h.16 now pays for. It is
+   **vacuous on any single-Voice menu**, the pinned pro-rata menu included, where $a_{j'}=a_j=1$
+   forces $j'=j$; that is why the paper's instance is untouched by it. Under convention (β) the case
+   is empty, which is the sense in which h.16 buys convention-freeness rather than the theorem.
 
 ---
 
@@ -807,7 +1037,11 @@ been absorbed by the card, and saying so is not a label move (2026-08-25, ticket
    ($m_0\ge0$) is now card §4.1's sign restriction and h.14 is now card §4.3's $U_j$ row, so those
    two are discharged; h.11 and h.16 are carried **descriptively in the card's P1 row itself**
    (ticket 35's amended statement), not as §5 assumptions, and A7 is cited there in its **A7-J**
-   form, which is what h.7 consumes.
+   form, which is what h.7 consumes. *Round 2 (2026-08-25) moved two more items into the card's
+   column and one out of the hypothesis set altogether:* **h.17**'s §4.1–§4.3 table restrictions were
+   being consumed silently and are now enumerated here and cited in the row — they are card rows, so
+   nothing new is assumed — and **h.5 is struck**, which removes the last mismatch between this file's
+   hypothesis list and the row's "A5 is not assumed".
 3. The proof cites h.9 = D1 by statement. *Status at stamp `d2ccf62`:* D1 moved to PROVED on
    2026-08-21 with both passes on file, so the inherited-label conditionality of the original reason
    3 is discharged; what P1 still inherits is D1's own hypothesis set, listed in the card's D1 row.
@@ -861,7 +1095,12 @@ points, not normalised indices.
    percentage points at every tuple; with round 2 opened to the full interval, a strictly positive
    gain of order $10^{-2}$ premium percentage points appears at a positive fraction of tuples.**
    Reporting a positive gain on the full interval therefore measures what h.11 is buying on that
-   menu; it does not refute P1.
+   menu; it does not refute P1. *Amended 2026-08-25 (round 2): the first half is now **derived**, not
+   predicted — Step 12(a)–(d) makes the continuation exactly constant on the plan-generated set, so a
+   nonzero gain there indicates an implementation defect (a flagged tuple priced off something other
+   than its generating pair's belief, or a pooled-path mismatch inside the class) rather than a
+   refutation of h.11. The full-interval half stays a genuine prediction, and what it measures is the
+   off-image belief the implementation happens to supply (Step 12's converse paragraph).*
 5. **Both cells on path (Step 19), and the threshold reformulation (Step 20).** Report
    $\Omega(k^\star)$ and, where h.13 holds by construction of the menu, the implied threshold
    $s_F(k^\star)$ with $\Omega=1-\Phi_s(s_F)$. *Predicted sign and magnitude:* $0<\Omega<1$ at every
@@ -885,7 +1124,10 @@ $\mathcal T$ is the best-response map.
 | $U_j(s;k)$ | blockholder's conditional expected payoff to plan $j$ at signal $s$ under conjecture $k$; the object **defined at h.14** with the conjecture displayed | matches the frozen manuscript's blockholder utility; **never a bare $U$**. **Card gap closed 2026-08-23:** the object is now card §4.3's $U_j$ row, and h.14 transcribes it (the row cites h.14 as "displayed there in full", which the 2026-08-25 display alignment makes literally true) |
 | $\mathcal C_j^{\mathrm{trade}}$ | plan $j$'s execution outlay: increments valued at the pooled prices $P_d^P$ up to the plan's last pooled date, plus $Q_j^F(s)P^F$ when $D_j=1$ (h.14) | calligraphic and always subscripted $j$ with the superscript written, so it is clear of card §4.4's $C_h$ (chord), $C_\tau/C_T$ (composition ratios) and $\mathcal C_F/\mathcal C_P$ (cells); **never a bare $C$**. Now carried by card §4.3's $U_j$ row in the same words |
 | $C_j(s)$ | plan $j$'s engagement cost at signal $s$; enters $U_j$ as $a_jC_j(s)$, so plans with $a_j=0$ pay nothing (h.14) | named in card §4.4's $C$-overload note and carried by card §4.3's $U_j$ row; subscripted, never bare. **h.16** constrains it across each h.11 deviation set; card §4.3 does not say at which date it is incurred (regeneration item, Step 12) |
-| $G_j(s;k)$ | the **trading terms** of Step 11's first bracket: $b_j^*(s)\mathbb E[Y\mid s,j,D=1]-P^F(\sigma_F)Q_j^F(s)$, i.e. the flagged continuation net of the engagement cost | proof-local to Steps 12 and WHERE IT FAILS 7, introduced 2026-08-25 so the cost-honest comparison has a name. Card §4.4 carries no $G$; $\mathcal G_F$ (this table) is calligraphic and is the inner-root map, a different object |
+| $G_j(s;k)$ | the **trading terms** of Step 11's first bracket: $b_j^*(s)\mathbb E[Y\mid s,j,D=1]-P^F(\sigma_F)Q_j^F(s)$, i.e. the flagged continuation net of the engagement cost. Step 12(c) evaluates it: $G_{j'}=B_j^F(s)P^F(s)$, constant on each h.11 deviation class | proof-local to Step 12 and WHERE IT FAILS 7, introduced 2026-08-25 so the cost-honest comparison has a name. Card §4.4 carries no $G$; $\mathcal G_F$ (this table) is calligraphic and is the inner-root map, a different object |
+| $P^F(s)$ | the flagged price written as a function of the signal alone, $P^F(s)=\mathcal G_F(\hat v(s))$ — legitimate on the flagged set by Step 12(a), where A7-J and $\pi=1$ make the tuple's price depend on $\sigma_F$ only through $s$ | the same object as $P^F(\sigma_F)$ of card §4.3, re-argumented; introduced 2026-08-25 (round 2) at Step 12 and used only there and in WHERE IT FAILS 7. The argument is always written, so $P^F(s)$ and $P^F(\sigma_F)$ never collide |
+| $V(j')$ | the round-2 continuation value of submitting $Q^F_{j'}(s)$ at a flagged node (Step 12(c)–(d)) | proof-local to Step 12; card §4 carries no bare $V$, and $\Delta_V$ (§4.1) is always written with its $\Delta$ |
+| $\mu_n(j,s)$, $L_j(\mathcal H_d^P\mid s)$, $w_n(j\mid s)$ | the stage-$n$ joint $(j,s)$ posterior density at a pooled history; the pooled-history likelihood; the stage-$n$ mixing weight (Step 9(b)) | proof-local to Step 9. $\mu$ is the belief symbol card §5's A5 note already uses ($\mathbb E_\mu[v]$), and $\mu_v$ — card §4.1's prior mean — never appears without its subscript $v$, so the subscript $n$ keeps them apart. **$\rho$ was rejected**: card §5's A(br) sharpening note carries $\rho:=\tfrac12A_{1/2}+A_1$. $L$ and $w$ have no card §4/§5 usage |
 | $E_j(s;k)$ | Step 11's second bracket, the pooled-execution expectation | proof-local, same steps as $G_j$. Distinct from any card symbol; $\mathbb E$ is the expectation operator and is never subscripted by a plan |
 | $\mathrm{supp}(z_d)$ | the realised support of the noise mark at the maintained $\kappa$: $\{0\}$ at $\kappa=0$, $\{-\bar z,+\bar z\}$ at $\kappa=1$, all three marks in between | roman operator on card §4.1's $z_d$ row, not a new model symbol; used only in Step 9, where the $\kappa$-boundary argument is quantified over it |
 | $\mathcal G_F(\hat v)$ | the flagged inner root as a function of the belief: the unique $P$ solving $\mathcal P(P)=P$ at $(\hat v,\pi=1)$ (Step 6b) | **replaces the bare $g$ of an earlier draft**: the turn-2 ruling reserves $g$ for L3's mean-value form, and card §4.5 carries $g_r^{PE}$. $\mathcal G$ has zero occurrences in card §4 and in the other batch-1 proofs; subscript $F$ matches $\mathcal C_F$, $\sigma_F$, $\iota_F$ |
@@ -943,9 +1185,14 @@ $\mathcal T$ is the best-response map.
 7. That $k^\star$ is interior, differentiable in $\vartheta$, or that any comparative static in
    $(\kappa,\tau,T)$ follows from existence. The GE certification machinery of card §4.5 is
    untouched here.
-8. That the equilibrium is in pure strategies at the cutoff points themselves; at a cutoff the two
-   adjacent plans are indifferent and either choice is optimal, a measure-zero indeterminacy that
-   this proof does not resolve.
+8. That the two adjacent plans are indifferent at a cutoff point. *Rewritten 2026-08-25 (round 2,
+   pass-1 finding 7): the old text asserted that indifference, which needs continuity of
+   $s\mapsto U_j(s;k)$ — Step 15(i), not a hypothesis and not derived (NOT CLAIMED 11), and refuted as
+   automatic by WHERE IT FAILS 4.* Step 17(i)–(ii) no longer needs it: the equilibrium plan map is the
+   largest-maximiser selection $j^\star(\cdot;k^\star)$, optimal at **every** $s$ by construction.
+   What is not claimed is that $j^\star$ is the only admissible representation of $k^\star$, or that
+   the value of the plan map **at** a cutoff point is pinned by §3 — a different tie convention gives
+   a different map, and possibly a different equilibrium object at a $\Phi_s$-null set of signals.
 9. Anything about welfare, optimal $(\tau,T)$ design, endogenous filing before the deadline, or
    noisy flagged-round trading. Card §9's disclaimers stand unchanged.
 10. That the frozen manuscript's four-action results transfer to the $J$-plan menu. Step 14 borrows
@@ -959,17 +1206,32 @@ $\mathcal T$ is the best-response map.
 12. That card §4.3's $Y$ row has been disambiguated. Step 5 records the two readings of the $P$ inside
     the takeover branch and shows the step's conclusion survives both; pinning the row is a card
     edit and a regeneration item, not a claim of this file.
-13. That a belief or a price is supplied at a pooled history that is null under **every** plan
-    profile. Step 9(a)–(c) names the reachable set and confines the §3(vi) limit and the §3(iv) price
-    to it; at $\kappa\in\{0,1\}$ the noise support degenerates and the unreachable set is nonempty.
-    No step consumes such a history (Step 9(c)) and card §3 requires nothing at one, so the assembled
-    equilibrium of Step 17 is complete — but the pre-repair sentence "the limiting belief exists at
-    every pooled history" is **withdrawn**, being false at the endpoints (audit Finding 1(c)).
+13. That a belief is *derived* at a pooled history that is null under **every** plan profile. Step
+    9(a)–(c) names the reachable set — reachable **with positive probability**, which excludes both a
+    history needing a mark outside $\mathrm{supp}(z_d)$ (nonempty at $\kappa\in\{0,1\}$) and a history
+    reachable only through a $\Phi_s$-null set of signals (pass-2 N7) — and confines the §3(vi) limit
+    and the §3(iv) price to it. The pre-repair sentence "the limiting belief exists at every pooled
+    history" is **withdrawn**, being false at the endpoints (audit Finding 1(c)). Two consequences the
+    file owns rather than hides: (a) card §3 requires nothing at an unreachable history, so the
+    assembled equilibrium of Step 17 is complete; (b) to keep $U_j(s;k)$ defined at **every** signal —
+    which Step 13's pointwise argmax needs — Step 9(c) fixes the convention $P_d^P:=\mathbb E[Y]$
+    there, and a different admissible convention could change $U_j$ on a $\Phi_s$-null signal set and
+    so move $\mathcal T$. **The theorem is therefore an existence statement about the object built
+    from that fixed convention**; it does not claim the equilibrium is convention-independent
+    (pass-1 finding 6).
 14. That the date at which the engagement cost $C_j(s)$ is incurred has been settled. Step 12 records
     both readings — plan completion and sunk cost — and shows its conclusion survives either **under
     h.16**, which makes them numerically identical on each deviation set; dating the cost is a card
     edit and a regeneration item, not a claim of this file. Without h.16 the conclusion does *not*
     survive both (WHERE IT FAILS 7).
+15. That the flagged order is **uniquely** optimal. Step 12 proves the opposite: on each h.11
+    deviation class the flagged price is invariant and the order cancels, so every element of
+    $\mathcal Q_j(s)$ delivers the same continuation and the blockholder is exactly indifferent over
+    the whole action set. The specified $Q_j^F(s)$ is *a* maximiser, which is all card §3(ii) asks;
+    the model does not pin the flagged order by incentives, and any claim that it does — in this file
+    or downstream — would be unsupported. This is the round-2 face of the full separation A7-J buys
+    (`proofs/A7_construction.md` WHERE IT FAILS 8): once the filing reveals $s$ and the price is
+    competitive, no informational rent survives to make one order strictly better than another.
 
 ---
 
@@ -1024,10 +1286,10 @@ are the only things that may move it.
 | **P1-R10** (Finding 7(ii)) | h.7's continuum sentence corrected: injectivity forces the **tuple** $(B^F,Q^F)$ to be continuum-valued, **not the coordinate $B^F$** — which on the pinned pro-rata menu is not even monotone, jumping down at every crossing-date boundary while the sum $B^F+Q^F=b^*_j(s)$ carries the separation (`proofs/A7_construction.md` Steps 8–9; `proofs/A7_attack_verdict.md` S-10, where our own attack flagged this and the card note was never amended). Card §5's A7 note already carries the corrected form. |
 | **P1-R11** (Finding 1(b); spec MAY-11) | **h.16 [ADDITION] added** — continuation-cost equivalence, $C_{j'}(s)=C_j(s)$ on each h.11 deviation set — with a "Why" note deriving it, and **Step 12 rewritten cost-honestly**: the trading terms $G_j$ are named and separated from the engagement cost, the deviation's two possible continuations (plan completion, sunk cost) are displayed, and the contradiction now runs on $G_{j'}>G_j$ with the middle bracket $C_{j'}-C_j$ shown to vanish under h.16. **MAY-11 route considered and declined with a reason:** restating optimality against the sunk-cost continuation does not discharge the gap on its own — date-0 optimality gives $G_j-G_{j'}\ge C_j-C_{j'}$ where sunk-cost optimality needs $G_j-G_{j'}\ge0$, so it needs $C_{j'}\le C_j$ at the selected $j$; and since the deviation set is an equivalence class (shared path $\Rightarrow c_{j'}=c_j\Rightarrow f_{j'}=f_j$, so the relation is symmetric) and P1's hypotheses must hold uniformly on $\Theta$ (Brouwer does not say which $k^\star$ it returns), that one-sided clause collapses to h.16's equality. h.16 additionally makes the two readings *coincide*, so the step never adjudicates the card's silence on when $C_j$ is incurred. The Θ-uniformity leg is stated with its one exceptional signal named ($s=\overline s$, where $j_k(\overline s)=J$ for every $k$; immaterial, since h.16 is imposed at every $s$ regardless). Propagated to the CLAIM, Step 17(ii), **WHERE IT FAILS 7** (new, carrying the review's $0.01$-vs-$0.99$ arithmetic), NOT CLAIMED 5 and 14, and LABEL CLAIMED 2. |
 | **P1-R12** (Finding 1(c)) | **Step 9 rewritten** in four parts: (a) $\mathrm{supp}(z_d)$ is displayed at $\kappa=0$, $\kappa=1$ and in between, and a pooled history is defined **reachable** when some plan and a positive-probability signal set make the *whole* history positive-probability; (b) the perturbed-posterior limit is established at every reachable history, with the denominator bound written out; (c) unreachable histories are shown to carry no card §3(vi) or §3(iv) requirement **and to be consumed by no step** (Step 11's pooled bracket and every h.11 deviation integrate over the played plan's own reachable set); (d) the false sentence is named and withdrawn. **The $\kappa=1$ route is the extension, not the restriction** — the theorem now holds on $\kappa\in[0,1]$ with both endpoints, and the $\kappa=0$ special case becomes the same sentence. Propagated to the CLAIM's belief clause (with its own "on the belief clause" note), Step 11, and NOT CLAIMED 13. The integrating measure in (b) is written $\mathrm d\Phi_s$, the NOTATION DELTA's declared signal c.d.f., so the step introduces no undeclared symbol. |
-| **P1-R16** (two-pass protocol; no change of substance) | The amended card row's belief clause covered only the **pooled** layer once the reachability qualifier was added, and the row is the statements-only re-deriver's sole input. Both the row and this file's CLAIM now name the **flagged** layer explicitly: flagged-tuple beliefs are pinned by A7-J at every tuple in the image of $(j,s)\mapsto(B^F_j,Q^F_j,a_j)$, on path and off, with no tuple outside the image arising under the round-2 action-set hypothesis. This states what Step 10 has always proved (and what Step 17(iii)/(vi) has always assembled); nothing in the proof changes. |
 | **P1-R13** (Finding 1, citation nit) | **h.14's display aligned with card §4.3's $U_j$ row**: $-a_jC_j(s)$ in place of $-C_j(s)$, the $\mathcal C_j^{\mathrm{trade}}$ gloss expanded to the card's own words (increments at the pooled prices up to the last pooled date, plus $Q^F_jP^F$ when $D_j=1$), and $C_j(s)\ge0$ transcribed, so the card's "displayed there in full" is literally true. The card row was **not** edited (it is outside this ticket's edit surface; the fix is on the proof side, which the ticket permits). Step 11's display carries $-a_jC_j(s)$ with the note that $a_j=1$ on the flagged branch (h.4), so Steps 12–13 are unchanged. NOTATION DELTA rows for $U_j$, $\mathcal C_j^{\mathrm{trade}}$ and $C_j(s)$ updated; new rows for $G_j$, $E_j$ and $\mathrm{supp}(z_d)$. |
 | **P1-R14** (staleness against `d2ccf62`; audit Finding 1's "not disturbed" paragraph) | **NOT CLAIMED 4 refreshed.** It said A7 satisfiability was open and a Thread 2 target; ticket 24 closed it — the pinned pro-rata single-Voice menu with globally strict $b^*$ satisfies A7-J (`proofs/A7_construction.md` Step 7). The item now disclaims what is genuinely undisclaimed: A7-J on menus beyond that one, with card §5's failure boundary quoted. |
 | **P1-R15** (Finding 8, card-snapshot staleness) | **LABEL CLAIMED reasons 2 and 3 brought to stamp `d2ccf62`**, and Step 14's parenthetical with them. Reason 2 previously listed h.12 and h.14 as absent from the card; $m_0\ge0$ is now card §4.1's sign restriction and $U_j$ is now card §4.3's row, while h.11 and h.16 are carried descriptively in the card's amended P1 row rather than as §5 assumptions. Reason 3 previously called D1 a CONJECTURE; D1 moved to PROVED on 2026-08-21. **No label is moved by this row** — the section header still claims CONJECTURE, now resting on reason 1 alone (prose never moves a label; ticket 35's two fresh passes are not this file's to claim). |
+| **P1-R16** (two-pass protocol; no change of substance) | The amended card row's belief clause covered only the **pooled** layer once the reachability qualifier was added, and the row is the statements-only re-deriver's sole input. Both the row and this file's CLAIM now name the **flagged** layer explicitly: flagged-tuple beliefs are supplied by A7-J at every tuple in the image of $(j,s)\mapsto(B^F_j,Q^F_j,a_j)$, on path and off, with no tuple outside the image arising under the round-2 action-set hypothesis. This states what Step 10 has always proved (and what Step 17(iii)/(vi) has always assembled); nothing in the proof changes. *Filed here, after R15, on 2026-08-25 round 2 (pass-1 repair-table nit: it had been inserted between R12 and R13).* |
 
 **The pinned instance, clause by clause.** The paper's pro-rata single-Voice menu satisfies every
 strengthened clause, so route A's repairs cost the paper's instance nothing: **A7-J** holds on it
@@ -1037,3 +1299,48 @@ trivially (on the flagged set $a_j=1$, Exit and Hold never cross $\tau$ under $b
 deviation set is the singleton $\{V\}$ — the same fact that makes h.11's action set a singleton
 there); and the **$\kappa$** repair is an extension, so no boundary clause has to be satisfied at
 all, with every numerical node of `t2_p1_check` sitting at interior $\kappa$ regardless.
+
+---
+
+## Repairs applied (2026-08-25, ticket 35 / R5 — round 2, the sanctioned pass-1 repair round)
+
+Sources: the **adversarial proof-read** (verdict FAIL: 1 FAIL, 8 REPAIRs, 3 OBSERVATIONs) and the
+**statements-only re-derivation** (verdict PASS-WITH-CHANGES: six row changes, none weakening), both
+2026-08-25, together with the orchestrator's binding adjudication of the same date. Findings are cited
+as *pass-1 finding n* and *pass-2 Nn / change n*.
+
+**The FAIL, and how it is discharged.** Pass-1 finding 1 is **upheld as a gap in this file**: the
+pre-round-2 Step 12 ran the deviation back to date-0 optimality, which reaches only the flagged nodes
+on the *selected* plan, while h.11 defines an action set at **every** flagged pair and card §3(ii)
+binds at all of them. The adjudicated repair is **not** finding 1's class-argmax construction, which
+would have changed the equilibrium object; it is pass-2's R16–R17, which discharges §3(ii) everywhere
+with the object unchanged: A7-J pins the belief at the same $s$ for every class member and $\pi=1$, so
+the flagged price is invariant across the class (Step 12(a)); the blockholder's control-node valuation
+is then the fixed-point equation itself, $\mathbb E[Y\mid\cdot]=P^F(s)$ (Step 12(b)); the $Q^F$ terms
+cancel, leaving $V(j')=B_j^F(s)P^F(s)-\text{cost}$ (Step 12(c)); and h.16 makes the cost constant, so
+**every** element of the action set is optimal at **every** flagged pair (Step 12(d)). The
+cancellation was checked against this file's own $G/E$ decomposition before it was written in, and it
+holds there in the form $G_{j'}=B_j^F(s)P^F(s)$ for every class member — which is also what refutes
+finding 1's witness and the trading-gain framing this file's round-1 draft carried (Step 12's
+refutation note).
+
+**Conclusion strength.** Unchanged, and in one respect the file now proves *more* than the row claims:
+§3(ii)'s flagged half is established at every flagged pair rather than only at selected ones. No
+hypothesis was added except **h.17**, which enumerates card rows the proof was already consuming;
+**h.5 was struck**, which is a removal. No step was renumbered; WHERE IT FAILS keeps items 1–7 with 1
+retitled, and NOT CLAIMED gains item 15 at the end.
+
+| Finding | Change made |
+|---|---|
+| **P1-R17** (pass-1 finding 1 FAIL; pass-2 R16–R17) | **Step 12 restructured** into the four-part lemma above and restated to quantify over *every* flagged pair, selected or not, with no appeal to date-0 optimality; the h.16 "why" note rewritten around the cost wedge; **Step 17(ii)** updated; **WHERE IT FAILS 7** rebuilt with the wedge in the engagement cost (the trading-terms version is not constructible); **NOT CLAIMED 15** added (the flagged order is optimal but not *uniquely* so — the class is an indifference set); **NUMERICAL CHECK 4**'s first half reclassified from prediction to derivation. Also recorded: at a **selected** $j$ date-0 optimality already forces $C_j\le C_{j'}$, so h.16's bite is exactly the non-selected flagged nodes under the plan-completion cost convention. |
+| **P1-R18** (pass-1 finding 2) | **h.2 = A2 → A2′.** The old text carried "prices and payoffs bounded on the maintained parameter set", a clause card §5 declares **false**; the row cites A2′. Replaced by A2′'s finiteness clauses plus local boundedness in $(s,\vartheta)$ and $\mathbb E[\max_j\lvert U_j\rvert]<\infty$; Step 13's "finite and bounded by h.2" re-worded to what A2′ supplies; h.2's *Used* list corrected to Steps 3, 9, 13 (Step 16 never cites it — pass-1 observation 11). |
+| **P1-R19** (pass-1 finding 3) | **h.5 struck**; the slot is kept so no citation renumbers. Re-cited use by use: Step 5(a) and Step 6(b) now run on **Steps 7–8** (existence and uniqueness from h.12; continuity in the belief from Step 8's implicit-function argument, which is the one genuinely load-bearing A5 use); Step 15's clause is marked **commentary**; Step 7's heading and closing paragraph, Step 6's heading and (d), and WHERE IT FAILS 1's title updated accordingly. Removes the last proof-vs-row mismatch behind the row's "A5 is not assumed". |
+| **P1-R20** (pass-1 finding 4) | **Step 9(b) re-run on the joint $(j,s)$ posterior** $\mu_n(j,s)$, with the likelihood and mixing weight named, the positive-denominator bound rewritten in those terms, and the passage to $\hat v$ made by **dominated convergence** under h.17-d's Gaussian tail and h.2's integrability. The plan-only posterior delivers $\pi$ but not $\hat v=\mathbb E[v\mid\mathcal I]$, which is a functional of the *signal* posterior — load-bearing because Step 13 evaluates $U_j$ for plans carrying zero probability on a collapse face. NOTATION DELTA gains $\mu_n$, $L_j$, $w_n$ ($\rho$ rejected: card §5's A(br) note carries $\rho$). |
+| **P1-R21** (pass-1 finding 5) | **Step 10 states the version explicitly.** The signal is Gaussian, so $(j,s)$ is null under every perturbation stage and "that pair has strictly positive weight" was a positive-probability argument on a null event. Replaced by: $\delta_{\iota_F(\sigma_F)}$ is a **version** of the regular conditional law at every image tuple, invariant in $n$, hence its own limit, and this proof selects it; any a.e.-equal version satisfies §3(iii) and §3(vi) equally. The CLAIM and the card row are softened from "pinned, not chosen" to the version formulation, matching `proofs/A7_construction.md`'s own hedge. Step 6(d)'s "pinned" is left standing and marked as being about the *price* family given the belief, which is a different and stronger statement. |
+| **P1-R22** (pass-1 finding 6; pass-2 N7) | **Step 9(c) rewritten.** Reachability requires a *positive-probability* signal set, so a $\Phi_s$-null cell of the mark-and-flag level-set partition can leave a plan's own histories unreachable at those signals. Fix adopted (the one consistent with Step 11): **fix the convention $P_d^P:=\mathbb E[Y]$ at unreachable histories**, so $U_j(s;k)$ is defined at every signal for Step 13's pointwise argmax, with the honest rider that a different admissible convention could move $\mathcal T$ through a $\Phi_s$-null signal set — recorded in **NOT CLAIMED 13**, which also absorbs N7's positive-probability point. |
+| **P1-R23** (pass-1 finding 7; pass-2 N8) | **The equilibrium plan map is $j^\star(\cdot;k^\star)$, not $j_{k^\star}$.** $\mathcal T_i$ is an infimum that need not be attained, so Step 1's $\le$ convention could disagree with the argmax *at* a cutoff, and the old Step 17(ii) patched that with an indifference claim that needs Step 15(i)'s continuity — not a hypothesis, and refuted as automatic by WHERE IT FAILS 4. Step 13 now **names the selection** (largest maximiser, ties broken upward, $\inf\emptyset:=\overline s$ as the corner convention), Step 16 reads h.6 as applying to that single-valued selection, Step 17(i)–(ii) run on it with optimality at **every** $s$, and **NOT CLAIMED 8** is rewritten. |
+| **P1-R24** (pass-1 finding 8) | **Step 2's Borel justification corrected.** "Monotone by card §4.2, hence Borel" is false for Exit ($\partial_sB_j\ge0$ is a **Voice** row); the card supplies Borel-in-$s$ for every plan as a separate clause it calls "a genuine addition for Exit". Now cited as **h.17-b**. Load-bearing: Step 9's reachability and the pooled prices integrate over all types including Exit. |
+| **P1-R24b** (consequence of P1-R17, no finding) | **WHERE IT FAILS 2 made precise.** Its improving off-menu order presupposes a flagged pricing schedule defined at off-image tuples; Step 12(c) shows no gain can exist on the plan-generated set, so the case now names the off-image extension it needs (a posterior mean short of $\mathbb E[v\mid s]$ at some feasible $Q'$) instead of assuming a schedule into existence. Steps 19–20 and Step 17(i) also updated to the $j^\star(\cdot;k^\star)$ symbol with a note that the two maps agree $\Phi_s$-a.s., so $\Omega$, the prices and the posteriors are unchanged. |
+| **P1-R25** (pass-1 finding 9) | **h.10 gains clause (ii)**, the flag-terminates-the-pooled-round clause the row lists and Step 11 consumes — pooled execution over $d\le f_j$ and $Q^F_j$ the whole residual position — cited at Step 11 and again at Step 12(c) where the pooled outlay is called sunk. h.10(i) is the no-feedback half and does not deliver either. |
+| **P1-R26** (pass-1 observations 11–12) | CLAIM's hypothesis sweep corrected — it read "h.1–h.12, h.14 and h.16", which swept in h.8 (used only for the A8 addendum) and the now-struck h.5; the A8 sentence says so explicitly. **Step 17(iv)** now states §3(iv) at reachable $k$-null histories as the inner fixed point **at Step 9(b)'s limit belief**, which is what the deviation payoffs read. Observation 10 (h.11's type-indexed action set excludes mimicry by fiat) is left as it stands, per adjudication: h.11 is owned descriptively by the row and card §9 item 2 already records the IC burden. |
+| **P1-R27** (pass-2 changes 1–5) | **h.17 [ADDITION] added** — the §4.1–§4.3 table restrictions (N1–N4), in four labelled items with their *Used* lists — so the proof cites what it consumes instead of consuming it silently; the card row now carries the same block. The row's other four changes are card-side and logged there: D1's hypotheses travelling and the expanded A5 sentence (N5); the one-perturbation-family/every-$k\in\Theta$/positive-probability off-path clause (N6, N7); A6's tie-break-and-corner reading with $\Theta$ nonempty per §4.5 (N8, N9); and the $C_j(s)$ timing convention stated in the row's own $U_j$ parenthetical (N10). **Pass-2 change 6 (a §9 OPEN item on A6's continuity at collapsed cutoff vectors) is deliberately not applied** — it is Austin's call, not this round's. |
