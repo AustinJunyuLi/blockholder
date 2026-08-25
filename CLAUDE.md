@@ -136,10 +136,36 @@ Default vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-
 
 Single-context: `CONTEXT.md` (glossary) + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
 
-## v4 effort (2026-08 →)
+## v4-theory lane (2026-08 →)
 
-This checkout is the `v4` worktree. `draft_v2.tex` is frozen (the record the
-supervisor has seen); new work targets `draft_v3.tex`, `framework_v4.*` and the
-tickets in `.scratch/v4-reposition/`. Read `CONTEXT.md` and `docs/adr/` first.
-**Fable head, Sonnet/Opus hands:** the session model orchestrates only; every
-ticket is executed by fresh subagents (see ADR-0005).
+This checkout is the **`v4-theory` worktree** (branch `v4-theory`), one of three
+worktrees of the same repo: `blockholder` (`proposal`), `blockholder_v4` (`v4`,
+the **empirics lane** — do not do empirics work here), and this one. `draft_v2.tex`
+is frozen (the record the supervisor has seen). Read `CONTEXT.md` and
+`docs/adr/` first (ADR-0007: one theorem, two-round model, two lanes).
+
+**Where the theory lives**
+- `research/model_v4/` — `MODEL_CARD.md`, `model_v4.tex`, `proofs/`, `rederive/`,
+  `threads/` (GPT Pro courier record), `impl_design.md`, and the two ledgers:
+  `LABEL_LEDGER.md` (every label move: `ID | old→new | evidence | who | date | commit`)
+  and `HANDOFF_sign.md` (the empirics lane's only hard dependency on this lane).
+- `numerical_v4/` — the two-round implementation. Its gate is the smoke run:
+  `.venv/bin/python -m numerical_v4.smoke` (one baseline equilibrium + one
+  frozen-policy kappa sweep; `range M_F < 1e-10` is the L2 assertion).
+- `teach/` — the from-zero curriculum (`MISSION.md`, `lessons/`); prose there
+  follows the unslop rules in `MISSION.md`.
+- Governing plan: `quality_reports/plans/2026-08-20_theory-lane-agentic.md`.
+
+**Label discipline.** CONJECTURE → PROVED needs the writer's proof + an
+adversarial Opus proof-read PASS + an independent re-derivation PASS by an agent
+who never saw the proof. An executed, committed check → NUMERICAL. GPT Pro's
+end review can demote, never promote by prose. Never weaken a label in the
+card, the ledger, or the draft.
+
+**Roles.** Opus agents write proofs, proof-read (never their own), re-derive
+(statements-only input), and build/verify `numerical_v4`; Sonnet does search,
+extraction, LaTeX plumbing and file moves; the session model orchestrates and
+reasons directly only on the hardest bits (A7 satisfiability, writer-vs-re-deriver
+disagreements, implementation design review, the final coherence read).
+Finder ≠ verifier throughout; WRONG blocks with one retry; MISCITED/UNCHECKED
+never block.
