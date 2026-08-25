@@ -8,12 +8,17 @@ The log of label moves required by `MODEL_CARD.md` §7. One line per move, in th
 moves a label — never prose. A move needs **both** passes: an adversarial proof-read PASS *and* an
 independent statements-only re-derivation PASS, written by different agents, the re-deriver working
 from the card statement alone with `proofs/` and `threads/` unopened. Labels are never weakened by
-editing. Region-certified is not a label: it is PROVED with the region named in the hypothesis.
+editing. ~~Region-certified is not a label: it is PROVED with the region named in the hypothesis.~~
+**Amended 2026-08-23 (post-review):** a **dominance-and-contraction node** is not a fifth label;
+it records the pointwise inequalities $L_{\mathcal R}<1$ and $\eta_r>0$ with supporting
+diagnostics, not verification of the full C1 antecedent. Region-level certification remains unclaimed.
 
 **Two standing notes.**
 
-* **C1 is pending.** It has no proof on file and no pass of either kind; ticket 29 is in flight. It
-  stays CONJECTURE and does not appear below.
+* ~~**C1 is pending.** It has no proof on file and no pass of either kind; ticket 29 is in flight. It
+  stays CONJECTURE and does not appear below.~~ **Superseded 2026-08-23 (post-review):** C1 moved
+  to PROVED on 2026-08-22 (commit `403ac8e`) and appears below; P1 was demoted to CONJECTURE on
+  2026-08-23 (commit `43a45f8`) and remains recorded in the move section.
 * **GPT Pro's end review may demote, never promote.** A finding from that review can send any row
   below back to CONJECTURE. It cannot move anything *to* PROVED — that needs the two passes, run
   inside this lane, on file.
@@ -45,6 +50,15 @@ C1 | CONJECTURE (unchanged as of 2026-08-21) | no proof on file; ticket 29 in fl
 ## Move — ticket 29 close-out, 2026-08-22
 
 C1 | CONJECTURE→PROVED (certificate implication, region-as-hypothesis; 18 certified nodes NUMERICAL evidence; region-level certification NOT claimed) | proof `proofs/C1_proof.md` (repairs 13/13); audit `threads/2026-08-21_C1_proofread_audit.md` (PASS, 0 FAIL); re-derivation `rederive/C1_rederivation.md` (PASS as PROVED-WITH-CHANGES: N1 norm convention, N2 two-sided openness; H8 unused); executed check `quality_reports/fixes/t2_c1_region_check.py/.json`, independently re-run 2026-08-22 ALL REPRODUCE (`quality_reports/fixes/t2_rerun_verify_note.md`) | theory-lane batch (Fable orchestrating) | 2026-08-22 | commit: 403ac8e
+
+[**Amended 2026-08-23 (post-review), naming only** — per the GPT end-review audit finding 6
+(`threads/2026-08-23_gpt_end_review_audit.md`): "certificate implication" → **"dominance-and-contraction
+implication"**; "18 certified nodes" → **"18 pointwise dominance-and-contraction nodes"**; "region-level
+certification NOT claimed" → **"a named-region promotion is not claimed"**. The executed check tests
+pointwise $L_{\mathcal R}<1$ and $\eta_r>0$ with supporting diagnostics, not the full C1 antecedent
+(C² smoothness, relative openness, interior single branch, non-vanishing $\mathcal S^{GE}$). The
+original words of the move line above stand unaltered; the move itself, its evidence paths, its date
+and commit, and the **PROVED** label are untouched.]
 
 ## Move — GPT end review + audit, 2026-08-23
 

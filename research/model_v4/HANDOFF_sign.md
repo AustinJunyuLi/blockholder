@@ -163,13 +163,15 @@ flag lands or not → one flagged round plus the bidder's decision, per ADR-0007
 added **below this line as a new section**. The provisional number in §1 stays visible; it
 is not to be overwritten.
 
-What the two-round version changes and this version cannot: the window `T` becomes a genuine
+**Amended 2026-08-23 (post-review):** What the two-round version changes and this version cannot: the window `T` becomes a genuine
 primitive rather than a flag that is on or off, so "shorter window" maps into the model
 directly instead of through the assumed bridge in §4.3; the stake at filing becomes an
 object the empirics can measure; and the theorem being proved on it (ticket 26, T1) states
 the window margin as an **iff** between the weight effect `W_T` and the composition effect
-`C_T` — no unconditional window sign. The O-1 numbers in §3 are the live failure case that
-iff has to accommodate.
+`C_T` — no unconditional window sign. The O-1 numbers in §3 are a **disclosure-regime analogy**:
+they show that a composition factor can exceed one when a flag is observed versus hidden, but they
+are not a window comparison and are not the live failure case for T1's iff. The genuine window-margin
+record is `t2_t1_check` block 4, where `W_T C_T < 1` at every checked node at this calibration.
 
 ---
 
@@ -203,7 +205,7 @@ a shorter window do", and quote the second when writing about the 2024 five-busi
 | **Grid** | κ ∈ [0.15, 0.85], 71 nodes. τ ∈ {0.084627, 0.087884, 0.090764, 0.093376, 0.096028} (quantiles 0.1/0.3/0.5/0.7/0.9 of the seed-equilibrium Voice terminal-stake distribution). `H = 10`, `M = 2`, `T ∈ {5, 10}`. Sensitivity measured as total variation of `Δ^act` over the κ grid. 710 model evaluations, 826,686 feasible histories, 0 discarded mass. |
 | **Condition** | **Fixed policies** — cutoffs frozen at the baseline equilibrium at every node (H5); no GE cutoff-shift term is signed here either. **The implemented calibration only**, i.e. `k = (1.240576, 1.531022)`, Ω = **13.8396%**, ω_a = `Pr(D=1\|a=1)` = **61.1473%**, `M_F` = **0.552818 pp**, `M_P` = **0.222798 pp**, π̄ = `Pr(a=1\|D=0)` = 10.2061%. |
 | **Corner caveat** | At `H = 10` the long window is the corner `T = H = 10`, which drives `Ω(10)` to **6.81e-04** and makes the comparison corner-vs-interior rather than the two-interior-window comparison the theorem contemplates. The check flags its own result as suspect for exactly this reason (`suspected_forced_attenuation_bug: true` is an audit flag, not a detected bug — `C_T` is computed from independently enumerated `S_P` levels and is never clipped or signed). **The `H = 12` re-run, where `T = 10` is strictly interior, confirms attenuation**: `W_T · C_T` = 0.1099 / 0.1099 / 0.2406 / 0.5772 / 1.0000, with Ω(T=5) = 0.1687 → Ω(T=10) = 0.0289. The 0.9-quantile node returns exactly 1.0 there because the τ ladder stops biting, not because the product crosses. At `H = 12` the enumerated `S_P` is unavailable (8,503,056 × 14 = 1.19e8 exceeds the design's 1e8 gate, respected not overridden), so that column's `C_T` is the chord route. |
-| **Model version** | `numerical_v4` two-round model, built 2026-08-21 on `v4-theory` (ticket 25; current card stamp 2026-08-21 · `627642c`). The check JSONs' embedded provenance strings read "`0c9185b` / 2026-08-20" — the scripts captured the card stamp field as it stood when their provenance block was templated, not the build commit; params hashes `8ef7c5c2d3896bf8` (checks) / `b4482d7fee83a8e8` (smoke baseline) are the binding identifiers. Design: `research/model_v4/impl_design.md` §13 APPROVED. |
+| **Model version** | `numerical_v4` two-round model, built 2026-08-21 on `v4-theory` (ticket 25; current card stamp 2026-08-23 · post-review repairs). The check JSONs' embedded provenance strings read "`0c9185b` / 2026-08-20" — the scripts captured the card stamp field as it stood when their provenance block was templated, not the build commit; params hashes `8ef7c5c2d3896bf8` (checks) / `b4482d7fee83a8e8` (smoke baseline) are the binding identifiers. Design: `research/model_v4/impl_design.md` §13 APPROVED. |
 | **Evidence** | `quality_reports/fixes/t2_t1_check.json` (blocks 1–6 + `t1_H12_window_robustness`), `quality_reports/fixes/t2_l2_check.json`, `numerical_v4/smoke_output.txt`. |
 
 ### 8.2 Supporting checks that passed
@@ -235,31 +237,36 @@ a shorter window do", and quote the second when writing about the 2024 five-busi
   check of ρ and the count of nodes with ρ > 0 are therefore **unavailable**, and are reported
   as such rather than skipped. The finite form of Step 20 is still exercised by block 4.
 
-### 8.3 Honesty: the theorem stack does not explain these numbers mechanically
+### 8.3 Honesty: the theorem stack remains open at this calibration
 
-**The chord mechanism `A(τ)` fails at the implemented pooled cell, in two independent
-places, and neither failure was smoothed.**
+**Amended 2026-08-23 (post-review):** The two recorded diagnostic failures do not establish that
+the implemented pooled cell violates A($\tau$). The decisive support-enumeration check is ticket 33.
+
+**The applicability of the chord mechanism `A(τ)` at the implemented pooled cell is OPEN.**
+The two recorded failures were test-design artifacts, and neither was smoothed.
 
 - **`t2_t1` block 3 (magnitude).** The residual `|S_P − Δ_m |A'_κ| |C_h(π̄)||` is
   **0.006279 (0.628 premium pp)** against a 1e-10 tolerance — a **relative** residual of up
   to **3.63**, i.e. the closed form is off by a factor of roughly four, not by a rounding.
-  Read as an implied coefficient, the enumerated sensitivity needs `|A'_κ|` in
-  **[0.997, 1.158]**, where Example A supplies **0.25**. The chord's *shape* is fine —
+  The check hard-coded `|A'_κ| = 0.25` from Example A, while the implied coefficient from the
+  enumerated sensitivity is **[0.997, 1.158]**. The chord's *shape* is fine —
   `|C_h(π̄)|/π̄²` is constant to **0.48%** between the two smallest π̄ nodes, well inside 5%.
-  It is the *level* that does not transfer.
-- **`t2_l2` placebo (orientation).** `A(τ)`'s maintained `C_h(π̄) ≤ 0` predicts
-  `∂κ M_P ≤ 0`. The enumerated pooled `M_P` is instead **hump-shaped in κ** — rising to a
-  peak near **κ = 0.55** and falling after, with **10 of 18** increments positive and one
-  sign change. The prediction does not hold globally on this law.
+  Thus this check rejects the hard-coded Example-A calibration, not A($\tau$)'s general support
+  representation; the coefficient level remains open.
+- **`t2_l2` placebo (orientation).** The placebo demanded `∂κ M_P ≤ 0` from the maintained
+  `C_h(π̄) ≤ 0`, but A($\tau$) does not sign `A'_κ`. The card's own Example A has
+  `A'_κ = -1/4`, so the demanded sign is not implied by A($\tau$). The enumerated pooled `M_P`
+  is **hump-shaped in κ** — rising to a peak near **κ = 0.55** and falling after, with **10 of 18**
+  increments positive and one sign change. This placebo is therefore misformulated; it does not
+  decide whether the support representation holds.
 
 **What this costs, stated plainly.** The theorem stack's *conditional* legs — anything that
 runs through `A(τ)`'s three-atom closed form, including L4's prediction 5 and the chord route
-to `C_τ` — **do not explain the §8.1 numbers mechanically.** The numbers stand on the executed
-enumeration; the theorems stand on their stated hypotheses; the two are not currently joined
-at this calibration. This is a failed hypothesis about `A(τ)`'s applicability to the two-round
-pooled law, **not** a wiring error: the design ruled from the outset that the enumeration
-never imposes `A(τ)`, so measuring this gap is what the build was for, and L3's Example B
-independently shows the manuscript's four-atom structure lies outside `A(τ)`. Two consequences
+to `C_τ` — **remain conditional and are not mechanically validated by these diagnostics.** The
+numbers stand on the executed enumeration; the theorems stand on their stated hypotheses; the
+two are not currently joined at this calibration. This is an open applicability question, **not**
+a wiring error: the design ruled from the outset that the enumeration never imposes `A(τ)`, so
+the queued support check is the appropriate test. Two consequences
 for the empirics lane: **(i)** do not write any mechanism sentence that leans on the chord
 formula; **(ii)** the `H = 12` column's `C_T` travels the chord route, so treat it as
 directional corroboration of the corner audit, not as a second independent magnitude.

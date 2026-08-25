@@ -4,7 +4,7 @@
 %  model.  Ticket 30 (T2j); the deliverable ticket 06 specified.
 %
 %  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp
-%  2026-08-21, post-ledger regeneration.  Where a proof file and the card
+%  2026-08-23, post-review repairs.  Where a proof file and the card
 %  differ, the card wins.  Labels are transcribed from
 %  research/model_v4/LABEL_LEDGER.md.
 %
@@ -39,7 +39,7 @@
 \title{The Two-Round Blockholder Disclosure Model\\[2pt]
 \large A standalone model note}
 \author{v4 theory lane, ticket 30 (T2j)}
-\date{Card stamp 2026-08-21, post-ledger regeneration}
+\date{Card stamp 2026-08-23, post-review repairs}
 
 \begin{document}
 \maketitle
@@ -51,8 +51,8 @@ hypotheses, and the eight-result ledger with its honesty labels. It then records
 what the v4 model takes from the frozen manuscript \texttt{draft\_v2.tex}, what it
 simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from
-\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-21, post-ledger
-regeneration) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. The card is the
+\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-23, post-review
+repairs) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. The card is the
 single source of truth: where a proof file and the card differ, the card wins.
 The conditionality attached to each result is not decoration. It is the result.
 \end{abstract}
@@ -202,7 +202,8 @@ $W_\tau,W_T$ (e.g.\ $W_T=(1-\Omega(\tau,5))/(1-\Omega(\tau,10))$) and
 composition-effect ratios are $C_\tau,C_T$ (e.g.\
 $C_T=\mathcal S_P(\tau,5)/\mathcal S_P(\tau,10)$), unsigned.
 
-For the general-equilibrium certificate: $k=(k_1\le\dots\le k_{J-1})$ is the cutoff
+For the general-equilibrium dominance-and-contraction node:
+$k=(k_1\le\dots\le k_{J-1})$ is the cutoff
 vector on the compact ordered polytope $\Theta$ with parameter vector $\vartheta$;
 $\Tmap(k;\vartheta)$ the outer best-response map;
 $L_{\mathcal R}=\sup_{\mathcal R}\lVert D_k\Tmap\rVert$ the contraction bound;
@@ -218,7 +219,8 @@ inversion-free derivative bounds;
 \qquad
 \eta_r=g_r^{PE}-\mathcal B_r^{GE}
 \]
-the GE remainder bound and the slack on a certified region $\mathcal R_r$.
+the GE remainder bound and the slack on a dominance-and-contraction region
+$\mathcal R_r$.
 
 %==============================================================================
 \section{Timing: the two rounds}
@@ -333,27 +335,34 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
 \item[A6 Compact outer self-map.] All best-response cutoffs lie in a common compact
   ordered polytope $\Theta$; $\Tmap$ is continuous and maps $\Theta$ into itself.
 
-\item[A7 / A7$'$ Filing sufficiency.] On flagged histories $(B^F,Q^F,a=1)$
+\item[A7 / A7$'$ / A7-J Filing sufficiency.] On flagged histories $(B^F,Q^F,a=1)$
   identifies the informed component of the selected plan; conditional on it the
-  pooled order-flow residual is pure noise, independent of $(v,s,\xi)$. \emph{L2's
-  proof uses the injective form and the weak wording is not sufficient} --- it
-  permits two $(j,s)$ pairs with different pooled paths, which is L2's first failure
-  case. The injective form is A7$'$: on the flagged set the composed terminal target
-  $s\mapsto b^*_{j(s)}(s)$ is strictly increasing \emph{for every cutoff vector
-  $k\in\Theta$}; for a menu this amounts to each $b_j^*$ strictly increasing with no
-  backtracking across any admissible plan switch. Strictness of $B^F$ is neither
+  pooled order-flow residual is pure noise, independent of $(v,s,\xi)$. L2 uses
+  A7$'$ on path; the weak wording is not sufficient --- it permits two $(j,s)$ pairs
+  with different pooled paths, which is exactly L2's first failure case. The two
+  injective forms are distinct. \textbf{A7$'$ (on-path composed target)} requires the
+  composed terminal target $s\mapsto b^*_{j(s)}(s)$ to be strictly increasing on the
+  flagged signal region, quantified over every cutoff vector $k\in\Theta$; strictness
+  is required only for flag-capable composed targets, with no backtracking across
+  admissible Voice-plan switches. \textbf{A7-J (joint tuple injectivity)} requires the
+  full map $(j,s)\mapsto(B_j^F,Q_j^F,a_j)$ to be injective on the full flagged-pair
+  set, including pairs not selected on path. A7-J is stronger than on-path A7$'$ and
+  is the form consumed by the pre-review P1 proof. Strictness of $B^F$ is neither
   necessary (it fails at crossing-date jumps on the pro-rata menu) nor sufficient
-  (multi-Voice backtracking). Injectivity forces $B^F$ continuum-valued; injective
-  plus measurable already gives a measurable inverse.
-  \emph{Satisfiability is resolved}: A7$'$ plus a fixed cutoff policy plus
-  $\Omega>0$ deliver the on-path injective form with an explicit inverse, and a
-  satisfying menu exists (the pro-rata single-Voice menu with terminal target
-  strictly increasing on all of $\mathbb R$, which also satisfies the joint $(j,s)$
-  form). Failure boundary: a binding stake cap, quantized stakes, a composed target
-  repeating values across Voice-plan switches, $\Omega=0$, and policy-dependence
-  when the condition is stated at only one equilibrium's cutoffs. A7$'$ menus are
-  fully separating on the flagged set, so the burden moves to incentive
-  compatibility rather than away.
+  (multi-Voice backtracking). Under A7$'$ the flagged tuple is continuum-valued as a
+  tuple: injectivity forces $(B^F,Q^F)$ to be continuum-valued, while the coordinates
+  may trade the burden. Injectivity plus measurability already gives the measurable
+  inverse (standard Borel spaces); no separate assumption is needed.
+  \emph{Satisfiability is resolved for A7$'$}: A7$'$ plus a fixed cutoff policy plus
+  $\Omega>0$ deliver the on-path injective form with an explicit inverse, and the
+  pro-rata single-Voice menu with terminal target strictly increasing on all of
+  $\mathbb R$ also satisfies A7-J. A7-J additionally needs strict increase off the
+  Voice region; a target flat below the Voice cutoff breaks A7-J while leaving
+  A7$'$ intact. Failure boundary: a binding stake cap, quantized stakes, a composed
+  target repeating values across Voice-plan switches, $\Omega=0$, and
+  policy-dependence when the condition is stated at only one equilibrium's cutoffs.
+  A7$'$-satisfying menus are fully separating on the flagged set, so the burden moves
+  to incentive compatibility rather than away.
 
 \item[A8 Interior crossing.] $0<\Omega(\kappa,\tau,T)<1$.
 
@@ -439,10 +448,17 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
 
 Seven of eight results carry two-pass evidence --- an adversarial proof-read PASS
 \emph{and} an independent statements-only re-derivation PASS, by different agents ---
-and are labelled PROVED with their conditionality written into the label. C1 is
-CONJECTURE. Labels are transcribed from \texttt{LABEL\_LEDGER.md}; each statement is
-the amended one, with its hypothesis set named in full. Nothing was weakened
-silently.
+and are labelled PROVED with their conditionality written into the label.
+\textbf{P1 is CONJECTURE after the 2026-08-23 GPT end-review demotion; its earlier
+two-pass chain covered a mismatched A7 form.} The old evidence chain is retained, but
+it did not satisfy the two-pass gate for the recorded statement: the proof's h.7
+consumes the joint injective form of A7, while the card row and the re-derivation
+carried the on-path form (form mismatch). The GPT end review and audit additionally
+identified a missing continuation-cost clause in Step 12 (sunk-cost gap, live for
+multi-Voice menus) and a false positivity claim at $\kappa=1$. Ticket 35 owns the
+repair and any future re-promotion. Labels are transcribed from
+\texttt{LABEL\_LEDGER.md}; each statement is the amended one, with its hypothesis set
+named in full. Nothing was weakened silently.
 
 \begingroup
 \small
@@ -550,7 +566,7 @@ A8's restatement as a single signal threshold add \textbf{H-ord} (Voice stake
 monotonicity across plans) and the upper-set engagement-flag hypothesis. A8 is a
 condition \emph{on the fixed point exhibited}: existence of an equilibrium \emph{at
 which} A8 holds is not claimed. Uniqueness is not claimed. &
-\textbf{PROVED} \\
+\textbf{CONJECTURE} \\
 \addlinespace
 
 T1 &
@@ -579,21 +595,23 @@ claimed.} &
 
 C1 &
 On a named region where $L_{\mathcal R}<1$ and $g_r^{PE}>\mathcal B_r^{GE}$, the
-fixed-policy attenuation sign survives in equilibrium. The certificate theorem is
-\textbf{two-pass complete} --- an adversarial proof-read PASS (0 FAIL, 13 repairs, 7
-observations) and an independent statements-only re-derivation PROVED-WITH-CHANGES
-(a norm convention and two-sided openness of $\mathcal R_r$ added; at $J-1\ge2$ the
-bare $|\cdot|$ in $\mathcal B_r^{GE}$ is not well defined and a mismatched reading
-makes part (B) false) --- and the executed 80-node certification returns a
-\textbf{nonempty region: 18 nodes certified}, slack $\eta_r$ from $0.0595$ (min)
-through $0.3467$ (median) to $1.7227$ (max), $L_{\mathcal R}\le0.5008$ at every node.
-\textbf{The ledger decision is pending}, so the label does not move. &
-CONJECTURE\\
+fixed-policy attenuation sign survives in equilibrium. The dominance-and-contraction
+implication is \textbf{two-pass complete} --- an adversarial proof-read PASS (0 FAIL,
+13 repairs, 7 observations) and an independent statements-only re-derivation
+PROVED-WITH-CHANGES (a norm convention and two-sided openness of $\mathcal R_r$
+added; at $J-1\ge2$ the bare $|\cdot|$ in $\mathcal B_r^{GE}$ is not well defined and
+a mismatched reading makes part (B) false) --- and the executed 80-node run returns
+\textbf{18 pointwise dominance-and-contraction nodes}, slack $\eta_r$ from $0.0595$
+(min) through $0.3467$ (median) to $1.7227$ (max), $L_{\mathcal R}\le0.5008$ at every
+node. These nodes verify the pointwise inequalities and supporting diagnostics only;
+they do not verify the full C1 antecedent or a named nonempty region. &
+PROVED\\
 \end{longtable}
 \endgroup
 
-\noindent The remaining aspiration, not a claim: C1 PROVED on a named nonempty
-region, NUMERICAL off-region, dropped if the region is empty.
+\noindent Remaining aspiration, not a claim: promotion from pointwise
+dominance-and-contraction nodes to a named nonempty region, which would require the
+D8 $\varepsilon$-ball and integral-control pattern.
 
 \subsection*{Labels}
 
@@ -601,9 +619,11 @@ region, NUMERICAL off-region, dropped if the region is empty.
 \textbf{NUMERICAL} --- verified on a grid by an executed, committed check script with
 committed output. \textbf{ESTIMATED} --- an empirical estimate with a standard error
 and a stated design. \textbf{CONJECTURE} --- everything else, including anything
-whose proof is deferred. Region-certified is not a fifth label: it is PROVED with the
-region named in the hypothesis. Labels are never weakened by editing; only an
-executed check or an independent re-derivation may move one.
+whose proof is deferred. A \textbf{dominance-and-contraction node} is not a fifth
+label: it records pointwise $L_{\mathcal R}<1$ and $\eta_r>0$ with supporting
+diagnostics, not verification of the full C1 antecedent. A named-region promotion is
+not claimed. Labels are never weakened by editing; only an executed check or an
+independent re-derivation may move one.
 
 %==============================================================================
 \subsection{Three known facts on file}
@@ -612,49 +632,49 @@ executed check or an independent re-derivation may move one.
 These are facts the record carries, not claims the model makes. They are the reason
 the labels above are written with their conditions attached.
 
-\paragraph{1. The window analogue of L4 leg 3 is refuted at the O-1 calibration.}
-Since $W_T\le1$ is proved, the O-1 evaluations
+\paragraph{1. O-1 is a disclosure-regime analogy, not a window-margin test.}
+This is a known fact on file, not a claim the model note makes: O-1 compares the
+public buy flagged versus pooled at fixed policies in the static repo model. Its
+ratios
 \[
-W_TC_T \;=\; 1.06397 \,/\, 1.18373 \,/\, 1.13631
+1.06397 \,/\, 1.18373 \,/\, 1.13631 \,/\, 0.37798
 \qquad\text{at}\qquad
-\Omega \;=\; 0.037252 \,/\, 0.128950 \,/\, 0.285804
+\Omega \;=\; 0.037252 \,/\, 0.128950 \,/\, 0.285804 \,/\, 0.50
 \]
-force $C_T\ge W_TC_T>1$: window tightening \emph{raises} pooled sensitivity at those
-nodes, the opposite of leg 3's threshold-side direction. At $\Omega=0.50$ the
-criterion holds ($W_TC_T=0.37798$), with the boundary located by bisection at
-$\Omega^\star\approx0.3428$ ($k_D^\star=1.28618$). Both branches occur inside the
-maintained parameter set, which is the sharpest possible content of ``no
-unconditional window sign''. Provenance: this is the referee's O-1 experiment run on
+are regime-comparison composition outcomes, not $W_TC_T$ and not a window pair. The
+analogy is useful because it shows that a composition factor can exceed one,
+motivating T1's genuine window-margin iff. The genuine window-margin record is
+\texttt{t2\_t1\_check} block 4: $W_TC_T<1$ at every checked node at this calibration.
+The O-1 boundary $\Omega^\star\approx0.3428$ remains a disclosure-regime boundary,
+not a window boundary. Provenance: this is the referee's O-1 experiment run on
 the \emph{repo} model (the frozen manuscript's static structure, fixed cutoffs,
 partial equilibrium), re-executed in \texttt{quality\_reports/fixes/t1\_o1\_rerun\_check.py}
 with every committed number reproducing to the last printed digit; it is not the
 two-round build.
 
-\paragraph{2. The implemented two-round pooled cell FAILS $\Atau$ at baseline.}
-Two executed checks measure the same gap, and both report it rather than smoothing
-it.
+\paragraph{2. Whether the implemented two-round pooled cell satisfies $\Atau$ is OPEN
+at baseline.} Two executed diagnostics are informative but neither decides the
+support condition, and both are retained without smoothing.
 \begin{itemize}
 \item \texttt{t2\_l2\_check.json}, check \texttt{l2\_placebo\_M\_P\_sign\_A\_tau}:
-  \textbf{FAIL}. The enumerated pooled $M_P$ is \emph{hump-shaped} in $\kappa$ ---
-  10 of 18 increments positive, one sign change, peak near $\kappa=0.55$ --- so
-  $\partial_\kappa M_P\le0$, the orientation $\Atau$'s maintained $C_h\le0$ would
-  give, does not hold globally. The JSON's own words: a failed hypothesis about
-  $\Atau$'s orientation on the enumerated two-round pooled law, not a statement about
-  L2.
+  \textbf{FAIL} as a sign placebo. The enumerated pooled $M_P$ is \emph{hump-shaped}
+  in $\kappa$ --- 10 of 18 increments positive, one sign change, peak near
+  $\kappa=0.55$. But $\Atau$'s maintained $C_h(\bar\pi)\le0$ does not sign $\Akap$;
+  the card's own Example A has $\Akap=-1/4$. The demanded sign is therefore not
+  implied by $\Atau$, and the placebo is misformulated rather than a refutation of
+  the support representation.
 \item \texttt{t2\_t1\_check.json}, check \texttt{t1\_block3\_chord\_magnitude}:
-  \textbf{FAIL}. The residual
+  \textbf{FAIL} for the hard-coded Example-A coefficient. The residual
   $\bigl|\mathcal S_P-\Delta_m|\Akap|\,|C_h(\bar\pi)|\bigr|$ is $0.006279$
-  ($0.6279$ premium percentage points) against a predicted $10^{-10}$ --- the gap
-  between the \emph{enumerated} two-round pooled sensitivity and $\Atau$'s
-  three-atom closed form. (The companion clause of the same check passed: the ratio
-  $|C_h|/\bar\pi^2$ is constant to $0.48\%$ between the two smallest $\bar\pi$
-  nodes, well inside the $5\%$ criterion.)
+  ($0.6279$ premium percentage points) against a predicted $10^{-10}$ --- the implied
+  coefficient is \textbf{$|\Akap|\in[0.997,1.158]$}, while the check hard-coded
+  $0.25$. The ratio $|C_h|/\bar\pi^2$ remains constant to $0.48\%$ between the two
+  smallest $\bar\pi$ nodes, well inside the $5\%$ criterion. This rejects the
+  hard-coded calibration, not $\Atau$'s general support representation.
 \end{itemize}
-This is exactly the open question flagged under $\Atau$ above, now with a number
-attached: the representation's support condition is not satisfied by the implemented
-pooled law at this calibration. It is a failed hypothesis, not a wiring error --- the
-same gap is measured analytically on the frozen manuscript's four-atom law by
-\texttt{t2\_l3\_check.py} block 5b.
+The decisive support-enumeration check is ticket 33. Until it lands, $\Atau$'s
+applicability at the implemented pooled cell remains OPEN; the executed diagnostics
+are test-design artifacts, not a wiring error or a theorem failure.
 
 \paragraph{3. L4's sign predictions hold numerically with zero violations.}
 \texttt{t2\_l4\_check.json} reports 10 checks, 0 failures. Across all 16 tightening
@@ -667,19 +687,19 @@ computation is sampled. $\Omega$ and $\bar\pi_{\mathrm{pr}}$ are flat in $\kappa
 exactly zero across 71 grid points, which is what the no-feedback timing predicts.
 
 \paragraph{What the pair of facts means.} The chord mechanism is
-\textbf{hypothesis-bound}: it needs $\Atau$, and $\Atau$ is not satisfied by the
-implemented two-round pooled cell at baseline. The threshold phenomenon is
-\textbf{not}: the reclassification legs of L4 are unconditional, and they hold
-numerically without exception.
+\textbf{hypothesis-bound}: it needs $\Atau$, whose applicability at the implemented
+pooled cell is OPEN. The threshold phenomenon is \textbf{not}: the reclassification
+legs of L4 are unconditional, and they hold numerically without exception.
 
 %==============================================================================
 \section{What this note does not claim}
 %==============================================================================
 
 A global window-margin attenuation sign; $\kappa$-invariance of $J$; equilibrium
-uniqueness; a nonempty GE-certified region \emph{as a theorem} (the 18 certified
-nodes are an executed record, and C1's ledger decision is pending); endogenous filing
-before the deadline; noisy or partially revealing flagged-round trading;
+uniqueness; a named nonempty GE region \emph{as a theorem} (the 18 pointwise
+dominance-and-contraction nodes are an executed record, not verification of the full
+C1 antecedent); endogenous filing before the deadline; noisy or partially revealing
+flagged-round trading;
 continuous-time execution; welfare or optimal rule design; that the frozen
 manuscript's hump result survives; that the prior calibration
 ($\Omega\approx0.037$) is economically meaningful; any empirical value for
@@ -692,15 +712,16 @@ Three items are explicitly open:
   exhibits a one-round market that satisfies it and the frozen manuscript's own
   no-disclosure structure that does not, and names the weakest sufficient conditions.
   L3, L4 leg 3 and T1 Part B are all conditional on $\Atau$, so this is the largest
-  single conditionality the ledger carries --- and the executed checks of fact 2
-  above show it failing on the implemented law at baseline.
+  single conditionality the ledger carries --- and the executed diagnostics of fact 2
+  above do not decide it at baseline; the support-enumeration check is ticket 33.
 \item \textbf{Whether an equilibrium in which the blockholder chooses the fully
   separating plan exists on a given calibration --- OPEN, and P1-adjacent.} A7$'$
   menus are fully separating on the flagged set, so the burden did not disappear when
   A7 satisfiability was resolved; it \emph{moved} to incentive compatibility, which
   P1 does not settle.
-\item \textbf{The window-margin analogue of L4 leg 3 is refuted at the O-1
-  calibration} (fact 1 above).
+\item \textbf{O-1 is a disclosure-regime analogy, not a window-margin test} (fact 1
+  above). The genuine window-margin record is \texttt{t2\_t1\_check} block 4, with
+  $W_TC_T<1$ at every checked node at this calibration.
 \end{enumerate}
 
 %==============================================================================
@@ -748,7 +769,7 @@ continuous $\Theta\to\Theta$; $k^\star=\Tmap(k^\star;\vartheta)$; collapse faces
 permitted (the manuscript's own baseline collapses Hold). What changes: the fixed
 point ranges over plans; off-path beliefs are limits of full-support perturbations
 \emph{over plans}; and the inner pricing fixed point is no longer an assumption
-(next row). \\
+(see the A5 row). \\
 \addlinespace
 
 The (C*) chord condition
@@ -781,9 +802,10 @@ ball-integral condition, a certified interval, and a counterexample showing the
 global claim false. &
 \textbf{REUSE} &
 Is C1's precedent. $\mathcal B_r^{GE}$ is the \emph{cross-derivative} analogue of
-$\bar B$; $\eta_r=g_r^{PE}-\mathcal B_r^{GE}$ is the slack; certification is node by
-node on a named region, and an empty region is a reportable outcome that would drop
-C1. What changes: the object bounded is a cross-derivative in $(\kappa,r)$ rather
+$\bar B$; $\eta_r=g_r^{PE}-\mathcal B_r^{GE}$ is the slack; the executed record names
+pointwise dominance-and-contraction nodes, not a verified region, and a named-region
+promotion remains open. What changes: the object bounded is a cross-derivative in
+$(\kappa,r)$ rather
 than a single-argument profile, and the strictness coordinate $r_T=-T$ is not
 differentiable because the window is an integer. \\
 \addlinespace
@@ -856,8 +878,9 @@ Split and conditioned. The weight effect is kept and proved ($W_T\le1$, $W_\tau$
 likewise), but the composition effect is a separate ratio: T1(B) gets threshold
 attenuation \emph{unconditionally} because \emph{both} $W_\tau$ and $C_\tau$ lie in
 $[0,1]$; T1(C) makes the window margin an \textbf{iff}, $W_TC_T\le1$, with $C_T$
-unsigned --- and the O-1 numbers put three of four calibrated nodes on the
-\emph{failing} side. An unconditional window sign is not available. \\
+unsigned. O-1 is a disclosure-regime analogy whose composition ratio can exceed one;
+it is not a window measurement. The genuine window comparison is
+\texttt{t2\_t1\_check} block 4. An unconditional window sign is not available. \\
 \addlinespace
 
 Equilibrium uniqueness as a numerical regularity (a 30-seed multistart converging to
@@ -927,8 +950,9 @@ L2's own content passes exactly: the flagged range of $M_F$ over 19 $\kappa$ val
 is $0$ and its $\kappa$-derivatives are $0$ --- the flagged path never touches the
 $\kappa$-dependent array. Two placebos confirm the pooled side does move.
 \textbf{The failure is the fifth check}, an \emph{ancillary} $\Atau$-orientation
-placebo: see Section~6, fact 2. It is a failed hypothesis about $\Atau$ on the
-enumerated pooled law, not a failure of L2. \\
+placebo: see Section~6, fact 2. Because $\Atau$ does not sign $\Akap$ (Example A has
+$\Akap=-1/4$), the placebo is misformulated and does not decide $\Atau$'s support
+condition; it is not a failure of L2. \\
 \addlinespace
 
 \texttt{t2\_l3\_check} & \textbf{PASS} \newline 10 checks, 0 FAIL &
@@ -969,8 +993,9 @@ cutoff vector. All 27 nodes do converge on the cutoff-scale criterion. The cause
 is undiagnosed --- candidates are a failure of A3's single crossing at those
 $\kappa$ extremes (the adjacent-plan payoff gap is a sawtooth on this menu, and
 single crossing is a calibration fact, not structural) or a genuine boundary
-non-existence outside P1's hypothesis set; either way P1's theorem is untouched
-(its hypotheses include A3) and the four nodes are named, not smoothed. \\
+non-existence outside the repaired P1 hypothesis set; P1 is \textbf{CONJECTURE} after
+the form-mismatch, sunk-cost, and $\kappa=1$ review findings, and the four nodes are
+named, not smoothed. \\
 \addlinespace
 
 \texttt{t2\_t1\_check} & \textbf{FAIL} (1 of 9) &
@@ -978,27 +1003,30 @@ The factorisation $\mathcal S=(1-\Omega)\mathcal S_P$ holds pointwise to
 $1.2\times10^{-16}$ and in total variation to $2.2\times10^{-19}$; $\Omega$ is flat in
 $\kappa$ at $0$ residual; the threshold margin, the window margin, the O-1 benchmark
 and the composition factors all pass; $H=12$ robustness passes.
-\textbf{The failure is block 3}, the chord-magnitude route: see Section~6, fact 2.
-One check is \emph{vacuous} (the local form, which needs a smooth window
-interpolation the integer calendar does not provide). \\
+\textbf{The failure is block 3}, the chord-magnitude route with hard-coded Example-A
+coefficient $0.25$: see Section~6, fact 2. It is not a refutation of $\Atau$'s
+general support representation. One check is \emph{vacuous} (the local form, which
+needs a smooth window interpolation the integer calendar does not provide). \\
 \addlinespace
 
-\texttt{t2\_c1\_region\_check} & \textbf{PASS} \newline 12 checks, 0 FAIL, region
-\emph{nonempty} &
+\texttt{t2\_c1\_region\_check} & \textbf{PASS} \newline 12 checks, 0 FAIL, pointwise
+nodes \emph{nonempty} &
 80 nodes ($8\ \kappa\times5\ \tau\times2\ T$), 2.9 hours of wall time. Two gated
 verdicts, both PASS with 0 violations: the bound contains the four-corner re-solve
 remainder at the 8 validation nodes (max ratio $0.511$), and it contains the
-implicit-function remainder at all 80 (max ratio $1.0$). \textbf{18 nodes certified},
-all at $T=5$ and the upper three $\tau$ percentiles;
-$\eta_r\in[0.0595,\,1.7227]$, median $0.3467$; $L_{\mathcal R}\in[0.264,0.501]$ with
-no node at $L\ge1$. \emph{Failure attribution}, recorded not hidden: 56 nodes have
+implicit-function remainder at all 80 (max ratio $1.0$). \textbf{18 pointwise
+dominance-and-contraction nodes}, all at $T=5$ and the upper three $\tau$
+percentiles; $\eta_r\in[0.0595,\,1.7227]$, median $0.3467$;
+$L_{\mathcal R}\in[0.264,0.501]$ with no node at $L\ge1$. These nodes verify the two
+inequalities and supporting diagnostics only, not the full C1 antecedent or a named
+region. \emph{Failure attribution}, recorded not hidden: 56 nodes have
 $g_r^{PE}=0$ to $10^{-10}$ because the implemented legal clock quantises the crossing
 date, so $\Omega(\tau)$ is locally constant and the cross-derivative vanishes
 identically there; 4 are positive but dominated; 2 are negative; 40 nodes (all
 $T=10$) are degenerate on flagged mass below $0.01$. The sharper,
 non-inversion-free bound would certify 22 rather than 18 --- reported as a measure of
 the Neumann step's price, and certifying nothing. No tolerance was weakened to make
-the region nonempty. \\
+the pointwise node set nonempty. \\
 \end{longtable}
 \endgroup
 
@@ -1063,8 +1091,8 @@ $\tau=0.05$ (the statutory 13D 5\%):
 \vspace{2pt}
 \noindent\footnotesize\raggedright
 Sources, all in the \texttt{v4-theory} worktree:
-\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-21, post-ledger
-regeneration) for Sections 1--6 and 7;
+\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-23, post-review
+repairs) for Sections 1--6 and 7;
 \texttt{research/model\_v4/LABEL\_LEDGER.md} for the labels;
 \texttt{research/model\_v4/proofs/} and \texttt{research/model\_v4/rederive/} for the
 two-pass evidence chains;

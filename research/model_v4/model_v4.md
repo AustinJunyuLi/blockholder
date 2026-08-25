@@ -1,6 +1,6 @@
 # The Two-Round Blockholder Disclosure Model — a standalone model note
 
-**v4 theory lane, ticket 30 (T2j). Card stamp 2026-08-21, post-ledger regeneration.**
+**v4 theory lane, ticket 30 (T2j). Card stamp 2026-08-23, post-review repairs.**
 
 Markdown mirror of `research/model_v4/model_v4.tex` (same content, same order).
 
@@ -9,7 +9,7 @@ disclosure rule induces, the equilibrium notion, the standing hypotheses, and th
 ledger with its honesty labels. It then records what the v4 model takes from the frozen manuscript
 `draft_v2.tex`, what it simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from `research/model_v4/MODEL_CARD.md`
-(version stamp 2026-08-21, post-ledger regeneration) and `research/model_v4/LABEL_LEDGER.md`. The
+(version stamp 2026-08-23, post-review repairs) and `research/model_v4/LABEL_LEDGER.md`. The
 card is the single source of truth: where a proof file and the card differ, the card wins. The
 conditionality attached to each result is not decoration. It is the result.
 
@@ -138,7 +138,7 @@ $A_{1/2}' = -2A'_\kappa$). Weight-effect ratios are $W_\tau, W_T$ (e.g.
 $W_T = (1-\Omega(\tau,5))/(1-\Omega(\tau,10))$) and composition-effect ratios are $C_\tau, C_T$ (e.g.
 $C_T = \mathcal{S}_P(\tau,5)/\mathcal{S}_P(\tau,10)$), unsigned.
 
-For the general-equilibrium certificate: $k = (k_1 \le \dots \le k_{J-1})$ is the cutoff vector on the
+For the general-equilibrium dominance-and-contraction node: $k = (k_1 \le \dots \le k_{J-1})$ is the cutoff vector on the
 compact ordered polytope $\Theta$ with parameter vector $\vartheta$; $\mathcal{T}(k;\vartheta)$ the
 outer best-response map; $L_{\mathcal{R}} = \sup_{\mathcal{R}} \lVert D_k \mathcal{T} \rVert$ the
 contraction bound; $r_\tau = -\tau$, $r_T = -T$ the strictness coordinates (higher $r$ = tighter);
@@ -150,7 +150,7 @@ derivative bounds;
 $$\mathcal{B}_r^{GE} = |\Delta_{\kappa k}|\bar k_r + (|\Delta_{kr}| + |\Delta_{kk}|\bar k_r)\bar k_\kappa
 + |\Delta_k|\bar k_{\kappa r}, \qquad \eta_r = g_r^{PE} - \mathcal{B}_r^{GE}$$
 
-the GE remainder bound and the slack on a certified region $\mathcal{R}_r$.
+the GE remainder bound and the slack on a dominance-and-contraction region $\mathcal{R}_r$.
 
 ---
 
@@ -245,22 +245,29 @@ selected *family*, not a finite list.
 **A6 Compact outer self-map.** All best-response cutoffs lie in a common compact ordered polytope
 $\Theta$; $\mathcal{T}$ is continuous and maps $\Theta$ into itself.
 
-**A7 / A7′ Filing sufficiency.** On flagged histories $(B^F, Q^F, a=1)$ identifies the informed
+**A7 / A7′ / A7-J Filing sufficiency.** On flagged histories $(B^F, Q^F, a=1)$ identifies the informed
 component of the selected plan; conditional on it the pooled order-flow residual is pure noise,
-independent of $(v,s,\xi)$. *L2's proof uses the injective form and the weak wording is not
-sufficient* — it permits two $(j,s)$ pairs with different pooled paths, which is L2's first failure
-case. The injective form is A7′: on the flagged set the composed terminal target
-$s \mapsto b^*_{j(s)}(s)$ is strictly increasing *for every cutoff vector $k \in \Theta$*; for a menu
-this amounts to each $b_j^*$ strictly increasing with no backtracking across any admissible plan
-switch. Strictness of $B^F$ is neither necessary (it fails at crossing-date jumps on the pro-rata menu)
-nor sufficient (multi-Voice backtracking). Injectivity forces $B^F$ continuum-valued; injective plus
-measurable already gives a measurable inverse. *Satisfiability is resolved*: A7′ plus a fixed cutoff
-policy plus $\Omega > 0$ deliver the on-path injective form with an explicit inverse, and a satisfying
-menu exists (the pro-rata single-Voice menu with terminal target strictly increasing on all of
-$\mathbb{R}$, which also satisfies the joint $(j,s)$ form). Failure boundary: a binding stake cap,
-quantized stakes, a composed target repeating values across Voice-plan switches, $\Omega = 0$, and
-policy-dependence when the condition is stated at only one equilibrium's cutoffs. A7′ menus are fully
-separating on the flagged set, so the burden moves to incentive compatibility rather than away.
+independent of $(v,s,\xi)$. L2 uses A7′ on path; the weak wording is not sufficient — it permits two
+$(j,s)$ pairs with different pooled paths, which is exactly L2's first failure case. The two injective
+forms are distinct. **A7′ (on-path composed target)**
+requires the composed terminal target $s \mapsto b^*_{j(s)}(s)$ to be strictly increasing on the
+flagged signal region, quantified over every cutoff vector $k \in \Theta$; strictness is required only
+for flag-capable composed targets, with no backtracking across admissible Voice-plan switches. **A7-J
+(joint tuple injectivity)** requires the full map $(j,s) \mapsto (B_j^F,Q_j^F,a_j)$ to be injective on
+the full flagged-pair set, including pairs not selected on path. A7-J is stronger than on-path A7′ and
+is the form consumed by the pre-review P1 proof. Strictness of $B^F$ is neither necessary (it fails at
+crossing-date jumps on the pro-rata menu) nor sufficient (multi-Voice backtracking). Under A7′ the
+flagged tuple is continuum-valued as a tuple: injectivity forces $(B^F,Q^F)$ to be continuum-valued,
+while the coordinates may trade the burden. Injectivity plus measurability already gives the measurable
+inverse (standard Borel spaces); no separate assumption is needed. *Satisfiability is resolved for A7′*:
+A7′ plus a fixed cutoff policy plus $\Omega > 0$ deliver the on-path injective form with an explicit
+inverse, and the pro-rata
+single-Voice menu with terminal target strictly increasing on all of $\mathbb{R}$ also satisfies A7-J.
+A7-J additionally needs strict increase off the Voice region; a target flat below the Voice cutoff
+breaks A7-J while leaving A7′ intact. Failure boundary: a binding stake cap, quantized stakes, a
+composed target repeating values across Voice-plan switches, $\Omega = 0$, and policy-dependence when
+the condition is stated at only one equilibrium's cutoffs. A7′-satisfying menus are fully separating on
+the flagged set, so the burden moves to incentive compatibility rather than away.
 
 **A8 Interior crossing.** $0 < \Omega(\kappa,\tau,T) < 1$.
 
@@ -332,7 +339,8 @@ derivative is constant on $\mathcal{R}$.
 
 Seven of eight results carry two-pass evidence — an adversarial proof-read PASS *and* an independent
 statements-only re-derivation PASS, by different agents — and are labelled PROVED with their
-conditionality written into the label. C1 is CONJECTURE. Labels are transcribed from
+conditionality written into the label. **P1 is CONJECTURE after the 2026-08-23 GPT end-review
+demotion; its earlier two-pass chain covered a mismatched A7 form.** Labels are transcribed from
 `LABEL_LEDGER.md`; each statement is the amended one, with its hypothesis set named in full. Nothing
 was weakened silently.
 
@@ -343,60 +351,64 @@ was weakened silently.
 | **L2** | At fixed cutoff and execution policies, under **A1; A2′ with the primitive/plan table restrictions; A4; A5; A7′ in its on-path injective form, consumed almost surely on the flagged set; D1; the no-feedback timing; and $\Omega > 0$** — together with an explicit bidder-entry rule carried as bookkeeping: $(B^F,Q^F,a{=}1)$ makes the pre-filing pooled history conditionally independent of $(v,s,\xi)$ on the flagged set, so the flagged posterior, price, entry probability and $M_F$ are invariant to $\kappa$. ("Almost surely" is the only coherent reading once $B^F$ is continuum-valued, since then no individual flagged tuple has positive probability.) | **PROVED** |
 | **L3** | **Under A($\tau$)** — including (τ-i) kernel-through-posterior and (τ-ii) $\kappa$-free support *and* $\kappa$-free $\bar\pi$ — plus $h(0)=0$; $\kappa$-free pooled mass and engagement moment at fixed policies; D1 by statement; minimal regularity ($h$ continuous on $[0,\bar\pi]$, twice differentiable on the open interval — Darboux does the rest, no continuity of $h''$); for the small-$\bar\pi$ corollary only, a second-order Peano expansion of $h$ at $0+$ and one and the same kernel along the shrinking family; and, for the seam where L4 consumes L3, $|A'_\kappa|$ bounded *uniformly in $\bar\pi$*. Then $\partial_\kappa \mathbb{E}_\kappa[h] = A'_\kappa C_h(\bar\pi)$ exactly; $C_h(\bar\pi) = \tfrac14 \bar\pi^2 h''(\zeta)$ for some $\zeta \in (0,\bar\pi)$ — an identity, not an approximation; and $C_h = \tfrac14 h''(0)\bar\pi^2 + o(\bar\pi^2)$, so the interior motion vanishes at rate $\bar\pi^2$. **An "if", never an "iff"** ($A'_\kappa = 0$ also kills the motion). Whether the two-round pooled cell satisfies A($\tau$)'s support condition is **OPEN**. | **PROVED** under A($\tau$) |
 | **L4** | At fixed policies, for $b_0 < \tau' < \tau$ at a common window $T$ and common $\kappa$, with $\Omega(\tau',T) < 1$: **(leg 1, unconditional)** $\mathcal{C}_F(\tau,T) \subseteq \mathcal{C}_F(\tau',T)$ with every newly flagged history generated by a Voice plan, hence $\Omega(\tau',T) \ge \Omega(\tau,T)$; **(leg 2, unconditional)** the pooled engagement *share* falls, $\bar\pi_{\mathrm{pr}}(\tau') \le \bar\pi_{\mathrm{pr}}(\tau)$, with an exact identity for the gap; **(leg 3, under A(br))** $\mathcal{S}_P(\tau',T) \le \mathcal{S}_P(\tau,T)$, with equality whenever $C_h(\bar\pi(\tau)) = 0$. Legs 1–2 need only **D1's clock equivalence, the no-feedback timing, fixed policies, $b_0 < \tau' < \tau$ imposed at both thresholds, A1, A4, $D=1 \Rightarrow a=1$, and $\Omega(\tau') < 1$** — the "nestedness" clauses are *conclusions, not hypotheses*. Leg 3 additionally needs **L3 by statement, A($\tau$)'s maintained magnitude monotonicity of $|C_h|$** (the sign half $C_h \le 0$ is never used at this leg) **and A(br) (br-i)–(br-v)**. | **PROVED** (legs 1–2 outright; leg 3 **under A(br)**) |
-| **P1** | Under **A1, A2′, A3, A4, A6, A7′ (on-path injective), D1 by statement, the no-feedback timing read with the flag-terminates-the-pooled-round clause, the definitional round-2 action-set hypothesis** (the flagged-round action set *is* the plan-generated set $\{Q^F_{j'}(s)\}$ over menu elements agreeing with $j$ on everything already played — *not* a closure condition, which is jointly unsatisfiable with finiteness by cardinality), **$m_0 \ge 0$, and the blockholder-objective definition $U_j$**: a cutoff PBE over complete contingent plans exists — $k^\star \in \Theta$ with $k^\star = \mathcal{T}(k^\star;\vartheta)$, prices at their inner fixed points, Bayes-consistent on-path beliefs, off-path beliefs as limits of full-support perturbations over *plans*, the entry rule, and a sequentially optimal flagged component. **A5 is not assumed**: its existence and uniqueness content is derived from $m_0 \ge 0$. **At any such equilibrium at which A8 holds**, both cells carry strictly positive probability and are on path; for A8's restatement as a single signal threshold add **H-ord** (Voice stake monotonicity across plans) and the upper-set engagement-flag hypothesis. A8 is a condition *on the fixed point exhibited*: existence of an equilibrium *at which* A8 holds is not claimed. Uniqueness is not claimed. | **PROVED** |
+| **P1** | Under **A1, A2′, A3, A4, A6, A7′ (on-path injective), D1 by statement, the no-feedback timing read with the flag-terminates-the-pooled-round clause, the definitional round-2 action-set hypothesis** (the flagged-round action set *is* the plan-generated set $\{Q^F_{j'}(s)\}$ over menu elements agreeing with $j$ on everything already played — *not* a closure condition, which is jointly unsatisfiable with finiteness by cardinality), **$m_0 \ge 0$, and the blockholder-objective definition $U_j$**: a cutoff PBE over complete contingent plans exists — $k^\star \in \Theta$ with $k^\star = \mathcal{T}(k^\star;\vartheta)$, prices at their inner fixed points, Bayes-consistent on-path beliefs, off-path beliefs as limits of full-support perturbations over *plans*, the entry rule, and a sequentially optimal flagged component. **A5 is not assumed**: its existence and uniqueness content is derived from $m_0 \ge 0$. **At any such equilibrium at which A8 holds**, both cells carry strictly positive probability and are on path; for A8's restatement as a single signal threshold add **H-ord** (Voice stake monotonicity across plans) and the upper-set engagement-flag hypothesis. A8 is a condition *on the fixed point exhibited*: existence of an equilibrium *at which* A8 holds is not claimed. Uniqueness is not claimed. | **CONJECTURE** |
 | **T1** | At fixed plan and cutoff policies, with $0 < \Omega < 1$ and $\mathcal{S}_P > 0$: **(A)** $\mathcal{S} = (1-\Omega)\mathcal{S}_P$ exactly, and the same factorisation holds for the total-variation aggregate of $\Delta^{\mathrm{act}}$ over any $\kappa$-grid with no differentiability required; **(B)** threshold tightening attenuates — $\mathcal{S}(\tau')/\mathcal{S}(\tau) = W_\tau C_\tau \le 1$ because *both* ratios lie in $[0,1]$, no dominance condition needed; **(C)** window tightening attenuates **iff** $W_T C_T \le 1$, where $W_T \le 1$ is *proved* (from D1's clock equivalence and the monotone Voice stake path) and $C_T$ is *unsigned* — "equivalently $\partial_{r_T}\mathcal{S}_P/\mathcal{S}_P \le \Omega_{r_T}/(1-\Omega)$" holds **on average along the tightening path** (integrated over $[-T,-T']$), exactly in the infinitesimal limit, and is **false read pointwise**. Hypotheses: **fixed policies; A8 at each compared policy; $\mathcal{S}_P > 0$; L1; L2 (its own hypotheses travelling); D1; PE-$\Omega$ ($\partial_\kappa\Omega = 0$ at fixed policies — derivable, not assumed, and it fails in GE, which is C1's term); $\kappa$-differentiability of $M_P$ (no card hypothesis supplies this — carried in-proof); A($\tau$) at both compared policies with the $\bar\pi$ ruling; L3; A(br) (br-i)–(br-v) at the threshold pair; L4; the no-feedback timing; a smooth window interpolation for the local form; threshold-side smoothness (confirmed non-load-bearing)**. **No unconditional window sign is claimed.** | **PROVED** at fixed policies |
-| **C1** | On a named region where $L_{\mathcal{R}} < 1$ and $g_r^{PE} > \mathcal{B}_r^{GE}$, the fixed-policy attenuation sign survives in equilibrium. The certificate theorem is **two-pass complete** — an adversarial proof-read PASS (0 FAIL, 13 repairs, 7 observations) and an independent statements-only re-derivation PROVED-WITH-CHANGES (a norm convention and two-sided openness of $\mathcal{R}_r$ added; at $J-1 \ge 2$ the bare $|\cdot|$ in $\mathcal{B}_r^{GE}$ is not well defined and a mismatched reading makes part (B) false) — and the executed 80-node certification returns a **nonempty region: 18 nodes certified**, slack $\eta_r$ from $0.0595$ (min) through $0.3467$ (median) to $1.7227$ (max), $L_{\mathcal{R}} \le 0.5008$ at every node. **The ledger decision is pending**, so the label does not move. | CONJECTURE |
+| **C1** | On a named region where $L_{\mathcal{R}} < 1$ and $g_r^{PE} > \mathcal{B}_r^{GE}$, the fixed-policy attenuation sign survives in equilibrium. The dominance-and-contraction implication is **two-pass complete** — an adversarial proof-read PASS (0 FAIL, 13 repairs, 7 observations) and an independent statements-only re-derivation PROVED-WITH-CHANGES (a norm convention and two-sided openness of $\mathcal{R}_r$ added; at $J-1 \ge 2$ the bare $|\cdot|$ in $\mathcal{B}_r^{GE}$ is not well defined and a mismatched reading makes part (B) false) — and the executed 80-node run returns **18 pointwise dominance-and-contraction nodes**, slack $\eta_r$ from $0.0595$ (min) through $0.3467$ (median) to $1.7227$ (max), $L_{\mathcal{R}} \le 0.5008$ at every node. These nodes verify the pointwise inequalities and supporting diagnostics only; they do not verify the full C1 antecedent or a named nonempty region. | PROVED |
 
-Remaining aspiration, not a claim: C1 PROVED on a named nonempty region, NUMERICAL off-region,
-dropped if the region is empty.
+Remaining aspiration, not a claim: promotion from pointwise dominance-and-contraction nodes to a
+named nonempty region, which would require the D8 $\varepsilon$-ball and integral-control pattern.
 
 ### Labels
 
 **PROVED** — a complete proof, independently re-derived and proof-read. **NUMERICAL** — verified on a
 grid by an executed, committed check script with committed output. **ESTIMATED** — an empirical
 estimate with a standard error and a stated design. **CONJECTURE** — everything else, including
-anything whose proof is deferred. Region-certified is not a fifth label: it is PROVED with the region
-named in the hypothesis. Labels are never weakened by editing; only an executed check or an
-independent re-derivation may move one.
+anything whose proof is deferred. A **dominance-and-contraction node** is not a fifth label: it records
+pointwise $L_{\mathcal R}<1$ and $\eta_r>0$ with supporting diagnostics, not verification of the full
+C1 antecedent. A named-region promotion is not claimed. Labels are never weakened by editing; only an
+executed check or an independent re-derivation may move one.
 
 ### Three known facts on file
 
 These are facts the record carries, not claims the model makes. They are the reason the labels above
 are written with their conditions attached.
 
-**1. The window analogue of L4 leg 3 is refuted at the O-1 calibration.** Since $W_T \le 1$ is proved,
-the O-1 evaluations
+**1. O-1 is a disclosure-regime analogy, not a window-margin test.** This is a known fact on file,
+not a claim the model note makes: O-1 compares the public buy flagged versus pooled at fixed policies
+in the static repo model. Its ratios
 
-$$W_T C_T = 1.06397 \,/\, 1.18373 \,/\, 1.13631 \qquad \text{at} \qquad \Omega = 0.037252 \,/\, 0.128950 \,/\, 0.285804$$
+$$1.06397 \,/\, 1.18373 \,/\, 1.13631 \,/\, 0.37798 \qquad \text{at} \qquad
+\Omega = 0.037252 \,/\, 0.128950 \,/\, 0.285804 \,/\, 0.50$$
 
-force $C_T \ge W_T C_T > 1$: window tightening *raises* pooled sensitivity at those nodes, the opposite
-of leg 3's threshold-side direction. At $\Omega = 0.50$ the criterion holds ($W_T C_T = 0.37798$), with
-the boundary located by bisection at $\Omega^\star \approx 0.3428$ ($k_D^\star = 1.28618$). Both
-branches occur inside the maintained parameter set, which is the sharpest possible content of "no
-unconditional window sign". Provenance: this is the referee's O-1 experiment run on the *repo* model
-(the frozen manuscript's static structure, fixed cutoffs, partial equilibrium), re-executed in
-`quality_reports/fixes/t1_o1_rerun_check.py` with every committed number reproducing to the last
-printed digit; it is not the two-round build.
+are regime-comparison composition outcomes, not $W_T C_T$ and not a window pair. The analogy is
+useful because it shows that a composition factor can exceed one, motivating T1's genuine
+window-margin iff. The genuine window-margin record is `t2_t1_check` block 4: $W_T C_T<1$ at every
+checked node at this calibration. The O-1 boundary $\Omega^\star \approx 0.3428$ remains a
+disclosure-regime boundary, not a window boundary. Provenance: this is the referee's O-1 experiment
+run on the *repo* model (the frozen manuscript's static structure, fixed cutoffs, partial equilibrium),
+re-executed in `quality_reports/fixes/t1_o1_rerun_check.py` with every committed number reproducing
+to the last printed digit; it is not the two-round build.
 
-**2. The implemented two-round pooled cell FAILS A($\tau$) at baseline.** Two executed checks measure
-the same gap, and both report it rather than smoothing it.
+**2. Whether the implemented two-round pooled cell satisfies A($\tau$) is OPEN at baseline.** Two
+executed diagnostics are informative but neither decides the support condition, and both are retained
+without smoothing.
 
-- `t2_l2_check.json`, check `l2_placebo_M_P_sign_A_tau`: **FAIL**. The enumerated pooled $M_P$ is
-  *hump-shaped* in $\kappa$ — 10 of 18 increments positive, one sign change, peak near $\kappa = 0.55$
-  — so $\partial_\kappa M_P \le 0$, the orientation A($\tau$)'s maintained $C_h \le 0$ would give, does
-  not hold globally. The JSON's own words: a failed hypothesis about A($\tau$)'s orientation on the
-  enumerated two-round pooled law, not a statement about L2.
-- `t2_t1_check.json`, check `t1_block3_chord_magnitude`: **FAIL**. The residual
-  $\big|\mathcal{S}_P - \Delta_m |A'_\kappa|\,|C_h(\bar\pi)|\big|$ is $0.006279$ ($0.6279$ premium
-  percentage points) against a predicted $10^{-10}$ — the gap between the *enumerated* two-round pooled
-  sensitivity and A($\tau$)'s three-atom closed form. (The companion clause of the same check passed:
-  the ratio $|C_h|/\bar\pi^2$ is constant to $0.48\%$ between the two smallest $\bar\pi$ nodes, well
-  inside the $5\%$ criterion.)
+- `t2_l2_check.json`, check `l2_placebo_M_P_sign_A_tau`: **FAIL** as a sign placebo. The enumerated
+  pooled $M_P$ is *hump-shaped* in $\kappa$ — 10 of 18 increments positive, one sign change, peak
+  near $\kappa = 0.55$. But A($\tau$)'s maintained $C_h(\bar\pi)\le0$ does not sign $A'_\kappa$;
+  the card's own Example A has $A'_\kappa=-1/4$. The demanded sign is therefore not implied by
+  A($\tau$), and the placebo is misformulated rather than a refutation of the support representation.
+- `t2_t1_check.json`, check `t1_block3_chord_magnitude`: **FAIL** for the hard-coded Example-A
+  coefficient. The residual $\big|\mathcal{S}_P - \Delta_m |A'_\kappa|\,|C_h(\bar\pi)|\big|$ is
+  $0.006279$ ($0.6279$ premium percentage points) against a predicted $10^{-10}$ — the implied
+  coefficient is **$|A'_\kappa|\in[0.997,1.158]$**, while the check hard-coded $0.25$. The ratio
+  $|C_h|/\bar\pi^2$ remains constant to $0.48\%$ between the two smallest $\bar\pi$ nodes, well
+  inside the $5\%$ criterion. This rejects the hard-coded calibration, not A($\tau$)'s general
+  support representation.
 
-This is exactly the open question flagged under A($\tau$) above, now with a number attached: the
-representation's support condition is not satisfied by the implemented pooled law at this calibration.
-It is a failed hypothesis, not a wiring error — the same gap is measured analytically on the frozen
-manuscript's four-atom law by `t2_l3_check.py` block 5b.
+The decisive support-enumeration check is ticket 33. Until it lands, A($\tau$)'s applicability at
+the implemented pooled cell remains OPEN; the executed diagnostics are test-design artifacts, not a
+wiring error or a theorem failure.
 
 **3. L4's sign predictions hold numerically with zero violations.** `t2_l4_check.json` reports 10
 checks, 0 failures. Across all 16 tightening steps and both windows: $\Omega$ rises at every step (0
@@ -407,18 +419,17 @@ hypothesis rather than sampling error, because nothing in that computation is sa
 $\bar\pi_{\mathrm{pr}}$ are flat in $\kappa$ to exactly zero across 71 grid points, which is what the
 no-feedback timing predicts.
 
-**What the pair of facts means.** The chord mechanism is **hypothesis-bound**: it needs A($\tau$), and
-A($\tau$) is not satisfied by the implemented two-round pooled cell at baseline. The threshold
-phenomenon is **not**: the reclassification legs of L4 are unconditional, and they hold numerically
-without exception.
+**What the pair of facts means.** The chord mechanism is **hypothesis-bound**: it needs A($\tau$),
+whose applicability at the implemented pooled cell is OPEN. The threshold phenomenon is **not**:
+the reclassification legs of L4 are unconditional, and they hold numerically without exception.
 
 ---
 
 ## 7. What this note does not claim
 
-A global window-margin attenuation sign; $\kappa$-invariance of $J$; equilibrium uniqueness; a nonempty
-GE-certified region *as a theorem* (the 18 certified nodes are an executed record, and C1's ledger
-decision is pending); endogenous filing before the deadline; noisy or partially revealing flagged-round
+A global window-margin attenuation sign; $\kappa$-invariance of $J$; equilibrium uniqueness; a named
+nonempty GE region *as a theorem* (the 18 pointwise dominance-and-contraction nodes are an executed
+record, not verification of the full C1 antecedent); endogenous filing before the deadline; noisy or partially revealing flagged-round
 trading; continuous-time execution; welfare or optimal rule design; that the frozen manuscript's hump
 result survives; that the prior calibration ($\Omega \approx 0.037$) is economically meaningful; any
 empirical value for $\omega_a$.
@@ -429,13 +440,15 @@ Three items are explicitly open:
    entire remaining bite is the support condition, exhibits a one-round market that satisfies it and
    the frozen manuscript's own no-disclosure structure that does not, and names the weakest sufficient
    conditions. L3, L4 leg 3 and T1 Part B are all conditional on A($\tau$), so this is the largest
-   single conditionality the ledger carries — and the executed checks of fact 2 above show it failing
-   on the implemented law at baseline.
+    single conditionality the ledger carries — and the executed diagnostics of fact 2 above do not
+    decide it at baseline; the support-enumeration check is ticket 33.
 2. **Whether an equilibrium in which the blockholder chooses the fully separating plan exists on a
    given calibration — OPEN, and P1-adjacent.** A7′ menus are fully separating on the flagged set, so
    the burden did not disappear when A7 satisfiability was resolved; it *moved* to incentive
    compatibility, which P1 does not settle.
-3. **The window-margin analogue of L4 leg 3 is refuted at the O-1 calibration** (fact 1 above).
+3. **O-1 is a disclosure-regime analogy, not a window-margin test** (fact 1 above). The genuine
+   window-margin record is `t2_t1_check` block 4, with $W_T C_T<1$ at every checked node at this
+   calibration.
 
 ---
 
@@ -450,14 +463,14 @@ not cross-referenced here. The table below describes its objects rather than cit
 | Brouwer existence architecture: boundedness of best responses, the self-map and order-preservation lemma, and existence of a monotone equilibrium by Brouwer on a nonempty compact convex $\Theta$. | **REUSE** | Reused whole as P1's architecture: $\Theta$ compact, ordered, convex; $\mathcal{T}$ continuous $\Theta \to \Theta$; $k^\star = \mathcal{T}(k^\star;\vartheta)$; collapse faces permitted (the manuscript's own baseline collapses Hold). What changes: the fixed point ranges over plans; off-path beliefs are limits of full-support perturbations *over plans*; and the inner pricing fixed point is no longer an assumption (see the A5 row). |
 | The (C\*) chord condition $\mathcal{C}(\bar\pi) = h(0) - 2h(\bar\pi/2) + h(\bar\pi)$, and the lemma signing the posterior/pricing channel under it. | **REUSE** | Is v4's $C_h(\bar\pi)$, same expression, same maintained orientation $C_h \le 0$ with $|C_h|$ weakly increasing in $\bar\pi$. What changes: in `draft_v2` it selects hump versus trough in $\kappa$; in v4 it is the magnitude that drives pooled sensitivity through L3's exact identity $\partial_\kappa \mathbb{E}_\kappa[h] = A'_\kappa C_h(\bar\pi)$, and the A($\tau$) representation that licenses that identity is stated as a restriction whose support condition is open. |
 | The tender-game microfoundation of the premium wedge (the disagreement-node continuation deriving the appropriability coefficient $\lambda = 1 - q(1-\gamma)\psi$ and the resulting wedge). | **REUSE** | Kept as the *input* that supplies $(m_0,m_1)$. v4 takes $m_0, m_1$ as primitives with $m_1 > m_0$ and $m_0 \ge 0$ and does not re-derive them; the tender game is where those numbers come from and why $\Delta_m > 0$ is not free. Its symbols are reserved and unavailable: bare $\lambda$ is the appropriability coefficient, $\psi$ is pivotality. |
-| The GE dominance-check pattern: contraction modulus $L$ along the path, an inversion-free Neumann bound $\bar B$, pointwise dominance off a ball plus a ball-integral condition, a certified interval, and a counterexample showing the global claim false. | **REUSE** | Is C1's precedent. $\mathcal{B}_r^{GE}$ is the *cross-derivative* analogue of $\bar B$; $\eta_r = g_r^{PE} - \mathcal{B}_r^{GE}$ is the slack; certification is node by node on a named region, and an empty region is a reportable outcome that would drop C1. What changes: the object bounded is a cross-derivative in $(\kappa,r)$ rather than a single-argument profile, and the strictness coordinate $r_T = -T$ is not differentiable because the window is an integer. |
+| The GE dominance-check pattern: contraction modulus $L$ along the path, an inversion-free Neumann bound $\bar B$, pointwise dominance off a ball plus a ball-integral condition, a certified interval, and a counterexample showing the global claim false. | **REUSE** | Is C1's precedent. $\mathcal{B}_r^{GE}$ is the *cross-derivative* analogue of $\bar B$; $\eta_r = g_r^{PE} - \mathcal{B}_r^{GE}$ is the slack; the executed record names pointwise dominance-and-contraction nodes, not a verified region, and a named-region promotion remains open. What changes: the object bounded is a cross-derivative in $(\kappa,r)$ rather than a single-argument profile, and the strictness coordinate $r_T = -T$ is not differentiable because the window is an integer. |
 | Stake-triggered disclosure as the market's partition, with the flag a function of the order ($D = \mathbf{1}\{q = +1\}$: a buy cannot be concealed). | **REUSE** | The idea that the rule *is* the partition is the whole v4 position. What changes is the trigger: $D = \mathbf{1}\{a=1,\ c(\tau)+T \le H\}$, a stake threshold plus a filing window on a business-day calendar, with D1's clock equivalence $f \le H \iff B(s,H-T) \ge \tau$. The window $T$ becomes a genuine primitive instead of a flag that is either on or off. |
 | Assumption (A2)'s flat boundedness of prices and payoffs. | **SIMPLIFY** | Replaced by A2′: finiteness clauses kept verbatim; boundedness weakened to local boundedness plus integrability $\mathbb{E}[\max_j |U_j|] < \infty$. The flat bound was *false* in this model ($v$ Gaussian, flagged region unbounded in $s$), and no proof ever used it. |
 | Assumption (A5)'s inner pricing regularity (existence, uniqueness and continuity of the price fixed point, assumed, with a $\delta/\sigma_\xi < 1/\phi(0)$ style regularity condition). | **SIMPLIFY** | Demoted to a theorem under $m_0 \ge 0$: the pricing map is strictly decreasing in $P$ wherever $\bar m \ge 0$ and crosses the identity exactly once. A5 survives only as its continuity clause, read as a measurably selected family because the flagged information sets are continuum-indexed. Three independent confirmations, including executed counterexamples that produce zero roots and three roots once $m_0 < 0$. |
 | The discount factor $\delta$ inside the pricing fixed point $P = \delta[(1-p)\hat V + p(P+\bar m)]$, and the sensitivity analysis around it. | **DROP** | v4 prices are undiscounted conditional expectations $P(\mathcal{I}) = \mathbb{E}[Y \mid \mathcal{I}]$. The regularity work $\delta$ was doing is done instead by $m_0 \ge 0$. |
 | The one-round pooled posterior: $\pi(X,0)$ in closed form from a single order-flow draw $X \in \{-2,-1,0,1\}$ with $p_0 = 1-\kappa$, $p_1 = \kappa/2$ and the action weights $(\omega_E,\omega_H,\omega_Q)$; Hold and Quiet Voice pooling because both trade $q = 0$. | **DROP** | Replaced by a pooled history $\mathcal{H}_H^P$ over $H+1$ business days with plans, $\Gamma$-coarsened increments and a flag that can land mid-calendar. The closed-form posteriors do not survive the calendar. Consequential: L3 shows the manuscript's own no-disclosure structure (informed mark $\bar z$) yields a *four-atom* pooled law, two of whose atoms move with $\kappa$, so it lies outside A($\tau$) — the one-round posterior is not merely superseded, it is a named example of the representation failing. |
 | The hump headline: $\Delta^{\min}(\kappa)$ single-peaked in liquidity, as the conditional-hump proposition and the paper's first main result. | **DROP** | Not claimed anywhere in v4; the card states outright that it does not claim the hump survives. The v4 headline is the partition and the attenuation factorisation $\mathcal{S} = (1-\Omega)\mathcal{S}_P$, not a shape in $\kappa$. Note the hump has not been *refuted* either: the enumerated two-round $M_P$ is itself hump-shaped in $\kappa$ at baseline (peak near $0.55$) — it is simply no longer the result being sold, and its role now is to break A($\tau$)'s orientation clause. |
-| The unconditional attenuation claim: $|\partial\Delta^{\mathrm{act}}/\partial\kappa|$ decreasing in $\omega_P$, asserted as a monotone consequence of shifting mass to the disclosed cell, with no composition term and no margin distinction. | **DROP** | Split and conditioned. The weight effect is kept and proved ($W_T \le 1$, $W_\tau$ likewise), but the composition effect is a separate ratio: T1(B) gets threshold attenuation *unconditionally* because *both* $W_\tau$ and $C_\tau$ lie in $[0,1]$; T1(C) makes the window margin an **iff**, $W_T C_T \le 1$, with $C_T$ unsigned — and the O-1 numbers put three of four calibrated nodes on the *failing* side. An unconditional window sign is not available. |
+| The unconditional attenuation claim: $|\partial\Delta^{\mathrm{act}}/\partial\kappa|$ decreasing in $\omega_P$, asserted as a monotone consequence of shifting mass to the disclosed cell, with no composition term and no margin distinction. | **DROP** | Split and conditioned. The weight effect is kept and proved ($W_T \le 1$, $W_\tau$ likewise), but the composition effect is a separate ratio: T1(B) gets threshold attenuation *unconditionally* because *both* $W_\tau$ and $C_\tau$ lie in $[0,1]$; T1(C) makes the window margin an **iff**, $W_T C_T \le 1$, with $C_T$ unsigned. O-1 is a disclosure-regime analogy whose composition ratio can exceed one; it is not a window measurement. The genuine window comparison is `t2_t1_check` block 4. An unconditional window sign is not available. |
 | Equilibrium uniqueness as a numerical regularity (a 30-seed multistart converging to one fixed point per $\kappa$, labelled a regularity rather than a theorem). | **DROP** | v4 does not claim uniqueness at all, as a theorem or as a regularity. The multistart survives only as an existence diagnostic in the check scripts, and it does not always clear its own binding criterion (§9, P1). |
 | The welfare apparatus: transfer netting and the present-value form of total surplus, the liquidity planner's wedge $\kappa^{\ast}$ versus $\kappa^{\dagger}$, the disclosure-threshold planner, the first-best benchmark. | **DROP** | Out of scope by the card's own statement: no welfare, no optimal rule design. Note this is also why a bare $W$ is unavailable as a symbol — it was total surplus there, and it is the weight-effect ratio $W_\tau, W_T$ here. |
 
@@ -476,12 +489,12 @@ evidence for the result, only for the code.
 |---|---|---|
 | `t2_d1_check` | **PASS** — 9 checks, 0 FAIL, 1 vacuous | Clock equivalence by three independent routes (date-by-date scan, one evaluation at $H-T$, closed-form crossing date) agreeing to exactly $0$; partition exclusivity and exhaustion at $0$ residual; the $T = H$ corner; robustness at $H = 12$. 50 nodes. *Vacuous*: the $Q^F$ window-monotonicity check, because $\max Q^F = 0$ at the implemented calibration — the flagged round carries no residual order there, so the prediction has nothing to bite on. |
 | `t2_l1_check` | **PASS** — 4 checks, 0 FAIL | Decomposition residual $\Delta^{\mathrm{act}} - (\Omega M_F + (1-\Omega)M_P)$ at $0$, both degenerate endpoints, and the non-evaluability of the null-cell average. *All four are classified WIRING by the design*: both sides run through the same enumeration, so the residual is machine noise by construction and is **not evidence for L1**. |
-| `t2_l2_check` | **FAIL** (1 of 5) | L2's own content passes exactly: the flagged range of $M_F$ over 19 $\kappa$ values is $0$ and its $\kappa$-derivatives are $0$ — the flagged path never touches the $\kappa$-dependent array. Two placebos confirm the pooled side does move. **The failure is the fifth check**, an *ancillary* A($\tau$)-orientation placebo: see §6, fact 2. It is a failed hypothesis about A($\tau$) on the enumerated pooled law, not a failure of L2. |
+| `t2_l2_check` | **FAIL** (1 of 5) | L2's own content passes exactly: the flagged range of $M_F$ over 19 $\kappa$ values is $0$ and its $\kappa$-derivatives are $0$ — the flagged path never touches the $\kappa$-dependent array. Two placebos confirm the pooled side does move. **The failure is the fifth check**, an *ancillary* A($\tau$)-orientation placebo: see §6, fact 2. Because A($\tau$) does not sign $A'_\kappa$ (Example A has $A'_\kappa=-1/4$), the placebo is misformulated and does not decide A($\tau$)'s support condition; it is not a failure of L2. |
 | `t2_l3_check` | **PASS** — 10 checks, 0 FAIL | The derivative identity, the mean-value form $C_h = \tfrac14 \bar\pi^2 h''(\zeta)$, the quadratic rate as $\bar\pi \downarrow 10^{-4}$, the affine-kernel zero-chord case, and three failure witnesses (a tent kernel with no root, the four-atom Example B gap, an unbounded-$h''$ witness). *Scope*: it runs on the three- and four-atom analytic laws and the standalone chord module — it does *not* enumerate the two-round model, so it verifies L3's mathematics, not A($\tau$)'s applicability. |
 | `t2_l4_check` | **PASS** — 10 checks, 0 FAIL | All three sign legs with **zero violations** over 16 tightening steps (§6, fact 3); the exact reclassification identity at $10^{-16}$; flatness in $\kappa$ at exactly $0$ over 71 nodes; the $\tau$-grid spanning a ninefold range in $\omega_a$; L3's quadratic corollary within $2.1\%$. Prediction 5 (the size of the $A'_\kappa$ channel) is *reported, not gated*, by the request's own instruction: median absolute residual $0.0352$, max $0.1213$. |
-| `t2_p1_check` | **FAIL** (1 of 10) | Nine substantive checks pass: inner-root single crossing and transversality, the flagged family single-valued with the right slope, sequential optimality of the flagged component, both cells on path, the threshold reformulation, monotonicity of $\Omega$ in $(\tau,T)$, and *existence at the core nodes* under the full 30-seed multistart. **The failure is the grid sweep**: 23 of 27 policy nodes met the binding payoff-scale criterion ($10^{-9}$) and 4 did not, at best payoff scales $1.5\times10^{-3}$, $1.1\times10^{-3}$, $4.0\times10^{-4}$, $3.1\times10^{-4}$ — all four at extreme liquidity $\kappa \in \{0.15, 0.85\}$, at $\tau \in \{0.05, 0.075\}$ and $T \in \{5, 1\}$ (the independent re-run corrected an earlier gloss here: these are *not* zero-engagement-share or $T{=}H$ corner nodes — every actual corner row converged, and the recorded pooled prior engagement share is $0.102$). Seed coverage is *ruled out* as the cause: the check re-ran all four nodes at the full 30 seeds and found identical best residuals, with most seeds landing on the same cutoff vector. All 27 nodes do converge on the cutoff-scale criterion. The cause is undiagnosed — candidates are a failure of A3's single crossing at those $\kappa$ extremes (the adjacent-plan payoff gap is a sawtooth on this menu; single crossing is a calibration fact, not structural) or a genuine boundary non-existence outside P1's hypothesis set; either way P1's theorem is untouched (its hypotheses include A3) and the four nodes are named, not smoothed. |
-| `t2_t1_check` | **FAIL** (1 of 9) | The factorisation $\mathcal{S} = (1-\Omega)\mathcal{S}_P$ holds pointwise to $1.2\times10^{-16}$ and in total variation to $2.2\times10^{-19}$; $\Omega$ is flat in $\kappa$ at $0$ residual; the threshold margin, the window margin, the O-1 benchmark and the composition factors all pass; $H=12$ robustness passes. **The failure is block 3**, the chord-magnitude route: see §6, fact 2. One check is *vacuous* (the local form, which needs a smooth window interpolation the integer calendar does not provide). |
-| `t2_c1_region_check` | **PASS** — 12 checks, 0 FAIL, region *nonempty* | 80 nodes ($8\ \kappa \times 5\ \tau \times 2\ T$), 2.9 hours of wall time. Two gated verdicts, both PASS with 0 violations: the bound contains the four-corner re-solve remainder at the 8 validation nodes (max ratio $0.511$), and it contains the implicit-function remainder at all 80 (max ratio $1.0$). **18 nodes certified**, all at $T = 5$ and the upper three $\tau$ percentiles; $\eta_r \in [0.0595,\ 1.7227]$, median $0.3467$; $L_{\mathcal{R}} \in [0.264, 0.501]$ with no node at $L \ge 1$. *Failure attribution*, recorded not hidden: 56 nodes have $g_r^{PE} = 0$ to $10^{-10}$ because the implemented legal clock quantises the crossing date, so $\Omega(\tau)$ is locally constant and the cross-derivative vanishes identically there; 4 are positive but dominated; 2 are negative; 40 nodes (all $T = 10$) are degenerate on flagged mass below $0.01$. The sharper, non-inversion-free bound would certify 22 rather than 18 — reported as a measure of the Neumann step's price, and certifying nothing. No tolerance was weakened to make the region nonempty. |
+| `t2_p1_check` | **FAIL** (1 of 10) | Nine substantive checks pass: inner-root single crossing and transversality, the flagged family single-valued with the right slope, sequential optimality of the flagged component, both cells on path, the threshold reformulation, monotonicity of $\Omega$ in $(\tau,T)$, and *existence at the core nodes* under the full 30-seed multistart. **The failure is the grid sweep**: 23 of 27 policy nodes met the binding payoff-scale criterion ($10^{-9}$) and 4 did not, at best payoff scales $1.5\times10^{-3}$, $1.1\times10^{-3}$, $4.0\times10^{-4}$, $3.1\times10^{-4}$ — all four at extreme liquidity $\kappa \in \{0.15, 0.85\}$, at $\tau \in \{0.05, 0.075\}$ and $T \in \{5, 1\}$ (the independent re-run corrected an earlier gloss here: these are *not* zero-engagement-share or $T{=}H$ corner nodes — every actual corner row converged, and the recorded pooled prior engagement share is $0.102$). Seed coverage is *ruled out* as the cause: the check re-ran all four nodes at the full 30 seeds and found identical best residuals, with most seeds landing on the same cutoff vector. All 27 nodes do converge on the cutoff-scale criterion. The cause is undiagnosed — candidates are a failure of A3's single crossing at those $\kappa$ extremes (the adjacent-plan payoff gap is a sawtooth on this menu; single crossing is a calibration fact, not structural) or a genuine boundary non-existence outside the repaired P1 hypothesis set; P1 is **CONJECTURE** after the form-mismatch, sunk-cost, and $\kappa=1$ review findings, and the four nodes are named, not smoothed. |
+| `t2_t1_check` | **FAIL** (1 of 9) | The factorisation $\mathcal{S} = (1-\Omega)\mathcal{S}_P$ holds pointwise to $1.2\times10^{-16}$ and in total variation to $2.2\times10^{-19}$; $\Omega$ is flat in $\kappa$ at $0$ residual; the threshold margin, the window margin, the O-1 benchmark and the composition factors all pass; $H=12$ robustness passes. **The failure is block 3**, the chord-magnitude route with hard-coded Example-A coefficient $0.25$: see §6, fact 2. It is not a refutation of A($\tau$)'s general support representation. One check is *vacuous* (the local form, which needs a smooth window interpolation the integer calendar does not provide). |
+| `t2_c1_region_check` | **PASS** — 12 checks, 0 FAIL, pointwise nodes *nonempty* | 80 nodes ($8\ \kappa \times 5\ \tau \times 2\ T$), 2.9 hours of wall time. Two gated verdicts, both PASS with 0 violations: the bound contains the four-corner re-solve remainder at the 8 validation nodes (max ratio $0.511$), and it contains the implicit-function remainder at all 80 (max ratio $1.0$). **18 pointwise dominance-and-contraction nodes**, all at $T = 5$ and the upper three $\tau$ percentiles; $\eta_r \in [0.0595,\ 1.7227]$, median $0.3467$; $L_{\mathcal{R}} \in [0.264, 0.501]$ with no node at $L \ge 1$. These nodes verify the two inequalities and supporting diagnostics only, not the full C1 antecedent or a named region. *Failure attribution*, recorded not hidden: 56 nodes have $g_r^{PE} = 0$ to $10^{-10}$ because the implemented legal clock quantises the crossing date, so $\Omega(\tau)$ is locally constant and the cross-derivative vanishes identically there; 4 are positive but dominated; 2 are negative; 40 nodes (all $T = 10$) are degenerate on flagged mass below $0.01$. The sharper, non-inversion-free bound would certify 22 rather than 18 — reported as a measure of the Neumann step's price, and certifying nothing. No tolerance was weakened to make the pointwise node set nonempty. |
 
 **Provenance caveat.** Seven of the eight scripts record the card stamp *2026-08-20* in their
 provenance block; only `t2_c1_region_check` was run against the 2026-08-21 stamp. The card changes
@@ -533,8 +546,8 @@ $\tau = 0.05$ (the statutory 13D 5%):
 
 ---
 
-*Sources, all in the `v4-theory` worktree: `research/model_v4/MODEL_CARD.md` (stamp 2026-08-21,
-post-ledger regeneration) for §§1–6; `research/model_v4/LABEL_LEDGER.md` for the labels;
+*Sources, all in the `v4-theory` worktree: `research/model_v4/MODEL_CARD.md` (stamp 2026-08-23,
+post-review repairs) for §§1–6; `research/model_v4/LABEL_LEDGER.md` for the labels;
 `research/model_v4/proofs/` and `research/model_v4/rederive/` for the two-pass evidence chains;
 `research/model_v4/HANDOFF_sign.md` and `quality_reports/fixes/t1_o1_rerun_check.json` for the O-1
 numbers; `quality_reports/fixes/t2_*_check.json` for the check inventory;
