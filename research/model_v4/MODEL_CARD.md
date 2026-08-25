@@ -251,6 +251,78 @@ bare $u$.
   (`proofs/L3_proof.md` Part IV, Steps 16–18, with the weakest sufficient conditions named there).
   Every L3-conditional result — and therefore L4 leg 3 and T1 Part B — inherits that conditionality.
 
+  *Evidence note added 2026-08-25 (ticket 33).* **At the implemented calibration the support
+  condition FAILS — and it fails on the support, not on the derivative pattern.** The pooled cell's
+  engagement-posterior law was enumerated exactly (all $4^{H+1} = 4{,}194{,}304$ order-flow paths,
+  the same law `pooled_premium` integrates) at **200 nodes**: $\kappa\in\{0.05,\dots,0.95\}$ × the
+  five frozen $\tau$ percentiles × $T\in\{1,2,5,10\}$, frozen policies, $H=10$. Two gates pass
+  first, so the object measured is A($\tau$)'s own: an independent re-enumeration reproduces
+  `pooled_pass` to **0.0 exactly**, and the enumerated mean $\mathbb E[\Pi]$ equals the pooled share
+  $\bar\pi_{\mathrm{pr}} = \Pr(a=1\mid D=0)$ to $1.7\times10^{-16}$. Neither Example A's
+  $\lvert A'_\kappa\rvert = 0.25$ nor level symmetry is imposed anywhere, and $\bar\pi$ is read as
+  the upper support point throughout, per the binding ruling. **20 nodes are degenerate**
+  ($\bar\pi_{\mathrm{pr}} = 0$ at $T\in\{1,2\}$ with $\tau$ at the 10th percentile: no engaging atom
+  survives into the pooled cell, the law is the point mass at $0$, $M_P = 0$ and $C_h(0) = 0$, so
+  A($\tau$) holds vacuously and the node decides nothing). At **all 180 non-degenerate nodes
+  A($\tau$) fails**; at none does it hold.
+
+  * **(τ-ii), support half — FAILS, by some eleven orders of magnitude.** The support carries
+    **23–767 distinct posterior values**, never three (0 of 180 nodes), and there is **no mass at
+    $\bar\pi/2$ at any node** ($A_{1/2}\equiv 0$). Between **0.57% and 91.8% of the pooled mass sits
+    off $\{0,\bar\pi/2,\bar\pi\}$** — 13.9% at the median node ($T=5$, median $\tau$, $\kappa=0.55$:
+    107 atoms, $A_0 = 0.768$, $A_1 = 0.093$). The atoms are not dust: coarsening the cluster
+    tolerance to $10^{-3}$ still leaves **6–332** of them, and the floor-free law (the
+    $\varepsilon\downarrow 0$ limit of §3 clause vi, the law reported here) counts at most 51 atoms
+    fewer than the floored law the package prices. The interior atoms move with $\kappa$: the
+    two-sided Hausdorff distance between adjacent-$\kappa$ support sets reaches **0.4608** —
+    unchanged when restricted to atoms carrying mass $\ge 10^{-6}$ — against A($\tau$)'s predicted
+    $<10^{-12}$, at **0 of 18** series. This refutes L3 Step 18's (S1) and (S2) together at this
+    calibration.
+  * **(τ-ii), $\bar\pi$ half — HOLDS.** $\bar\pi = 1$ to $1.5\times10^{-13}$ at every non-degenerate
+    node, and $\kappa$-free to the same order (18 of 18 series). This is a separate finding and it
+    is not a partial rescue: $\bar\pi = 1$ is the **one-round** outcome L3 Step 18 derives from
+    §4.2's mark structure, and that step's conjecture that "the two-round timing … leav[es] the
+    pooled cell with a top atom strictly below $1$" is **false at this calibration** — unflagged
+    Voice types still generate fully revealing order flows. $\bar\pi\in\{0,1\}$ across the whole
+    grid and never interior, so L3's small-$\bar\pi$ corollary has no instance here either.
+  * **Derivative pattern — FAILS, and independently of the support.** $A_0' = A_1'$ holds at
+    **0 of 180** nodes: $\lvert A_0'-A_1'\rvert\in[0.041,\,2.306]$ against a predicted $<10^{-10}$,
+    with $A_0'\in[-2.146,\,2.374]$ against $A_1'\in[-0.014,\,0.429]$ — an order of magnitude apart
+    in level, and both change sign over the grid, which independently corroborates that $A'_\kappa$
+    carries no sign (audit finding 2). $A_{1/2}' = -2A'_\kappa$ also fails at all 180, but with
+    $A_{1/2}\equiv 0$ that residual is exactly $2\lvert A_0'\rvert$ and is recorded as
+    **inherited** — a restatement of the support failure, not a second piece of evidence.
+  * **Chord identity — FAILS.**
+    $\lvert\mathcal S_P - \Delta_m\lvert A'_\kappa\rvert\lvert C_h(\bar\pi)\rvert\rvert$, with
+    $A'_\kappa$ **recovered** from the enumerated weights and $\bar\pi$ the **actual** upper support
+    point, is **0.0013–0.0717 (up to 7.17 premium pp)** against $<10^{-10}$, at 0 of 180 nodes and
+    on the most favourable of three kernel conventions. Recovered
+    $\lvert A'_\kappa\rvert\in[0.042,\,2.374]$; the value the identity would *require* is
+    $[0.00023,\,0.392]$, **disjoint** from block 3's implied $[0.997,\,1.158]$ — which is a
+    different object (mean absolute slope over the $\kappa$ grid, and the level-symmetric
+    $\bar\pi = 2\bar\pi_{\mathrm{pr}}$), and the distance between the two measures what the
+    level-symmetry assumption was doing.
+  * **(τ-i), reported as a diagnostic and not part of the verdict.** Within a $\Pi$-cluster ($\Pi$
+    constant to $10^{-12}$) the enumerated entry probability still spreads by up to **0.085**, and
+    $h$ by up to **0.018** mass-weighted. The kernel does not reach the information set only through
+    the posterior at this calibration either.
+
+  **What this changes, and what it does not.** NUMERICAL-class **applicability** evidence at one
+  calibration; **no label moves**, and none is licensed — A($\tau$) is an assumption, not a labelled
+  claim. L3, L4 leg 3 and T1 Part B stay **PROVED as conditionals** with their proofs untouched;
+  what is now on record is that their antecedent is **not satisfied by the implemented pooled cell
+  at this calibration**, so at this calibration those legs say nothing about the implemented cell.
+  The question stated above stays open as a question about A($\tau$)'s **domain** — a different
+  menu, a different $H$, or a different calibration could still satisfy (S1)–(S2) — and the two
+  prior "failures" remain misformulated tests; this is the first test that measures A($\tau$)'s own
+  object. Coverage caveats carried forward: the 18 non-degenerate series are only **6 distinct
+  pooled cells** ($T=1$ and $T=2$ induce identical $D$-partitions at every $\tau$; $T=5$ joins them
+  at the three highest $\tau$ percentiles and repeats itself at the two lowest; all five $T=10$
+  quantiles coincide), and all six fail; the 50 $T=10$ nodes sit at $\Omega = 0.000681$, below
+  `MIN_CELL_MASS` (`HANDOFF_sign.md` §8.1). Script and record:
+  `quality_reports/fixes/t2_atau_support_check.py` → `t2_atau_support_check.json` (200 nodes, 920
+  pooled enumerations, 1002 s; top-level `verdict` field `FAILS at calibration`).
+
 - **A(br) Chord–sensitivity bridge.** *(NEW at this regeneration. Consumed by L4 leg 3 and by T1
   Part B, and by nothing else. Statement transcribed from `proofs/L4_proof.md`'s top block as
   repaired on 2026-08-21, with (br-v) appended.)* For two compared thresholds $\tau' < \tau$ at
