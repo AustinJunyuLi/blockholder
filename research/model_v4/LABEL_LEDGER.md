@@ -19,6 +19,7 @@ diagnostics, not verification of the full C1 antecedent. Region-level certificat
   stays CONJECTURE and does not appear below.~~ **Superseded 2026-08-23 (post-review):** C1 moved
   to PROVED on 2026-08-22 (commit `403ac8e`) and appears below; P1 was demoted to CONJECTURE on
   2026-08-23 (commit `43a45f8`) and remains recorded in the move section.
+  **Superseded 2026-08-25:** restored to PROVED, see the ticket-35 move below.
 * **GPT Pro's end review may demote, never promote.** A finding from that review can send any row
   below back to CONJECTURE. It cannot move anything *to* PROVED — that needs the two passes, run
   inside this lane, on file.
@@ -63,6 +64,10 @@ and commit, and the **PROVED** label are untouched.]
 ## Move — GPT end review + audit, 2026-08-23
 
 P1 | PROVED→CONJECTURE | GPT Pro end review `threads/2026-08-22_gpt_end_review.md` finding 1, upheld by `threads/2026-08-23_gpt_end_review_audit.md`: the proof's h.7 consumes the joint injective form of A7 while the card row and the re-derivation carry the on-path form — the two-pass gate never covered a single statement; independently, Step 12 lacks a continuation-cost clause (sunk-cost gap, live for multi-Voice menus) and Step 9's positivity claim fails at κ=1 under card §4.1's noise law. The pinned single-Voice menu instance is untouched by all three gaps. Demotion per standing note 2 (the review may demote, never promote); approved by Austin 2026-08-23. Repair: ticket 35. | theory lane (Fable orchestrating) | 2026-08-23 | commit: 43a45f8
+
+## Move — ticket 35 close-out (P1 repair, route A), 2026-08-25
+
+P1 | CONJECTURE→PROVED | proof `proofs/P1_proof.md` (statement amended to the hypotheses the proof consumes — A7-J for A7′, continuation-cost clause h.16, $\kappa$ boundary by extension, §4.1–§4.3 table restrictions enumerated as h.17, h.5 struck; repairs P1-R9…R35); proof-read **PASS** `threads/2026-08-25_P1_proofread_retry.md` (0 FAIL; 3 REPAIRs + 4 OBSERVATIONs applied; round-1 FAIL and the single sanctioned repair round at `threads/2026-08-25_P1_proofread_round1.md`, where the reader's own finding-1 witness is recorded as refuted on the merits); re-derivation **PASS-WITH-CHANGES** `rederive/P1_rederivation_2026-08-25.md` (fresh agent, card row alone; changes 1–5 folded into the row, change 6 withheld for Austin); numerical status carried separately and UNCHECKED — the four κ-extreme nodes remain STILL UNRESOLVED after 30 seeds (`quality_reports/fixes/t2_p1_fournode_recheck.json`, ticket 34), which is neither existence evidence nor its absence. Both passes are fresh and neither agent wrote the proof; the 2026-08-21 chain is retained in the card row and did **not** satisfy the gate. | theory lane (Fable orchestrating) | 2026-08-25 | commit: <pending-orchestrator-hash>
 
 ## Evidence note — independent re-run of every check script, 2026-08-22
 

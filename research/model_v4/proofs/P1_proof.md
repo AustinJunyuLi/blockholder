@@ -492,14 +492,18 @@ whose marks is individually attainable under *some* plan need not be attainable 
 plan.
 
 *(b) The limit exists at every reachable history — and it is the limit of the **joint** $(j,s)$
-posterior, not merely of the posterior over plans.* Write $w_n(j\mid s)$ for the stage-$n$ mixing
-weight ($\ge1/n$ for every $j$), $\varphi_s$ for the signal density and
+posterior, not merely of the posterior over plans.* Write
+$$w_n(j\mid s)=(1-t_n)\,\mathbf 1\{j=j_k(s)\}+\tfrac{t_n}{J},\qquad t_n:=\tfrac Jn\downarrow0,$$
+for the stage-$n$ mixing
+weight — every plan carries at least $t_n/J=1/n$, which is Step 9's own parameterisation of the
+perturbation, and $t_n$ is written for the perturbation mass because $\varepsilon$ is card §4.1's
+signal noise and is not available (card §8 rule 4) — with $\varphi_s$ the signal density and
 $L_j(\mathcal H_d^P\mid s)=\prod_{d'\le d}\Pr(z_{d'}=X_{d'}-q_{jd'}(s))\cdot\mathbf 1\{\text{flag
 coordinate}=\mathbf 1\{f_j(s)\le d\}\}$ for the likelihood of Step 9(a). The stage-$n$ joint density
 over $(j,s)$ at the history is
 $$\mu_n(j,s)=\frac{w_n(j\mid s)\,L_j(\mathcal H_d^P\mid s)\,\varphi_s(s)}
-{\sum_{j'\in\mathcal J}\int w_n(j'\mid \sigma)\,L_{j'}(\mathcal H_d^P\mid \sigma)\,\varphi_s(\sigma)\,
-\mathrm d\sigma}.$$
+{\sum_{j'\in\mathcal J}\int w_n(j'\mid s')\,L_{j'}(\mathcal H_d^P\mid s')\,\varphi_s(s')\,
+\mathrm ds'}.$$
 By h.2 the plan menu is finite and by Step 3 the pooled history alphabet is finite, so numerator and
 denominator are finite sums of terms
 polynomial in $1/n$ with coefficients that do not depend on $n$. At a reachable history the
@@ -519,9 +523,19 @@ the *plan* posterior alone, $\hat v(\mathcal I)=\mathbb E[v\mid\mathcal I]$ is a
 **signal** posterior. Integrating $s$ out first would deliver $\pi$ and leave $\hat v$ undefined.
 Passing from $\mu_n$ to $\hat v$: $\hat v_n=\sum_j\int\bigl(\mu_v+\beta(s-\mu_v)\bigr)\mu_n(j,s)\,
 \mathrm ds$,
-and $\mu_n\to\mu_\infty$ pointwise with $\lvert\mu_v+\beta(s-\mu_v)\rvert\,\mu_n$ dominated by an
-integrable envelope under h.17-d's Gaussian tail and h.2's integrability clause, so dominated
-convergence gives $\hat v_n\to\hat v_\infty$ and, by Step 8's 1-Lipschitz bound, the prices converge
+and $\mu_n\to\mu_\infty$ pointwise. **The envelope needs a case split on the denominator $Z_n$, and
+here it is (retry finding 4):** write $Z_n=(1-t_n)\Lambda_k+(t_n/J)\Lambda_u$ for
+the denominator — the display above with $w_n$ expanded — where
+$\Lambda_k=\int L_{j_k(s')}(\mathcal H_d^P\mid s')\varphi_s(s')\,\mathrm ds'$ is the unperturbed
+aggregate, $\Lambda_u=\sum_{j'}\int L_{j'}(\mathcal H_d^P\mid s')\varphi_s(s')\,\mathrm ds'$ the
+plan-uniform one, and $t_n=J/n$ the perturbation mass. *If $\Lambda_k>0$* — the history is on path under
+$k$ — then $Z_n\ge\Lambda_k/2$ for all large $n$, and $2\lvert\mu_v+\beta(s-\mu_v)\rvert\varphi_s
+L_j/\Lambda_k$ is an integrable envelope by h.17-d's Gaussian tail and h.2's integrability clause, so
+dominated convergence applies. *If $\Lambda_k=0$* — the $k$-null case — the $(1-t_n)$ term
+vanishes $\Phi_s$-a.e. in numerator and denominator alike, so $\mu_n=L_j\varphi_s/\Lambda_u$ **exactly
+and $n$-free**, and there is nothing to pass to the limit. (Without the split the bare claim would be
+false as stated: $\mu_n\le\varphi_sL_j/Z_n$ with $Z_n\downarrow0$ is not a uniform envelope.) Either
+way $\hat v_n\to\hat v_\infty$ and, by Step 8's 1-Lipschitz bound, the prices converge
 with them. Hence the limiting belief **and the limiting price** exist at every reachable
 pooled history, on path and off, and on path the belief agrees with the Bayes posterior.
 *Load-bearing where it is least obvious:* Step 13 evaluates $U_j(s;k)$ for **every** $j\in\mathcal J$,
@@ -544,10 +558,22 @@ $\bigl((q_{jd'}(s))_{d'\le d},\mathbf 1\{f_j(s)\le d\}\bigr)$ takes finitely man
 level sets partition $\mathbb R$ into finitely many Borel cells — and a particular cell may be
 $\Phi_s$-null while being nonempty. At such an $s$, plan $j$'s own realised pooled histories are
 unreachable and Step 11's bracket would read a price that (b) has not defined. **Convention adopted
-here:** fix once and for all the assignment $P_d^P(\mathcal H_d^P):=\mathbb E[Y]$ (card §4.3's
-$P_{-1}^P$ convention) at every unreachable pooled history. Then $U_j(s;k)$ is defined at **every**
+here:** fix once and for all a **reference belief** $(\hat v_\circ,\pi_\circ)$ — for definiteness the
+prior pair $\bigl(\mu_v,\Pr(a=1)\bigr)$, and any other admissible pair does equally — and assign to
+every unreachable pooled history the **inner root at that belief**, i.e. the unique
+$P_\circ$ with $\mathcal P_{(\hat v_\circ,\pi_\circ)}(P_\circ)=P_\circ$, which exists and is unique by
+Step 7 under h.12. Then $U_j(s;k)$ is defined at **every**
 $(j,s,k)$, and no §3 item is touched: §3(iii), §3(iv) and §3(vi) constrain beliefs and prices only at
-histories carrying positive probability under some profile, and these carry none. The choice is not
+histories carrying positive probability under some profile, and these carry none.
+*The reference-belief form matters, and $\mathbb E[Y]$ will not do (retry finding 3).* This step
+first adopted $P_d^P:=\mathbb E[Y]$ on the strength of card §4.3's $P_{-1}^P$ convention. But
+$\mathbb E[Y]$ — an unconditional average of realised control-node values — is in general **not** a
+root of $\mathcal P_{\mathcal I}$ at any belief, so the constructed object would have carried prices
+that are not inner fixed points at nodes where the blockholder does trade, while the card row's
+conclusion clause says "prices at their inner fixed points" without qualification. The §4.3 precedent
+does not transfer: $P_{-1}^P$ is the pre-trading node, a different object. With the reference-belief
+root, **every price in the constructed object is an inner fixed point at the belief carried there**,
+and the row's clause is literally true everywhere. The choice is not
 innocuous in one narrow respect and the file does not pretend otherwise: it can change $U_j(s;k)$ on a
 $\Phi_s$-null set of signals, hence can move $\mathcal T_i(k)$, which is an infimum over a pointwise
 condition. What follows is that the theorem is an existence statement **about the object built from
@@ -621,8 +647,12 @@ $$
 where the pooled expectation is over the noise $z_{0:H}$ only. **On the flagged branch $a_j=1$ by
 h.4**, so the engagement term of the first bracket is $C_j(s)$ and the $a_j$ factor — carried here to
 match card §4.3's display (audit Finding 1, citation nit) — changes nothing in Steps 12–13. By Step
-9(c) every pooled history the second bracket weighs is reachable, so the prices it reads are the ones
-Steps 5 and 9 supply. The noise enters the first bracket
+9(c), for $\Phi_s$-**almost every** $s$ every pooled history the second bracket weighs is reachable,
+so the prices it reads are the ones Steps 5 and 9 supply; at the exceptional signals — the
+$\Phi_s$-null cells named there — it reads Step 9(c)'s conventional price instead, which is itself an
+inner root and which is what keeps $U_j(s;k)$ defined at every $s$ for Step 13's pointwise argmax.
+*(Qualifier added in the finishing round, retry finding 2: this sentence had been left unqualified
+when P1-R22 rewrote Step 9(c), and Step 13 already carried the correct reading.)* The noise enters the first bracket
 nowhere: $\mathbb E[Y\mid s,j,D=1]$ depends on $(v,\xi)$ and on $P^F$, and $\xi$ is independent of
 $z$ by h.1 while $P^F$ is $z$-free by Step 6.
 
@@ -750,19 +780,48 @@ Fix $k\in\Theta$. Steps 5, 6, 9 and 10 determine the pooled and flagged price fa
 belief system; Step 11 then determines $U_j(s;k)$ for every $j$ and $s$ — at **every** $s$, by Step
 9(c)'s convention — and each $U_j(s;k)$ is finite by h.2 (A2′: locally bounded in $(s,\vartheta)$
 pointwise, integrable in expectation; the struck flat bound of the old A2 is not used).
-By h.3 the preferred plan is weakly increasing in $s$, so there is a weakly increasing selection
-$j^\star(\cdot;k)$ from $\arg\max_{j\in\mathcal J}U_j(\cdot;k)$. **The selection is named, not merely
-asserted to exist** (pass-2 N8): take $j^\star(s;k):=\max\arg\max_{j}U_j(s;k)$, the largest maximiser,
-which is weakly increasing in $s$ under h.3 and is defined at every $s$; ties are therefore broken
-upward, and a plan that is optimal nowhere simply never appears in the range, which is the corner
-convention Step 13's $\inf\emptyset:=\overline s$ already encodes. Define
+By h.3 the preferred plan is weakly increasing in $s$, so the set $\mathcal S(k)$ of **weakly
+increasing selections** from $s\mapsto\arg\max_{j\in\mathcal J}U_j(s;k)$ is **nonempty** — that is
+h.3's second clause. **The selection is named, not merely asserted to exist** (pass-2 N8):
+$$j^\star(\cdot;k)\;:=\;\text{the largest element of }\mathcal S(k),\qquad
+j^\star(s;k)=\max\{\mathfrak w(s):\mathfrak w\in\mathcal S(k)\}.$$
+It exists and is itself a weakly increasing selection. *Closed under pointwise max:* for
+$\mathfrak w_1,\mathfrak w_2\in\mathcal S(k)$ the map
+$s\mapsto\max\{\mathfrak w_1(s),\mathfrak w_2(s)\}$ takes at each
+$s$ one of the two values, both in $\arg\max(s)$, so it is a selection, and a pointwise max of two
+weakly increasing maps is weakly increasing. *The supremum is attained and lies in $\mathcal S(k)$:*
+$\mathcal J$ is finite (h.2), so the pointwise supremum is a maximum; fix $s$ and let
+$\mathfrak w\in\mathcal S(k)$ attain it there. Then $j^\star$ is a selection because
+$j^\star(s;k)=\mathfrak w(s)\in\arg\max(s)$, and it
+is weakly increasing because for $s<s'$, $j^\star(s';k)\ge\mathfrak w(s')\ge\mathfrak w(s)
+=j^\star(s;k)$.
+So $j^\star(\cdot;k)$ is canonical, single-valued — which is what h.6 needs before it can call
+$\mathcal T$ continuous — **and monotone**.
+
+*Why not the largest maximiser (retry finding 1).* An earlier version of this step took
+$j^\star(s;k):=\max\arg\max_jU_j(s;k)$ and asserted monotonicity "under h.3". That is a **non
+sequitur** on this file's own reading of h.3, and the counterexample sits inside the hypothesis: let
+$U_2-U_1\le0$ everywhere with equality at exactly one point $s_0$ — a tangential touch, so zero
+crossings and h.3's first clause holds, and the constant selection $j\equiv1$ is weakly increasing,
+so h.3's second clause holds too. The largest maximiser is then $1,\dots,1,2,1,\dots,1$: not weakly
+increasing, $\{s:j^\star\ge2\}=\{s_0\}$ is not an up-set, and no cutoff vector represents it, which
+would break Step 17(i). The largest **weakly increasing** selection is $j\equiv1$ there, as it should
+be. Note what the change does *not* touch: Brouwer needs only the nesting below, and that holds for
+any selection. Define
 $$
 \mathcal T_i(k;\vartheta)\;=\;\inf\bigl\{s\in[\underline s,\overline s]:j^\star(s;k)\ge i+1\bigr\},
 \qquad i=1,\dots,J-1,\qquad \inf\emptyset:=\overline s .
 $$
 Since $\{s:j^\star\ge i+2\}\subseteq\{s:j^\star\ge i+1\}$, the infima satisfy
 $\mathcal T_1(k)\le\mathcal T_2(k)\le\cdots\le\mathcal T_{J-1}(k)$, and every component lies in
-$[\underline s,\overline s]$ by construction. Hence $\mathcal T(k;\vartheta)\in\Theta$ for every
+$[\underline s,\overline s]$ by construction. The **corner convention** is the display's
+$\inf\emptyset:=\overline s$: a plan that is optimal nowhere contributes an empty up-set and its
+cutoff sits at the top of the bracket, so it simply never appears in the range of $j^\star$ (pass-2
+N8's second half). Because $j^\star(\cdot;k)$ is weakly increasing, each $\{s:j^\star\ge i+1\}$ **is**
+an up-set, so these infima genuinely represent it: $j^\star(\cdot;k)$ agrees with Step 1's
+$j_{\mathcal T(k)}$ at every $s$ except possibly the finitely many $\mathcal T_i(k)$ at which the
+up-set fails to contain its own infimum, where the two differ by the boundary convention alone —
+card §3(i) pins no convention there. Hence $\mathcal T(k;\vartheta)\in\Theta$ for every
 $k\in\Theta$, including on the collapse faces where consecutive components coincide and the
 corresponding plan carries zero probability. **So the "maps $\Theta$ into itself" and
 "weakly ordered" halves of h.6 are derived here from h.3's monotone-preferred-plan clause; what
@@ -840,7 +899,8 @@ continuity by weakening monotonicity.
 By Step 1 and card §4.5's $\Theta$ row, $\Theta$ is **nonempty**, compact and convex — nonemptiness is
 not decoration, since Brouwer is vacuous without it (pass-2 N9). By Step 13,
 $\mathcal T(\cdot;\vartheta)$ is a **single-valued** self-map of $\Theta$ under the named
-largest-maximiser tie-break and the $\inf\emptyset:=\overline s$ corner convention, and this is the
+largest-weakly-increasing-selection tie-break and the $\inf\emptyset:=\overline s$ corner convention,
+and this is the
 reading of h.6 the step uses: h.6 asserts that $\mathcal T$, so selected, is a continuous self-map of
 $\Theta$ (pass-2 N8 — a correspondence cannot be called continuous, so the selection must be named
 before the hypothesis can be applied). Brouwer's fixed-point theorem then gives $k^\star\in\Theta$ with
@@ -851,9 +911,12 @@ the shape the frozen manuscript's baseline takes when the passive action collaps
 **Step 17 (assembling the six items of card §3).**
 Take $k^\star$ from Step 16 and check the definition item by item.
 (i) *Weakly ordered cutoff vector.* $k^\star\in\Theta$ by Step 16, and the equilibrium plan map is
-**$j^\star(\cdot;k^\star)$ of Step 13** — the largest-maximiser selection — which is weakly increasing
-and is represented by $k^\star$. *Changed 2026-08-25 (round 2, pass-1 finding 7) from $j_{k^\star}$,
-Step 1's induced map.* The two agree off the cutoff points and can differ **at** them: $\mathcal T_i$
+**$j^\star(\cdot;k^\star)$ of Step 13** — the **largest weakly increasing selection** from the
+pointwise argmax, which is weakly increasing by construction (Step 13, and *not* by an appeal to h.3
+after the fact) and is represented by $k^\star$ because a weakly increasing $\mathcal J$-valued map
+has up-sets for its upper level sets. *Changed 2026-08-25 (round 2, pass-1 finding 7) from
+$j_{k^\star}$, Step 1's induced map; the selection itself corrected in the finishing round from the
+largest maximiser, which is not monotone in general (retry finding 1).* The two agree off the cutoff points and can differ **at** them: $\mathcal T_i$
 is an infimum that need not be attained, so at $s=k_i^\star$ one may have
 $j^\star(k_i^\star;k^\star)\le i$ while Step 1's $\le$ convention gives $j_{k^\star}(k_i^\star)\ge
 i+1$. Card §3(i) asks for a weakly ordered vector mapping $s$ into a plan and does not pin the tie
@@ -929,7 +992,8 @@ on Voice plans (card §4.2), and (c) h.13. Of these only (b) is card-backed; (a)
 the flagged set
 $\{s:a_{j^\star(s;k^\star)}=1\text{ and }B_{j^\star(s;k^\star)}(s,H-T)\ge\tau\}$ — the equivalence
 $f_j\le H\iff B_j(s,H-T)\ge\tau$ is h.9 — is an upper interval of signals: the first condition is
-an upper set because $j^\star(\cdot;k^\star)$ is weakly increasing (Step 13's selection) and h.15;
+an upper set because $j^\star(\cdot;k^\star)$ is weakly increasing (Step 13's selection is the largest
+weakly increasing one, so monotonicity is by construction) and h.15;
 within it, $s\mapsto
 B_{j^\star(s;k^\star)}(s,H-T)$ is weakly increasing because it increases in $s$ at fixed plan by (b) and
 increases across plans by (c). Writing $s_F(k^\star)$ for the infimum of that upper interval,
@@ -982,6 +1046,17 @@ $\blacksquare$
    response, and as $k$ moves the plateau opens and closes, so $\mathcal T_i$ jumps and Brouwer does
    not apply. The Kakutani route of Step 18 survives this case; the Brouwer route the card fixes
    does not.
+   **Plateaus are structural, not exotic, on exactly the menus h.16 is for (retry finding 5).** By
+   Step 12(c), $U_{j'}(s;k)=B_j^F(s)P^F(s)-C_j(s)-E_j(s;k)$ is the *same function of $s$* for every
+   member of an h.11 deviation class: the shared pooled path gives a common $B^F$ and a common $E$,
+   and h.16 gives a common $C$. So on any multi-Voice menu carrying two **adjacent** class members,
+   $U_{i+1}-U_i\equiv0$ on the whole flagged region — Step 15(ii)'s transversality fails
+   *identically*, not on a knife-edge, and the failure is co-extensive with the configuration h.16
+   exists to handle. This is **not** a break in the proof: h.6 asserts continuity of $\mathcal T$
+   outright (Step 16) and Step 13's largest-weakly-increasing selection is single-valued across the
+   plateau. But it should be said plainly that **h.6 is being assumed at a configuration where its own
+   named sufficient condition (Step 15(i)+(ii)) provably fails**, so on multi-Voice shared-path menus
+   h.6 is doing more work than Step 15 makes it look like it is doing.
 4. **h.6's continuity fails through a discontinuous stake path (Step 15(i)).** A Voice plan that
    acquires a fixed block the moment $s$ exceeds a trigger $s_0$ is permitted by card §4.2's
    monotonicity-only restriction. Then $B_j(\cdot,d)$, $b_j^*$, $B^F$, $Q^F$ and $U_j(\cdot;k)$ all
@@ -1022,13 +1097,27 @@ $\blacksquare$
 
 ## LABEL CLAIMED
 
-**CONJECTURE.** Three reasons as written on 2026-08-21; **reason 1 is sufficient on its own**, and
-reasons 2 and 3 are updated below to their status at card stamp `d2ccf62` — part of each has since
-been absorbed by the card, and saying so is not a label move (2026-08-25, ticket 35).
+**PROVED** — as of the ticket-35 close-out, 2026-08-25. *This section read CONJECTURE from
+2026-08-21 through the two repair rounds of 2026-08-25; the three reasons it gave are kept below,
+each annotated with how it was discharged, because the record of why the label was withheld is worth
+more than a clean slate.*
+
+The label rests on **the two 2026-08-25 passes over the amended statement**, not on this document's
+say-so: an adversarial proof-read **PASS, 0 FAIL** (`threads/2026-08-25_P1_proofread_retry.md`, whose
+reader verified Step 12's lemma part by part and recorded his own round-1 FAIL witness as refuted on
+the merits) and an independent statements-only re-derivation **PASS-WITH-CHANGES**
+(`rederive/P1_rederivation_2026-08-25.md`, a fresh agent working from the card row alone, whose
+changes 1–5 are folded into the row and whose change 6 is withheld for Austin). Both agents are
+fresh and neither wrote this proof. The move itself is the orchestrator's, logged in
+`LABEL_LEDGER.md`; what this file claims is that the gate the card §7 protocol specifies has been
+met for **the statement now in the card's P1 row** — which is the precise thing the 2026-08-21 chain
+did not do.
 
 1. Card §7: a label moves only on an executed check or an independent re-derivation, never on
    prose. This document is prose. The card's ledger carries P1 at CONJECTURE and this proof does not
-   touch the ledger.
+   touch the ledger. **Discharged 2026-08-25 by the two passes, not by this file**: the independent
+   re-derivation and the adversarial proof-read both landed, and the orchestrator made the ledger
+   move. The rule stands exactly as written — nothing in this section moved the label.
 2. The proof consumes hypotheses that are not card §5 assumptions — **h.11** (the round-2 action set
    is the plan-generated set) and **h.16** (continuation-cost equivalence on that set) — plus h.13
    and h.15 for the Step 20 reformulation. "Under A1–A7" was never an accurate antecedent for this
@@ -1041,15 +1130,24 @@ been absorbed by the card, and saying so is not a label move (2026-08-25, ticket
    column and one out of the hypothesis set altogether:* **h.17**'s §4.1–§4.3 table restrictions were
    being consumed silently and are now enumerated here and cited in the row — they are card rows, so
    nothing new is assumed — and **h.5 is struck**, which removes the last mismatch between this file's
-   hypothesis list and the row's "A5 is not assumed".
+   hypothesis list and the row's "A5 is not assumed". **Discharged 2026-08-25:** the retry proof-read
+   checked the proof↔row hypothesis match in *both* directions and found it clean — every hypothesis
+   this file consumes is listed on the row, and the row lists nothing this file does not consume. That
+   is the defect class the demotion turned on, and it is closed.
 3. The proof cites h.9 = D1 by statement. *Status at stamp `d2ccf62`:* D1 moved to PROVED on
    2026-08-21 with both passes on file, so the inherited-label conditionality of the original reason
    3 is discharged; what P1 still inherits is D1's own hypothesis set, listed in the card's D1 row.
 
-**The label claimed by this document is unchanged at CONJECTURE**, and reason 1 alone carries it: no
-document of prose moves a label, and the two fresh passes ticket 35 requires — an adversarial
-proof-read of this file and a statements-only re-derivation of the amended card row — are not this
-file's to claim. The intended final label remains PROVED, conditional on those two passes.
+**What the label does *not* rest on, stated as plainly as the reasons above.** Not on the four
+$\kappa$-extreme nodes of `quality_reports/fixes/t2_p1_fournode_recheck.json`, which remain **STILL
+UNRESOLVED after 30 seeds each** (ticket 34): best payoff-scale residual $3.1\times10^{-4}$ to
+$1.5\times10^{-3}$ against a $10^{-9}$ criterion, with the A3 and A6 proxies passing at every
+achieving seed. That is **UNCHECKED** — neither existence evidence at those nodes nor evidence
+against it — and the card row says so in the same words. Not on the 2026-08-21 chain, which covered
+a different statement. Not on D1, beyond D1's own hypotheses travelling with h.9. And the
+conditionality this file has always carried travels with the label: the theorem holds **under** its
+enumerated hypotheses, of which h.6 (Steps 14–15), h.11 and h.16 are the ones doing work the card's
+A1–A7 do not do on their own — see NOT CLAIMED, which is unchanged in substance by the promotion.
 
 ---
 
@@ -1121,6 +1219,8 @@ $\mathcal T$ is the best-response map.
 | Symbol | Meaning | Collision check |
 |---|---|---|
 | $j_k(s)=1+\#\{i:k_i\le s\}$ | the plan selected at signal $s$ under conjecture $k$ | card §4.2's $j$ is the plan index; the subscript $k$ marks the induced map |
+| $j^\star(\cdot;k)$ | the **best-response** plan map at conjecture $k$: the largest weakly increasing selection from $s\mapsto\arg\max_jU_j(s;k)$ (Step 13), and the equilibrium plan map at $k^\star$ (Step 17(i)) | declared here on retry finding 7, having been promoted by P1-R23 from an internal selection to a named object in the conclusion's assembly. Distinct from $j_k$ above — that is the *conjecture's* induced map, this is the *best response* to it; the two agree $\Phi_s$-a.e. at a fixed point (Step 17(i)). The star is written always; card §4 carries no $j^\star$ |
+| $\mathcal Q_j(s)$ | the round-2 action set at the flagged pair $(j,s)$: the plan-generated set $\{Q^F_{j'}(s)\}$ over menu elements sharing $j$'s pooled path up to $f_j(s)$ with $a_{j'}=a_j$ (**h.11**) | declared here on retry finding 7; it has carried h.11 since the batch-1 round. Calligraphic $\mathcal Q$ against card §4.2's italic $Q^F_j$ (the order itself) and $q_{jd}$ (the pooled mark); card §4 has no $\mathcal Q$ |
 | $U_j(s;k)$ | blockholder's conditional expected payoff to plan $j$ at signal $s$ under conjecture $k$; the object **defined at h.14** with the conjecture displayed | matches the frozen manuscript's blockholder utility; **never a bare $U$**. **Card gap closed 2026-08-23:** the object is now card §4.3's $U_j$ row, and h.14 transcribes it (the row cites h.14 as "displayed there in full", which the 2026-08-25 display alignment makes literally true) |
 | $\mathcal C_j^{\mathrm{trade}}$ | plan $j$'s execution outlay: increments valued at the pooled prices $P_d^P$ up to the plan's last pooled date, plus $Q_j^F(s)P^F$ when $D_j=1$ (h.14) | calligraphic and always subscripted $j$ with the superscript written, so it is clear of card §4.4's $C_h$ (chord), $C_\tau/C_T$ (composition ratios) and $\mathcal C_F/\mathcal C_P$ (cells); **never a bare $C$**. Now carried by card §4.3's $U_j$ row in the same words |
 | $C_j(s)$ | plan $j$'s engagement cost at signal $s$; enters $U_j$ as $a_jC_j(s)$, so plans with $a_j=0$ pay nothing (h.14) | named in card §4.4's $C$-overload note and carried by card §4.3's $U_j$ row; subscripted, never bare. **h.16** constrains it across each h.11 deviation set; card §4.3 does not say at which date it is incurred (regeneration item, Step 12) |
@@ -1128,6 +1228,9 @@ $\mathcal T$ is the best-response map.
 | $P^F(s)$ | the flagged price written as a function of the signal alone, $P^F(s)=\mathcal G_F(\hat v(s))$ — legitimate on the flagged set by Step 12(a), where A7-J and $\pi=1$ make the tuple's price depend on $\sigma_F$ only through $s$ | the same object as $P^F(\sigma_F)$ of card §4.3, re-argumented; introduced 2026-08-25 (round 2) at Step 12 and used only there and in WHERE IT FAILS 7. The argument is always written, so $P^F(s)$ and $P^F(\sigma_F)$ never collide |
 | $V(j')$ | the round-2 continuation value of submitting $Q^F_{j'}(s)$ at a flagged node (Step 12(c)–(d)) | proof-local to Step 12; card §4 carries no bare $V$, and $\Delta_V$ (§4.1) is always written with its $\Delta$ |
 | $\mu_n(j,s)$, $L_j(\mathcal H_d^P\mid s)$, $w_n(j\mid s)$ | the stage-$n$ joint $(j,s)$ posterior density at a pooled history; the pooled-history likelihood; the stage-$n$ mixing weight (Step 9(b)) | proof-local to Step 9. $\mu$ is the belief symbol card §5's A5 note already uses ($\mathbb E_\mu[v]$), and $\mu_v$ — card §4.1's prior mean — never appears without its subscript $v$, so the subscript $n$ keeps them apart. **$\rho$ was rejected**: card §5's A(br) sharpening note carries $\rho:=\tfrac12A_{1/2}+A_1$. $L$ and $w$ have no card §4/§5 usage |
+| $t_n=J/n$, $Z_n$, $\Lambda_k$, $\Lambda_u$ | the stage-$n$ perturbation mass (so every plan carries $t_n/J=1/n$, Step 9's own parameterisation); the denominator of $\mu_n$; the unperturbed and plan-uniform likelihood aggregates $\int L_{j_k(s')}\varphi_s$ and $\sum_{j'}\int L_{j'}\varphi_s$ (Step 9(b)) | **$t_n$ replaces an earlier $\varepsilon_n$** (confirm-pass sweep): $\varepsilon$ is card §4.1's signal noise and is unavailable under card §8 rule 4; roman $t$ is free in card §4 (upright $T$ is the window, $\mathcal T$ the outer map, and $t_n$ always carries its subscript). $\Lambda$ has zero card §4/§5 occurrences; $Z_n$ is subscripted always and is clear of card §4.1's $z_d$, which is lowercase |
+| $\mathcal S(k)$, $\mathfrak w$ | the set of **weakly increasing selections** from $s\mapsto\arg\max_jU_j(s;k)$, and a generic element of it (Step 13) | $\mathcal S(k)$ is calligraphic with its argument always written, so it is clear of card §4.4's $\mathcal S$, $\mathcal S_P$, $\mathcal S^{GE}$ (liquidity sensitivities, never argument-of-$k$) — and it appears only in Step 13. $\mathfrak w$ is **fraktur**, joining Step 18's $\mathfrak T$ in that family: distinct from Step 9(b)'s italic $w_n$, the mixing weight, which is the only other $w$ in the file. **These dummies replace an earlier $\sigma_1,\sigma_2,\sigma_s$** (confirm-pass sweep): lowercase $\sigma$ is reserved for the flagged tuple $\sigma_F$ and the declared variances $\sigma_v,\sigma_\varepsilon,\sigma_\xi$, and no other lowercase $\sigma$ appears in this file |
+| $(\hat v_\circ,\pi_\circ)$, $P_\circ$ | the fixed **reference belief** of Step 9(c) — for definiteness the prior pair $(\mu_v,\Pr(a{=}1))$ — and the inner root at it, the price assigned at unreachable pooled histories | the open-circle subscript marks "reference/conventional" and is used nowhere else; $\hat v$ and $\pi$ are the card's own belief summaries (§4.3), so the objects are card objects at a named belief rather than new ones, which is the point of the convention (Step 9(c), retry finding 3) |
 | $E_j(s;k)$ | Step 11's second bracket, the pooled-execution expectation | proof-local, same steps as $G_j$. Distinct from any card symbol; $\mathbb E$ is the expectation operator and is never subscripted by a plan |
 | $\mathrm{supp}(z_d)$ | the realised support of the noise mark at the maintained $\kappa$: $\{0\}$ at $\kappa=0$, $\{-\bar z,+\bar z\}$ at $\kappa=1$, all three marks in between | roman operator on card §4.1's $z_d$ row, not a new model symbol; used only in Step 9, where the $\kappa$-boundary argument is quantified over it |
 | $\mathcal G_F(\hat v)$ | the flagged inner root as a function of the belief: the unique $P$ solving $\mathcal P(P)=P$ at $(\hat v,\pi=1)$ (Step 6b) | **replaces the bare $g$ of an earlier draft**: the turn-2 ruling reserves $g$ for L3's mean-value form, and card §4.5 carries $g_r^{PE}$. $\mathcal G$ has zero occurrences in card §4 and in the other batch-1 proofs; subscript $F$ matches $\mathcal C_F$, $\sigma_F$, $\iota_F$ |
@@ -1139,7 +1242,7 @@ $\mathcal T$ is the best-response map.
 | $\hat v(\mathcal I)=\mathbb E[v\mid\mathcal I]$ | posterior mean of $v$ at $\mathcal I$ | the frozen manuscript's posterior-mean symbol, same meaning |
 | $A=\hat v+\pi\Delta_V$ | no-takeover branch value at $\mathcal I$; proof-local to Steps 7–8 | card §4.4's $A_0,A_{1/2},A_1$ carry subscripts and belong to A($\tau$); this $A$ never appears subscripted |
 | $[\underline s,\overline s]$ | the common signal bracket underlying $\Theta$ | card §4.5 posits $\Theta$ compact without naming its bracket |
-| $\sigma_F$ | a generic value of the flagged tuple $\mathsf S_F=(B^F,Q^F,a{=}1)$ of card §4.6 | lowercase, always subscripted $F$; distinct from the variances $\sigma_v,\sigma_\varepsilon,\sigma_\xi$, which never appear without their own subscripts |
+| $\sigma_F$ | a generic value of the flagged tuple $\mathsf S_F=(B^F,Q^F,a{=}1)$ of card §4.6 | lowercase, always subscripted $F$; distinct from the variances $\sigma_v,\sigma_\varepsilon,\sigma_\xi$, which never appear without their own subscripts. **Swept clean 2026-08-25 (confirm pass):** in the body of this file the *only* lowercase-$\sigma$ objects are $\sigma_F$ and those three variances. The two other appearances of the letter are $\sigma(\cdot)$ as the generated-$\sigma$-field operator (Steps 6(c), 10) — an operator, not an object — and the retired dummies $\sigma_1,\sigma_2,\sigma_s$ named where their supersession is recorded (this table's $\mathcal S(k)$ row and P1-R35), which is the house pattern for a rename |
 | $\iota_F$ | the Borel inverse of $(j,s)\mapsto\sigma_F$ on the flagged set | card §4.6 records $\iota_F$ as free |
 | $\mathfrak T(k)$ | the best-response *correspondence* of Step 18 | fraktur, used only in Step 18; $\mathcal T$ remains the single-valued map |
 | $s_F(k)$ | infimum of the flagged signal set at conjecture $k$ (Step 20) | subscript $F$ matches $\mathcal C_F$ |
@@ -1189,7 +1292,8 @@ $\mathcal T$ is the best-response map.
    pass-1 finding 7): the old text asserted that indifference, which needs continuity of
    $s\mapsto U_j(s;k)$ — Step 15(i), not a hypothesis and not derived (NOT CLAIMED 11), and refuted as
    automatic by WHERE IT FAILS 4.* Step 17(i)–(ii) no longer needs it: the equilibrium plan map is the
-   largest-maximiser selection $j^\star(\cdot;k^\star)$, optimal at **every** $s$ by construction.
+   largest weakly increasing selection $j^\star(\cdot;k^\star)$, optimal at **every** $s$ by
+   construction.
    What is not claimed is that $j^\star$ is the only admissible representation of $k^\star$, or that
    the value of the plan map **at** a cutoff point is pinned by §3 — a different tie convention gives
    a different map, and possibly a different equilibrium object at a $\Phi_s$-null set of signals.
@@ -1214,8 +1318,10 @@ $\mathcal T$ is the best-response map.
     history" is **withdrawn**, being false at the endpoints (audit Finding 1(c)). Two consequences the
     file owns rather than hides: (a) card §3 requires nothing at an unreachable history, so the
     assembled equilibrium of Step 17 is complete; (b) to keep $U_j(s;k)$ defined at **every** signal —
-    which Step 13's pointwise argmax needs — Step 9(c) fixes the convention $P_d^P:=\mathbb E[Y]$
-    there, and a different admissible convention could change $U_j$ on a $\Phi_s$-null signal set and
+    which Step 13's pointwise argmax needs — Step 9(c) fixes the convention that the price there is
+    the **inner root at a fixed reference belief** (existing and unique by Step 7), so that every
+    price in the object is an inner fixed point as the row's conclusion clause says; a different
+    admissible reference belief could change $U_j$ on a $\Phi_s$-null signal set and
     so move $\mathcal T$. **The theorem is therefore an existence statement about the object built
     from that fixed convention**; it does not claim the equilibrium is convention-independent
     (pass-1 finding 6).
@@ -1291,7 +1397,7 @@ are the only things that may move it.
 | **P1-R15** (Finding 8, card-snapshot staleness) | **LABEL CLAIMED reasons 2 and 3 brought to stamp `d2ccf62`**, and Step 14's parenthetical with them. Reason 2 previously listed h.12 and h.14 as absent from the card; $m_0\ge0$ is now card §4.1's sign restriction and $U_j$ is now card §4.3's row, while h.11 and h.16 are carried descriptively in the card's amended P1 row rather than as §5 assumptions. Reason 3 previously called D1 a CONJECTURE; D1 moved to PROVED on 2026-08-21. **No label is moved by this row** — the section header still claims CONJECTURE, now resting on reason 1 alone (prose never moves a label; ticket 35's two fresh passes are not this file's to claim). |
 | **P1-R16** (two-pass protocol; no change of substance) | The amended card row's belief clause covered only the **pooled** layer once the reachability qualifier was added, and the row is the statements-only re-deriver's sole input. Both the row and this file's CLAIM now name the **flagged** layer explicitly: flagged-tuple beliefs are supplied by A7-J at every tuple in the image of $(j,s)\mapsto(B^F_j,Q^F_j,a_j)$, on path and off, with no tuple outside the image arising under the round-2 action-set hypothesis. This states what Step 10 has always proved (and what Step 17(iii)/(vi) has always assembled); nothing in the proof changes. *Filed here, after R15, on 2026-08-25 round 2 (pass-1 repair-table nit: it had been inserted between R12 and R13).* |
 
-**The pinned instance, clause by clause.** The paper's pro-rata single-Voice menu satisfies every
+**The pinned instance, clause by clause (round 1).** The paper's pro-rata single-Voice menu satisfies every
 strengthened clause, so route A's repairs cost the paper's instance nothing: **A7-J** holds on it
 (`proofs/A7_construction.md` Step 7 — only the Voice plan ever flags, so the flagged-pair set is
 $\{(V,s)\}$, and globally strict $b^*$ separates it through the sum coordinate); **h.16** holds
@@ -1337,10 +1443,47 @@ retitled, and NOT CLAIMED gains item 15 at the end.
 | **P1-R19** (pass-1 finding 3) | **h.5 struck**; the slot is kept so no citation renumbers. Re-cited use by use: Step 5(a) and Step 6(b) now run on **Steps 7–8** (existence and uniqueness from h.12; continuity in the belief from Step 8's implicit-function argument, which is the one genuinely load-bearing A5 use); Step 15's clause is marked **commentary**; Step 7's heading and closing paragraph, Step 6's heading and (d), and WHERE IT FAILS 1's title updated accordingly. Removes the last proof-vs-row mismatch behind the row's "A5 is not assumed". |
 | **P1-R20** (pass-1 finding 4) | **Step 9(b) re-run on the joint $(j,s)$ posterior** $\mu_n(j,s)$, with the likelihood and mixing weight named, the positive-denominator bound rewritten in those terms, and the passage to $\hat v$ made by **dominated convergence** under h.17-d's Gaussian tail and h.2's integrability. The plan-only posterior delivers $\pi$ but not $\hat v=\mathbb E[v\mid\mathcal I]$, which is a functional of the *signal* posterior — load-bearing because Step 13 evaluates $U_j$ for plans carrying zero probability on a collapse face. NOTATION DELTA gains $\mu_n$, $L_j$, $w_n$ ($\rho$ rejected: card §5's A(br) note carries $\rho$). |
 | **P1-R21** (pass-1 finding 5) | **Step 10 states the version explicitly.** The signal is Gaussian, so $(j,s)$ is null under every perturbation stage and "that pair has strictly positive weight" was a positive-probability argument on a null event. Replaced by: $\delta_{\iota_F(\sigma_F)}$ is a **version** of the regular conditional law at every image tuple, invariant in $n$, hence its own limit, and this proof selects it; any a.e.-equal version satisfies §3(iii) and §3(vi) equally. The CLAIM and the card row are softened from "pinned, not chosen" to the version formulation, matching `proofs/A7_construction.md`'s own hedge. Step 6(d)'s "pinned" is left standing and marked as being about the *price* family given the belief, which is a different and stronger statement. |
-| **P1-R22** (pass-1 finding 6; pass-2 N7) | **Step 9(c) rewritten.** Reachability requires a *positive-probability* signal set, so a $\Phi_s$-null cell of the mark-and-flag level-set partition can leave a plan's own histories unreachable at those signals. Fix adopted (the one consistent with Step 11): **fix the convention $P_d^P:=\mathbb E[Y]$ at unreachable histories**, so $U_j(s;k)$ is defined at every signal for Step 13's pointwise argmax, with the honest rider that a different admissible convention could move $\mathcal T$ through a $\Phi_s$-null signal set — recorded in **NOT CLAIMED 13**, which also absorbs N7's positive-probability point. |
-| **P1-R23** (pass-1 finding 7; pass-2 N8) | **The equilibrium plan map is $j^\star(\cdot;k^\star)$, not $j_{k^\star}$.** $\mathcal T_i$ is an infimum that need not be attained, so Step 1's $\le$ convention could disagree with the argmax *at* a cutoff, and the old Step 17(ii) patched that with an indifference claim that needs Step 15(i)'s continuity — not a hypothesis, and refuted as automatic by WHERE IT FAILS 4. Step 13 now **names the selection** (largest maximiser, ties broken upward, $\inf\emptyset:=\overline s$ as the corner convention), Step 16 reads h.6 as applying to that single-valued selection, Step 17(i)–(ii) run on it with optimality at **every** $s$, and **NOT CLAIMED 8** is rewritten. |
+| **P1-R22** (pass-1 finding 6; pass-2 N7) | **Step 9(c) rewritten.** Reachability requires a *positive-probability* signal set, so a $\Phi_s$-null cell of the mark-and-flag level-set partition can leave a plan's own histories unreachable at those signals. Fix adopted (the one consistent with Step 11): **fix the convention $P_d^P:=\mathbb E[Y]$ at unreachable histories**, so $U_j(s;k)$ is defined at every signal for Step 13's pointwise argmax, with the honest rider that a different admissible convention could move $\mathcal T$ through a $\Phi_s$-null signal set — recorded in **NOT CLAIMED 13**, which also absorbs N7's positive-probability point. *Superseded in part by **P1-R30**: the convention adopted here was $P_d^P:=\mathbb E[Y]$, which is not a root of $\mathcal P_{\mathcal I}$ at any belief and so clashed with the row's unqualified "prices at their inner fixed points"; it is now the inner root at a fixed reference belief. Everything else in this row stands.* |
+| **P1-R23** (pass-1 finding 7; pass-2 N8) | **The equilibrium plan map is $j^\star(\cdot;k^\star)$, not $j_{k^\star}$.** $\mathcal T_i$ is an infimum that need not be attained, so Step 1's $\le$ convention could disagree with the argmax *at* a cutoff, and the old Step 17(ii) patched that with an indifference claim that needs Step 15(i)'s continuity — not a hypothesis, and refuted as automatic by WHERE IT FAILS 4. Step 13 now **names the selection**, Step 16 reads h.6 as applying to that single-valued selection, Step 17(i)–(ii) run on it with optimality at **every** $s$, and **NOT CLAIMED 8** is rewritten. *Superseded in part by **P1-R28**: R23 named the largest **maximiser**, which is not weakly increasing in general; the selection is now the largest **weakly increasing selection**. Everything else in this row stands.* |
 | **P1-R24** (pass-1 finding 8) | **Step 2's Borel justification corrected.** "Monotone by card §4.2, hence Borel" is false for Exit ($\partial_sB_j\ge0$ is a **Voice** row); the card supplies Borel-in-$s$ for every plan as a separate clause it calls "a genuine addition for Exit". Now cited as **h.17-b**. Load-bearing: Step 9's reachability and the pooled prices integrate over all types including Exit. |
 | **P1-R24b** (consequence of P1-R17, no finding) | **WHERE IT FAILS 2 made precise.** Its improving off-menu order presupposes a flagged pricing schedule defined at off-image tuples; Step 12(c) shows no gain can exist on the plan-generated set, so the case now names the off-image extension it needs (a posterior mean short of $\mathbb E[v\mid s]$ at some feasible $Q'$) instead of assuming a schedule into existence. Steps 19–20 and Step 17(i) also updated to the $j^\star(\cdot;k^\star)$ symbol with a note that the two maps agree $\Phi_s$-a.s., so $\Omega$, the prices and the posteriors are unchanged. |
 | **P1-R25** (pass-1 finding 9) | **h.10 gains clause (ii)**, the flag-terminates-the-pooled-round clause the row lists and Step 11 consumes — pooled execution over $d\le f_j$ and $Q^F_j$ the whole residual position — cited at Step 11 and again at Step 12(c) where the pooled outlay is called sunk. h.10(i) is the no-feedback half and does not deliver either. |
 | **P1-R26** (pass-1 observations 11–12) | CLAIM's hypothesis sweep corrected — it read "h.1–h.12, h.14 and h.16", which swept in h.8 (used only for the A8 addendum) and the now-struck h.5; the A8 sentence says so explicitly. **Step 17(iv)** now states §3(iv) at reachable $k$-null histories as the inner fixed point **at Step 9(b)'s limit belief**, which is what the deviation payoffs read. Observation 10 (h.11's type-indexed action set excludes mimicry by fiat) is left as it stands, per adjudication: h.11 is owned descriptively by the row and card §9 item 2 already records the IC burden. |
 | **P1-R27** (pass-2 changes 1–5) | **h.17 [ADDITION] added** — the §4.1–§4.3 table restrictions (N1–N4), in four labelled items with their *Used* lists — so the proof cites what it consumes instead of consuming it silently; the card row now carries the same block. The row's other four changes are card-side and logged there: D1's hypotheses travelling and the expanded A5 sentence (N5); the one-perturbation-family/every-$k\in\Theta$/positive-probability off-path clause (N6, N7); A6's tie-break-and-corner reading with $\Theta$ nonempty per §4.5 (N8, N9); and the $C_j(s)$ timing convention stated in the row's own $U_j$ parenthetical (N10). **Pass-2 change 6 (a §9 OPEN item on A6's continuity at collapsed cutoff vectors) is deliberately not applied** — it is Austin's call, not this round's. |
+
+---
+
+## Repairs applied (2026-08-25, ticket 35 close-out — the finishing round)
+
+Source: the **proof-read retry verdict**, `threads/2026-08-25_P1_proofread_retry.md` — **PASS, 0
+FAIL**, 3 REPAIRs and 4 OBSERVATIONs, all applied below. The reader verified the new Step 12 lemma
+part by part on the merits before turning to findings, and records that his own round-1 FAIL witness
+is refuted: "I tried to rebuild it and cannot… (a)+(b) force $G_{j'}=B^F_j(s)P^F(s)$ for every class
+member, so $\delta\equiv0$." Only finding 1 touches a conclusion clause, and only finding 1 was
+created by a previous patch (P1-R23).
+
+**Effect on the label.** With this round applied the two-pass gate is satisfied for the statement in
+the card's amended P1 row, and the orchestrator has moved P1 **CONJECTURE→PROVED** in
+`LABEL_LEDGER.md`. The LABEL CLAIMED section above is updated accordingly, with the three historical
+reasons kept and annotated rather than deleted.
+
+| Finding | Change made |
+|---|---|
+| **P1-R28** (retry finding 1, REPAIR — the one conclusion-touching item) | **The tie-break is now the largest *weakly increasing* selection**, not the largest maximiser. R23's `$j^\star(s;k):=\max\arg\max_jU_j(s;k)$` was a **non sequitur**: the reader's counterexample sits inside h.3 — $U_2-U_1\le0$ everywhere with equality at one point $s_0$ (a tangential touch: zero crossings, and the constant selection $j\equiv1$ is weakly increasing, so both clauses of h.3 hold) makes the largest maximiser $1,\dots,1,2,1,\dots,1$, which is not monotone, whose up-set $\{s:j^\star\ge2\}=\{s_0\}$ is not an up-set at all, and which **no cutoff vector represents** — breaking Step 17(i) and with it §3(i)/(ii). Step 13 now takes $j^\star(\cdot;k)$ to be the largest element of the set $\mathcal S(k)$ of weakly increasing selections, with the reader's own three-line construction written out: $\mathcal S(k)\ne\emptyset$ by h.3; closed under pointwise max (the max of two selections is one of the two values, hence a selection, and a pointwise max of monotone maps is monotone); the supremum is attained on a finite menu (h.2) and is itself in $\mathcal S(k)$ ($j^\star(s';k)\ge\mathfrak w(s')\ge\mathfrak w(s)=j^\star(s;k)$ for $\mathfrak w\in\mathcal S(k)$ attaining the max at $s$). Canonical, single-valued (pass-2 N8), monotone **by construction** rather than by an appeal to h.3 after the fact. Swept to every site: Step 13's definition and its representation sentence, Step 16's h.6 reading, Step 17(i), Step 20's monotonicity appeal, NOT CLAIMED 8, and P1-R23 (annotated as superseded in part). Brouwer is untouched — the nesting that gives $\mathcal T(k)\in\Theta$ holds for any selection. |
+| **P1-R29** (retry finding 2, REPAIR) | **Step 11's forward reference to Step 9(c) de-staled.** It still read "By Step 9(c) every pooled history the second bracket weighs is reachable"; P1-R22 had made that true for $\Phi_s$-**almost every** $s$ only, with the conventional price at the exceptional signals. The qualifier is inserted and the exceptional case pointed at 9(c)'s convention, matching what Step 13 already said correctly. A neighbour the round-2 patch missed. |
+| **P1-R30** (retry finding 3, REPAIR) | **Step 9(c)'s unreachable-history convention changed from $\mathbb E[Y]$ to the inner root at a fixed reference belief** $(\hat v_\circ,\pi_\circ)$ — for definiteness the prior pair $(\mu_v,\Pr(a{=}1))$ — which exists and is unique by Step 7 under h.12. Reason: $\mathbb E[Y]$ is an unconditional average of realised control-node values and is in general **not** a root of $\mathcal P_{\mathcal I}$ at any belief, so the constructed object would have carried prices that are not inner fixed points at nodes where the blockholder does trade, while the card row's conclusion says "prices at their inner fixed points" without qualification. Card §4.3's $P_{-1}^P:=\mathbb E[Y]$ precedent does not transfer — that is the pre-trading node. With the reference-belief root **every price in the object is an inner fixed point at the belief carried there**, and the mismatch with the row is gone. NOT CLAIMED 13(b) updated. |
+| **P1-R31** (retry finding 4, OBSERVATION) | **Step 9(b)'s dominated-convergence envelope gains its case split.** As written, "$\mu_n\le\varphi_sL_j/Z_n$ with $Z_n\downarrow0$" is not a uniform envelope. Split now stated: if $\Lambda_k>0$ then $Z_n\ge\Lambda_k/2$ eventually and $2\lvert\mu_v+\beta(s-\mu_v)\rvert\varphi_sL_j/\Lambda_k$ dominates; if $\Lambda_k=0$ the $(1-t_n)$ terms vanish $\Phi_s$-a.e. and $\mu_n=L_j\varphi_s/\Lambda_u$ is exactly $n$-free, so there is nothing to pass to the limit. This is pass-2's own R9(b) structure. |
+| **P1-R32** (retry finding 5, OBSERVATION) | **WHERE IT FAILS 3 records that plateaus are structural on exactly the menus h.16 is for.** By Step 12(c), $U_{j'}=B_j^FP^F-C_j-E_j$ is the same function of $s$ for every member of a deviation class, so on a multi-Voice menu with two **adjacent** class members $U_{i+1}-U_i\equiv0$ on the whole flagged region and Step 15(ii)'s transversality fails *identically*, not exceptionally. Non-blocking — h.6 asserts continuity of $\mathcal T$ outright and R28's selection is single-valued across the plateau — but the file now says plainly that **h.6 is being assumed at a configuration where its own named sufficient condition provably fails**, which is a real cost of h.16's range of application and was previously invisible. |
+| **P1-R33** (retry finding 6, OBSERVATION) | **Card row: h.16's gloss qualified "under the plan-completion reading".** Step 12(d) and h.16's why-note both say that under the sunk reading the continuation is constant with no clause at all, so h.16 is consumed on the (α) reading only; the row glossed it unconditionally. The row now says so, and says why the hypothesis is nonetheless listed: the row does not commit to a reading, and h.16 is what makes the conclusion hold under both. Card §8 rule 6 ("each hypothesis used") is now satisfied on either reading. |
+| **P1-R34** (retry finding 7, OBSERVATION) | **NOTATION DELTA gains $j^\star(\cdot;k)$ and $\mathcal Q_j(s)$** (card §8 rule 3). Both pre-date round 2, but R23 promoted $j^\star$ from an internal selection to a named object in the conclusion's assembly, and $\mathcal Q_j(s)$ has carried h.11 since batch 1. Collision checks written: $j^\star$ against Step 1's $j_k$ (conjecture's map vs best response, agreeing $\Phi_s$-a.e. at a fixed point), $\mathcal Q$ against card §4.2's $Q^F_j$ and $q_{jd}$. |
+
+| **P1-R35** (confirm pass, mechanical; card §8 rules 3–4) | **Notation sweep, no mathematics touched.** (a) The perturbation mass $\varepsilon_n$ introduced by P1-R31 is renamed **$t_n$** at all four occurrences and tied to Step 9's own parameterisation, $t_n=J/n$ so that each plan carries $t_n/J=1/n$ — $\varepsilon$ is card §4.1's signal noise and card §8 rule 4 does not release it; the $w_n$ display is written out so the Step 9(b) case split reads off it directly. (b) Step 13's selection dummies $\sigma_1,\sigma_2,\sigma_s$ are renamed **$\mathfrak w_1,\mathfrak w_2,\mathfrak w$** (fraktur, joining Step 18's $\mathfrak T$), and Step 9(b)'s integration dummy $\sigma$ becomes $s'$, so that **lowercase $\sigma$ now carries only $\sigma_F$ and the declared variances**, as $\sigma_F$'s own collision-check row requires. (c) NOTATION DELTA gains three rows: $\mathcal S(k)$ with its elements $\mathfrak w$; $t_n$, $Z_n$, $\Lambda_k$, $\Lambda_u$; and the reference-belief triple $(\hat v_\circ,\pi_\circ)$, $P_\circ$. (d) P1-R22 annotated as superseded in part by P1-R30, on the pattern of P1-R28's annotation of P1-R23. |
+
+**Not applied, deliberately.** The retry's divergence note in item (d) — the row says A5's continuity
+content comes "from the same scalar reduction" while this file derives it from Step 8's
+implicit-function argument — is left standing: the reader records both routes as valid ($\varrho$ is
+$C^1$ jointly with $\partial_P\varrho<0$ strictly at every root), and pass 2's route is IFT-free and
+1-Lipschitz. Two valid derivations of the same clause is not a defect, and rewriting the row to name
+only one would misreport the re-derivation. Pass-2 change 6 (a §9 OPEN item on A6's continuity at
+collapsed cutoff vectors) remains withheld for Austin, now with retry finding 5 as further motivation
+for it.
