@@ -2,6 +2,14 @@
 
 Issues and specs for this repo live as markdown files in `.scratch/`.
 
+## Where the canonical tracker lives
+
+`.scratch/` is **git-tracked per branch**, and the branches have diverged. For the v4 effort
+(`v4-reposition`), the canonical tracker is the one on branch **`v4`** — read and write it in
+the `~/Projects/blockholder_v4` worktree, whichever worktree you are executing in. The copy on
+`v4-theory` stops at ticket 20 and is a stale subset; do not take a ticket's absence there as
+its nonexistence. Planning sessions commit new tickets on `v4`.
+
 ## Conventions
 
 - One feature per directory: `.scratch/<feature-slug>/`
