@@ -96,5 +96,5 @@ nodes. The card-internal $\mathcal S(k)$ vocabulary collision (leg 1) is a candi
 for the next card window.
 
 **Commits this session (v4-theory, all pushed):** `58a5d11` (leg 1 mirrors);
-`<pending-orchestrator-hash>` (sections_v3 + checker report + this log). Ticket-file update
+`9a73bb7` (sections_v3 + checker report + this log). Ticket-file update
 committed on `v4` separately.
