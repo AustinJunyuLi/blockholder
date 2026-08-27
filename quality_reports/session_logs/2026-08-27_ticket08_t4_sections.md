@@ -54,8 +54,9 @@ content, matching `C1_proof.md:141/147`), **F-2** (the single overfull box — t
 amsthm run-in; all eight proof run-ins are now ID-only), **M-10** + **F-1 hardening**
 (`v3_macros.tex` provenance corrected; `\Tmap` changed from `\providecommand` to `\newcommand` so a
 draft_v3 carrying draft_v2's `\providecommand{\Tmap}{T}` fails loudly at `\input` time instead of
-silently rendering the outer map as the filing window across 107 uses — ticket 18 must resolve the
-name consciously, in either assembly order). The checker's delta pass re-verified every repair at
+silently rendering the outer map as the filing window across the sections' roughly hundred uses
+(96 by the orchestrator's settling grep; the macros comment carries the dated figures) — ticket 18
+must resolve the name consciously, in either assembly order). The checker's delta pass re-verified every repair at
 full grain (Part IV arithmetic re-done independently) and re-ran the compile from a clean state:
 **LAND**, no WRONG before or after. The remaining MISCITEDs are deliberate paper-form pointer
 thinnings (process anchors like audit step numbers and check-block names), all catalogued in the
