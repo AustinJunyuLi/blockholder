@@ -4,9 +4,23 @@
 %  model.  Ticket 30 (T2j); the deliverable ticket 06 specified.
 %
 %  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp
-%  2026-08-23, post-review repairs.  Where a proof file and the card
-%  differ, the card wins.  Labels are transcribed from
+%  2026-08-27, A6 panel resolution (commit ae9caea).  Where a proof file
+%  and the card differ, the card wins.  Labels are transcribed from
 %  research/model_v4/LABEL_LEDGER.md.
+%
+%  Card events carried since the 2026-08-23 stamp:
+%    * P1 restored to PROVED on 2026-08-25 on its ticket-35 repair -- the
+%      statement amended to the hypotheses the proof actually needs (A7-J
+%      in place of A7', the continuation-cost clause, the kappa boundary
+%      handled by extension), and the two-pass gate satisfied afresh by an
+%      adversarial proof-read PASS and an independent statements-only
+%      re-derivation PASS-WITH-CHANGES, both 2026-08-25 and both by agents
+%      who did not write the proof.
+%    * A(tau) gained ticket 33's dated evidence note (2026-08-25): the
+%      support condition FAILS at the implemented calibration.
+%    * On 2026-08-27 the A6 panel ruling (Austin-authorized, opposed-brief
+%      panel) added dated evidence notes to A6 and A3 and a fourth open
+%      item -- answered in substance, locus corrected, NO LABEL MOVES.
 %
 %  Compiles standalone with xelatex.  No bibliography, no \ref into any other
 %  document: every repo file is named as a \texttt{} string, never cited.
@@ -39,7 +53,7 @@
 \title{The Two-Round Blockholder Disclosure Model\\[2pt]
 \large A standalone model note}
 \author{v4 theory lane, ticket 30 (T2j)}
-\date{Card stamp 2026-08-23, post-review repairs}
+\date{Card stamp 2026-08-27, A6 panel resolution}
 
 \begin{document}
 \maketitle
@@ -51,10 +65,14 @@ hypotheses, and the eight-result ledger with its honesty labels. It then records
 what the v4 model takes from the frozen manuscript \texttt{draft\_v2.tex}, what it
 simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from
-\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-23, post-review
-repairs) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. The card is the
-single source of truth: where a proof file and the card differ, the card wins.
-The conditionality attached to each result is not decoration. It is the result.
+\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-27, A6 panel
+resolution) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Three card events
+since the 2026-08-23 stamp are carried below: P1 restored to PROVED on
+2026-08-25 on its ticket-35 repair; $\Atau$'s ticket-33 evidence note of
+2026-08-25; and the 2026-08-27 A6 panel ruling, which moved no label. The card
+is the single source of truth: where a proof file and the card differ, the card
+wins. The conditionality attached to each result is not decoration. It is the
+result.
 \end{abstract}
 
 %==============================================================================
@@ -315,6 +333,36 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   adjacent-plan payoff differences cross zero at most once in $s$, and the preferred
   plan is weakly increasing in $s$.
 
+  \emph{Evidence note added 2026-08-27 (A6 panel, in passing --- a separate finding,
+  deliberately not folded into the A6 note).} At the implemented calibration \textbf{A3
+  itself fails, at two independently-found loci, upstream of A6.} (i) At
+  $(\kappa{=}0.5,\ \tau_{50},\ T{=}5)$ with $k_2$ on an \textbf{open set} above cell edge
+  6 (verified at offsets $10^{-9}$ through $2\times10^{-2}$), $U_V-U_H$ has \textbf{three
+  strict sign changes} ($s = 1.5754434 / 1.5833333 / 1.5902426$; middle excursions
+  $2.4$--$2.8\times10^{-4}$ against a $10^{-9}$ payoff tolerance), the pointwise argmax
+  runs H,V,H,V single-valued on each interval, so \textbf{no weakly increasing selection
+  exists} --- $\mathcal S(k)=\emptyset$ and Step 13's $\Tmap$ is \textbf{undefined} there,
+  not merely discontinuous. (ii) At $(\kappa{=}0.15,\ 0.05,\ 5)$ --- a ticket-34
+  UNRESOLVED node --- the argmax reverses \textbf{VOICE $\to$ HOLD} across cell edge
+  $s = 1.659062163$ at \textbf{both} located fixed points: the preferred plan decreases in
+  $s$. The route is the $s$-direction step of $U_{VOICE}$ ($n(s)$ is integer-valued ---
+  Step 15(i) / WHERE IT FAILS 4's card-legal counterexample, instantiated by the solver's
+  own \texttt{N\_GRID} note) interacting with the off-path price snap. \textbf{No conflict
+  with ticket 34's ``the A3 and A6 proxies pass at every achieving seed''}: those proxies
+  are local screens --- the A3 proxy tests residual slope signs at the two candidate
+  cutoffs and the A6 proxy tests $\Theta$-corner non-pinning at the closest seed
+  (\texttt{t2\_p1\_fournode\_recheck.py}) --- and neither measures argmax monotonicity
+  over $s$ nor continuity of $\Tmap$ in $k$, so both are silent on these findings.
+  \textbf{Candidate mechanical account of ticket 34's four UNRESOLVED nodes}, on file and
+  UNCHECKED beyond the one node probed: at the $\kappa=0.15$ node one fixed point sits
+  exactly on the edge where $U_H-U_V$ \textbf{jumps through zero without crossing it}, and
+  the panel's residuals (payoff $3.06\times10^{-4}$--$1.77\times10^{-3}$ at cutoff
+  residuals of $10^{-11}$-grade) \textbf{bracket ticket 34's recorded range exactly}; the
+  $k$-direction jump mechanism does \textbf{not} explain those nodes (no proximity
+  correlation --- the substantiate panellist's own recorded negative). No label moves ---
+  A3 is a hypothesis; P1 stays PROVED as a conditional. Records: the same panel files as
+  the A6 note.
+
 \item[A4 Legal-clock discipline.] $c$ is the first date the path reaches $\tau$;
   the filing lands exactly at $c+T$; filings truthfully reveal stake and purpose;
   only Voice plans cross in the core.
@@ -334,6 +382,63 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
 
 \item[A6 Compact outer self-map.] All best-response cutoffs lie in a common compact
   ordered polytope $\Theta$; $\Tmap$ is continuous and maps $\Theta$ into itself.
+
+  \emph{Evidence note added 2026-08-27 (A6 panel, Austin-authorized; ruling at item 4 of
+  the open list under \emph{What this note does not claim}).} Two opposed-brief agents
+  (substantiate / defuse) examined the re-derivation's withheld change 6 (N11) and
+  \textbf{converged}; the orchestrator's adjudication is on file. \textbf{The continuity
+  clause fails for the declared construction, and the locus is not the one N11 named.} All
+  $k$-dependence of $U_j$ runs through the pooled price vector (the flagged layer is
+  $k$-free under A7-J), and Step 9(b) gives Bayes where $\Lambda_k(h)>0$ but a $k$-free
+  plan-uniform posterior on the frontier, so the price system can be discontinuous exactly
+  on $\bigcup_h\partial\{k:\Lambda_k(h)>0\}$ --- a set inside (the finitely many
+  \textbf{cell-edge hyperplanes} $\{k_i=a\}$) $\cup$ (the \textbf{collapse faces whose
+  dying plan is the sole generator} of some reachable pooled history). The jump
+  \textbf{reaches $\Tmap$ with non-vanishing weight}: $U_j$ integrates those prices against
+  the deviator's own noise law (weight $\ge\min(\kappa/2,\,1-\kappa)^{d+1}$, independent of
+  the dying plan's population mass), so the vanishing-mass defusal is \textbf{refuted ---
+  by both panellists, independently}; the largest-weakly-increasing-selection tie-break is
+  pointwise in $k$ and passes the jump through; and no $k$-independent perturbation family
+  reconciles the limits (at fixed $n$ the system is continuous in $k$; the discontinuity is
+  created only as $t_n\to0$ --- an order-of-limits problem the family choice cannot fix).
+  On collapse faces proper: for $J\ge3$ menus where a middle plan owns a reachable
+  \textbf{exclusive} pooled history entering some $U_j$, the interior limit
+  $\mu_v+\beta(c-\mu_v)$ varies over the face while any $k$-free family supplies one
+  constant, so continuity fails at \textbf{every face point but at most one}
+  (continuum-face lemma --- single-pass panel derivation, \textbf{not gate-checked}). The
+  implemented menu is \textbf{not} in that class: Exit and Hold pool perfectly in order
+  flow, and its Hold-collapse face is \textbf{measured clean} (pooled prices within
+  $4.4\times10^{-16}$ and $\Tmap$ bit-identical as $k_1$ sweeps to full collapse). At the
+  implemented calibration the failure is live at the \textbf{interior $n(s)$ cell edges}
+  instead: measured $\Tmap_2$ jumps of $6.33\times10^{-3}$ / $1.09\times10^{-2}$ /
+  $2.83\times10^{-2}$ across $\le 2\times10^{-9}$ steps in $k_2$ at
+  $(\kappa{=}0.5,\ \tau_{50},\ T{=}5)$ --- \textbf{measured independently by both
+  panellists with separate scripts, agreeing to 3 s.f.}, the belief snap matching the
+  Step 9(b) prediction to $\sim10^{-8}$, surviving-type controls $\sim3\times10^{-9}$,
+  robust at $1000\times$ the breakpoint-merge tolerance; at $(\kappa{=}0.15,\ 0.05,\ 5)$
+  jumps reach $0.16$ and a diagonal crossing of $\Tmap_2$ is \textbf{destroyed}. A
+  chamber-interior $\Theta^+=[1.23,\,1.245]\times[1.5253,\,1.5506]$ (exhibited) is compact,
+  self-mapping and jump-free at the baseline --- Brouwer runs verbatim on it and it
+  contains $k^\star$ --- but it is \textbf{not the $\Theta$ Steps 13--14 construct} (they
+  build from the bracket $[s_{lo},s_{hi}]$, which contains the edges), cannot be exhibited
+  without approximately locating the fixed point first, and \textbf{no such chamber exists
+  at the $\kappa=0.15$ node}, where a fixed point sits exactly on the edge
+  $k_2=1.659062163$. \textbf{No label moves and none is licensed} --- A6 is a hypothesis;
+  P1 stays PROVED as a conditional, in the $\Atau$ pattern: what is on record is that its
+  antecedent, read with the $\Theta$ the proof constructs, is not satisfied by the
+  implemented calibration. Repairs on file, both outside the equilibrium notion's declared
+  Brouwer-with-one-fixed-family route: the $t$-constrained game $+$ Kakutani $+$
+  $t\downarrow0$ (\texttt{proofs/P1\_proof.md} Step 18), and a $k$-indexed concentration
+  family (constructible; its $0/0$ corner unresolved). The implementation's
+  \texttt{OFF\_PATH\_EPS} $=10^{-14}$ \textbf{is} the fixed-$t$ constrained game --- the
+  standard repair already shipped, with the switch relocated by $\sim10^{-9}$ rather than
+  removed. Coverage: probes at one node per claim class plus the 27-node census,
+  \textbf{not swept over $(\kappa,\tau,T)$}; nonexistence is neither claimed nor shown
+  ($23/27$ sweep nodes converge; a discontinuous self-map may still have fixed points).
+  Records: \texttt{threads/\allowbreak 2026-08-27\_A6\_panel\_substantiate.md},
+  \texttt{threads/\allowbreak 2026-08-27\_A6\_panel\_defuse.md}; probes
+  \texttt{quality\_reports/\allowbreak fixes/\allowbreak a6\_panel\_probes\_2026-08-27/}
+  (analysis-grade, not curated t2 checks).
 
 \item[A7 / A7$'$ / A7-J Filing sufficiency.] On flagged histories $(B^F,Q^F,a=1)$
   identifies the informed component of the selected plan; conditional on it the
@@ -399,6 +504,94 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   $\Atau$-conditional result --- and therefore L4 leg 3 and T1 Part B --- inherits
   that conditionality.
 
+  \emph{Evidence note added 2026-08-25 (ticket 33).} \textbf{At the implemented
+  calibration the support condition FAILS --- and it fails on the support, not on the
+  derivative pattern.} The pooled cell's engagement-posterior law was enumerated exactly
+  (all $4^{H+1}=4{,}194{,}304$ order-flow paths, the same law \texttt{pooled\_premium}
+  integrates) at \textbf{200 nodes}: $\kappa\in\{0.05,\dots,0.95\}$ $\times$ the five
+  frozen $\tau$ percentiles $\times$ $T\in\{1,2,5,10\}$, frozen policies, $H=10$. Two
+  gates pass first, so the object measured is $\Atau$'s own: an independent
+  re-enumeration reproduces \texttt{pooled\_pass} to \textbf{0.0 exactly}, and the
+  enumerated mean $\Eop[\Pi]$ equals the pooled share
+  $\bar\pi_{\mathrm{pr}}=\Prb(a=1\mid D=0)$ to $1.7\times10^{-16}$. Neither Example A's
+  $\lvert\Akap\rvert=0.25$ nor level symmetry is imposed anywhere, and $\bar\pi$ is read
+  as the upper support point throughout, per the binding ruling. \textbf{20 nodes are
+  degenerate} ($\bar\pi_{\mathrm{pr}}=0$ at $T\in\{1,2\}$ with $\tau$ at the 10th
+  percentile: no engaging atom survives into the pooled cell, the law is the point mass
+  at $0$, $M_P=0$ and $C_h(0)=0$, so $\Atau$ holds vacuously and the node decides
+  nothing). At \textbf{all 180 non-degenerate nodes $\Atau$ fails}; at none does it hold.
+
+  \begin{itemize}
+  \item \textbf{($\tau$-ii), support half --- FAILS, by some eleven orders of magnitude.}
+    The support carries \textbf{23--767 distinct posterior values}, never three (0 of 180
+    nodes), and there is \textbf{no mass at $\bar\pi/2$ at any node}
+    ($A_{1/2}\equiv0$). Between \textbf{0.57\% and 91.8\% of the pooled mass sits off
+    $\{0,\bar\pi/2,\bar\pi\}$} --- 13.9\% at the median node ($T=5$, median $\tau$,
+    $\kappa=0.55$: 107 atoms, $A_0=0.768$, $A_1=0.093$). The atoms are not dust:
+    coarsening the cluster tolerance to $10^{-3}$ still leaves \textbf{6--332} of them,
+    and the floor-free law (the $\varepsilon\downarrow0$ limit of clause (vi) of the
+    equilibrium notion, the law reported here) counts at most 51 atoms fewer than the
+    floored law the package prices. The interior atoms move with $\kappa$: the two-sided
+    Hausdorff distance between adjacent-$\kappa$ support sets reaches \textbf{0.4608} ---
+    unchanged when restricted to atoms carrying mass $\ge10^{-6}$ --- against $\Atau$'s
+    predicted $<10^{-12}$, at \textbf{0 of 18} series. This refutes L3 Step 18's (S1) and
+    (S2) together at this calibration.
+  \item \textbf{($\tau$-ii), $\bar\pi$ half --- HOLDS.} $\bar\pi=1$ to
+    $1.5\times10^{-13}$ at every non-degenerate node, and $\kappa$-free to the same order
+    (18 of 18 series). This is a separate finding and it is not a partial rescue:
+    $\bar\pi=1$ is the \textbf{one-round} outcome L3 Step 18 derives from the card's
+    \S4.2 mark structure, and that step's conjecture that ``the two-round timing \dots\ leav[es]
+    the pooled cell with a top atom strictly below $1$'' is \textbf{false at this
+    calibration} --- unflagged Voice types still generate fully revealing order flows.
+    $\bar\pi\in\{0,1\}$ across the whole grid and never interior, so L3's small-$\bar\pi$
+    corollary has no instance here either.
+  \item \textbf{Derivative pattern --- FAILS, and independently of the support.}
+    $A_0'=A_1'$ holds at \textbf{0 of 180} nodes:
+    $\lvert A_0'-A_1'\rvert\in[0.041,\,2.306]$ against a predicted $<10^{-10}$, with
+    $A_0'\in[-2.146,\,2.374]$ against $A_1'\in[-0.014,\,0.429]$ --- an order of magnitude
+    apart in level, and both change sign over the grid, which independently corroborates
+    that $\Akap$ carries no sign (audit finding 2). $A_{1/2}'=-2\Akap$ also fails at all
+    180, but with $A_{1/2}\equiv0$ that residual is exactly $2\lvert A_0'\rvert$ and is
+    recorded as \textbf{inherited} --- a restatement of the support failure, not a second
+    piece of evidence.
+  \item \textbf{Chord identity --- FAILS.}
+    $\lvert\mathcal S_P-\Delta_m\lvert\Akap\rvert\lvert C_h(\bar\pi)\rvert\rvert$, with
+    $\Akap$ \textbf{recovered} from the enumerated weights and $\bar\pi$ the
+    \textbf{actual} upper support point, is \textbf{0.0013--0.0717 (up to 7.17 premium
+    pp)} against $<10^{-10}$, at 0 of 180 nodes and on the most favourable of three
+    kernel conventions. Recovered $\lvert\Akap\rvert\in[0.042,\,2.374]$; the value the
+    identity would \emph{require} is $[0.00023,\,0.392]$, \textbf{disjoint} from block
+    3's implied $[0.997,\,1.158]$ --- which is a different object (mean absolute slope
+    over the $\kappa$ grid, and the level-symmetric
+    $\bar\pi=2\bar\pi_{\mathrm{pr}}$), and the distance between the two measures what the
+    level-symmetry assumption was doing.
+  \item \textbf{($\tau$-i), reported as a diagnostic and not part of the verdict.} Within
+    a $\Pi$-cluster ($\Pi$ constant to $10^{-12}$) the enumerated entry probability still
+    spreads by up to \textbf{0.085}, and $h$ by up to \textbf{0.018} mass-weighted. The
+    kernel does not reach the information set only through the posterior at this
+    calibration either.
+  \end{itemize}
+
+  \textbf{What this changes, and what it does not.} NUMERICAL-class
+  \textbf{applicability} evidence at one calibration; \textbf{no label moves}, and none
+  is licensed --- $\Atau$ is an assumption, not a labelled claim. L3, L4 leg 3 and T1
+  Part B stay \textbf{PROVED as conditionals} with their proofs untouched; what is now on
+  record is that their antecedent is \textbf{not satisfied by the implemented pooled cell
+  at this calibration}, so at this calibration those legs say nothing about the
+  implemented cell. The question stated above stays open as a question about $\Atau$'s
+  \textbf{domain} --- a different menu, a different $H$, or a different calibration could
+  still satisfy (S1)--(S2) --- and the two prior ``failures'' remain misformulated tests;
+  this is the first test that measures $\Atau$'s own object. Coverage caveats carried
+  forward: the 18 non-degenerate series are only \textbf{6 distinct pooled cells} ($T=1$
+  and $T=2$ induce identical $D$-partitions at every $\tau$; $T=5$ joins them at the three
+  highest $\tau$ percentiles and repeats itself at the two lowest; all five $T=10$
+  quantiles coincide), and all six fail; the 50 $T=10$ nodes sit at $\Omega=0.000681$,
+  below \texttt{MIN\_CELL\_MASS} (\texttt{HANDOFF\_sign.md} \S8.1). Script and record:
+  \texttt{quality\_reports/\allowbreak fixes/\allowbreak t2\_atau\_support\_check.py}
+  $\to$ \texttt{t2\_atau\_support\_check.json} (200 nodes, 920 pooled enumerations,
+  1002 s;
+  top-level \texttt{verdict} field \texttt{FAILS at calibration}).
+
 \item[$\Abr$ Chord--sensitivity bridge.] Consumed by L4 leg 3 and T1 Part B, and by
   nothing else. For two compared thresholds $\tau'<\tau$ at fixed policies and a
   common $\kappa$:
@@ -446,19 +639,25 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
 \section{The result ledger}
 %==============================================================================
 
-Seven of eight results carry two-pass evidence --- an adversarial proof-read PASS
-\emph{and} an independent statements-only re-derivation PASS, by different agents ---
-and are labelled PROVED with their conditionality written into the label.
-\textbf{P1 is CONJECTURE after the 2026-08-23 GPT end-review demotion; its earlier
-two-pass chain covered a mismatched A7 form.} The old evidence chain is retained, but
-it did not satisfy the two-pass gate for the recorded statement: the proof's h.7
-consumes the joint injective form of A7, while the card row and the re-derivation
-carried the on-path form (form mismatch). The GPT end review and audit additionally
-identified a missing continuation-cost clause in Step 12 (sunk-cost gap, live for
-multi-Voice menus) and a false positivity claim at $\kappa=1$. Ticket 35 owns the
-repair and any future re-promotion. Labels are transcribed from
-\texttt{LABEL\_LEDGER.md}; each statement is the amended one, with its hypothesis set
-named in full. Nothing was weakened silently.
+\textbf{All eight results now carry two-pass evidence} --- an adversarial proof-read
+PASS \emph{and} an independent statements-only re-derivation PASS, by different agents
+--- and are labelled PROVED with their conditionality written into the label. (C1 moved
+on 2026-08-22, after its own proof-read, re-derivation, and the independent re-run of
+every check script --- ALL REPRODUCE,
+\texttt{quality\_reports/fixes/t2\_rerun\_verify\_note.md}; \textbf{P1 was demoted on
+2026-08-23 and restored on 2026-08-25} on a fresh pair of passes over the amended
+statement.) The protocol (the \emph{Labels} subsection below) requires both passes, by
+different agents, before a label moves. That gate is satisfied for D1, L1, L2, L3, L4,
+T1, C1 and --- as of 2026-08-25 --- P1 again. \textbf{P1's 2026-08-21 chain never
+satisfied it}: the proof consumed A7-J while the row and re-derivation carried A7$'$, so
+the two passes covered two different statements, which is what the 2026-08-23 demotion
+turned on. The pair on file now is
+\texttt{threads/2026-08-25\_P1\_proofread\_retry.md} (0 FAIL) and
+\texttt{rederive/P1\_rederivation\_2026-08-25.md} (PASS-WITH-CHANGES, changes folded into
+the row). Labels are transcribed from \texttt{LABEL\_LEDGER.md}; every statement below is
+the \emph{amended} statement --- the hypothesis sets are named in full and descriptively,
+and \textbf{no statement was weakened silently}: each difference from the
+pre-regeneration row is traceable to the named finding beside it.
 
 \begingroup
 \small
@@ -549,24 +748,133 @@ never used at this leg) \textbf{and $\Abr$ (br-i)--(br-v)}. &
 \addlinespace
 
 P1 &
-Under \textbf{A1, A2$'$, A3, A4, A6, A7$'$ (on-path injective), D1 by statement, the
-no-feedback timing read with the flag-terminates-the-pooled-round clause, the
-definitional round-2 action-set hypothesis} (the flagged-round action set \emph{is}
-the plan-generated set $\{Q^F_{j'}(s)\}$ over menu elements agreeing with $j$ on
-everything already played --- \emph{not} a closure condition, which is jointly
-unsatisfiable with finiteness by cardinality), \textbf{$m_0\ge0$, and the
-blockholder-objective definition $U_j$}: a cutoff PBE over complete contingent plans
-exists --- $k^\star\in\Theta$ with $k^\star=\Tmap(k^\star;\vartheta)$, prices at
-their inner fixed points, Bayes-consistent on-path beliefs, off-path beliefs as
-limits of full-support perturbations over \emph{plans}, the entry rule, and a
-sequentially optimal flagged component. \textbf{A5 is not assumed}: its existence and
-uniqueness content is derived from $m_0\ge0$. \textbf{At any such equilibrium at
-which A8 holds}, both cells carry strictly positive probability and are on path; for
-A8's restatement as a single signal threshold add \textbf{H-ord} (Voice stake
-monotonicity across plans) and the upper-set engagement-flag hypothesis. A8 is a
-condition \emph{on the fixed point exhibited}: existence of an equilibrium \emph{at
-which} A8 holds is not claimed. Uniqueness is not claimed. &
-\textbf{CONJECTURE} \\
+Under \textbf{A1, A2$'$, A3, A4, A6, A7-J (joint tuple injectivity --- the joint
+$(j,s)$ form of A7 above, on the whole flagged-pair set $\{(j,s):D_j=1\}$
+\emph{including pairs no cutoff vector selects}; strictly stronger than the on-path
+A7$'$, and the form the proof consumes where it pins \emph{off-path} flagged beliefs.
+Amended from A7$'$ 2026-08-25: the pre-review row carried the on-path form while
+\texttt{proofs/P1\_proof.md} h.7 consumed the joint form, so the two 2026-08-21 passes
+covered two different statements), D1 by statement \emph{with its own hypotheses
+travelling}, the no-feedback timing read with the flag-terminates-the-pooled-round
+clause, the definitional round-2 action-set hypothesis} (the flagged-round action set
+\textbf{is} the plan-generated set $\{Q^F_{j'}(s)\}$ over menu elements agreeing with
+$j$ on everything already played --- \emph{not} a closure condition; the closure form is
+jointly unsatisfiable with finiteness by cardinality), &
+\textbf{PROVED} \\
+
+&
+\textbf{continuation-cost equivalence on that same set} (the proof's h.16, added
+2026-08-25: menu elements sharing $j$'s pooled path up to $f_j(s)$ with $a_{j'}=a_j$
+carry the same engagement cost, $C_{j'}(s)=C_j(s)$. \textbf{Trivially true on any
+single-Voice menu}, where that set is a singleton. What it buys, \textbf{under the
+plan-completion reading of the $C_j(s)$ timing convention below} --- under the sunk
+reading the continuation is constant on the deviation set with no clause at all and h.16
+is not consumed, so the hypothesis is listed because the row does not commit to a
+reading, and it is what makes the conclusion hold under both: on that set the flagged
+price does not move and the order cancels, so the engagement cost is the only thing that
+can differ between staying and deviating --- and at a flagged pair the cutoff vector does
+\textbf{not} select there is no date-0 optimality to fall back on, so without this clause
+the deviator takes the class member with the smallest cost and item (ii) of the
+equilibrium notion fails at that node. Live only on menus with two or more Voice plans
+sharing a pooled path), &
+\\
+
+&
+\textbf{$m_0\ge0$, the card's \S4.3 blockholder-objective definition $U_j$} (whose
+$-a_jC_j(s)$ display \texttt{proofs/P1\_proof.md} h.14 now carries verbatim, which is
+what the row's ``displayed there in full'' asserts; \textbf{timing convention, stated
+here because the card's \S4.3 does not date $C_j(s)$}: the engagement cost may be booked
+either on completing the plan or as sunk once the filing has landed --- the two give the
+same round-2 comparison on the round-2 deviation set, which is what the continuation-cost
+clause above buys, so the result does not depend on the choice), \textbf{and the card's
+\S4.1--\S4.3 table restrictions the argument consumes --- in particular \S4.3's $Y$ row
+with the price convention $P(\mathcal I)=\Eop[Y\mid\mathcal I]$ and the entry row for
+$p(\mathcal I)$; \S4.2's Borel-regularity clause for \emph{every} plan including Exit
+(needed directly, not via D1, whose conclusion is measurability of $D$ and the cell map);
+\S4.2's $D=1\Rightarrow a=1$, the $c/f/B^F/Q^F/b^*$ definitions and $\partial_sB_j\ge0$
+for Voice; and \S4.1's distributional forms with $\Delta_m>0$}: &
+\\
+
+&
+\textbf{at every $\kappa\in[0,1]$}, a cutoff PBE over complete contingent plans exists
+--- $k^\star\in\Theta$ with $k^\star=\Tmap(k^\star;\vartheta)$, prices at their inner
+fixed points, Bayes-consistent on-path beliefs, off-path beliefs as limits of
+\textbf{one} full-support perturbation family over \textbf{plans --- fixed once and used
+to define the price system at every $k\in\Theta$, not only at $k^\star$, since the
+deviation payoffs that define $\Tmap$ read off-path pooled histories --- at every pooled
+history reachable \emph{with positive probability} under some plan profile} (at the
+boundary values $\kappa\in\{0,1\}$ the card's \S4.1 noise support degenerates to $\{0\}$
+and to $\{\pm\bar z\}$ respectively; a pooled history needing a mark outside it is null
+under \emph{every} profile, so it is off nature's path rather than off the players',
+carries no clause-(vi) requirement, and is read by no step. This is the extension route,
+not the restriction one: no cut to $\kappa\in[0,1)$ is taken, and the pre-repair claim of
+a belief at \emph{every} pooled history --- false at $\kappa=1$ --- is withdrawn);
+\textbf{flagged-tuple beliefs supplied by A7-J} at every tuple in the image of the
+flagged-pair map $(j,s)\mapsto(B^F_j,Q^F_j,a_j)$ --- on path and off, since the image
+includes tuples generated by pairs the cutoff vector does not select --- as the point
+mass at the unique generating pair, which is a \textbf{version} of the conditional law at
+every image tuple (the signal is continuous, so a version is what a conditional law is;
+any a.e.-equal version serves clauses (iii)/(vi) of the equilibrium notion equally) and
+is the version this equilibrium selects, with no tuple outside that image arising because
+the round-2 action-set hypothesis leaves no off-menu order to produce one; the card's
+\S4.3 entry rule; and \textbf{a sequentially optimal flagged component at every flagged
+pair $(j,s)$, whether or not the cutoff vector selects it} --- the flagged price is
+invariant across the round-2 deviation set (A7-J pins the belief at the same $s$ and
+$\pi=1$), so the order cancels out of the continuation and the continuation-cost clause
+makes what remains constant. \textbf{A5 is not assumed}: its existence and uniqueness
+content is derived from $m_0\ge0$, its continuity content from the same scalar reduction,
+and its measurable-selection content from A7-J plus the card's \S4.2 Borel clause (see
+A5). \textbf{A6 is read} as asserting that $\Tmap$ --- under a named
+tie-break-and-corner selection, without which a correspondence cannot be called
+continuous --- is a well-defined single-valued continuous self-map of $\Theta$, with
+$\Theta$ nonempty per the card's \S4.5. \textbf{At any such equilibrium at which A8
+holds}, both cells carry strictly positive probability and are on path; for A8's
+restatement as a single signal threshold add \textbf{H-ord} (Voice stake monotonicity
+across plans --- the writer's h.13, \textbf{renamed here to avoid collision with the
+objective row}) and the upper-set engagement-flag hypothesis. A8 is a condition
+\emph{on the fixed point exhibited}: existence of an equilibrium \emph{at which} A8 holds
+is not claimed. Uniqueness is not claimed. &
+\\
+
+&
+\textbf{Evidence.} Statement \texttt{threads/thread1\_turn1\_answer.md}; proof
+\texttt{proofs/P1\_proof.md} (repairs applied through P1-R35, ticket 35 rounds 1--2,
+close-out and confirm-pass sweep); \textbf{proof-read PASS 2026-08-25}
+\texttt{threads/2026-08-25\_P1\_proofread\_retry.md} (\textbf{0 FAIL}; 3 REPAIRs $+$ 4
+OBSERVATIONs, all applied; the reader verified the Step 12 lemma part by part on the
+merits and records that his own round-1 FAIL witness is refuted --- round-1 FAIL and the
+sanctioned repair round at \texttt{threads/2026-08-25\_P1\_proofread\_round1.md});
+\textbf{re-derivation PASS-WITH-CHANGES 2026-08-25}
+\texttt{rederive/P1\_rederivation\_2026-08-25.md} (fresh agent, card row alone; changes
+1--5 folded into this statement cell --- the card's \S4.1--\S4.3 citation block, D1's
+hypotheses travelling with the three-part A5 sentence, the
+one-family/every-$k$/positive-probability off-path clause, A6's tie-break-and-corner
+reading, the $C_j$ timing convention; \textbf{change 6 withheld for Austin} --- a
+proposed OPEN item on whether A6's continuity of $\Tmap$ is satisfiable at the collapsed
+cutoff vectors the equilibrium notion admits; \textbf{ruled 2026-08-27}: answered rather
+than filed OPEN --- item 4 of the open list under \emph{What this note does not claim}
+and the A6/A3 evidence notes above carry the panel record, no label moved).
+\textbf{The 2026-08-21 chain is retained below and did not satisfy the gate for the
+recorded statement}: proof-read PASS 2026-08-21
+\texttt{threads/2026-08-21\_batch1\_proofread\_audit.md} \S4 (0 FAIL; P1-R1\dots R8;
+inner fixed point executed on 20k random draws --- 0 multiplicity, 0 sign failures) and
+re-derivation PASS 2026-08-21 (PROVED-WITH-CHANGES)
+\texttt{rederive/P1\_rederivation.md} (changes C1--C8) covered \textbf{two different
+statements} --- the proof's h.7 consumed the joint injective form of A7 while the row and
+re-derivation carried the on-path form --- which is what the 2026-08-23 demotion turned
+on, together with Step 12's missing continuation-cost clause and the false positivity
+claim at $\kappa=1$; all three are repaired and independently reproduced by the
+2026-08-25 re-derivation. \textbf{Numerical status, stated honestly and separately from
+the label (ticket 34, \texttt{quality\_reports/fixes/t2\_p1\_fournode\_recheck.json}):}
+the four sweep-unresolved nodes
+($\kappa\in\{0.15,0.85\}\times(\tau,T)\in\{(0.05,5),(0.075,1)\}$) remain \textbf{STILL
+UNRESOLVED after 30 seeds each} --- best payoff-scale residual
+$3.1\times10^{-4}$--$1.5\times10^{-3}$ against a $10^{-9}$ criterion, best cutoff-scale
+residual $10^{-14}$--$10^{-11}$; the A3 and A6 proxies pass at every achieving seed.
+\textbf{UNCHECKED}: existence at those four nodes is neither claimed nor denied by this
+evidence, and the label rests on the proof plus the two 2026-08-25 passes, not on the
+grid. &
+\\
 \addlinespace
 
 T1 &
@@ -627,6 +935,7 @@ independent re-derivation may move one.
 
 %==============================================================================
 \subsection{Three known facts on file}
+\label{sec:facts}
 %==============================================================================
 
 These are facts the record carries, not claims the model makes. They are the reason
@@ -652,9 +961,9 @@ partial equilibrium), re-executed in \texttt{quality\_reports/fixes/t1\_o1\_reru
 with every committed number reproducing to the last printed digit; it is not the
 two-round build.
 
-\paragraph{2. Whether the implemented two-round pooled cell satisfies $\Atau$ is OPEN
-at baseline.} Two executed diagnostics are informative but neither decides the
-support condition, and both are retained without smoothing.
+\paragraph{2. Whether the implemented two-round pooled cell satisfies $\Atau$: at the
+implemented calibration it FAILS.} Two executed diagnostics are informative but
+neither decides the support condition, and both are retained without smoothing.
 \begin{itemize}
 \item \texttt{t2\_l2\_check.json}, check \texttt{l2\_placebo\_M\_P\_sign\_A\_tau}:
   \textbf{FAIL} as a sign placebo. The enumerated pooled $M_P$ is \emph{hump-shaped}
@@ -672,9 +981,15 @@ support condition, and both are retained without smoothing.
   smallest $\bar\pi$ nodes, well inside the $5\%$ criterion. This rejects the
   hard-coded calibration, not $\Atau$'s general support representation.
 \end{itemize}
-The decisive support-enumeration check is ticket 33. Until it lands, $\Atau$'s
-applicability at the implemented pooled cell remains OPEN; the executed diagnostics
-are test-design artifacts, not a wiring error or a theorem failure.
+The decisive support-enumeration check is ticket 33, and it has landed: at the
+implemented calibration the support condition \textbf{FAILS}, at every non-degenerate
+node, while the $\bar\pi$ half of ($\tau$-ii) holds. The measurement is
+Section~\ref{sec:hyp}'s $\Atau$ evidence note, and it moved no label. The two
+diagnostics above remain test-design artifacts, not a wiring error or a theorem
+failure --- and neither of them is the test that decided it. What stays open is
+$\Atau$'s \textbf{domain}: a different menu, a different $H$ or a different
+calibration could still satisfy the support condition (item 1 of the open list under
+\emph{What this note does not claim}).
 
 \paragraph{3. L4's sign predictions hold numerically with zero violations.}
 \texttt{t2\_l4\_check.json} reports 10 checks, 0 failures. Across all 16 tightening
@@ -688,8 +1003,11 @@ exactly zero across 71 grid points, which is what the no-feedback timing predict
 
 \paragraph{What the pair of facts means.} The chord mechanism is
 \textbf{hypothesis-bound}: it needs $\Atau$, whose applicability at the implemented
-pooled cell is OPEN. The threshold phenomenon is \textbf{not}: the reclassification
-legs of L4 are unconditional, and they hold numerically without exception.
+pooled cell is now answered --- it \textbf{fails} at this calibration, no label moved,
+so L3, L4 leg 3 and T1 Part B stay PROVED as conditionals that say nothing about the
+implemented cell here; whether $\Atau$ has a domain that fits stays open. The
+threshold phenomenon is \textbf{not} hypothesis-bound: the reclassification legs of L4
+are unconditional, and they hold numerically without exception.
 
 %==============================================================================
 \section{What this note does not claim}
@@ -705,7 +1023,7 @@ manuscript's hump result survives; that the prior calibration
 ($\Omega\approx0.037$) is economically meaningful; any empirical value for
 $\omega_a$.
 
-Three items are explicitly open:
+Three items are explicitly open \emph{(a fourth, item 4, added 2026-08-27)}:
 \begin{enumerate}
 \item \textbf{Whether the two-round pooled cell satisfies $\Atau$ --- OPEN.} L3
   proves the representation's entire remaining bite is the support condition,
@@ -722,6 +1040,42 @@ Three items are explicitly open:
 \item \textbf{O-1 is a disclosure-regime analogy, not a window-margin test} (fact 1
   above). The genuine window-margin record is \texttt{t2\_t1\_check} block 4, with
   $W_TC_T<1$ at every checked node at this calibration.
+\item \textbf{Whether A6's continuity of $\Tmap$ holds for the declared construction ---
+  ANSWERED IN SUBSTANCE 2026-08-27 (panel evidence; locus corrected; the open remainder
+  is scoped below).} The re-derivation's withheld change 6 proposed filing this as OPEN
+  at collapsed cutoff vectors. Ruled on Austin's 2026-08-27 authorization after a
+  two-agent opposed-brief panel (substantiate vs defuse) with orchestrator adjudication
+  --- the briefs \textbf{converged on every load-bearing point} and
+  \textbf{cross-replicated the decisive measurement} (the same three $\Tmap_2$ jumps,
+  independent scripts, 3 s.f. agreement). \emph{Answered:} the discontinuity mechanism is
+  real and reaches $\Tmap$ with non-vanishing weight (the vanishing-mass defusal is
+  refuted, twice independently); the locus is the \textbf{cell-edge hyperplanes $\cup$
+  sole-generator collapse faces}, not the collapsed vectors as such; the implemented
+  menu's Hold-collapse face is measured clean, while A6 read with the $\Theta$
+  Steps 13--14 construct \textbf{fails at the implemented calibration} (measured $\Tmap_2$
+  jumps $6.3\times10^{-3}$--$2.83\times10^{-2}$ at the baseline node, up to $0.16$ at
+  $\kappa=0.15$, against a $10^{-10}$ tolerance); and on $J\ge3$ menus where a middle plan
+  owns a reachable exclusive pooled history, \textbf{no $k$-independent perturbation
+  family} restores continuity at more than one collapse-face point (continuum-face lemma;
+  panel derivation, not gate-checked), so on that menu class P1 asserts nothing --- the
+  $\Atau$ pattern. \emph{Still OPEN:} (a) whether a constructive $\Theta$ --- or the
+  Step 18 $t$-constrained Kakutani route already on file, which removes h.6's continuity
+  half --- replaces h.6 in the statement; the repair is identified, not executed; (b) the
+  complementary menu class (every middle plan's histories shared with a survivor --- the
+  implemented menu is one such for its collapse face), where the collapse-face clause may
+  be satisfiable; (c) nonexistence, which is neither claimed nor shown anywhere ---
+  $23/27$ sweep nodes converge and two fixed points survive even at the worst probed node.
+  \emph{Separately recorded, deliberately not folded in} (different hypothesis, different
+  route): A3's own failure at this calibration and the candidate ticket-34 account --- the
+  A3 evidence note in Section~\ref{sec:hyp}. \textbf{No label moves on any of this}; P1's
+  label rests on the proof and the two 2026-08-25 passes and is untouched. Evidence: the
+  A6 note in Section~\ref{sec:hyp};
+  \texttt{threads/\allowbreak 2026-08-27\_A6\_panel\_substantiate.md} /
+  \texttt{threads/\allowbreak 2026-08-27\_A6\_panel\_defuse.md};
+  \texttt{quality\_reports/\allowbreak fixes/\allowbreak a6\_panel\_probes\_2026-08-27/}.
+  Follow-ups on file, not
+  started: curate the decisive probes into t2 checks; gate-check the continuum-face lemma
+  only if it is ever promoted.
 \end{enumerate}
 
 %==============================================================================
@@ -950,7 +1304,7 @@ L2's own content passes exactly: the flagged range of $M_F$ over 19 $\kappa$ val
 is $0$ and its $\kappa$-derivatives are $0$ --- the flagged path never touches the
 $\kappa$-dependent array. Two placebos confirm the pooled side does move.
 \textbf{The failure is the fifth check}, an \emph{ancillary} $\Atau$-orientation
-placebo: see Section~6, fact 2. Because $\Atau$ does not sign $\Akap$ (Example A has
+placebo: see Section~\ref{sec:facts}, fact 2. Because $\Atau$ does not sign $\Akap$ (Example A has
 $\Akap=-1/4$), the placebo is misformulated and does not decide $\Atau$'s support
 condition; it is not a failure of L2. \\
 \addlinespace
@@ -966,8 +1320,8 @@ $\Atau$'s applicability. \\
 \addlinespace
 
 \texttt{t2\_l4\_check} & \textbf{PASS} \newline 10 checks, 0 FAIL &
-All three sign legs with \textbf{zero violations} over 16 tightening steps (Section~6,
-fact 3); the exact reclassification identity at $10^{-16}$; flatness in $\kappa$ at
+All three sign legs with \textbf{zero violations} over 16 tightening steps
+(Section~\ref{sec:facts}, fact 3); the exact reclassification identity at $10^{-16}$; flatness in $\kappa$ at
 exactly $0$ over 71 nodes; the $\tau$-grid spanning a ninefold range in $\omega_a$;
 L3's quadratic corollary within $2.1\%$. Prediction 5 (the size of the $\Akap$
 channel) is \emph{reported, not gated}, by the request's own instruction: median
@@ -993,9 +1347,12 @@ cutoff vector. All 27 nodes do converge on the cutoff-scale criterion. The cause
 is undiagnosed --- candidates are a failure of A3's single crossing at those
 $\kappa$ extremes (the adjacent-plan payoff gap is a sawtooth on this menu, and
 single crossing is a calibration fact, not structural) or a genuine boundary
-non-existence outside the repaired P1 hypothesis set; P1 is \textbf{CONJECTURE} after
-the form-mismatch, sunk-cost, and $\kappa=1$ review findings, and the four nodes are
-named, not smoothed. \\
+non-existence outside the repaired P1 hypothesis set. The check is retained as it ran,
+and \textbf{P1 is PROVED}: it was demoted on 2026-08-23 on the form-mismatch,
+sunk-cost and $\kappa=1$ review findings, and restored on 2026-08-25 on its ticket-35
+repair, the amended statement carried through a fresh two-pass gate; the 2026-08-21
+chain is retained and did not satisfy the gate for the recorded statement. The four
+nodes are named, not smoothed. \\
 \addlinespace
 
 \texttt{t2\_t1\_check} & \textbf{FAIL} (1 of 9) &
@@ -1004,7 +1361,7 @@ $1.2\times10^{-16}$ and in total variation to $2.2\times10^{-19}$; $\Omega$ is f
 $\kappa$ at $0$ residual; the threshold margin, the window margin, the O-1 benchmark
 and the composition factors all pass; $H=12$ robustness passes.
 \textbf{The failure is block 3}, the chord-magnitude route with hard-coded Example-A
-coefficient $0.25$: see Section~6, fact 2. It is not a refutation of $\Atau$'s
+coefficient $0.25$: see Section~\ref{sec:facts}, fact 2. It is not a refutation of $\Atau$'s
 general support representation. One check is \emph{vacuous} (the local form, which
 needs a smooth window interpolation the integer calendar does not provide). \\
 \addlinespace
@@ -1091,8 +1448,8 @@ $\tau=0.05$ (the statutory 13D 5\%):
 \vspace{2pt}
 \noindent\footnotesize\raggedright
 Sources, all in the \texttt{v4-theory} worktree:
-\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-23, post-review
-repairs) for Sections 1--6 and 7;
+\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-27, A6 panel
+resolution) for Sections 1--6 and 7;
 \texttt{research/model\_v4/LABEL\_LEDGER.md} for the labels;
 \texttt{research/model\_v4/proofs/} and \texttt{research/model\_v4/rederive/} for the
 two-pass evidence chains;
