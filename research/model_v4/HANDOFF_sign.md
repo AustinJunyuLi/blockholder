@@ -6,7 +6,8 @@ in full and not overwritten. §8 is the **two-round model** entry (`numerical_v4
 2026-08-21, status **VERIFIED** (independent re-run of all source scripts 2026-08-22:
 ALL REPRODUCE, bit-identical up to timing fields — `quality_reports/fixes/t2_rerun_verify_note.md`).
 **The two entries carry opposite signs, and §8.1 says why both are honest.**
-**Date: 2026-08-22.** Tickets 05 (T1) and 30.
+**Date: 2026-08-22.** Tickets 05 (T1) and 30. **Amended 2026-08-27 — see §8.3** (ticket 33:
+`A(τ)` fails at this calibration; no number changes).
 
 This is the empirics lane's only dependency on the theory lane. The empirics lane **may
 consume the numbers below now**, taking the repo-model entry and the two-round entry as
@@ -205,7 +206,7 @@ a shorter window do", and quote the second when writing about the 2024 five-busi
 | **Grid** | κ ∈ [0.15, 0.85], 71 nodes. τ ∈ {0.084627, 0.087884, 0.090764, 0.093376, 0.096028} (quantiles 0.1/0.3/0.5/0.7/0.9 of the seed-equilibrium Voice terminal-stake distribution). `H = 10`, `M = 2`, `T ∈ {5, 10}`. Sensitivity measured as total variation of `Δ^act` over the κ grid. 710 model evaluations, 826,686 feasible histories, 0 discarded mass. |
 | **Condition** | **Fixed policies** — cutoffs frozen at the baseline equilibrium at every node (H5); no GE cutoff-shift term is signed here either. **The implemented calibration only**, i.e. `k = (1.240576, 1.531022)`, Ω = **13.8396%**, ω_a = `Pr(D=1\|a=1)` = **61.1473%**, `M_F` = **0.552818 pp**, `M_P` = **0.222798 pp**, π̄ = `Pr(a=1\|D=0)` = 10.2061%. |
 | **Corner caveat** | At `H = 10` the long window is the corner `T = H = 10`, which drives `Ω(10)` to **6.81e-04** and makes the comparison corner-vs-interior rather than the two-interior-window comparison the theorem contemplates. The check flags its own result as suspect for exactly this reason (`suspected_forced_attenuation_bug: true` is an audit flag, not a detected bug — `C_T` is computed from independently enumerated `S_P` levels and is never clipped or signed). **The `H = 12` re-run, where `T = 10` is strictly interior, confirms attenuation**: `W_T · C_T` = 0.1099 / 0.1099 / 0.2406 / 0.5772 / 1.0000, with Ω(T=5) = 0.1687 → Ω(T=10) = 0.0289. The 0.9-quantile node returns exactly 1.0 there because the τ ladder stops biting, not because the product crosses. At `H = 12` the enumerated `S_P` is unavailable (8,503,056 × 14 = 1.19e8 exceeds the design's 1e8 gate, respected not overridden), so that column's `C_T` is the chord route. |
-| **Model version** | `numerical_v4` two-round model, built 2026-08-21 on `v4-theory` (ticket 25; current card stamp 2026-08-23 · post-review repairs). The check JSONs' embedded provenance strings read "`0c9185b` / 2026-08-20" — the scripts captured the card stamp field as it stood when their provenance block was templated, not the build commit; params hashes `8ef7c5c2d3896bf8` (checks) / `b4482d7fee83a8e8` (smoke baseline) are the binding identifiers. Design: `research/model_v4/impl_design.md` §13 APPROVED. |
+| **Model version** | `numerical_v4` two-round model, built 2026-08-21 on `v4-theory` (ticket 25; ~~current card stamp 2026-08-23 · post-review repairs~~. **Amended 2026-08-27 (post ticket 33):** current card stamp **2026-08-25 · ticket 35 close-out + ticket 33 evidence note · `0cbdb37`**; citation swap only, no number in this row changes). The check JSONs' embedded provenance strings read "`0c9185b` / 2026-08-20" — the scripts captured the card stamp field as it stood when their provenance block was templated, not the build commit; params hashes `8ef7c5c2d3896bf8` (checks) / `b4482d7fee83a8e8` (smoke baseline) are the binding identifiers. Design: `research/model_v4/impl_design.md` §13 APPROVED. |
 | **Evidence** | `quality_reports/fixes/t2_t1_check.json` (blocks 1–6 + `t1_H12_window_robustness`), `quality_reports/fixes/t2_l2_check.json`, `numerical_v4/smoke_output.txt`. |
 
 ### 8.2 Supporting checks that passed
@@ -242,8 +243,75 @@ a shorter window do", and quote the second when writing about the 2024 five-busi
 **Amended 2026-08-23 (post-review):** The two recorded diagnostic failures do not establish that
 the implemented pooled cell violates A($\tau$). The decisive support-enumeration check is ticket 33.
 
-**The applicability of the chord mechanism `A(τ)` at the implemented pooled cell is OPEN.**
+**The applicability of the chord mechanism `A(τ)` at the implemented pooled cell is ~~OPEN~~
+[SUPERSEDED 2026-08-27: see the amendment immediately below].**
 The two recorded failures were test-design artifacts, and neither was smoothed.
+
+**Amended 2026-08-27 (post ticket 33): the decisive check has run, and `A(τ)` FAILS at the
+implemented calibration.** Ticket 33 executed the support enumeration this section queued. It
+enumerated the pooled cell's engagement-posterior law **exactly** (all `4^(H+1)` = 4,194,304
+order-flow paths, the same law `pooled_premium` integrates) at **200 nodes**: κ ∈ {0.05, …, 0.95}
+× the five frozen τ percentiles × `T` ∈ {1, 2, 5, 10}, frozen policies, `H = 10`. Two pre-gates
+pass first, so the object measured is `A(τ)`'s own: an independent re-enumeration reproduces
+`pooled_pass` to **0.0 exactly**, and the enumerated mean `E[Π]` matches the pooled share
+`π̄_pr = Pr(a=1|D=0)` to **1.7e-16** (`n_gate_fail` = 0). Neither Example A's `|A'_κ| = 0.25` nor
+level symmetry is imposed anywhere, and `π̄` is read as the upper support point throughout.
+**Top-level verdict: `FAILS at calibration`.** 20 nodes are degenerate (`π̄_pr = 0`: no engaging
+atom survives into the pooled cell, `A(τ)` holds vacuously and the node decides nothing). At **all
+180 non-degenerate nodes `A(τ)` fails; at none does it hold.**
+
+- **The support half of (τ-ii) fails, and not narrowly.** The support carries **23 to 767 distinct
+  posterior values, never three** (0 of 180 nodes), with **no mass at `π̄/2` at any node**
+  (`A_{1/2} ≡ 0`) and **0.57% to 91.8%** of the pooled mass sitting off `{0, π̄/2, π̄}`. The atoms
+  are not dust: coarsening the cluster tolerance to 1e-3 still leaves **6 to 332** of them. And the
+  interior atoms **move with κ**, which is the clause's other half: the two-sided Hausdorff distance
+  between adjacent-κ support sets reaches **0.4608** against `A(τ)`'s predicted < 1e-12, at **0 of
+  18** series.
+- **The `π̄` half of (τ-ii) HOLDS.** `π̄ = 1` to **1.5e-13** at every non-degenerate node, and κ-free
+  to the same order, **18 of 18** series. That is a separate finding and not a partial rescue.
+- **The derivative pattern fails independently of the support.** `A_0' = A_1'` holds at **0 of 180**
+  nodes: `|A_0' − A_1'|` ∈ **[0.041, 2.306]** against a predicted < 1e-10, and both derivatives
+  change sign over the grid, which independently corroborates the placebo bullet below that `A(τ)`
+  signs nothing about `A'_κ`.
+- **The chord identity fails.** With `A'_κ` **recovered** from the enumerated weights and `π̄` the
+  **actual** upper support point, the residual runs **0.0013 to 0.0717 (up to 7.17 premium pp)**
+  against < 1e-10, at 0 of 180 nodes and on the most favourable of three kernel conventions. The
+  `|A'_κ|` the identity would require, **[0.00023, 0.392]**, is **disjoint** from block 3's implied
+  **[0.997, 1.158]** in the bullet below; the two are different objects, and the distance between
+  them measures what block 3's level-symmetry assumption was doing.
+
+**What moves, and what does not.** **NUMERICAL-class applicability evidence at one calibration.
+No label moves, and none is licensed.** `A(τ)` is an assumption, not a labelled claim. **L3, L4
+leg 3 and T1 Part B stay PROVED**, as conditionals, with their proofs untouched; what is now on
+record is that their antecedent is **not satisfied by the implemented pooled cell at this
+calibration**, so at this calibration those legs say nothing about that cell. The question stays
+open **as a question about `A(τ)`'s domain**: a different menu, a different `H`, or a different
+calibration could still satisfy the support condition. Coverage caveat carried forward: the 18
+non-degenerate series are only **6 distinct pooled cells** (`T = 1` and `T = 2` induce identical
+`D`-partitions at every τ; `T = 5` joins them at the three highest τ percentiles and repeats itself
+at the two lowest; all five `T = 10` quantiles coincide), and all six fail; the 50 `T = 10` nodes
+sit at Ω = 0.000681, below `MIN_CELL_MASS`, the same corner §8.1 already discloses.
+
+**What this amendment does not change.** Everything below is retained with nothing deleted. The
+only marks added below are a strike on one superseded clause in the block-3 bullet and two dated
+bracket pointers back to this amendment, one replacing that clause and one in "What this costs".
+No number below is altered or removed. The two prior "failures" were test-design artifacts,
+and ticket 33 confirms it: this is the first test that measures `A(τ)`'s own object. Consequences
+**(i)** and **(ii)** stand unchanged and are, if anything, firmer. Ticket 33 ran at `H = 10` only, so
+it says nothing either way about the `H = 12` column, whose `C_T` still travels the chord route and
+is still directional corroboration rather than a second independent magnitude.
+
+**Record.** `quality_reports/fixes/t2_atau_support_check.json` (top-level `verdict` field
+`FAILS at calibration`; 200 nodes, 920 pooled enumerations, 1002 s; node counts in
+`verdict_detail`, not in the check-level `n_fail`) and its script
+`quality_reports/fixes/t2_atau_support_check.py`. The landed narrative summary, which this
+amendment follows and does not extend, is `research/model_v4/MODEL_CARD.md` §5, `A(τ)` block,
+"*Evidence note added 2026-08-25 (ticket 33)*".
+
+**One further item for the empirics reader.** P1 was demoted to CONJECTURE on 2026-08-23 and
+restored to **PROVED** on 2026-08-25 through the fresh two-pass gate (adversarial proof-read PASS
+plus an independent statements-only re-derivation PASS-WITH-CHANGES); `research/model_v4/LABEL_LEDGER.md` and
+the card's P1 row carry the record.
 
 - **`t2_t1` block 3 (magnitude).** The residual `|S_P − Δ_m |A'_κ| |C_h(π̄)||` is
   **0.006279 (0.628 premium pp)** against a 1e-10 tolerance — a **relative** residual of up
@@ -252,7 +320,10 @@ The two recorded failures were test-design artifacts, and neither was smoothed.
   enumerated sensitivity is **[0.997, 1.158]**. The chord's *shape* is fine —
   `|C_h(π̄)|/π̄²` is constant to **0.48%** between the two smallest π̄ nodes, well inside 5%.
   Thus this check rejects the hard-coded Example-A calibration, not A($\tau$)'s general support
-  representation; the coefficient level remains open.
+  representation; ~~the coefficient level remains open~~ [**Amended 2026-08-27 (post ticket 33):**
+  ticket 33 recovers `A'_κ` from the enumerated weights, and the level the chord identity requires,
+  [0.00023, 0.392], is disjoint from the [0.997, 1.158] on this line; the support representation
+  itself now fails at this calibration. See the amendment above.].
 - **`t2_l2` placebo (orientation).** The placebo demanded `∂κ M_P ≤ 0` from the maintained
   `C_h(π̄) ≤ 0`, but A($\tau$) does not sign `A'_κ`. The card's own Example A has
   `A'_κ = -1/4`, so the demanded sign is not implied by A($\tau$). The enumerated pooled `M_P`
@@ -266,7 +337,9 @@ to `C_τ` — **remain conditional and are not mechanically validated by these d
 numbers stand on the executed enumeration; the theorems stand on their stated hypotheses; the
 two are not currently joined at this calibration. This is an open applicability question, **not**
 a wiring error: the design ruled from the outset that the enumeration never imposes `A(τ)`, so
-the queued support check is the appropriate test. Two consequences
+the queued support check is the appropriate test. [**Amended 2026-08-27 (post ticket 33):** it ran;
+the verdict is in the amendment above, and it is the stronger statement that the antecedent is not
+satisfied here.] Two consequences
 for the empirics lane: **(i)** do not write any mechanism sentence that leans on the chord
 formula; **(ii)** the `H = 12` column's `C_T` travels the chord route, so treat it as
 directional corroboration of the corner audit, not as a second independent magnitude.
