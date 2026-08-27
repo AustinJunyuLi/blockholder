@@ -33,7 +33,11 @@ The department-review deliverable: a full draft (draft_v3) with a clean core mod
 One empirical estimate whose design and data survive the referee checklist and that can be re-run from files in hand.
 
 **Honesty label**:
-The tag every result carries: PROVED, NUMERICAL (verified on a grid), ESTIMATED (an empirical estimate with a standard error and a stated design), or CONJECTURE. Labels are never weakened by editing. Region-certified means PROVED with the region named in the hypothesis; it is not a separate label.
+The tag every result carries: PROVED, NUMERICAL (verified on a grid), ESTIMATED (an empirical estimate with a standard error and a stated design), or CONJECTURE. Labels are never weakened by editing. A dominance-and-contraction node (see entry) is not a fifth label; region-level claims enter only as PROVED with the region named in the hypothesis.
+
+**Dominance-and-contraction node**:
+A grid node where the executed C1 check verifies the pointwise inequalities L_R < 1 and eta_r > 0 with supporting diagnostics. Not a fifth honesty label and not verification of the full C1 antecedent; a named-region promotion is a separate, unclaimed step.
+_Avoid_: certified node, certificate, region-certified
 
 ### The model
 
@@ -63,6 +67,14 @@ _Avoid_: key, keys
 The part of the disclosure rule fixing how long after crossing the threshold the filing may wait (10 → 5 business days on 2024-02-05). Moving it changes how much trading happens before the flag.
 _Avoid_: key, keys
 
+**Disclosure-regime margin**:
+The comparison that toggles whether the market sees the flag, at a fixed filing window (the referee's O-1 experiment). Distinct from the window margin, which moves T; a regime-comparison composition ratio can exceed one and measures nothing about T.
+_Avoid_: window test (when a regime comparison is meant)
+
+**A7′ / A7-J (filing sufficiency, two forms)**:
+The two injective forms of assumption A7. A7′ (on-path composed target): the composed terminal target s ↦ b*_{j(s)}(s) is strictly increasing for every cutoff vector — an on-path condition. A7-J (joint tuple injectivity): (j,s) ↦ (B^F, Q^F, a) is injective on the whole flagged-pair set, including pairs no cutoff vector selects — strictly stronger, and the form P1's proof consumes. Name the form every time; the 2026-08 P1 demotion was a form mismatch.
+_Avoid_: bare A7 where the form matters, injectivity (unqualified)
+
 **Liquidity**:
 Noise-trading intensity, the model's κ; empirically an Amihud-type illiquidity measure inverted. The paper's driving variable.
 _Avoid_: depth, volume, turnover (unless that is the measured proxy)
@@ -80,7 +92,7 @@ The blockholder's four actions in draft_v2: sell; stay passive; engage below the
 The claim (draft_v2's T2) that a stricter disclosure rule lowers how much control outcomes move with liquidity. Its sign depends on the margin (threshold vs window).
 
 **Weight effect / Composition effect**:
-The two halves of what a tighter rule does when it moves mass from the pooled state to the flagged one. The weight effect lowers the pooled state's share and so attenuates; the composition effect changes who is left in the pool, and its sign depends on the margin. Provisional — to be confirmed by the theory lane.
+The two halves of what a tighter rule does when it moves mass from the pooled state to the flagged one. The weight effect lowers the pooled state's share and so attenuates; the composition effect changes who is left in the pool, and its sign depends on the margin. Confirmed by the theory lane (T1, PROVED at fixed policies, 2026-08-21): threshold-margin attenuation is unconditional (both ratios in [0,1]); the window margin is an iff — W_T·C_T ≤ 1 — with the composition ratio unsigned.
 
 **Hump**:
 The claim (draft_v2's R1) that minority gains from control are non-monotone in liquidity. Certified only on a grid; disposable.
