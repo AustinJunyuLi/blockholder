@@ -43,3 +43,21 @@ report + session log; `749ec7b`/`1de1c32` log-hash and wording fills).
   repo-root-relative.
 - **Next:** the GPT re-review bundles with this output (Austin's courier moment — not built here);
   then C-series (17–20).
+
+**2026-08-28 — GPT re-review couriered and closed. All eleven labels STAND, zero demotions.**
+
+The bundle went out (`threads/gpt_rereview_bundle_2026-08-28.md`), the response is filed verbatim
+(`threads/2026-08-28_gpt_rereview.md`), the in-house audit scored every finding against primary
+records (`threads/2026-08-28_gpt_rereview_audit.md`: 8 UPHELD — 5 of them section staleness by
+design — 4 NARROWED, 3 REJECTED; no ledger entry), and the upheld wording repairs are applied and
+delta-checked LAND (`59c0dfc` on `v4-theory`, card stamp 2026-08-28 · re-review audit repairs).
+The sections under `sections_v3/` now conform to that stamp; full build 62 pp, all gates zero.
+
+**For ticket 18 (assembly), two notes from the review:**
+- GPT's framing request: describe the conditional results as **benchmark implications** in the
+  abstract, introduction, conclusion, and any numerical discussion — at the implemented
+  calibration the A(τ)/A6/A3 antecedents are measured false, so the conditional theorems are not
+  model predictions there. The sections already carry the caveats adjacent to every statement;
+  the framing request applies to the draft-level prose ticket 18 writes.
+- The `\Tmap` collision note stands (see the 2026-08-27 comment above); `v3_macros.tex` now
+  documents BOTH `\input` orderings' failure modes.
