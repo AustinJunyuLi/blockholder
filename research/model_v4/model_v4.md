@@ -1,6 +1,6 @@
 # The Two-Round Blockholder Disclosure Model — a standalone model note
 
-**v4 theory lane, ticket 30 (T2j). Card stamp 2026-08-27, A6 panel resolution.**
+**v4 theory lane, ticket 30 (T2j). Card stamp 2026-08-28, follow-up curation.**
 
 Markdown mirror of `research/model_v4/model_v4.tex` (same content, same order).
 
@@ -9,12 +9,12 @@ disclosure rule induces, the equilibrium notion, the standing hypotheses, and th
 ledger with its honesty labels. It then records what the v4 model takes from the frozen manuscript
 `draft_v2.tex`, what it simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from `research/model_v4/MODEL_CARD.md`
-(version stamp 2026-08-27, A6 panel resolution, commit `ae9caea`) and
+(version stamp 2026-08-28, follow-up curation, commit `<pending-orchestrator-hash>`) and
 `research/model_v4/LABEL_LEDGER.md`. The card is the single source of truth: where a proof file
 and the card differ, the card wins. The conditionality attached to each result is not decoration.
 It is the result.
 
-Three card events since the 2026-08-23 stamp are carried below. **P1 is restored to PROVED** on
+Four card events since the 2026-08-23 stamp are carried below. **P1 is restored to PROVED** on
 2026-08-25 on its ticket-35 repair — the statement amended to the hypotheses the proof actually
 needs (A7-J in place of A7′, the continuation-cost clause, the $\kappa$ boundary handled by
 extension) and the two-pass gate satisfied afresh by an adversarial proof-read PASS and an
@@ -22,7 +22,11 @@ independent statements-only re-derivation PASS-WITH-CHANGES, both 2026-08-25 and
 who did not write the proof. **A($\tau$)'s block gained ticket 33's dated evidence note** on
 2026-08-25: the support condition FAILS at the implemented calibration. **On 2026-08-27** the A6
 panel ruling (Austin-authorized, opposed-brief panel) added dated evidence notes to A6 and A3 and
-a fourth open item — answered in substance, locus corrected, **no label moves**.
+a fourth open item — answered in substance, locus corrected, **no label moves**. **On 2026-08-28**
+two standing follow-ups landed (again no label moves): the A6 panel's decisive probes are curated
+into executed t2 checks (§5's A6 note, curation note — two wordings corrected, the numbers intact)
+and the ticket-34 candidate account is swept over its other three nodes — the account HOLDS at all
+three (§5's A3 note, sweep note).
 
 ---
 
@@ -261,9 +265,25 @@ UNCHECKED beyond the one node probed: at the $\kappa = 0.15$ node one fixed poin
 the edge where $U_H - U_V$ **jumps through zero without crossing it**, and the panel's residuals
 (payoff $3.06\times10^{-4}$–$1.77\times10^{-3}$ at cutoff residuals of $10^{-11}$-grade) **bracket
 ticket 34's recorded range exactly**; the $k$-direction jump mechanism does **not** explain those
-nodes (no proximity correlation — the substantiate panellist's own recorded negative). No label
-moves — A3 is a hypothesis; P1 stays PROVED as a conditional. Records: the same panel files as the
-A6 note.
+nodes (no proximity correlation — the substantiate panellist's own recorded negative). *Swept
+2026-08-28 over the other three nodes (`quality_reports/fixes/t2_t34_account_sweep.py`/`.json`,
+pre-registered three-way rule): the account **HOLDS at all three**. At $(\kappa{=}0.15, 0.075, 1)$
+and $(\kappa{=}0.85, 0.075, 1)$ a located fixed point sits on an $n(s)$ cell edge —
+$1.460178993$ (offset ${\sim}10^{-13}$, where 10 of the 30 recheck seeds land) and $1.517932397$
+(offset ${\sim}10^{-12}$, reached by **no** seed and found only by the direct edge test) — with
+$U_H - U_V$ **jumping through zero without crossing**. Neither pin is its node's achieving basin:
+their payoff residuals, $1.398\times10^{-3}$ and $1.314\times10^{-3}$, sit above the recorded bests
+$1.059\times10^{-3}$ and $3.061\times10^{-4}$, each equalling the larger one-sided jump to at most
+$2.7\times10^{-4}$ relative — a recorded, non-gating quantity. At $(\kappa{=}0.85, 0.05, 5)$ **no
+pin was found at any candidate edge in $[1.29, 2.11]$**; the achieving basin's worst deviation
+instead sits in the cell immediately above edge $1.583333333$ ($0.0250\,\sigma_s$ from it), where
+the same jump through zero occurs, at a deviation/jump ratio of $0.366$ — inside the pre-registered
+factor of 3. Every pin is $n(s)$-family; the $\tau$-crossing pullbacks yielded none. Probe 5(b)'s
+distances replicate ($0.0258/0.0437/0.0295\,\sigma_s$ vs $0.026/0.044/0.030$). **No node yields a
+second independent fixed point, so node 15's residual bracket does not recur** — criterion (ii)
+rests on reproduction of every recheck basin alone. Diagnostic evidence at one calibration;
+existence at these nodes stays neither claimed nor denied.* No label moves — A3 is a hypothesis; P1
+stays PROVED as a conditional. Records: the same panel files as the A6 note.
 
 **A4 Legal-clock discipline.** $c$ is the first date the path reaches $\tau$; the filing lands exactly
 at $c+T$; filings truthfully reveal stake and purpose; only Voice plans cross in the core.
@@ -329,6 +349,26 @@ is neither claimed nor shown ($23/27$ sweep nodes converge; a discontinuous self
 fixed points). Records: `threads/2026-08-27_A6_panel_substantiate.md`,
 `threads/2026-08-27_A6_panel_defuse.md`; probes `quality_reports/fixes/a6_panel_probes_2026-08-27/`
 (analysis-grade, not curated t2 checks).
+
+*Curation note added 2026-08-28.* The three decisive measurements are now executed t2 checks:
+`quality_reports/fixes/t2_a6_edge_jump_check.py`/`.json` (both panellists' routes replayed at their
+own filed brackets — $\mathcal T_2$ jumps $6.33\times10^{-3}$ / $1.09\times10^{-2}$ /
+$2.83\times10^{-2}$, agreeing across routes to a relative $1.3\times10^{-4}$, controls
+$2.8$–$3.6\times10^{-9}$, $\pm10^{-6}$ robustness intact), `t2_a6_node15_check.py`/`.json` (jump
+$0.1647$, destroyed crossing $+1.0\times10^{-7}\to-6.70\times10^{-2}$, edge fixed point to
+$1.06\times10^{-12}$) and `t2_a6_collapse_face_check.py`/`.json` (pooled prices within
+$4.441\times10^{-16}$). **Every figure these checks touch reproduces; two wordings above are
+corrected, the numbers are not.** The belief snap matches the Step 9(b) prediction to
+$\sim10^{-8}$ at all three edges at the truncation/cancellation crossover bracket $10^{-8}$; at
+the probes' own $10^{-9}$ bracket the first edge still holds ($4.0\times10^{-8}$, Analyst A's
+"7–8 dp"), but the second and third are $1.2\times10^{-7}$ and $1.7\times10^{-7}$ —
+floating-point cancellation over a $10^{-9}$-wide sliver, not a gap in the prediction. And
+"$\mathcal T$ bit-identical" holds for $U$ but not for $\mathcal T_2$, which moves
+$6.66\times10^{-16}$ (3 ulps) at the one $k_1$ where the price signature itself deviates most
+($4.441\times10^{-16}$); invariance holds at the map's own root-finder resolution. The analytic
+weight bound $\min(\kappa/2,1-\kappa)^{d+1}$ is **not** curated — no probe computes it; its
+measured counterpart (the jump entering the adjacent-plan payoff difference undiminished) is.
+**No label moves and none is licensed.**
 
 **A7 / A7′ / A7-J Filing sufficiency.** On flagged histories $(B^F, Q^F, a=1)$ identifies the informed
 component of the selected plan; conditional on it the pooled order-flow residual is pure noise,
@@ -648,8 +688,9 @@ Three items are explicitly open *(a fourth, item 4, added 2026-08-27)*:
    evidence note. **No label moves on any of this**; P1's label rests on the proof and the two
    2026-08-25 passes and is untouched. Evidence: §5's A6 note;
    `threads/2026-08-27_A6_panel_substantiate.md` / `threads/2026-08-27_A6_panel_defuse.md`;
-   `quality_reports/fixes/a6_panel_probes_2026-08-27/`. Follow-ups on file, not started: curate the
-   decisive probes into t2 checks; gate-check the continuum-face lemma only if it is ever promoted.
+   `quality_reports/fixes/a6_panel_probes_2026-08-27/`. Follow-ups: the decisive-probe curation
+   landed 2026-08-28 (§5's A6 note, curation note; the `t2_a6_*` checks); gate-check the
+   continuum-face lemma only if it is ever promoted.
 
 ---
 
@@ -747,8 +788,8 @@ $\tau = 0.05$ (the statutory 13D 5%):
 
 ---
 
-*Sources, all in the `v4-theory` worktree: `research/model_v4/MODEL_CARD.md` (stamp 2026-08-27,
-A6 panel resolution) for §§1–6; `research/model_v4/LABEL_LEDGER.md` for the labels;
+*Sources, all in the `v4-theory` worktree: `research/model_v4/MODEL_CARD.md` (stamp 2026-08-28,
+follow-up curation) for §§1–6; `research/model_v4/LABEL_LEDGER.md` for the labels;
 `research/model_v4/proofs/` and `research/model_v4/rederive/` for the two-pass evidence chains;
 `research/model_v4/HANDOFF_sign.md` and `quality_reports/fixes/t1_o1_rerun_check.json` for the O-1
 numbers; `quality_reports/fixes/t2_*_check.json` for the check inventory;

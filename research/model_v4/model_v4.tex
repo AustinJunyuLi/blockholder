@@ -4,7 +4,8 @@
 %  model.  Ticket 30 (T2j); the deliverable ticket 06 specified.
 %
 %  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp
-%  2026-08-27, A6 panel resolution (commit ae9caea).  Where a proof file
+%  2026-08-28, follow-up curation (commit <pending-orchestrator-hash>).
+%  Where a proof file
 %  and the card differ, the card wins.  Labels are transcribed from
 %  research/model_v4/LABEL_LEDGER.md.
 %
@@ -21,6 +22,11 @@
 %    * On 2026-08-27 the A6 panel ruling (Austin-authorized, opposed-brief
 %      panel) added dated evidence notes to A6 and A3 and a fourth open
 %      item -- answered in substance, locus corrected, NO LABEL MOVES.
+%    * On 2026-08-28 two standing follow-ups landed (again NO LABEL MOVES):
+%      the A6 panel's decisive probes are curated into executed t2 checks
+%      (A6 note, curation note -- two wordings corrected, the numbers
+%      intact), and the ticket-34 candidate account is swept over its other
+%      three nodes -- the account HOLDS at all three (A3 note, sweep note).
 %
 %  Compiles standalone with xelatex.  No bibliography, no \ref into any other
 %  document: every repo file is named as a \texttt{} string, never cited.
@@ -53,7 +59,7 @@
 \title{The Two-Round Blockholder Disclosure Model\\[2pt]
 \large A standalone model note}
 \author{v4 theory lane, ticket 30 (T2j)}
-\date{Card stamp 2026-08-27, A6 panel resolution}
+\date{Card stamp 2026-08-28, follow-up curation}
 
 \begin{document}
 \maketitle
@@ -65,14 +71,14 @@ hypotheses, and the eight-result ledger with its honesty labels. It then records
 what the v4 model takes from the frozen manuscript \texttt{draft\_v2.tex}, what it
 simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from
-\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-27, A6 panel
-resolution) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Three card events
+\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-28, follow-up
+curation) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Four card events
 since the 2026-08-23 stamp are carried below: P1 restored to PROVED on
 2026-08-25 on its ticket-35 repair; $\Atau$'s ticket-33 evidence note of
-2026-08-25; and the 2026-08-27 A6 panel ruling, which moved no label. The card
-is the single source of truth: where a proof file and the card differ, the card
-wins. The conditionality attached to each result is not decoration. It is the
-result.
+2026-08-25; the 2026-08-27 A6 panel ruling; and the 2026-08-28 follow-up
+curation --- the last two moving no label. The card is the single source of
+truth: where a proof file and the card differ, the card wins. The conditionality
+attached to each result is not decoration. It is the result.
 \end{abstract}
 
 %==============================================================================
@@ -359,9 +365,29 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   the panel's residuals (payoff $3.06\times10^{-4}$--$1.77\times10^{-3}$ at cutoff
   residuals of $10^{-11}$-grade) \textbf{bracket ticket 34's recorded range exactly}; the
   $k$-direction jump mechanism does \textbf{not} explain those nodes (no proximity
-  correlation --- the substantiate panellist's own recorded negative). No label moves ---
-  A3 is a hypothesis; P1 stays PROVED as a conditional. Records: the same panel files as
-  the A6 note.
+  correlation --- the substantiate panellist's own recorded negative). \emph{Swept
+  2026-08-28 over the other three nodes
+  (\texttt{quality\_reports/\allowbreak fixes/\allowbreak t2\_t34\_account\_sweep.py}/\texttt{.json},
+  pre-registered three-way rule): the account \textbf{HOLDS at all three}. At
+  $(\kappa{=}0.15, 0.075, 1)$ and $(\kappa{=}0.85, 0.075, 1)$ a located fixed point sits
+  on an $n(s)$ cell edge --- $1.460178993$ (offset ${\sim}10^{-13}$, where 10 of the 30
+  recheck seeds land) and $1.517932397$ (offset ${\sim}10^{-12}$, reached by \textbf{no}
+  seed and found only by the direct edge test) --- with $U_H - U_V$ \textbf{jumping
+  through zero without crossing}. Neither pin is its node's achieving basin: their payoff
+  residuals, $1.398\times10^{-3}$ and $1.314\times10^{-3}$, sit above the recorded bests
+  $1.059\times10^{-3}$ and $3.061\times10^{-4}$, each equalling the larger one-sided jump
+  to at most $2.7\times10^{-4}$ relative --- a recorded, non-gating quantity. At
+  $(\kappa{=}0.85, 0.05, 5)$ \textbf{no pin was found at any candidate edge in
+  $[1.29, 2.11]$}; the achieving basin's worst deviation instead sits in the cell
+  immediately above edge $1.583333333$ ($0.0250\,\sigma_s$ from it), where the same jump
+  through zero occurs, at a deviation/jump ratio of $0.366$ --- inside the pre-registered
+  factor of 3. Every pin is $n(s)$-family; the $\tau$-crossing pullbacks yielded none.
+  Probe 5(b)'s distances replicate ($0.0258/0.0437/0.0295\,\sigma_s$ vs
+  $0.026/0.044/0.030$). \textbf{No node yields a second independent fixed point, so node
+  15's residual bracket does not recur} --- criterion (ii) rests on reproduction of every
+  recheck basin alone. Diagnostic evidence at one calibration; existence at these nodes
+  stays neither claimed nor denied.} No label moves --- A3 is a hypothesis; P1 stays
+  PROVED as a conditional. Records: the same panel files as the A6 note.
 
 \item[A4 Legal-clock discipline.] $c$ is the first date the path reaches $\tau$;
   the filing lands exactly at $c+T$; filings truthfully reveal stake and purpose;
@@ -439,6 +465,30 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   \texttt{threads/\allowbreak 2026-08-27\_A6\_panel\_defuse.md}; probes
   \texttt{quality\_reports/\allowbreak fixes/\allowbreak a6\_panel\_probes\_2026-08-27/}
   (analysis-grade, not curated t2 checks).
+
+  \emph{Curation note added 2026-08-28.} The three decisive measurements are now executed
+  t2 checks:
+  \texttt{quality\_reports/\allowbreak fixes/\allowbreak t2\_a6\_edge\_jump\_check.py}/\texttt{.json}
+  (both panellists' routes replayed at their own filed brackets --- $\Tmap_2$ jumps
+  $6.33\times10^{-3}$ / $1.09\times10^{-2}$ / $2.83\times10^{-2}$, agreeing across routes
+  to a relative $1.3\times10^{-4}$, controls $2.8$--$3.6\times10^{-9}$, $\pm10^{-6}$
+  robustness intact), \texttt{t2\_a6\_node15\_check.py}/\texttt{.json} (jump $0.1647$,
+  destroyed crossing $+1.0\times10^{-7}\to-6.70\times10^{-2}$, edge fixed point to
+  $1.06\times10^{-12}$) and
+  \texttt{t2\_a6\_collapse\_face\_check.py}/\texttt{.json} (pooled prices within
+  $4.441\times10^{-16}$). \textbf{Every figure these checks touch reproduces; two wordings
+  above are corrected, the numbers are not.} The belief snap matches the Step 9(b)
+  prediction to $\sim10^{-8}$ at all three edges at the truncation/cancellation crossover
+  bracket $10^{-8}$; at the probes' own $10^{-9}$ bracket the first edge still holds
+  ($4.0\times10^{-8}$, Analyst A's ``7--8 dp''), but the second and third are
+  $1.2\times10^{-7}$ and $1.7\times10^{-7}$ --- floating-point cancellation over a
+  $10^{-9}$-wide sliver, not a gap in the prediction. And ``$\Tmap$ bit-identical'' holds
+  for $U$ but not for $\Tmap_2$, which moves $6.66\times10^{-16}$ (3 ulps) at the one
+  $k_1$ where the price signature itself deviates most ($4.441\times10^{-16}$);
+  invariance holds at the map's own root-finder resolution. The analytic weight bound
+  $\min(\kappa/2,1-\kappa)^{d+1}$ is \textbf{not} curated --- no probe computes it; its
+  measured counterpart (the jump entering the adjacent-plan payoff difference
+  undiminished) is. \textbf{No label moves and none is licensed.}
 
 \item[A7 / A7$'$ / A7-J Filing sufficiency.] On flagged histories $(B^F,Q^F,a=1)$
   identifies the informed component of the selected plan; conditional on it the
@@ -1073,9 +1123,9 @@ Three items are explicitly open \emph{(a fourth, item 4, added 2026-08-27)}:
   \texttt{threads/\allowbreak 2026-08-27\_A6\_panel\_substantiate.md} /
   \texttt{threads/\allowbreak 2026-08-27\_A6\_panel\_defuse.md};
   \texttt{quality\_reports/\allowbreak fixes/\allowbreak a6\_panel\_probes\_2026-08-27/}.
-  Follow-ups on file, not
-  started: curate the decisive probes into t2 checks; gate-check the continuum-face lemma
-  only if it is ever promoted.
+  Follow-ups: the decisive-probe curation landed 2026-08-28
+  (Section~\ref{sec:hyp}'s A6 note, curation note; the \texttt{t2\_a6\_*} checks);
+  gate-check the continuum-face lemma only if it is ever promoted.
 \end{enumerate}
 
 %==============================================================================
@@ -1089,7 +1139,7 @@ objects rather than citing them.
 \begingroup
 \small
 \setlength{\extrarowheight}{2pt}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.215\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.575\textwidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.215\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.565\textwidth}@{}}
 \toprule
 \textbf{\texttt{draft\_v2} object} & \textbf{Verdict} & \textbf{What carries over, what changes}\\
 \midrule
@@ -1448,8 +1498,8 @@ $\tau=0.05$ (the statutory 13D 5\%):
 \vspace{2pt}
 \noindent\footnotesize\raggedright
 Sources, all in the \texttt{v4-theory} worktree:
-\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-27, A6 panel
-resolution) for Sections 1--6 and 7;
+\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-28, follow-up
+curation) for Sections 1--6 and 7;
 \texttt{research/model\_v4/LABEL\_LEDGER.md} for the labels;
 \texttt{research/model\_v4/proofs/} and \texttt{research/model\_v4/rederive/} for the
 two-pass evidence chains;

@@ -1,0 +1,197 @@
+{
+  "kind": "A6 applicability evidence (panel-probe curation)",
+  "checks": [
+    {
+      "name": "a6_node15_jump_reaches_0p16",
+      "kind": "substantive",
+      "pass": true,
+      "edge": 1.7492686492653553,
+      "bracket": 1e-07,
+      "T2_below": 1.6751129716730617,
+      "T2_at_edge": 1.5104361545995242,
+      "T2_above": 1.5104361815441112,
+      "jump": 0.16467681707353754,
+      "jump_floor": 0.16,
+      "panel_filed": 0.16467681699999992,
+      "panel_filed_T2_below": 1.675112972,
+      "panel_filed_T2_at": 1.510436155,
+      "panel_rel_diff": 4.465572128532957e-10,
+      "tol_rel": 0.0005,
+      "T1_below": 1.0299583774530472,
+      "T1_at_edge": 1.029958386938186,
+      "T1_move": 9.485138896536682e-09,
+      "right_continuity": 2.6944587006028087e-08,
+      "note": "T_2 falls by 0.165 across a 1e-7 step in k_2; the value at the edge and just above it agree, so the map is right-continuous there and the jump is the left limit failing to meet it"
+    },
+    {
+      "name": "a6_node15_destroyed_diagonal_crossing",
+      "kind": "substantive",
+      "pass": true,
+      "edge": 1.583333333333333,
+      "bracket": 1e-07,
+      "gap_below": 9.999989036835188e-08,
+      "gap_at_edge": -0.06703180149682852,
+      "gap_jump": 0.0670319014967189,
+      "step_in_k2": 1e-07,
+      "jump_over_step": 670319.0149671889,
+      "T2_at_edge": 1.5163015318365045,
+      "T1_at_edge": 1.0104978840296128,
+      "panel_filed_gap_below": 1e-07,
+      "panel_filed_gap_at": -0.06703,
+      "panel_filed_T2_at": 1.516301532,
+      "rel_gap_below": 1.096317082062817e-06,
+      "rel_gap_at": 2.6875617191539937e-05,
+      "tol_rel": 0.0005,
+      "gap_positive_at_every_approach_point": true,
+      "approach": [
+        {
+          "k2": 1.573333333333333,
+          "T2": 1.5833333333333117,
+          "gap": 0.009999999999978693,
+          "T2_pinned_at_edge": 2.1316282072803006e-14
+        },
+        {
+          "k2": 1.5823333333333331,
+          "T2": 1.6463653830048126,
+          "gap": 0.06403204967147946,
+          "T2_pinned_at_edge": 0.06303204967147957
+        },
+        {
+          "k2": 1.583323333333333,
+          "T2": 1.583333333332518,
+          "gap": 9.999999184939767e-06,
+          "T2_pinned_at_edge": 8.151257446797899e-13
+        },
+        {
+          "k2": 1.583333233333333,
+          "T2": 1.5833333333332233,
+          "gap": 9.999989036835188e-08,
+          "T2_pinned_at_edge": 1.0969003483296547e-13
+        }
+      ],
+      "pinning_residual_within_1e5_of_edge": 8.151257446797899e-13,
+      "pinning_note": "NOT GATED. T_2 is pinned at the edge value S within ~1e-5 of it (residual ~1e-12), but not uniformly over the approach: at S - 1e-3 the map sits on a different branch, T_2 = 1.6464, gap +6.4e-2. Neither the panel nor the card claims pinning over the whole approach, and the destroyed-crossing reading does not need it.",
+      "reading": "gap is strictly POSITIVE at every approach point and falls to +1.0e-07 at S - 1e-7; at k_2 = S the map jumps and gap lands at -6.7e-2. The sign change happens ACROSS the discontinuity: there is no k_2 in [S - 1e-2, S] at which gap = 0. That is the destroyed crossing."
+    },
+    {
+      "name": "a6_node15_fixed_point_on_edge",
+      "kind": "substantive",
+      "pass": true,
+      "edge": 1.6590621627456204,
+      "bracket": 1e-07,
+      "T2_at_edge": 1.6590621627466844,
+      "fixed_point_residual": 1.06403774680075e-12,
+      "tol": 1e-09,
+      "panel_filed_gap": 1.064e-12,
+      "T2_below": 1.6590621627459505,
+      "T2_above": 1.6590621627465714,
+      "local_flatness": 7.338574192772285e-13,
+      "tol_flat": 1e-09,
+      "T1_at_edge": 1.0202217805249472,
+      "panel_filed_T1": 1.020221781,
+      "T1_abs_diff": 4.750528859176484e-10,
+      "note": "T_2 is locally CONSTANT at the edge value across the whole bracket -- it is pinned at a jump point of U_HOLD - U_VOICE in s -- so the diagonal is met exactly on the discontinuity hyperplane",
+      "chamber_corollary": "argued, not measured: a fixed point ON a cell edge cannot be interior to any chamber, the chambers being by construction the open intervals between consecutive edges. This is the card's 'no such chamber exists at the kappa = 0.15 node'."
+    },
+    {
+      "name": "a6_node15_k1_invariance_licenses_1d_reduction",
+      "kind": "substantive",
+      "pass": true,
+      "k2": 1.6590621627456204,
+      "k1_a": 1.2,
+      "k1_b": 1.020221781,
+      "T_at_k1_a": [
+        1.0202217805249472,
+        1.6590621627466844
+      ],
+      "T_at_k1_b": [
+        1.0202217805249472,
+        1.6590621627466844
+      ],
+      "max_abs_diff": 0.0,
+      "tol": 1e-12,
+      "note": "B's sweep holds k_1 = 1.20 and reads a fixed point off T_2 alone; T is invariant in k_1 at this node too, so the 1-D reading is licensed (the general statement is t2_a6_collapse_face_check.py)"
+    },
+    {
+      "name": "a6_node15_full_2d_fixed_point",
+      "kind": "substantive",
+      "pass": true,
+      "k": [
+        1.020221781,
+        1.6590621627456204
+      ],
+      "T": [
+        1.0202217805249472,
+        1.6590621627466844
+      ],
+      "cutoff_residual_inf": 4.750528859176484e-10,
+      "tol": 1e-08,
+      "note": "the edge-pinned k_2 is a fixed point of the FULL map, not an artifact of the sweep's held k_1"
+    }
+  ],
+  "n_fail": 0,
+  "node": {
+    "kappa": 0.15,
+    "tau": 0.05,
+    "T": 5,
+    "k1_swept_at": 1.2,
+    "params_hash": "77fdc51c849b2102",
+    "n_edges": {
+      "1": 3.2644882372722086,
+      "2": 2.54303349962092,
+      "3": 2.2113957548203436,
+      "4": 2.006230589874905,
+      "5": 1.8608284620211166,
+      "6": 1.7492686492653553,
+      "7": 1.6590621627456204,
+      "8": 1.583333333333333,
+      "9": 1.517932397378237,
+      "10": 1.4601789933084222,
+      "11": 1.4082482904638631
+    },
+    "edges_used": {
+      "jump": 1.7492686492653553,
+      "crossing": 1.583333333333333,
+      "fixed_point": 1.6590621627456204
+    },
+    "card_literals": {
+      "jump": 1.749268649265,
+      "crossing": 1.583333333333,
+      "fixed_point": 1.659062163
+    },
+    "literal_offsets": {
+      "jump": 3.552713678800501e-13,
+      "crossing": 3.3306690738754696e-13,
+      "fixed_point": -2.5437962847263407e-10
+    },
+    "ticket_34_status": "one of the four sweep-UNRESOLVED nodes (t2_p1_fournode_recheck.json)"
+  },
+  "seconds": 16.97167712499504,
+  "all_pass": true,
+  "summary": {
+    "jump_at_1p749268649": 0.16467681707353754,
+    "destroyed_crossing_gap_below": 9.999989036835188e-08,
+    "destroyed_crossing_gap_at_edge": -0.06703180149682852,
+    "fixed_point_residual_on_edge": 1.06403774680075e-12,
+    "full_2d_cutoff_residual": 4.750528859176484e-10
+  },
+  "verdict": "A6 continuity failure REPRODUCED at calibration -- at (kappa=0.15, tau=0.05, T=5) the outer map's T_2 jumps by 0.1647 across a 1e-07 step in k_2 at the cell edge 1.749268649; the diagonal crossing at 1.583333333 is DESTROYED (gap +1.000e-07 just below the edge, -6.703e-02 at it, with no zero in between); and a fixed point sits exactly ON the edge k_2 = 1.659062163 (residual 1.064e-12), which no chamber-interior Theta can contain. NONEXISTENCE IS NEITHER CLAIMED NOR SHOWN -- a discontinuous self-map may still have fixed points, and two survive at this node. NO LABEL MOVES AND NONE IS LICENSED: A6 is a listed hypothesis of P1, so this is applicability evidence on its antecedent, in the A(tau) pattern -- P1 stays PROVED as a conditional.",
+  "provenance": {
+    "follow_up": "quality_reports/fixes/a6_panel_probes_2026-08-27/README.md -- the standing curation follow-up",
+    "source_probe": "a6_panel_probes_2026-08-27/a6_B_node15.py (Analyst B, probe 5) and its filed log a6_B_node15.log",
+    "scope_note": "the three decisive BRACKETS are replayed, not the 60-point sweep: the remaining sweep points establish nothing the card cites",
+    "card_row": "research/model_v4/MODEL_CARD.md section 5, A6 evidence note (stamp 2026-08-27, commit ae9caea)",
+    "panel_reports": [
+      "research/model_v4/threads/2026-08-27_A6_panel_substantiate.md",
+      "research/model_v4/threads/2026-08-27_A6_panel_defuse.md"
+    ],
+    "verdict_semantics": "INVERTED relative to a proof check. pass = the panel's measurement REPRODUCED. pass does NOT mean A6 holds; this file is applicability evidence and licenses no label move.",
+    "environment_gate": ".venv/bin/python -m numerical_v4.smoke, exit 0",
+    "does_not": [
+      "touch MODEL_CARD.md, the mirrors, sections_v3/ or anything under research/",
+      "modify anything under numerical_v4/ (imported read-only)",
+      "curate the A3 material at this node (argmax reversal, empty weakly-increasing selection, ticket-34 residual reconciliation) -- a separate follow-up owns the A3 locus",
+      "claim or deny nonexistence of equilibrium at this node"
+    ]
+  }
+}

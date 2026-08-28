@@ -1,6 +1,6 @@
 # MODEL CARD — v4 two-round blockholder disclosure model
 
-**Version stamp: 2026-08-27 · A6 panel resolution (§5 A6/A3 evidence notes + §9 item 4) · commit `ae9caea`.** An answer written against a stale stamp is
+**Version stamp: 2026-08-28 · follow-up curation (§5 A6 curation note + A3 sweep note) · commit `<pending-orchestrator-hash>`.** An answer written against a stale stamp is
 re-asked, not accepted. Regenerated from `threads/thread1_turn1_answer.md` after the turn-1 audit
 (`threads/thread1_turn1_audit.md`), revised after the turn-2 proof-read
 (`threads/thread1_turn2_audit.md`), surgically edited for ticket 24's A7 construction, and
@@ -14,7 +14,11 @@ afresh by an adversarial proof-read PASS and an independent statements-only re-d
 PASS-WITH-CHANGES, both 2026-08-25 and both by agents who did not write the proof; and §5's A($\tau$)
 block gains ticket 33's dated evidence note. **On 2026-08-27** the re-derivation's withheld change 6
 was ruled on (Austin-authorized, opposed-brief panel): §5's A6 and A3 blocks gain dated evidence
-notes and §9 gains item 4 — answered in substance, locus corrected, **no label moves**. Every §4/§5
+notes and §9 gains item 4 — answered in substance, locus corrected, **no label moves**. **On
+2026-08-28** two standing follow-ups landed (again no label moves): the A6 panel's decisive probes
+are curated into executed t2 checks (§5's A6 note, curation note — two wordings corrected, the
+numbers intact) and the ticket-34 candidate account is swept over its other three nodes — the
+account HOLDS at all three (§5's A3 note, sweep note). Every §4/§5
 change below is traceable
 to a named audit or re-derivation finding; the label moves are logged in
 `research/model_v4/LABEL_LEDGER.md`. Vocabulary is `CONTEXT.md`.
@@ -199,8 +203,25 @@ bare $u$.
   residuals (payoff $3.06\times10^{-4}$–$1.77\times10^{-3}$ at cutoff residuals of
   $10^{-11}$-grade) **bracket ticket 34's recorded range exactly**; the $k$-direction jump
   mechanism does **not** explain those nodes (no proximity correlation — the substantiate
-  panellist's own recorded negative). No label moves — A3 is a hypothesis; P1 stays PROVED as a
-  conditional. Records: the same panel files as the A6 note.
+  panellist's own recorded negative). *Swept 2026-08-28 over the other three nodes
+  (`quality_reports/fixes/t2_t34_account_sweep.py`/`.json`, pre-registered three-way rule): the
+  account **HOLDS at all three**. At $(\kappa{=}0.15, 0.075, 1)$ and $(\kappa{=}0.85, 0.075, 1)$ a
+  located fixed point sits on an $n(s)$ cell edge — $1.460178993$ (offset ${\sim}10^{-13}$, where
+  10 of the 30 recheck seeds land) and $1.517932397$ (offset ${\sim}10^{-12}$, reached by **no**
+  seed and found only by the direct edge test) — with $U_H - U_V$ **jumping through zero without
+  crossing**. Neither pin is its node's achieving basin: their payoff residuals, $1.398\times10^{-3}$
+  and $1.314\times10^{-3}$, sit above the recorded bests $1.059\times10^{-3}$ and
+  $3.061\times10^{-4}$, each equalling the larger one-sided jump to at most $2.7\times10^{-4}$
+  relative — a recorded, non-gating quantity. At $(\kappa{=}0.85, 0.05, 5)$ **no pin was found at
+  any candidate edge in $[1.29, 2.11]$**; the achieving basin's worst deviation instead sits in the
+  cell immediately above edge $1.583333333$ ($0.0250\,\sigma_s$ from it), where the same jump
+  through zero occurs, at a deviation/jump ratio of $0.366$ — inside the pre-registered factor of
+  3. Every pin is $n(s)$-family; the $\tau$-crossing pullbacks yielded none. Probe 5(b)'s distances
+  replicate ($0.0258/0.0437/0.0295\,\sigma_s$ vs $0.026/0.044/0.030$). **No node yields a second
+  independent fixed point, so node 15's residual bracket does not recur** — criterion (ii) rests on
+  reproduction of every recheck basin alone. Diagnostic evidence at one calibration; existence at
+  these nodes stays neither claimed nor denied.* No label moves — A3 is a hypothesis; P1 stays
+  PROVED as a conditional. Records: the same panel files as the A6 note.
 - **A4 Legal-clock discipline.** $c$ is the first date the path reaches $\tau$; filing lands exactly
   at $c+T$; filings truthfully reveal stake and purpose; only Voice plans cross in the core.
 - **A5 Inner pricing regularity, mostly demoted to a theorem.** Each public-history pricing map has a
@@ -269,6 +290,25 @@ bare $u$.
   have fixed points). Records: `threads/2026-08-27_A6_panel_substantiate.md`,
   `threads/2026-08-27_A6_panel_defuse.md`; probes
   `quality_reports/fixes/a6_panel_probes_2026-08-27/` (analysis-grade, not curated t2 checks).
+  *Curation note added 2026-08-28.* The three decisive measurements are now executed t2 checks:
+  `quality_reports/fixes/t2_a6_edge_jump_check.py`/`.json` (both panellists' routes replayed at
+  their own filed brackets — $\mathcal T_2$ jumps $6.33\times10^{-3}$ / $1.09\times10^{-2}$ /
+  $2.83\times10^{-2}$, agreeing across routes to a relative $1.3\times10^{-4}$, controls
+  $2.8$–$3.6\times10^{-9}$, $\pm10^{-6}$ robustness intact), `t2_a6_node15_check.py`/`.json` (jump
+  $0.1647$, destroyed crossing $+1.0\times10^{-7}\to-6.70\times10^{-2}$, edge fixed point to
+  $1.06\times10^{-12}$) and `t2_a6_collapse_face_check.py`/`.json` (pooled prices within
+  $4.441\times10^{-16}$). **Every figure these checks touch reproduces; two wordings above are
+  corrected, the numbers are not.** The belief snap matches the Step 9(b) prediction to
+  $\sim10^{-8}$ at all three edges at the truncation/cancellation crossover bracket $10^{-8}$; at
+  the probes' own $10^{-9}$ bracket the first edge still holds ($4.0\times10^{-8}$, Analyst A's
+  "7–8 dp"), but the second and third are $1.2\times10^{-7}$ and $1.7\times10^{-7}$ —
+  floating-point cancellation over a $10^{-9}$-wide sliver, not a gap in the prediction. And
+  "$\mathcal T$ bit-identical" holds for $U$ but not for $\mathcal T_2$, which moves
+  $6.66\times10^{-16}$ (3 ulps) at the one $k_1$ where the price signature itself deviates most
+  ($4.441\times10^{-16}$); invariance holds at the map's own root-finder resolution. The analytic
+  weight bound $\min(\kappa/2,1-\kappa)^{d+1}$ is **not** curated — no probe computes it; its
+  measured counterpart (the jump entering the adjacent-plan payoff difference undiminished) is.
+  **No label moves and none is licensed.**
 - **A7 Filing sufficiency.** On flagged histories $(B^F,Q^F,a=1)$ identifies the informed component
   of the selected plan; conditional on it, the pooled order-flow residual is pure noise, independent
   of $(v,s,\xi)$. The weak identification wording is not enough for L2. The two injective forms are
@@ -582,5 +622,6 @@ meaningful; any empirical value for $\omega_a$.
    evidence note. **No label moves on any of this**; P1's label rests on the proof and the two
    2026-08-25 passes and is untouched. Evidence: §5's A6 note;
    `threads/2026-08-27_A6_panel_substantiate.md` / `threads/2026-08-27_A6_panel_defuse.md`;
-   `quality_reports/fixes/a6_panel_probes_2026-08-27/`. Follow-ups on file, not started: curate the
-   decisive probes into t2 checks; gate-check the continuum-face lemma only if it is ever promoted.
+   `quality_reports/fixes/a6_panel_probes_2026-08-27/`. Follow-ups: the decisive-probe curation
+   landed 2026-08-28 (§5's A6 note, curation note; the `t2_a6_*` checks); gate-check the
+   continuum-face lemma only if it is ever promoted.
