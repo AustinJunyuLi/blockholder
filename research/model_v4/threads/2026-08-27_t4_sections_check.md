@@ -1524,3 +1524,306 @@ ticket 18 must still rename one of the two `\Tmap`s.
 edits touch four files; I re-read every changed region in full and re-ran every gate.
 
 ### UPDATED OVERALL VERDICT: **LAND** — no WRONG findings, before or after the repair round; gate (e) now passes with a fully clean log (0 undefined, 0 errors, 0 overfull, 61 pages).
+
+---
+---
+
+# Re-review repair delta check — 2026-08-29 (appended)
+
+Same checker, same rules: no git, no edit to any file under `sections_v3/` or `research/` other than
+this append. GPT Pro's re-review (`threads/2026-08-28_gpt_rereview.md`) was audited
+(`threads/2026-08-28_gpt_rereview_audit.md`); the card advanced to **2026-08-28 · re-review audit
+repairs · commit `<pending-orchestrator-hash>`** with amendments C-1..C-4, and nine section repairs
+S-1..S-9 landed. I verified the section side against the **card as it now stands**, reading the
+audit's drafted texts as claims rather than as evidence, and re-ran the gate myself.
+
+**Method note.** Where the coordinator asked me to spot-check numbers, I checked them against
+`MODEL_CARD.md` directly, not against the audit's drafted replacements — a draft can mis-transcribe,
+and verifying the draft against itself would prove nothing.
+
+**State at check.** `model_section.tex` 652 → **709**; `theorem_section.tex` 470 → **477**;
+`v3_macros.tex` 47 → **60**. `proofs_core_lemmas.tex` (1108), `proofs_existence.tex` (1025) and
+`proofs_theorem_ge.tex` (747) are **unchanged in length**, so only their provenance headers moved —
+the L3 Part IV material and the P1/T1/C1 proof bodies I checked in the previous two passes are
+untouched. **All eight `\resultstatus` strings are unchanged and verbatim** (lines 51, 73, 95, 124,
+157, 279, 348, 414), which is what the repair queue's "nothing here moves a label" has to mean at
+the section side.
+
+---
+
+## D-1 · S-1 and S-2 (the A5 two-continuities split) — **PASS**
+
+**S-1** (`theorem_section.tex`:259–268) is byte-identical to the audit's drafted replacement except
+for the one declared correction: the draft's *"continuity of the composed pooled price family in the
+**conjecture** $k$"* reads *"in the **cutoff vector** $k$"* as landed. **The correction is right, and
+not merely cosmetic.** Card §4.5 names $k$ the *cutoff vector*; "conjecture" is proof-local
+vocabulary — `proofs_existence.tex`:68 introduces it as *"Fix a conjectured cutoff vector $k$"* for a
+**trial** $k$ inside the fixed-point argument. A statement that spoke of "the conjecture $k$" would
+import proof-local language into `prop:P1`'s own text and would, read literally, narrow the clause to
+trial cutoff vectors rather than to $k$ as such.
+
+Against **C-1**'s substance, clause by clause: existence and uniqueness from $m_0\ge0$ ✔; continuity
+*in the belief summaries* $(\hat v,\pi)$ from the same scalar reduction ✔; measurable selection from
+A7-J plus (TR-ii) ✔; **"What is *not* derived is the cutoff clause"** — continuity of the *composed*
+pooled price family in the cutoff vector, running through the conditioning $(\hat v,\pi)$ rather than
+through the pricing map ✔; **"That continuity enters only through the reading of Assumption A6 given
+next, and Remark~\ref{rem:A6record} records it measured to fail at the implemented calibration"** ✔.
+The proof-file anchor is carried in prose — *"as Step 7 of the proof says where it says what is left
+over"* — and `proofs_existence.tex`:286–290 does close Step 7 with exactly that (*"What is left over
+is continuity of the **composition** in the conjecture $k$ … Step 15 takes that up"*), so the pointer
+resolves.
+
+**S-2** (`model_section.tex`:338–345) is **byte-identical** to the drafted text, appended after the
+A5 paragraph's closing *"…it may cite \eqref{eq:m0} instead."* — which is the adjacency C-2 exists to
+supply, A5 having been the one stressed assumption in the model section with no record remark beside
+it. Against **C-2**: the two-continuities split ✔ ((i) inner root in $(\hat v,\pi)$ from
+\eqref{eq:m0}; (ii) the composition $k\mapsto(\hat v,\pi)\mapsto P$ in the cutoff vector, *"what the
+clause above retains as an assumption … and no step derives it"*); the mechanism ✔ (*"the
+$k$-dependence runs through the conditioning rather than through the pricing map"*); the
+`rem:A6record` pointer with *"at the same loci and by the same checks"* ✔; and both halves of the
+label discipline ✔ — *"No label moves on that: Assumption A5 is a hypothesis, and no result below
+consumes its cutoff clause."*
+
+Note the **structure** is right, not just the words: the original A5 paragraph still asserts the
+retained clause (*"the pricing family is continuous in the cutoff vector and the parameters"*,
+`:332–333`) and the new paragraph follows it. That is the A6-curation mechanic C-2 specifies — clause
+left standing, dated note appended — rather than a silent rewrite.
+
+**Card asides not carried, and why each is fine.** C-1's two-routes parenthetical (Step 7(iii)'s
+strict $\varrho'<0$ versus Step 8's implicit-function bound, *"the proof file records both as valid
+and names neither as the only one"*) and C-2's *"Where each citing row stands"* paragraph (D1/L2
+uniqueness, L1 version-pinning) are both absent. Both are card-internal: the first is provenance
+about which of two on-file derivations is meant, the second is the audit's own demonstration that no
+row needs touching. The audit's drafted S-1 and S-2 omit them too, so the sections match the
+controlling texts. And L1's version-pinning gloss is not lost — the section's own `lem:L1` already
+carries it (*"Assumption~\ref{asm:A5}, which pins **the** version of $\Eop[Y\mid\mathcal I]$"*), as I
+recorded at **T-2**. **Acceptable.**
+
+---
+
+## D-2 · S-3 (the A(τ) lead) — **PASS**
+
+`model_section.tex`:474–479 is byte-identical to the drafted replacement, and matches the card's
+corrected lead (`MODEL_CARD.md`:398–406) clause for clause: *"At the implemented calibration
+Assumption A(τ) **fails**"* ✔; *"The decisive representation failure is already established by the
+support condition alone; the derivative pattern also fails, and independently"* ✔; *"The support half
+carries the verdict because it is the entire remaining content of the restriction"* ✔; *"and of the
+derivative-pattern failure only the $A_{1/2}'$ residual is inherited from the support"* ✔ — which is
+the finer taxonomy the audit insisted on preserving against GPT's flatter wording.
+
+The card's *"(The superseded lead read 'it fails on the support, not on the derivative pattern',
+which the third bullet below contradicts on its own terms.)"* is correctly **not** carried. That is
+the card's dated-amendment provenance device, required there by the never-a-silent-rewrite rule and
+meaningless in draft prose. Likewise the card's *"(see the bite paragraph above)"* — the section's
+bite paragraph sits immediately above the remark (`:451–462`), so the reference is adjacent rather
+than needed.
+
+**Numbers and bullets below untouched — verified, not assumed.** I re-checked a sample against my own
+**M-4** transcript and the card: `4{,}194{,}304`; 200 nodes; the two gates (`0.0` exactly and
+`1.7\times10^{-16}`); 20 degenerate / 180 failing; `23` to `767` atoms; Hausdorff `0.4608`;
+`1.5\times10^{-13}`; `2.306`; `0.0717` and `7.17` pp; `0.085` and `0.018`; `\Omega = 0.000681`; 920
+enumerations; 1002 seconds. All present and unchanged.
+
+---
+
+## D-3 · S-4 to S-7 (the staleness cluster) — **PASS; numbers verified against the card**
+
+All four landed byte-identical to the drafted texts. I verified **thirty-three** numbers and claims
+directly against `MODEL_CARD.md` — the coordinator asked for at least eight.
+
+**S-4** vs card `:329–331`: "$\mathcal T$ bit-identical" holds for **$U$** not $\mathcal T_2$ ✔;
+$\mathcal T_2$ moves $6.66\times10^{-16}$ ✔; **3 ulps** ✔; at the one $k_1$ where the price signature
+deviates most ✔; $4.441\times10^{-16}$ ✔ (the stale $4.4\times10^{-16}$ rounding is gone);
+"invariance holds at the map's own root-finder resolution" ✔, with the section adding *"rather than
+bit for bit"*, which is the point of the correction.
+
+**S-5** vs card `:324–328`: $\sim10^{-8}$ **at all three edges** ✔; the truncation/cancellation
+**crossover bracket** $10^{-8}$ ✔; the probes' own $10^{-9}$ bracket ✔; first edge still holds at
+$4.0\times10^{-8}$ ✔; second and third at $1.2\times10^{-7}$ and $1.7\times10^{-7}$ ✔;
+"floating-point cancellation over a $10^{-9}$-wide sliver, not a gap in the prediction" ✔.
+
+**S-6** vs card `:316–333`: the three $\mathcal T_2$ jumps replayed at **both panellists' own filed
+brackets** ✔; cross-route agreement to a relative $1.3\times10^{-4}$ ✔; controls
+$2.8$–$3.6\times10^{-9}$ ✔; $\pm10^{-6}$ robustness intact ✔; jump $0.1647$ ✔; destroyed crossing
+$+1.0\times10^{-7}\to-6.70\times10^{-2}$ ✔; edge fixed point to $1.06\times10^{-12}$ ✔; pooled prices
+within $4.441\times10^{-16}$ ✔; *"Every figure these checks touch reproduces; two wordings … were
+corrected and the numbers were not"* ✔. **The carve-out travels**, which was the condition on this
+repair: *"The analytic weight bound $\min(\kappa/2,1-\kappa)^{d+1}$ is **not** curated, since no
+probe computes it; what is curated is its measured counterpart, the jump entering the adjacent-plan
+payoff difference undiminished"* ✔. All three curated checks are named as `\texttt{}` strings with
+`.py` and `.json`, and the analysis-grade probe directory is kept **alongside** them rather than
+replaced — so the section now distinguishes the two evidence grades instead of mislabelling one.
+
+**S-7** vs card `:206–229`: $1.460178993$, offset ${\sim}10^{-13}$, **10 of the 30** recheck seeds ✔;
+$1.517932397$, offset ${\sim}10^{-12}$, reached by **no** seed, found only by the direct edge test ✔;
+payoff residuals $1.398\times10^{-3}$ and $1.314\times10^{-3}$ ✔ above recorded bests
+$1.059\times10^{-3}$ and $3.061\times10^{-4}$ ✔; agreement to at most $2.7\times10^{-4}$ relative ✔;
+no pin at any candidate edge in $[1.29,\,2.11]$ ✔; edge $1.583333333$ at $0.0250\,\sigma_s$ ✔;
+deviation-to-jump ratio $0.366$ inside the pre-registered factor of three ✔; probe 5(b) distances
+$0.0258/0.0437/0.0295\,\sigma_s$ against $0.026/0.044/0.030$ ✔; all three node coordinates ✔; the
+pre-registered three-way rule and **HOLDS at all three** ✔. The two closers GPT required to survive
+are both there: *"This is diagnostic evidence at one calibration, and existence at these nodes stays
+neither claimed nor denied"* ✔ and the no-label-moves sentence ✔.
+
+One de-indexing worth recording: the card's *"node 15's residual bracket does not recur"* reads *"the
+residual bracket at the first node does not recur"*. Correct — `node15` is an implementation index
+the sections never introduce (they name nodes by $(\kappa,\tau,T)$), and "the first node" refers back
+to the $\kappa=0.15$ node the passage opens on, which is the same object. The section also names the
+sweep script explicitly where the card says only "the same panel files as the A6 note", which is a
+traceability gain.
+
+### The three writer-flagged omitted asides — rulings
+
+| Aside | Card site | Ruling |
+|---|---|---|
+| *"— a recorded, non-gating quantity"* | `:219–220`, on the $2.7\times10^{-4}$ agreement | **Acceptable** |
+| *"— criterion (ii) rests on reproduction of every recheck basin alone"* | `:226–227` | **Acceptable** (closest call of the three) |
+| *"Analyst A's '7–8 dp'"* | `:326`, on the $4.0\times10^{-8}$ first edge | **Acceptable** |
+
+**1. "a recorded, non-gating quantity."** This marks the $2.7\times10^{-4}$ figure as recorded but
+not one of the sweep's pre-registered gates — a statement about the *check's* internal gating
+structure. The claim it qualifies ("each equals the larger one-sided jump to at most $2.7\times10^{-4}$
+relative") is carried in full. Nothing is dropped but the per-number gating status, and the section
+presents no number in the passage as a gate: it frames the whole sweep as *"diagnostic evidence at
+one calibration"*. Omission drops no claim and creates no over-claim.
+
+**2. "criterion (ii) rests on reproduction of every recheck basin alone."** This is the closest call,
+because unlike the other two it carries a **limitation** rather than pure provenance — it narrows
+what discharged the sweep's second pre-registered criterion. I still rule it acceptable, on two
+grounds. Both substantive claims it attaches to are carried verbatim in substance (*"no node yields a
+second independent fixed point"* and *"the residual bracket at the first node does not recur"*); and
+the section never enumerates the pre-registered criteria at all, so there is no "criterion (ii)"
+whose basis a reader could mistake. Crucially, the section's own hedge is **strictly stronger** than
+the omitted clause: *"diagnostic evidence at one calibration"* plus *"existence at these nodes stays
+neither claimed nor denied"* concedes more than the criterion note withholds. Omission therefore
+cannot over-claim. Were the section ever to present the sweep as verification rather than as
+diagnostic evidence, this clause would become a must-add; at the present framing it is not.
+
+**3. "Analyst A's '7–8 dp'."** A named panellist's informal restatement of a number the section
+already gives exactly ($4.0\times10^{-8}$). Pure provenance, and an internal analyst's shorthand for
+a tolerance has no place in department-facing prose. Omission drops no claim.
+
+---
+
+## D-4 · S-8 (the A7 failure-boundary scoping) — **PASS; M-8 closed**
+
+*"for the on-path form"* is deleted (`model_section.tex`:466–469). The surviving sentence reads
+*"The failure boundary is a binding stake cap, quantized stakes, a composed target repeating values
+across Voice-plan switches, $\Omega = 0$, and policy dependence when the condition is stated only at
+one equilibrium's cutoffs."*
+
+**It does not over-claim in the other direction.** The card states the list **unscoped**, and the
+section now matches that exactly. The worry would be that an unscoped sentence reads as asserting one
+uniform boundary for both forms; the paragraph's structure forecloses it, because A7-J's *additional*
+requirement is stated separately in the immediately preceding sentence (*"Assumption~\ref{asm:A7J}
+additionally needs $b^*$ strictly increasing off the Voice region … while leaving
+Assumption~\ref{asm:A7p} intact"*). That is the card's own sequencing — A7-J's extra need, then the
+boundary, then the fully-separating closer — reproduced. My **M-8** is closed.
+
+---
+
+## D-5 · S-9 (the six provenance headers; three sites that must not move) — **PASS**
+
+**Six headers advanced**, each carrying both the new date and the placeholder:
+
+| # | Site | Verified |
+|---|---|---|
+| 1 | `model_section.tex`:4–5 | `version stamp 2026-08-28` / `(re-review audit repairs, commit <pending-orchestrator-hash>).` ✔ |
+| 2 | `theorem_section.tex`:4–5 | ✔, `section 6` continuation preserved |
+| 3 | `proofs_core_lemmas.tex`:6–7 | ✔, `section 6 result ledger` preserved |
+| 4 | `proofs_existence.tex`:5–6 | ✔, `section 6 P1 row` preserved |
+| 5 | `proofs_theorem_ge.tex`:5–6 | ✔, `section 6 result ledger` preserved |
+| 6 | `v3_macros.tex`:3 | `(card stamp 2026-08-28).` ✔ |
+
+**Three dated-fact sites still read 2026-08-27**, as required — moving them would falsify the record:
+
+- `model_section.tex`:419, 420 — the panel **filenames** `2026-08-27_A6_panel_substantiate.md` and
+  `_defuse.md` ✔; `:422` — the probe directory path `a6_panel_probes_2026-08-27/` ✔. These are paths.
+- `theorem_section.tex`:454 and `:469` — both *"answered in substance on 2026-08-27"* sentences ✔.
+  (The audit named `:447` and `:462`; the lines shifted by the S-1 and S-3 insertions, the sentences
+  did not.)
+- `v3_macros.tex`:26 — *"107 at the checker's **2026-08-27 delta-pass count**"* ✔, a dated count.
+
+`grep -n "2026-08-27" sections_v3/*.tex` returns **exactly these six lines and no others**, and
+`grep -n "2026-08-28"` returns exactly the six headers. The two sets do not overlap.
+
+**Bonus: both of my R-5 residuals are closed by this repair.** Residual 1 (the stale "104") is not
+merely updated but de-brittled — `:26–28` now records *"roughly a hundred uses … (107 at the
+checker's 2026-08-27 delta-pass count, 96 at an edit-time recount the same day — a snapshot, not an
+invariant; recount before relying on any exact figure)"*, so the comment no longer stakes anything on
+an exact figure. Residual 2 (the unnamed reverse `\input` ordering) is closed at `:32–42` with
+precisely the mechanism I described, and correctly scoped: *"Reverse the `\input` order and the
+failure mode inverts SILENTLY … draft_v2's own ~10 body uses of `\Tmap` silently render the filing
+window as the calligraphic outer map instead … the loud error described above fires only in the
+macros-after direction, and ticket 18 is not free to silence it by re-adding a guard."*
+
+---
+
+## D-6 · The scoped `\emergencystretch` and the full driver gate — **PASS**
+
+**Scoped, and I verified it empirically rather than by reading the comment.**
+`model_section.tex`:355–356 places `\setlength{\emergencystretch}{3em}%` **inside**
+`\begin{remark}`, one line below `\label{rem:A6record}`, under the comment *"% Long unbreakable repo
+paths below; scoped to this remark, no wording effect."* A LaTeX environment opens a group, so a
+non-global `\setlength` inside it reverts at `\end{remark}`. I confirmed that with a minimal probe
+document in my scratchpad (`\typeout` of `\the\emergencystretch` before, inside and after an
+`amsthm` remark):
+
+```
+BEFORE=0.0pt    INSIDE=30.0pt    AFTER=0.0pt
+```
+
+So it is genuinely scoped, not merely asserted to be. It is commented ✔, and it has **no wording
+effect** ✔ — `\setlength` typesets nothing, and the trailing `%` suppresses the newline that would
+otherwise insert a space before "The continuity clause…".
+
+**Full driver gate, my own four-pass run** under `-jobname=deltacheck2` so the shared aux is not
+clobbered:
+
+| Check | Result |
+|---|---|
+| `grep -ic undefined deltacheck2.log` | **0** |
+| `grep -c '^!' deltacheck2.log` | **0** |
+| `grep "Overfull\|Underfull"` | **0** |
+| `grep -ic multiply deltacheck2.log` | **0** |
+| `deltacheck2.blg` warnings/errors | **0** |
+| Exit code | 0 |
+| Output | **62 pages** |
+
+**Matches the orchestrator's fresh gate exactly** — 62 pages, 0 undefined / 0 errors / 0 overfull /
+0 multiply.
+
+---
+
+## D-7 · Item 7 — the stale-string sweep — **PASS, all six at zero**
+
+| # | String | Occurrences in `sections_v3/` |
+|---|---|---|
+| 1 | `for the on-path form` | **0** |
+| 2 | `UNCHECKED beyond the one node probed` | **0** |
+| 3 | `it fails on the support, not` | **0** |
+| 4 | `bit-identical` in the $\mathcal T$-claim form | **0** — the one occurrence is the corrected `The payoffs $U$ are bit-identical` (`model_section.tex`:377) |
+| 5 | `not curated` | **0** |
+| 6 | `ae9caea` | **0** |
+
+---
+
+## Delta summary
+
+| # | Item | Verdict |
+|---|---|---|
+| 1 | S-1 / S-2 — A5 two-continuities split | **PASS.** Both match the drafted texts and C-1/C-2 substance; the orchestrator's "cutoff vector $k$" correction is right and non-cosmetic; no label moves |
+| 2 | S-3 — A(τ) lead | **PASS.** Byte-identical to draft, matches C-3; numbers and bullets below verified untouched |
+| 3 | S-4..S-7 — staleness cluster | **PASS.** 33 numbers verified against the card directly; the weight-bound carve-out travels; all three omitted asides **acceptable** |
+| 4 | S-8 — failure-boundary scoping | **PASS.** Matches the card's unscoped wording; A7-J's extra condition still stated separately, so no over-claim either way. **M-8 closed** |
+| 5 | S-9 — six headers / three fixed sites | **PASS.** Six advanced with placeholder; three dated-fact sites unmoved; no stray dates. Both R-5 residuals closed as a bonus |
+| 6 | `\emergencystretch` + full gate | **PASS.** Scoping verified empirically (0pt → 30pt → 0pt); gate matches the orchestrator's: 62 pp, 0/0/0/0 |
+| 7 | Stale-string sweep | **PASS.** All six at zero occurrences |
+
+**No repair introduced a WRONG, moved or weakened a label, or added an unsourced claim.** Every
+landed edit is transcription from card text that already passed verifier conformance, and I checked
+the transcription against the card rather than against the draft. Nothing in my earlier findings is
+reopened; **M-8** joins M-4a, T-10, M-10 and F-2 as closed, and both R-5 residuals are closed.
+**F-1 remains open by design** for ticket 18, now with both `\input` orderings documented.
+
+### UPDATED OVERALL VERDICT: **LAND** — no WRONG findings across the original pass and both repair rounds; the sections now conform to card stamp 2026-08-28, and gate (e) passes clean at 62 pages (0 undefined / 0 errors / 0 overfull / 0 multiply).

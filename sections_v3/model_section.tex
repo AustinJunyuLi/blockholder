@@ -1,8 +1,9 @@
 %==============================================================================
 %  sections_v3/model_section.tex -- the model section of draft_v3.
 %
-%  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp 2026-08-27
-%  (A6 panel resolution, commit ae9caea).  Every statement below transcribes a
+%  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp 2026-08-28
+%  (re-review audit repairs, commit <pending-orchestrator-hash>).
+%  Every statement below transcribes a
 %  card row; where a proof file and the card differ, the card wins.  Card IDs
 %  survive into the bracket titles so the card record, HANDOFF_sign.md and the
 %  assembler can find each object by its ID.
@@ -281,13 +282,32 @@ A3 and A6 proxies pass at every achieving seed: those proxies are local screens 
 tests residual slope signs at the two candidate cutoffs and the A6 proxy tests non-pinning at the
 closest seed --- and neither measures argmax monotonicity over $s$ nor continuity of $\Tmap$ in $k$,
 so both are silent on these findings. A candidate mechanical account of the four unresolved nodes is
-on file and UNCHECKED beyond the one node probed: at the $\kappa = 0.15$ node one fixed
+on file: at the $\kappa = 0.15$ node one fixed
 point sits exactly on the edge where $U_H - U_V$ jumps through zero without crossing it, and the
 panel's residuals, $3.06\times10^{-4}$ to $1.77\times10^{-3}$ at cutoff residuals of
 $10^{-11}$ grade, bracket the recorded range exactly; the $k$-direction jump mechanism does
 \emph{not} explain those nodes, and the panellist who proposed it recorded that negative himself.
-No label moves on any of this: A3 is a hypothesis, and Proposition~\ref{prop:P1} stays
-PROVED as a conditional. Records: the panel files named in Remark~\ref{rem:A6record}.
+That account has since been swept over the other three unresolved nodes under a pre-registered
+three-way rule, and it holds at all three. At $(\kappa = 0.15,\ 0.075,\ 1)$ and
+$(\kappa = 0.85,\ 0.075,\ 1)$ a located fixed point sits on an $n(s)$ cell edge --- at
+$1.460178993$, offset about $10^{-13}$, where $10$ of the $30$ recheck seeds land, and at
+$1.517932397$, offset about $10^{-12}$, reached by no seed and found only by the direct edge test
+--- with $U_H - U_V$ again jumping through zero without crossing. Neither pin is its node's
+achieving basin: their payoff residuals, $1.398\times10^{-3}$ and $1.314\times10^{-3}$, sit above
+the recorded bests of $1.059\times10^{-3}$ and $3.061\times10^{-4}$, and each equals the larger
+one-sided jump to at most $2.7\times10^{-4}$ relative. At $(\kappa = 0.85,\ 0.05,\ 5)$ no pin was
+found at any candidate edge in $[1.29,\,2.11]$; the achieving basin's worst deviation instead sits
+in the cell immediately above edge $1.583333333$, $0.0250\,\sigma_s$ from it, where the same jump
+through zero occurs, at a deviation-to-jump ratio of $0.366$, inside the pre-registered factor of
+three. Every pin is of the $n(s)$ family and the $\tau$-crossing pullbacks yielded none; the
+distances of probe~5(b) replicate, at $0.0258/0.0437/0.0295\,\sigma_s$ against
+$0.026/0.044/0.030$; and no node yields a second independent fixed point, so the residual bracket at
+the first node does not recur. This is diagnostic evidence at one calibration, and existence at
+these nodes stays neither claimed nor denied. No label moves on any of it: Assumption~\ref{asm:A3}
+is a hypothesis, and Proposition~\ref{prop:P1} stays PROVED as a conditional. Records: the panel
+files named in Remark~\ref{rem:A6record}, and
+\texttt{quality\_reports/fixes/t2\_t34\_account\_sweep.py} with
+\texttt{t2\_t34\_account\_sweep.json}.
 \end{remark}
 
 \begin{assumption}[A4: legal-clock discipline]
@@ -315,6 +335,15 @@ tuple. Because the flagged information sets are continuum-indexed, ``unique fixe
 read as a measurably selected family, not a finite list. Where a result below cites
 Assumption~\ref{asm:A5} for existence or uniqueness, it may cite \eqref{eq:m0} instead.
 
+Two continuities must be kept apart here, since only one of them is proved. Continuity of the inner
+root \emph{in its belief summaries} $(\hat v,\pi)$ follows from \eqref{eq:m0}. Continuity of the
+\emph{composition} $k \mapsto (\hat v,\pi) \mapsto P$ in the cutoff vector is what the clause above
+retains as an assumption: the $k$-dependence runs through the conditioning rather than through the
+pricing map, and no step derives it. Remark~\ref{rem:A6record} records that composition measured
+discontinuous at the implemented calibration, at the same loci and by the same checks, so this
+clause carries adverse applicability evidence of its own. No label moves on that:
+Assumption~\ref{asm:A5} is a hypothesis, and no result below consumes its cutoff clause.
+
 \begin{assumption}[A6: compact outer self-map]
 \label{asm:A6}
 All best-response cutoffs lie in a common compact ordered polytope $\Theta$; the outer map $\Tmap$
@@ -323,6 +352,8 @@ of Section~\ref{sec:polytope} is continuous and maps $\Theta$ into itself.
 
 \begin{remark}[Numerical record for Assumption~\ref{asm:A6}]
 \label{rem:A6record}
+% Long unbreakable repo paths below; scoped to this remark, no wording effect.
+\setlength{\emergencystretch}{3em}%
 The continuity clause of Assumption~\ref{asm:A6} fails for the declared construction of $\Theta$,
 and the locus is not the one first proposed. All $k$-dependence of $U_j$ runs through the pooled
 price vector, the flagged layer being $k$-free under Assumption~\ref{asm:A7J}; Bayes applies where
@@ -343,12 +374,19 @@ $\mu_v + \beta(c - \mu_v)$ varies over the face while any $k$-free family suppli
 continuity fails at every face point but at most one --- a continuum-face lemma derived in a single
 panel pass and \emph{not} gate-checked. The implemented menu is not in that class: Exit and Hold pool
 perfectly in order flow, and its Hold-collapse face is measured clean, with pooled prices within
-$4.4\times10^{-16}$ and $\Tmap$ bit-identical as $k_1$ sweeps to full collapse. At the implemented
+$4.441\times10^{-16}$ as $k_1$ sweeps to full collapse. The payoffs $U$ are bit-identical across
+that sweep; $\Tmap_2$ is not, moving $6.66\times10^{-16}$ --- three ulps --- at the one $k_1$ where
+the price signature itself deviates most, so the invariance holds at the map's own root-finder
+resolution rather than bit for bit. At the implemented
 calibration the failure is live at the interior $n(s)$ cell edges instead: measured $\Tmap_2$ jumps
 of $6.33\times10^{-3}$, $1.09\times10^{-2}$ and $2.83\times10^{-2}$ across steps in $k_2$ of at most
 $2\times10^{-9}$ at $(\kappa = 0.5,\ \tau_{50},\ T = 5)$, measured independently by both panellists
 with separate scripts and agreeing to three significant figures, with the belief snap matching the
-predicted value to about $10^{-8}$, surviving-type controls at about $3\times10^{-9}$, and
+predicted value to about $10^{-8}$ at all three edges at the truncation-and-cancellation crossover
+bracket of $10^{-8}$ --- at the probes' own $10^{-9}$ bracket the first edge still holds, at
+$4.0\times10^{-8}$, while the second and third are $1.2\times10^{-7}$ and $1.7\times10^{-7}$, which
+is floating-point cancellation over a sliver $10^{-9}$ wide and not a gap in the prediction ---
+surviving-type controls at about $3\times10^{-9}$, and
 robustness at $1000$ times the breakpoint-merge tolerance; at $(\kappa = 0.15,\ 0.05,\ 5)$ the jumps
 reach $0.16$ and a diagonal crossing of $\Tmap_2$ is destroyed. A chamber interior
 $\Theta^+ = [1.23,\,1.245]\times[1.5253,\,1.5506]$ has been exhibited that is compact,
@@ -365,11 +403,27 @@ but with its $0/0$ corner unresolved. The implementation's off-path floor of $10
 fixed-$t$ constrained game --- the standard repair already shipped, with the switch relocated by
 about $10^{-9}$ rather than removed. Coverage: probes at one node per claim class plus a 27-node
 census, not swept over $(\kappa,\tau,T)$. Nonexistence is neither claimed nor shown: $23$ of $27$
-sweep nodes converge, and a discontinuous self-map may still have fixed points. Records:
+sweep nodes converge, and a discontinuous self-map may still have fixed points.
+
+The three decisive measurements are now curated executed checks, each with a JSON verdict beside its
+script. \texttt{t2\_a6\_edge\_jump\_check} replays both panellists' routes at their own filed
+brackets and reproduces the three $\Tmap_2$ jumps, which agree across routes to a relative
+$1.3\times10^{-4}$, with controls at $2.8$--$3.6\times10^{-9}$ and the $\pm10^{-6}$ robustness
+intact. \texttt{t2\_a6\_node15\_check} reproduces the $0.1647$ jump, the destroyed crossing
+($+1.0\times10^{-7} \to -6.70\times10^{-2}$) and the edge fixed point to $1.06\times10^{-12}$.
+\texttt{t2\_a6\_collapse\_face\_check} reproduces the pooled prices within $4.441\times10^{-16}$.
+Every figure these checks touch reproduces; two wordings of the panel record were corrected and the
+numbers were not. The analytic weight bound $\min(\kappa/2,\,1-\kappa)^{d+1}$ is \emph{not} curated,
+since no probe computes it; what is curated is its measured counterpart, the jump entering the
+adjacent-plan payoff difference undiminished. Records:
 \texttt{threads/\allowbreak 2026-08-27\_A6\_\allowbreak panel\_substantiate.md} and
-\texttt{threads/\allowbreak 2026-08-27\_A6\_\allowbreak panel\_defuse.md}; probes
-\texttt{quality\_reports/\allowbreak fixes/\allowbreak a6\_panel\_probes\_\allowbreak 2026-08-27/},
-which are analysis-grade and not curated executed checks.
+\texttt{threads/\allowbreak 2026-08-27\_A6\_\allowbreak panel\_defuse.md}; the analysis-grade probes
+behind them at
+\texttt{quality\_reports/\allowbreak fixes/\allowbreak a6\_panel\_probes\_\allowbreak 2026-08-27/};
+and the curated checks at
+\texttt{quality\_reports/\allowbreak fixes/\allowbreak t2\_a6\_\allowbreak edge\_jump\_check},
+\texttt{t2\_a6\_\allowbreak node15\_check} and \texttt{t2\_a6\_\allowbreak collapse\_face\_check},
+each with its \texttt{.py} and \texttt{.json}.
 \end{remark}
 
 \begin{assumption}[A7: filing sufficiency]
@@ -410,7 +464,7 @@ pro-rata single-Voice menu with terminal target strictly increasing on all of $\
 satisfies Assumption~\ref{asm:A7J}. Assumption~\ref{asm:A7J} additionally needs $b^*$ strictly
 increasing off the Voice region: a target flat below the Voice cutoff breaks it, in an executed
 check producing forty collisions, while leaving Assumption~\ref{asm:A7p} intact. The failure boundary
-for the on-path form is a binding stake cap, quantized stakes, a composed target repeating values
+is a binding stake cap, quantized stakes, a composed target repeating values
 across Voice-plan switches, $\Omega = 0$, and policy dependence when the condition is stated only at
 one equilibrium's cutoffs. Menus satisfying Assumption~\ref{asm:A7p} are fully separating on the
 flagged set, so the burden moves to the incentive compatibility of Proposition~\ref{prop:P1}, not
@@ -463,8 +517,11 @@ Part~(B) of Theorem~\ref{thm:T1} --- inherits that conditionality.
 
 \begin{remark}[Numerical record for Assumption~\ref{asm:Atau}]
 \label{rem:AtauRecord}
-At the implemented calibration the support condition \textbf{fails}, and it fails on the support, not
-on the derivative pattern. The pooled cell's engagement-posterior law was enumerated exactly --- all
+At the implemented calibration Assumption~\ref{asm:Atau} \textbf{fails}. The decisive representation
+failure is already established by the support condition alone; the derivative pattern also fails, and
+independently. The support half carries the verdict because it is the entire remaining content of
+the restriction, and of the derivative-pattern failure only the $A_{1/2}'$ residual is inherited
+from the support. The pooled cell's engagement-posterior law was enumerated exactly --- all
 $4^{H+1} = 4{,}194{,}304$ order-flow paths, the same law the implementation integrates --- at $200$
 nodes: $\kappa \in \{0.05,\dots,0.95\}$ crossed with the five frozen $\tau$ percentiles and
 $T \in \{1,2,5,10\}$, at frozen policies with $H = 10$. Two gates pass first, so the object measured

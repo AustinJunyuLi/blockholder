@@ -4,8 +4,8 @@
 %  model.  Ticket 30 (T2j); the deliverable ticket 06 specified.
 %
 %  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp
-%  2026-08-28, follow-up curation (commit 926f58c).
-%  Where a proof file
+%  2026-08-28, re-review audit repairs
+%  (commit <pending-orchestrator-hash>).  Where a proof file
 %  and the card differ, the card wins.  Labels are transcribed from
 %  research/model_v4/LABEL_LEDGER.md.
 %
@@ -27,6 +27,13 @@
 %      (A6 note, curation note -- two wordings corrected, the numbers
 %      intact), and the ticket-34 candidate account is swept over its other
 %      three nodes -- the account HOLDS at all three (A3 note, sweep note).
+%    * Later the same day GPT Pro's re-review returned and was audited
+%      (threads/2026-08-28_gpt_rereview.md, filed verbatim;
+%      threads/2026-08-28_gpt_rereview_audit.md, finding-by-finding): ALL
+%      ELEVEN LABELS STAND, ZERO DEMOTIONS.  The audit upheld three
+%      wording-grade card repairs, applied at this stamp -- the P1 row's
+%      A5-continuity clause corrected in place, an A5 evidence note, and
+%      the A(tau) note's lead sentence -- again NO LABEL MOVES.
 %
 %  Compiles standalone with xelatex.  No bibliography, no \ref into any other
 %  document: every repo file is named as a \texttt{} string, never cited.
@@ -59,7 +66,7 @@
 \title{The Two-Round Blockholder Disclosure Model\\[2pt]
 \large A standalone model note}
 \author{v4 theory lane, ticket 30 (T2j)}
-\date{Card stamp 2026-08-28, follow-up curation}
+\date{Card stamp 2026-08-28, re-review audit repairs}
 
 \begin{document}
 \maketitle
@@ -71,14 +78,15 @@ hypotheses, and the eight-result ledger with its honesty labels. It then records
 what the v4 model takes from the frozen manuscript \texttt{draft\_v2.tex}, what it
 simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from
-\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-28, follow-up
-curation) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Four card events
+\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-28, re-review
+audit repairs) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Five card events
 since the 2026-08-23 stamp are carried below: P1 restored to PROVED on
 2026-08-25 on its ticket-35 repair; $\Atau$'s ticket-33 evidence note of
-2026-08-25; the 2026-08-27 A6 panel ruling; and the 2026-08-28 follow-up
-curation --- the last two moving no label. The card is the single source of
-truth: where a proof file and the card differ, the card wins. The conditionality
-attached to each result is not decoration. It is the result.
+2026-08-25; the 2026-08-27 A6 panel ruling; the 2026-08-28 follow-up curation;
+and the 2026-08-28 re-review audit repairs, at which \textbf{all eleven labels
+stand, zero demotions} --- the last three moving no label. The card is the single
+source of truth: where a proof file and the card differ, the card wins. The
+conditionality attached to each result is not decoration. It is the result.
 \end{abstract}
 
 %==============================================================================
@@ -406,6 +414,28 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   sets are continuum-indexed, ``unique fixed point'' must be read as a measurably
   selected \emph{family}, not a finite list.
 
+  \emph{Evidence note added 2026-08-28 (re-review audit finding 1;
+  \texttt{threads/\allowbreak 2026-08-28\_\allowbreak gpt\_\allowbreak rereview\_\allowbreak audit.md}).} \textbf{The retained
+  continuity clause is an assumption about the \emph{composed} family, and it is measured
+  to fail at the implemented calibration.} Two continuities must be kept apart, because
+  only one of them is a theorem. (i) Continuity of the inner root \textbf{in its belief
+  summaries} $(\hat v,\pi)$ follows from $m_0\ge0$ --- \texttt{proofs/P1\_proof.md}
+  Steps 7--8, two independent routes on file. (ii) Continuity of the \textbf{composition}
+  $k\mapsto(\hat v,\pi)\mapsto P$ \textbf{in the cutoff vector} is what the clause above
+  retains, and no step derives it: the $k$-dependence runs through the conditioning, not
+  through the pricing map (\texttt{proofs/P1\_proof.md} Step 7, closing paragraph). The A6
+  note below measures exactly that composition jumping --- the price system is
+  discontinuous on $\bigcup_h\partial\{k:\Lambda_k(h)>0\}$, with $\Tmap_2$ jumps of
+  $6.33\times10^{-3}$ / $1.09\times10^{-2}$ / $2.83\times10^{-2}$ at
+  $(\kappa{=}0.5,\tau_{50},T{=}5)$
+  (\texttt{quality\_reports/\allowbreak fixes/\allowbreak t2\_a6\_edge\_jump\_check.json}).
+  Clause (ii) and A6's continuity clause therefore fail together, at one locus, for the
+  declared construction. \textbf{Where each citing row stands:} D1 cites A5 for a unique
+  competitive price at every public history and L2 for one flagged fixed point --- the
+  existence/uniqueness content, released above to $m_0\ge0$; L1 cites it to pin \emph{the}
+  version of $\Eop[Y\mid\mathcal I]$. \textbf{No result row consumes clause (ii)}, so no
+  row is touched. \textbf{No label moves and none is licensed} --- A5 is a hypothesis.
+
 \item[A6 Compact outer self-map.] All best-response cutoffs lie in a common compact
   ordered polytope $\Theta$; $\Tmap$ is continuous and maps $\Theta$ into itself.
 
@@ -554,9 +584,17 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   $\Atau$-conditional result --- and therefore L4 leg 3 and T1 Part B --- inherits
   that conditionality.
 
-  \emph{Evidence note added 2026-08-25 (ticket 33).} \textbf{At the implemented
-  calibration the support condition FAILS --- and it fails on the support, not on the
-  derivative pattern.} The pooled cell's engagement-posterior law was enumerated exactly
+  \emph{Evidence note added 2026-08-25 (ticket 33; \textbf{lead sentence corrected
+  2026-08-28} on re-review audit finding 2 --- every number, bullet and verdict below is
+  unchanged).} \textbf{At the implemented calibration $\Atau$ FAILS. The decisive
+  representation failure is already established by the support condition alone; the
+  derivative pattern also fails, and independently.} The support half carries the verdict
+  because it is $\Atau$'s entire remaining content (see the bite paragraph above); the
+  derivative-pattern bullet is a second and independent failure, of which only the
+  $A_{1/2}'$ residual is inherited from the support. \emph{(The superseded lead read ``it
+  fails on the support, not on the derivative pattern'', which the third bullet below
+  contradicts on its own terms.)} The pooled cell's engagement-posterior law was
+  enumerated exactly
   (all $4^{H+1}=4{,}194{,}304$ order-flow paths, the same law \texttt{pooled\_premium}
   integrates) at \textbf{200 nodes}: $\kappa\in\{0.05,\dots,0.95\}$ $\times$ the five
   frozen $\tau$ percentiles $\times$ $T\in\{1,2,5,10\}$, frozen policies, $H=10$. Two
@@ -872,9 +910,21 @@ pair $(j,s)$, whether or not the cutoff vector selects it} --- the flagged price
 invariant across the round-2 deviation set (A7-J pins the belief at the same $s$ and
 $\pi=1$), so the order cancels out of the continuation and the continuation-cost clause
 makes what remains constant. \textbf{A5 is not assumed}: its existence and uniqueness
-content is derived from $m_0\ge0$, its continuity content from the same scalar reduction,
-and its measurable-selection content from A7-J plus the card's \S4.2 Borel clause (see
-A5). \textbf{A6 is read} as asserting that $\Tmap$ --- under a named
+content is derived from $m_0\ge0$; its continuity content \textbf{in the belief summaries
+$(\hat v,\pi)$} from the same scalar reduction (\texttt{proofs/P1\_proof.md} Step 7(iii)'s
+strict $\varrho'<0$ at every root, with Step 8's implicit-function bound
+$\partial P/\partial\hat v\in(0,1]$ as a second recorded route --- the proof file records
+both as valid and names neither as the only one); and its measurable-selection content
+from A7-J plus the card's \S4.2 Borel clause. \textbf{What is \emph{not} derived is A5's
+cutoff clause} --- continuity of the \emph{composed} pooled price family in the cutoff
+vector $k$, which runs through the conditioning $(\hat v,\pi)$ rather than through the
+pricing map (\texttt{proofs/P1\_proof.md} Step 7, closing paragraph; the struck h.5(c),
+which marks Step 15's cutoff-continuity citation non-load-bearing). That continuity enters
+only through \textbf{A6 as read}, and the A6 evidence note in Section~\ref{sec:hyp}
+records it \textbf{measured to fail} at the implemented calibration (see A5).
+\emph{Clause corrected in place 2026-08-28 on re-review audit finding 1
+(\texttt{threads/\allowbreak 2026-08-28\_\allowbreak gpt\_\allowbreak rereview\_\allowbreak audit.md}); the hypothesis set, the
+conclusion and the label are unchanged.} \textbf{A6 is read} as asserting that $\Tmap$ --- under a named
 tie-break-and-corner selection, without which a correspondence cannot be called
 continuous --- is a well-defined single-valued continuous self-map of $\Theta$, with
 $\Theta$ nonempty per the card's \S4.5. \textbf{At any such equilibrium at which A8
@@ -1498,8 +1548,8 @@ $\tau=0.05$ (the statutory 13D 5\%):
 \vspace{2pt}
 \noindent\footnotesize\raggedright
 Sources, all in the \texttt{v4-theory} worktree:
-\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-28, follow-up
-curation) for Sections 1--6 and 7;
+\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-28, re-review audit
+repairs) for Sections 1--6 and 7;
 \texttt{research/model\_v4/LABEL\_LEDGER.md} for the labels;
 \texttt{research/model\_v4/proofs/} and \texttt{research/model\_v4/rederive/} for the
 two-pass evidence chains;

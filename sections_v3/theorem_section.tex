@@ -1,8 +1,9 @@
 %==============================================================================
 %  sections_v3/theorem_section.tex -- the results section of draft_v3.
 %
-%  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp 2026-08-27
-%  (A6 panel resolution, commit ae9caea), section 6 result ledger.  The eight
+%  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp 2026-08-28
+%  (re-review audit repairs, commit <pending-orchestrator-hash>), section 6
+%  result ledger.  The eight
 %  results appear in the ledger's own order and at its grain: D1, L1, L2, L3,
 %  L4, P1, T1, C1.  Every hypothesis clause of every card row travels with the
 %  statement that carries it; the crosswalk in the ticket 08 scratchpad walks
@@ -257,8 +258,14 @@ prices at their inner fixed points and beliefs Bayes-consistent on path, togethe
 \end{enumerate}
 Two readings belong to the statement rather than to the proof. First, \emph{Assumption~\ref{asm:A5}
 is not assumed here}: its existence and uniqueness content is derived from $m_0 \ge 0$, its
-continuity content from the same scalar reduction, and its measurable-selection content from
-Assumption~\ref{asm:A7J} together with clause (TR-ii)'s Borel regularity. Second,
+continuity content \emph{in the belief summaries} $(\hat v,\pi)$ from the same scalar reduction, and
+its measurable-selection content from Assumption~\ref{asm:A7J} together with clause (TR-ii)'s Borel
+regularity. What is \emph{not} derived is the cutoff clause of Assumption~\ref{asm:A5}: continuity
+of the composed pooled price family in the cutoff vector $k$, which runs through the conditioning
+pair $(\hat v,\pi)$ rather than through the pricing map, as Step~7 of the proof says where it says
+what is left over. That continuity enters only through the reading of Assumption~\ref{asm:A6} given
+next, and Remark~\ref{rem:A6record} records it measured to fail at the implemented calibration.
+Second,
 \emph{Assumption~\ref{asm:A6} is read} as asserting that $\Tmap$ --- under a named
 tie-break-and-corner selection, without which a correspondence cannot be called continuous --- is a
 well-defined, single-valued, continuous self-map of $\Theta$, with $\Theta$ nonempty as in
