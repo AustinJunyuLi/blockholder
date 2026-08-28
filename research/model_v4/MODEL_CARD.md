@@ -1,6 +1,6 @@
 # MODEL CARD — v4 two-round blockholder disclosure model
 
-**Version stamp: 2026-08-28 · re-review audit repairs (P1-row A5 clause + §5 A5 evidence note + A($\tau$) lead + §4.4 O-1 parenthetical) · commit `<pending-orchestrator-hash>`.** An answer written against a stale stamp is
+**Version stamp: 2026-08-28 · re-review audit repairs (P1-row A5 clause + §5 A5 evidence note + A($\tau$) lead + §4.4 O-1 parenthetical) · commit `59c0dfc`.** An answer written against a stale stamp is
 re-asked, not accepted. Regenerated from `threads/thread1_turn1_answer.md` after the turn-1 audit
 (`threads/thread1_turn1_audit.md`), revised after the turn-2 proof-read
 (`threads/thread1_turn2_audit.md`), surgically edited for ticket 24's A7 construction, and

@@ -9,7 +9,7 @@ disclosure rule induces, the equilibrium notion, the standing hypotheses, and th
 ledger with its honesty labels. It then records what the v4 model takes from the frozen manuscript
 `draft_v2.tex`, what it simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from `research/model_v4/MODEL_CARD.md`
-(version stamp 2026-08-28, re-review audit repairs, commit `<pending-orchestrator-hash>`) and
+(version stamp 2026-08-28, re-review audit repairs, commit `59c0dfc`) and
 `research/model_v4/LABEL_LEDGER.md`. The card is the single source of truth: where a proof file
 and the card differ, the card wins. The conditionality attached to each result is not decoration.
 It is the result.

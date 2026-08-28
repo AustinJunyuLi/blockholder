@@ -31,7 +31,7 @@ legitimate follow-up — a dedicated curated t2 A3 check — **on file, not star
 
 **Repairs applied (12 + 1 optional; no label moves anywhere).**
 - **Card (orchestrator, quiet window, one batched edit):** stamp advanced to **2026-08-28 ·
-  re-review audit repairs · `<pending-orchestrator-hash>`**; provenance sentence (review returned
+  re-review audit repairs · `59c0dfc`**; provenance sentence (review returned
   + audited, all labels stand); **C-1** the P1 row's "A5 is not assumed" clause corrected in
   place (continuity in the belief summaries derived, two recorded routes; the cutoff clause NOT
   derived — enters only through A6-as-read, measured to fail; dated correction marker, ticket-32
@@ -64,7 +64,7 @@ abstract/introduction/conclusion is draft-assembly material — recorded in the 
 for the convergence owner (ticket 18). The constructive-existence route (Kakutani, on file at
 `proofs/P1_proof.md` Step 18) vs a verified parameter region is a research decision for Austin.
 
-**Commits (v4-theory, pushed):** `<pending-orchestrator-hash>` (this unit: card + mirrors +
+**Commits (v4-theory, pushed):** `59c0dfc` (this unit: card + mirrors +
 sections + review + audit + checker append + this log); hash filled in the follow-up commit.
 
 **Standing after this session.** The courier loop is CLOSED: bundle → paste → response filed →
