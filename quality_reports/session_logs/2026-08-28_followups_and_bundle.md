@@ -69,7 +69,7 @@ the six live t2 checks, and the theory sections (statements in full; proofs by o
 Austin couriers it once; the paste is the next human step.
 
 **Commits this session (v4-theory, pushed):** `926f58c` (follow-ups: 8 t2 files + card + mirrors
-+ PDF); `998b88e` (stamp hash fill); `<pending-orchestrator-hash>` (bundle + this log).
++ PDF); `998b88e` (stamp hash fill); `3af3c7c` (bundle + this log).
 
 **Standing after this session.** Open theory-lane follow-up remaining: gate-check the
 continuum-face lemma only if it is ever promoted. Card wording item still parked for a quiet
