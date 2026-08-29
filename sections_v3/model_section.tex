@@ -308,6 +308,17 @@ is a hypothesis, and Proposition~\ref{prop:P1} stays PROVED as a conditional. Re
 files named in Remark~\ref{rem:A6record}, and
 \texttt{quality\_reports/fixes/t2\_t34\_account\_sweep.py} with
 \texttt{t2\_t34\_account\_sweep.json}.
+
+\emph{Card note, 2026-08-29:} Locus (i)'s failure is recorded under the implemented off-path
+family, whose floor is uniform across dead types where Step 9(b)'s $\Lambda_u$ is
+mass-proportional (A6 note, 2026-08-29 verification note). Under a Step-9(b)-faithful
+mass-proportional family the failure at this node is relocated, not removed: over the offsets
+quoted above ($10^{-9}$ through $2\times10^{-2}$) the count falls to one sign change and the
+pointwise argmax becomes weakly increasing, so the weakly-increasing-selection set is nonempty
+there --- but at offsets $4\times10^{-2}$ through $10^{-1}$, where the shipped family gives one,
+it is three, with the argmax non-monotone across the crossings in the same $\ldots$V,H,V
+pattern, so the weakly-increasing-selection set is empty on an open set of $k_2$ at this node
+under both families. \textbf{A3's verdict at this calibration does not depend on the family.}
 \end{remark}
 
 \begin{assumption}[A4: legal-clock discipline]
@@ -401,7 +412,20 @@ are on file, both outside the declared Brouwer-with-one-fixed-family route: a $t
 with a Kakutani argument and $t \downarrow 0$, and a $k$-indexed concentration family, constructible
 but with its $0/0$ corner unresolved. The implementation's off-path floor of $10^{-14}$ \emph{is} the
 fixed-$t$ constrained game --- the standard repair already shipped, with the switch relocated by
-about $10^{-9}$ rather than removed. Coverage: probes at one node per claim class plus a 27-node
+about $10^{-9}$ rather than removed. \emph{Card note, 2026-08-29:} the two preceding sentences are
+superseded on the card. The Step-18 pointer is corrected:
+\texttt{research/model\_v4/proofs/P1\_proof.md} Step 18 as it stands is a scoped remark --- its
+Kakutani conclusion is withdrawn as unestablished, and it carries no $t$-constrained game and no
+$t \downarrow 0$ limit --- so that route is a sketch, not a repair on file, and the ``two repairs
+on file'' no longer stands as written (the $k$-indexed concentration family stays constructible,
+its $0/0$ corner unresolved). And the off-path-floor claim is superseded by the card's
+off-path-family verification note (20 gates, 0 failed): what the implementation ships is a hard
+switch that floors a type only where its alive mass is exactly zero --- the $t = 0$ limit of a
+uniform-floor family, not a fixed-$t$ constrained game --- so Step 18's standard repair is
+\emph{not} shipped, and the $\Theta$-continuity the $t$-constrained game would buy is absent from
+the implementation at every resolvable scale. The hedge stands and is now measured: the switch is
+relocated, not removed, by the near-duplicate breakpoint merge. No label moves and none is
+licensed: A6 is a hypothesis. Coverage: probes at one node per claim class plus a 27-node
 census, not swept over $(\kappa,\tau,T)$. Nonexistence is neither claimed nor shown: $23$ of $27$
 sweep nodes converge, and a discontinuous self-map may still have fixed points.
 

@@ -4,8 +4,9 @@
 %  model.  Ticket 30 (T2j); the deliverable ticket 06 specified.
 %
 %  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp
-%  2026-08-28, re-review audit repairs
-%  (commit 59c0dfc).  Where a proof file
+%  2026-08-29, polish-pass audit + wording repairs + off-path
+%  verification + A3 curation
+%  (commit <pending-orchestrator-hash>).  Where a proof file
 %  and the card differ, the card wins.  Labels are transcribed from
 %  research/model_v4/LABEL_LEDGER.md.
 %
@@ -34,6 +35,26 @@
 %      wording-grade card repairs, applied at this stamp -- the P1 row's
 %      A5-continuity clause corrected in place, an A5 evidence note, and
 %      the A(tau) note's lead sentence -- again NO LABEL MOVES.
+%    * On 2026-08-29 the polish round closed and the off-path
+%      verification landed, again NO LABEL MOVES: the polish response
+%      and its in-house audit are filed
+%      (threads/2026-08-29_gpt_p1_polish.md,
+%      threads/2026-08-29_gpt_p1_polish_audit.md; 19 findings), the
+%      audit's wording repairs P1-R36--R39, R41--R42 and R46--R53 are
+%      applied to the proof and independently verified, as are the
+%      auditor's same-day seam follow-ons P1-R54--R56, drafted after
+%      application review and filed as
+%      threads/2026-08-29_p1_polish_audit_addendum.md; P1-R43/R44
+%      pending the two-pass gate; P1-R45 behind the F5 route; and the
+%      F5 demotion question recorded OPEN on the P1 row, before Austin);
+%      the off-path-family verification (20 gates, 0 failed) amends the
+%      A6 and A3 notes -- the OFF_PATH_EPS sentence superseded
+%      (Amendment A), locus (i) scoped under both off-path families
+%      (Amendment B), the type_reference gap recorded (Amendment C),
+%      the Step-18 pointer corrected -- and the A3 curation note
+%      records the executed t2_a3_ordered_plans_check (17 gates; both
+%      loci reproduce), with the A3 note's bare selection-set symbol
+%      replaced by prose.
 %
 %  Compiles standalone with xelatex.  No bibliography, no \ref into any other
 %  document: every repo file is named as a \texttt{} string, never cited.
@@ -66,7 +87,7 @@
 \title{The Two-Round Blockholder Disclosure Model\\[2pt]
 \large A standalone model note}
 \author{v4 theory lane, ticket 30 (T2j)}
-\date{Card stamp 2026-08-28, re-review audit repairs}
+\date{Card stamp 2026-08-29, polish-pass audit + wording repairs + off-path verification + A3 curation}
 
 \begin{document}
 \maketitle
@@ -78,13 +99,17 @@ hypotheses, and the eight-result ledger with its honesty labels. It then records
 what the v4 model takes from the frozen manuscript \texttt{draft\_v2.tex}, what it
 simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from
-\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-28, re-review
-audit repairs) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Five card events
-since the 2026-08-23 stamp are carried below: P1 restored to PROVED on
+\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-29, polish-pass audit +
+wording repairs + off-path verification + A3 curation, commit
+\texttt{<pending-orchestrator-hash>}) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Six
+card events since the 2026-08-23 stamp are carried below: P1 restored to PROVED on
 2026-08-25 on its ticket-35 repair; $\Atau$'s ticket-33 evidence note of
 2026-08-25; the 2026-08-27 A6 panel ruling; the 2026-08-28 follow-up curation;
-and the 2026-08-28 re-review audit repairs, at which \textbf{all eleven labels
-stand, zero demotions} --- the last three moving no label. The card is the single
+the 2026-08-28 re-review audit repairs, at which \textbf{all eleven labels
+stand, zero demotions}; and the 2026-08-29 polish-pass audit (wording repairs
+applied; the F5 demotion question recorded OPEN on the P1 row, before Austin)
+with the off-path-family verification amending the A6 and A3 notes and the A3
+curation --- \textbf{the last four moving no label}. The card is the single
 source of truth: where a proof file and the card differ, the card wins. The
 conditionality attached to each result is not decoration. It is the result.
 \end{abstract}
@@ -355,8 +380,8 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   strict sign changes} ($s = 1.5754434 / 1.5833333 / 1.5902426$; middle excursions
   $2.4$--$2.8\times10^{-4}$ against a $10^{-9}$ payoff tolerance), the pointwise argmax
   runs H,V,H,V single-valued on each interval, so \textbf{no weakly increasing selection
-  exists} --- $\mathcal S(k)=\emptyset$ and Step 13's $\Tmap$ is \textbf{undefined} there,
-  not merely discontinuous. (ii) At $(\kappa{=}0.15,\ 0.05,\ 5)$ --- a ticket-34
+  exists} --- the weakly-increasing-selection set is empty and Step 13's $\Tmap$ is
+  \textbf{undefined} there, not merely discontinuous. (ii) At $(\kappa{=}0.15,\ 0.05,\ 5)$ --- a ticket-34
   UNRESOLVED node --- the argmax reverses \textbf{VOICE $\to$ HOLD} across cell edge
   $s = 1.659062163$ at \textbf{both} located fixed points: the preferred plan decreases in
   $s$. The route is the $s$-direction step of $U_{VOICE}$ ($n(s)$ is integer-valued ---
@@ -396,6 +421,54 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   recheck basin alone. Diagnostic evidence at one calibration; existence at these nodes
   stays neither claimed nor denied.} No label moves --- A3 is a hypothesis; P1 stays
   PROVED as a conditional. Records: the same panel files as the A6 note.
+
+  \emph{Curated 2026-08-29 into a dedicated executed check
+  (\texttt{quality\_reports/\allowbreak fixes/\allowbreak t2\_a3\_\allowbreak
+  ordered\_plans\_check.py}/\texttt{.json},
+  17 gates pre-registered on this note's numbers and the panel's filed values --- one gate's
+  comparison form restructured after run 1 to the source's 3 s.f., declared in
+  \texttt{known\_discrepancies}; no measured number moved; deterministic, re-run identical
+  modulo the timing field): both loci \textbf{REPRODUCE} --- (i) three sign changes at all five
+  ladder offsets ($10^{-9}$, $10^{-4}$, $10^{-3}$, $5\times10^{-3}$, $2\times10^{-2}$),
+  located at the filed $+10^{-9}$ offset at 1.5754434 / 1.5833333 / 1.5902426 (7 dp exact),
+  argmax H,V,H,V strictly single-valued, the weakly-increasing-selection set empty; (ii) the
+  VOICE $\to$ HOLD reversal and all twelve filed payoffs at both fixed points, the pinned
+  residuals bit-exact. One wording note, numbers intact: the quoted middle excursions reproduce
+  ($2.80\times10^{-4}$ / $2.40\times10^{-4}$ at their filed precision) but are the panel's
+  6001-point grid maxima --- refined per-interval maxima $3.07\times10^{-4}$ /
+  $2.69\times10^{-4}$, so the single-crossing failure is larger than recorded. No label moves
+  --- A3 is a hypothesis.}
+
+  \emph{Off-path-family scope note added 2026-08-29 (independent verifier; probes
+  \texttt{quality\_reports/\allowbreak fixes/\allowbreak p1\_route\_probes\_\allowbreak
+  2026-08-29/\allowbreak v\_offpath\_\allowbreak locus1\_ladder.py}/\texttt{.json},
+  10 gates, 0 failed, whose shipped rows reproduce this note's counts at every ladder offset
+  and its three $7$-dp crossing locations exactly).} Locus (i)'s failure is recorded
+  \textbf{under the implemented off-path family}, whose floor is uniform across dead types
+  where Step 9(b)'s $\Lambda_u$ is mass-proportional (A6 note, 2026-08-29 verification note).
+  Under a \textbf{Step-9(b)-faithful mass-proportional family} the failure at this node is
+  \textbf{relocated, not removed}: over the offsets quoted above ($10^{-9}$ through
+  $2\times10^{-2}$) the count falls to \textbf{one} sign change and the pointwise argmax
+  becomes \textbf{weakly increasing}, so the weakly-increasing-selection set is nonempty there
+  --- but at offsets $4\times10^{-2}$ through $10^{-1}$, where the \textbf{shipped} family
+  gives one, it is \textbf{three}, with the argmax \textbf{non-monotone across the crossings}
+  in the same $\ldots$V,H,V pattern, so the weakly-increasing-selection set is empty on an
+  open set of $k_2$ at this node under \textbf{both} families. The two families are
+  \textbf{exactly complementary} over the eleven offsets tested and flip at the \textbf{same}
+  boundary, between $+3\times10^{-2}$ and $+4\times10^{-2}$: the family does not switch the
+  failure off, it swaps which half of the ladder carries it. The driver is the
+  \textbf{reference measure}, not the perturbation's continuity: a continuous fixed-$t$ blend
+  with a uniform reference tracks the shipped switch and one with the Step 9(b) reference
+  tracks the mass-proportional switch, at every
+  $\varepsilon\in\{10^{-14},10^{-9},10^{-6}\}$. \textbf{Locus (ii) is untouched}: the VOICE
+  $\to$ HOLD reversal holds at \textbf{both} located fixed points under the shipped family,
+  under the exact Step 9(b) family at both scales, and under every family at $\varepsilon=$
+  \texttt{OFF\_PATH\_EPS}, with all ten family $\times$ scale rows reversing at the pinned
+  point (\texttt{v\_offpath\_locus2\_node15.py}/\texttt{.json}, 5 gates, 0 failed) ---
+  \textbf{A3's verdict at this calibration does not depend on the family.}
+  \texttt{t2\_a3\_ordered\_plans\_check.py}/\texttt{.json} \textbf{remains valid as the
+  shipped-family record and nothing in it is withdrawn.} No label moves --- A3 is a
+  hypothesis; P1 stays PROVED as a conditional.
 
 \item[A4 Legal-clock discipline.] $c$ is the first date the path reaches $\tau$;
   the filing lands exactly at $c+T$; filings truthfully reveal stake and purpose;
@@ -484,7 +557,12 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   antecedent, read with the $\Theta$ the proof constructs, is not satisfied by the
   implemented calibration. Repairs on file, both outside the equilibrium notion's declared
   Brouwer-with-one-fixed-family route: the $t$-constrained game $+$ Kakutani $+$
-  $t\downarrow0$ (\texttt{proofs/P1\_proof.md} Step 18), and a $k$-indexed concentration
+  $t\downarrow0$ (\texttt{proofs/P1\_proof.md} Step 18; \emph{pointer corrected 2026-08-29,
+  polish-pass audit with P1-R46 applied to the file: Step 18 as it stands is a scoped remark
+  --- its Kakutani conclusion is withdrawn as unestablished, and it carries no
+  $t$-constrained game and no $t\downarrow 0$ limit --- so this route is a sketch, not a
+  repair on file, and Step 18's standard repair is not shipped, per the 2026-08-29
+  verification note at the end of this bullet}), and a $k$-indexed concentration
   family (constructible; its $0/0$ corner unresolved). The implementation's
   \texttt{OFF\_PATH\_EPS} $=10^{-14}$ \textbf{is} the fixed-$t$ constrained game --- the
   standard repair already shipped, with the switch relocated by $\sim10^{-9}$ rather than
@@ -519,6 +597,58 @@ $k=\Tmap(k;\vartheta)$. \textbf{Uniqueness is not claimed.}
   $\min(\kappa/2,1-\kappa)^{d+1}$ is \textbf{not} curated --- no probe computes it; its
   measured counterpart (the jump entering the adjacent-plan payoff difference
   undiminished) is. \textbf{No label moves and none is licensed.}
+
+  \emph{Off-path-family verification note added 2026-08-29 (independent verifier who did not
+  write the route exploration; probes
+  \texttt{quality\_reports/\allowbreak fixes/\allowbreak p1\_route\_probes\_\allowbreak
+  2026-08-29/v\_offpath\_*},
+  20 gates across three checks, 0 failed).} \textbf{The sentence above beginning ``The
+  implementation's \texttt{OFF\_PATH\_EPS} $=10^{-14}$ \textbf{is} the fixed-$t$ constrained
+  game'' is superseded: its first half is wrong, its hedge is right and now has a measured
+  mechanism.} What \texttt{numerical\_v4/pooled.py} \texttt{:225--235} ships is a
+  \textbf{hard switch} --- \texttt{if Wm[t] > 0.0: continue} floors a type only where its
+  alive mass is \textbf{exactly} zero, so $k\mapsto W^m$ is discontinuous on $\{k:W[t]=0\}$,
+  where Step 9(b)'s $w_n(j\mid s)=(1-t_n)\ind\{j=j_k(s)\}+t_n/J$ perturbs every type at every
+  $k$ and is continuous in $k$. Three measurements: (a) at $t=$ \texttt{OFF\_PATH\_EPS} a
+  genuine fixed-$t$ blend and the shipped switch are \textbf{indistinguishable} --- $\Tmap_2$
+  across the edge(8) $\pm10^{-8}$ bracket agrees to $2.4\times10^{-9}$ and the local step to
+  five significant figures ($6.3338\times10^{-3}$ both); the blend smooths only at
+  $t=10^{-6}$ ($6.78\times10^{-6}$); (b) the window in which the fixed-$t$ game differs from
+  its own $t\downarrow0$ limit has half-width $\varepsilon m_\theta/(J\varphi_s) =
+  2.26\times10^{-16}$ at $\varepsilon=10^{-14}$ --- \textbf{one double-precision ulp} at
+  edge(8), and $4\times10^{6}$ times narrower than \texttt{menu.breakpoints}' $10^{-9}$
+  merge tolerance; (c) the floor is \textbf{uniform across dead types} where $\Lambda_u$ is
+  \textbf{mass-proportional}, so the shipped $t\downarrow0$ limit is not Step 9(b)'s: at
+  $(\kappa{=}0.5,\tau_{50},T{=}5)$, $k_2=\text{edge}(6)+10^{-4}$, \textbf{157 464} dead-only
+  pooled histories at $d=H$ are reachable by two or more dead types and on them the two
+  $\hat v$ differ by up to $0.31$ --- an $\varepsilon$-free gap, hence not a
+  fixed-$t$-versus-limit question. \textbf{The hedge stands and is now measured:} the switch
+  is relocated, not removed, and the relocation is \texttt{menu.breakpoints}' near-duplicate
+  merge (\texttt{menu.py:244}, \texttt{np.diff > 1e-9}) --- the dying type's alive mass is
+  $4.01\times10^{-10}$ at $k_2=\text{edge}(8)-10^{-9}$ and \textbf{exactly $0.0$} at
+  $\text{edge}(8)-9.9\times10^{-10}$. \textbf{Read the corrected claim as: Step 18's standard
+  repair is \emph{not} shipped; what is shipped is the $t=0$ limit of a uniform-floor family,
+  and the $\Theta$-continuity the $t$-constrained game would buy is absent from the
+  implementation at every resolvable scale.} \textbf{What does and does not move above:} the
+  belief-snap agreement and the \texttt{type\_reference} verification stand --- they sit at
+  \textbf{type-exclusive} histories, where the floor cancels and \texttt{type\_reference}
+  \textbf{is} Step 9(b)'s limit --- and the continuity clause still fails under the
+  proof-faithful family, so \textbf{the A6 conclusion is family-robust}. Its
+  \emph{numbers} are not: at the same edge(8) $\pm10^{-8}$ bracket a Step-9(b)-faithful
+  fixed-$t$ blend at $t=10^{-14}$ gives a local step of $7.05\times10^{-3}$ against the
+  shipped $6.33\times10^{-3}$, \textbf{+11.4\%}, with $\Tmap_2$ above the edge moving
+  $7.2\times10^{-4}$. The filed jump magnitudes above --- and the curated
+  \texttt{t2\_a6\_*} checks that replay them --- are therefore \textbf{shipped-family
+  records}, valid as such and not withdrawn. (Measured at the first edge only; the
+  $1.09\times10^{-2}$ and $2.83\times10^{-2}$ figures were not re-measured under the
+  proof-faithful family.) No label moves and none is licensed --- A6 is a hypothesis.
+  \emph{Recorded 2026-08-29, unverified beyond a cell scan:} \texttt{menu.type\_reference}
+  reads one midpoint clock per $n(s)$ cell, and at $(\kappa{=}0.15, 0.05, 5)$ type 11's cell
+  is \textbf{not} $(D,f)$-constant (it spans $[-3.2426407, 1.4082483]$ with
+  $D\in\{0,1\}$, $f\in\{9,\dots,15, \infty\}$) while carrying the dominant plan-uniform mass
+  $0.742$ --- a \textbf{third} gap between the implementation's off-path construction and
+  Step 9(b)'s $\Lambda_u$, common to every family tested and therefore orthogonal to the
+  uniform-versus-mass-proportional finding. Size not measured; nothing above depends on it.
 
 \item[A7 / A7$'$ / A7-J Filing sufficiency.] On flagged histories $(B^F,Q^F,a=1)$
   identifies the informed component of the selected plan; conditional on it the
@@ -973,7 +1103,25 @@ $3.1\times10^{-4}$--$1.5\times10^{-3}$ against a $10^{-9}$ criterion, best cutof
 residual $10^{-14}$--$10^{-11}$; the A3 and A6 proxies pass at every achieving seed.
 \textbf{UNCHECKED}: existence at those four nodes is neither claimed nor denied by this
 evidence, and the label rests on the proof plus the two 2026-08-25 passes, not on the
-grid. &
+grid. \textbf{2026-08-29 (polish pass, audited; wording repairs applied; demotion question
+OPEN before Austin):} the GPT Pro polish response
+\texttt{threads/2026-08-29\_gpt\_p1\_polish.md} and its in-house audit
+\texttt{threads/2026-08-29\_gpt\_p1\_polish\_audit.md} are on file (19 findings: 16 UPHELD,
+3 with scope, 2 NARROWED, 0 REJECTED). The audit's wording-grade repairs P1-R36--R39,
+P1-R41--R42 and P1-R46--R53, and the auditor's same-day seam follow-ons P1-R54--R56
+(\texttt{threads/2026-08-29\_p1\_polish\_audit\_addendum.md}, drafted after application
+review), are applied to the proof, verbatim from the drafted texts and
+independently verified by fresh agents --- no hypothesis or step conclusion moved, and the
+two-pass gate was not re-run, per the lane rule for wording repairs. P1-R43 and P1-R44
+(statement-preserving new derivation) are drafted and pending the two-pass gate; P1-R45 is
+drafted behind the F5 route. \textbf{The demotion question is OPEN:} the audit upholds
+finding F5 at antecedent level --- under the printed corner coding, Step 13's representation
+claim fails on a positive-probability Gaussian tail for card-legal menus with a dominated
+top plan --- and wording repairs cannot close it. Routes on file: \textbf{P1-R40-A} (drafted
+in full, including an unapplied card-side clause for this row's ``A6 is read'' sentence) and
+\textbf{P1-R40-B} (sketched; would edit card \S3). The route choice, and any label
+consequence, are Austin's; the label stays PROVED until he rules --- on the 2026-08-25
+change-6 precedent for recording an open question in this cell. &
 \\
 \addlinespace
 
@@ -1548,8 +1696,8 @@ $\tau=0.05$ (the statutory 13D 5\%):
 \vspace{2pt}
 \noindent\footnotesize\raggedright
 Sources, all in the \texttt{v4-theory} worktree:
-\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-28, re-review audit
-repairs) for Sections 1--6 and 7;
+\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-29, polish-pass audit +
+wording repairs + off-path verification + A3 curation) for Sections 1--6 and 7;
 \texttt{research/model\_v4/LABEL\_LEDGER.md} for the labels;
 \texttt{research/model\_v4/proofs/} and \texttt{research/model\_v4/rederive/} for the
 two-pass evidence chains;
