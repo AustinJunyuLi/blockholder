@@ -1,8 +1,9 @@
 %==============================================================================
 %  sections_v3/theorem_section.tex -- the results section of draft_v3.
 %
-%  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp 2026-08-28
-%  (re-review audit repairs, commit 59c0dfc), section 6
+%  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp 2026-08-30
+%  (F5 route R40-A, gate PASS, theory-record freeze;
+%  commit <pending-orchestrator-hash>), section 6
 %  result ledger.  The eight
 %  results appear in the ledger's own order and at its grain: D1, L1, L2, L3,
 %  L4, P1, T1, C1.  Every hypothesis clause of every card row travels with the
@@ -269,7 +270,22 @@ Second,
 \emph{Assumption~\ref{asm:A6} is read} as asserting that $\Tmap$ --- under a named
 tie-break-and-corner selection, without which a correspondence cannot be called continuous --- is a
 well-defined, single-valued, continuous self-map of $\Theta$, with $\Theta$ nonempty as in
-Definition~\ref{def:theta}.
+Definition~\ref{def:theta}. \emph{Card note, 2026-08-30:} the card row expands this reading in
+its bracket half: there is a fixed compact signal interval --- \textbf{the common bracket}
+$[s_{\mathrm{lo}},s_{\mathrm{hi}}]$ at the given $\vartheta$, common in $k \in \Theta$ and in the
+adjacent plan pair, of which $\Theta$ is the ordered part
+($s_{\mathrm{lo}} \le k_1 \le \dots \le k_{J-1} \le s_{\mathrm{hi}}$; the construction recorded
+for Steps 13--14 in the card's A6 note) --- such that for every $k \in \Theta$ and every adjacent
+plan pair the best-response indifference signal \textbf{exists} and lies in the bracket, which is
+what makes the finite cutoff vector represent the best-response plan map on the whole Gaussian
+signal line and not merely inside the bracket. The clause excludes every menu-and-price-system at
+which some adjacent indifference signal fails to exist --- never-selected middle plans as well as
+the dominated extreme plans whose positive-probability Gaussian-tail failure motivated it
+(polish-pass F5); the stronger form is taken so the cutoff vector carries interior data at every
+$k$, and the exclusion is a named domain narrowing
+(\texttt{research/model\_v4/proofs/P1\_proof.md} Steps 13--14; polish-pass audit 2026-08-29,
+P1-R40-A; ruled Austin's route choice 2026-08-29; bracket defined and narrowing recorded by the
+2026-08-30 re-derivation, change 1 --- card P1 row).
 
 Finally, \emph{at any such equilibrium at which Assumption~\ref{asm:A8} holds}, both cells carry
 strictly positive probability and both are on path; and for the restatement of

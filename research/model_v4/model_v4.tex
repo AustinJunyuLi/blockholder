@@ -4,9 +4,9 @@
 %  model.  Ticket 30 (T2j); the deliverable ticket 06 specified.
 %
 %  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp
-%  2026-08-29, polish-pass audit + wording repairs + off-path
-%  verification + A3 curation
-%  (commit 61e076b).  Where a proof file
+%  2026-08-30, F5 route R40-A applied + batched two-pass gate
+%  PASS + theory-record freeze
+%  (commit <pending-orchestrator-hash>).  Where a proof file
 %  and the card differ, the card wins.  Labels are transcribed from
 %  research/model_v4/LABEL_LEDGER.md.
 %
@@ -55,6 +55,17 @@
 %      records the executed t2_a3_ordered_plans_check (17 gates; both
 %      loci reproduce), with the A3 note's bare selection-set symbol
 %      replaced by prose.
+%    * On 2026-08-30 the F5 route was ruled (Austin: P1-R40-A); the
+%      substance batch (R40-A A1--A3, R43, R44, R45) and a five-item
+%      gate repair round landed in the proof; the batched two-pass gate
+%      returned adversarial proof-read PASS (after the one sanctioned
+%      repair round) and statements-only re-derivation
+%      PASS-WITH-CHANGES (both changes folded into the P1 row at this
+%      stamp; rederive/P1_gate_2026-08-30.md) -- NO LABEL MOVES; P1
+%      REMAINS PROVED ON THE AMENDED STATEMENT.  This stamp FREEZES THE
+%      THEORY RECORD: the R-number sequence is closed, threads/ is
+%      archive, and from the freeze the only artifacts under review in
+%      this repo are draft_v3 and code.
 %
 %  Compiles standalone with xelatex.  No bibliography, no \ref into any other
 %  document: every repo file is named as a \texttt{} string, never cited.
@@ -87,7 +98,7 @@
 \title{The Two-Round Blockholder Disclosure Model\\[2pt]
 \large A standalone model note}
 \author{v4 theory lane, ticket 30 (T2j)}
-\date{Card stamp 2026-08-29, polish-pass audit + wording repairs + off-path verification + A3 curation}
+\date{Card stamp 2026-08-30, F5 route R40-A applied + batched two-pass gate PASS + theory-record freeze}
 
 \begin{document}
 \maketitle
@@ -99,17 +110,19 @@ hypotheses, and the eight-result ledger with its honesty labels. It then records
 what the v4 model takes from the frozen manuscript \texttt{draft\_v2.tex}, what it
 simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from
-\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-29, polish-pass audit +
-wording repairs + off-path verification + A3 curation, commit
-\texttt{61e076b}) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Six
+\texttt{research/model\_v4/MODEL\_CARD.md} (version stamp 2026-08-30, F5 route R40-A applied +
+batched two-pass gate PASS + theory-record freeze, commit
+\texttt{<pending-orchestrator-hash>}) and \texttt{research/model\_v4/LABEL\_LEDGER.md}. Seven
 card events since the 2026-08-23 stamp are carried below: P1 restored to PROVED on
 2026-08-25 on its ticket-35 repair; $\Atau$'s ticket-33 evidence note of
 2026-08-25; the 2026-08-27 A6 panel ruling; the 2026-08-28 follow-up curation;
 the 2026-08-28 re-review audit repairs, at which \textbf{all eleven labels
-stand, zero demotions}; and the 2026-08-29 polish-pass audit (wording repairs
+stand, zero demotions}; the 2026-08-29 polish-pass audit (wording repairs
 applied; the F5 demotion question recorded OPEN on the P1 row, before Austin)
 with the off-path-family verification amending the A6 and A3 notes and the A3
-curation --- \textbf{the last four moving no label}. The card is the single
+curation; and the 2026-08-30 F5-route ruling (R40-A applied to the statement,
+batched two-pass gate PASS, theory record frozen)
+--- \textbf{the last five moving no label}. The card is the single
 source of truth: where a proof file and the card differ, the card wins. The
 conditionality attached to each result is not decoration. It is the result.
 \end{abstract}
@@ -1057,7 +1070,22 @@ records it \textbf{measured to fail} at the implemented calibration (see A5).
 conclusion and the label are unchanged.} \textbf{A6 is read} as asserting that $\Tmap$ --- under a named
 tie-break-and-corner selection, without which a correspondence cannot be called
 continuous --- is a well-defined single-valued continuous self-map of $\Theta$, with
-$\Theta$ nonempty per the card's \S4.5. \textbf{At any such equilibrium at which A8
+$\Theta$ nonempty per the card's \S4.5 --- and, in the \textbf{bracket} half, that there is a
+fixed compact signal interval --- \textbf{the common bracket}
+$[s_{\mathrm{lo}},s_{\mathrm{hi}}]$ at the given $\vartheta$, common in $k\in\Theta$ and in
+the adjacent plan pair, of which $\Theta$ is the ordered part
+($s_{\mathrm{lo}}\le k_1\le\dots\le k_{J-1}\le s_{\mathrm{hi}}$; the construction \S5's A6
+note records for Steps 13--14) --- such that for every $k\in\Theta$ and every adjacent plan
+pair the best-response indifference signal \textbf{exists} and lies in the bracket, which is
+what makes the finite cutoff vector represent the best-response plan map on the whole
+Gaussian signal line and not merely inside the bracket. The clause excludes every
+menu-and-price-system at which some adjacent indifference signal fails to exist ---
+never-selected middle plans as well as the dominated extreme plans whose
+positive-probability Gaussian-tail failure motivated it (polish-pass F5); the stronger form
+is taken so the cutoff vector carries interior data at every $k$, and the exclusion is a
+named domain narrowing (\texttt{proofs/P1\_proof.md} Steps 13--14; polish-pass audit
+2026-08-29, P1-R40-A; ruled Austin's route choice 2026-08-29; bracket defined and narrowing
+recorded by the 2026-08-30 re-derivation, change 1). \textbf{At any such equilibrium at which A8
 holds}, both cells carry strictly positive probability and are on path; for A8's
 restatement as a single signal threshold add \textbf{H-ord} (Voice stake monotonicity
 across plans --- the writer's h.13, \textbf{renamed here to avoid collision with the
@@ -1118,10 +1146,24 @@ drafted behind the F5 route. \textbf{The demotion question is OPEN:} the audit u
 finding F5 at antecedent level --- under the printed corner coding, Step 13's representation
 claim fails on a positive-probability Gaussian tail for card-legal menus with a dominated
 top plan --- and wording repairs cannot close it. Routes on file: \textbf{P1-R40-A} (drafted
-in full, including an unapplied card-side clause for this row's ``A6 is read'' sentence) and
-\textbf{P1-R40-B} (sketched; would edit card \S3). The route choice, and any label
-consequence, are Austin's; the label stays PROVED until he rules --- on the 2026-08-25
-change-6 precedent for recording an open question in this cell. &
+in full; its card-side clause --- the bracket half of this row's ``A6 is read'' sentence ---
+\textbf{applied to the statement 2026-08-29} under Austin's route ruling, and gated by a
+fresh two-pass pair over the amended proof: adversarial proof-read \textbf{PASS} 2026-08-30
+after one sanctioned repair round, statements-only re-derivation
+\textbf{PASS-WITH-CHANGES}, its changes 1--2 folded into this row at this stamp ---
+\texttt{rederive/P1\_gate\_2026-08-30.md}) and \textbf{P1-R40-B} (sketched; would edit card
+\S3; not taken). With the clause applied, F5 is closed at antecedent level in the $\Atau$
+pattern: what remains open is whether the strengthened antecedent holds at the implemented
+calibration --- \S5's A6 and A3 notes already record it failing there --- with any label
+consequence Austin's, on the 2026-08-25 change-6 precedent for recording an open question in
+this cell. \textbf{2026-08-30 (route ruled, gate passed, record frozen):} the substance
+batch (R40-A A1--A3, R43, R44, R45) landed 2026-08-29 and the gate repair round (five
+items) 2026-08-30; the one WRONG the reader found --- Step 15's candidate-condition passage
+asserting $\Tmap_i=c_i$ without argument, refuted by a card-legal skipped-plan witness ---
+was non-load-bearing and closed under a weak-ordering clause with an argued counting-map
+identification. \textbf{P1 remains PROVED on the amended statement.} This stamp freezes the
+theory record: the R-number sequence is closed and \texttt{threads/} is archive; from the
+freeze, the only artifacts under review in this repo are \texttt{draft\_v3} and code. &
 \\
 \addlinespace
 
@@ -1696,8 +1738,8 @@ $\tau=0.05$ (the statutory 13D 5\%):
 \vspace{2pt}
 \noindent\footnotesize\raggedright
 Sources, all in the \texttt{v4-theory} worktree:
-\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-29, polish-pass audit +
-wording repairs + off-path verification + A3 curation) for Sections 1--6 and 7;
+\texttt{research/model\_v4/MODEL\_CARD.md} (stamp 2026-08-30, F5 route R40-A applied +
+batched two-pass gate PASS + theory-record freeze) for Sections 1--6 and 7;
 \texttt{research/model\_v4/LABEL\_LEDGER.md} for the labels;
 \texttt{research/model\_v4/proofs/} and \texttt{research/model\_v4/rederive/} for the
 two-pass evidence chains;

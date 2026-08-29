@@ -32,6 +32,36 @@ statement-preserving but new derivation — pending the two-pass gate), and **P1
 ordered behind P1-R40, being drafted consistently with Package A). Every repair text below is
 CONJECTURE-grade edit text until the lane's gate runs over the proof carrying it.
 
+**Substance batch applied 2026-08-29, later the same day.** Austin ruled the F5 route this date:
+**P1-R40-A** (Package A — name what h.6's bracket clause delivers); **P1-R40-B is not pursued**.
+Applied accordingly: **P1-R40-A items A1–A3** (Step 13's corner clause rewritten as a totalisation
+with the bracket clause written out, Step 14's consumption form appended, NOT CLAIMED 16 added),
+**P1-R43** (Step 8's joint-continuity appendix in the belief pair, Step 5(a)'s citation sharpened
+to joint continuity), **P1-R44** (Step 9(b) now defines $\pi_n$ and carries the pair through to
+the limiting price, with the NOTATION DELTA row for $\pi_n$) and **P1-R45** (Step 15(ii) restated
+as robust threshold identification — landed exactly as drafted, its route condition being the ruled
+one, together with its note against P1-R40). **The outstanding list above is now empty and the
+R-number sequence is closed at this application**: nothing drafted in the 2026-08-29 polish audit
+remains unapplied. R43 and R44 are statement-preserving derivations, R45 is wording-grade under the
+ruled route, and R40-A names an antecedent clause the pre-repair text had misread; no step
+conclusion changes — but the batch is **pending the lane's two-pass gate** (adversarial
+proof-read and statements-only re-derivation, both by fresh agents) before the row rests on it,
+and every repair text below remains edit text until that gate runs.
+
+**Gate repair round applied 2026-08-30.** After the adversarial proof-read's **PASS-WITH-REPAIRS**
+verdict on the 2026-08-29 substance batch — one WRONG finding (Step 15's boxed conclusion asserted
+the identification $\mathcal T_i=c_i$ without argument; the reader's skipped-plan witness refutes
+it under (i)+(ii) as previously stated) and four minor ones — this file's one sanctioned repair
+round lands all five, each labelled *gate repair round, 2026-08-30, item N* at its site: item 1
+extends Step 15(ii) with the weak-ordering clause and argues the identification the box had
+asserted; item 2 declares $d_i(s,k)$ and $c_i(k)$ in the NOTATION DELTA; item 3 re-credits Step
+9(b)'s two envelope arguments to h.17-d with $L_j\le1$; item 4 qualifies Step 14's parenthetical to
+the canonical dominated-top case; item 5 adds the a.e.-density qualifier at Step 9(b)'s
+$\Lambda_k=0$ branch. No R-numbers are minted — the R-sequence stays closed at the 2026-08-29
+application above — and nothing outside the candidate-condition commentary enters the theorem's
+load-bearing path: P1 continues to assume h.6's continuity outright (Steps 15–16), and no label is
+moved by this round. **The retry read pends.**
+
 ---
 
 ## CLAIM
@@ -427,8 +457,8 @@ layers of the pooled family must be treated separately.
 
 (a) *The pooled control-node cell ($D=0$ at date $H$).* Here $\mathcal I=\mathcal I_H$ is a control
 node, Step 4 applies as derived, and **Step 7 supplies a unique fixed point** of
-$\mathcal P_{\mathcal I}$ from h.12 ($m_0\ge0$), with continuity in the belief from Step 8. This is a
-genuine fixed point: the price appears on both sides
+$\mathcal P_{\mathcal I}$ from h.12 ($m_0\ge0$), with **joint** continuity in the belief pair
+$(\hat v,\pi)$ from Step 8. This is a genuine fixed point: the price appears on both sides
 through the entry indicator. *(Re-cited 2026-08-25, round 2, pass-1 finding 3: this clause read "h.5
 supplies …" while the card's P1 row says A5 is not assumed. Steps 7–8 do not depend on Step 5, so
 the re-citation is not circular, and h.5 is struck.)*
@@ -553,6 +583,28 @@ $$
 the denominator being at least $1-p>0$ by h.12 and Step 7(i). The bound is used in NUMERICAL CHECK
 REQUEST item 3.
 
+**Continuity in the full belief pair.** The pooled layer moves both summaries, so the root is
+needed as a function of $(\hat v,\pi)$ and not of $\hat v$ alone. Write the residual with both
+arguments,
+$$\varrho(P;\hat v,\pi)=\bigl(1-p(P;\pi)\bigr)\bigl(A(\hat v,\pi)-P\bigr)+p(P;\pi)\,\bar m(\pi),$$
+$$A=\hat v+\pi\Delta_V,\qquad \bar m=m_0+\pi\Delta_m,\qquad
+p(P;\pi)=1-\Phi\!\Bigl(\tfrac{P+K+\bar m(\pi)-\bar S}{\sigma_\xi}\Bigr).$$
+$A$ and $\bar m$ are affine in $(\hat v,\pi)$ by card §4.1 and h.12, and $\Phi$ is smooth, so
+$\varrho$ is $C^1$ jointly in $(P,\hat v,\pi)$ on $\mathbb R\times\mathbb R\times[0,1]$. By Step
+7(iii) in its sharpened form, $\partial_P\varrho<0$ at every $P\ge A$, hence at every root. The
+implicit function theorem therefore gives a locally $C^1$ root $P=P(\hat v,\pi)$ around every
+belief pair, and Step 7(ii)–(iii)'s global existence and uniqueness make those local root functions
+agree wherever their domains overlap. **Hence the unique inner root is a single-valued continuous
+function of $(\hat v,\pi)$ jointly on $\mathbb R\times[0,1]$.** The displayed
+$\partial P/\partial\hat v\in(0,1]$ is the non-expansiveness bound in the $\hat v$ direction at
+fixed $\pi$, which is what Step 6(b) consumes on the flagged cell, where $\pi\equiv1$ by Step 6(a).
+
+*Added 2026-08-29 (**P1-R43**, polish-pass finding F8): Step 5(a) cited "continuity in the belief
+from Step 8" and Step 9(b) invoked "Step 8's 1-Lipschitz bound" at pooled histories where $\pi$
+varies, while the pre-repair Step 8 differentiated in $\hat v$ at fixed $\pi$ only. This appendix
+supplies the joint statement those citations consume. **No hypothesis is added** — the argument
+runs on h.12, Step 4's reduction and Step 7 alone — and no step conclusion changes.*
+
 ### Part C — beliefs, on path and off
 
 **Step 9 (pooled off-path beliefs as limits of full-support perturbations, on the reachable history
@@ -625,15 +677,23 @@ aggregate, $\Lambda_u=\sum_{j'}\int L_{j'}(\mathcal H_d^P\mid s')\varphi_s(s')\,
 plan-uniform one, and $t_n=J/n$ the perturbation mass. *If $\Lambda_k>0$* — the history is on path
 under $k$ — then $Z_n\ge\Lambda_k/2$ for all large $n$, and
 $2\lvert\mu_v+\beta(s-\mu_v)\rvert\varphi_sL_j/\Lambda_k$ is an integrable envelope by
-h.17-d's Gaussian tail and h.2's integrability clause, so dominated convergence applies; and since
+h.17-d's Gaussian tail — Gaussian integrability of $\lvert s\rvert\varphi_s$, the envelope's
+signal factor growing only linearly in $\lvert s\rvert$, with $L_j\le1$ — so dominated convergence
+applies *(credit reworded, gate repair round, 2026-08-30, item 3: the pre-repair credit ran
+"h.17-d's Gaussian tail and h.2's integrability clause"; what is used is Gaussian integrability of
+$\lvert s\rvert\varphi_s$ (h.17-d) with $L_j\le1$, the likelihood being a product of noise
+probabilities and an indicator, and the h.2 credit is dropped — mathematics unchanged)*; and since
 $w_n(j\mid s)\to\mathbf 1\{j=j_k(s)\}$ pointwise and $Z_n\to\Lambda_k$,
 $$\mu_\infty(j,s)=\frac{\mathbf 1\{j=j_k(s)\}\,L_j(\mathcal H_d^P\mid s)\,\varphi_s(s)}{\Lambda_k},$$
 **the ordinary Bayes posterior generated by the conjectured map $j_k$** — the uniform tremble
 washes out and the limit is *not* the plan-uniform law. *If $\Lambda_k=0$* — the $k$-null case —
 the $(1-t_n)$ term vanishes $\Phi_s$-a.e. in numerator and denominator alike, so
 $$\mu_n(j,s)=\mu_\infty(j,s)=\frac{L_j(\mathcal H_d^P\mid s)\,\varphi_s(s)}{\Lambda_u}$$
-**exactly and $n$-free** — the plan-uniform posterior restricted to the history — and there is
-nothing to pass to the limit. (Without the split the bare claim would be false as stated:
+**exactly and $n$-free** (as an a.e. density identity) — the plan-uniform posterior restricted to
+the history — and there is nothing to pass to the limit. *(Parenthetical added, gate repair round,
+2026-08-30, item 5: the identity holds as an a.e. density identity, as the vanishing of the
+$(1-t_n)$ term already does, and not pointwise at every $s$.)* (Without the split the bare claim
+would be false as stated:
 $\mu_n\le\varphi_sL_j/Z_n$ with $Z_n\downarrow0$ is not a uniform envelope.) In both cases the
 displayed density is a probability density at the history.
 
@@ -644,8 +704,27 @@ own closing sentence that on path the belief agrees with the Bayes posterior. Th
 is the one card §5's A6 evidence note already attributes to this step and the one Step 17(iii)
 and 17(iv) consume.*
 
-Either way $\hat v_n\to\hat v_\infty$ and, by Step 8's 1-Lipschitz bound, the prices converge
-with them. Hence the limiting belief **and the limiting price** exist at every reachable
+Both belief summaries have to be carried, because Step 4's pricing map depends on the information
+set through the pair. Alongside $\hat v_n$ define the stage-$n$ engagement posterior
+$$\pi_n\;:=\;\sum_{j\in\mathcal J}a_j\int\mu_n(j,s)\,\mathrm ds\;\in[0,1],$$
+card §4.3's $\pi(\mathcal I)$ evaluated at $\mu_n$. If $\Lambda_k>0$, then $a_j\in\{0,1\}$ (card
+§4.2) makes $a_j\mu_n(j,s)\le\mu_n(j,s)$, so the same denominator bound gives the integrable
+envelope $2\varphi_sL_j/\Lambda_k$ — Gaussian integrability of $\varphi_s$ (h.17-d) with
+$L_j\le1$ *(the same reworded credit, gate repair round, 2026-08-30, item 3)* — and dominated
+convergence yields $\pi_n\to\pi_\infty$; if
+$\Lambda_k=0$, then $\mu_n$ is $n$-free by the display above, so $\pi_n$ is constant and the
+convergence is immediate. The same two cases give $\hat v_n\to\hat v_\infty$. Hence
+$(\hat v_n,\pi_n)\to(\hat v_\infty,\pi_\infty)$, and by **Step 8's joint continuity of the unique
+inner root in $(\hat v,\pi)$** the prices converge with them: $P_n\to P_\infty$. Step 8's bound
+$\partial P/\partial\hat v\in(0,1]$ remains available for comparisons at fixed $\pi$.
+
+*Added 2026-08-29 (**P1-R44**, polish-pass finding F9): the pre-repair sentence inferred price
+convergence from $\hat v_n\to\hat v_\infty$ together with Step 8's 1-Lipschitz bound alone. The
+price is a function of both summaries; $\pi_n$ was never defined, never shown to converge, and the
+1-Lipschitz bound is a $\hat v$-direction bound at fixed $\pi$. **Depends on P1-R43.**
+No hypothesis is added and no step conclusion changes.*
+
+Hence the limiting belief **and the limiting price** exist at every reachable
 pooled history, on path and off, and on path the belief agrees with the Bayes posterior.
 *Load-bearing where it is least obvious:* Step 13 evaluates $U_j(s;k)$ for **every** $j\in\mathcal J$,
 including plans carrying zero probability under $k$ on a collapse face, whose pooled-execution
@@ -940,14 +1019,36 @@ $$
 $$
 Since $\{s:j^\star\ge i+2\}\subseteq\{s:j^\star\ge i+1\}$, the infima satisfy
 $\mathcal T_1(k)\le\mathcal T_2(k)\le\cdots\le\mathcal T_{J-1}(k)$, and every component lies in
-$[\underline s,\overline s]$ by construction. The **corner convention** is the display's
-$\inf\emptyset:=\overline s$: a plan that is optimal nowhere contributes an empty up-set and its
-cutoff sits at the top of the bracket, so it simply never appears in the range of $j^\star$ (pass-2
-N8's second half). Because $j^\star(\cdot;k)$ is weakly increasing, each $\{s:j^\star\ge i+1\}$ **is**
-an up-set, so these infima genuinely represent it: $j^\star(\cdot;k)$ agrees with Step 1's
-$j_{\mathcal T(k)}$ at every $s$ except possibly the finitely many $\mathcal T_i(k)$ at which the
-up-set fails to contain its own infimum, where the two differ by the boundary convention alone —
-card §3(i) pins no convention there. Hence $\mathcal T(k;\vartheta)\in\Theta$ for every
+$[\underline s,\overline s]$ by construction. The display's $\inf\emptyset:=\overline s$ is a
+**totalisation, not a code for "never"**: it makes $\mathcal T_i$ defined at every $k$, and under
+h.6 it is never triggered. **What h.6's bracket clause is assumed to deliver, written out.** h.6
+asserts that all best-response cutoffs lie in the common compact ordered polytope $\Theta$; read at
+the level Step 14 consumes it, that is: *for every $k\in\Theta$ and every $i\in\{1,\dots,J-1\}$ the
+set $\{s\in\mathbb R:j^\star(s;k)\ge i+1\}$ is a **nonempty** up-set whose infimum lies in
+$[\underline s,\overline s]$.* Under that clause, and because $j^\star(\cdot;k)$ is weakly
+increasing so each such set **is** an up-set, the infima genuinely represent $j^\star$ on **all of
+$\mathbb R$**: $j^\star(\cdot;k)$ agrees with Step 1's $j_{\mathcal T(k)}$ at every $s$ except
+possibly the finitely many $\mathcal T_i(k)$ at which the up-set fails to contain its own infimum,
+where the two differ by the boundary convention alone — card §3(i) pins no convention there.
+
+*Corrected 2026-08-29 (**P1-R40-A**, polish-pass finding F5). The pre-repair text read
+$\inf\emptyset:=\overline s$ as a live corner code — "a plan that is optimal nowhere contributes an
+empty up-set and its cutoff sits at the top of the bracket, so it simply never appears in the range
+of $j^\star$" — and **that reading is false as a representation claim**. Step 1 codes
+$j_k(s)=1+\#\{i:k_i\le s\}$, so $k_i=\overline s$ does not retire plan $i+1$: it activates it at
+every $s\ge\overline s$. Take $J=2$ on a menu whose plan 2 is dominated, so $j^\star(\cdot;k)\equiv1$
+at every $k$ — admissible under h.3, and the same configuration this step's own tangency
+counterexample below produces. Then $\{s:j^\star\ge2\}=\emptyset$, $\mathcal T_1\equiv\overline s$,
+$\mathcal T$ is constant (so h.6's continuity and self-map halves both hold) and Brouwer returns
+$k^\star=\overline s$, while $j_{k^\star}(s)=2$ for every $s\ge\overline s$. The signal is Gaussian
+(h.17-d) and $\overline s$ is finite, so $\Pr(s\ge\overline s)>0$: the two maps disagree on a
+**positive-probability** tail rather than at finitely many points, and Step 17(i)'s
+$\Phi_s$-almost-sure consistency clause and Step 19's "$\Omega$ is unaffected" parenthetical both
+fail there. The mirror case is the lower endpoint: if $j^\star\ge i+1$ at some $s<\underline s$,
+the infimum over $[\underline s,\overline s]$ returns $\underline s$ and the two maps disagree on
+$(-\infty,\underline s)$. The bracket clause as now stated excludes both.*
+
+Hence $\mathcal T(k;\vartheta)\in\Theta$ for every
 $k\in\Theta$, including on the collapse faces where consecutive components coincide and the
 corresponding plan carries zero probability. **So the "maps $\Theta$ into itself" and
 "weakly ordered" halves of h.6 are derived here from h.3's monotone-preferred-plan clause; what
@@ -974,6 +1075,25 @@ row, which absorbed h.14 on 2026-08-23, imposes nothing here either: it names on
 integrability as the properties ever used, and neither is a shape restriction in $\hat v$.) At the
 card's level of generality the common bracket is
 therefore **assumed**, and it is the first of the two things h.6 is doing.
+
+Said in the form Step 13 consumes: what h.6's bracket clause supplies is that **every** adjacent-pair
+indifference signal **exists** and lies in $[\underline s,\overline s]$ — which is exactly what the
+four-action argument above establishes in its specialisation, and exactly what excludes both an
+adjacent pair with no crossing anywhere (in the canonical dominated-top case: the dominated top
+plan is optimal nowhere, every plan above it with it) and an adjacent pair whose crossing sits
+outside the bracket. A menu with a dominated top plan satisfies h.1–h.4, h.7 and h.9–h.17 and
+**fails this clause**; on such a menu P1 asserts nothing.
+
+*Qualified, gate repair round, 2026-08-30, item 4. The pre-repair parenthetical equated "an
+adjacent pair with no crossing anywhere" with "a plan optimal nowhere, and with it every plan above
+it" unconditionally. That equation holds in the canonical dominated-top case the surrounding
+sentences are about — there the top pair's difference never crosses and the dominated top plan is
+optimal nowhere — but not in general: a plan can be optimal nowhere while **every** adjacent pair
+crosses, as the gate's skipped-plan witness shows ($U_1\equiv0$, $U_2=s-1$, $U_3=2s-1$ crosses in
+both adjacent pairs yet plan 2 is argmax-absent everywhere; recorded at Step 15, gate repair
+round, item 1). The parenthetical is narrowed to the case it actually names; the exclusion the
+clause states — no adjacent pair without an in-bracket crossing, no crossing outside it — is
+unchanged.*
 
 **Step 15 (continuity: this is where h.6 assumes rather than derives, and here is exactly what it is
 assuming).**
@@ -1016,23 +1136,72 @@ lost: this step's route to continuity of $\mathcal T$ was already h.6 asserting 
  card and makes $U_j(\cdot;k)$ jump, at which point the best-response cutoff is a jump point rather
  than a crossing point and moves discontinuously with $k$.
 
- (ii) *transversality*: for every adjacent pair $(i,i+1)$ and every $k\in\Theta$, the indifference
- set $\{s:U_{i+1}(s;k)=U_i(s;k)\}$ has empty interior. h.3 says the difference crosses zero "at
- most once", which does not exclude an interval on which it is identically zero; on such an
- interval the cutoff is indeterminate, and as the interval opens and closes with $k$ the selection
- $\mathcal T_i$ jumps.
+ (ii) *Robust threshold identification.* For each adjacent pair write
+ $d_i(s,k):=U_{i+1}(s;k)-U_i(s;k)$. The condition is: for every $k\in\Theta$ there is a **unique**
+ $c_i(k)\in[\underline s,\overline s]$ with
+ $$d_i(s,k)<0\ \text{ for } s<c_i(k),\qquad d_i(s,k)>0\ \text{ for } s>c_i(k).$$
+ **And, across pairs, the thresholds are weakly ordered** — $c_1(k)\le c_2(k)\le\cdots\le
+ c_{J-1}(k)$ for every $k\in\Theta$ — equivalently, no plan is argmax-absent everywhere.
+ *(Weak-ordering clause added, gate repair round, 2026-08-30, item 1; the boxed conclusion below
+ records why it is needed.)* This asks strictly more than h.3 plus a tie set of empty interior.
+ h.3 says the difference
+ **crosses** zero at most once, which admits two failures: an interval of ties — which the
+ pre-repair (ii) excluded, and which is all it excluded — and an isolated **tangency**, at which
+ $d_i\le0$ everywhere with one zero, so that there is no crossing, no sign change and no threshold
+ at all. Step 13's own "Why not the largest maximiser" counterexample is that tangency, and it sits
+ inside h.3.
 
-**Under (i) and (ii), continuity of $\mathcal T$ follows from (i)'s joint continuity together
-with the strict sign change of $U_{i+1}-U_i$ at each crossing: the sign change locates the crossing
-and the joint continuity moves it continuously with $k$. That is a topological argument, not a
-calculus one — the implicit function theorem is the wrong tool here, since it would need $U$
-differentiable in $(s,k)$ and no hypothesis supplies that (batch-1 audit P1-R4). h.6 assumes the
-conclusion instead: it asserts continuity of
-$\mathcal T$ directly. That is the single largest assuming-rather-than-deriving step in this proof,
-and (i)+(ii) is the weakest pair of conditions I can name that would replace it.** Note also that
-(i) is not independent of h.7: a stake path that is flat on a signal interval destroys injectivity
-there, which is the turn-2 audit's L2-R1 finding seen from the other side, so the card cannot buy
-continuity by weakening monotonicity.
+**Under (i) and (ii) — with (ii) as extended above — each $\mathcal T_i=c_i$, and each $c_i$ is
+continuous, by the following topological argument — the implicit function theorem is the wrong
+tool here, since it would need $U$ differentiable in $(s,k)$ and no hypothesis supplies that
+(batch-1 audit P1-R4).** *The identification, argued (gate repair round, 2026-08-30, item 1).* Fix
+$k$ and $s$ and write $m:=\#\{i:s>c_i(k)\}$. By the weak-ordering clause the counted indices form
+a prefix $\{1,\dots,m\}$, so the increments of the payoff sequence $U_1(s;k),\dots,U_J(s;k)$ read
+$d_1,\dots,d_m>0$ and $d_{m+1},\dots,d_{J-1}<0$, each sign by the threshold clause: the sequence
+strictly increases up to index $1+m$ and strictly decreases after it. Hence, off the finitely many
+threshold points themselves, the argmax is single-valued and is the counting map
+$$\arg\max_{j\in\mathcal J}U_j(s;k)\;=\;1+\#\{i:s>c_i(k)\},$$
+Step 1's map; at a threshold point $s=c_i(k)$, (i)'s continuity in $s$ forces $d_i(s,k)=0$, so the
+argmax there can only widen across the plans tied at that point. The counting map is weakly
+increasing in $s$, so it is itself a weakly increasing selection from the argmax, and every
+selection agrees with it off the threshold points: $j^\star(\cdot;k)$ is the counting map at the
+cutoff vector $(c_1(k),\dots,c_{J-1}(k))$, and that vector represents it. Reading Step 13's infimum
+off that representation — $\{s:j^\star(s;k)\ge i+1\}$ is $\{s:s>c_i(k)\}$ up to the threshold
+points themselves, and below $c_i(k)$ the argmax never reaches plan $i+1$ — gives
+$$\mathcal T_i(k)\;=\;\inf\{s:s>c_i(k)\}\;=\;c_i(k)\qquad\text{for every }i,$$
+the identification. *Continuity.* Let $k_n\to k$ in $\Theta$ and take any convergent subsequence
+$c_i(k_{n'})\to c$, which exists because $[\underline s,\overline s]$ is compact. For every $s<c$
+one eventually has $s<c_i(k_{n'})$, so $d_i(s,k_{n'})<0$, and (i)'s joint continuity gives
+$d_i(s,k)\le0$; symmetrically $d_i(s,k)\ge0$ for every $s>c$. Uniqueness of the sign threshold at
+$k$ forces $c=c_i(k)$. Every convergent subsequence has the same limit, so $c_i(k_n)\to c_i(k)$ —
+which, by the identification just argued, is continuity of each component $\mathcal T_i$ of
+$\mathcal T$. These conditions are sufficient and are **not** claimed weakest; P1 continues to
+assume their conclusion through h.6, and (i)+(ii) is the weakest pair this file can name that would
+replace it.
+
+*Gate repair round, 2026-08-30, item 1 — the gate's WRONG finding, repaired by the reader's first
+route. The pre-repair boxed conclusion opened "Under (i) and (ii), each $\mathcal T_i=c_i$ is
+continuous", an identification asserted nowhere and false under (i)+(ii) as previously stated. The
+reader's skipped-plan witness: $J=3$ with $U_1\equiv0$, $U_2=s-1$, $U_3=2s-1$ on the bracket
+$[-2,2]$ has adjacent thresholds $c_1=1$ and $c_2=0$, each the unique strict sign threshold of its
+pair in-bracket, so the pre-repair (ii) held; the argmax runs $1\to3$ at $s=\tfrac12$, and both
+upper level sets are nonempty up-sets with infima in the bracket, so (i), h.3 and h.6's bracket
+clause held too — yet $\mathcal T_1=\mathcal T_2=\tfrac12\neq c_1,c_2$: plan 2 is argmax-absent
+everywhere and is skipped. The weak-ordering clause is added to (ii) and the identification is now
+argued in the box. The candidate conditions remain outside the theorem's load-bearing path — P1
+assumes h.6's continuity outright (Steps 15–16) — so nothing the theorem rests on changes.*
+
+*Corrected 2026-08-29 (**P1-R45**, polish-pass finding F10): the pre-repair (ii) asked only that
+the indifference set have empty interior, and the boxed conclusion then ran on "the strict sign
+change of $U_{i+1}-U_i$ at each crossing", which empty interior does not supply — the tangency case
+satisfies h.3 and empty interior and has no crossing. **Note against P1-R40:** the finding's own
+proposed condition additionally permitted $c_i(k)=\overline s$ to encode an upper plan never
+preferred within the bracket, which is precisely the corner encoding finding F5 shows the finite
+cutoff vector cannot carry; that permission is not adopted.*
+
+Note also that (i) is not independent of h.7: a stake path that is flat on a signal interval
+destroys injectivity there, which is the turn-2 audit's L2-R1 finding seen from the other side,
+so the card cannot buy continuity by weakening monotonicity.
 
 **Step 16 (Brouwer).**
 By Step 1 and card §4.5's $\Theta$ row, $\Theta$ is **nonempty**, compact and convex — nonemptiness is
@@ -1393,8 +1562,11 @@ $\mathcal T$ is the best-response map.
 | $V(j')$ | the round-2 continuation value of submitting $Q^F_{j'}(s)$ at a flagged node (Step 12(c)–(d)) | proof-local to Step 12; card §4 carries no bare $V$, and $\Delta_V$ (§4.1) is always written with its $\Delta$ |
 | $\mu_n(j,s)$, $L_j(\mathcal H_d^P\mid s)$, $w_n(j\mid s)$ | the stage-$n$ joint $(j,s)$ posterior density at a pooled history; the pooled-history likelihood; the stage-$n$ mixing weight (Step 9(b)) | proof-local to Step 9. $\mu$ is the belief symbol card §5's A5 note already uses ($\mathbb E_\mu[v]$), and $\mu_v$ — card §4.1's prior mean — never appears without its subscript $v$, so the subscript $n$ keeps them apart. **$\rho$ was rejected**: card §5's A(br) sharpening note carries $\rho:=\tfrac12A_{1/2}+A_1$. $L$ and $w$ have no card §4/§5 usage |
 | $t_n=J/n$, $Z_n$, $\Lambda_k$, $\Lambda_u$ | the stage-$n$ perturbation mass (so every plan carries $t_n/J=1/n$, Step 9's own parameterisation); the denominator of $\mu_n$; the unperturbed and plan-uniform likelihood aggregates $\int L_{j_k(s')}\varphi_s$ and $\sum_{j'}\int L_{j'}\varphi_s$ (Step 9(b)) | **$t_n$ replaces an earlier $\varepsilon_n$** (confirm-pass sweep): $\varepsilon$ is card §4.1's signal noise and is unavailable under card §8 rule 4; roman $t$ is free in card §4 (upright $T$ is the window, $\mathcal T$ the outer map, and $t_n$ always carries its subscript). $\Lambda$ has zero card §4/§5 occurrences; $Z_n$ is subscripted always and is clear of card §4.1's $z_d$, which is lowercase |
+| $\pi_n$ | the stage-$n$ engagement posterior at a pooled history, $\sum_ja_j\int\mu_n(j,s)\,\mathrm ds$ (Step 9(b)) | card §4.3's $\pi(\mathcal I)$ evaluated at $\mu_n$, not a new object; the subscript $n$ matches $\mu_n$, $w_n$, $t_n$ and $Z_n$ and keeps it clear of $\pi_\circ$, the reference-belief scalar of Step 9(c). Declared 2026-08-29, **P1-R44** |
 | $\varphi_s$ | density of the Gaussian signal $s$ (Step 9(b)) | distinct from $\phi$, the unit-normal density, which appears only inside $p'(P)$ at Step 7(iii), and from $\Phi_s$, this table's signal c.d.f. Declared 2026-08-29 (**P1-R51**): the symbol was in use at Step 9(b) and named only inside the $t_n$ row's gloss, which card §8 rule 3 does not satisfy |
 | $\mathcal S(k)$, $\mathfrak w$ | the set of **weakly increasing selections** from $s\mapsto\arg\max_jU_j(s;k)$, and a generic element of it (Step 13) | $\mathcal S(k)$ is calligraphic with its argument always written, so it is clear of card §4.4's $\mathcal S$, $\mathcal S_P$, $\mathcal S^{GE}$ (liquidity sensitivities, never argument-of-$k$) — and it appears only in Step 13. $\mathfrak w$ is **fraktur**, joining Step 18's $\mathfrak T$ in that family: distinct from Step 9(b)'s italic $w_n$, the mixing weight, which is the only other $w$ in the file. **These dummies replace an earlier $\sigma_1,\sigma_2,\sigma_s$** (confirm-pass sweep): lowercase $\sigma$ is reserved for the flagged tuple $\sigma_F$ and the declared variances $\sigma_v,\sigma_\varepsilon,\sigma_\xi$, and no other lowercase $\sigma$ appears in this file |
+| $d_i(s,k)$ | the adjacent-pair payoff difference $U_{i+1}(s;k)-U_i(s;k)$ of Step 15(ii): a two-argument function of the signal $s$ and the cutoff vector $k$ | distinct from the calendar index $d$ of card §4.2 — the pooled date of $B_j(s,d)$, $q_{jd}$, $\mathcal H_d^P$: $d_i$ always carries its adjacent-pair subscript $i$ and never dates anything. Declared 2026-08-30, gate repair round, item 2 |
+| $c_i(k)$ | the unique strict sign threshold of $d_i(\cdot,k)$ in the bracket (Step 15(ii)): indexed by the adjacent pair, a function of the conjecture $k$ | distinct from card §4.2's crossing date $c_j(s;\tau)$, which carries an $s$-argument (and the policy $\tau$): subscript $i$ against $j$, argument $k$ against $(s;\tau)$. Declared 2026-08-30, gate repair round, item 2 |
 | $(\hat v_\circ,\pi_\circ)$, $P_\circ$ | the fixed **reference belief** of Step 9(c) — for definiteness the $k$-independent pair $(\mu_v,1)$ (**P1-R39**, 2026-08-29) — and the inner root at it, the price assigned at unreachable pooled histories | the open-circle subscript marks "reference/conventional" and is used nowhere else; $\hat v$ and $\pi$ are the card's own belief summaries (§4.3), so the objects are card objects at a named belief rather than new ones, which is the point of the convention (Step 9(c), retry finding 3) |
 | $E_j(s;k)$ | Step 11's second bracket, the pooled-execution expectation | proof-local, same steps as $G_j$. Distinct from any card symbol; $\mathbb E$ is the expectation operator and is never subscripted by a plan |
 | $\mathrm{supp}(z_d)$ | the realised support of the noise mark at the maintained $\kappa$: $\{0\}$ at $\kappa=0$, $\{-\bar z,+\bar z\}$ at $\kappa=1$, all three marks in between | roman operator on card §4.1's $z_d$ row, not a new model symbol; used only in Step 9, where the $\kappa$-boundary argument is quantified over it |
@@ -1526,6 +1698,12 @@ $\mathcal T$ is the best-response map.
     or downstream — would be unsupported. This is the round-2 face of the full separation A7-J buys
     (`proofs/A7_construction.md` WHERE IT FAILS 8): once the filing reveals $s$ and the price is
     competitive, no informational rent survives to make one order strictly better than another.
+
+16. That P1 covers menus on which some adjacent plan pair has no indifference signal in the common
+    bracket — in particular menus with a dominated top plan, where $\{s:j^\star(s;k)\ge i+1\}$ is
+    empty. h.6's bracket clause as Steps 13–14 consume it excludes them, and Step 13's corrected
+    corner note records why: under Step 1's coding the finite cutoff vector cannot represent
+    $j^\star$ on the Gaussian tails there. *Added 2026-08-29, P1-R40-A, polish-pass finding F5.*
 
 ---
 
