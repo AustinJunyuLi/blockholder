@@ -11,7 +11,7 @@ ledger with its honesty labels. It then records what the v4 model takes from the
 `draft_v2.tex`, what it simplifies, and what it drops; and it lists the executed evidence, failures
 included. Every statement of content here is transcribed from `research/model_v4/MODEL_CARD.md`
 (**Version stamp: 2026-08-30 · F5 route R40-A applied + batched two-pass gate PASS + theory-record
-freeze · commit `<pending-orchestrator-hash>`.**) and
+freeze · commit `65b8db3`.**) and
 `research/model_v4/LABEL_LEDGER.md`. The card is the single source of truth: where a proof file
 and the card differ, the card wins. The conditionality attached to each result is not decoration.
 It is the result.
