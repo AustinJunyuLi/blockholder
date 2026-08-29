@@ -17,9 +17,14 @@ foot of this file and traces to a numbered finding of
 and no label moves: P1 remains CONJECTURE** — the label is the orchestrator's to move, on the
 passes, not this file's to claim.
 
-**Wording batch applied 2026-08-29** — repairs **P1-R36–P1-R39, P1-R41–P1-R42 and P1-R46–P1-R53**,
+**Wording batch applied 2026-08-29** — repairs **P1-R36–P1-R39, P1-R41–P1-R42 and P1-R46–P1-R56**,
 each landed verbatim from the drafted text in `threads/2026-08-29_gpt_p1_polish_audit.md` (the
-in-house audit of the GPT Pro polish pass filed at `threads/2026-08-29_gpt_p1_polish.md`). All are wording-grade by that audit's own grading: no
+in-house audit of the GPT Pro polish pass filed at `threads/2026-08-29_gpt_p1_polish.md`).
+**P1-R54–P1-R56 are same-day seam follow-ons**, drafted by the auditor after reviewing the
+application of the first fourteen: R54 strikes the setup sentence P1-R52 left duplicating the
+paragraph below it, and R55 and R56 carry P1-R46's and P1-R41's consequences to the heading,
+disclaimer and failure-case sites that still read against them.
+All are wording-grade by that audit's own grading: no
 hypothesis is added, no step conclusion changes, and **no label moves**. Four drafted repairs are
 **outstanding and deliberately not applied**: **P1-R40-A/-B** (finding F5, antecedent-touching —
 pending Austin's route choice), **P1-R43** and **P1-R44** (findings F8 and F9,
@@ -778,12 +783,13 @@ date-0 cutoff policy does not select — h.11 defines an action set $\mathcal Q_
 flagged pair, and a date-0 deviation to a non-selected plan that flags creates a genuine round-2
 information set carrying §3(ii). The argument therefore **cannot** run through date-0 optimality:
 at a non-selected pair there is none to appeal to, and that is exactly what lets the argument below
-reach those nodes. Fix an arbitrary flagged pair $(j,s)$, with no assumption that $j=j_k(s)$, and
-let $j'$ range over the menu elements generating h.11's action set $\mathcal Q_j(s)$.
+reach those nodes.
 *(Restructured 2026-08-25, round 2 — **P1-R17**, on pass-1 finding 1 and pass-2 R16–R17; the
 chronology is in the repair table at the foot of this file. Opening rewritten 2026-08-29,
 **P1-R52**, polish-pass finding F17, to lead with the quantifier and the strategy rather than the
-repair history. Parts (a)–(d) are unchanged.)*
+repair history; its closing setup sentence struck the same day by **P1-R54**, which duplicated the
+paragraph below without that paragraph's class definition. The setup is the next paragraph's, and
+parts (a)–(d) are unchanged.)*
 
 Fix a flagged pair $(j,s)$ — no assumption that $j=j_k(s)$ — and let $j'$ range over the class
 generating h.11's action set: $j'$ agrees with $j$ on the pooled path up to $f_j(s)$ and
@@ -1084,7 +1090,8 @@ $(P,\pi)$ at each control-node information set, by Step 4's derivation.
 (vi) *Off-path beliefs as limits of full-support perturbations.* Steps 9 and 10.
 All six hold, so the assembled object is a cutoff perfect Bayesian equilibrium.
 
-**Step 18 (a strengthening that is not part of the claim: Kakutani removes h.6's continuity half).**
+**Step 18 (a possible route, not part of the claim and not established here: Kakutani in place of
+h.6's continuity half).**
 Define instead the best-response correspondence
 $\mathfrak T(k)=\{k'\in\Theta:k'\text{ represents some optimal weakly increasing plan selection at
 }k\}$. It is nonempty by h.3, and its values are compact as closed subsets of the compact $\Theta$.
@@ -1197,8 +1204,12 @@ $\blacksquare$
    $C_j(s)$ be constant on a signal interval $[s_1,s_2]$ and let the conjecture be such that
    $U_{i+1}(\cdot;k)-U_i(\cdot;k)\equiv 0$ there. Every $k_i\in[s_1,s_2]$ represents a best
    response, and as $k$ moves the plateau opens and closes, so $\mathcal T_i$ jumps and Brouwer does
-   not apply. The Kakutani route of Step 18 survives this case; the Brouwer route the card fixes
-   does not.
+   not apply. The Brouwer route the card fixes does not apply here. Step 18's correspondence route
+   is the natural candidate for a case of exactly this shape — an indifference plateau is where a correspondence is
+   better behaved than a selection — but Step 18 draws no Kakutani conclusion, so **no route is
+   claimed to survive this case**. *(Amended 2026-08-29, **P1-R55**, following **P1-R46**: the
+   pre-repair clause read "The Kakutani route of Step 18 survives this case", which asserts what
+   Step 18 no longer establishes.)*
    **Plateaus are structural, not exotic, on exactly the menus h.16 is for (retry finding 5).** By
    Step 12(c), $U_{j'}(s;k)=B_j^F(s)P^F(s)-C_j(s)-E_j(s;k)$ is the *same function of $s$* for every
    member of an h.11 deviation class: the shared pooled path gives a common $B^F$ and a common $E$,
@@ -1417,6 +1428,12 @@ $\mathcal T$ is the best-response map.
 3. That the Step 18 Kakutani route is part of P1. It is a remark. Card §3 fixes the Brouwer route
    for P1's statement, and the correspondence-valued argument still needs Step 15(i) and Step 14's
    bracket.
+   *Amended 2026-08-29 (**P1-R55**, following **P1-R46**, polish-pass finding F11): **more is
+   disclaimed, not less.** The clause above lists what the correspondence-valued argument "still
+   needs" as Step 15(i) and Step 14's bracket. It also needs a lemma that $\mathfrak T$ has convex
+   values and a closed graph under this file's cutoff encoding, and Step 18 as now scoped proves no
+   such lemma and draws no Kakutani conclusion. So the route is not merely outside P1's statement; it
+   is unestablished.*
 4. That **A7-J** (h.7) holds on a general finite menu. *Updated 2026-08-25:* satisfiability is no
    longer open — ticket 24 exhibits a menu on which A7-J holds, the pro-rata single-Voice menu with
    $b^*$ strictly increasing on all of $\mathbb R$ (`proofs/A7_construction.md` Step 7, attack
@@ -1461,6 +1478,19 @@ $\mathcal T$ is the best-response map.
     the card, and the conjunction of the two is strictly weaker than the joint statement the
     crossing-point argument consumes. Nor is any differentiability of $U$ in $(s,k)$ claimed — the
     crossing argument is topological, not an implicit-function-theorem argument.
+    *Amended 2026-08-29 (**P1-R56**, following **P1-R41**, polish-pass finding F6): **strengthened,
+    not narrowed.** The clause above records that continuity in $k$ at fixed $(j,s)$ "is established in
+    Step 15". It is not, and Step 15 no longer says so: P1-R41 de-asserted it, because the
+    $k$-dependence runs through the conditioning rather than through the pricing map, Step 9(b)'s two
+    branches are different laws with no step showing they agree as $\Lambda_k\downarrow0$, and card
+    §5's A5 and A6 evidence notes record the composition $k\mapsto(\hat v,\pi)\mapsto P$ as underived
+    and as measured to jump. What this item now records is therefore **more** than it did: **neither**
+    separate continuity is derived in this file — continuity in $k$ at fixed $(j,s)$ is not
+    established, and continuity in $s$ at fixed $k$ is what (i) asks of the card — so the observation
+    that their conjunction is strictly weaker than the joint statement the crossing-point argument
+    consumes (batch-1 audit P1-R4) stands as a logical point but now names no available route.
+    Continuity of $\mathcal T$ enters only through h.6 (Steps 15–16). The differentiability disclaimer
+    above is unchanged.*
 12. That card §4.3's $Y$ row has been disambiguated. Step 5 records the two readings of the $P$ inside
     the takeover branch and shows the step's conclusion survives both; pinning the row is a card
     edit and a regeneration item, not a claim of this file.
