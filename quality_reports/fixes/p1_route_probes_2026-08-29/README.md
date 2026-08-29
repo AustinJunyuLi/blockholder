@@ -32,6 +32,36 @@ probes vary those two axes separately.
 | `t_blend_diagnose.py` | which axis moved it — continuity, or the floor's shape? | **the floor's shape.** `{switch, blend} × uniform` → 3 sign changes at every `ε`; `{switch, blend} × massprop` → 1. Continuity is irrelevant to the A3 pattern. |
 | `t_blend_settle.py` | (A) does the blend restore `k`-continuity of `𝒯₂`? (B) does locus (ii)'s VOICE→HOLD argmax reversal survive every family? | (A) **yes** — local step at a fixed `1e−8` bracket across `edge(8)` falls `6.334e−3 → 6.8e−6`, the same total move spread monotonically over a `~1e−5` window. (B) **yes** — reversal holds in 8 of 8 variants at the node-15 pinned fixed point, with 5 sign changes throughout. |
 
+## Independent verification, 2026-08-29 (`v_offpath_*`)
+
+A **fresh verifier agent who did not write the exploration or the `t_blend_*`
+probes above** rebuilt the two single-pass findings from scratch. Its report is
+`offpath_verification_2026-08-29.md` in this directory; its four probes are
+`v_offpath_family_facts`, `v_offpath_locus1_ladder`, `v_offpath_locus2_node15`
+and `v_offpath_switch_vs_fixedt` (script + JSON each, 20 gates across three of
+them, 0 failed). Those four are **pre-registered and gated**, run at the
+committed `t2_a3_ordered_plans_check.py` protocol rather than at the
+exploration's, and three carry a declared post-run-1 gate restructure with the
+run-1 table preserved. They are still **single-verifier** and license no label
+move and no card write.
+
+Headline: the `OFF_PATH_EPS` finding is **confirmed** (with one narrowing on
+"the `t = 0` construction"), and the locus-(i) finding is **narrowed** — the
+Step-9(b) family gives 1 sign change over the offsets the card quotes but 3 at
+offsets `4e-2 ... 1e-1`, where the shipped family gives 1, so it **relocates**
+the A3 failure rather than removing it. Locus (ii) is confirmed and widened
+(10/10 at the pinned point, both fixed points covered). The `t_blend_*` numbers
+above all reproduce; the caveat below about `uniform_type_mass` being an
+approximation is **resolved at locus (i)** — every floored type there is
+`(D, f)`-constant with `D = 0`, so `Pr(n(s)=t)` is exactly Step 9(b)'s weight,
+and the `m[0] = 0` error is inert because type 0 is alive at every ladder
+point. **It is NOT resolved at locus (ii)**: type 11 is floored there and its
+`n(s)` cell is not `(D, f)`-constant, while `menu.type_reference` reads one
+midpoint clock for it — a third, independent implementation-vs-card gap,
+common to every family tested and therefore orthogonal to the
+uniform-vs-mass-proportional axis. See `v_offpath_locus2_node15.json`
+(`exactness_caveat`) and the report's section 2(e).
+
 ## Caveats carried
 
 - One node per claim except where stated; not swept over `(κ, τ, T)`.
