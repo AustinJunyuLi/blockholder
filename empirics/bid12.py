@@ -110,10 +110,14 @@ _MERGER_PATTERNS = [
 _TARGET_PATTERNS = [
     r"merg\w+[^.]{0,120}with and into (?:the\s+Company|the\s+[Rr]egistrant|{C})",
     r"(?:the\s+Company|{C})\s+merg\w+[^.]{0,60}with and into",
-    # Rulebook §5 bullet 2 verbatim ('(the Company|{name})[^.]{0,120}
-    # wholly[-]owned subsidiary of') — the becoming/surviving restriction is
-    # the rulebook's for the ACQUIRER side only ('subsidiary of the Company').
-    r"(?:the\s+Company|{C})[^.]{0,120}wholly[- ]owned subsidiary of",
+    # Rulebook §5 bullet 2 with a negative lookahead: the firm-as-subsidiary
+    # phrase must not be the acquirer-side structural phrase "Merger Sub, a
+    # wholly owned subsidiary of the Company" (calibrated on the Salesforce
+    # debt 8-Ks 2021-06-30 / 2021-07-12, which recite the Slack merger
+    # parties). Recall for genuine target phrasings ("the Company will be a
+    # wholly-owned subsidiary of Parent") is kept.
+    r"(?:the\s+Company|{C})[^.]{0,120}wholly[- ]owned subsidiary of "
+    r"(?!the\s+Company\b|{C})",
     r"acquisition of (?:the\s+Company|{C})\b",
     r"(?:the\s+Company|{C})\s+(?:will|would) be acquired",
     r"(?:the\s+Company|{C})[^.]{0,40}to be acquired",

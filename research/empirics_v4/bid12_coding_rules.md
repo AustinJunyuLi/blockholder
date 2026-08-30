@@ -142,7 +142,7 @@ document:
 "the Company" or the firm's core name interchangeable:
 
 - `merged with and into (the Company|{name})`
-- `(the Company|{name})[^.]{0,120}wholly[- ]owned subsidiary of`
+- `(the Company|{name})[^.]{0,120}wholly[- ]owned subsidiary of` **not followed by `the Company`/`{name}`** (negative lookahead — otherwise the acquirer-side structural phrase "Merger Sub, a wholly owned subsidiary of the Company" false-fires; calibrated on the Salesforce debt 8-Ks of 2021-06-30/2021-07-12, which recite the Slack merger parties)
 - `acquisition of (the Company|{name})` · `acquire (the Company|{name})`
 - `(the Company|{name}) will be acquired`
 - `tender offer for (all|any) ... (shares|stock) of (the Company|{name})`
