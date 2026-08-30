@@ -9,11 +9,21 @@ manuscript the supervisor has seen) and the **live v4 effort** (one theorem, two
 two lanes — ADR-0007). In this worktree the live work is the theory lane; the draft_v2 layers
 are reference.
 
-## v4-theory lane (2026-08 →) — the live work
+## v4-theory lane — theory record FROZEN 2026-08-30; live work is draft_v3 + code
 
 This checkout is the **`v4-theory` worktree** (branch `v4-theory`), one of three worktrees of
 the same repo: `blockholder` (`proposal`), `blockholder_v4` (`v4`, the **empirics lane** — do
 no empirics work here), and this one. Read `CONTEXT.md` and `docs/adr/` first.
+
+**The theory record is FROZEN** (2026-08-30, commit `65b8db3`; card stamp `2026-08-30 · F5
+route R40-A applied + batched two-pass gate PASS + theory-record freeze`). The R-number
+sequence is closed, `threads/` is archive, and no proof repairs, audits of audits, or
+label-gate runs happen unless Austin reopens the record. From the freeze, **the only artifacts
+under review in this checkout are draft_v3 and code.** The live work is `draft_v3.tex` (+`.bib`,
+`.pdf`, and `draft_v3_trace.md`) at the repo root: every claim in the draft traces to a card
+row via the trace file; a sentence with no card row behind it is a defect to remove, not an
+addition to verify. Empirical results come from the empirics lane into the draft's §6 — still
+do no empirics work here.
 
 **Where the theory lives**
 
@@ -39,7 +49,9 @@ adversarial proof-read PASS, and a statements-only re-derivation PASS — two fr
 neither of whom wrote the proof, the re-deriver working from the card row alone with `proofs/`,
 `threads/`, and `rederive/` unopened. An executed, committed check → NUMERICAL. GPT Pro's end
 review can demote, never promote by prose. Never weaken a label in the card, the ledger, or the
-draft; supersede a landed record line with a dated amendment, never a silent rewrite.
+draft; supersede a landed record line with a dated amendment, never a silent rewrite. **The gate
+ran for the last time on 2026-08-30** (`rederive/P1_gate_2026-08-30.md`); the machinery is closed
+with the record.
 
 **Roles and rules.** Opus agents write proofs, proof-read (never their own), re-derive, and
 build/verify `numerical_v4`; Sonnet does search, extraction, LaTeX plumbing, and file moves;
@@ -51,6 +63,13 @@ and pushed by the orchestrator with explicit paths; `<pending-orchestrator-hash>
 in stamps and ledger lines are filled in a follow-up commit. **One card writer at a time** — a
 parallel ticket returns its card text and the orchestrator applies it verbatim in a quiet
 window.
+
+**Post-freeze review rules (2026-08-30 →).** Each artifact — draft_v3, or code — gets **one
+review**, by one fresh agent that wrote none of it, and its author fixes the findings **once**.
+A review reads the artifact as its reader would. A finding about another review goes to
+Austin's one-pager, never into a new file. If drafting surfaces a theorem-level problem: stop
+that section, write it into the one-pager, and ask Austin. Every session ends with a one-page
+brief for Austin (proved / at risk / needs me) — the only document written for him.
 
 ## Tracker, triage, domain docs
 
