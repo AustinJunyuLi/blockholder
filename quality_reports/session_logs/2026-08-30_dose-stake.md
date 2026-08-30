@@ -66,3 +66,17 @@ now replaced by realised values ~3× larger across the board; every timing-
 split and level leg is correspondingly less powered than SPEC §3.6/§5
 projected. No test or sample rule changed — the estimates are reported with
 their realised MDEs, per §0 rules 2–3 and §13 items 15–16.
+
+## Addendum — §6 bounded-null source re-verification (ticket-11 duty)
+
+Re-confirmed every §6 figure against `research/txt_extracts/sec_release_33_11253.txt`
+(SPEC: "ticket 11 re-confirms Table 3 p. 189 in the text file before the bound enters
+the draft"): campaigns 1,907 / 463 / 78 / 16 (Table 3 cols 1–4); shares 80% / 20% /
+3%; the 97-percent prose; the 2,370 Table-6 sample; 29% of 2022 filings already
+inside the amended deadline; "earlier filing for about 59 percent"; **"$49 million
+per year ($23 million from Column 1 plus $26 million from Column 2)"** — the $26
+million component is line-wrapped in the raw text ("$26\nmillion"), which a plain
+substring grep misses; the $42m/$36m adaptation figures; and "810 million" does
+**not** appear anywhere in the release (INDEX §4 item 9 stands). The three-rung
+ladder (20 / 3 / 1 pp) and its three binding restrictions are unchanged and travel
+with the DiD leg when it lands.
