@@ -97,6 +97,7 @@ import json
 import os
 import random
 import re
+import sys
 import time
 from typing import Iterator, Optional
 
@@ -409,9 +410,24 @@ def common_us_universe(permno_df: pd.DataFrame) -> pd.DataFrame:
 # -- normalisation ------------------------------------------------------------
 
 def norm_ticker(raw: object) -> str:
-    """Uppercase, stripped, non-alphanumerics removed (BRK-B/BRK.B -> BRKB)."""
+    """Uppercase, stripped, non-alphanumerics removed (BRK-B/BRK.B -> BRKB).
+
+    A **missing** ticker must normalise to the empty string, and the guard is
+    load-bearing rather than defensive. CRSP blanks the ticker when a security
+    delists; pandas reads a blank as float NaN; ``str(nan).upper()`` is
+    ``"NAN"``; and NAN is a real NYSE ticker, the Nuveen New York Quality
+    Municipal Income Fund (CIK 1074769). Without this guard every delisted
+    no-ticker PERMNO mapped to that one fund through the ``ticker_delisted``
+    route -- 1,607 of them in the 2026-08-30 snapshot, found 2026-08-30 while
+    tracing blank SIC codes in the control pool.
+    """
     if raw is None:
         return ""
+    try:
+        if pd.isna(raw):
+            return ""
+    except (TypeError, ValueError):      # arrays and other non-scalars
+        pass
     return re.sub(r"[^A-Z0-9]", "", str(raw).upper().strip())
 
 
@@ -808,7 +824,44 @@ def build_reverse_map(permno_common: pd.DataFrame,
 
 # -- main ---------------------------------------------------------------------
 
+def rebuild_reverse_map_only() -> int:
+    """Rebuild ``permno_cik_map.csv`` from files already on disk.
+
+    No EDGAR request and no SEC lock: CRSP and ``company_tickers.json`` are
+    the only inputs, and both are cached. Added 2026-08-30 so the
+    ``norm_ticker`` NaN repair could be applied to the committed map while two
+    extraction lanes held the SEC lock. A full ``main()`` run reproduces the
+    same file; this path only skips the fetch and spot-check phases.
+    """
+    if not os.path.exists(COMPANY_TICKERS_PATH):
+        print(f"{COMPANY_TICKERS_PATH} absent — this path does no fetching; "
+              f"run the full link build when a SEC lane is free")
+        return 1
+    print("== CRSP identity ==")
+    crsp = build_crsp_identity()
+    permno_common = common_us_universe(crsp.permno_df)
+    company_tickers = load_company_tickers()
+    print(f"  {len(permno_common)} US common-stock PERMNOs; "
+          f"company_tickers.json {len(company_tickers)} rows")
+    reverse_map = build_reverse_map(permno_common, company_tickers)
+    n_mapped = int((reverse_map["cik"] != "").sum())
+    print("== reverse map (PERMNO -> CIK) ==")
+    print(f"  {n_mapped}/{len(reverse_map)} mapped ({n_mapped / len(reverse_map):.1%})")
+    print(f"  routes: {reverse_map['map_route'].value_counts().to_dict()}")
+    dl = reverse_map[~reverse_map["still_listed"]]
+    dl_mapped = int((dl["cik"] != "").sum())
+    print(f"  SURVIVORSHIP: of {len(dl)} delisted common-US PERMNOs, "
+          f"{dl_mapped} carry a CIK and {len(dl) - dl_mapped} do not")
+    rev_path = os.path.join(OUTPUT_DIR, "permno_cik_map.csv")
+    reverse_map.to_csv(rev_path, index=False)
+    print(f"  wrote {rev_path} ({len(reverse_map)} rows)")
+    return 0
+
+
 def main() -> int:
+    if "--reverse-map-only" in sys.argv[1:]:
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        return rebuild_reverse_map_only()
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     os.makedirs(SUBMISSIONS_DIR, exist_ok=True)
     print("== inputs ==")
