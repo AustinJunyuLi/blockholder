@@ -112,12 +112,57 @@ window is shorter and gives less time to delist.
    §8.5 row x already does for delisting. Cheapest, and consistent with how the
    amendment-orphan caveat is handled.
 2. Recover the delisted controls with a CUSIP→CIK route that does not depend on
-   current tickers. 13F holdings tables carry CUSIP and issuer name; issuer name
-   then maps to CIK through the EDGAR company index. This is new tooling and new
-   fetches, and it would need its own validation gate.
+   current tickers. **Costed, not built** — see §5. Cheaper than it sounds.
 3. Restrict both sides to survivors, which trades the asymmetry for a bias of
    known direction on both sides but throws away the acquired treated firms that
    §2.3 filter 3 was written to keep.
 
 This belongs beside the amendment-orphan caveat (SPEC §8.2) as a live limitation
 of the control group.
+
+## 5. Costing the recovery route (measured 2026-08-30, not built)
+
+Two cheaper routes were tested first and one of them is dead, which is worth
+recording so nobody re-tries it.
+
+**Dead: the historical-ticker route.** CRSP carries ticker *history*, and the
+map used only each PERMNO's last row, which delisting blanks. Rebuilding from
+the last **non-blank** ticker in `crsp.ticker_spans` recovers **110 of 1,607**
+delisted PERMNOs. The rest fail for a structural reason, not a fixable one:
+`company_tickers.json` lists **current** registrants only, so 1,463 delisted
+tickers are simply absent from it and 34 now belong to a live security. Any
+ticker-based route fails for delisted firms by construction. There is also no
+name route inside the repo: the CRSP daily snapshot carries no company name
+column, and neither WRDS extract does.
+
+**Viable: CUSIP → issuer name → CIK, through 13F holdings.** A 13F information
+table lists `cusip` beside `nameOfIssuer`, and the quarterly EDGAR indexes
+already on disk give company name → CIK for every filer 2021–2025, delisted
+firms included. Measured on **one** filing (Geode Capital Management, 2023Q1,
+`0001214717-23-000010`, 2.7 MB, 4,803 distinct CUSIPs):
+
+| step | count | of |
+|---|---|---|
+| delisted control PERMNOs | 1,120 | — |
+| CUSIP present in that single 13F | 370 | 33.0% |
+| of those, name resolves to exactly one CIK in the on-disk indexes | 261 | 70.5% |
+| name matched more than one CIK | 15 | 4.1% |
+| name absent from the indexes (13F abbreviations such as "10X CAPITAL VENTURE ACQUIS-A") | 94 | 25.4% |
+
+The 33% CUSIP ceiling is an artefact of using one quarter: a 2023Q1 holdings
+table cannot contain a firm that delisted in 2021, and 447 of the 1,120
+delisted before 2023. One 13F per year from the same filer (five filings, about
+14 MB, five requests) should lift CUSIP coverage well above that, and the
+name→CIK step is local.
+
+**So the realistic cost is minutes of lane time, not a new data project:** five
+13F fetches, local name matching, and one submissions fetch per recovered CIK
+to validate (many are already cached). The validation rule writes itself: a
+recovered CIK whose filings continue well past the CRSP delisting date is the
+wrong company, and the 15 ambiguous names are held out rather than guessed.
+
+**Still not built, and not a decision this session may take.** It would add a
+linkage route the SPEC's control universe was not built on, and it needs its own
+gate before any control it recovers enters the sample. What changes with this
+measurement is only Austin's menu: option 2 is cheap, not expensive, and worth
+weighing against simply signing the survivorship bias in the text.
