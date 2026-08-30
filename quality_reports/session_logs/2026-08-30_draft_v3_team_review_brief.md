@@ -135,3 +135,51 @@ each enumerated in the trace amendment).
 **Not done, by design.** No placeholder for the future empirical appendix exists in the online
 appendix; it gets added when the empirics land. The pre-existing uncommitted deletions under
 `deliverables/` (the v2-era folder) are yours; this pass preserved and did not commit them.
+
+## Amendment, 2026-08-30 (third entry: Gorbenko-style restructure, reviewed and fixed)
+
+**What you ordered.** The draft read like a math paper; the reference style was Gorbenko's
+"Auctions with Endogenous Initiation": abstract under 150 words, results in plain prose, no
+status-line/record machinery in the reader's path.
+
+**Landed.** Sixteen one-clause assumptions are now six displayed assumptions (clause content
+verbatim, original labels retained on clauses, so every reference reprints as e.g.
+Assumption 4(a) with no \ref edits). The four assumption essays and six numerical-record
+remarks moved to the online appendix, which now runs A. Discussion of assumptions, B. Numerical
+records, C--E. Proofs (proof sections untouched). All nine status lines are deleted; their
+content lives in the statements' hypothesis lists, the new §5.6 ("The model at the implemented
+calibration", which also keeps Table 1 in the main text), and appendix Section B. Result titles
+no longer carry the D1/L1--L4/T1/P1/C1 codenames (the codenames survive in the appendix proof
+titles and the trace). §5.5 "What is not claimed" is folded into the conclusion as one
+paragraph; the three open questions live only in the conclusion. The abstract is 149 words;
+the intro states the three results in plain English with every number and every conditionality
+intact. Main text: 32 pages, 0 errors, 0 undefined. Appendix: 56 pages, 0 errors, every
+cross-reference into the main text resolves. `deliverable/` ships both current PDFs.
+
+**The review you required.** One fresh Opus agent (none of the restructure its own) checked
+fidelity against the pre-restructure commit: all sixteen clauses, six remarks, four essays and
+Table 1 verbatim; seven of eight statements byte-identical; every number in the new prose
+matched to the record; no dangling references; frozen record untouched. It returned 4 blocking
++ 11 minor findings, all fixed once: the abstract had dropped "at fixed policies" from the
+threshold-margin result (restored) and the seeded-sample qualifier (restored within the word
+cap); the intro had dropped the H=12 chord-route qualifier (restored); `deliverable/` still
+shipped the pre-restructure PDFs (refreshed); one "two parts" sentence miscounted the regrouped
+timing assumption (fixed). Minors included two orphaned deictics in the moved essays, an
+unglossed A(br) symbol that Lemma 5's frozen body prints (the clause title now carries the
+symbol), a semicolon capital, two imprecise lines in §5.6 (the 0.16 jump at the second node;
+H=10 now named before 4^{H+1}), the dead \resultstatus macro, and two wrong lines in my own
+trace amendment (the grouping description and an example label). The trace amendment records
+every pointer repair inside statement bodies.
+
+**Judgment calls you may want to revisit.**
+1. Assumption 1 gathers four clauses under "Timing and the legal clock", including interior
+   crossing (0 < Ω < 1), which is a regularity condition rather than timing — grouped there
+   because it is small and filing-related. Moving it now would renumber the assumptions.
+2. The main text no longer prints the codenames D1/L1--L4/T1/P1/C1 anywhere; readers of the
+   frozen record map through the trace file or the appendix proof titles.
+3. The conclusion now carries both the non-claims paragraph and the open questions; §5 reads
+   results-then-calibration with no "not claimed" section.
+
+**Nothing theorem-level surfaced.** No new decisions are required of you beyond the three
+judgment calls above; the standing list (stale mirrors, frozen D1 erratum, headline choice,
+empirical gates, figure regeneration) is unchanged.

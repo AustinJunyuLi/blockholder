@@ -7,9 +7,12 @@
 %   xelatex -interaction=nonstopmode draft_v3_onlineappendix.tex
 %   xelatex -interaction=nonstopmode draft_v3_onlineappendix.tex
 %
-% Content: the proofs of every result stated in the main text, moved verbatim
-% from draft_v3.tex on 2026-08-30. Numbered objects cited without a section
-% letter (Assumption 3, Lemma 2, equation (8)) refer to the main text.
+% Content: the extended discussion of the standing assumptions and the
+% numerical records that measure them against the implemented calibration
+% (both moved from draft_v3.tex on 2026-08-30), then the proofs of every
+% result stated in the main text (moved verbatim from draft_v3.tex on
+% 2026-08-30). Numbered objects cited without a section letter
+% (Assumption 3, Lemma 2, equation (8)) refer to the main text.
 % =============================================================================
 
 \documentclass[11pt]{article}
@@ -28,8 +31,8 @@
 
 \setstretch{1.1}
 
-% Theorem environments (statement numbers live in the main text; this
-% appendix carries proofs only)
+% Theorem environments (statement numbers of results live in the main text;
+% the numerical-record remarks of the appendix are numbered locally)
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{lemma}{Lemma}
@@ -51,26 +54,302 @@
 \newcommand{\ND}{\mathrm{ND}}
 \newcommand{\Sfl}{\mathsf{S}_F}
 
-\newcommand{\resultstatus}[1]{\par\smallskip\noindent\textbf{Status.}\ #1\par}
-
 \title{\textbf{Online Appendix to ``Liquidity, Activism Disclosure, and Takeover
 Premia''}\\[0.3em]
-\large Proofs}
+\large Discussion of assumptions, numerical records, and proofs}
 \author{Austin Li\\[0.25em]}
 \date{This draft: 30 August 2026}
 
 \begin{document}
 \maketitle
 
-\noindent This appendix contains the proofs of every result stated in the main text, in the
-order in which the results appear there: the core lemmas (Section~\ref{sec:proofs-core}),
-existence (Section~\ref{sec:proofs-existence}), and the attenuation theorem with the
-general-equilibrium proposition (Section~\ref{sec:proofs-ge}). A numbered object cited without a
-section letter, such as an assumption, a lemma or an equation, refers to the main text.
+\noindent This appendix carries the material the main text compresses out of the reader's path.
+Section~\ref{sec:app-assumptions} discusses the standing assumptions; Section~\ref{sec:app-records}
+carries the numerical records that measure them against the implemented calibration;
+Sections~\ref{sec:proofs-core}, \ref{sec:proofs-existence} and~\ref{sec:proofs-ge} give the proofs
+of every result stated in the main text. A numbered object cited without a section letter, such as
+an assumption, a lemma or an equation, refers to the main text.
 
 \bigskip
 
 \appendix
+%==============================================================================
+\section{Discussion of assumptions}
+\label{sec:app-assumptions}
+%==============================================================================
+
+\noindent This section collects the extended discussion of Assumptions 3--6 of the main text that
+the body of the paper compresses: what each clause is for, what is derived rather than assumed,
+where the satisfiability boundary sits, and which executed checks bear on it. References to
+sections, results and equations without a lettered section are to the main text.
+
+\paragraph{The inner-pricing regularity clause.}
+Most of Assumption~\ref{asm:A5} is a theorem rather than an
+assumption. Under \eqref{eq:m0}, existence, uniqueness and continuity of the \emph{inner} fixed point
+are proved, not assumed. With the belief summaries $\bar y(\mathcal I) = \Eop_\mu[v] + \pi\Delta_V$
+and $\bar m(\mathcal I) = m_0 + \pi\Delta_m$, the pricing map reduces to the scalar equation
+$P \mapsto \bar y + \bar m\,p(P)/(1-p(P))$, which is strictly decreasing in $P$ wherever
+$\bar m \ge 0$ and therefore crosses the identity exactly once. Three independent calculations
+support this, one of them also recording two counterexamples: one producing zero roots and another
+producing three, once $m_0 < 0$. What Assumption~\ref{asm:A5} is retained for is its \emph{continuity} clause: the
+pricing family is continuous in the cutoff vector and the parameters, and measurable in the flagged
+tuple. Because the flagged information sets are continuum-indexed, ``unique fixed point'' must be
+read as a measurably selected family, not a finite list. Where a result below cites
+Assumption~\ref{asm:A5} for existence or uniqueness, it may cite \eqref{eq:m0} instead.
+
+Two continuities must be kept apart here, since only one of them is proved. Continuity of the inner
+root \emph{in its belief summaries} $(\hat v,\pi)$ follows from \eqref{eq:m0}. Continuity of the
+\emph{composition} $k \mapsto (\hat v,\pi) \mapsto P$ in the cutoff vector is what the clause above
+retains as an assumption: the $k$-dependence runs through the conditioning rather than through the
+pricing map, and no step derives it. Remark~\ref{rem:A6record} records that composition measured
+discontinuous at the implemented calibration, at the same loci and by the same checks, so this
+clause carries adverse applicability evidence of its own. None of that moves any result:
+Assumption~\ref{asm:A5} is a hypothesis, and no result below consumes its cutoff clause.
+
+\paragraph{Identification on flagged histories.}
+The weak identification wording of Assumption~\ref{asm:A7} is not enough for Lemma~\ref{lem:L2}: it permits two pairs $(j,s)$
+with different pooled paths, which is exactly that lemma's first failure case. Two injective forms
+are therefore named separately, and the form is named every time either is used.
+
+Assumption~\ref{asm:A7J} is strictly stronger than Assumption~\ref{asm:A7p}, and it is the form the
+existence argument consumes. Strictness of $B^F$ alone is neither necessary (it fails at
+crossing-date jumps on the pro-rata menu) nor sufficient, because of multi-Voice backtracking.
+Under Assumption~\ref{asm:A7p} the flagged tuple is continuum-valued as a tuple, since injectivity
+forces $(B^F,Q^F)$ to be continuum-valued, though the coordinates may trade the burden between them;
+injectivity plus measurability already gives the measurable inverse on standard Borel spaces, so no
+separate assumption is needed for that. Satisfiability is resolved for Assumption~\ref{asm:A7p}:
+together with a fixed cutoff policy and $\Omega > 0$ it delivers the on-path injective form on
+positive-probability flagged tuples with an explicit inverse, and a satisfying menu exists: the
+pro-rata single-Voice menu with terminal target strictly increasing on all of $\mathbb R$, which also
+satisfies Assumption~\ref{asm:A7J}. Assumption~\ref{asm:A7J} additionally needs $b^*$ strictly
+increasing off the Voice region: a target flat below the Voice cutoff breaks it, in an executed
+check producing forty collisions, while leaving Assumption~\ref{asm:A7p} intact. The failure boundary
+is a binding stake cap, quantized stakes, a composed target repeating values
+across Voice-plan switches, $\Omega = 0$, and policy dependence when the condition is stated only at
+one equilibrium's cutoffs. Menus satisfying Assumption~\ref{asm:A7p} are fully separating on the
+flagged set, so the burden moves to the incentive compatibility of Proposition~\ref{prop:P1}, not
+away.
+
+\paragraph{Where the chord restriction bites.}
+Where the bite of Assumption~\ref{asm:Atau} actually sits is worth stating, because it is narrower
+than the display suggests. Given a $\kappa$-invariant three-point support, the derivative
+restrictions $A_0' = A_1' = \Akap$ and $A_{1/2}' = -2\Akap$ are not an extra assumption at all: they
+are \emph{equivalent} to $\kappa$-invariance of the pooled block's total mass and of its
+unnormalised engagement moment, both of which the model delivers at fixed policies. The entire
+remaining content of Assumption~\ref{asm:Atau} is the support condition. A one-round ternary-noise
+market with informed mark $2\bar z$ and pre-order engagement share $\tfrac12$ satisfies it; a
+no-disclosure structure with informed mark $\bar z$ does not, since its pooled law has four atoms,
+two of which move with $\kappa$. Whether the two-round pooled cell of Section~\ref{sec:timing}
+satisfies the support condition is \textbf{open}, and every result conditional on
+Assumption~\ref{asm:Atau} (Lemma~\ref{lem:L3}, leg 3 of Lemma~\ref{lem:L4}, and Part~(B) of
+Theorem~\ref{thm:T1}) inherits that conditionality. Remark~\ref{rem:AtauRecord} records what the implemented calibration does to the support condition.
+
+\paragraph{The bridge clauses.}
+Assumption~\ref{asm:Abr} is consumed by leg 3 of Lemma~\ref{lem:L4} and by Part~(B) of
+Theorem~\ref{thm:T1}, and by nothing else. Clause (br-v) is needed in addition to (br-i)--(br-iv),
+because those four clauses do not imply it. One
+sharpening is recorded rather than assumed: with $\rho_{\mathrm{ch}}(\tau) := \tfrac12 A_{1/2} + A_1$, which is provably
+$\kappa$-free, $\bar\pi = \bar\pi_{\mathrm{pr}}/\rho_{\mathrm{ch}}(\tau)$, so (br-iv) is equivalent to
+$\rho_{\mathrm{ch}}(\tau')/\rho_{\mathrm{ch}}(\tau) \ge \bar\pi_{\mathrm{pr}}(\tau')/\bar\pi_{\mathrm{pr}}(\tau)$; under the
+level-symmetric reading $\rho_{\mathrm{ch}} = \tfrac12$ and $\bar\pi = 2\bar\pi_{\mathrm{pr}}$, which forces
+$\bar\pi_{\mathrm{pr}} \le 1/2$, an inherited restriction on the domain of
+Assumption~\ref{asm:Atau} that Lemma~\ref{lem:L4} does not resolve. Clause (br-iii) is the clause
+with the least justification behind it, and it is the one to attack first. Because (br-i) carries the
+representation \eqref{eq:atau} at both thresholds, the record in Remark~\ref{rem:AtauRecord} bears
+directly on Assumption~\ref{asm:Abr} as well.
+
+%==============================================================================
+\section{Numerical records}
+\label{sec:app-records}
+%==============================================================================
+
+\noindent This section carries the full numerical records that Section~\ref{sec:calibration} of the main
+text summarises in prose. Each record was verified on the numerical grid at the implemented
+calibration; none of them moves any result, because every hypothesis they measure is carried as a
+hypothesis. The window-margin record's table is Table~\ref{tab:window-record} of the main text.
+
+\begin{remark}[Numerical record for Assumption~\ref{asm:A3}]
+\label{rem:A3record}
+At the implemented calibration Assumption~\ref{asm:A3} itself fails, at two independently found
+loci, upstream of Assumption~\ref{asm:A6}. First, at $(\kappa = 0.5,\ \tau_{50},\ T = 5)$ with $k_2$
+on an \emph{open set} above a cell edge (verified at offsets $10^{-9}$ through
+$2\times10^{-2}$), the difference $U_V - U_H$ has three strict sign changes, at
+$s = 1.5754434$, $1.5833333$ and $1.5902426$, with middle excursions of $2.4$--$2.8\times10^{-4}$
+against a $10^{-9}$ payoff tolerance. Those excursions are the panel's grid maxima; refined
+per-interval maxima are larger, at $3.07$ and $2.69\times10^{-4}$, so the failure is if anything
+understated here. The pointwise argmax runs $H,V,H,V$, single-valued on each
+interval, so no weakly increasing selection exists: the selection set is empty and the outer map
+$\Tmap$ is \emph{undefined} there, not merely discontinuous. Second, at
+$(\kappa = 0.15,\ 0.05,\ 5)$, one of the four unresolved nodes of Remark~\ref{rem:P1record},
+the argmax reverses from Voice to Hold across cell edge $s = 1.659062163$ at both located fixed
+points, so the preferred plan decreases in $s$. The route is the $s$-direction step of the Voice
+payoff, whose interior count $n(s)$ is integer-valued, interacting with the off-path price snap. A
+candidate mechanical account of the four unresolved nodes, that the trouble sits at a cell edge
+where $U_H - U_V$ jumps through zero without crossing it, was probed at one node and then swept
+over the other three under a pre-registered rule; it holds at all three, though in different forms.
+At two of them a located fixed point sits on such an edge. At the third no fixed point was found on
+any candidate edge, and the account holds instead through the achieving basin's worst deviation,
+which sits in the cell immediately above one. Under the alternative, mass-proportional off-path
+family the first locus's failure relocates rather than disappears: the weakly-increasing-selection
+set is empty on an open set of $k_2$ under both families, so the verdict does not depend on the
+family. This is diagnostic evidence at one calibration, and existence at these nodes stays neither
+claimed nor denied. None of this moves any result: Assumption~\ref{asm:A3} is a hypothesis, and
+Proposition~\ref{prop:P1} remains proved as a conditional.
+\end{remark}
+
+\begin{remark}[Numerical record for Assumption~\ref{asm:A6}]
+\label{rem:A6record}
+The continuity clause of Assumption~\ref{asm:A6} fails for the declared construction of $\Theta$,
+and the locus is known. All $k$-dependence of $U_j$ runs through the pooled price vector, the
+flagged layer being $k$-free under Assumption~\ref{asm:A7J}; Bayes applies where the reaching weight
+is positive but a $k$-free, plan-uniform posterior is imposed on the frontier, so the price system
+can be discontinuous exactly on the boundary of the reaching set of each pooled history. That set
+lies inside the union of the finitely many \emph{cell-edge hyperplanes} $\{k_i = a\}$ and the
+\emph{collapse faces whose dying plan is the sole generator} of some reachable pooled history,
+not the collapsed cutoff vectors as such. The jump reaches $\Tmap$ with non-vanishing weight,
+because $U_j$ integrates those prices against the deviator's own noise law, with weight at least
+$\min(\kappa/2,\,1-\kappa)^{d+1}$, independent of the dying plan's population mass; the
+vanishing-mass defusal is therefore refuted. That analytic bound is not itself computed by any
+probe; what is measured is its counterpart, the jump entering the adjacent-plan payoff difference
+undiminished. The largest-weakly-increasing-selection tie-break is
+pointwise in $k$ and passes the jump through, and no $k$-independent perturbation family reconciles
+the limits: at fixed perturbation size the system is continuous in $k$, and the discontinuity is
+created only in the limit, which the choice of family cannot fix. The implemented menu's
+Hold-collapse face is measured clean, with pooled prices within $4.441\times10^{-16}$ as $k_1$ sweeps
+to full collapse, so the implemented menu is not in the class (middle plans owning exclusive
+pooled histories) on which no family works at all; that class result is a single-pass derivation
+and has not been independently checked. At the implemented calibration the failure is
+live at the interior $n(s)$ cell edges instead: measured $\Tmap_2$ jumps of $6.33\times10^{-3}$,
+$1.09\times10^{-2}$ and $2.83\times10^{-2}$ across steps in $k_2$ of at most $2\times10^{-9}$ at
+$(\kappa = 0.5,\ \tau_{50},\ T = 5)$, measured independently by two separate scripts and agreeing to
+three significant figures; at $(\kappa = 0.15,\ 0.05,\ 5)$ the jumps reach $0.16$ and a diagonal
+crossing of $\Tmap_2$ is destroyed. A chamber interior $\Theta^+ = [1.23,\,1.245]\times[1.5253,\,
+1.5506]$ has been exhibited that is compact, self-mapping and jump-free at the baseline node
+(Brouwer runs on it verbatim and it contains $k^\star$), but it is not the $\Theta$ the existence
+argument constructs, it cannot be exhibited without approximately locating the fixed point first,
+and no such chamber exists at the $\kappa = 0.15$ node, where a fixed point sits exactly on the edge
+$k_2 = 1.659062163$. None of this moves any result: Assumption~\ref{asm:A6} is a hypothesis, and
+Proposition~\ref{prop:P1} remains proved as a conditional. Nonexistence is neither claimed nor shown:
+$23$ of $27$ sweep nodes converge, and a discontinuous self-map may still have fixed points. Two
+repairs are identified and neither is carried out here: a $t$-constrained game with a Kakutani
+argument and $t \downarrow 0$, and a cutoff-indexed concentration family, constructible but with an
+unresolved corner. What the implementation ships instead is a hard switch, so the
+$\Theta$-continuity either repair would buy is absent from the implementation at every resolvable
+scale; that last is a finding about the off-path family this implementation ships and not about
+every family. The coverage behind all of this should be read for what it is: probes at one node per
+claim class, together with the twenty-seven-node census, and no sweep over $(\kappa,\tau,T)$.
+\end{remark}
+
+\begin{remark}[Applicability, and the numerical status, of Proposition~\ref{prop:P1}]
+\label{rem:P1record}
+This proposition is a conditional, and its two main hypotheses about the equilibrium object are
+measured to fail at the calibration the accompanying implementation runs. Assumption~\ref{asm:A6}'s
+continuity clause fails there for the $\Theta$ the proof constructs (Remark~\ref{rem:A6record}), and
+Assumption~\ref{asm:A3} fails there at two independently found loci (Remark~\ref{rem:A3record}). In
+plain words: the proof needs the outer best-response map to be continuous and single-valued, and at
+the implemented calibration that map has measured jumps and stretches where no weakly increasing
+selection exists at all. The proposition stays proved as a conditional, in the same pattern as
+$\Atau$: what is on record is that its antecedent, read with the $\Theta$ the proof constructs,
+is not satisfied by the implemented calibration, so at that calibration the proposition asserts
+nothing about the implemented model. Nonexistence is neither claimed nor shown anywhere. The
+conditional stands on the proof, not on a grid. The grid evidence is stated separately: twenty-three of
+twenty-seven equilibrium-sweep nodes converge, and the
+remaining four ($\kappa \in \{0.15,\,0.85\}$ crossed with $(\tau,T) \in \{(0.05,\,5),\,(0.075,\,
+1)\}$) stay unresolved after thirty seeds each, with best payoff-scale residuals of
+$3.1\times10^{-4}$ to $1.5\times10^{-3}$ against a $10^{-9}$ criterion. Existence at those four nodes is neither claimed nor denied
+by that evidence.
+\end{remark}
+
+\begin{remark}[Numerical record for Assumption~\ref{asm:Atau}]
+\label{rem:AtauRecord}
+At the implemented calibration Assumption~\ref{asm:Atau} \textbf{fails}. The decisive failure is
+already established by the support condition alone; the derivative pattern also fails, and
+independently. The pooled cell's engagement-posterior law was enumerated exactly (all
+$4^{H+1} = 4{,}194{,}304$ order-flow paths, the same law the implementation integrates) at $200$
+nodes: $\kappa \in \{0.05,\dots,0.95\}$ crossed with the five frozen $\tau$ percentiles and
+$T \in \{1,2,5,10\}$, at frozen policies with $H = 10$. Two consistency checks establish that the
+object measured is the one the restriction is about: an independent re-enumeration reproduces the pooled mass to
+$0.0$ exactly, and the enumerated mean equals the pooled share $\bar\pi_{\mathrm{pr}}$ to
+$1.7\times10^{-16}$. Twenty nodes are degenerate: no engaging atom survives into the pooled cell,
+the law is the point mass at $0$, and the node decides nothing. At all $180$ non-degenerate nodes
+$\Atau$ fails; at none does it hold. The support carries $23$ to $767$ distinct posterior values,
+never three, and there is no mass at $\bar\pi/2$ at any node. Between $0.57\%$ and $91.8\%$ of the
+pooled mass sits off $\{0,\bar\pi/2,\bar\pi\}$ ($13.9\%$ at the median node), and the interior
+atoms move with $\kappa$: the two-sided Hausdorff distance between adjacent-$\kappa$ support sets
+reaches $0.4608$ against a predicted $<10^{-12}$, at $0$ of $18$ series. The derivative restriction
+$A_0' = A_1'$ holds at $0$ of $180$ nodes, and the chord identity's residual reaches $0.0717$, up
+to $7.17$ premium percentage points, against a predicted $<10^{-10}$. One half of clause
+($\tau$-ii) does hold: $\bar\pi = 1$ to $1.5\times10^{-13}$ at every non-degenerate node and is
+$\kappa$-free to the same order, which is a separate finding and not a partial rescue. This is
+numerical applicability evidence at one calibration; none of it moves any result,
+because $\Atau$ is an assumption rather than a claim. Lemma~\ref{lem:L3}, leg 3 of
+Lemma~\ref{lem:L4} and Part~(B) of Theorem~\ref{thm:T1} remain proved as conditionals; at this
+calibration they say nothing about the implemented pooled cell. The open
+question is a question about the restriction's \emph{domain}: a different menu, a different $H$, or a
+different calibration could still satisfy the support condition. One coverage caveat travels with
+the record: the $18$ non-degenerate series are only \emph{six distinct pooled cells}, and all six
+fail.
+\end{remark}
+
+\begin{remark}[The window-margin record, verified on the numerical grid]
+\label{rem:T1record}
+The numerical check runs the two-round model at frozen policies, cutoffs pinned at the baseline
+equilibrium $k = (1.240576,\,1.531022)$, where the flagged weight is $\Omega = 13.84$ percent, the
+disclosed share of engagements is $\omega_a = 61.15$ percent, and the cell averages are
+$M_F = 0.553$ and $M_P = 0.223$ premium percentage points, over a $\kappa$ grid of $71$ nodes on
+$[0.15,\,0.85]$, at five $\tau$ percentiles and $T \in \{5,10\}$. Table~\ref{tab:window-record}
+reports the weight leg, the composition leg and their product for the window cut
+$(T',T) = (5,10)$. Attenuation holds at every node: $W_T C_T \le 1$ throughout, with no node above
+one, and the composition leg carries the effect: $C_T$ runs from $0.21$ to $0.79$ while $W_T$ shaves
+only $3$ to $14$ percent.
+
+
+Three supporting results from the same record are worth carrying. The threshold margin gives the
+same direction (zero of eight compared pairs have $W_\tau C_\tau > 1$), with the three pairs
+that reclassify real mass at $0.5566$, $0.4780$ and $0.8846$ and the other five pairs reclassifying
+no mass at all and returning $1.000$ to within $3\times 10^{-16}$. The factorisation of Part~(A) holds to machine noise,
+which is wiring rather than evidence: at frozen policy the weights are $\kappa$-free by
+construction. And Lemma~\ref{lem:L2}'s conclusion is confirmed \emph{exactly}: every flagged object
+(posterior, price, entry probability, $M_F$) is invariant in $\kappa$ to machine zero over the
+grid, while the pooled $M_P$ moves $0.0722$ premium percentage points and the filing-day jump $J$
+moves $5{,}090$ basis points over the same range, so the target of the invariance is not vacuous.
+One caveat is the record's own: at $H = 10$ the long window is the corner $T = H$, which drives
+$\Omega(T{=}10)$ to $6.81\times10^{-4}$ and makes the headline comparison corner-versus-interior;
+the $H = 12$ column of Table~\ref{tab:window-record}, where $T = 10$ is strictly interior, points
+the same way. That column is computed by a different route, and the difference matters. At $H = 12$
+the enumerated pooled-support object is computationally unavailable, so the column's composition
+ratio $C_T$ is obtained from the chord closed form rather than from independently enumerated pooled
+levels as at $H = 10$, and that closed form is the one whose support condition
+Remark~\ref{rem:AtauRecord} measures to fail at this calibration. The $H = 12$ column is therefore
+directional corroboration of the $H = 10$ comparison rather than a second independent magnitude.
+What the record does not do is supply a sign theorem: it is node evidence at one
+calibration, and Part~(C) claims none. At this calibration the model's directional prediction for
+the February 2024 acceleration is attenuation, with the composition leg carrying it, a
+prediction the empirics of Section~\ref{sec:empirics} treats as one of two live branches, not as a
+derived sign, because the antecedent behind the composition leg's closed form is the very $\Atau$
+that Remark~\ref{rem:AtauRecord} measures to fail here.
+\end{remark}
+
+\begin{remark}[Dominance-and-contraction nodes, verified on the numerical grid]
+\label{rem:C1record}
+Eighteen of eighty grid nodes are pointwise \emph{dominance-and-contraction nodes}. The largest
+contiguous block is $T = 5$ at $\tau$-percentiles $\{50,70,90\}$ with
+$\kappa \in \{0.65,\,0.75,\,0.85\}$; the slack $\eta_r$ has minimum $0.0595$ and median $0.3467$, and
+$L_{\mathcal R} \in [0.264,\,0.501]$ everywhere on the grid. These values come from a numerical
+calculation reproduced independently. What these nodes establish is narrow and
+worth stating exactly: they verify the two pointwise inequalities $L_{\mathcal R} < 1$ and
+$\eta_r > 0$ together with supporting diagnostics. They do \emph{not} verify the full antecedent
+(C-1)--(C-7) of Proposition~\ref{prop:C1}, and they do \emph{not} exhibit a named nonempty region; a
+dominance-and-contraction node is a pointwise numerical fact, not evidence of a region. A
+named-region promotion is a separate step and is not claimed. The earlier aspiration, this result
+proved on a named nonempty region and numerical off it, is retired as structurally undeliverable
+as worded; what is deliverable is the three objects above: the implication proved with the region as
+a hypothesis, the dominance-and-contraction nodes verified on the grid, and a named-region promotion
+left open, for which an $\varepsilon$-ball plus integral-control pattern is the template. The
+proof also gives the bound $\mathcal B_r^{GE} = O\bigl((1-L_{\mathcal R})^{-3}\bigr)$, so
+the dominance-and-contraction nodes are cubically bounded away from $L_{\mathcal R} = 1$.
+\end{remark}
+
 %==============================================================================
 \section{Proofs of the core lemmas}
 \label{sec:proofs-core}\label{sec:proofs}

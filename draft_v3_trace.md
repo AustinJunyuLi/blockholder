@@ -341,3 +341,74 @@ deliverables in a `deliverable/` folder. What changed, and what did not:
    `??` in the extracted text (all `xr` references resolve). Unicode quote/dash scan clean on
    both sources and the bib. Intended-only diff review: 20 added lines in `draft_v3.tex`, each
    enumerated above; everything else is the cut.
+
+---
+
+## Amendment, 2026-08-30 (Gorbenko-style main-text restructure)
+
+Austin's instruction, after the appendix split: the main text read like a math paper. The
+reference style is Gorbenko--Malenko, "Auctions with Endogenous Initiation" (abstract under
+150 words; results stated in plain numbered prose; no status lines, no numerical records, no
+assumption essays in the body). The restructure below changes containers, titles, and prose
+register only. **No statement, hypothesis list, equation, number, or honesty label was
+strengthened, weakened, added, or dropped.** Every sentence deleted from the body survives
+either in `draft_v3_onlineappendix.tex` or in the new §5.6 summary, and the map above still
+describes the content row for row; this amendment records where each row now lives.
+
+1. **Assumptions regrouped, 16 to 6.** The sixteen one-clause assumption environments are now
+   six displayed assumptions: Assumption 1 (§3.2: no-feedback, flag termination, tie-break),
+   Assumption 2 (§3.3: the primitives clauses, incl. the boundedness paragraph moved to
+   follow it), Assumptions 3--6 (§3.5: the equilibrium object; identification on flagged
+   histories; the threshold chord restriction; the bridge and the general-equilibrium region).
+   **Clause content is verbatim**; each original `\label` sits on its clause, so `asm:A4` now
+   prints as Assumption 1(c) and every existing `\ref` resolves unchanged. The map rows for the sixteen assumptions are
+   unchanged in content; only the numbering changed.
+2. **Assumption essays moved.** The A5 derived-vs-retained essay, the A7/A7-J identification
+   essays, the A(τ) bite essay, and the A(br) essay left §3.5 for **appendix Section A
+   (Discussion of assumptions)**. §3.5 keeps one short paragraph per grouped assumption
+   saying what it is for and pointing to the appendix.
+3. **Numerical records moved.** Remarks `rem:A3record`, `rem:A6record`, `rem:P1record`,
+   `rem:AtauRecord`, `rem:T1record` (prose), and `rem:C1record` left the body for **appendix
+   Section B (Numerical records)**, verbatim, labels intact. **Table 1
+   (`tab:window-record`) stays in the main text**, now inside §5.6. Body pointers to these
+   remarks became the prose pointer "the online appendix".
+4. **Status lines deleted (9).** The `\resultstatus` lines under D1, L1, L2, L3, L4, T1, P1,
+   C1 (and the remark-status line) are gone from the body. Their content was already
+   duplicated: the hypothesis lists stay in the statements, and the applicability content is
+   carried by the new §5.6 and appendix Section B. No honesty content was lost.
+5a. **Pointer repairs inside statements and moved blocks (fidelity round, 2026-08-30).** Five
+   sentences changed container or pointer only, substance untouched: inside Proposition 1,
+   (P-5)'s "read as in the ``A6 is read'' paragraph below" became "read as in the reading of
+   that clause given below" (de-codenaming removed the quoted phrase, so the pointer would have
+   dangled), and the two-readings paragraph's "Remark~\ref{rem:A6record} records it measured to
+   fail" became "the online appendix records it measured to fail"; in appendix Section A, the
+   A(τ) essay's section pointer was dropped (the remark is local now), the A5 essay opens "Most
+   of Assumption 3(c) is a theorem" (the clause is no longer "stated here"), and the A7 note
+   opens "The weak identification wording of Assumption 4(a)" (the pronoun lost its antecedent);
+   in appendix Section B, rem:C1record's "(C-1)--(C-7) above" became "(C-1)--(C-7) of
+   Proposition~\ref{prop:C1}". The A(br) clause title carries its symbol again
+   ("The chord--sensitivity bridge ($\Abr$)") because Lemma 5's frozen statement body prints
+   "under A(br)" and needs the gloss.
+5. **Result titles de-codenamed.** "Lemma 1 (D1: the disclosure partition ...)" became
+   "Lemma 1 (The disclosure partition ...)", and likewise for L1--L4, T1, P1, C1. The
+   codenames remain where the record needs them: the appendix proof titles, this trace file,
+   and the frozen record itself.
+6. **§5.5 "What is not claimed" deleted.** The non-claims sentence moved into the conclusion
+   (one paragraph, same content); the three open questions now live only in the conclusion
+   (they were duplicated). New **§5.6 "The model at the implemented calibration"
+   (`sec:calibration`)** summarizes in prose: the two measured existence-hypothesis failures
+   (with the plain-words sentence), the chord-restriction failure (23--767 vs three, 180/180),
+   the window record with Table 1 (18--77%, composition leg, H=10 corner caveat and the H=12
+   chord-route caveat, node-evidence-not-a-sign), and the 18/80 equilibrium-region nodes.
+7. **Abstract and intro rewritten in register, not content.** The abstract is 146 words
+   (question, mechanism, the two margins' different status, filers-moved fact, design). The
+   intro's three result paragraphs say the same content in plain English; the proof-strategy
+   sentence moved out of the intro (§4's proof sketch already carries it); the numerical
+   paragraph keeps every number and gains a pointer to §5.6.
+8. **Gates.** Main text: four-pass build, 0 errors, 0 undefined references, 31 pages (was 36
+   at the split). Appendix: three-pass build against the refreshed main `.aux`, 0 errors, 0
+   undefined references, zero `??` in the extracted text (every `xr` reference into the main
+   text resolves, including the clause references such as "Assumption 3(a)"), 56 pages;
+   sections print A (Discussion of assumptions), B (Numerical records, Remarks 1--6), C, D, E
+   (proofs). Unicode quote/dash scan clean on both sources. The fidelity review of this
+   restructure (fresh agent, none of it its own) is recorded in the session brief.
