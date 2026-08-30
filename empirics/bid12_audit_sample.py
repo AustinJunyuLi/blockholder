@@ -58,6 +58,7 @@ SEED = 20260830
 RULE_DATE = "2024-02-05"
 CELL_TARGET = {"treated_pre": 8, "treated_post": 7,
                "control_pre": 8, "control_post": 7}
+_FILTERED: dict = {}
 KEY_COLS = ["bid12", "ambiguous", "n_bid_events", "first_bid_date",
             "first_bid_form", "first_bid_route", "first_bid_accession",
             "excluded_prior_bid", "prior_bid_any", "filer_own_bid",
@@ -75,6 +76,12 @@ def _load_side(side: str) -> pd.DataFrame:
         # auditor needs and fill the rest so both sides share a schema
         df["subject_name"] = df.get("subject_name", "")
         df["accession"] = df.get("treated_accession", "")
+        # Only coded rows are auditable: `no-cik-link` rows have no firm to
+        # look up, and `not-extracted` rows are not coder output at all
+        # (rulebook §5.1 item 5). The filter count goes in the manifest.
+        n_before = len(df)
+        df = df[df["extraction_status"] == "ok"].copy()
+        _FILTERED["control_rows_not_auditable"] = n_before - len(df)
     df["cell"] = side + "_" + (df["td"].astype(str) >= RULE_DATE).map(
         {True: "post", False: "pre"})
     return df
@@ -203,6 +210,7 @@ def main(argv=None) -> int:
         "cell_targets": CELL_TARGET,
         "cells_drawn": sample["cell"].value_counts().to_dict(),
         "cell_shortfalls_moved_to_paired_cell": shortfall,
+        "rows_excluded_before_draw": dict(_FILTERED),
         "n_pairs": len(sample),
         "n_ambiguous_listed": len(amb),
         "rules_sha256": rules_hash,

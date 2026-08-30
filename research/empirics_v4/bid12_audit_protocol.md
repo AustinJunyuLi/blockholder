@@ -36,6 +36,19 @@ The auditor must not read `empirics/bid12.py`, `empirics/output/bid12_treated.cs
 `bid12_run_meta.json` before step 3 is written to disk. Those files carry the
 coder's verdicts.
 
+**The coder's raw caches are open to the auditor; its event caches are not.**
+Settled here, before the auditor exists, so blindness is not renegotiated
+mid-audit. `empirics/data/bid12_cache/{submissions,texts,headers,fts,fts_pages}/`
+hold what EDGAR returned — filing tables, document text, submission headers,
+search results — with no verdict in them, and reading them saves live fetches
+and puts the auditor on the same evidence the coder saw.
+`empirics/data/bid12_cache/events/` carries the per-firm coded event table,
+including the ambiguity flags and `confirm_detail`, and is **off limits** until
+the readings are recorded. One caveat that follows from §5.1 item 2: a cached
+document may have hit the coder's byte cap. If a cached text or header looks
+truncated at the point the reading turns on, the auditor re-fetches it from
+EDGAR rather than reading the truncation as the document.
+
 ## 3. What the auditor does per pair
 
 Re-derive BID12 from raw EDGAR by hand, under the rulebook as written
