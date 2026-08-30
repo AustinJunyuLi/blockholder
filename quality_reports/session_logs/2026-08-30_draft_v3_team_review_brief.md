@@ -114,3 +114,24 @@ caption to identify curves by style and marker with the crossing stated, fixed t
    axis labels and legend placement (minor findings 43, 46, 60, 71); the captions now describe
    the curves correctly, but the PDFs themselves need a `pyfig` regeneration pass that this
    round was scoped not to run. Worth doing before anyone outside the project sees the PDF.
+
+## Amendment, 2026-08-30 (second entry: proof split, unslop pass, deliverable folder)
+
+**Landed.** The three proof appendices moved verbatim (mechanically verified) out of
+`draft_v3.tex` into a new standalone `draft_v3_onlineappendix.tex` at the repo root, which
+cross-references the main text through `xr-hyper` (build main first). The main text keeps every
+statement, status line, hypothesis tag and proof sketch; the ten appendix cross-reference sites
+are now the prose pointer "the online appendix". The same pass carried the unslop/econ-register
+edit you ordered: two register words ("features", "the fact that"), the §4 opener now leads
+with what the section is for instead of the proposition-versus-theorem taxonomy, and one
+abstract sentence split. The pass found the prose otherwise already clean — no AI-vocabulary
+hits, no prose em dashes; the 35 that remain sit inside formal statement bodies and are
+frozen-record transcription, so they stay. Deliverables now live in `deliverable/`:
+`draft_v3.pdf` (36 pp) and `draft_v3_onlineappendix.pdf` (51 pp); sources stay at the root;
+gitignored intermediates deleted. Gates: both documents build clean (0 errors, 0 undefined;
+zero `??` in the appendix text); Unicode scan clean; diff is intended-only (20 added lines,
+each enumerated in the trace amendment).
+
+**Not done, by design.** No placeholder for the future empirical appendix exists in the online
+appendix; it gets added when the empirics land. The pre-existing uncommitted deletions under
+`deliverables/` (the v2-era folder) are yours; this pass preserved and did not commit them.

@@ -302,3 +302,42 @@ throughout.
    present in the bib; no curly quotes or Unicode dashes; the 37 em-dash occurrences all sit
    inside formal statement environments; the workflow-register scan is clean outside the
    file's `%`-comment provenance header.
+
+## Amendment, 2026-08-30 (second entry: proof split and deliverable folder)
+
+Austin's directive of 2026-08-30: move the long proofs into an online appendix and place the
+deliverables in a `deliverable/` folder. What changed, and what did not:
+
+1. **The split.** `draft_v3.tex` no longer carries its appendices. The three proof sections
+   (Proofs of the core lemmas; Proof of Proposition P1; Proofs of Theorem T1 and Proposition
+   C1) moved **verbatim** to `draft_v3_onlineappendix.tex`, a standalone document at the repo
+   root with its own copy of the preamble, numbered independently (sections A, B, C), sharing
+   `draft_v3.bib` (it cites nothing, so it prints no bibliography). Verbatim is verified
+   mechanically: the moved block equals HEAD's lines 1846–4882 line for line, the only
+   difference being the trailing blank line before `\printbibliography`. The section map in
+   §1 of this file (including the "### Appendices" subsection) therefore still describes the
+   content row for row; only the container changed.
+2. **Cross-references.** The online appendix resolves its 52 references into the main text
+   (assumptions, definitions, lemmas, equations) through `xr-hyper` against `draft_v3.aux`;
+   the main text must be built first. In the other direction the main text referenced exactly
+   three appendix labels (`sec:proofs-core`, `sec:proofs-existence`, `sec:proofs-ge`) at ten
+   sites; all ten are now the prose pointer "the online appendix" (five inside `\resultstatus`
+   lines, whose label content is otherwise untouched). No `\ref` crosses from main text into
+   the appendix.
+3. **Main-text edits in the same pass** (the unslop/econ-register pass Austin ordered with the
+   split): "features" → "parts" (§3.2); "which is the fact that" → "and that fact" (§2.4); the
+   §4 opener no longer discusses the proposition-versus-theorem taxonomy and leads with what
+   the section is for; one abstract sentence split in two. Formal statement bodies, status
+   lines, hypothesis tags and every mathematical sentence are byte-identical to the post-fix
+   round state; the 35 em dashes that remain all sit inside formal statement environments and
+   are frozen-record transcription, so they stay.
+4. **Deliverables.** `deliverable/draft_v3.pdf` (36 pages) and
+   `deliverable/draft_v3_onlineappendix.pdf` (51 pages). The `.tex` sources stay at the repo
+   root; gitignored build intermediates were deleted. The pre-existing uncommitted deletions
+   under `deliverables/` (plural, the v2-era folder) are a user-side change this pass did not
+   touch and did not commit.
+5. **Gates (this pass).** Main: four-pass `xelatex`/`biber` build, 0 errors, 0 undefined
+   references, 36 pages. Appendix: three-pass `xelatex`, 0 errors, 0 undefined, 51 pages; zero
+   `??` in the extracted text (all `xr` references resolve). Unicode quote/dash scan clean on
+   both sources and the bib. Intended-only diff review: 20 added lines in `draft_v3.tex`, each
+   enumerated above; everything else is the cut.
