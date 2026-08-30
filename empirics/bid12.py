@@ -138,10 +138,19 @@ _ACQUIRER_PATTERNS = [
     r"(?:the\s+Company|{C})['’]s[^.]{0,40}acquisition of\b",
     r"(?:the\s+Company|{C})[^.]{0,40}(?:complet\w+|consummat\w+)"
     r"[^.]{0,30}(?:its )?acquisition of\b",
-    r"(?:the\s+Company|{C})[^.]{0,120}(?:has |have )?agreed to acquir",
-    r"(?:the\s+Company|{C})[^.]{0,120}\bwill acquir",
-    # Rulebook §5 acquirer bullet 1 'plans to' variant.
-    r"(?:the\s+Company|{C})[^.]{0,120}\bplans to acquir",
+    # Rulebook §5 acquirer bullet 1, bare form: the auxiliary
+    # '(has agreed to|will|plans to)' is OPTIONAL, so plain past tense
+    # ('the Company acquired X') fires as well. Two guards keep the bare
+    # form acquirer-side only: the passive-voice lookbehinds (else it fires
+    # on the rulebook's own target phrasings 'will be acquired' and flips
+    # row-1 confirmations to row-5 ambiguous), and the lookahead on
+    # 'acquisition of the Company' (target-direction noun phrase, e.g.
+    # '... the Company will be merged with and into Parent, and the
+    # acquisition of the Company is expected to close ...').
+    r"(?:the\s+Company|{C})[^.]{0,120}(?:has |have )?"
+    r"(?:agreed to |will |plans to )?"
+    r"(?<!be )(?<!been )(?<!being )"
+    r"acquir(?!ation[^.]{0,10}\bof\s+(?:the\s+Company|{C}))",
     r"(?:the\s+Company|{C})[^.]{0,120}entered into[^.]{0,120}to acquir",
     # Rulebook §5 acquirer bullet 3 'sign ... to (acquire|purchase)' variant.
     r"(?:the\s+Company|{C})[^.]{0,120}\bsign(?:ed|s|ing)?[^.]{0,120}"
@@ -527,7 +536,10 @@ def fetch_8k_text(cik: str, accession: str, primary_doc: str,
     A failed primary fetch (e.g. a stale primaryDocument name) falls back
     instead of propagating, which would abort the firm's whole route-A pass;
     a failed master fetch yields "unavailable" (rulebook §5 row 8), not an
-    exception. Returns (plain text or None, how)."""
+    exception. A document that hits the byte cap is reported as
+    "<route>-truncated" — silently confirming on a truncated text would
+    violate rulebook §5 row 8, which makes truncated text ambiguous.
+    Returns (plain text or None, how)."""
     key = accession.replace("-", "") + ".txt"
     raw = None
     how = "primary"
@@ -539,6 +551,8 @@ def fetch_8k_text(cik: str, accession: str, primary_doc: str,
                                 cache_only=cache_only)
         except Exception:
             raw = None  # fall through to the master .txt
+    if raw is not None and len(raw) >= 2_000_000:
+        return None, "primary-truncated"
     if raw is None and not cache_only:
         how = "master-txt"
         url = (f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/"
@@ -548,9 +562,14 @@ def fetch_8k_text(cik: str, accession: str, primary_doc: str,
                                 cache_only=cache_only)
         except Exception:
             raw = None
+    if raw is not None and len(raw) >= 1_500_000:
+        return None, "master-txt-truncated"
     if raw is None:
         return None, "unavailable"
     return plain_text(raw.decode("utf-8", errors="replace")), how
+
+
+HEADER_MAX_BYTES = 60_000
 
 
 def header_parties(cik: str, accession: str,
@@ -560,13 +579,16 @@ def header_parties(cik: str, accession: str,
     Used on SC TO-T / SC TO-C events: verifies the event really names the
     target (subject CIK must equal the firm's CIK) and yields the bidder CIK
     for the filer's-own-bid flag. Verified live: the master .txt resolves
-    under the target's CIK directory as well as the filer's.
+    under the target's CIK directory as well as the filer's. A header that
+    hits the byte cap carries ``"truncated": True`` — the caller then treats
+    the mandated verification as not completed (rulebook §5 row 8's
+    truncated-text rule applied to the verification document).
     """
     url = (f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/"
            f"{accession}.txt")
     raw = _cached_bytes(url, "headers",
                         accession.replace("-", "") + ".hdr",
-                        max_bytes=60_000, cache_only=cache_only)
+                        max_bytes=HEADER_MAX_BYTES, cache_only=cache_only)
     if raw is None:
         return None
     head = raw.decode("latin-1", errors="replace")
@@ -579,7 +601,45 @@ def header_parties(cik: str, accession: str,
         "filer_cik": str(int(fil.group(1))) if fil else None,
         "subject_name": subn.group(1).strip() if subn else None,
         "filer_name": filn.group(1).strip() if filn else None,
+        "truncated": len(raw) >= HEADER_MAX_BYTES,
     }
+
+
+def _verify_tender_event(ev: dict, parties: Optional[dict],
+                         firm_cik: str) -> None:
+    """Apply rulebook §4 tender verification to one tender event, in place.
+
+    The master header must name the firm as SUBJECT COMPANY (a mismatch, or
+    a header that cannot be read — unavailable, byte-cap truncated, or a
+    SUBJECT CIK that failed to parse — makes the event ambiguous, never
+    confirmed). The bidder is the header's FILED BY CIK; a route-B
+    ``display_names`` bidder that disagrees with the header is an
+    inconsistency the coder cannot resolve, so that too is ambiguous.
+    """
+    def _amb(reason: str) -> None:
+        ev["ambiguous"] = 1
+        if reason not in ev["confirm_detail"]:
+            ev["confirm_detail"] = (ev["confirm_detail"] + "|" + reason).strip("|")
+
+    if parties is None:
+        _amb("tender-header-unavailable")
+        return
+    if parties.get("truncated"):
+        _amb("tender-header-truncated")
+        return
+    subj = parties.get("subject_cik")
+    if subj is None:
+        _amb("tender-subject-unreadable")
+    elif str(subj) != str(firm_cik):
+        _amb("subject-cik-mismatch")
+    filer = parties.get("filer_cik")
+    if filer:
+        fts_ciks = {c for c in str(ev.get("fts_other_ciks") or "").split(";")
+                    if c}
+        if fts_ciks and str(int(filer)) not in fts_ciks:
+            _amb("bidder-disagrees-header")
+        ev["bidder_cik"] = filer
+        ev["bidder_name"] = ev.get("bidder_name") or parties.get("filer_name")
 
 
 # -- per-firm extraction ---------------------------------------------------------
@@ -615,7 +675,7 @@ def extract_firm_events(cik: str, name: str = "",
             if ev["route"] not in old["route"]:
                 old["route"] = "+".join(sorted(set(old["route"].split("+"))
                                                | {ev["route"]}))
-            for k in ("bidder_cik", "bidder_name"):
+            for k in ("bidder_cik", "bidder_name", "fts_other_ciks"):
                 if not old.get(k) and ev.get(k):
                     old[k] = ev[k]
             old["ambiguous"] = min(old["ambiguous"], ev["ambiguous"])
@@ -643,7 +703,11 @@ def extract_firm_events(cik: str, name: str = "",
                 text, how = fetch_8k_text(cik10, r["accessionNumber"],
                                           r["primaryDocument"])
                 if text is None:
-                    verdict, detail = "ambiguous", f"text-unavailable"
+                    # rulebook §5 row 8: unfetchable OR truncated text is
+                    # ambiguous, never confirmed
+                    verdict = "ambiguous"
+                    detail = (f"text-truncated:{how}" if "truncated" in how
+                              else "text-unavailable")
                 else:
                     verdict, detail = confirm_8k_text(text, core)
                     detail = f"{detail};via-{how}"
@@ -661,39 +725,53 @@ def extract_firm_events(cik: str, name: str = "",
     # Route B
     try:
         rb = route_b_hits(cik10, record["name"] or name)
+        if rb.get("error"):
+            # surfaced, non-fatal: the firm cannot be name-searched, so
+            # route-B recall is silently zero for it unless this is visible
+            record["errors"].append(f"fts-{rb['error']}")
         record["fts_total"] = rb.get("total")
         record["fts_discarded"] = rb.get("discarded")
         for h in rb.get("hits", []):
+            # all non-target CIKs on the filing, not just the first —
+            # display_names lists merger subs alongside the bidder, and the
+            # header cross-check (rulebook §4) asks whether FILED BY is
+            # among them, not whether it is the first
+            fts_ciks = set()
+            for n in h["display_names"]:
+                if str(int(cik10)) in n:
+                    continue
+                m = re.search(r"\(CIK\s+(\d+)\)", n)
+                if m:
+                    fts_ciks.add(str(int(m.group(1))))
+            bidder_cik = bidder_name = None
             others = [n for n in h["display_names"]
                       if str(int(cik10)) not in n]
-            bidder_cik = bidder_name = None
-            m = re.search(r"\(CIK\s+(\d+)\)", others[0]) if others else None
-            if m:
-                bidder_cik = str(int(m.group(1)))
-                bidder_name = others[0].split("(CIK")[0].strip()
+            if others:
+                m = re.search(r"\(CIK\s+(\d+)\)", others[0])
+                if m:
+                    bidder_cik = str(int(m.group(1)))
+                    bidder_name = others[0].split("(CIK")[0].strip()
             _add({"event_date": h["event_date"], "form": h["form"],
                   "accession": h["accession"], "route": "B",
                   "bidder_cik": bidder_cik, "bidder_name": bidder_name,
+                  "fts_other_ciks": ";".join(sorted(fts_ciks)),
                   "ambiguous": 0, "confirm_detail": "fts-cik-verified"})
     except Exception as exc:
         record["errors"].append(f"route-b:{type(exc).__name__}:{exc}")
 
     # Bidder identity + subject verification for tender-offer events
+    # (rulebook §4: the header is parsed for EVERY SC TO-T / SC TO-C event,
+    # whatever the route — a route-B display_names bidder does not substitute
+    # for the check)
     for ev in by_acc.values():
-        if ev["form"] in ROUTE_B_FORMS and not ev.get("bidder_cik"):
+        if ev["form"] in ROUTE_B_FORMS:
             try:
                 parties = header_parties(cik10, ev["accession"])
             except Exception as exc:
                 parties = None
                 record["errors"].append(
                     f"header:{ev['accession']}:{type(exc).__name__}")
-            if parties:
-                ev["bidder_cik"] = parties.get("filer_cik")
-                ev["bidder_name"] = ev.get("bidder_name") or parties.get("filer_name")
-                if parties.get("subject_cik") and \
-                        parties["subject_cik"] != str(int(cik10)):
-                    ev["ambiguous"] = 1
-                    ev["confirm_detail"] += "|subject-cik-mismatch"
+            _verify_tender_event(ev, parties, str(int(cik10)))
 
     record["events"] = sorted(by_acc.values(),
                               key=lambda e: (e["event_date"], e["accession"]))
@@ -701,9 +779,10 @@ def extract_firm_events(cik: str, name: str = "",
     # pass) makes the record PARTIAL: do not cache it, so the next run
     # re-derives the firm. The per-file caches (submissions / fts pages /
     # texts / headers) are written as fetched, so the retry is mostly
-    # network-free. Event-level outcomes are still cached: an unfetchable
-    # 8-K text is an ambiguous verdict (rulebook §5 row 8), and a failed
-    # tender-header probe just leaves bidder_cik unknown.
+    # network-free. Event-level outcomes are still cached: an unfetchable or
+    # truncated 8-K text is an ambiguous verdict (rulebook §5 row 8), and a
+    # tender event whose header could not be verified is likewise ambiguous
+    # (rulebook §4) — with the error string recorded for visibility.
     fatal = [e for e in record["errors"]
              if e.startswith(("submissions", "route-a:", "route-b:"))]
     if fatal:
@@ -935,7 +1014,8 @@ def lookup_treated() -> None:
     """Cache-only lookup over the parsed 13D universe; writes the three
     treated-side CSVs plus the run-metadata JSON. No network, no lock."""
     import pandas as pd
-    uni = load_treated_universe()
+    # module global read at call time so a patched path is honoured
+    uni = load_treated_universe(FACT2_PATH)
     records, missing = [], 0
     for cik in uni["ciks"]:
         path = _cache_path("events", f"{cik}.json")
@@ -963,6 +1043,11 @@ def lookup_treated() -> None:
             events, status = [], "not-extracted"
         r = lookup_bid12(events, f["td"], f["filer_cik"], f["filer_name"],
                          f["cik"])
+        if status != "ok":
+            # rulebook §7: 'no in-window evidence => 0' presumes the search
+            # ran — an unextracted firm is unresolved, not a searched zero,
+            # so the outcome stays empty (extraction_status carries why)
+            r["bid12"] = None
         coverage = ("full" if f["td"] >= EXTRACT_START
                     and f["td"] + dt.timedelta(days=WINDOW_DAYS) <= EXTRACT_END
                     else "partial")
@@ -1019,6 +1104,9 @@ def lookup_treated() -> None:
             "window_days": WINDOW_DAYS,
             "extraction_window": [str(EXTRACT_START), str(EXTRACT_END)],
             "n_firms_extracted": len(records),
+            "fts_name_missing_firms": sum(
+                1 for rec in records
+                if any(e.startswith("fts-") for e in rec["errors"])),
             "n_events": sum(route_counts.values()),
             "events_by_route": dict(sorted(route_counts.items())),
             "n_8k_candidates": n_8k_cand,
@@ -1029,6 +1117,9 @@ def lookup_treated() -> None:
                 "bid12_1": int((df["bid12"] == 1).sum()),
                 "bid12_0": int((df["bid12"] == 0).sum()),
                 "bid12_empty_ambiguous": int(df["ambiguous"].sum()),
+                "bid12_not_extracted": int(
+                    (df["extraction_status"] != "ok").sum())
+                if len(df) else 0,
                 "excluded_prior_bid": int(df["excluded_prior_bid"].sum()),
                 "prior_bid_any": int(df["prior_bid_any"].sum()),
                 "filer_own_bid": int(df["filer_own_bid"].sum()),

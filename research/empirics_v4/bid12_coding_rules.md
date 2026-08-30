@@ -195,6 +195,52 @@ subsidiary of the Company" is **not** acquirer evidence (holdco/double-dummy
 structures describe the target's own vehicle that way — VMware 2022), only a
 party *becoming* or *surviving* as one is.
 
+**§5.1 Calibration addendum (2026-08-30, pre-audit).** A read-only review of
+the coder against this rulebook found four divergences; the coder was repaired
+to this addendum before the final treated pass was derived, and the audit
+should read this section as part of the operational rule. No registered rule
+(SPEC §8.3) and no decision-table row changes.
+
+1. **Acquirer bullet 1, bare form.** The auxiliary "(has agreed to|will|plans
+   to)" is optional, so plain past tense fires ("the Company acquired X").
+   Two guards keep it acquirer-side only, both required or the bare form
+   false-fires on this rulebook's own target phrasings and flips row-1
+   confirmations to row-5 ambiguous: (i) a passive-voice lookbehind — the
+   pattern does not fire when "acquir*" is immediately preceded by
+   "be"/"been"/"being" ("the Company will be acquired" stays target); (ii) a
+   lookahead — it does not fire on the noun phrase "acquisition of the
+   Company" ("… and the acquisition of the Company is expected to close …"
+   stays target).
+2. **Row 8's truncated-text rule applies to the verification document too.**
+   A tender-event header that hits its byte cap (60 KB) is *truncated*: the
+   §4 verification has not been completed, so the event is **ambiguous**
+   ("tender-header-truncated"), never confirmed. An 8-K text that hits its
+   byte cap (2 MB primary / 1.5 MB master .txt) is likewise **ambiguous**
+   ("text-truncated"), per row 8 as written.
+3. **Tender verification semantics (§4).** "For every SC TO-T / SC TO-C
+   event" means regardless of route: a route-B `display_names` bidder does
+   not substitute for the header check. Unavailable header (permanent fetch
+   failure) → ambiguous ("tender-header-unavailable"). SUBJECT CIK present
+   but ≠ the firm → ambiguous (as written). SUBJECT CIK unreadable in a
+   parsed header → ambiguous ("tender-subject-unreadable"). The bidder is
+   the header's FILED BY CIK; the route-B cross-check is "FILED BY appears
+   **among** the filing's non-target `display_names` CIKs" (display_names
+   list merger subs alongside bidders, so a first-entry comparison would
+   misfire) — absence → ambiguous ("bidder-disagrees-header").
+4. **Fixture-calibrated pattern extras**, in the coder and registered here so
+   the blind audit sees exactly what fires. Target-side additions:
+   "(the Company|{name}) … to be acquired"; "all … outstanding (shares|stock)
+   … of (the Company|{name})"; "(each|every) share … of (the Company|{name}) …
+   converted into". Acquirer-side additions: "(the Company|{name})'s
+   acquisition of"; "(the Company|{name}) … (completed|consummated) … (its)
+   acquisition of"; "(the Company|{name}) … to purchase (shares|assets|stock)".
+5. **Unextracted firms are unresolved, not zeros** (§7). A (firm, TD) row
+   whose event extraction has not run leaves BID12 **empty** with
+   `extraction_status = not-extracted`; "no in-window evidence ⇒ 0" presumes
+   the search ran. Firms whose route-B query cannot run for lack of a usable
+   name are surfaced (`fts-empty-core-name` in the record errors, counted in
+   the run metadata), never silently dropped.
+
 The verdict and the specific patterns fired are recorded per candidate in
 `confirm_detail`, so the audit can retrace every decision without re-fetching.
 

@@ -19,8 +19,10 @@ Run:
 from __future__ import annotations
 
 import datetime as dt
+import json
 import os
 import sys
+import tempfile
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
@@ -118,6 +120,133 @@ def test_text_rules() -> None:
     check("holdco structure still confirms as target", v == "confirmed", v)
     v, _ = bid12.confirm_8k_text(BOTH_DIRECTIONS, "Acme Holdings")
     check("both directions -> ambiguous, never forced", v == "ambiguous", v)
+
+
+BARE_ACQUIRER = (
+    "Item 1.01 Entry into a Material Definitive Agreement. On June 2, 2025 "
+    "the Company acquired Adobex Systems, Inc., a Delaware corporation, "
+    "pursuant to an Agreement and Plan of Merger, dated as of June 2, 2025.")
+
+PASSIVE_TARGET = (
+    "Item 1.01 Entry into a Material Definitive Agreement. ParentCo, Inc. "
+    "and the Company entered into an Agreement and Plan of Merger pursuant "
+    "to which the Company will be acquired, and the acquisition of the "
+    "Company is expected to close in the third quarter.")
+
+
+def test_bare_acquirer_direction() -> None:
+    print("\n== bare acquirer direction (rulebook §5 acquirer bullet 1) ==")
+    v, d = bid12.confirm_8k_text(BARE_ACQUIRER, "Acme Holdings")
+    check("bare past tense 'the Company acquired X' -> rejected (acquirer)",
+          v == "rejected", f"{v} ({d})")
+    v, d = bid12.confirm_8k_text(PASSIVE_TARGET, "Acme Holdings")
+    check("passive target phrasing ('will be acquired' + 'acquisition of "
+          "the Company') stays confirmed, not acquirer-ambiguous",
+          v == "confirmed", f"{v} ({d})")
+
+
+# ---------------------------------------------------------------------------
+# 2a. Tender header verification (rulebook §4)
+# ---------------------------------------------------------------------------
+
+def _tev(bidder=None, fts=None) -> dict:
+    return {"event_date": "2023-06-30", "form": "SC TO-T", "accession": "X",
+            "route": "A+B" if fts else "A", "bidder_cik": bidder,
+            "bidder_name": None, "fts_other_ciks": fts,
+            "ambiguous": 0, "confirm_detail": "form-type"}
+
+
+def test_tender_verification() -> None:
+    print("\n== tender header verification (rulebook §4) ==")
+    firm = "1645569"
+    ev = _tev()
+    bid12._verify_tender_event(ev, None, firm)
+    check("header unavailable -> ambiguous, never confirmed",
+          ev["ambiguous"] == 1
+          and "tender-header-unavailable" in ev["confirm_detail"],
+          ev["confirm_detail"])
+    ev = _tev()
+    bid12._verify_tender_event(ev, {"truncated": True}, firm)
+    check("header truncated (byte cap) -> ambiguous",
+          ev["ambiguous"] == 1
+          and "tender-header-truncated" in ev["confirm_detail"],
+          ev["confirm_detail"])
+    ev = _tev()
+    bid12._verify_tender_event(
+        ev, {"subject_cik": "999", "filer_cik": "59478"}, firm)
+    check("subject CIK mismatch -> ambiguous",
+          ev["ambiguous"] == 1
+          and "subject-cik-mismatch" in ev["confirm_detail"],
+          ev["confirm_detail"])
+    check("bidder still resolved from header FILED BY",
+          ev["bidder_cik"] == "59478", str(ev["bidder_cik"]))
+    ev = _tev()
+    bid12._verify_tender_event(
+        ev, {"subject_cik": None, "filer_cik": "59478"}, firm)
+    check("subject CIK unreadable -> ambiguous",
+          ev["ambiguous"] == 1
+          and "tender-subject-unreadable" in ev["confirm_detail"],
+          ev["confirm_detail"])
+    ev = _tev(bidder="111", fts="111;222")
+    bid12._verify_tender_event(
+        ev, {"subject_cik": firm, "filer_cik": "111"}, firm)
+    check("header FILED BY among the fts non-target CIKs -> verified",
+          ev["ambiguous"] == 0 and ev["bidder_cik"] == "111",
+          f"{ev['ambiguous']}/{ev['bidder_cik']}")
+    ev = _tev(bidder="111", fts="222")
+    bid12._verify_tender_event(
+        ev, {"subject_cik": firm, "filer_cik": "111"}, firm)
+    check("header FILED BY absent from fts non-target CIKs -> ambiguous",
+          ev["ambiguous"] == 1
+          and "bidder-disagrees-header" in ev["confirm_detail"],
+          ev["confirm_detail"])
+    ev = _tev()
+    bid12._verify_tender_event(
+        ev, {"subject_cik": firm, "filer_cik": None}, firm)
+    check("parsed header without FILED BY -> verified, bidder unknown",
+          ev["ambiguous"] == 0 and ev["bidder_cik"] is None,
+          f"{ev['ambiguous']}/{ev['bidder_cik']}")
+
+
+# ---------------------------------------------------------------------------
+# 2b. Not-extracted firms stay unresolved in the lookup (rulebook §7)
+# ---------------------------------------------------------------------------
+
+def test_lookup_not_extracted() -> None:
+    print("\n== lookup leaves unextracted firms unresolved (rulebook §7) ==")
+    import pandas as pd
+    with tempfile.TemporaryDirectory() as td:
+        jsonl = os.path.join(td, "mini.jsonl")
+        row = {"subject_cik": "123", "subject_name": "Mini Corp",
+               "event": "2023-03-15", "accession": "0000000001-23-000001",
+               "date_filed": "2023-03-20", "filer_cik": "456",
+               "filer_name": "Some Fund"}
+        with open(jsonl, "w") as fh:
+            fh.write(json.dumps(row) + "\n")
+        old = (bid12.FACT2_PATH, bid12.CACHE_DIR, bid12.OUT_DIR)
+        try:
+            bid12.FACT2_PATH = jsonl
+            bid12.CACHE_DIR = os.path.join(td, "bid12_cache")
+            bid12.OUT_DIR = os.path.join(td, "out")
+            os.makedirs(bid12.CACHE_DIR)   # empty: CIK 123 not extracted
+            os.makedirs(bid12.OUT_DIR)
+            bid12.lookup_treated()
+            df = pd.read_csv(os.path.join(bid12.OUT_DIR,
+                                          "bid12_treated.csv"))
+            check("not-extracted firm: bid12 empty (unresolved, not 0)",
+                  len(df) == 1 and df["bid12"].isna().all(),
+                  str(df.get("bid12").tolist()))
+            check("not-extracted firm: extraction_status flags it",
+                  bool((df["extraction_status"] == "not-extracted").all()),
+                  str(df.get("extraction_status").tolist()))
+            with open(os.path.join(bid12.OUT_DIR,
+                                   "bid12_run_meta.json")) as fh:
+                meta = json.load(fh)
+            check("run meta counts not-extracted rows",
+                  meta["treated_lookup"]["bid12_not_extracted"] == 1,
+                  str(meta["treated_lookup"]))
+        finally:
+            bid12.FACT2_PATH, bid12.CACHE_DIR, bid12.OUT_DIR = old
 
 
 # ---------------------------------------------------------------------------
@@ -252,7 +381,10 @@ def test_live() -> None:
 
 def main() -> int:
     test_text_rules()
+    test_bare_acquirer_direction()
     test_lookup()
+    test_tender_verification()
+    test_lookup_not_extracted()
     test_live()
     n_fail = sum(1 for _, ok, _ in _results if not ok)
     print(f"\n{len(_results) - n_fail}/{len(_results)} checks passed"
