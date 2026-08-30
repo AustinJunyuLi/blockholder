@@ -18,8 +18,9 @@ that the disclosure rule partitions the market's information, so the *pooled* ha
 run-up) should move with liquidity and the *flagged* half (the jump) should not. That is
 **H1**, it needs no input from the theory lane, and it is the paper's identity in one
 regression pair (§3.4). **H2** asks whether the run-up's liquidity slope changed after the
-February 2024 acceleration; that needs a sign from the theory lane, which has not landed,
-so both possible signs are written out in advance (§3.5.2).
+February 2024 acceleration; that needs a sign from the theory lane — which landed
+2026-08-30, directionally selecting Branch A (§0.1) — and both possible signs were written
+out in advance, before it landed (§3.5.2).
 
 **One check can kill the paper's identity, and it runs first:** if the filing-day jump
 moves with liquidity the same way the run-up does, there is no partition to write about.
@@ -67,15 +68,34 @@ Three rules bind the tickets downstream (11 E3, 12 E4, 13 E5, 14 E6, 15 E7):
 3. **Honesty label is ESTIMATED** for everything in this document (CONTEXT.md): an
    empirical estimate with a standard error and a stated design. Nothing here is PROVED.
 
-### 0.1 The theory-lane placeholder
+### 0.1 The theory-lane sign — landed 2026-08-30
 
-> `[PLACEHOLDER — sign from HANDOFF_sign.md, absent as of 2026-08-20; theory lane to supply]`
+> **Landed 2026-08-30.** `research/model_v4/HANDOFF_sign.md` §8 is on `origin/v4-theory`,
+> theory record frozen at `65b8db3` (§8 added 2026-08-21, independently verified
+> 2026-08-22, amended 2026-08-27). **The sign is attenuation:** shortening the disclosure
+> window from `T = 10` to `T = 5` makes the takeover premium **less** sensitive to
+> liquidity. `W_T · C_T ≤ 1` at every checked node — 0 of 5 nodes above one at `H = 10`,
+> 0 of 5 at `H = 12` — the five `W_T · C_T` values for `(T′, T) = (5, 10)` running
+> **0.1818 / 0.1818 / 0.2055 / 0.4299 / 0.7724** by τ-quantile. In §3.5.2's language that
+> is **directional support for Branch A** (δ > 0 on `LIQ × Post`, given β < 0 on RUNUP5)
+> — a directional selection, **not a sign theorem**. Four conditions travel with it:
+> **fixed policies** (cutoffs frozen at the baseline equilibrium; no GE cutoff-shift term
+> is signed); **the implemented calibration only** (`k = (1.240576, 1.531022)`,
+> Ω = 13.8396%, ω_a = 61.1473%); **`A(τ)` measured to FAIL at that calibration**
+> (ticket 33 — at all 180 non-degenerate nodes the chord mechanism's antecedent fails —
+> so nothing here may lean on the chord-formula mechanism); and the **`H = 12` chord-route
+> caveat** (HANDOFF §8.3), that column's `C_T` travelling the chord route, so it is
+> directional corroboration of the corner audit, not a second independent magnitude.
+> **Both branches remain live** (§3.5.2): Branch A is the theory-indicated branch, Branch
+> B the falsifiable alternative, and the sign is still the estimand. Provenance and
+> conditions in full: the 2026-08-30 corrigendum at the foot of this document.
 
-`research/model_v4/HANDOFF_sign.md` does not exist on `origin/v4-theory` as of 2026-08-20
-(checked: `git ls-tree -r origin/v4-theory` returns only the ticket file
-`.scratch/v4-reposition/issues/05-t1-sign-handoff.md`). Per ADR-0007 that file is the
-empirics lane's **only** dependency, and it supplies exactly one thing: the sign of the
-change in the liquidity slope of the run-up after 2024-02-05.
+~~`research/model_v4/HANDOFF_sign.md` does not exist on `origin/v4-theory` as of
+2026-08-20 (checked: `git ls-tree -r origin/v4-theory` returns only the ticket file
+`.scratch/v4-reposition/issues/05-t1-sign-handoff.md`).~~ — the absence check as it stood
+on 2026-08-20, kept for the record and superseded 2026-08-30. Per ADR-0007 that file is
+the empirics lane's **only** dependency, and it supplies exactly one thing: the sign of
+the change in the liquidity slope of the run-up after 2024-02-05.
 
 The design is therefore written so that **the headline does not depend on it**:
 
@@ -87,7 +107,9 @@ The design is therefore written so that **the headline does not depend on it**:
   existed.
 
 If the handoff never lands, H2 is reported as a **two-sided descriptive** with both
-branches quoted and no directional claim. That is a demotion, not a failure.
+branches quoted and no directional claim. That is a demotion, not a failure. *(That
+contingency did not realise — the handoff landed 2026-08-30. The clause stands as
+written, because it is what the design committed to before the sign existed.)*
 
 ---
 
@@ -348,7 +370,19 @@ restated, and it does not need the handoff.
 
 #### 3.5.2 The post-2024 slope change — both branches, written now
 
-`[PLACEHOLDER — sign from HANDOFF_sign.md, absent as of 2026-08-20; theory lane to supply]`
+> **The sign landed 2026-08-30** (`research/model_v4/HANDOFF_sign.md` §8, `origin/v4-theory`,
+> theory record frozen at `65b8db3`): **directional support for Branch A** — attenuation,
+> `W_T · C_T ≤ 1` at every checked node (0 of 5 above one at `H = 10`, 0 of 5 at `H = 12`),
+> the five values for `(T′, T) = (5, 10)` running 0.1818 / 0.1818 / 0.2055 / 0.4299 /
+> 0.7724 by τ-quantile. Conditions travelling with it: **fixed policies** (cutoffs frozen
+> at the baseline equilibrium; no GE cutoff-shift term signed), **the implemented
+> calibration only** (`k = (1.240576, 1.531022)`, Ω = 13.8396%, ω_a = 61.1473%), and
+> **`A(τ)` measured to fail there** (ticket 33), so no mechanism sentence may lean on the
+> chord formula; the **`H = 12` column's `C_T` travels the chord route** and is directional
+> corroboration of the corner audit, not a second independent magnitude (HANDOFF §8.3).
+> This is a directional selection, not a sign theorem. **Both branches in the table below
+> remain live and the table is unchanged:** the handoff selects Branch A as the
+> theory-indicated branch; Branch B remains the falsifiable alternative.
 
 | | **Branch A — attenuation** (δ shrinks the pre-period slope toward zero) | **Branch B — amplification** (δ pushes it away from zero) |
 |---|---|---|
@@ -564,8 +598,13 @@ specification, where γ is not identified and is not reported.
 
 **Prediction.** In the two-round model a shorter window means less time to accumulate
 under cover before the flag, so the stake at filing should **fall** post-2024, and fall
-more where cover was cheap (high κ). Sign of the interaction:
-`[PLACEHOLDER — sign from HANDOFF_sign.md, absent as of 2026-08-20; theory lane to supply]`.
+more where cover was cheap (high κ). Sign of the interaction: **landed 2026-08-30**. Under
+the handoff's directional selection of Branch A (`HANDOFF_sign.md` §8, frozen `65b8db3`;
+the δ > 0 orientation of §3.5.2, given β < 0 on RUNUP5), the stake at filing **falls**
+post-2024 and **the fall is larger in liquid names** — the Branch-A row below. Branch B's
+row, the fall concentrated in illiquid names, remains live and falsifiable; the handoff is
+a directional selection, not a sign theorem, and it carries §3.5.2's conditions (fixed
+policies, the implemented calibration only, `A(τ)` failing there).
 
 **A hazard that must be stated before the estimate, because it points the other way.**
 BBJJ regress stake at filing on days-to-disclosure and get **−0.001\*** (Table A2, p. 37):
@@ -981,7 +1020,8 @@ honest interval is better than not asking.
 
 - **Supportive:** β̂ ≠ 0 with the sign of the pre-period prediction (§3.5.1 implies illiquid
   names, where the pooled cell is more revealing, should show the larger bidder-entry
-  response), and τ̂ of the branch-selected sign.
+  response), and τ̂ of the branch-selected sign (the branch selected by the handoff is
+  directionally **Branch A** as of 2026-08-30 — see the corrigendum).
 - **Prior evidence, stated accurately.** There is **no** published estimate of liquidity on
   bidder entry after a 13D, which is why the object is ours. What exists is weaker than it
   is usually reported to be, and must be cited as such:
@@ -1109,7 +1149,7 @@ Blocking = a downstream ticket cannot proceed correctly until it is closed.
 
 | # | Open item | Who closes it | Blocking? |
 |---|---|---|---|
-| 1 | **`research/model_v4/HANDOFF_sign.md` does not exist** — confirmed absent from `origin/v4-theory`, 2026-08-20. Every directional prediction in §3.5.2, §5, §9 carries the placeholder and both branches | theory lane | No — H1 is sign-free |
+| 1 | ~~**`research/model_v4/HANDOFF_sign.md` does not exist** — confirmed absent from `origin/v4-theory`, 2026-08-20. Every directional prediction in §3.5.2, §5, §9 carries the placeholder and both branches~~ — **CLOSED 2026-08-30**: `HANDOFF_sign.md` §8 landed on `origin/v4-theory` (theory record frozen at `65b8db3`); directional support for **Branch A**, with the conditions carried in §0.1, §3.5.2 and the 2026-08-30 corrigendum. Both branches remain live | closed | No — H1 is sign-free |
 | 2 | **The full re-fetch and re-parse has not been run.** Every count here is an old-parser floor; the §2.2 projections are predictions; §3.6 and §8.6 must be recomputed on realised counts | ticket 11 | **Yes** |
 | 3 | **CIK→CUSIP link code is not in the repo.** The 7,970 values on disk are reusable but not reproducible or extensible, and the never-13D control universe (§11 row 23) depends on it | ticket 11/13 | **Yes** for the DiD |
 | 4 | **`empirics/data/` is a gitignored symlink to the pre-v4 checkout.** The 1.2 GB CRSP snapshot does not survive a machine change and is not backed up off-repo | author | **Operational risk #1** |
@@ -1144,3 +1184,47 @@ is the two-round model's fixed-policy comparison (`t2_t1_check` block 4;
 calibration — directional support for Branch A at that calibration. This spec's design is
 unchanged: the sign remains the estimand, both branches remain live, and no prediction,
 test, sample rule, or variable defined above is modified by this note.
+
+## Corrigendum — 2026-08-30 (post-registration; no test changed)
+
+**The theory lane's sign handoff has landed.** `research/model_v4/HANDOFF_sign.md` §8 is
+on `origin/v4-theory`, theory record frozen at `65b8db3` — §8 added 2026-08-21,
+independently verified 2026-08-22 (every source script re-run, all reproducing
+bit-identically up to timing fields), amended 2026-08-27. The text it retires read
+`[PLACEHOLDER — sign from HANDOFF_sign.md, absent as of 2026-08-20; theory lane to supply]`.
+
+**The sign is attenuation.** Shortening the disclosure window from `T = 10` to `T = 5`
+makes the takeover premium **less** sensitive to liquidity: `W_T · C_T ≤ 1` at every
+checked node — 0 of 5 nodes above one at `H = 10`, 0 of 5 at `H = 12` — with the five
+`W_T · C_T` values for `(T′, T) = (5, 10)`, by τ-quantile, **0.1818 / 0.1818 / 0.2055 /
+0.4299 / 0.7724**. In §3.5.2's language that is **directional support for Branch A**
+(δ > 0 on `LIQ × Post`, given β < 0 on RUNUP5).
+
+**It is a directional selection, not a sign theorem, and four conditions travel with it.**
+(i) **Fixed policies** — the cutoffs are frozen at the baseline equilibrium at every node,
+and no GE cutoff-shift term is signed. (ii) **The implemented calibration only** —
+`k = (1.240576, 1.531022)`, Ω = 13.8396%, ω_a = 61.1473%. (iii) **`A(τ)` is measured to
+FAIL at that calibration** (ticket 33; HANDOFF §8.3 as amended 2026-08-27: at all 180
+non-degenerate nodes the chord mechanism's antecedent fails), so no mechanism sentence in
+this package may lean on the chord formula. (iv) **The `H = 12` chord-route caveat**
+(HANDOFF §8.3): that column's `C_T` travels the chord route, so it is directional
+corroboration of the corner audit, not a second independent magnitude.
+
+**Which HANDOFF entry this spec consumes, and why.** The file carries two entries whose
+signs are opposite, and both are honest. §1–§6 are the static repo model's
+disclosure-**regime** experiment — flag on against flag off, at Ω = 0.037 — and point at
+Branch B. §8 is the two-round model's **window** margin, at Ω ≈ 0.138, and points at
+Branch A. The 2024 five-business-day rule is a window-margin experiment, so §8 is the
+entry this spec consumes, as the 2026-08-23 corrigendum above already quotes it.
+
+**The placeholder retirements made by this note.** §0.1 — retitled, the placeholder
+replaced by a dated summary of the landed sign, the 2026-08-20 absence check kept struck
+through for the record, and the sign-free H1 / two-branch H2 / "demotion, not a failure"
+material left as written. §3.5.2 — the placeholder replaced by a dated note; the
+two-branch table itself is untouched. §5 — the interaction's sign filled under the
+Branch-A selection; both supportive rows and the against row untouched. §9 — one dated
+parenthetical giving "the branch-selected sign" its referent. §13 item 1 — struck through
+and marked **CLOSED 2026-08-30**, blocking status unchanged at No.
+
+This spec's design is unchanged: the sign remains the estimand, both branches remain live,
+and no prediction, test, sample rule, or variable defined above is modified by this note.
