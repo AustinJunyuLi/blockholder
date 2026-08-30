@@ -1,0 +1,6 @@
+step,description,n,n_pre,n_post,dropped,notes
+0,"enumerated initial 13Ds (SC 13D / SCHEDULE 13D, amendments excluded)",4639,,,,"16 quarterly form.idx files, 2022Q1-2025Q4"
+1,trigger date parsed,3710,1945.0,1765.0,929.0,drop = no parseable trigger date
+2,0 <= (FD - TD) <= 90 calendar days,3356,1683.0,1673.0,354.0,"out-of-band: 2 negative, 352 over 90d; of which stale 2014-2021 triggers: 119 of 153 stale total"
+3,"subject CIK links to CRSP PERMNO (ShareType common + USIncFlg US + >=60 valid obs in [TD-126, TD-6])",1465,755.0,710.0,1891.0,"drop reasons: cusip_not_in_crsp=1235, no_cusip=415, insufficient_obs=241; link source: provisional: cusip carried forward from old-parser file"
+4,"one obs per (subject firm, trigger date), 365-day keep-first",1112,569.0,543.0,353.0,"139 exact (firm, TD) duplicates, 214 flagged-second within 365 days"

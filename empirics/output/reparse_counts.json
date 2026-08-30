@@ -1,0 +1,362 @@
+{
+ "generated": "2026-08-30T11:08:45",
+ "link_source": "provisional: cusip carried forward from old-parser file",
+ "enumerated_total": 4639,
+ "per_quarter_enumerated": {
+  "2022Q1": 319,
+  "2022Q2": 266,
+  "2022Q3": 324,
+  "2022Q4": 255,
+  "2023Q1": 295,
+  "2023Q2": 310,
+  "2023Q3": 306,
+  "2023Q4": 349,
+  "2024Q1": 313,
+  "2024Q2": 266,
+  "2024Q3": 241,
+  "2024Q4": 280,
+  "2025Q1": 269,
+  "2025Q2": 273,
+  "2025Q3": 278,
+  "2025Q4": 295
+ },
+ "fetch_failures": 0,
+ "filed_date_split_reference": {
+  "filed_pre_2024_02_05": {
+   "n": 2545,
+   "with_trigger": 1834,
+   "with_trigger_and_cusip": 1523,
+   "with_pct": 2252
+  },
+  "filed_on_or_after": {
+   "n": 2094,
+   "with_trigger": 1876,
+   "with_trigger_and_cusip": 1718,
+   "with_pct": 2026
+  },
+  "total": {
+   "n": 4639,
+   "with_trigger": 3710,
+   "with_trigger_and_cusip": 3241,
+   "with_pct": 4278
+  }
+ },
+ "trigger_date_split_design": {
+  "pre": {
+   "with_trigger": 1945,
+   "with_trigger_and_cusip": 1615
+  },
+  "post": {
+   "with_trigger": 1765,
+   "with_trigger_and_cusip": 1626
+  }
+ },
+ "unique_subject_ciks_filed_split": {
+  "pre": 1617,
+  "post": 1430,
+  "total": 2735,
+  "in_both": 312
+ },
+ "unique_filer_ciks": 3503,
+ "trigger_year_distribution": {
+  "2014": 2,
+  "2015": 4,
+  "2016": 3,
+  "2017": 6,
+  "2018": 3,
+  "2019": 4,
+  "2020": 12,
+  "2021": 119,
+  "2022": 835,
+  "2023": 879,
+  "2024": 819,
+  "2025": 1024
+ },
+ "stale_trigger_2014_2021": 153,
+ "stale_dropped_by_90d_band": 119,
+ "straddle_td_pre_fd_post": 111,
+ "straddle_within_final_sample": 10,
+ "cusip_carry_forward": {
+  "rows_with_old_match": 3998,
+  "rows_null_cusip": 641
+ },
+ "pct_of_class_parsed": 4278,
+ "accepted_recovered": 4639,
+ "accepted_route": "<ACCEPTANCE-DATETIME> in master .txt (submissions-API fallback)",
+ "accepted_verification": {
+  "n_compared": 20,
+  "n_agree_exact": 20,
+  "agreement": 1.0
+ },
+ "funnel": [
+  {
+   "step": 0,
+   "description": "enumerated initial 13Ds (SC 13D / SCHEDULE 13D, amendments excluded)",
+   "n": 4639,
+   "n_pre": null,
+   "n_post": null,
+   "dropped": null,
+   "notes": "16 quarterly form.idx files, 2022Q1-2025Q4"
+  },
+  {
+   "step": 1,
+   "description": "trigger date parsed",
+   "n": 3710,
+   "n_pre": 1945,
+   "n_post": 1765,
+   "dropped": 929,
+   "notes": "drop = no parseable trigger date"
+  },
+  {
+   "step": 2,
+   "description": "0 <= (FD - TD) <= 90 calendar days",
+   "n": 3356,
+   "n_pre": 1683,
+   "n_post": 1673,
+   "dropped": 354,
+   "notes": "out-of-band: 2 negative, 352 over 90d; of which stale 2014-2021 triggers: 119 of 153 stale total"
+  },
+  {
+   "step": 3,
+   "description": "subject CIK links to CRSP PERMNO (ShareType common + USIncFlg US + >=60 valid obs in [TD-126, TD-6])",
+   "n": 1465,
+   "n_pre": 755,
+   "n_post": 710,
+   "dropped": 1891,
+   "notes": "drop reasons: cusip_not_in_crsp=1235, no_cusip=415, insufficient_obs=241; link source: provisional: cusip carried forward from old-parser file"
+  },
+  {
+   "step": 4,
+   "description": "one obs per (subject firm, trigger date), 365-day keep-first",
+   "n": 1112,
+   "n_pre": 569,
+   "n_post": 543,
+   "dropped": 353,
+   "notes": "139 exact (firm, TD) duplicates, 214 flagged-second within 365 days"
+  }
+ ],
+ "quarterly_parse_rates": [
+  {
+   "quarter": "2022Q1",
+   "n_filings": 319,
+   "n_trigger": 216,
+   "parse_rate": 0.677115987460815
+  },
+  {
+   "quarter": "2022Q2",
+   "n_filings": 266,
+   "n_trigger": 202,
+   "parse_rate": 0.7593984962406015
+  },
+  {
+   "quarter": "2022Q3",
+   "n_filings": 324,
+   "n_trigger": 257,
+   "parse_rate": 0.7932098765432098
+  },
+  {
+   "quarter": "2022Q4",
+   "n_filings": 255,
+   "n_trigger": 175,
+   "parse_rate": 0.6862745098039216
+  },
+  {
+   "quarter": "2023Q1",
+   "n_filings": 295,
+   "n_trigger": 208,
+   "parse_rate": 0.7050847457627119
+  },
+  {
+   "quarter": "2023Q2",
+   "n_filings": 310,
+   "n_trigger": 213,
+   "parse_rate": 0.6870967741935484
+  },
+  {
+   "quarter": "2023Q3",
+   "n_filings": 306,
+   "n_trigger": 214,
+   "parse_rate": 0.6993464052287581
+  },
+  {
+   "quarter": "2023Q4",
+   "n_filings": 349,
+   "n_trigger": 259,
+   "parse_rate": 0.7421203438395415
+  },
+  {
+   "quarter": "2024Q1",
+   "n_filings": 313,
+   "n_trigger": 241,
+   "parse_rate": 0.7699680511182109
+  },
+  {
+   "quarter": "2024Q2",
+   "n_filings": 266,
+   "n_trigger": 215,
+   "parse_rate": 0.8082706766917294
+  },
+  {
+   "quarter": "2024Q3",
+   "n_filings": 241,
+   "n_trigger": 171,
+   "parse_rate": 0.7095435684647303
+  },
+  {
+   "quarter": "2024Q4",
+   "n_filings": 280,
+   "n_trigger": 224,
+   "parse_rate": 0.8
+  },
+  {
+   "quarter": "2025Q1",
+   "n_filings": 269,
+   "n_trigger": 269,
+   "parse_rate": 1.0
+  },
+  {
+   "quarter": "2025Q2",
+   "n_filings": 273,
+   "n_trigger": 273,
+   "parse_rate": 1.0
+  },
+  {
+   "quarter": "2025Q3",
+   "n_filings": 278,
+   "n_trigger": 278,
+   "parse_rate": 1.0
+  },
+  {
+   "quarter": "2025Q4",
+   "n_filings": 295,
+   "n_trigger": 295,
+   "parse_rate": 1.0
+  }
+ ],
+ "dose_filers": {
+  "dose_window_2023_10_09": {
+   "window": "2022-01-01..2023-10-09",
+   "n_filings": 2098,
+   "n_filers": 1710,
+   "filers_ge2": 189,
+   "filings_covered_by_ge2": 577
+  },
+  "filed_pre_rule_2024_02_05": {
+   "window": "2022-01-01..2024-02-04",
+   "n_filings": 2545,
+   "n_filers": 2016,
+   "filers_ge2": 241,
+   "filings_covered_by_ge2": 770
+  }
+ },
+ "mde": {
+  "assumptions": {
+   "sigma_jump": 0.12,
+   "sigma_runup": 0.15,
+   "z": 2.802,
+   "did_var": 0.1705,
+   "did_cluster_mult": 1.31,
+   "slope_cluster_range": [
+    1.1,
+    1.9
+   ],
+   "note": "sigma values and GS base rates remain assumptions"
+  },
+  "s36_crsp_matched": {
+   "jump": {
+    "N": 1465,
+    "w": 0.48464163822525597,
+    "sqrt_term": 19.12862872398511,
+    "sigma": 0.12,
+    "SE": 0.0062733195218292745,
+    "MDE": 0.01757784130016563,
+    "MDE_clustered": [
+     0.019335625430182194,
+     0.03339789847031469
+    ]
+   },
+   "runup": {
+    "N": 1465,
+    "w": 0.48464163822525597,
+    "sqrt_term": 19.12862872398511,
+    "sigma": 0.15,
+    "SE": 0.007841649402286594,
+    "MDE": 0.021972301625207035,
+    "MDE_clustered": [
+     0.02416953178772774,
+     0.041747373087893364
+    ]
+   }
+  },
+  "s36_estimation_sample": {
+   "jump": {
+    "N": 1112,
+    "w": 0.48830935251798563,
+    "sqrt_term": 16.668773847609003,
+    "sigma": 0.12,
+    "SE": 0.007199089812908644,
+    "MDE": 0.02017184965577002,
+    "MDE_clustered": [
+     0.022189034621347026,
+     0.038326514345963035
+    ]
+   },
+   "runup": {
+    "N": 1112,
+    "w": 0.48830935251798563,
+    "sqrt_term": 16.668773847609003,
+    "sigma": 0.15,
+    "SE": 0.008998862266135804,
+    "MDE": 0.025214812069712524,
+    "MDE_clustered": [
+     0.02773629327668378,
+     0.047908142932453796
+    ]
+   }
+  },
+  "s86_S1": {
+   "n_pre": 569,
+   "n_post": 543,
+   "inv_sum": 0.003599089870439238,
+   "SE": 0.02477185545957125,
+   "MDE": 0.06941073899771864,
+   "MDE_clustered": 0.09092806808701143
+  },
+  "s86_S1_crsp_matched_variant": {
+   "n_pre": 755,
+   "n_post": 710,
+   "inv_sum": 0.00273295401548363,
+   "SE": 0.021586307225645588,
+   "MDE": 0.06048483284625894,
+   "MDE_clustered": 0.07923513102859922
+  },
+  "s86_S2_20pct": {
+   "n_pre": 114,
+   "n_post": 109,
+   "inv_sum": 0.017946241751166908,
+   "SE": 0.055315768263434234,
+   "MDE": 0.15499478267414274,
+   "MDE_clustered": 0.203043165303127
+  }
+ },
+ "prediction_check_s22": {
+  "predicted": {
+   "pre": 3000,
+   "post": 1950,
+   "N": 4950,
+   "w": 0.394
+  },
+  "realised_crsp_matched": {
+   "pre": 755,
+   "post": 710,
+   "N": 1465,
+   "w": 0.48464163822525597
+  },
+  "realised_estimation_sample": {
+   "pre": 569,
+   "post": 543,
+   "N": 1112,
+   "w": 0.48830935251798563
+  }
+ }
+}

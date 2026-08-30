@@ -620,10 +620,16 @@ def analyze(df: pd.DataFrame, link_source: str) -> dict:
 # --------------------------------------------------------------------------
 
 def _load_link_file(path: str) -> pd.Series:
-    """Rebuilt CIK->CUSIP link (columns cik, cusip); overrides carry-forward."""
+    """Rebuilt CIK->CUSIP link; overrides the carry-forward cusip. Expects the
+    ticket-13 format (``subject_cik`` + ``cusip9``); index normalised to the
+    unpadded integer string so it joins on the filing's ``subject_cik``."""
     link = pd.read_csv(path, dtype=str)
     link.columns = [c.lower() for c in link.columns]
-    return link.set_index("cik")["cusip"]
+    cik_col = next(c for c in link.columns if c in ("subject_cik", "cik"))
+    cusip_col = next(c for c in link.columns if c.startswith("cusip"))
+    s = link.set_index(cik_col)[cusip_col].dropna()
+    s.index = s.index.map(lambda c: str(int(c)))
+    return s
 
 
 def main(argv=None) -> int:
@@ -673,7 +679,7 @@ def main(argv=None) -> int:
     if args.link_file:
         link = _load_link_file(args.link_file)
         finalized = finalized.copy()
-        finalized["cusip"] = finalized["cik"].map(
+        finalized["cusip"] = finalized["subject_cik"].map(
             lambda c: link.get(str(int(c))) if pd.notna(c) else None)
     analyze(finalized, link_source)
     return 0
