@@ -32,7 +32,8 @@ group, ten named confounds, 568 placebo dates, pre-trends, a power calculation.
 
 **The most important number in this document is a power number, not an estimate.** The
 SEC's own tables cap the accumulation channel's effect on the bid hazard at about
-**3 percentage points** (§6). The best this design can detect is **4.4** (§8.6). So the
+**3 percentage points** (§6). The best this design can detect is ~~**4.4**~~ → **9.1**
+(§8.6, realised 2026-08-30). So the
 difference-in-differences cannot, even in principle, separate the accumulation effect from
 zero — it can only rule out a *large* effect. That is the leg's honest result, it is
 written here before any estimate exists, and it goes in the paper's text, not a footnote.
@@ -40,7 +41,10 @@ written here before any estimate exists, and it goes in the paper's text, not a 
 **What has to happen before any estimate:** the whole 13D universe must be re-downloaded
 and re-parsed with today's fixed parser (§2.2). The file on disk was built with the broken
 one — 2025 trigger dates parse at 0%, and 132 renamed 2024 filings were silently dropped.
-Every count in this document is a floor until that is done.
+Every count in this document is a floor until that is done. *(**Done 2026-08-30.** The
+counts below are realised, not floors — and they went **down**, because the old file
+double-counted the universe. Every superseded number is listed in the corrigendum at the
+foot of this document.)*
 
 **What we cannot get:** takeover premia (offer price against unaffected price) have no free
 source and SDC/Bloomberg is gated, so the control outcome for December is **bidder entry**,
@@ -139,45 +143,77 @@ All **initial** Schedule 13D filings (`SC 13D` and its post-2024Q3 EDGAR rename
 enumerated from the sixteen quarterly EDGAR `form.idx` files already on disk
 (2022Q1–2025Q4, ~770 MB, `empirics/data/`).
 
-**Counts as they stand today** (computed 2026-08-20 from `empirics/data/fact2_parsed.jsonl`,
-which was built with the **old** parser — these are floors, see §2.2).
+~~**Counts as they stand today** (computed 2026-08-20 from `empirics/data/fact2_parsed.jsonl`,
+which was built with the **old** parser — these are floors, see §2.2).~~ — **superseded
+2026-08-30 by the realised counts; see the corrigendum at the foot of this document.**
+
+**What the re-parse found, and it reorganises every count below: the old file
+double-counted the universe.** EDGAR's quarterly `form.idx` lists every 13D **twice** —
+once under the filer's CIK directory and once under the subject's, same accession, same
+submission text — and the old pipeline never deduplicated. The archived old file's
+**9,234 rows are 4,639 unique accessions** (9,190 rows sit in duplicate pairs; 44 filings
+are listed once). The deduped level is the one that survives external check: SEC Release
+33-11253 Table 2 puts initial 13Ds at ~1,430/year over 2011–2021, so 4,639 over four
+years (~1,160/year) is in range where 9,234 (~2,300/year) was not
+(`research/empirics_v4/reparse_report_2026-08-30.md` §0). Levels roughly halve; ratios
+like `w` are roughly unaffected. Both tables below are therefore printed as
+**printed → realised**, the printed figure being the 2026-08-20 old-parser value, kept
+visible. Realised values are from `empirics/output/reparse_funnel.csv` and
+`reparse_counts.json` (re-parse report §4), and carry the date 2026-08-30.
 
 **Two splits, and they are not the same.** §2.5 assigns Post on the **trigger** date. The
 filed-date split is shown as well because it is how the file is organised and how earlier
 documents (`research/empirical_feasibility.md` §1.3) reported it — **every estimate in this
 spec uses the trigger-date split.**
 
-*Split on filing date (reference only — not the design's split):*
+*Split on filing date (reference only — not the design's split), printed 2026-08-20 →
+realised 2026-08-30:*
 
 | | Filed pre 2024-02-05 | Filed on/after | Total |
 |---|---|---|---|
-| Initial 13Ds parsed | 5,058 | 4,176 | 9,234 |
-| …with a parsed trigger date | 3,403 | 1,235 | 4,638 |
-| …with trigger date **and** CUSIP | 2,849 | 1,048 | 3,897 |
-| …with a parsed percent-of-class | 4,487 | 1,702 | 6,189 |
+| Initial 13Ds parsed | ~~5,058~~ → **2,545** | ~~4,176~~ → **2,094** | ~~9,234~~ → **4,639** |
+| …with a parsed trigger date | ~~3,403~~ → **1,834** | ~~1,235~~ → **1,876** | ~~4,638~~ → **3,710** |
+| …with trigger date **and** CUSIP | ~~2,849~~ → **1,523** | ~~1,048~~ → **1,718** | ~~3,897~~ → **3,241** |
+| …with a parsed percent-of-class | ~~4,487~~ → **2,252** | ~~1,702~~ → **2,026** | ~~6,189~~ → **4,278** |
 
 *Split on trigger date — **the design's split** (§2.5). Only filings with a parsed trigger
 date can be assigned at all, so the top row of the previous table has no counterpart here:*
 
 | | **TD < 2024-02-05** | **TD ≥ 2024-02-05** | Total |
 |---|---|---|---|
-| …with a parsed trigger date | **3,586** | **1,052** | 4,638 |
-| …with trigger date **and** CUSIP | **3,000** | **897** | **3,897** |
+| …with a parsed trigger date | ~~3,586~~ → **1,945** | ~~1,052~~ → **1,765** | ~~4,638~~ → **3,710** |
+| …with trigger date **and** CUSIP | ~~3,000~~ → **1,615** | ~~897~~ → **1,626** | ~~3,897~~ → **3,241** |
 
-So the post share entering the power arithmetic is **w = 897/3,897 = 0.230**, not the
-0.269 the filed-date split would imply. §3.6 uses 0.230.
+**The sample that actually enters an estimate is two filters further down** (§2.3 steps 3
+and 4), and the re-parse ran the whole funnel: **1,465 CRSP-matched (755 pre / 710 post)**
+and **1,112 in the estimation sample (569 / 543)**
+(`empirics/output/reparse_funnel.csv`). Those are the counts §3.6, §5 and §8.6 are
+recomputed on.
+
+~~So the post share entering the power arithmetic is **w = 897/3,897 = 0.230**, not the
+0.269 the filed-date split would imply. §3.6 uses 0.230.~~ — **superseded 2026-08-30.**
+The realised post share is **w = 710/1,465 = 0.485** on the CRSP-matched sample
+(0.488 on the estimation sample, 0.502 on trigger-date-and-CUSIP). It moved *up* while
+N moved down, because the parser fixes recover mostly post-era filings. §3.6 uses 0.485.
 
 | | Pre | Post | Total |
 |---|---|---|---|
 | Unique subject CIKs (filed-date split) | 1,617 | 1,430 | 2,735 (312 in both) |
 | Unique filer CIKs | — | — | 3,503 |
 
-**Trigger year** (not filing year): 1,550 / 1,616 / 1,199 / **0** in 2022 / 2023 / 2024 /
-2025, plus **273 filings whose trigger date is dated 2014–2021** (215 of them 2021). The
-2025 zero is the old parser's failure on the structured-XML era. Most of the 273 stale
-triggers fail filter 2's 90-day band and drop out; the count is reported, not silently cut.
-**183 filings straddle** (TD < 2024-02-05 ≤ FD) and are excluded from the main sample per
-§2.5.
+These two rows are **dedup-invariant and confirmed unchanged** by the re-parse
+(report §4) — a CIK counted twice is still one CIK.
+
+**Trigger year** (not filing year): ~~1,550 / 1,616 / 1,199 / **0**~~ → **835 / 879 /
+819 / 1,024** in 2022 / 2023 / 2024 / 2025, plus ~~**273 filings whose trigger date is
+dated 2014–2021** (215 of them 2021)~~ → **153 stale 2014–2021 triggers**. ~~The
+2025 zero is the old parser's failure on the structured-XML era.~~ — the 2025 zero was
+the old parser's failure on the structured-XML era and **is gone: 2025 now parses at
+100%** (§2.2's note below). Most of the stale triggers fail filter 2's 90-day band and
+drop out — realised, **119 of the 153 do**, the 34 survivors being legitimate Oct–Dec
+2021 triggers filed in early 2022 — and the count is reported, not silently cut.
+~~**183 filings straddle**~~ → **111 filings straddle** (TD < 2024-02-05 ≤ FD) and are
+excluded from the main sample per §2.5.
 
 ### 2.2 The re-fetch and re-parse (mandatory, flagged pull)
 
@@ -207,6 +243,26 @@ to roughly 2024-12, i.e. ~10.5 months at ~85 per month; the re-parse adds ~12.5 
 months, so the post leg should reach **~1,950**. That gives **N ≈ 4,950** and
 **w ≈ 0.394**. Power in §3.6 and §8.6 is computed both ways: on today's counts
 (N = 3,897, w = 0.230) and on this projection.
+
+> **The prediction, scored — 2026-08-30.** The paragraph above is left exactly as
+> written, because it is a pre-registration and its whole point is to be checkable.
+> The re-parse ran on 2026-08-30
+> (`research/empirics_v4/reparse_report_2026-08-30.md`, §1; funnel in
+> `empirics/output/reparse_funnel.csv`). **Realised: 755 pre / 710 post,
+> N = 1,465, w = 0.485** on the CRSP-matched sample (569 / 543, N = 1,112, w = 0.488 in
+> the estimation sample), against the predicted **3,000 / 1,950, N ≈ 4,950, w ≈ 0.394**.
+> **The level miss is the double-count, not the parser:** the prediction was written on
+> a base that counted every filing twice (§2.1), so it projected roughly twice the
+> universe that exists. Like-for-like — unique filings, old parser → new parser, trigger
+> date and CUSIP — the pre leg went **1,509 → 1,615** (+7%, so "the pre leg is stable"
+> holds in direction) and **the post leg went 451 → 1,626, a factor of 3.6**. The
+> mechanism the prediction named is confirmed outright: **2025 parses 0% → 100%** (all
+> 1,115 2025 filings, via `<dateOfEvent>`), and 2024Q3/Q4 rise from 57% to 76%
+> (`empirics/output/reparse_quarterly_parse_rates.csv`). One coverage fact the
+> prediction did not anticipate, reported for the record: the pre-XML cover-page path
+> still leaves a **~20–30% unparsed residual** in every 2022–2024 quarter, so "its
+> triggers are all pre-2024 and already parse" is only ~70–80% true. No design change
+> follows; §3.6 and §8.6 are recomputed on the realised counts below.
 
 ### 2.3 Filters, applied in this order (report the attrition funnel)
 
@@ -413,10 +469,23 @@ out both main effects is `w(1−w)`, so
 > `SE(δ̂) = σ_CAR / √( N · w(1−w) )` and `MDE = 2.802 · SE(δ̂)`
 > (2.802 = z_{0.975} + z_{0.80}, i.e. 5% two-sided, 80% power).
 
-Variance assumptions, to be replaced by realised SDs once the CARs exist:
+~~Variance assumptions, to be replaced by realised SDs once the CARs exist:
 **σ(JUMP) = 0.12**, **σ(RUNUP) = 0.15**. These are assumptions, not card facts — no card
 prints a cross-sectional SD of a 13D window CAR. They are set at roughly four to five
-times the mean effect sizes below, which is the usual ratio for short-window event CARs.
+times the mean effect sizes below, which is the usual ratio for short-window event CARs.~~
+
+**The replacement this sentence registered has happened — 2026-08-30** (§13 item 15,
+CLOSED). Realised cross-sectional SDs of the CARs, computed off the committed sample
+`empirics/output/h1_sample.csv` (1,093 filings carrying a market model):
+**σ(RUNUP) = 0.53**, **σ(JUMP) = 0.38**, **σ(RUNUP5) = 0.54**. On the H2 main sample
+(n = 979) `empirics/output/h2_estimate.json` records the same objects as
+`sigma_realised`: **σ(JUMP) = 0.40**, **σ(RUNUP5) = 0.55**. Either way they are **roughly
+three times the assumed values** — the "four to five times the mean effect" heuristic had
+the right shape and the wrong scale for an all-filer 13D universe whose window CARs carry
+a long tail. Every MDE in this section is linear in σ, so each one roughly triples on top
+of the count change. **σ is a design input, not a result:** no treatment effect is quoted
+here, and §0's rule that this document contains only counts and power arithmetic still
+holds.
 
 Reference magnitudes, so we can say whether a detected slope is economically meaningful
 (each with its card and page):
@@ -439,8 +508,27 @@ trigger.** Using the filed-date split here would overstate w and understate ever
 
 | Scenario | N | w | √(N·w(1−w)) | SE(JUMP) | MDE(JUMP) | SE(RUNUP) | MDE(RUNUP) |
 |---|---|---|---|---|---|---|---|
-| Today's counts (no re-parse): 3,000 pre / 897 post | 3,897 | **0.230** | 26.27 | 0.46 pp | **1.28 pp** | 0.57 pp | **1.60 pp** |
-| After the re-parse (projected): 3,000 / 1,950 | 4,950 | **0.394** | 34.38 | 0.35 pp | **0.98 pp** | 0.44 pp | **1.22 pp** |
+| ~~Today's counts (no re-parse): 3,000 pre / 897 post~~ | ~~3,897~~ | ~~0.230~~ | ~~26.27~~ | ~~0.46 pp~~ | ~~**1.28 pp**~~ | ~~0.57 pp~~ | ~~**1.60 pp**~~ |
+| ~~After the re-parse (projected): 3,000 / 1,950~~ | ~~4,950~~ | ~~0.394~~ | ~~34.38~~ | ~~0.35 pp~~ | ~~**0.98 pp**~~ | ~~0.44 pp~~ | ~~**1.22 pp**~~ |
+| **Realised, CRSP-matched: 755 pre / 710 post** | **1,465** | **0.485** | **19.13** | **1.99 pp** | **5.57 pp** | **2.77 pp** | **7.76 pp** |
+| **Realised, estimation sample: 569 / 543** | **1,112** | **0.488** | **16.67** | **2.28 pp** | **6.39 pp** | **3.18 pp** | **8.91 pp** |
+
+**Both printed rows are superseded 2026-08-30 on two inputs at once — realised counts and
+realised σ.** Counts: `empirics/output/reparse_funnel.csv` (re-parse report §1–§2).
+σ: `empirics/output/h1_sample.csv` and `h2_estimate.json` (§13 item 15, closed). The
+arithmetic, in full, so a referee can redo it:
+
+```
+CRSP-matched      w(1−w) = 0.485 × 0.515 = 0.2498;  N·w(1−w) = 1,465 × 0.2498 = 365.9;  √ = 19.13
+  SE(JUMP)  = 0.38 / 19.13 = 0.0199 → 1.99 pp    MDE = 2.802 × 1.99 = 5.57 pp
+  SE(RUNUP) = 0.53 / 19.13 = 0.0277 → 2.77 pp    MDE = 2.802 × 2.77 = 7.76 pp
+estimation sample w(1−w) = 0.488 × 0.512 = 0.2499;  N·w(1−w) = 1,112 × 0.2499 = 277.9;  √ = 16.67
+  SE(JUMP)  = 0.38 / 16.67 = 0.0228 → 2.28 pp    MDE = 2.802 × 2.28 = 6.39 pp
+  SE(RUNUP) = 0.53 / 16.67 = 0.0318 → 3.18 pp    MDE = 2.802 × 3.18 = 8.91 pp
+```
+
+**RUNUP5, which is the primary run-up measure for H2** (§3.1), sits between the two:
+at σ = 0.55 on the CRSP-matched counts, SE = 0.55/19.13 = 2.88 pp and **MDE = 8.06 pp**.
 
 Clustering inflates these. Firm clustering with ~3.4 filings per subject firm and an
 intra-firm correlation of 0.10 gives a design effect of 1.24 (×1.11 on the SE). Month
@@ -456,7 +544,32 @@ Two-way, conservatively: **×1.1 to ×1.9**.
 > Zeng's mean trigger-to-filing run-up of **2.8%**, that is between **40% and 80% of the
 > level**. **Anything smaller than that is not detectable here and must be reported as a
 > bounded null with the MDE quoted.** The design is not powered to find a small partition
-> effect.
+> effect. — *the range in this paragraph is superseded 2026-08-30; the paragraph stands
+> for the record because it is what the design claimed before the counts and the CARs
+> existed.*
+
+> **Honest reading, restated on realised counts and realised σ — 2026-08-30.** The design
+> can detect a liquidity slope of roughly **6.1–14.7 percentage points per standard
+> deviation of illiquidity** on the CRSP-matched sample (**7.0–16.9 pp** on the estimation
+> sample), against the **1.1–2.3 pp** printed above. The construction of the range is
+> unchanged: the **lower end is JUMP** at the mildest multiplier (5.57 × 1.1 = 6.12) and
+> the **upper end is RUNUP** at the harshest (7.76 × 1.9 = 14.75); on the estimation
+> sample, 6.39 × 1.1 = 7.03 to 8.91 × 1.9 = 16.93. Against Zeng's mean trigger-to-filing
+> run-up of **2.8%**, the realised range is **roughly 2.2 to 5.3 times the level**, where
+> the printed reading was 40–80% of it. **The registered conclusion is unchanged in kind
+> and much harder in degree: this design is not powered to find a small partition effect,
+> and on realised inputs it is not powered to find one the size of Zeng's mean run-up
+> either.** Anything smaller is reported as a bounded null with the MDE quoted, exactly as
+> registered.
+>
+> *Design cross-check, no estimate quoted.* The realised two-way clustered standard
+> errors from the committed H1/H2 runs imply MDEs of **11.62 pp on JUMP** and
+> **12.39 pp on RUNUP5** for δ (`empirics/output/h2_estimate.json`,
+> `mde_realised_se_pp`) — inside the 6.1–14.7 pp band, i.e. the ×1.1–×1.9 multiplier
+> retained above is not flattering the design. The partition coefficient β2's realised
+> MDE is **4.38 pp** (`h1_estimate.json`, `mde_beta2_pp`), smaller because β2 is a
+> within-filing contrast across the two stacked rows rather than a Post interaction, so
+> it does not pay the `w(1−w)` cost.
 
 **A second power problem, specific to liquidity.** Brav–Jiang–Partnoy–Thomas find activist
 targets are **not spread across the liquidity distribution**: 9.1% / 13.9% / **43.4%** /
@@ -512,11 +625,25 @@ filers in three — this is not a design searching for a sliver.
 > `D_j = share of filer j's initial 13Ds filed in 2022-01-01 → 2023-10-09 whose delay
 > exceeded five business days` ∈ [0, 1].
 
-Requires ≥ 2 pre-period filings by filer j. On today's (old-parser) counts, **2,004 of
+Requires ≥ 2 pre-period filings by filer j. ~~On today's (old-parser) counts, **2,004 of
 ~2,016 pre-period filer CIKs have ≥ 2 pre-period filings**, covering 5,046 of 5,058
-pre-period filings — so the repeat-filer restriction costs almost nothing. **This count
+pre-period filings — so the repeat-filer restriction costs almost nothing.~~ **This count
 must be recomputed after the re-parse before it is quoted anywhere**, because filer-CIK
 extraction is a header regex that the re-parse re-runs.
+
+**Recomputed 2026-08-30, and the old number was an artefact** (re-parse report §6;
+§13 item 8's suspicion, confirmed). The double-listing made every filer with one real
+filing look like a repeat filer. On unique filings, inside this section's own dose window
+**2022-01-01 → 2023-10-09**: **2,098 filings, 1,710 filer CIKs, of which 189 (11.1%) have
+≥ 2 pre-period filings, covering 577 of 2,098 filings (27.5%)**. On the old claim's wider
+basis (filed < 2024-02-05) it is 241 of 2,016 filers covering 770 of 2,545 filings
+(30.3%) — the artefact is not in the window choice. **So the repeat-filer restriction now
+costs roughly seven filings in ten, and the stratum-imputation fallback in the next
+paragraph is load-bearing rather than a corner case:** the directly measured dose covers
+~28% of pre-period filings and the imputation carries the rest. The construction and the
+rule that imputed-dose observations enter only the robustness row are **unchanged** — what
+changes is how much of the sample each one is carrying, and that is now reported next to
+every dose estimate.
 
 For single-filing filers, the imputed dose is the leave-one-out mean of D over the filer's
 stratum (filer type × size tercile × illiquidity tercile), estimated on pre-period data
@@ -633,20 +760,51 @@ percentage points less** ownership" (p. 37). Two things follow.
   window shortened contradicts the accumulation channel in both branches, and would point
   instead at a composition change in who files (§8.5 item vi).
 - **Uninformative:** |γ̂| below its MDE. Arithmetic: **the stake sample is bounded by the
-  trigger-date sample, not by the 6,189 filings that carry a parsed stake** — §2.5 assigns
+  trigger-date sample, not by the ~~6,189~~ → 4,278 filings that carry a parsed stake**
+  (§2.1, realised) — §2.5 assigns
   Post on TD, so a filing with a stake but no trigger date cannot be assigned to a regime
-  at all. The usable N is therefore the §2.2 projection, **N ≈ 4,950 with w ≈ 0.394**, so
+  at all. ~~The usable N is therefore the §2.2 projection, **N ≈ 4,950 with w ≈ 0.394**, so
   w(1−w) = 0.2388 and √(4,950 × 0.2388) = 34.38. With a winsorised sd of **8 percentage
   points** (BBJJ-scale; the realised winsorised sd replaces it), SE(γ̂) ≈ 8/34.38 = 0.233
   and **MDE(γ) ≈ 2.802 × 0.233 = 0.65 percentage points of stake.** Clustered on filer,
   ×1.3, **≈ 0.85 pp.** That is still the **best-powered estimate in the package**, and
   still about **seven times** the 0.12 pp the historical days–stake gradient predicts — so
   the conclusion above is unchanged, but the margin is thinner than a stake-count-based
-  reading would suggest.
+  reading would suggest.~~
+
+  **Superseded 2026-08-30, on both inputs** (re-parse report §8.3). The usable N is the
+  realised trigger-date sample, **N = 1,465 with w = 0.485**, so √(1,465 × 0.2498) =
+  **19.13**; and the sd is not BBJJ-scale, because our universe is all 13D filers rather
+  than activist hedge funds: the **realised winsorised sd of STK is 23.86 pp** (raw sd
+  23.86, p1 = 0.38, p99 = 100, median 12.14%, mean 22.72% — the 50–100% insider/SPV
+  stakes BBJJ's sample does not contain). So
+
+  ```
+  SE(γ̂) = 23.86 / 19.13 = 1.25 pp
+  MDE(γ) = 2.802 × 1.25 = 3.50 pp of stake     ×1.3 filer clustering = 4.54 pp
+  estimation-sample variant (N = 1,112, √ = 16.67):  SE 1.43 pp, MDE 4.01 pp, ×1.3 = 5.21 pp
+  ```
+
+  against the printed 0.65 / 0.85 pp — **a factor of 5.3 worse**, three of which is the sd
+  and the rest the count. **The conclusion above is unchanged in kind and stronger: 4.54
+  pp is about 38 times the 0.12 pp the historical days–stake gradient predicts**, where
+  the printed reading said seven times. If the reform works only through mechanical
+  accumulation time we cannot see it, and the margin is not thin — it is enormous.
+  **What does change is the ranking: the stake leg is no longer the best-powered estimate
+  in the package.** That claim was always a claim about the MDE relative to the magnitude
+  the leg is hunting, and on realised inputs the stake leg is the worst-placed leg in the
+  package on exactly that reading — 38× its own predicted magnitude, against the timing
+  split's 2.2–5.3× of Zeng's mean run-up (§3.6). (In raw percentage points the two are
+  not comparable — 4.54 pp of *stake* against 6.1–14.7 pp of *abnormal return per sd of
+  illiquidity* — and no sentence in the paper may compare them as if they were.)
 
 **Parser caveat that must travel with every stake number:** percent-of-class in the
-committed file is old-parser output and is `None` for the entire XML era. Nothing in §5
-may be quoted before the re-parse.
+committed file is old-parser output and is `None` for the entire XML era. ~~Nothing in §5
+may be quoted before the re-parse.~~ — **discharged 2026-08-30: the re-parse has run**,
+and percent-of-class coverage went **67.1% → 92.2%** of unique filings
+(`research/empirics_v4/reparse_report_2026-08-30.md` §10), which is what licenses the
+realised sd quoted above. The caveat stands for the *archived* file, which must not be
+used for any stake number.
 
 ---
 
@@ -719,10 +877,13 @@ place as the SEC's own arithmetic, on a different sample and a different window.
 agreement is reported as a validation of the parser, not as a finding.
 
 **Why this matters more than it looks (§8.6 anticipated).** The matched DiD's MDE is
-**4.4 pp at best** — larger than 3 pp. So the bound is not a consolation prize — it is arithmetically the
+~~**4.4 pp at best**~~ → **9.09 pp at best** (realised 2026-08-30, §8.6) — larger than
+3 pp, and now **three times** it. So the bound is not a consolation prize — it is arithmetically the
 binding statement about the accumulation channel, because the design cannot separate a
 true accumulation effect from zero even at the ceiling. **This must be the headline
-sentence of the DiD leg, not a footnote.**
+sentence of the DiD leg, not a footnote.** *Nothing in this section changes: the ladder,
+the three restrictions and the interpretive rule are all arithmetic on the SEC's tables
+and carry no count of ours.*
 
 **Interpretive rule, fixed in advance:** if |β̂_DiD| exceeds the MDE *and* exceeds 3 pp,
 the excess cannot be the accumulation channel and must be attributed to defence or
@@ -764,10 +925,15 @@ from the figure; it illustrates the estimates in §3.
 Initial 13Ds passing §2.3, one observation per (subject firm, trigger date), 2022-01-01 →
 2025-12-31. Two nested samples, both reported:
 
-- **S1 — all initial 13Ds** matched to CRSP, **trigger-date split** (§2.1): 3,000 pre /
-  897 post today, ~3,000 / ~1,950 after the re-parse.
+- **S1 — all initial 13Ds** matched to CRSP, **trigger-date split** (§2.1):
+  ~~3,000 pre / 897 post today, ~3,000 / ~1,950 after the re-parse~~ → **realised
+  2026-08-30: 569 pre / 543 post** in the estimation sample (§2.3 step 4), or **755 / 710**
+  on the CRSP-matched sample before the one-per-(firm, trigger) dedup
+  (`empirics/output/reparse_funnel.csv`). The estimation-sample pair is the one §8.6
+  computes on, because §2.3 filter 4 applies to this leg too.
 - **S2 — non-corporate-action campaigns**, roughly 20% of originals per SEC Table 2:
-  ~600 pre / ~390 post (post-re-parse). S2 is the economically right sample (the rule's constrained tail
+  ~~~600 pre / ~390 post (post-re-parse)~~ → **realised: 114 / 109** (20% of 569 / 543).
+  S2 is the economically right sample (the rule's constrained tail
   lives there); S1 is the powered one. **S1 is primary for the reported estimate; S2 is
   primary for the interpretation.** Both MDEs are quoted in the same sentence.
 
@@ -784,9 +950,47 @@ group is contaminated by the treatment. The term is **never-13D**, not "never-ta
 
 **Control universe:** CRSP common stocks (US, share type common) present in
 `crsp_daily.csv` with no `SC 13D`/`SCHEDULE 13D` original **or amendment** naming them as
-subject at any point 2021-01-01 → 2025-12-31. Pool size: 14,092 PERMNOs in the snapshot
+subject at any point 2021-01-01 → 2025-12-31. ~~Pool size: 14,092 PERMNOs in the snapshot
 minus ~2,735 13D subject firms, so on the order of 11,000 candidates — comfortably enough
-for 3:1.
+for 3:1.~~
+
+**Superseded 2026-08-30 — the pool was built** (`research/empirics_v4/link_rebuild_2026-08-30.md`
+§3; `empirics/output/never13d_control_universe.csv`, `never13d_control_summary.csv`).
+The "~11,000" was pre-filter arithmetic: 14,092 minus the subject firms, before this
+section's *own* common-US screen was applied. Applying it first, then the exclusions:
+**14,092 snapshot PERMNOs → 5,443 ever-common-US candidates → 1,843 excluded (union of
+E1–E6) → 3,600 never-13D controls** (2,480 still listed, 1,120 delisted before the pull
+date). The exclusion routes, marginal adds in brackets: E1 link-matched 2022–2025
+subjects 1,014 [1,014] · E2 ambiguous link collisions 36 [27] · E3 reusable cover-page
+CUSIPs against CRSP CUSIP history 1,322 [417] · **E4 the 2021 gap** 552 [340] · E5
+amendment sample 102 [27] · E6 reverse map ∩ subject CIKs 1,246 [18]. Two of those
+deserve their names in this spec: the pool is built on **"ever" flags over each PERMNO's
+observed life**, not on its last CRSP row, because CRSP blanks `ShareType` on delisting
+and a last-row test would silently drop 1,607 delisted securities — precisely the acquired
+firms a takeover study must keep (§2.3 filter 3); and **the 2021 gap was real** — the idx
+files on disk start 2022Q1 while this rule starts 2021-01-01, so the four 2021 quarterly
+indexes were pulled and parsed (1,557 unique initial 13Ds, 1,041 subject CIKs), excluding
+552 pool PERMNOs of which **340 no other route catches**.
+
+**Adequate for 3:1, but tight, and the tightness is where the matching will bind.**
+Against the realised treated counts (1,112 estimation / 1,465 CRSP-matched, §2.1), 3:1
+needs ~3,300–4,400 controls against a pool of 3,600. That is enough in aggregate and not
+obviously enough **inside exact SIC-2 × quarter cells**, which this section requires
+exactly. The matching ticket reports cell-level shortfalls rather than assuming slack.
+
+> **Caveat, with its number: amendment orphans.** The control definition excludes firms
+> named as subject by an **amendment** as well as an original, and amendments were not
+> bulk-fetched. A seeded 200-filing sample of the 21,987 unique in-window `SC 13D/A`
+> filings (seed 20260830, 188 subjects parsed) finds **53/188 = 28.2% name a subject with
+> no in-window original** — their original was filed before 2021. Of those 53, **28 (52.8%)
+> link to candidate-pool PERMNOs and were excluded (E5)**. Extrapolating the sample rate
+> to the ~21,787 unsampled amendments gives a **residual upper bound of ~3,200 pool
+> PERMNOs**, i.e. most of the universe on the worst reading; the true figure is lower,
+> because orphan subjects file multiple amendments and repeat amenders across years are
+> invisible to a 200-draw. **This is stated as a live limitation of the control group, not
+> a solved problem.** Closing it is a bulk fetch of all 21,987 amendment texts (~90 minutes
+> at the existing 4 req/s throttle; the machinery is already in
+> `empirics/build_control_universe.py`) and is a decision for the matching ticket.
 
 **Matching, 3:1 without replacement, nearest-neighbour on the Mahalanobis distance of:**
 
@@ -897,9 +1101,27 @@ Four-cell DiD with `n_T` treated and `3n_T` controls per period:
 
 | Sample | n_pre | n_post | 1/n_pre + 1/n_post | SE | MDE | ×1.31 clustering | MDE as % of the 18.1% treated base |
 |---|---|---|---|---|---|---|---|
-| S1, today's counts | 3,000 | 897 | 0.001448 | 1.57 pp | 4.40 pp | **5.8 pp** | 32% |
-| S1, after re-parse | 3,000 | 1,950 | 0.000846 | 1.20 pp | 3.37 pp | **4.4 pp** | 24% |
-| S2 (≈20% subset) | 600 | 390 | 0.004231 | 2.69 pp | 7.53 pp | **9.9 pp** | 54% |
+| ~~S1, today's counts~~ | ~~3,000~~ | ~~897~~ | ~~0.001448~~ | ~~1.57 pp~~ | ~~4.40 pp~~ | ~~**5.8 pp**~~ | ~~32%~~ |
+| ~~S1, after re-parse~~ | ~~3,000~~ | ~~1,950~~ | ~~0.000846~~ | ~~1.20 pp~~ | ~~3.37 pp~~ | ~~**4.4 pp**~~ | ~~24%~~ |
+| ~~S2 (≈20% subset)~~ | ~~600~~ | ~~390~~ | ~~0.004231~~ | ~~2.69 pp~~ | ~~7.53 pp~~ | ~~**9.9 pp**~~ | ~~54%~~ |
+| **S1, realised (estimation sample)** | **569** | **543** | **0.0035991** | **2.48 pp** | **6.94 pp** | **9.09 pp** | **50%** |
+| S1 variant, realised (CRSP-matched) | 755 | 710 | 0.0027330 | 2.16 pp | 6.05 pp | 7.92 pp | 44% |
+| **S2, realised (20% of S1)** | **114** | **109** | **0.0179462** | **5.53 pp** | **15.50 pp** | **20.30 pp** | **112%** |
+
+**All three printed rows are superseded 2026-08-30** on realised counts
+(`empirics/output/reparse_funnel.csv`; re-parse report §8.2). The base rates, the 0.1705
+variance term and the 1.31 multiplier are unchanged — only the counts moved. The
+arithmetic, in full:
+
+```
+S1 realised   1/569 + 1/543 = 0.0017575 + 0.0018416 = 0.0035991
+              SE  = √(0.1705 × 0.0035991) = √0.00061360 = 0.02477 → 2.48 pp
+              MDE = 2.802 × 2.48 = 6.94 pp      ×1.31 = 9.09 pp      9.09 / 18.1 = 50%
+S1 variant    1/755 + 1/710 = 0.0013245 + 0.0014085 = 0.0027330
+              SE = 2.16 pp   MDE = 6.05 pp      ×1.31 = 7.92 pp      44%
+S2 realised   1/114 + 1/109 = 0.0087719 + 0.0091743 = 0.0179462
+              SE = 5.53 pp   MDE = 15.50 pp     ×1.31 = 20.30 pp     112%
+```
 
 All counts are the **trigger-date** split (§2.1), matching §2.5's Post assignment.
 
@@ -909,19 +1131,27 @@ outcome. Both the unclustered and clustered MDEs are reported. The 20% share beh
 the SEC's own: non-corporate-action filings are **3,067 of 15,724, i.e. 20%**
 (Release 33-11253, Table 2, p. 181).
 
-> **Read this next to §6.** The headline bounded null caps the accumulation channel at
-> **3 pp**. The best MDE this design can reach is **4.4 pp** (S1, after the re-parse), and
-> the economically right sample S2 reaches only **9.9 pp**. **The design is arithmetically
+> **Read this next to §6** *(numbers updated 2026-08-30; the reading is unchanged and the
+> tension is now the dominant feature of this leg)*. The headline bounded null caps the
+> accumulation channel at **3 pp**. The best MDE this design can reach is
+> ~~**4.4 pp** (S1, after the re-parse)~~ → **9.09 pp** (S1, realised), **three times the
+> ceiling it is trying to see under**, and the economically right sample S2 reaches only
+> ~~**9.9 pp**~~ → **20.30 pp**. **The design is arithmetically
 > incapable of detecting the accumulation effect at its own headline ceiling.** That is not
 > a reason to drop the leg — it is the leg's result. The December sentence is: *the
 > footprint of the acceleration on the twelve-month bid hazard through the accumulation
 > channel is bounded above at three percentage points by the SEC's own Table 3, and our
-> matched design, which is powered to detect four and a half, finds [estimate] with a
-> [CI] — the two statements agree, and neither supports a large effect.*
+> matched design, which is powered to detect* ~~*four and a half*~~ *nine, finds [estimate]
+> with a [CI] — the two statements agree, and neither supports a large effect.*
 >
 > The design **is** powered against the loose 20 pp rung of the ladder (§6): if β̂ came in
-> near 20 pp we would see it comfortably. So the leg is not vacuous — it rules out the
-> large-effect world and cannot rule out the small-effect one.
+> near 20 pp we would see it comfortably — **on S1, where 20 pp is still comfortably above
+> the realised 9.09 pp**. So the S1 leg is not vacuous — it rules out the large-effect
+> world and cannot rule out the small-effect one. **S2 is a different matter on realised
+> counts: its MDE of 20.30 pp exceeds even the loose 20 pp rung, so S2 is arithmetically
+> vacuous — it cannot rule out any rung of the ladder** and is reported as an interval and
+> a sign, never as a test. That is a fact about the sample size, not a licence to drop the
+> sample: S2 remains primary for the interpretation, with its MDE printed beside it.
 
 **The precedent for taking this seriously.** Dass et al. attempted the analogous
 liquidity-and-premium difference-in-differences and abandoned it: their footnote 27
@@ -1012,11 +1242,31 @@ BID12_i = α + τ·(Treat_i × Post_i × LIQ_i) + [all two-way interactions] + X
 **Power.** Adding a third (standardised, continuous) dimension roughly **doubles** the
 standard error relative to §8.6 — a rule of thumb, not an identity, and it is recomputed
 exactly once the realised LIQ variance is known. On that rule of thumb,
-**MDE(τ) ≈ 8.8 pp on S1 after the re-parse and ≈ 19.8 pp on S2.** This leg is, on today's
+~~**MDE(τ) ≈ 8.8 pp on S1 after the re-parse and ≈ 19.8 pp on S2.**~~ This leg is, on today's
 arithmetic, **not powered to detect anything economically plausible**, and that is stated
 in the text next to the estimate. It is included because it is the direct empirical
 counterpart of the model's κ-derivative on the control outcome, and because reporting an
 honest interval is better than not asking.
+
+**Rescaled on realised counts, 2026-08-30 — and still a rule of thumb.** The doubling
+rule is applied to §8.6's clustered MDE, which is now 9.09 pp on S1 and 20.30 pp on S2,
+giving **MDE(τ) ≈ 18.2 pp on S1 and ≈ 40.6 pp on S2** (≈ 15.8 pp on the CRSP-matched S1
+variant). Printed: 8.8 / 19.8. The registered reading — not powered to detect anything
+economically plausible — is unchanged and is now emphatic.
+
+**The realised LIQ variance is in hand; the exact recompute is not, and here is why.**
+The within-sample variance of LIQ is directly computable from the committed sample and
+is **0.985 (sd 0.993)** over the 1,093 filings in `empirics/output/h1_sample.csv` — i.e.
+the §3.2 within-quarter standardisation lands where it was supposed to, so the rule of
+thumb's premise (a standardised third dimension) is confirmed rather than assumed. The
+underlying dispersion is **sd(log ILLIQ) = 2.926, IQR = 4.303**
+(`empirics/output/h1_estimate.json`, `liquidity_reporting_s36`). What is *not* computable
+from anything committed is the residual variance of `Treat × Post × LIQ` **in the matched
+sample**: the matching of §8.2 has not been run, and `never13d_control_universe.csv`
+carries identity and listing columns only — no control-side LIQ exists yet. Inventing one
+would be inventing an input. **So the τ MDE stays at rule-of-thumb status, and the exact
+recompute happens at the §9 estimation ticket** (ticket 14; §13 item 16 stays open),
+where the matched sample makes it a two-line calculation.
 
 - **Supportive:** β̂ ≠ 0 with the sign of the pre-period prediction (§3.5.1 implies illiquid
   names, where the pooled cell is more revealing, should show the larger bidder-entry
@@ -1060,6 +1310,16 @@ Written 2026-08-20, before any estimate exists. Every row is falsifiable.
 | 7 | **Matched DiD** β (§8) | \|β̂\| > MDE, branch-selected sign, pre-trends pass, outside placebo band, S1 and S2 agree in sign | β̂ significant with the opposite sign, checks passing | \|β̂\| < MDE (5.8 pp today, 4.4 pp after re-parse); report against the 3 pp headline bound and the 20 pp loose rung |
 | 8 | **Bidder entry by liquidity** β, τ (§9) | β̂ of the pre-period predicted sign; τ̂ branch-selected | β̂ significant with the opposite sign | \|τ̂\| < ~8.8 pp (S1) / ~19.8 pp (S2) — the expected outcome |
 
+**Pointer, 2026-08-30 — the rows are untouched; the MDE figures inside them are not the
+authority.** Every bracketed MDE in the table above (1.1–2.3 pp in row 1, 0.85 pp in row
+4, 5.8 / 4.4 pp in row 7, ~8.8 / ~19.8 pp in row 8) is a **quotation** of §3.6, §5, §8.6
+and §9, and each of those has been superseded on realised counts and realised σ. The
+printed figures are kept here exactly as registered, because §0 rule 2 makes this table
+the place where the MDE each null is quoted against was fixed in advance; **the decision
+rules themselves are unchanged, and the number each rule is read against is the realised
+one in its own section** (row 1 → 6.1–14.7 pp, row 4 → 4.54 pp, row 7 → 9.09 pp, row 8 →
+~18.2 / ~40.6 pp). No supportive/against condition in any row is modified.
+
 **One sentence that decides the paper's identity claim** (row 1 + row 2's "against"
 column): *if the filing-day jump moves with liquidity the same way the run-up does, there
 is no partition to write about.* That check runs first in ticket 11 and its answer is
@@ -1089,7 +1349,7 @@ up off-repo is an open item (§13).
 | 8 | Subject CIK, filer CIK | **[DISK]**, re-derive | `fact2_parsed.jsonl:subject_cik`, `:filer_cik`. Header regex, unchanged by the fixes, but re-derived in the re-parse for consistency |
 | 9 | Subject name, filer name | **[DISK]** | `fact2_parsed.jsonl:subject_name`, `:filer_name` |
 | 10 | STK — percent of class | **[PULL]** | Re-parse (row 2). XML `<percentOfClass>` path added in 775162f. `fact2_parsed.jsonl:pct_of_class` is `None` for the whole XML era and carries the 3-digit / first-match / CSS bugs before it |
-| 11 | CUSIP for the subject firm | **[DISK]** values, **[PULL]** code | `fact2_parsed.jsonl:cusip`, present for 7,970 of 9,234 (86%; 7,948 nine-char, 22 eight-char). **The CIK→CUSIP linking code is not in the repo.** The values can be reused; the link must be rebuilt and committed before the section is defensible (feasibility §5.7). Free rebuild route: EDGAR company-submissions API + CRSP `HdrCUSIP` |
+| 11 | CUSIP for the subject firm | **[DISK]** values, ~~**[PULL]**~~ → **[DISK]** code (2026-08-30) | `fact2_parsed.jsonl:cusip`, present for 7,970 of 9,234 (86%; 7,948 nine-char, 22 eight-char) — **on unique filings, 3,998 of 4,639, the same 86%**, the share being dedup-invariant. ~~**The CIK→CUSIP linking code is not in the repo.**~~ — **it is, from 2026-08-30**: `empirics/link_cik_cusip.py`, validation gate **0.9522 PASS**, outputs `empirics/output/cik_cusip_link.csv` and `permno_cik_map.csv`; union coverage of the two CUSIP sources is 4,161 of 4,639 filings (89.7%). The free rebuild route named here (EDGAR company-submissions API + CRSP `HdrCUSIP`) is the route that was taken, with one correction the rebuild forced: CRSP's header is **current-only**, so the join runs on the PERMNO's ticker and CUSIP **history**, not its last row (`research/empirics_v4/link_rebuild_2026-08-30.md` §1) |
 | 12 | Daily price, return, volume, market cap | **[DISK]** | `empirics/data/crsp_daily.csv` — `DlyPrc`, `DlyRet`, `DlyVol`, `DlyCap`; 11,884,715 rows, 2021-01-04 → 2025-12-31, 14,092 PERMNOs |
 | 13 | PERMNO, PERMCO, CUSIP, HdrCUSIP, Ticker, exchange, share type, US flag | **[DISK]** | `crsp_daily.csv` — `PERMNO`, `PERMCO`, `CUSIP`, `HdrCUSIP`, `Ticker`, `PrimaryExch`, `ShareType`, `SecurityType`, `USIncFlg` |
 | 14 | ILLIQ / LIQ — Amihud illiquidity | derived | From row 12: mean \|DlyRet\|/(\|DlyPrc\|×DlyVol)×10⁶ over [TD−126, TD−6] |
@@ -1101,7 +1361,7 @@ up off-repo is an open item (§13).
 | 20 | Business-day delay; federal holidays | **[DISK]** in code | `empirics/facts.py:business_delay` with the 2021–2026 US federal-holiday table passed to `np.busday_count` (commit b026872) |
 | 21 | D / E / BIND — bindingness dose | derived | From rows 3, 4, 8, 20, pre-period only |
 | 22 | BID12 — bid within 12 months | **[PULL]** | EDGAR submissions API + full-text search for `SC TO-T`, `SC TO-C`, `SC 14D9`, `DEFM14A`, `PREM14A`, `8-K` Items 1.01/2.01. Ticket 13 (E5). Estimated 1–3 weeks including validation (feasibility §2.3). **This is the long pole of the whole package** |
-| 23 | Never-13D control universe | derived, needs row 11 | `crsp_daily.csv` PERMNOs minus 13D subject firms. Requires the CIK→PERMNO link (row 11) to be rebuilt first, or the control group is contaminated by unmatched 13D targets |
+| 23 | Never-13D control universe | derived, needs row 11 — **built 2026-08-30** | `crsp_daily.csv` PERMNOs minus 13D subject firms. Requires the CIK→PERMNO link (row 11) to be rebuilt first, or the control group is contaminated by unmatched 13D targets. **Realised: 3,600 PERMNOs** from a 5,443 ever-common-US pool (`empirics/output/never13d_control_universe.csv`; E1–E6 funnel in `never13d_control_summary.csv`), including the 2021 pre-window gap the idx files on disk do not cover. The amendment-orphan residual is stated as a live limitation in §8.2 |
 | 24 | Match covariates (size, illiquidity, SIC2, quarter) | rows 14, 15, 18 | — |
 | 25 | Match-quality extras (turnover, past 12-m return, idio vol) | derived | From row 12 |
 | 26 | SEC constrained-share `s` for the bounded null; the 20% non-corporate-action share; the 29%/59% exposure figures; the $49m/$42m/$36m foregone-value figures | **[DISK]** | `research/txt_extracts/sec_release_33_11253.pdf` / `.txt`, via `research/cards/_institutional_sec_33_11253.md`. Cites: Table 3 p. 189 and prose p. 188 (the ladder); Table 6 pp. 225–226 and p. 224 (the 2,370 sample); Table 2 p. 181 (20%); pp. 178, 193 (29%, 59%); Table 5 p. 210 and p. 211 + n. 773 (dollars). All were read and verified against the release in ticket 01; **ticket 11 re-confirms Table 3 p. 189 in the text file before the bound enters the draft** |
@@ -1126,10 +1386,10 @@ The fixed list from CONTEXT.md, each item answered with the section that answers
 |---|---|---|
 | **Control group or bounded null** | Both. The DiD has a never-13D control group matched 3:1 (§8.2). The timing split has no control group by design — a 13G control is contaminated by rule-responsive selection — and carries the pseudo-trigger placebo and the 13G *descriptive* placebo instead (§3.7). The bounded null is computed from the SEC's own tables and is arithmetically the binding statement about the accumulation channel (§6, §8.6) | §3.7, §6, §8.2, §8.6 |
 | **Confound list** | Ten named confounds with a stated handling each, including the three the cards specifically warn about: the EDGAR cut-off moving on the same date as the window (i), Zeng's non-neutral calendar-day screen (§2.3 filter 5), and BBJJ's defence channel (vii) | §8.5, §2.3, §2.4, §2.6 |
-| **Power / MDE** | Computed from counts on disk plus stated variance assumptions, arithmetic shown in full, both on today's counts and on the post-re-parse projection. Timing split: **1.1–2.3 pp** per sd of illiquidity. Stake: **0.85 pp**. DiD: **4.4 pp** (S1) / **9.9 pp** (S2). Triple difference: **~8.8 / ~19.8 pp**. **The DiD's MDE exceeds the 3 pp headline bound, and the spec says so before the estimate exists** | §3.6, §5, §8.6, §9 |
+| **Power / MDE** | Computed from counts on disk plus stated variance assumptions, arithmetic shown in full, both on today's counts and on the post-re-parse projection — **and recomputed 2026-08-30 on realised counts and realised CAR SDs, which is what §13 items 2 and 15 registered**. Timing split: ~~**1.1–2.3 pp**~~ → **6.1–14.7 pp** per sd of illiquidity. Stake: ~~**0.85 pp**~~ → **4.54 pp**. DiD: ~~**4.4 pp** (S1) / **9.9 pp** (S2)~~ → **9.09 pp** (S1) / **20.30 pp** (S2). Triple difference: ~~**~8.8 / ~19.8 pp**~~ → **~18.2 / ~40.6 pp** (rule of thumb, rescaled). **The DiD's MDE exceeds the 3 pp headline bound, and the spec says so before the estimate exists** — realised, it is **three times** the bound, and S2's now exceeds even the loose 20 pp rung | §3.6, §5, §8.6, §9 |
 | **Placebos** | 568 holiday-adjusted pseudo-reform business days (593 raw weekdays) (2021-07-01 → 2023-10-09, every one, no sampling), randomisation p-value, decision rule fixed in advance; plus the pseudo-trigger placebo at TD−63 and the 13G descriptive placebo | §8.7, §3.7 |
 | **Pre-trends** | Seven pre-quarters to 2023Q3, joint F-test, and an explicit blocking rule: p < 0.10 removes causal language from the leg | §8.8, §3.7 |
-| **Parser validation** | Eleven fail-old/pass-new assert checks in `empirics/test_parse_13d.py`, run as `.venv/bin/python -m empirics.test_parse_13d` (11/11 passing at commit 775162f). Hand audits: ticket 09 builder 12 filings + verifier 3 filings independently sampled, all matching; ticket 09b caught four further defects plus a fifth stacked one, with one retry-with-evidence round and a fresh re-verify that found nothing new. **Two gaps stated, not papered over:** (i) the committed `fact1_filings.csv` is entirely pre-XML (max `date_filed` 2024-12-16), so the XML event-date path is validated against live EDGAR fetches rather than against committed pipeline output; (ii) the full-universe re-parse has not been run, so every count in this document is an old-parser floor. Ticket 11 pays for the re-fetch once and re-runs per-quarter parse rates as a table | §2.2, `empirics/test_parse_13d.py`, `.scratch/v4-reposition/issues/09-e1-parser-fixes.md` |
+| **Parser validation** | Eleven fail-old/pass-new assert checks in `empirics/test_parse_13d.py`, run as `.venv/bin/python -m empirics.test_parse_13d` (11/11 passing at commit 775162f). Hand audits: ticket 09 builder 12 filings + verifier 3 filings independently sampled, all matching; ticket 09b caught four further defects plus a fifth stacked one, with one retry-with-evidence round and a fresh re-verify that found nothing new. **Two gaps stated, not papered over:** (i) the committed `fact1_filings.csv` is entirely pre-XML (max `date_filed` 2024-12-16), so the XML event-date path is validated against live EDGAR fetches rather than against committed pipeline output; (ii) ~~the full-universe re-parse has not been run, so every count in this document is an old-parser floor~~ — **gap (ii) closed 2026-08-30**: the re-fetch and re-parse ran (4,639 filings, 0 fetch failures), the per-quarter parse-rate table is committed at `empirics/output/reparse_quarterly_parse_rates.csv`, and the counts here are realised. **A third gap opens in its place and is stated the same way:** the pre-XML cover-page path still leaves ~20–30% of 2022–2024 filings without a trigger date, so the 80.0% overall parse rate — not 100% — is what a referee sees | §2.2, `empirics/test_parse_13d.py`, `.scratch/v4-reposition/issues/09-e1-parser-fixes.md` |
 
 **Two additions this design imposes on itself beyond the checklist:**
 
@@ -1140,6 +1400,8 @@ The fixed list from CONTEXT.md, each item answered with the section that answers
 - **Attrition funnel.** Every table reports the funnel from §2.3: filings enumerated →
   originals → trigger date parsed → CRSP-matched → in the estimation sample, with
   per-quarter parse rates. The 2025 parse rate is the number a referee will check first.
+  **Realised 2026-08-30** (`empirics/output/reparse_funnel.csv`): **4,639 → 3,710 → 3,356
+  → 1,465 → 1,112**, and the 2025 parse rate is **100%** (0% under the old parser).
 
 ---
 
@@ -1150,20 +1412,20 @@ Blocking = a downstream ticket cannot proceed correctly until it is closed.
 | # | Open item | Who closes it | Blocking? |
 |---|---|---|---|
 | 1 | ~~**`research/model_v4/HANDOFF_sign.md` does not exist** — confirmed absent from `origin/v4-theory`, 2026-08-20. Every directional prediction in §3.5.2, §5, §9 carries the placeholder and both branches~~ — **CLOSED 2026-08-30**: `HANDOFF_sign.md` §8 landed on `origin/v4-theory` (theory record frozen at `65b8db3`); directional support for **Branch A**, with the conditions carried in §0.1, §3.5.2 and the 2026-08-30 corrigendum. Both branches remain live | closed | No — H1 is sign-free |
-| 2 | **The full re-fetch and re-parse has not been run.** Every count here is an old-parser floor; the §2.2 projections are predictions; §3.6 and §8.6 must be recomputed on realised counts | ticket 11 | **Yes** |
-| 3 | **CIK→CUSIP link code is not in the repo.** The 7,970 values on disk are reusable but not reproducible or extensible, and the never-13D control universe (§11 row 23) depends on it | ticket 11/13 | **Yes** for the DiD |
-| 4 | **`empirics/data/` is a gitignored symlink to the pre-v4 checkout.** The 1.2 GB CRSP snapshot does not survive a machine change and is not backed up off-repo | author | **Operational risk #1** |
+| 2 | ~~**The full re-fetch and re-parse has not been run.** Every count here is an old-parser floor; the §2.2 projections are predictions; §3.6 and §8.6 must be recomputed on realised counts~~ — **CLOSED 2026-08-30**: the re-fetch and re-parse ran over the full 2022Q1–2025Q4 universe (**4,639 unique initial 13Ds**, 0 fetch failures, 11/11 parser gate passing); funnel and per-quarter parse rates committed at `empirics/output/reparse_funnel.csv` and `reparse_quarterly_parse_rates.csv`; §2.1, §2.2, §3.6, §4, §5, §8.1 and §8.6 recomputed on realised counts (`research/empirics_v4/reparse_report_2026-08-30.md`). The re-parse also found the double-count that halves every level (§2.1) | closed | No |
+| 3 | ~~**CIK→CUSIP link code is not in the repo.** The 7,970 values on disk are reusable but not reproducible or extensible, and the never-13D control universe (§11 row 23) depends on it~~ — **CLOSED 2026-08-30**: `empirics/link_cik_cusip.py` and `empirics/build_control_universe.py` are committed and reproducible from the manifest. Validation gate — the filing-era cover CUSIP lies in the PERMNO's **observed CUSIP history** — scores **0.9522** on 941 checkable CIKs, **PASS** (`research/empirics_v4/link_rebuild_2026-08-30.md` §2; disagreement reasons enumerated in `empirics/output/cik_cusip_link_disagreements.csv`). **1,019 of 2,735** subject CIKs link by the ticker route — a ticker-route rate on a survivorship-truncated CRSP header, not a measure of target coverage, since delisted targets keep no ticker. Control universe regenerated: **3,600** never-13D PERMNOs (§8.2) | closed | No |
+| 4 | ~~**`empirics/data/` is a gitignored symlink to the pre-v4 checkout.** The 1.2 GB CRSP snapshot does not survive a machine change and is not backed up off-repo~~ — **CLOSED 2026-08-30**: **two** verified off-repo copies of the 21-file manifest exist, `Dropbox-DecisionScience/Austin Li/blockholder_backups/empirics_data_2026-08-30/` and iCloud Drive `blockholder_backups/empirics_data_2026-08-30/`, **both SHA-256 verified 21/21** with the hash manifest written inside each copy and row counts read back against §11 (`quality_reports/handoffs/2026-08-30_empirics-lane-handoff.md` §1). The symlink is unchanged — what closes is the operational risk, and it is closed twice over, on two independent sync services | closed | No |
 | 5 | **WRDS standing access unconfirmed** (worked once, 2026-06-11). Nothing here needs a new pull — but if item 4 bites, the free fallbacks carry survivorship bias that is fatal for a takeover sample | author | No, unless 4 bites |
-| 6 | **Which rung of the §6 ladder is "the" bound (20 / 3 / 1 pp) is a judgement**, not something the release settles. All three are printed here and must be in the draft. Also read from the card, not from a first-hand read of the release in this ticket | ticket 11 | No |
+| 6 | **Which rung of the §6 ladder is "the" bound (20 / 3 / 1 pp) is a judgement**, not something the release settles. All three are printed here and must be in the draft. ~~Also read from the card, not from a first-hand read of the release in this ticket~~ — **second clause discharged 2026-08-30 at commit `b040896`**: ticket 11 re-verified Table 3 p. 189 and the p. 188 prose against the release text itself, so the ladder no longer rests on the card alone. The first clause is not closable by evidence — it is a judgement, and all three rungs stay printed | ticket 11 (discharged) | No |
 | 7 | **The base rates are borrowed and mismatched.** GS's 18.1% / 7.2% are *acquired*, 1993–2006, with no SEs in Table 6 and three inconsistent counts in the paper. Our *bid* rates are higher, so the true MDE exceeds §8.6's | ticket 14 | No — recompute |
-| 8 | **The repeat-filer count behind the dose** (2,004 of ~2,016) is old-parser output and looks high. If it does not survive the re-parse, the dose falls back to stratum imputation | ticket 11 | No |
+| 8 | ~~**The repeat-filer count behind the dose** (2,004 of ~2,016) is old-parser output and looks high. If it does not survive the re-parse, the dose falls back to stratum imputation~~ — **CLOSED 2026-08-30, and the suspicion was right.** It did not survive: the old count was a double-listing artefact (every one-filing filer appeared twice). Realised, in §4's own dose window, **189 of 1,710 filer CIKs have ≥ 2 pre-period filings, covering 577 of 2,098 filings (27.5%)**. The dose does fall back on stratum imputation for most of the sample; §4 says so, and the construction is unchanged | closed | No |
 | 9 | **Rights-plan coverage from EDGAR is untested** (§11 row 28). Until tried, the BBJJ defence channel is signed, not estimated | ticket 13 | No |
 | 10 | **Zeng's IA Table IA.2 (firm-size split) is not in hand** — flagged decision-critical in `research/cards/INDEX.md` §3, and the nearest occupied cut to our liquidity split | author (Springer IA) | No, but a referee will raise it |
 | 11 | **Dass et al.'s premium numbers need the published JCF (2024) version** before any of them enters a draft (INDEX §2). The premium leg is out of scope, so nothing here depends on it | author | No |
 | 12 | **Few-cluster inference on the month dimension** (~48 clusters). Wild bootstrap is the standard fix, not a guarantee; if it disagrees with the analytic SEs, the more conservative is reported and the disagreement stated | ticket 11/14 | No |
 | 13 | ~~Proposal / adoption dates second-hand~~ — **CLOSED** by the ticket-10 verifier: proposal **2022-02-10** (Release 33-11030; 2022-03-10 was the *Federal Register* date carried by P4), adoption **2023-10-10** (press release 2023-219), effective **2024-02-05**. Nothing is cut on the proposal date | closed | No |
 | 14 | ~~Structured-data mandate date unverified~~ — **CLOSED** by the ticket-10 verifier: Release 33-11253 §II.G says compliance "will not be required until December 18, **2024**". The card's December 18, **2023** is the *voluntary* date from the same section. §2.2's sample end and §8.5 row v stand | closed | No |
-| 15 | **σ(JUMP) = 0.12, σ(RUNUP) = 0.15 are assumptions**, not card facts; no card prints a 13D window-CAR standard deviation. Every §3.6 MDE scales linearly in them | ticket 11 | No — recompute |
+| 15 | ~~**σ(JUMP) = 0.12, σ(RUNUP) = 0.15 are assumptions**, not card facts; no card prints a 13D window-CAR standard deviation. Every §3.6 MDE scales linearly in them~~ — **CLOSED 2026-08-30** by the registered recompute: realised **σ(RUNUP) = 0.53, σ(JUMP) = 0.38, σ(RUNUP5) = 0.54** off `empirics/output/h1_sample.csv` (0.40 / 0.55 on the H2 main sample, `h2_estimate.json:sigma_realised`) — **roughly 3× the assumptions**. §3.6's MDEs are rescaled accordingly, on realised counts at the same time | closed | No |
 | 16 | **The triple-difference MDE uses a "SE roughly doubles" rule of thumb** (§9), pending the realised within-sample variance of LIQ | ticket 14 | No |
 | 17 | **BBJJ's cross-sectional days→stake sign runs against the accumulation story** (−0.001\*, Table A2 p. 37). Read as selection — but if §5's reform estimate comes back with the same orientation, the two are not independent evidence and the paper must say so | ticket 12 | No |
 
@@ -1228,3 +1490,141 @@ and marked **CLOSED 2026-08-30**, blocking status unchanged at No.
 
 This spec's design is unchanged: the sign remains the estimand, both branches remain live,
 and no prediction, test, sample rule, or variable defined above is modified by this note.
+
+## Corrigendum — 2026-08-30 (realised counts; no test changed)
+
+**The mandatory re-parse of §2.2 has run, and it found a counting error sitting underneath
+every number in this document.** EDGAR's quarterly `form.idx` lists each 13D **twice** —
+once under the filer's CIK directory and once under the subject's, same accession, same
+submission text — and the pipeline that built the committed `fact2_parsed.jsonl` never
+deduplicated on accession. Its **9,234 rows are 4,639 unique filings** (9,190 rows sit in
+duplicate pairs; 44 are listed once). Every §2.1 count, the §2.2 projection and the §3.6
+and §8.6 power tables were computed on that file, so their **levels were inflated by
+roughly two** while ratios such as `w` were roughly unaffected. The deduped level is the
+one that survives an external check: SEC Release 33-11253 Table 2 puts initial 13Ds at
+~1,430/year over 2011–2021, so 4,639 over four years (~1,160/year) is in range where
+9,234 (~2,300/year) was not. Sources for everything below:
+`research/empirics_v4/reparse_report_2026-08-30.md` (§0 for the finding, §9 for the
+authoritative supersession list), `research/empirics_v4/link_rebuild_2026-08-30.md` for
+the link and the control universe, and the committed outputs
+`empirics/output/reparse_funnel.csv`, `reparse_quarterly_parse_rates.csv`,
+`reparse_counts.json`, `never13d_control_summary.csv`, `never13d_control_universe.csv`,
+`h1_sample.csv`, `h1_estimate.json`, `h2_estimate.json`.
+
+**The realised funnel is the headline of this note:**
+**4,639 enumerated → 3,710 with a parsed trigger date (80.0%) → 3,356 inside the 0–90-day
+band → 1,465 CRSP-matched (755 pre / 710 post) → 1,112 in the estimation sample
+(569 / 543).** Two mechanisms the §2.2 prediction named are confirmed outright — 2025's
+trigger-date parse rate goes **0% → 100%**, and like-for-like the post leg grows
+**451 → 1,626, a factor of 3.6** — and the level still lands at roughly a third of the
+projected N ≈ 4,950, because the projection was written on the double-counted base. The
+binding constraint is no longer parsing but the CRSP match: 56% of in-band filings drop at
+§2.3 step 3 (415 no CUSIP, 462 CUSIPs absent from the snapshot, 773 present but failing
+the common-US screen, 241 with too few observations).
+
+**Every supersession this note makes, in document order.** In each case the printed value
+is kept visible, struck or shown as *printed → realised*, and the realised value carries
+this date.
+
+1. **The one-page summary** — the DiD's best MDE, 4.4 → **9.1 pp**; the "every count is a
+   floor" clause marked done.
+2. **§2.1** — both count tables restated *printed → realised* (filed-date split:
+   9,234 → 4,639 parsed, 4,638 → 3,710 with a trigger, 3,897 → 3,241 with trigger and
+   CUSIP, 6,189 → 4,278 with a stake; trigger-date split: 3,586/1,052 → **1,945/1,765**
+   and 3,000/897 → **1,615/1,626**); the post share **w = 0.230 → 0.485**; the trigger-year
+   row 1,550/1,616/1,199/0 → **835/879/819/1,024**; stale triggers 273 → **153**;
+   straddlers 183 → **111**. The unique-CIK rows (2,735 subjects, 312 in both, 3,503
+   filers) are **dedup-invariant and confirmed unchanged**. The double-count finding is
+   stated where the old "counts as they stand today" sentence stood.
+3. **§2.2** — the prediction paragraph is left **exactly as written**, because it is a
+   pre-registration and scoring it is the point; a dated note beneath it records the
+   realised outcome and separates the level miss (the double-count) from the mechanism
+   (confirmed).
+4. **§3.6** — superseded on **two** inputs at once. Counts, as above; and σ, per §13 item
+   15: **σ(RUNUP) 0.15 → 0.53, σ(JUMP) 0.12 → 0.38, σ(RUNUP5) → 0.54** off
+   `h1_sample.csv` (0.40 / 0.55 on the H2 main sample). The MDE table keeps both printed
+   rows struck and adds two realised rows with the arithmetic shown; the clustering
+   multiplier range ×1.1–×1.9 is **unchanged**; the honest-reading range moves
+   **1.1–2.3 pp → 6.1–14.7 pp** per sd of illiquidity (7.0–16.9 pp on the estimation
+   sample), i.e. from 40–80% of Zeng's mean run-up to roughly 2.2–5.3 times it.
+5. **§4** — the repeat-filer count 2,004 of ~2,016 → **189 of 1,710**, covering 577 of
+   2,098 dose-window filings (27.5%). The sentence "the repeat-filer restriction costs
+   almost nothing" is struck: the stratum-imputation fallback is now load-bearing. The
+   dose construction and the rule confining imputed observations to the robustness row are
+   untouched.
+6. **§5** — usable N 4,950 → **1,465**, and the winsorised sd of STK **8 pp (BBJJ-scale) →
+   23.86 pp realised**, so **MDE(γ) 0.65 → 3.50 pp, clustered 0.85 → 4.54 pp**. The 0.12 pp
+   days–stake hazard arithmetic is unchanged and its conclusion hardens from ~7× to ~38×.
+   The stake leg is no longer the best-powered estimate in the package. The section's
+   "nothing in §5 may be quoted before the re-parse" caveat is discharged for the re-parsed
+   file (percent-of-class coverage 67.1% → 92.2%) and kept for the archived one.
+7. **§6** — one quotation of §8.6 updated (4.4 → 9.09 pp). The ladder, the three
+   restrictions on stating the bound and the interpretive rule are arithmetic on the SEC's
+   own tables, carry no count of ours, and are untouched.
+8. **§8.1** — S1 3,000/897 (or ~3,000/~1,950) → **569/543** estimation, **755/710**
+   CRSP-matched; S2 ~600/~390 → **114/109**.
+9. **§8.2** — the "~11,000 candidates" sentence was pre-filter arithmetic on all 14,092
+   PERMNOs. Realised: **5,443 ever-common-US candidates → 1,843 excluded (E1–E6) → 3,600
+   never-13D controls**. Adequate for 3:1 against the realised treated N, tight inside
+   exact SIC-2 × quarter cells. The **amendment-orphan caveat** is stated with its number:
+   28.2% of sampled amendment subjects have no in-window original, and the residual upper
+   bound is **~3,200 pool PERMNOs**.
+10. **§8.6** — the whole table superseded: **S1 4.40 → 6.94 pp (5.8 → 9.09 clustered)**,
+    **S2 7.53 → 15.50 pp (9.9 → 20.30 clustered)**, arithmetic shown. The base rates, the
+    0.1705 variance term and the 1.31 multiplier are unchanged — only counts moved. The
+    "read this next to §6" tension is now the dominant feature of the leg: S1's MDE is
+    **three times** the 3 pp headline bound, and **S2's 20.30 pp exceeds even the loose
+    20 pp rung, so S2 is arithmetically vacuous at realised counts** and is reported as an
+    interval and a sign, never as a test. S1 still rules out the large-effect world.
+11. **§9** — the τ rule of thumb is **rescaled, not recomputed**: ~8.8 / ~19.8 pp →
+    **~18.2 / ~40.6 pp**, by applying the same doubling rule to §8.6's realised clustered
+    MDEs. The realised within-sample LIQ variance **is** reported — **0.985 (sd 0.993)**
+    from `h1_sample.csv`, with sd(log ILLIQ) = 2.926 and IQR 4.303 — which confirms the
+    rule's premise rather than replacing it.
+12. **§10** — **no row is modified.** A dated pointer records that the bracketed MDEs in
+    the decision table are quotations of §3.6, §5, §8.6 and §9 and inherit their
+    supersessions, with the realised value for each row named. §0 rule 2 makes §10 the
+    place the MDE was fixed in advance, so the printed figures stay printed.
+13. **§11** — row 11's "the CIK→CUSIP linking code is not in the repo" is struck (it is
+    committed, gate 0.9522 PASS) and the CUSIP-coverage share restated on unique filings;
+    row 23's control universe marked built at 3,600 PERMNOs. No status label in the
+    manifest changes except row 11's code half, **[PULL] → [DISK]**.
+14. **§12** — the power-summary row updated on all four legs; the parser-validation gap
+    "(ii) the full-universe re-parse has not been run" closed and replaced by the
+    honestly-stated successor gap (a ~20–30% pre-XML cover-page residual, so the overall
+    parse rate is 80.0%, not 100%); the attrition-funnel bullet given its realised chain.
+15. **§13** — items **2** (re-parse, was BLOCKING), **3** (link code + control universe,
+    was BLOCKING for the DiD), **4** (off-repo backup, operational risk #1), **8**
+    (repeat-filer count) and **15** (σ assumptions) marked **CLOSED 2026-08-30** in the
+    struck-through style of items 1, 13 and 14; item **6**'s second clause discharged at
+    commit `b040896`, its first clause left open because it is a judgement, not a fact.
+
+**Why this is a corrigendum and not a redesign.** §0 says the only numbers computed for
+this document are **counts** and **power arithmetic** from those counts plus variance
+assumptions, and that those two things are **pre-specification inputs, not results**. This
+note replaces exactly those inputs with their realised values, which the document itself
+instructed: "Every count in this document is a floor" (§0 one-pager and §2.2), variance
+assumptions "to be replaced by realised SDs once the CARs exist" (§3.6), "§3.6 and §8.6
+must be recomputed on realised counts" (§13 item 2), and the repeat-filer count "must be
+recomputed after the re-parse before it is quoted anywhere" (§4). **No prediction, no
+test, no sample rule, no variable, no window, no filter, no standard-error rule, no
+decision rule and no supportive/against condition is modified by this note.** Every
+prediction that was written against a projected count — §2.2's, above all — is left
+verbatim and scored beside itself. Nothing here is a treatment effect: the realised σ and
+the realised standard errors quoted as a cross-check in §3.6 are design quantities, and
+**no estimated value of δ, β, γ, φ or τ is printed anywhere in this document** — only the
+precision with which each could be estimated.
+
+**Two count-dependent projections remain projections, and are labelled so.** (i) **§8.6's
+base rates.** Greenwood–Schor's 18.1% / 7.2% are still borrowed, still *acquired* rather
+than *bid* rates, and §13 item 7 stays open until BID12 exists — our rates will be higher,
+so the realised MDEs above are, if anything, optimistic. (ii) **§9's τ MDE.** It is a
+rule-of-thumb rescale, not the exact recompute §9 promises, because the exact figure needs
+the residual variance of `Treat × Post × LIQ` **in the matched sample**, and the §8.2
+matching has not been run — no committed output carries control-side LIQ. §13 item 16
+stays open and the recompute happens at the §9 estimation ticket. Inventing either input
+would defeat the purpose of pre-specifying them.
+
+**The sign corrigendum above stands unaltered.** Both H2 branches remain live, Branch A
+remains the theory-indicated branch under its four conditions, Branch B remains the
+falsifiable alternative, and the sign remains the estimand.
