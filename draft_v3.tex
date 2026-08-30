@@ -63,7 +63,7 @@
 \title{\textbf{Liquidity, Activism Disclosure, and Takeover Premia}\\[0.3em]
 \large A Theory of Exit, Voice, and Corporate Control}
 \author{Austin Li\\[0.25em]}
-\date{This draft: 29 August 2026}
+\date{This draft: 30 August 2026}
 
 \begin{document}
 \maketitle
@@ -86,15 +86,20 @@ premium to liquidity, with no dominance condition, while a tighter window margin
 only if a weight ratio times a composition ratio is at most one. The composition ratio is
 unsigned, so the window margin is not a theorem and the two margins are genuinely different policy
 coordinates. Third, the fixed-policy attenuation sign survives in equilibrium on a
-dominance-and-contraction region carried as a named hypothesis, with grid evidence that such
-nodes exist, including a contiguous block of nine nodes. On the implemented calibration the window record shows
-attenuation at every checked node, with the composition leg carrying the effect. The empirical
+dominance-and-contraction region carried as a named hypothesis; the region is not exhibited, and
+the grid record is that eighteen of eighty nodes satisfy the two pointwise inequalities, in a
+largest contiguous block of nine, which verifies neither the full hypothesis nor a nonempty region.
+On the implemented calibration the window record shows attenuation at every checked node, with the
+composition leg carrying the effect; at that same calibration the chord restriction behind the
+threshold-margin result and behind the composition ratios is itself measured to fail, so the results
+conditional on it say nothing there. The empirical
 anchor is the February 2024 acceleration of the Schedule 13D deadline from ten calendar days to five
-business days: executed descriptives show the median filing delay falling from seven to five
+business days: descriptives from a seeded filing sample show the median filing delay falling from seven to five
 business days and the share filed inside the new deadline rising from 36 to 76 percent. The paper
-closes with a pre-specified empirical design (a run-up/filing-day timing split, a bindingness
-dose, and a bounded null built from the Commission's own tables), and with the choice of headline
-empirical claim left open, not yet made.
+closes with a pre-specified empirical design: a run-up/filing-day timing split, a bindingness dose,
+a stake-at-filing leg, a bounded null built from the Commission's own tables, a matched
+difference-in-differences on the bid hazard, and a bidder-entry-by-liquidity leg. The timing split is
+the specification's default headline; final selection remains pending.
 \end{abstract}
 
 \newpage
@@ -111,7 +116,8 @@ window that, from February 5, 2024, runs five business days instead of the ten c
 had stood since 1968 \citep{SEC2023}. The rule has two separable parts, and this paper treats each as its own policy coordinate. The \emph{threshold margin} decides which stakes trigger a
 filing at all; the United States sets it at 5 percent, the United Kingdom at 3 percent with rungs at
 every point above. The \emph{window margin} decides how much accumulation can happen before the
-filing lands; the February 2024 acceleration cut it in half. Neither margin is scenery. Both move
+filing lands; the February 2024 acceleration shortened it, from ten calendar days to five business
+days. Neither margin is scenery. Both move
 what the market sees while a large trader is still trading, and what the market sees moves what a
 bidder is willing to pay.
 
@@ -127,11 +133,12 @@ line is redrawn through either margin.
 The answer differs across the margins, and saying so precisely is the paper's main theoretical
 contribution. Earlier work on liquidity and blockholder governance gives one-parameter answers:
 liquidity funds monitoring \citep{Maug1998}, liquidity is irrelevant under free entry
-\citep{KahnWinton1998}, liquidity disciplines through exit \citep{AdmatiPfleiderer2009}. The
+\citep{KahnWinton1998}, liquidity blunts the disciplining threat of exit by making exit less
+informative \citep{AdmatiPfleiderer2009}. The
 disclosure rule sits outside all of them. Maug notes that pre-trade disclosure would destroy
 camouflage and moves on. The trading-and-takeover literature has the pieces without the rule:
-\citet{KyleVila1991} mix disclosed and undisclosed trades but disclaim disclosure requirements by
-assumption; \citet{BackEtAl2018} have a fixed horizon at which the stake becomes known and show that
+\citet{KyleVila1991} split the market's inference between pooled and revealed trading but disclaim
+disclosure requirements by assumption; \citet{BackEtAl2018} have a fixed horizon at which the stake becomes known and show that
 shortening it is isomorphic to reducing noise-trading volatility, so for them the window is a
 rescaling, not a mechanism; \citet{CetemenCisternasKolbViswanathan2026} place a whole multi-trader
 game inside an unmodelled pre-disclosure window. No paper in the competitor set combines the two
@@ -156,7 +163,8 @@ implemented model; nonexistence is neither claimed nor shown, and twenty-three o
 equilibrium-sweep nodes converge.
 
 \emph{Attenuation} (Theorem~\ref{thm:T1}). At fixed plan and cutoff policies, with the two cells
-both on path, the liquidity sensitivity of the expected engagement-related premium factors exactly
+both on path and the pooled cell's liquidity sensitivity strictly positive, the liquidity
+sensitivity of the expected engagement-related premium factors exactly
 as $\mathcal S = (1-\Omega)\mathcal S_P$: the pooled cell's sensitivity, scaled by the pooled cell's
 weight, where $\Omega$ is the probability the flag lands. Tightening the threshold margin moves mass
 from the pooled cell into the flagged one and attenuates: both the weight ratio and the
@@ -173,37 +181,42 @@ allowed to move with liquidity, the term that Theorem~\ref{thm:T1} discards retu
 fixed-policy attenuation sign survives in equilibrium on a \emph{dominance-and-contraction region}
 carried as a named hypothesis: the outer map contracts, the direct fixed-policy margin dominates a
 computable general-equilibrium remainder, and the equilibrium sensitivity then falls at a bounded
-rate in the threshold margin. The region is not exhibited; what is on file is numerical evidence
+rate in the threshold margin. The region is not exhibited; the numerical record shows
 that eighteen of eighty grid nodes satisfy the two pointwise inequalities, with the largest
 contiguous block, nine nodes, at $T = 5$.
 
 The numerical layer reads these results against the implemented calibration, and I report what it
 says without smoothing. The window record: cutting the window from $T=10$ to $T=5$ cuts the premium's
 liquidity sensitivity to between 18 and 77 percent of its long-window value at every checked node,
-and the composition leg carries almost all of it; the weight leg shaves 3 to 14 percent. At that
+and the composition leg carries almost all of it; the weight leg shaves 3 to 14 percent. The record
+carries a caveat of its own, that at the horizon used for the headline comparison the long window
+sits at the corner of the calendar, and Section~\ref{sec:outcomes} states it with the interior
+re-run that answers it and the route that re-run travels. At that
 calibration the model's directional prediction for the 2024 acceleration is attenuation. But the
 chord restriction $\Atau$, the antecedent that carries the threshold-margin leg and the closed form
 behind the composition ratios, is measured to \emph{fail} at the implemented calibration: the pooled
 posterior law carries between 23 and 767 distinct posterior values where the restriction's
 representation asks for three, at every one of 180 non-degenerate nodes. The conditional results
-stay proved, their proofs untouched; at that calibration they say nothing about the implemented
-pooled cell. The paper says this once, where it belongs, and the spec for the empirics carries both
-possible signs rather than assuming the theory's direction.
+remain proved as conditionals; at that calibration they say nothing about the implemented
+pooled cell. The paper records this wherever a result leans on the restriction, and the
+specification for the empirics carries both possible signs rather than assuming the theory's
+direction.
 
 The empirical half of the paper is built on the February 2024 acceleration and is honest about what
 has been run. Executed descriptives from a seeded sample of initial 13D filings show the median
 trigger-to-filing delay falling from 7.0 business days before the rule to 5.0 after it, and the share
 of filings inside the new five-business-day deadline rising from 35.7 to 75.6 percent
 (Section~\ref{sec:empirics}). That is the first stage, and it lines up with what the Commission itself projected. The rest of the empirics is a written specification, fixed before estimation, with
-three legs: a \emph{timing split} that tests the partition directly (the run-up from the 5 percent
-crossing to the filing should move with liquidity, the filing-day jump should not, and the two
-slopes differ); a \emph{bindingness dose} that splits filers by how hard the new deadline binds
-them; and a \emph{bounded null}, arithmetic on the Commission's own tables that caps the
-accumulation channel's effect on the twelve-month bid hazard at about three percentage points, a
-ceiling the matched difference-in-differences cannot separately detect, which is stated as the
-design's honest deliverable rather than a footnote. The choice of headline empirical claim is one I
-have not made; Section~\ref{sec:headline-shell} lays out the candidates and marks the choice
-pending.
+six substantive legs: a \emph{timing split} that tests the partition directly (the run-up from the
+5 percent crossing to the filing should move with liquidity, the filing-day jump should not, and the
+two slopes differ); a \emph{bindingness dose} that splits filers by how hard the new deadline binds
+them; a \emph{stake at filing}, the model's own object, read against the shorter window; a
+\emph{bounded null}, arithmetic on the Commission's own tables that caps the accumulation channel's
+effect on the twelve-month bid hazard at about three percentage points; a \emph{matched
+difference-in-differences} on that hazard, which cannot separately detect even the ceiling; and a
+\emph{bidder-entry-by-liquidity} leg, which adds the liquidity interaction to the control-outcome
+test. The timing split is the specification's default headline; final selection remains pending in
+Section~\ref{sec:headline-shell}.
 
 The paper proceeds as follows. Section~\ref{sec:lit} sets out the institutional detail and
 positions the paper against the literature, and Section~\ref{sec:model} builds the two-round model
@@ -229,29 +242,36 @@ days. The SEC proposed shortening it in February 2022, adopted the amendments in
 made them effective February 5, 2024: the initial 13D deadline became five business days, amendments
 on material change became two business days, and the parallel changes for Schedule 13G took effect
 September 30, 2024 \citep{SEC2022,SEC2023}. Item 4 of the form asks the filer to state its purpose;
-control-intent filers use the 13D and passive investors the shorter 13G, and which of the two a
-given block lands in is itself a choice the rule frames.
+control-intent filers use the 13D, while the shorter 13G is open to three eligible classes (exempt
+investors, qualified institutional investors, and passive holders below 20 percent who certify no
+control intent). Which of the two a given block lands in is a choice the rule frames rather than an
+accident of the holder, and eligibility for the short form is itself a type variable rather than a
+random one.
 
 Both margins of the rule vary across jurisdictions, and the variation is not subtle. The United
 Kingdom sets the initial threshold at 3 percent with notification at every additional percentage
 point, within two trading days. The EU Transparency Directive sets a ladder at 5 percent and above
 with four trading days, and several member states start at 3 percent. The threshold margin is
-therefore a cross-section object and the window margin a time-series one, and the February 2024
-acceleration is the cleanest dated change either margin has had in half a century, which is why
+therefore a cross-section object and the window margin a time-series one. Other jurisdictions have
+moved their windows too, the EU cutting its Transparency Directive deadline to four trading days in
+2013 among them; what recommends the February 2024 acceleration as an anchor is that it is a dated
+change to one margin, in one jurisdiction, with a clean before and after. That is why
 it anchors this paper and why it has begun to anchor others \citep{PolkBuchheitRileyStone2024,
 Trivedi2026}.
 
 Two institutional facts discipline the model. First, the window is a \emph{legal deadline attached
 to a partition}, not a random horizon: the clock starts when the stake crosses the threshold, the
 filing lands at most $T$ days later, and between the crossing and the filing the market prices the
-stock without the flag. Second, the pooled cell is pooled \emph{for the price-setting market}.
+stock without the flag. The model takes the deadline itself as the filing date, so filing early is
+outside what it claims. Second, the pooled cell is pooled \emph{for the price-setting market}.
 \citet{Zeng2026} documents that a target's own managers learn of the accumulation through
 stock-surveillance vendors before the filing, and that the price run-up begins on the trigger date.
 The cell is leaky at its edges, which is a measurement problem for the empirics, not a failure
 of the partition for the market makers who set prices. On the delay distribution itself,
 \citet{BebchukBravJacksonJiang2013} show filers bunching at the old deadline: 45.3 percent of
-filings by engaging investors in their sample land in the eight-to-ten-day bucket and roughly a fifth on day ten
-itself. So the window binds for a large share of filers, which is what makes the February 2024
+filings by engaging investors in their sample land in the eight-to-ten-\emph{business}-day bucket
+and roughly a fifth on the tenth business day itself, their delays being counted in business days
+against a deadline the rule states in calendar days. So the window binds for a large share of filers, which is what makes the February 2024
 acceleration a treatment rather than a formality.
 
 \subsection{Exit, voice, and liquidity}
@@ -271,7 +291,8 @@ Two limitations of this strand shape the present paper. The four classics use fo
 liquidity parameters (camouflage, noise volume, informativeness, exit noise) with three
 different signs, so ``liquidity and governance'' is not one question. And none of the four has a
 bidder, an offer, or a premium: takeovers appear in \citet{Maug1998} only as a relabelled intervention
-technology, and the others abstract from control transfers by name. The object this paper studies,
+technology, \citet{KahnWinton1998} and \citet{FaureGrimaudGromb2004} set control transfers aside in
+terms, and \citet{AdmatiPfleiderer2009} simply has no bidder. The object this paper studies,
 the sensitivity of an expected takeover premium to liquidity and what the disclosure rule does
 to that sensitivity, is not stated in any of them.
 
@@ -305,7 +326,9 @@ window into them and has no second player. \citet{CorumLevit2019} put a takeover
 disclosure threshold in one model, but the threshold does three jobs at once (liquidity break, 13D
 trigger, pill trigger), no comparative static in it is stated, and the flagged state never occurs on
 path. \citet{OrdonezCalafiBernhardt2022} study the optimal threshold level (crossing reveals the
-position, so in equilibrium the engaging blockholder's stake sits at the threshold), and they assert, without
+position, so in equilibrium the engaging blockholder's stake is the smaller of the threshold and its
+unconstrained optimum, the threshold acting as an upper bound on the position and hence on trading
+profits), and they assert, without
 a proposition, the interaction between liquidity and the threshold on managerial discipline; the
 object here is a control outcome and the interaction is proved. \citet{BurkartLee2022} have the
 premium and explicitly hand over the missing piece: they do not endogenize the toehold in anonymous
@@ -392,14 +415,14 @@ $\to$ flag or no flag $\to$ flagged round if applicable $\to$ bidder decision.
 Two features of this timing are load-bearing, and each is stated as a hypothesis rather than left in
 the prose, because named proof steps fail without them.
 
-\begin{assumption}[\S2 no-feedback: no within-window re-optimisation]
+\begin{assumption}[No feedback: no within-window re-optimisation]
 \label{asm:nofeedback}
 The blockholder does not re-optimise inside the filing window. There is no feedback from realised
 order flow or from realised prices into the executed path: $B_j(s,d)$, $q_{jd}(s)$ and $Q_j^F$ are
 functions of $(j,s,d)$ and of $(j,s,\tau,T)$ alone.
 \end{assumption}
 
-\begin{assumption}[\S2 flag termination: the flag terminates the pooled round]
+\begin{assumption}[Flag termination: the flag terminates the pooled round]
 \label{asm:flagterm}
 Pooled trading stops when the filing lands. The flagged round follows the filing, and the bidder
 acts after the flagged round.
@@ -414,7 +437,7 @@ Proposition~\ref{prop:P1} fails.
 \subsection{Primitives}
 \label{sec:primitives}
 
-\begin{definition}[\S4.1 primitives: values, signals, noise and the disclosure policy]
+\begin{definition}[Primitives: values, signals, noise and the disclosure policy]
 \label{def:primitives}
 The standalone value is $v \sim N(\mu_v,\sigma_v^2)$ and the blockholder's private signal is
 $s = v + \varepsilon$ with $\varepsilon \sim N(0,\sigma_\varepsilon^2)$ independent of $v$, so that
@@ -429,7 +452,7 @@ noise-trading intensity. The disclosure rule is the pair $(\tau,T)$ with $T \in 
 blockholder's initial and maximum stakes are $b_0$ and $\bar b$ with $0 \le b_0 \le \bar b$.
 \end{definition}
 
-\begin{definition}[\S4.2 plans and the legal clock]
+\begin{definition}[Plans and the legal clock]
 \label{def:plans}
 The plan menu $\mathcal J$ is finite and ordered from least to most aggressive, with
 $|\mathcal J| = J < \infty$. Plan $j$ carries an engagement flag $a_j \in \{0,1\}$, equal to $1$ for
@@ -445,7 +468,7 @@ pooled order mark, $q_{jd}(s) = \Gamma\bigl(B_j(s,d) - B_j(s,d-1)\bigr)$, and ob
 flow is $X_d = q_{jd} + z_d$.
 \end{definition}
 
-\begin{definition}[\S4.3 information, prices and the control outcome]
+\begin{definition}[Information, prices and the control outcome]
 \label{def:prices}
 The pooled public history is $\mathcal H_d^P = (X_0,\dots,X_d;\ \text{flag landed by } d)$, which is
 finite. The filing message is $F = (B^F, a{=}1)$, and the flagged tuple is $F$ augmented by the
@@ -481,7 +504,7 @@ The genuine fixed point sits at the control nodes. At an earlier pooled date $d 
 tower expectation of already-solved control-node values, with no self-reference; only the
 control-node map is a fixed point to be solved.
 
-\begin{definition}[\S4.3 objective: the blockholder's payoff $U_j$]
+\begin{definition}[Objective: the blockholder's payoff $U_j$]
 \label{def:U}
 The blockholder's objective is the expected terminal value of the position the plan builds, net of
 what it costs to build and to engage:
@@ -502,11 +525,13 @@ $\Eop[\max_{j}|U_j|] < \infty$ under Assumption~\ref{asm:A2p}.
 \label{rem:Ctiming}
 Display \eqref{eq:Uj} does not date $C_j(s)$. The engagement cost may be booked either on completing
 the plan or as sunk once the filing has landed. The two readings give the same round-2 comparison on
-the round-2 deviation set, so the existence result of Proposition~\ref{prop:P1} does not depend on
-the choice; the statement there is written so as not to commit to a reading.
+the round-2 deviation set: under the sunk reading the continuation is constant on that set with no
+further clause, and under the plan-completion reading the equality of costs across the set is what
+the continuation-cost hypothesis of Proposition~\ref{prop:P1} buys. Either way the existence result
+does not depend on the choice; the statement there is written so as not to commit to a reading.
 \end{remark}
 
-\begin{assumption}[TR: the \S4.1--\S4.3 primitive table restrictions]
+\begin{assumption}[TR: the primitive table restrictions]
 \label{asm:TR}
 The primitives of Definitions~\ref{def:primitives}--\ref{def:U} satisfy the following, which several
 results below consume as a block.
@@ -544,7 +569,7 @@ results below consume as a block.
 \subsection{Equilibrium notion}
 \label{sec:equilibrium-notion}
 
-\begin{definition}[\S3: cutoff perfect Bayesian equilibrium]
+\begin{definition}[Cutoff perfect Bayesian equilibrium]
 \label{def:cpbe}
 A \emph{cutoff perfect Bayesian equilibrium} is:
 \begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
@@ -567,10 +592,12 @@ $k = \Tmap(k;\vartheta)$. Uniqueness is \emph{not} claimed.
 
 The hypotheses below are the model's standing assumptions. They are not all maintained at once by
 every result: each result in Sections~\ref{sec:existence} and~\ref{sec:outcomes} names the subset it
-consumes, and three of them carry numerical records showing that they fail at the calibration
-the accompanying implementation runs. Those records are stated with the results that consume them
-(Remarks~\ref{rem:A3record}, \ref{rem:A6record}, \ref{rem:AtauRecord} and~\ref{rem:P1record}), not
-deferred.
+consumes, and three of these hypotheses carry numerical records showing that they fail at the
+calibration the accompanying implementation runs. Those records are stated where the reader first
+meets what they bear on rather than deferred: beside the hypotheses themselves for
+Assumptions~\ref{asm:A3} and~\ref{asm:A6} (Remarks~\ref{rem:A3record} and~\ref{rem:A6record}), and
+with the results that consume it for the chord restriction (Remark~\ref{rem:AtauRecord}).
+Remark~\ref{rem:P1record} then reads all of it against Proposition~\ref{prop:P1}.
 
 \begin{assumption}[A1: independent primitives]
 \label{asm:A1}
@@ -605,21 +632,26 @@ loci, upstream of Assumption~\ref{asm:A6}. First, at $(\kappa = 0.5,\ \tau_{50},
 on an \emph{open set} above a cell edge (verified at offsets $10^{-9}$ through
 $2\times10^{-2}$), the difference $U_V - U_H$ has three strict sign changes, at
 $s = 1.5754434$, $1.5833333$ and $1.5902426$, with middle excursions of $2.4$--$2.8\times10^{-4}$
-against a $10^{-9}$ payoff tolerance. The pointwise argmax runs $H,V,H,V$, single-valued on each
+against a $10^{-9}$ payoff tolerance. Those excursions are the panel's grid maxima; refined
+per-interval maxima are larger, at $3.07$ and $2.69\times10^{-4}$, so the failure is if anything
+understated here. The pointwise argmax runs $H,V,H,V$, single-valued on each
 interval, so no weakly increasing selection exists: the selection set is empty and the outer map
 $\Tmap$ is \emph{undefined} there, not merely discontinuous. Second, at
 $(\kappa = 0.15,\ 0.05,\ 5)$, one of the four unresolved nodes of Remark~\ref{rem:P1record},
 the argmax reverses from Voice to Hold across cell edge $s = 1.659062163$ at both located fixed
 points, so the preferred plan decreases in $s$. The route is the $s$-direction step of the Voice
 payoff, whose interior count $n(s)$ is integer-valued, interacting with the off-path price snap. A
-candidate mechanical account of the four unresolved nodes (a fixed point sitting exactly on an
-edge where $U_H - U_V$ jumps through zero without crossing) has been swept over all four under a
-pre-registered rule and holds at all of them. Under the alternative, mass-proportional off-path
+candidate mechanical account of the four unresolved nodes, that the trouble sits at a cell edge
+where $U_H - U_V$ jumps through zero without crossing it, was probed at one node and then swept
+over the other three under a pre-registered rule; it holds at all three, though in different forms.
+At two of them a located fixed point sits on such an edge. At the third no fixed point was found on
+any candidate edge, and the account holds instead through the achieving basin's worst deviation,
+which sits in the cell immediately above one. Under the alternative, mass-proportional off-path
 family the first locus's failure relocates rather than disappears: the weakly-increasing-selection
 set is empty on an open set of $k_2$ under both families, so the verdict does not depend on the
 family. This is diagnostic evidence at one calibration, and existence at these nodes stays neither
-claimed nor denied. None of this changes any result's status: Assumption~\ref{asm:A3} is a hypothesis, and
-Proposition~\ref{prop:P1} stays proved as a conditional.
+claimed nor denied. None of this moves any result: Assumption~\ref{asm:A3} is a hypothesis, and
+Proposition~\ref{prop:P1} remains proved as a conditional.
 \end{remark}
 
 \begin{assumption}[A4: legal-clock discipline]
@@ -639,9 +671,9 @@ assumption. Under \eqref{eq:m0}, existence, uniqueness and continuity of the \em
 are proved, not assumed. With the belief summaries $\bar y(\mathcal I) = \Eop_\mu[v] + \pi\Delta_V$
 and $\bar m(\mathcal I) = m_0 + \pi\Delta_m$, the pricing map reduces to the scalar equation
 $P \mapsto \bar y + \bar m\,p(P)/(1-p(P))$, which is strictly decreasing in $P$ wherever
-$\bar m \ge 0$ and therefore crosses the identity exactly once. Three independent confirmations are
-on file, one of them an executed counterexample producing zero roots and another producing three
-once $m_0 < 0$. What Assumption~\ref{asm:A5} is retained for is its \emph{continuity} clause: the
+$\bar m \ge 0$ and therefore crosses the identity exactly once. Three independent calculations
+support this, one of them also recording two counterexamples: one producing zero roots and another
+producing three, once $m_0 < 0$. What Assumption~\ref{asm:A5} is retained for is its \emph{continuity} clause: the
 pricing family is continuous in the cutoff vector and the parameters, and measurable in the flagged
 tuple. Because the flagged information sets are continuum-indexed, ``unique fixed point'' must be
 read as a measurably selected family, not a finite list. Where a result below cites
@@ -653,8 +685,8 @@ root \emph{in its belief summaries} $(\hat v,\pi)$ follows from \eqref{eq:m0}. C
 retains as an assumption: the $k$-dependence runs through the conditioning rather than through the
 pricing map, and no step derives it. Remark~\ref{rem:A6record} records that composition measured
 discontinuous at the implemented calibration, at the same loci and by the same checks, so this
-clause carries adverse applicability evidence of its own. None of that changes any result's
-status: Assumption~\ref{asm:A5} is a hypothesis, and no result below consumes its cutoff clause.
+clause carries adverse applicability evidence of its own. None of that moves any result:
+Assumption~\ref{asm:A5} is a hypothesis, and no result below consumes its cutoff clause.
 
 \begin{assumption}[A6: compact outer self-map]
 \label{asm:A6}
@@ -674,13 +706,16 @@ lies inside the union of the finitely many \emph{cell-edge hyperplanes} $\{k_i =
 not the collapsed cutoff vectors as such. The jump reaches $\Tmap$ with non-vanishing weight,
 because $U_j$ integrates those prices against the deviator's own noise law, with weight at least
 $\min(\kappa/2,\,1-\kappa)^{d+1}$, independent of the dying plan's population mass; the
-vanishing-mass defusal is therefore refuted. The largest-weakly-increasing-selection tie-break is
+vanishing-mass defusal is therefore refuted. That analytic bound is not itself computed by any
+probe; what is measured is its counterpart, the jump entering the adjacent-plan payoff difference
+undiminished. The largest-weakly-increasing-selection tie-break is
 pointwise in $k$ and passes the jump through, and no $k$-independent perturbation family reconciles
 the limits: at fixed perturbation size the system is continuous in $k$, and the discontinuity is
 created only in the limit, which the choice of family cannot fix. The implemented menu's
 Hold-collapse face is measured clean, with pooled prices within $4.441\times10^{-16}$ as $k_1$ sweeps
 to full collapse, so the implemented menu is not in the class (middle plans owning exclusive
-pooled histories) on which no family works at all. At the implemented calibration the failure is
+pooled histories) on which no family works at all; that class result is a single-pass derivation
+and has not been independently checked. At the implemented calibration the failure is
 live at the interior $n(s)$ cell edges instead: measured $\Tmap_2$ jumps of $6.33\times10^{-3}$,
 $1.09\times10^{-2}$ and $2.83\times10^{-2}$ across steps in $k_2$ of at most $2\times10^{-9}$ at
 $(\kappa = 0.5,\ \tau_{50},\ T = 5)$, measured independently by two separate scripts and agreeing to
@@ -690,13 +725,16 @@ crossing of $\Tmap_2$ is destroyed. A chamber interior $\Theta^+ = [1.23,\,1.245
 (Brouwer runs on it verbatim and it contains $k^\star$), but it is not the $\Theta$ the existence
 argument constructs, it cannot be exhibited without approximately locating the fixed point first,
 and no such chamber exists at the $\kappa = 0.15$ node, where a fixed point sits exactly on the edge
-$k_2 = 1.659062163$. None of this changes any result's status: A6 is a hypothesis, and
-Proposition~\ref{prop:P1} stays proved as a conditional. Nonexistence is neither claimed nor shown:
-$23$ of $27$ sweep nodes converge, and a discontinuous self-map may still have fixed points. A
-standard repair (a $t$-constrained game with a Kakutani argument and $t \downarrow 0$) is
-identified but not executed, and what the implementation ships is a hard switch, so the
-$\Theta$-continuity that repair would buy is absent from the implementation at every resolvable
-scale.
+$k_2 = 1.659062163$. None of this moves any result: Assumption~\ref{asm:A6} is a hypothesis, and
+Proposition~\ref{prop:P1} remains proved as a conditional. Nonexistence is neither claimed nor shown:
+$23$ of $27$ sweep nodes converge, and a discontinuous self-map may still have fixed points. Two
+repairs are identified and neither is carried out here: a $t$-constrained game with a Kakutani
+argument and $t \downarrow 0$, and a cutoff-indexed concentration family, constructible but with an
+unresolved corner. What the implementation ships instead is a hard switch, so the
+$\Theta$-continuity either repair would buy is absent from the implementation at every resolvable
+scale; that last is a finding about the off-path family this implementation ships and not about
+every family. The coverage behind all of this should be read for what it is: probes at one node per
+claim class, together with the twenty-seven-node census, and no sweep over $(\kappa,\tau,T)$.
 \end{remark}
 
 \begin{assumption}[A7: filing sufficiency]
@@ -757,8 +795,9 @@ The pooled posterior law has the symmetric ternary representation
 \Eop[h] \;=\; A_0(\kappa)\,h(0) \;+\; A_{1/2}(\kappa)\,h(\bar\pi/2) \;+\; A_1(\kappa)\,h(\bar\pi),
 \end{equation}
 with $A_0' = A_1' = \Akap$ and $A_{1/2}' = -2\Akap$, and maintained orientation
-$C_h(\bar\pi) \le 0$ with $|C_h|$ weakly increasing in $\bar\pi$. Two further clauses are part of
-the restriction:
+$C_h(\bar\pi) \le 0$ with $|C_h|$ weakly increasing in $\bar\pi$. The orientation is the weak one,
+so the case $C_h(\bar\pi) = 0$ has to be handled explicitly wherever it is consumed. Two further
+clauses are part of the restriction:
 \begin{enumerate}[label=($\tau$-\roman*),leftmargin=3.2em,itemsep=3pt]
 \item \emph{The kernel depends on the information set only through the engagement posterior:}
   $h(\mathcal I) = h(\pi(\mathcal I))$, so the three numbers $h(0)$, $h(\bar\pi/2)$, $h(\bar\pi)$ are
@@ -800,7 +839,11 @@ For two compared thresholds $\tau' < \tau$ at fixed policies and a common $\kapp
   weights of \eqref{eq:atau}: the three support points $\{0,\bar\pi/2,\bar\pi\}$ and the kernel $h$
   \emph{as a function of the posterior} do not move with $\kappa$. Hence
   $\partial_\kappa M_P = \Delta_m \Akap C_h(\bar\pi)$ exactly, with no
-  composition-through-$\kappa$ remainder. The trailing ``hence'' is derivable, not assumed.
+  composition-through-$\kappa$ remainder. The trailing ``hence'' is derivable, not assumed. Read
+  against the literal display \eqref{eq:atau} this clause would restate (br-i); it is written
+  against the reading $h = \pi\,p(\hat v,\pi)$, and it repairs that ambiguity rather than adding a
+  further independent restriction, naming the same object as clause ($\tau$-i) of
+  Assumption~\ref{asm:Atau}.
 \item \emph{Coefficient stability across the threshold margin.}
   $|\Akap(\tau')| \le |\Akap(\tau)|$. The weakest sufficient form is equality: reclassification
   changes \emph{which} histories are pooled, not the $\kappa$-responsiveness of the pooled weights.
@@ -819,12 +862,12 @@ For two compared thresholds $\tau' < \tau$ at fixed policies and a common $\kapp
 \end{assumption}
 
 Assumption~\ref{asm:Abr} is consumed by leg 3 of Lemma~\ref{lem:L4} and by Part~(B) of
-Theorem~\ref{thm:T1}, and by nothing else. Clause (br-v) was independently required by three
-separate verification passes, one of which confirmed that it is not implied by (br-i)--(br-iv). One
-sharpening is recorded rather than assumed: with $\varrho := \tfrac12 A_{1/2} + A_1$, which is provably
-$\kappa$-free, $\bar\pi = \bar\pi_{\mathrm{pr}}/\varrho$, so (br-iv) is equivalent to
-$\varrho(\tau')/\varrho(\tau) \ge \bar\pi_{\mathrm{pr}}(\tau')/\bar\pi_{\mathrm{pr}}(\tau)$; under the
-level-symmetric reading $\varrho = \tfrac12$ and $\bar\pi = 2\bar\pi_{\mathrm{pr}}$, which forces
+Theorem~\ref{thm:T1}, and by nothing else. Clause (br-v) is needed in addition to (br-i)--(br-iv),
+because those four clauses do not imply it. One
+sharpening is recorded rather than assumed: with $\rho_{\mathrm{ch}}(\tau) := \tfrac12 A_{1/2} + A_1$, which is provably
+$\kappa$-free, $\bar\pi = \bar\pi_{\mathrm{pr}}/\rho_{\mathrm{ch}}(\tau)$, so (br-iv) is equivalent to
+$\rho_{\mathrm{ch}}(\tau')/\rho_{\mathrm{ch}}(\tau) \ge \bar\pi_{\mathrm{pr}}(\tau')/\bar\pi_{\mathrm{pr}}(\tau)$; under the
+level-symmetric reading $\rho_{\mathrm{ch}} = \tfrac12$ and $\bar\pi = 2\bar\pi_{\mathrm{pr}}$, which forces
 $\bar\pi_{\mathrm{pr}} \le 1/2$, an inherited restriction on the domain of
 Assumption~\ref{asm:Atau} that Lemma~\ref{lem:L4} does not resolve. Clause (br-iii) is the clause
 with the least justification behind it, and it is the one to attack first. Because (br-i) carries the
@@ -841,13 +884,16 @@ $\mathcal R$.
 \subsection{The cutoff polytope and the premium objects}
 \label{sec:polytope}
 
-\begin{definition}[\S4.5 equilibrium objects: $\Theta$, $\Tmap$, and the general-equilibrium bounds]
+\begin{definition}[Equilibrium objects: $\Theta$, $\Tmap$, and the general-equilibrium bounds]
 \label{def:theta}
 The cutoff vector is $k = (k_1,\dots,k_{J-1})$ with $k_1 \le \dots \le k_{J-1}$; when the menu is the
 four named actions of a one-round predecessor model it maps to that model's triple of cutoffs. The
 cutoff polytope $\Theta$ is nonempty, compact and convex, and $\vartheta$ is the parameter vector.
-The \emph{outer cutoff best-response map} is $\Tmap(k;\vartheta)$, a continuous self-map of $\Theta$; it
-is always written calligraphically, since upright $T$ is the filing window. On a region $\mathcal R$
+The \emph{outer cutoff best-response map} is $\Tmap(k;\vartheta)$, the cutoff vector that represents
+the best response to the conjecture $k$; it is always written calligraphically, since upright $T$ is
+the filing window. That $\Tmap$ is single-valued and continuous and maps $\Theta$ into itself is
+the content of Assumption~\ref{asm:A6} rather than of this definition, and
+Remark~\ref{rem:A6record} records that continuity measured to fail at the implemented calibration. On a region $\mathcal R$
 the contraction bound is $L_{\mathcal R} = \sup_{\mathcal R}\lVert D_k\Tmap\rVert$, required to be
 below $1$ by Assumption~\ref{asm:AGE}. The strictness coordinates are $r_\tau = -\tau$ and
 $r_T = -T$, so that higher $r$ is tighter. The direct fixed-policy attenuation margin is
@@ -871,7 +917,7 @@ in Appendix~\ref{sec:proofs-ge}. The \emph{dominance-and-contraction region} is 
 slack $\eta_r = g_r^{PE} - \mathcal B_r^{GE}$; the region may be empty.
 \end{definition}
 
-\begin{definition}[\S4.4 premium decomposition and comparative-statics objects]
+\begin{definition}[Premium decomposition and comparative-statics objects]
 \label{def:premium}
 The engagement-premium kernel is $h(\mathcal I) = \pi(\mathcal I)\,p(\mathcal I)$, with $h \ge 0$ and
 $h(0) = 0$, and the expected engagement-related premium is
@@ -914,9 +960,8 @@ degenerate, and it is excluded throughout.
 
 The existence result is stated as a proposition rather than as a theorem: the paper has one theorem,
 Theorem~\ref{thm:T1}, and existence is the standing ground for it rather than the claim the paper is
-making. Its hypothesis set is long, and every clause of it is load-bearing (an earlier
-statement was withdrawn and re-verified over exactly which form of one hypothesis the argument
-consumed), so the hypotheses are enumerated rather than gathered into a sentence.
+making. Its hypothesis set is long, and every clause of it is load-bearing, so the hypotheses
+are enumerated rather than gathered into a sentence.
 
 \begin{proposition}[P1: existence of a cutoff perfect Bayesian equilibrium]
 \label{prop:P1}
@@ -934,10 +979,8 @@ Assume:
   than the on-path form, Assumption~\ref{asm:A7p}, and it is the form the argument consumes where it
   pins \emph{off-path} flagged beliefs;\footnote{The distinction is not cosmetic. An earlier
   recorded statement of this result carried the on-path form while the proof consumed the joint
-  form, so the two verification passes on file covered two different statements; the earlier statement
-  was withdrawn and re-verified on that account, and the statement here is the amended one,
-  checked by a fresh adversarial proof-read and an independent statements-only re-derivation,
-  both by readers who did not write the proof. The form is named every time either appears.}
+  form. The joint form is stated here because the proof uses it to pin off-path flagged beliefs; the
+  on-path form alone would not suffice. The form is named every time either appears.}
 \item Lemma~\ref{lem:D1} by statement, \emph{with its own hypotheses travelling};
 \item the no-feedback timing of Assumption~\ref{asm:nofeedback}, read together with the
   flag-termination clause of Assumption~\ref{asm:flagterm};
@@ -1025,8 +1068,9 @@ carries interior data at every $k$, and the exclusion is a named domain narrowin
 Finally, \emph{at any such equilibrium at which Assumption~\ref{asm:A8} holds}, both cells carry
 strictly positive probability and both are on path; and for the restatement of
 Assumption~\ref{asm:A8} as a single signal threshold, add H-ord --- Voice stake monotonicity across
-plans --- and the upper-set engagement-flag hypothesis (the engagement flags $a_j$ equal one on an
-upper set of the ordered menu). \emph{Uniqueness is not claimed.}
+plans --- and the upper-set engagement-flag hypothesis (the engagement flags $a_j$ equal one
+\emph{exactly} on an upper set of the ordered menu: there is $j_a$ with $a_j = 1$ for $j \ge j_a$
+and $a_j = 0$ for $j < j_a$). \emph{Uniqueness is not claimed.}
 \end{proposition}
 \resultstatus{Proved under the stated hypotheses. The hypotheses are assumptions about the
 equilibrium object, and Remark~\ref{rem:P1record} records where the implemented calibration
@@ -1044,15 +1088,17 @@ supplies beliefs at every history that carries a requirement, on path and off: B
 reaching weight is positive, one fixed full-support perturbation family's limit elsewhere. Part~D
 discharges sequential optimality of the flagged component at every flagged pair, selected or not;
 the flagged price is invariant across the round-2 deviation set and hypothesis (P-10) makes the
-remaining continuation constant. Part~E builds the outer best-response map on the common bracket,
-verifies it is a continuous self-map of the compact ordered polytope $\Theta$ under the reading of
-Assumption~\ref{asm:A6}, applies Brouwer's fixed-point theorem, and assembles the six requirements
-of Definition~\ref{def:cpbe} at the fixed point, with the boundary values of $\kappa$ handled by
-extension. Part~F is the addendum: at an equilibrium at which Assumption~\ref{asm:A8} holds, both
-cells are on path. The full proof carries a closing scope statement of six disclaimers:
-uniqueness in no form, the addendum conditional at the equilibrium and nowhere else, boundary
-extension, one fixed convention, flagged-order optimality without uniqueness, and the withdrawn
-claim of a belief at every pooled history at $\kappa = 1$.
+remaining continuation constant. Part~E builds the outer best-response map on the common bracket.
+That the map is weakly ordered and carries the compact ordered polytope $\Theta$ into itself is
+derived there from Assumption~\ref{asm:A3}; the bracket itself and the continuity of the map are
+taken from Assumption~\ref{asm:A6} rather than derived. Brouwer's fixed-point theorem then applies,
+and the six requirements of Definition~\ref{def:cpbe} are assembled at the fixed point, with the
+boundary values of $\kappa$ handled by extension. Part~F is the addendum: at an equilibrium at which
+Assumption~\ref{asm:A8} holds, both cells are on path. The full proof carries a closing scope
+statement of six disclaimers: uniqueness in no form; the addendum conditional at the equilibrium and
+nowhere else; boundary extension, which is where the withdrawn claim of a belief at every pooled
+history at $\kappa = 1$ sits; one fixed convention; flagged-order optimality without uniqueness; and
+two hypotheses that are sufficient rather than necessary and are not verified menu by menu.
 
 \begin{remark}[Applicability, and the numerical status, of Proposition~\ref{prop:P1}]
 \label{rem:P1record}
@@ -1065,12 +1111,12 @@ the implemented calibration that map has measured jumps and stretches where no w
 selection exists at all. The proposition stays proved as a conditional, in the same pattern as
 $\Atau$: what is on record is that its antecedent, read with the $\Theta$ the proof constructs,
 is not satisfied by the implemented calibration, so at that calibration the proposition asserts
-nothing about the implemented model. Nonexistence is neither claimed nor shown anywhere. The label
-rests on the proof and its two verification passes, not on a grid, and the grid evidence is stated
-separately for that reason: twenty-three of twenty-seven equilibrium-sweep nodes converge, and the
+nothing about the implemented model. Nonexistence is neither claimed nor shown anywhere. The
+conditional stands on the proof, not on a grid. The grid evidence is stated separately: twenty-three of
+twenty-seven equilibrium-sweep nodes converge, and the
 remaining four ($\kappa \in \{0.15,\,0.85\}$ crossed with $(\tau,T) \in \{(0.05,\,5),\,(0.075,\,
-1)\}$) stay unresolved after thirty seeds each, with payoff-scale residuals of $10^{-4}$ to
-$10^{-3}$ against a $10^{-9}$ criterion. Existence at those four nodes is neither claimed nor denied
+1)\}$) stay unresolved after thirty seeds each, with best payoff-scale residuals of
+$3.1\times10^{-4}$ to $1.5\times10^{-3}$ against a $10^{-9}$ criterion. Existence at those four nodes is neither claimed nor denied
 by that evidence.
 \end{remark}
 
@@ -1110,8 +1156,10 @@ the control-node information set $\mathcal I_H$, supplied by Definition~\ref{def
   \end{equation}
 \end{enumerate}
 \end{lemma}
-\resultstatus{Proved under the stated hypotheses (Appendix~\ref{sec:proofs-core}). None of the
-hypotheses this lemma consumes carries adverse numerical evidence at the implemented calibration.}
+\resultstatus{Proved under the stated hypotheses (Appendix~\ref{sec:proofs-core}). The use of
+Assumption~\ref{asm:A5} is pointwise pricing and version selection only; the retained cutoff-composition
+continuity clause is not consumed, and its adverse evidence is recorded in
+Remark~\ref{rem:A6record}.}
 
 Part~(b) is the \emph{clock equivalence} that Lemma~\ref{lem:L4} and Theorem~\ref{thm:T1} both
 consume: it converts a statement about the filing date into a statement about the stake path $T$ days
@@ -1135,8 +1183,10 @@ At $\Omega = 1$ the identity degenerates to $\Dact = M_F$, and at $\Omega = 0$ t
 each degenerate case the average over the null cell is \emph{undefined rather than imputed}. That
 last clause is a non-identification statement, and it is proved rather than asserted.
 \end{lemma}
-\resultstatus{Proved under the stated hypotheses (Appendix~\ref{sec:proofs-core}). None of the
-hypotheses this lemma consumes carries adverse numerical evidence at the implemented calibration.}
+\resultstatus{Proved under the stated hypotheses (Appendix~\ref{sec:proofs-core}). Here
+Assumption~\ref{asm:A5} fixes the pointwise pricing version only; the retained cutoff-composition
+continuity clause is not consumed, and its adverse evidence is recorded in
+Remark~\ref{rem:A6record}.}
 
 \subsection{Liquidity in the flagged cell}
 \label{sec:flagged-results}
@@ -1156,7 +1206,7 @@ $\Sfl = (B^F, Q^F, a{=}1)$ makes the pre-filing pooled history conditionally ind
 $(v,s,\xi)$ on the flagged set, and consequently the flagged posterior, the flagged price, the entry
 probability and $M_F$ are all invariant to $\kappa$.
 \end{lemma}
-\resultstatus{Proved under the stated hypotheses (Appendix~\ref{sec:proofs-core}). The executed
+\resultstatus{Proved under the stated hypotheses (Appendix~\ref{sec:proofs-core}). The
 numerical check confirms the conclusion exactly at the implemented calibration (Remark~\ref{rem:T1record}).}
 
 Assumption~\ref{asm:A7} in its weak identification wording is not sufficient here: it permits two
@@ -1205,8 +1255,8 @@ already established by the support condition alone; the derivative pattern also 
 independently. The pooled cell's engagement-posterior law was enumerated exactly (all
 $4^{H+1} = 4{,}194{,}304$ order-flow paths, the same law the implementation integrates) at $200$
 nodes: $\kappa \in \{0.05,\dots,0.95\}$ crossed with the five frozen $\tau$ percentiles and
-$T \in \{1,2,5,10\}$, at frozen policies with $H = 10$. Two gates pass first, so the object measured
-is the one the restriction is about: an independent re-enumeration reproduces the pooled mass to
+$T \in \{1,2,5,10\}$, at frozen policies with $H = 10$. Two consistency checks establish that the
+object measured is the one the restriction is about: an independent re-enumeration reproduces the pooled mass to
 $0.0$ exactly, and the enumerated mean equals the pooled share $\bar\pi_{\mathrm{pr}}$ to
 $1.7\times10^{-16}$. Twenty nodes are degenerate: no engaging atom survives into the pooled cell,
 the law is the point mass at $0$, and the node decides nothing. At all $180$ non-degenerate nodes
@@ -1219,10 +1269,10 @@ $A_0' = A_1'$ holds at $0$ of $180$ nodes, and the chord identity's residual rea
 to $7.17$ premium percentage points, against a predicted $<10^{-10}$. One half of clause
 ($\tau$-ii) does hold: $\bar\pi = 1$ to $1.5\times10^{-13}$ at every non-degenerate node and is
 $\kappa$-free to the same order, which is a separate finding and not a partial rescue. This is
-numerical applicability evidence at one calibration; none of it changes any result's status,
-because $\Atau$ is an assumption rather than a labelled claim. Lemma~\ref{lem:L3}, leg 3 of
-Lemma~\ref{lem:L4} and Part~(B) of Theorem~\ref{thm:T1} stay proved as conditionals with their
-proofs untouched; at this calibration they say nothing about the implemented pooled cell. The open
+numerical applicability evidence at one calibration; none of it moves any result,
+because $\Atau$ is an assumption rather than a claim. Lemma~\ref{lem:L3}, leg 3 of
+Lemma~\ref{lem:L4} and Part~(B) of Theorem~\ref{thm:T1} remain proved as conditionals; at this
+calibration they say nothing about the implemented pooled cell. The open
 question is a question about the restriction's \emph{domain}: a different menu, a different $H$, or a
 different calibration could still satisfy the support condition. One coverage caveat travels with
 the record: the $18$ non-degenerate series are only \emph{six distinct pooled cells}, and all six
@@ -1317,24 +1367,24 @@ a window change, lands on the margin where the theory signs nothing.
 
 \begin{remark}[The window-margin record, verified on the numerical grid]
 \label{rem:T1record}
-The executed check runs the two-round model at frozen policies, cutoffs pinned at the baseline
+The numerical check runs the two-round model at frozen policies, cutoffs pinned at the baseline
 equilibrium $k = (1.240576,\,1.531022)$, where the flagged weight is $\Omega = 13.84$ percent, the
 disclosed share of engagements is $\omega_a = 61.15$ percent, and the cell averages are
 $M_F = 0.553$ and $M_P = 0.223$ premium percentage points, over a $\kappa$ grid of $71$ nodes on
 $[0.15,\,0.85]$, at five $\tau$ percentiles and $T \in \{5,10\}$. Table~\ref{tab:window-record}
 reports the weight leg, the composition leg and their product for the window cut
-$(T',T) = (5,10)$. Attenuation holds at every node: $W_T C_T < 1$ throughout, and the composition
-leg carries the effect: $C_T$ runs from $0.21$ to $0.79$ while $W_T$ shaves only $3$ to $14$
-percent.
+$(T',T) = (5,10)$. Attenuation holds at every node: $W_T C_T \le 1$ throughout, with no node above
+one, and the composition leg carries the effect: $C_T$ runs from $0.21$ to $0.79$ while $W_T$ shaves
+only $3$ to $14$ percent.
 
 \begin{table}[H]
 \centering
 \caption{The window-margin record at fixed policies: cutting the window from $T=10$ to $T=5$ at the
-implemented calibration. Weight leg $W_T$, composition leg $C_T$, product $W_T C_T < 1$ (attenuation)
-at every $\tau$ node. Verified on the numerical grid; sensitivity measured as the total variation of
+implemented calibration. Weight leg $W_T$, composition leg $C_T$, product $W_T C_T \le 1$
+(attenuation), with no $\tau$ node above one. Verified on the numerical grid; sensitivity measured as the total variation of
 $\Dact$ over the $\kappa$ grid. The $H = 12$ column re-runs the comparison with $T = 10$ strictly
-interior to the horizon, where the $0.9$-quantile node returns exactly $1.0$ because the $\tau$
-ladder stops biting, not because the product crosses one.}
+interior to the horizon, where the $0.9$-quantile node returns $1.0000$ because the $\tau$
+ladder stops biting and the two flagged weights coincide, not because the product crosses one.}
 \label{tab:window-record}
 \begin{tabular}{lcccc c}
 \toprule
@@ -1352,7 +1402,7 @@ $\tau$ quantile & $W_T$ & $C_T$ & $W_T C_T$ & \quad & $W_T C_T$ at $H = 12$ \\
 Three supporting results from the same record are worth carrying. The threshold margin gives the
 same direction (zero of eight compared pairs have $W_\tau C_\tau > 1$), with the three pairs
 that reclassify real mass at $0.5566$, $0.4780$ and $0.8846$ and the other five pairs reclassifying
-no mass at all and returning exactly $1$. The factorisation of Part~(A) holds to machine noise,
+no mass at all and returning $1.000$ to within $3\times 10^{-16}$. The factorisation of Part~(A) holds to machine noise,
 which is wiring rather than evidence: at frozen policy the weights are $\kappa$-free by
 construction. And Lemma~\ref{lem:L2}'s conclusion is confirmed \emph{exactly}: every flagged object
 (posterior, price, entry probability, $M_F$) is invariant in $\kappa$ to machine zero over the
@@ -1360,8 +1410,14 @@ grid, while the pooled $M_P$ moves $0.0722$ premium percentage points and the fi
 moves $5{,}090$ basis points over the same range, so the target of the invariance is not vacuous.
 One caveat is the record's own: at $H = 10$ the long window is the corner $T = H$, which drives
 $\Omega(T{=}10)$ to $6.81\times10^{-4}$ and makes the headline comparison corner-versus-interior;
-the $H = 12$ column of Table~\ref{tab:window-record}, where $T = 10$ is strictly interior, confirms
-attenuation. What the record does not do is supply a sign theorem: it is node evidence at one
+the $H = 12$ column of Table~\ref{tab:window-record}, where $T = 10$ is strictly interior, points
+the same way. That column is computed by a different route, and the difference matters. At $H = 12$
+the enumerated pooled-support object is computationally unavailable, so the column's composition
+ratio $C_T$ is obtained from the chord closed form rather than from independently enumerated pooled
+levels as at $H = 10$, and that closed form is the one whose support condition
+Remark~\ref{rem:AtauRecord} measures to fail at this calibration. The $H = 12$ column is therefore
+directional corroboration of the $H = 10$ comparison rather than a second independent magnitude.
+What the record does not do is supply a sign theorem: it is node evidence at one
 calibration, and Part~(C) claims none. At this calibration the model's directional prediction for
 the February 2024 acceleration is attenuation, with the composition leg carrying it, a
 prediction the empirics of Section~\ref{sec:empirics} treats as one of two live branches, not as a
@@ -1370,12 +1426,15 @@ that Remark~\ref{rem:AtauRecord} measures to fail here.
 \end{remark}
 
 \paragraph{The disclosure-regime comparison, and why it is not a window test.}
-A separate executed comparison is sometimes read as evidence about the window, and it is not one. In
-the one-round predecessor model, with cutoffs frozen at its baseline, the expected engagement-related
+A separate numerical comparison is sometimes read as evidence about the window, and it is not one. In
+the one-round predecessor model the expected engagement-related
 premium can be computed twice: once with the market seeing the disclosure flag alongside order
-flow, once with order flow alone. The ratio of liquidity sensitivities (flagged divided by pooled,
-total variation over $\kappa \in [0.15,0.85]$) is $1.064$, $1.184$ and $1.136$ at flagged weights
-$\Omega = 0.037$, $0.129$ and $0.286$, falling to $0.378$ at $\Omega = 0.50$, with the sign crossing
+flow, once with order flow alone. The cutoffs $k_1$ and $k_0$ stay at the baseline equilibrium
+throughout and only the disclosure cutoff $k_D$ moves; moving it across four values generates the
+flagged weights $\Omega = 0.037$, $0.129$, $0.286$ and $0.50$. The ratio of liquidity sensitivities
+(flagged divided by pooled,
+total variation over $\kappa \in [0.15,0.85]$) is $1.064$, $1.184$ and $1.136$ at the first three
+of those weights, falling to $0.378$ at $\Omega = 0.50$, with the sign crossing
 located by bisection at $\Omega^\star = 0.343$. Above one, the flag makes premia \emph{more}
 liquidity-sensitive. Figure~\ref{fig:disclosure} plots the two curves at the baseline. This is a
 \emph{disclosure-regime} comparison (the flag observed versus hidden, at a fixed filing window),
@@ -1389,8 +1448,10 @@ comparison.
 \centering
 \includegraphics[width=0.72\textwidth]{numerical_output/fig_disclosure.pdf}
 \caption{The disclosure-regime comparison in the one-round predecessor model, at fixed cutoffs
-($\Omega = 0.037$). The upper curve prices the blockholder's engagement-driven premium with the
-market seeing order flow and the disclosure flag; the lower curve prices it from order flow alone.
+($\Omega = 0.037$). The solid line with circle markers prices the blockholder's engagement-driven
+premium with the market seeing order flow and the disclosure flag (threshold disclosure,
+baseline); the dashed line with square markers prices it from order flow alone (no disclosure,
+counterfactual). The two curves cross near $\kappa = 0.73$.
 At this baseline the flagged cell is \emph{more} liquidity-sensitive than the pooled one (total
 variation ratio $1.064$), so this comparison refutes attenuation in $\kappa$ for the regime margin
 at this weight. It is a composition fact, not a window test; the window record is
@@ -1442,18 +1503,18 @@ of Remark~\ref{rem:C1record} is numerical.}
 Eighteen of eighty grid nodes are pointwise \emph{dominance-and-contraction nodes}. The largest
 contiguous block is $T = 5$ at $\tau$-percentiles $\{50,70,90\}$ with
 $\kappa \in \{0.65,\,0.75,\,0.85\}$; the slack $\eta_r$ has minimum $0.0595$ and median $0.3467$, and
-$L_{\mathcal R} \in [0.264,\,0.501]$ everywhere on the grid. These come from the executed committed
-check, independently re-run, on which all values reproduce. What these nodes verify is narrow and
+$L_{\mathcal R} \in [0.264,\,0.501]$ everywhere on the grid. These values come from a numerical
+calculation reproduced independently. What these nodes establish is narrow and
 worth stating exactly: they verify the two pointwise inequalities $L_{\mathcal R} < 1$ and
 $\eta_r > 0$ together with supporting diagnostics. They do \emph{not} verify the full antecedent
 (C-1)--(C-7) above, and they do \emph{not} exhibit a named nonempty region; a
-dominance-and-contraction node is a pointwise numerical fact, not a fifth honesty category. A
+dominance-and-contraction node is a pointwise numerical fact, not evidence of a region. A
 named-region promotion is a separate step and is not claimed. The earlier aspiration, this result
 proved on a named nonempty region and numerical off it, is retired as structurally undeliverable
 as worded; what is deliverable is the three objects above: the implication proved with the region as
 a hypothesis, the dominance-and-contraction nodes verified on the grid, and a named-region promotion
 left open, for which an $\varepsilon$-ball plus integral-control pattern is the template. The
-re-derivation on file adds the bound $\mathcal B_r^{GE} = O\bigl((1-L_{\mathcal R})^{-3}\bigr)$, so
+proof also gives the bound $\mathcal B_r^{GE} = O\bigl((1-L_{\mathcal R})^{-3}\bigr)$, so
 the dominance-and-contraction nodes are cubically bounded away from $L_{\mathcal R} = 1$.
 \end{remark}
 
@@ -1477,20 +1538,16 @@ Three questions remain open, in whole or in part, and are recorded as such.
   not, and names the weakest sufficient conditions for the two-round case. Lemma~\ref{lem:L3},
   leg 3 of Lemma~\ref{lem:L4} and Part~(B) of Theorem~\ref{thm:T1} are all conditional on it, which
   makes this the largest single conditionality the results carry.
-\item \emph{Whether an equilibrium in which the blockholder chooses the fully separating plan exists
-  on a given calibration.} Menus satisfying Assumption~\ref{asm:A7p} are fully separating on the
-  flagged set, so the burden did not disappear when satisfiability was resolved; it moved to
-  incentive compatibility, which Proposition~\ref{prop:P1} does not settle. Relatedly, that
-  proposition does not claim that an equilibrium satisfying Assumption~\ref{asm:A8} exists, only
-  that Assumption~\ref{asm:A8} holding \emph{at} an exhibited equilibrium puts both cells on path.
-\item \emph{Whether the continuity clause of Assumption~\ref{asm:A6} holds for the declared
-  construction of $\Theta$.} This was answered in substance: the mechanism is real, the locus is
-  the cell-edge hyperplanes and sole-generator collapse faces, and the implemented menu's
-  Hold-collapse face is measured clean. What remains open is scoped in
-  Remark~\ref{rem:A6record}: whether a constructive $\Theta$, or a $t$-constrained Kakutani route,
-  replaces the continuity half of the hypothesis in the statement (the repair is identified, not
-  executed); the complementary menu class where the collapse-face clause may be satisfiable; and
-  nonexistence, which is neither claimed nor shown anywhere.
+\item \emph{Whether the existence assumptions can be satisfied for relevant menus, including the
+  incentive-compatibility question for a fully separating plan.} Menus satisfying
+  Assumption~\ref{asm:A7p} are fully separating on the flagged set, so the remaining burden is
+  incentive compatibility, which Proposition~\ref{prop:P1} does not settle. The proposition also
+  does not claim that an equilibrium satisfying Assumption~\ref{asm:A8} exists. Nonexistence is
+  neither claimed nor shown.
+\item \emph{Whether the scoped continuity problem in Assumption~\ref{asm:A6} can be repaired
+  constructively.} Remark~\ref{rem:A6record} identifies the cell-edge and collapse-face locus and
+  the two constructive routes that could replace the continuity half of the hypothesis; neither
+  route is established here.
 \end{enumerate}
 
 %==============================================================================
@@ -1500,11 +1557,11 @@ Three questions remain open, in whole or in part, and are recorded as such.
 
 The empirical half of the paper has two layers with different statuses, and the draft keeps them
 apart. The motivating facts in Section~\ref{sec:facts} have been run: they are descriptives computed
-from filings on file, with the sample stated exactly and no standard errors claimed. The
-specification in Section~\ref{sec:spec} has \emph{not} been run: it is written down in full
-(variables, windows, samples, standard errors, placebos, and what would count for and against)
-before any estimate exists. The headline claim is a choice not yet made;
-Section~\ref{sec:headline-shell} lays out the candidates and marks the choice pending.
+from the seeded filing sample, with the sample stated exactly and no standard errors claimed. The
+specification in Section~\ref{sec:spec} is prospective: it states the variables, windows, samples,
+standard errors, placebos, and decision rules before any estimate exists. The timing split is the
+specification's default headline; final selection remains pending in
+Section~\ref{sec:headline-shell}.
 
 \subsection{Motivating facts: the delay distribution before and after the acceleration}
 \label{sec:facts}
@@ -1520,10 +1577,15 @@ business days with the federal-holiday calendar, the distribution compresses sha
 \begin{table}[H]
 \centering
 \caption{The trigger-to-filing delay in business days, before and after the February 2024
-acceleration. Seeded samples of initial 13D filings, parsed from EDGAR with the project parser
-Delay in business days, holiday-adjusted. Of the $300$ sampled filings, the delay statistics are
-computed on the $188$ whose trigger date parses ($98$ pre, $90$ post); at parse rates of $0.68$ pre
-and $0.64$ post, every count is a floor. Descriptive statistics; no standard errors are claimed.}
+acceleration. Seeded samples of initial 13D filings drawn from EDGAR, with the trigger date read
+from the filing itself and the delay counted in business days on the federal-holiday calendar. Of
+the $300$ sampled filings ($150$ in each window), $198$ carry a trigger date that parses: $102$ pre
+and $96$ post, which are the parse rates of $0.68$ and $0.64$ against the $150$ drawn per window.
+An admissible band of $0$ to $60$ business days then screens out ten of those, $4$ pre (delays of
+$129$, $143$, $526$ and $567$ business days) and $6$ post (delays of $62$, $73$, $133$, $262$,
+$407$ and $1{,}365$ business days), and the statistics below are computed on the $188$ that remain
+($98$ pre, $90$ post). Because the parse rates are below one, every count is a floor. Descriptive
+statistics; no standard errors are claimed.}
 \label{tab:fact1}
 \begin{tabular}{lcccccc}
 \toprule
@@ -1547,17 +1609,20 @@ new deadline. Descriptives from the seeded samples of Table~\ref{tab:fact1}.}
 
 Three readings of the table, each bounded. First, the compression is real and large: the median
 delay falls from seven business days to five, and the share of filings inside the new five-day
-deadline more than doubles, from 35.7 to 75.6 percent. Second, the pre-rule distribution was already
-bimodal in the way \citet{BebchukBravJacksonJiang2013} document on filings by engaging investors: a large
-fast group, a bunching group at the deadline, and a tail of late filers. The acceleration bit
-a population that was heterogeneous in exactly the dimension the rule targets; the design below
-exploits that heterogeneity as a dose. Third, the numbers agree in kind with the Commission's own
+deadline more than doubles, from 35.7 to 75.6 percent. Second, the pre-rule distribution was not
+bimodal. It was already
+spread across the old window in the way \citet{BebchukBravJacksonJiang2013} document on filings by
+engaging investors: the mass rises into the deadline bucket, where 45.3 percent of their filings sit
+at eight to ten business days, with 16.5 percent inside three business days and a tail of 7.1
+percent beyond fifteen. The acceleration bit a population that was heterogeneous in exactly the
+dimension the rule targets; the design below exploits that heterogeneity as a dose. Third, the numbers agree in kind with the Commission's own
 arithmetic: the release expected earlier filing for about 59 percent of timely 13D reports and put
 about 29 percent of 2022's initial filings already inside the amended deadline, against our 35.7
 percent already inside before the rule. Different samples and different windows, but the same
 direction \citep{SEC2023}. The honest caveats travel with the table: the samples are seeded draws,
-not the universe; the parse rates are floors; and these are descriptives, with no standard errors,
-because none are claimed. The delay is counted in business days throughout; counting calendar
+not the universe; the parse rates are floors; ten filings whose measured delay falls outside a
+nought-to-sixty business-day band are screened out and counted in the table note rather than cut
+silently; and these are descriptives, with no standard errors, because none are claimed. The delay is counted in business days throughout; counting calendar
 days against a business-day rule, as \citet{PolkBuchheitRileyStone2024} do, misclassifies the
 48 percent of their sample that piles at their day-ten marker.
 
@@ -1573,13 +1638,15 @@ that a null is reported with its minimum detectable effect rather than as ``no e
 The universe is all initial Schedule 13D filings from 2022-01-01 to 2025-12-31, enumerated from
 EDGAR quarterly indexes, matched to CRSP. The treatment split is on the \emph{trigger} date, not the
 filing date: the deadline attaches to the crossing, so a block crossed on 2024-01-30 and filed on
-2024-02-08 belonged to the old regime. Filings that straddle are excluded and counted. The pre
-window ends at the adoption date (2023-10-10) rather than the effective date, so the
-adoption-to-effect stub is its own reported bin and anticipation is not pooled into ``pre''. The
-EDGAR dissemination cut-off moved from 5:30 pm to 10:00 pm ET on the same date the window changed,
-which shifts the flagged day by one for part of the post sample; the effective filing date FD$^{*}$
-is constructed to absorb this, and re-running with FD$^{*} \equiv$ FD is a required robustness row.
-A full re-fetch and re-parse with the current parser is a stated precondition for any estimate, and
+2024-02-08 belonged to the old regime. Filings that straddle are excluded and counted. The main
+pre window is 2022-01-01 through 2023-10-09. The adoption date, 2023-10-10, begins a separately
+reported adoption-to-effect stub through 2024-02-04; the stub is not pooled into ``pre''. The
+structured-data mandate on 2024-12-18 is a second measurement break, so the main sample ends on
+2024-12-17 and 2025 is reported as an extension with its own parse-rate table. The EDGAR
+dissemination cut-off moved from 5:30 pm to 10:00 pm ET on the same date the window changed, which
+shifts the flagged day by one for part of the post sample; the effective filing date FD$^{*}$ is
+constructed to absorb this, and re-running with FD$^{*} \equiv$ FD is a required robustness row. A
+full re-fetch and re-parse with the current parser is a stated precondition for any estimate, and
 every count in the design is a floor until it has run.
 
 \paragraph{(a) The timing split.}
@@ -1592,7 +1659,7 @@ non-zero, the jump's zero, and the two different. It is estimated as one
 stacked regression with a flagged-half interaction, so the difference carries a standard error;
 inference is two-way clustered on subject firm and on calendar month, with a wild cluster bootstrap
 on the month dimension and the more conservative of the two reported. The reform test (H2) asks
-whether the run-up's liquidity slope changed after February 2024, on a fixed five-day window from
+whether the run-up's liquidity slope changed after February 2024, on a fixed five-trading-day window from
 the trigger so the outcome's length does not change mechanically with the rule; both signs are
 written out in advance: attenuation (the shorter window moves mass to the $\kappa$-invariant
 flagged cell and flattens the composite slope) and amplification (the same informed trading
@@ -1607,12 +1674,13 @@ after \citep{PolkBuchheitRileyStone2024}, with the run-up beginning on the trigg
 
 \paragraph{(b) The bindingness dose.}
 The rule binds filers unevenly: those already filing inside five business days cannot be moved by
-it. The dose is a filer attribute built from pre-period behaviour only (the share of the filer's
-pre-period initial 13Ds whose delay exceeded five business days, in $[0,1]$), so it cannot be
-contaminated by the reform, with a binary median-delay split reported alongside. The dose
-specification interacts the dose with Post and clusters on filer as well. Its first stage is
+it. The primary dose is a filer attribute built from pre-period behaviour only and is computed for
+filers with at least two pre-period initial 13Ds: the share whose delay exceeded five business days,
+in $[0,1]$. For a single-filing filer, a leave-one-out pre-period stratum mean, by filer type,
+size tercile and illiquidity tercile, is imputed only in a robustness row and never in the primary
+estimate. The dose specification interacts the dose with Post and clusters on filer as well. Its first stage is
 mechanical (a fast filer cannot get faster) and is labelled a validity check, not a finding; the
-only published estimate of the same first stage is \citet{Trivedi2026}'s compliance share, $+0.348$
+only working-paper estimate of the same first stage is \citet{Trivedi2026}'s compliance share, $+0.348$
 with standard error $0.130$, whose own primary outcome, mean lag, is null, and whose sampling
 frame is never stated. Because slow filers are plausibly smaller and less liquid, the correlation
 between dose and liquidity is reported, and the dose specification is re-run within liquidity
@@ -1628,7 +1696,7 @@ filers who take longer end up with smaller stakes, $0.6$ percentage points per t
 cross-section of delays is therefore never read as a window effect; only the reform is. The historical
 days--stake gradient implies a mechanical stake change of roughly $0.12$ percentage points from the
 two-day median-delay cut, against the stake leg's minimum detectable effect of $0.85$ percentage
-points, so a detectable
+points on the post-re-parse projection, so a detectable
 estimate would have to be behavioural rather than arithmetic, and the paper would have to say which.
 
 \paragraph{(d) The bounded null.}
@@ -1652,29 +1720,48 @@ measured over the identical calendar window. Never-13D rather than 13G controls:
 disclaim control intent, and selection between the two forms is itself plausibly responsive to the
 rule. Bid arrival is coded from tender-offer and merger filings, with a thirty-filing hand audit
 done blind. Base rates anchor the power arithmetic: 18.1 percent of campaign targets are acquired
-within twelve months against 7.2 percent of matched controls \citep{GreenwoodSchor2009}. The
-design's minimum detectable effect is $4.4$ percentage points, \emph{above} the 3-point ceiling of
-the bounded null, so the difference-in-differences cannot separate the accumulation effect from
-zero even at the ceiling, and that sentence, not a point estimate, is the leg's honest deliverable.
-An estimate larger than both the detectable effect and the ceiling would be attributed to
-incumbent defence or selection, with a diagnostic offered for which.
+within twelve months against 7.2 percent of matched controls \citep{GreenwoodSchor2009}. The power
+arithmetic gives minimum detectable effects of $5.8$ percentage points on today's counts, $4.4$
+percentage points for S1 after the re-parse, and $9.9$ percentage points for S2. The latter two use
+the optimistic projection $N \approx 4{,}950$, $w \approx 0.394$; they are projections, not estimates.
+The MDE exceeds the 3-point ceiling of the bounded null, so the difference-in-differences cannot
+separate the accumulation effect from zero even at that ceiling. Only an estimate's excess above
+3 percentage points can be attributed to incumbent defence or selection; the first 3 points remain
+compatible with accumulation.
 
-\paragraph{(f) The referee checklist.}
+\paragraph{(f) Bidder entry by liquidity.}
+Within the 13D sample, the bidder-entry leg estimates the liquidity interaction
+\begin{equation*}
+\mathrm{BID12}_i = \alpha + \delta(\mathrm{LIQ}_i\times\mathrm{Post}_i) + \beta\,\mathrm{LIQ}_i
+  + \gamma\,\mathrm{Post}_i + X_i'\theta + \mathrm{FE} + \varepsilon_i .
+\end{equation*}
+Against the matched never-13D controls it estimates the matched triple difference
+\begin{equation*}
+\mathrm{BID12}_i = \alpha + \tau(\mathrm{Treat}_i\times\mathrm{Post}_i\times\mathrm{LIQ}_i)
+  + \text{all lower-order interactions} + X_i'\theta + \delta_{\mathrm{match}} + \varepsilon_i .
+\end{equation*}
+The coefficient $\tau$ asks whether the reform's effect on bidder entry differs by liquidity. A
+rule-of-thumb power calculation gives projected MDEs of about $8.8$ percentage points for S1 and
+$19.8$ percentage points for S2. These are weakly powered projections, and the realised variance
+will replace the rule of thumb before an estimate is interpreted.
+
+\paragraph{(g) The referee checklist.}
 Control group or bounded null: both, as above. Confounds: ten named ones with a stated handling
 each, including the three the literature specifically warns about: the EDGAR cut-off moving on
 the same date as the window, calendar-day screens that stop being neutral under a business-day rule,
-and the incumbent-defence channel, which runs opposite to accumulation and whose proposed moderator
-(charter pill provisions) is a heterogeneity split the design can build. Power: computed from
-counts on disk plus stated variance assumptions, with the arithmetic shown; the timing split
+and the incumbent-defence channel, which runs opposite to accumulation. Rights-plan coverage is
+untested: the proposed moderator uses best-effort EDGAR searches for $8$-K Item 3.03 and $8$-A12B;
+if coverage is insufficient, the defence channel is retained with its signed-bias fallback. Power:
+computed from counts on disk plus stated variance assumptions, with the arithmetic shown; the timing split
 detects $1.1$--$2.3$ percentage points per standard deviation of illiquidity after the re-parse,
 against a mean pre-rule run-up of $2.8$ percent \citep{Zeng2026}, and anything smaller is reported
 as a bounded null. Placebos: 568 holiday-adjusted pseudo-reform dates before the adoption, every
 one, plus a pseudo-trigger placebo one quarter before the real crossing and a descriptive 13G
 placebo whose deadlines did not change until September 2024. Pre-trends: quarterly liquidity-slope
 estimates over the seven pre-adoption quarters, joint $F$-test, and a fixed blocking rule:
-a $p$-value below $0.10$ removes causal language from the leg. Parser validation: an executable test
-suite, with the two stated gaps (the committed pipeline output is pre-XML; the full-universe
-re-parse has not run) reported rather than papered over.
+a $p$-value below $0.10$ removes causal language from the leg. Parser validation remains incomplete:
+the available pipeline output is pre-XML and the full-universe re-parse has not run; both limitations
+are reported.
 
 \subsection{Headline shell}
 \label{sec:headline-shell}
@@ -1699,7 +1786,7 @@ carrying it). What it needs: the same sample, the fixed-length run-up, and a dec
 weight to put on a theory direction whose antecedent $\Atau$ is measured to fail at the implemented
 calibration, so the design keeps both branches live and pre-specifies what each sign
 means. What kills it: a bounded null (the minimum detectable effect is $1.1$--$2.3$ percentage
-points), which is a reportable outcome rather than a failure. Scope: it is the candidate most
+points on the post-re-parse projection), which is a reportable outcome rather than a failure. Scope: it is the candidate most
 directly about the anchor, and the one most exposed to the theory's honest conditionality.
 
 \paragraph{Candidate C: the bounded null as headline.}
@@ -1726,27 +1813,32 @@ stake at filing is an object the model produces. On that ground the paper proves
 records where it cannot. Existence is a conditional whose two main hypotheses about the equilibrium
 object are measured to fail at the implemented calibration, stated once, in plain words, because
 a reader deserves to know exactly what the proposition does and does not cover. The attenuation
-theorem separates the rule's two margins honestly: the threshold margin attenuates without a
-dominance condition, the window margin only if and only if a weight ratio times an unsigned
-composition ratio stays below one. The general-equilibrium survival of the fixed-policy sign is an
+theorem separates the rule's two margins honestly: the threshold margin attenuates with no
+dominance condition; the window margin attenuates if and only if a weight ratio times an unsigned
+composition ratio is at most one. The general-equilibrium survival of the fixed-policy sign is an
 implication with the region as a named hypothesis, plus numerical nodes. The numerical layer reads
 the same stack against the implemented calibration and reports an attenuation-direction window
 record alongside the measured failure of the chord restriction that would close the loop; the
 two facts sit in the same section because they are both true.
 
-The empirics rest on the February 2024 acceleration. The executed fact is that filers moved: the
+The empirics rest on the February 2024 acceleration. The established descriptive fact is that filers moved: the
 median delay fell from seven business days to five, and the share inside the new deadline more than
 doubled. The specification for everything beyond that is written: a timing split that tests the
-partition directly, a bindingness dose, a bounded null from the Commission's own tables, a matched
-design on the bid hazard whose honest deliverable is already known to be a ceiling. The
+partition directly, a bindingness dose, a stake-at-filing leg, a bounded null from the
+Commission's own tables, a matched
+design on the bid hazard whose honest deliverable is already known to be a ceiling, and a
+bidder-entry-by-liquidity leg. The
 headline choice is recorded as pending.
 
-Three open questions carry the research forward: whether any two-round pooled cell satisfies the
+Three open questions carry the research forward, the same three that
+Section~\ref{sec:not-claimed} records: whether any two-round pooled cell satisfies the
 chord restriction's support condition, which is the largest single conditionality in the stack;
-whether the existence hypotheses can be repaired constructively on the class of menus the
-implementation uses; and whether the disclosed share of engagements (the calibration target
-$\omega_a$, which no dataset in the literature can see) can be bounded tightly enough to place
-the world on one side of the composition sign. Each is a question about the domain of an assumption
+whether the existence assumptions can be satisfied on a relevant menu, including the
+incentive-compatibility question for a fully separating plan; and whether the scoped continuity
+problem in Assumption~\ref{asm:A6} can be repaired constructively. Alongside them stands one open
+calibration input that is nowhere load-bearing: the disclosed share of engagements $\omega_a$, for which no
+dataset in the literature offers an anchor, and which the paper does not invent. Each question is
+about the domain of an assumption
 this paper states rather than hides, which is where a theory of a legal rule should leave its
 unfinished work.
 
@@ -1864,12 +1956,12 @@ is not inherited from finiteness and has to be argued, because clause (TR-ii) of
 Assumption~\ref{asm:TR} makes stake levels continuum-valued: the finiteness of
 Assumption~\ref{asm:A2p} covers the plan menu, the image of $\Gamma$, the noise support and the
 calendar, not the stake level. The argument is that $f_j$ is finite-valued and measurable by
-Steps~3--8, so that
+Steps~3--8, so that, decomposing over the filing date across its whole admissible range,
 \begin{equation}
 \label{eq:D1-BFmeas}
-B_j\bigl(s,f_j(s)\bigr) \;=\; \sum_{d=0}^{H-T} \ind\{f_j(s) = d+T\}\;B_j(s,d)
+B_j\bigl(s,f_j(s)\bigr) \;=\; \sum_{\ell=T}^{H} \ind\{f_j(s) = \ell\}\;B_j(s,\ell)
 \end{equation}
-is a finite sum of measurable functions, each measurable by Step~3, and likewise
+is a finite sum of measurable functions, each $B_j(\cdot,\ell)$ measurable by Step~3, and likewise
 $Q_j^F = b_j^*(s) - B_j^F$.
 
 \emph{Step 11 (every price in part~(c) is a well-defined finite real number).} For
@@ -2620,8 +2712,8 @@ At the implemented calibration both conditions are refuted together, and by meas
 by argument: Remark~\ref{rem:AtauRecord} records a support carrying $23$ to $767$ distinct posterior
 values with no mass at $\bar\pi/2$ at any node, which is (S1), and interior atoms that move with
 $\kappa$ at a two-sided Hausdorff distance reaching $0.4608$ between adjacent-$\kappa$ support sets,
-which is (S2). That is applicability evidence at one calibration and it moves no label; the question
-is one about the assumption's domain, and a different menu, a different horizon or a different
+which is (S2). That is applicability evidence at one calibration and it weakens no result; the
+question is one about the assumption's domain, and a different menu, a different horizon or a different
 calibration could still satisfy (S1) and (S2). What the openness costs is stated exactly: it is
 load-bearing for this lemma, for leg~3 of Lemma~\ref{lem:L4} and for Part~(B) of
 Theorem~\ref{thm:T1} jointly.
@@ -2859,14 +2951,14 @@ weakly earlier at $\tau'$ may then file after the horizon.
 \begin{proof}[Proof of Proposition~\ref{prop:P1} (P1: existence)]
 The argument builds the equilibrium object rather than characterising it. Parts~A and~B fix a
 conjectured cutoff vector and solve the price system it induces, separating a finite pooled layer
-from a continuum-indexed flagged layer; Part~C supplies beliefs at every history that carries a
-requirement, on path and off; Part~D discharges sequential optimality of the flagged component at
-every flagged pair; Part~E builds the outer best-response map, applies Brouwer's fixed-point theorem
-and assembles the six requirements of Definition~\ref{def:cpbe}; Part~F is the addendum under
-Assumption~\ref{asm:A8} (A8). The parameter vector $\vartheta$ is fixed throughout and suppressed where it
-does not vary.
+from a flagged layer that is never a finite nonempty indexed family; Part~C supplies beliefs at every
+history that carries a requirement, on path and off; Part~D discharges sequential optimality of the
+flagged component at every flagged pair; Part~E builds the outer best-response map, applies Brouwer's
+fixed-point theorem and assembles the six requirements of Definition~\ref{def:cpbe}; Part~F is the
+addendum under Assumption~\ref{asm:A8} (A8). The parameter vector $\vartheta$ is fixed throughout and
+suppressed where it does not vary.
 
-\smallskip\noindent\emph{Notation used only in this proof.} Write $\sigma_F$ for a generic value of
+\smallskip\noindent\emph{Notation for this proof.} Write $\sigma_F$ for a generic value of
 the flagged tuple $\Sfl$ of Definition~\ref{def:prices}, and
 $[\underline s,\overline s]$ for the common signal bracket underlying the polytope $\Theta$ of
 Definition~\ref{def:theta}. Write $\Phi_s$ and $\varphi_s$ for the c.d.f.\ and density of the signal
@@ -2879,12 +2971,12 @@ At a control-node information set $\mathcal I$ put
 \qquad
 \bar m(\mathcal I) = m_0 + \pi(\mathcal I)\,\Delta_m .
 \]
-Further symbols ($\mathcal P_{\mathcal I}$, $\varrho$, $A$, $\mathcal G_F$, $\iota_F$, $j_k$,
-$j^\star$, $\mathfrak S(k)$, $\mathfrak w$, $\mathcal Q_j(s)$, $G_j$, $E_j$, $\mu_n$, $L_j$, $w_n$,
-$t_n$, $Z_n$, $\Lambda_k$, $\Lambda_u$, $(\hat v_\circ,\pi_\circ)$, $P_\circ$,
-$\operatorname{supp}(z_d)$, $s_F$) are declared where they are first used. The selection set
-$\mathfrak S(k)$ is written in fraktur so that it does not collide with the liquidity sensitivities
-$\mathcal S$ and $\mathcal S_P$ of Definition~\ref{def:premium}. The engagement cost
+Further symbols ($\mathcal P_{\mathcal I}$, $\mathfrak R_{\mathcal I}$, $A$, $\mathcal G_F$, $\iota_F$, $j_k$,
+$j^\star$, $\mathfrak S(k)$, $\mathfrak w$, $\mathfrak m$, $\mathcal Q_j(s)$, $G_j$, $E_j$, $\mu_n$, $L_j$, $w_n$,
+$t_n$, $Z_n$, $\Lambda_k$, $\Lambda_u$, $\pi_n$, $(\hat v_\circ,\pi_\circ)$, $P_\circ$,
+$d_i(s,k)$, $c_i(k)$, $\operatorname{supp}(z_d)$, $s_F$) are declared where they are first used. The
+selection set $\mathfrak S(k)$ is written in fraktur so that it does not collide with the liquidity
+sensitivities $\mathcal S$ and $\mathcal S_P$ of Definition~\ref{def:premium}. The engagement cost
 $C_j(s)$ and the execution outlay $\mathcal C_j^{\mathrm{trade}}$ of Definition~\ref{def:U} are
 always written with their subscripts, so that neither collides with the chord $C_h$ of
 \eqref{eq:chord}, the composition ratios $C_\tau,C_T$, or the cells $\mathcal C_F,\mathcal C_P$.
@@ -2899,10 +2991,14 @@ Fix a conjectured cutoff vector $k = (k_1 \le \dots \le k_{J-1})$ in
 \Theta \;=\; \bigl\{k \in [\underline s,\overline s]^{J-1} :
 \underline s \le k_1 \le \dots \le k_{J-1} \le \overline s\bigr\},
 \]
-the cutoff polytope of Definition~\ref{def:theta}. It is nonempty, compact and convex, being the
-intersection of a cube with the $J-2$ half-spaces $\{k_i \le k_{i+1}\}$; nonemptiness is not
-decoration, since Brouwer's theorem is vacuous without it, and it is supplied by
-Definition~\ref{def:theta}. Define the map induced by the conjecture,
+the ordered box built on the common bracket. It is a set of the kind Definition~\ref{def:theta}
+requires: nonempty, compact and convex, being the intersection of a cube with the $J-2$ half-spaces
+$\{k_i \le k_{i+1}\}$, and nonemptiness is not decoration, since Brouwer's theorem is vacuous without
+it. That definition states the properties $\Theta$ must have and names no particular set, so the
+choice is made here, once, and this ordered box is the $\Theta$ used throughout. Nothing below
+weakens into an assumption the membership $\Tmap(k) \in \Theta$ derived in Step~13: on the ordered
+box, the ordering and bracket inequalities established there imply it. Define the map induced by the
+conjecture,
 \begin{equation}
 \label{eq:P1-jk}
 j_k(s) \;=\; 1 + \#\bigl\{i \in \{1,\dots,J-1\} : k_i \le s\bigr\}.
@@ -2934,34 +3030,55 @@ coarsening $\Gamma$ has finite image by Assumption~\ref{asm:A2p} (A2$'$), hypoth
 The crossing date $c_j(\cdot;\tau) = \inf\{d : B_j(\cdot,d) \ge \tau\}$ is the pointwise minimum,
 over the finite calendar supplied by the same assumption, of the indices of the Borel sets
 $\{B_j(\cdot,d) \ge \tau\}$, so it is Borel with values in $\{0,\dots,H\} \cup \{+\infty\}$. The
-stake at filing is a finite sum of products of Borel functions,
+filing objects are Borel through a finite decomposition indexed by the filing date itself, over its
+whole admissible range,
 \begin{equation}
 \label{eq:P1-BF}
-B_j^F(s) \;=\; \sum_{d=0}^{H-T} \ind\{f_j(s) = d+T\}\; B_j(s,d),
+\widetilde B_j^F(s) \;=\; \sum_{\ell=T}^{H} \ind\{f_j(s) = \ell\}\; B_j(s,\ell),
+\qquad
+\widetilde Q_j^F(s) \;=\; b_j^*(s) - \widetilde B_j^F(s),
 \end{equation}
-hence Borel, and so is $Q_j^F$. By hypothesis (P-7), Lemma~\ref{lem:D1} with its own hypotheses
-travelling, the disclosure indicator is $D_j(s;\tau,T) = \ind\{a_j = 1\}\,\ind\{B_j(s,H-T) \ge
-\tau\}$ (the clock equivalence of part~(b) of that lemma), and is Borel in $s$. Composing with
+each a finite sum of products of Borel functions, hence Borel; indexing the sum by the filing date is
+what makes the surviving factor the stake at $f_j(s)$, which is the object defined above. On
+$\{D_j = 1\}$ one has $f_j(s) \in \{T,\dots,H\}$ by hypothesis (P-7), so
+$\widetilde B_j^F(s) = B_j(s,f_j(s)) = B_j^F(s)$ and $\widetilde Q_j^F(s) = Q_j^F(s)$ there. Off
+$\{D_j = 1\}$ every indicator vanishes and the tilde objects are a conventional extension by
+$\widetilde B_j^F := 0$; Definition~\ref{def:plans} defines $B_j^F$ and $Q_j^F$ on the flagged set and
+no step reads them elsewhere, so the extension is never consumed. Suppressing the tildes on the
+flagged set, $B_j^F$ and $Q_j^F$ are Borel there. By hypothesis (P-7), Lemma~\ref{lem:D1} with its own
+hypotheses travelling, the disclosure indicator is $D_j(s;\tau,T) = \ind\{a_j = 1\}\,\ind\{B_j(s,H-T)
+\ge \tau\}$ (the clock equivalence of part~(b) of that lemma), and is Borel in $s$. Composing with
 \eqref{eq:P1-jk}, all of these become Borel functions of the signal alone at the fixed conjecture
 $k$. The definitions of $c_j$, $f_j$, $B_j^F$, $Q_j^F$ and $b_j^*$ used here are clause (TR-iii)'s,
 again by hypothesis (P-13).
 
 \smallskip
-\noindent\textbf{Step 3 (the pooled public-history family is finite; the flagged family is not).}
+\noindent\textbf{Step 3 (the pooled public-history family is finite; the flagged family is empty or
+uncountable, and in neither case a finite nonempty indexed family).}
 Definition~\ref{def:prices} sets $\mathcal H_d^P = (X_0,\dots,X_d;\ \text{flag landed by } d)$ with
 $X_d = q_{jd}+z_d$. By hypothesis (P-2) the image of $\Gamma$ is finite and $z_d$ takes values in
 $\{-\bar z,0,+\bar z\}$, so each $X_d$ takes values in a finite set; the calendar
 $\{0,\dots,H\}$ is finite; and the flag coordinate is a single bit. The collection of pooled public
 histories is therefore finite.
 
-The flagged family is not. By Step~2 the flagged tuple $\sigma_F$ is Borel, but it takes values in
+The flagged layer is different. By Step~2 the flagged tuple $\sigma_F$ is Borel with \emph{codomain}
 $[0,\bar b]^2 \times \{1\}$, a continuum: Definition~\ref{def:plans} puts $B_j(s,d) \in [0,\bar b]$
-with $s$ Gaussian, clause (TR-ii) records that stake levels are continuum-valued, and the finiteness
-of Assumption~\ref{asm:A2p} covers the plan menu, the image of $\Gamma$, the noise support and the
-calendar, not the stake level. The two layers must therefore be handled differently, and Steps~5
-and~6 do so. The finiteness just established rests on Definition~\ref{def:prices}'s own content, in
-which the flag enters $\mathcal H_d^P$ as a bit and the filing content $B^F$ does not; were
-post-filing pooled histories to carry $B^F$, the pooled family would join the continuum and the
+with $s$ Gaussian and imposes monotonicity only, clause (TR-ii) records that stake levels are
+continuum-valued, and the finiteness of Assumption~\ref{asm:A2p} covers the plan menu, the image of
+$\Gamma$, the noise support and the calendar, not the stake level. What the construction below runs
+on is not that codomain but the \emph{image} of the flagged-pair map
+$(j,s) \mapsto \bigl(B_j^F(s),Q_j^F(s),1\bigr)$ on $\{(j,s) : D_j = 1\}$, and that image obeys a
+dichotomy. If no plan flags, which the existence half admits because Assumption~\ref{asm:A8} is not
+among its hypotheses (a threshold above $\bar b$ realises the case), then the flagged-pair set and
+its image are empty and Steps~6, 10 and~12 are vacuous. If some plan flags at one signal, that plan
+is Voice by Assumption~\ref{asm:A4}; with the disclosure indicator of Step~2 and
+$\partial_s B_j \ge 0$ on Voice from clause (TR-iii), its flagged signal set is a nonempty upper set
+of the line, hence contains a half-line and is uncountable, and Assumption~\ref{asm:A7J} maps it
+injectively, so the image is uncountable as well. Either way the flagged layer cannot be handled as a
+finite nonempty indexed family, and that is what forces the two layers to be treated differently in
+Steps~5 and~6. The finiteness of the pooled family rests on Definition~\ref{def:prices}'s own
+content, in which the flag enters $\mathcal H_d^P$ as a bit and the filing content $B^F$ does not;
+were post-filing pooled histories to carry $B^F$, the pooled family would join the continuum and the
 selection argument of Step~6 would have to be run there as well.
 
 \medskip
@@ -2986,9 +3103,10 @@ expectations of \eqref{eq:Y} term by term,
 \;=\; (1-p)\bigl(\hat v + \pi\Delta_V\bigr) + p\,(P+m_0) + \Delta_m\,p\,\pi
 \;=\; (1-p)\bigl(\hat v + \pi\Delta_V\bigr) + p\bigl(P + \bar m\bigr).
 \end{equation}
-With $\xi \sim N(0,\sigma_\xi^2)$, which is clause (TR-i)'s distributional form under the same
-hypothesis, $p = 1-\Phi\bigl((P+K+\bar m-\bar S)/\sigma_\xi\bigr)$, which is \eqref{eq:entry}
-verbatim and lies in $(0,1)$ for every finite $P$. Define the inner pricing map
+With $\xi \sim N(0,\sigma_\xi^2)$, which is clause (TR-i)'s distributional form carried by hypothesis
+(P-13) (what hypothesis (P-1) supplies is the independence just used and the strict positivity of the
+variance, not the Gaussian law itself), $p = 1-\Phi\bigl((P+K+\bar m-\bar S)/\sigma_\xi\bigr)$, which
+is \eqref{eq:entry} verbatim and lies in $(0,1)$ for every finite $P$. Define the inner pricing map
 \begin{equation}
 \label{eq:P1-inner}
 \mathcal P_{\mathcal I}(P) \;=\; \bigl(1-p(P)\bigr)\bigl(\hat v + \pi\Delta_V\bigr)
@@ -3010,10 +3128,10 @@ pooled layers are treated separately.
 \emph{(a) The pooled control-node cell, $D = 0$ at date $H$.} Here $\mathcal I = \mathcal I_H$ is a
 control node and Step~4 applies as derived. Step~7 supplies a unique fixed point of
 $\mathcal P_{\mathcal I}$ from hypothesis (P-11), the restriction $m_0 \ge 0$ of \eqref{eq:m0}, and
-Step~8 supplies its continuity in the belief. This is a genuine fixed point: the price appears on
-both sides of \eqref{eq:P1-inner} through the entry indicator. Neither clause is taken from
-Assumption~\ref{asm:A5} (A5), which the proposition does not assume; Steps~7 and~8 do not depend on the
-present step, so citing them forward is not circular.
+Step~8 supplies joint continuity in the belief pair $(\hat v,\pi)$. This is a genuine fixed point: the
+price appears on both sides of \eqref{eq:P1-inner} through the entry indicator. Neither clause is
+taken from Assumption~\ref{asm:A5} (A5), which the proposition does not assume; Steps~7 and~8 do not
+depend on the present step, so citing them forward is not circular.
 
 \emph{(b) Intermediate pooled dates $d < H$.} A history $\mathcal H_d^P$ with $d < H$ is not a
 control node. Display \eqref{eq:Y} writes the takeover branch as $\mathsf B(P+m_0+a\Delta_m)$ with
@@ -3027,17 +3145,25 @@ fixed-point argument applies at these dates too. The conclusion this step is use
 either reading, and that is why nothing downstream turns on the adjudication.
 
 That conclusion is: a finite family requires no selection argument, and the pooled price family
-$k \mapsto \bigl(P_d^P(\mathcal H_d^P;k)\bigr)_{\mathcal H_d^P}$ is a finite vector of continuous
-functions of $k$ (at the control-node cell by (a) with Steps~7 and~8, and at $d < H$ by (b) as a
-finite-sum conditional expectation of continuous functions) on those histories carrying positive
-probability under the conjecture $k$. Histories null under $k$ but reachable, and histories null
-under every profile, are supplied in Step~9(b) and Step~9(c) respectively.
+$k \mapsto \bigl(P_d^P(\mathcal H_d^P;k)\bigr)_{\mathcal H_d^P}$ is a finite vector, indexed by the
+finite pooled alphabet of Step~3, each entry an inner root at the belief summaries carried at its own
+history: at the control-node cell by (a) with Steps~7 and~8, and at $d < H$ by (b), a conditional
+expectation of already-solved control-node values, which integrates over the continuous signal law
+and, on flagged branches, over the flagged-tuple law, and is \emph{not} a finite sum over terminal
+states. \emph{No continuity of this family in the conjecture $k$ is claimed here.} Continuity in the
+belief summaries is the content of Steps~7 and~8; continuity of the composition through the
+conditioning is not derived anywhere below (Step~15) and enters only through hypothesis (P-5), which
+is the split the paragraph after Assumption~\ref{asm:A5} draws in the same words. Histories carrying
+zero probability under $k$, and histories carrying zero probability under every profile, are handled
+in Step~9(b) and Step~9(c) respectively.
 
 \smallskip
 \noindent\textbf{Step 6 (the flagged layer is a measurably selected family, built rather than
 assumed).}
-By Step~3 the flagged information sets are indexed by the continuum $\sigma_F \in [0,\bar b]^2 \times
-\{1\}$. A pointwise statement (at each $\sigma_F$ there is a unique root) does not by itself
+Work on the image of the flagged-pair map of Step~3. If that image is empty, parts (a) to (d) below
+are vacuous and no flagged price is constructed or needed. Otherwise Step~3 makes it uncountable, its
+elements written $\sigma_F \in [0,\bar b]^2 \times \{1\}$, and the construction applies. A pointwise
+statement (at each $\sigma_F$ there is a unique root) does not by itself
 yield a \emph{function} of $\sigma_F$ that the model can integrate against, which is what
 $M_F = \Delta_m\Eop[h \mid D=1]$ of Definition~\ref{def:premium} and the timing split of
 Lemma~\ref{lem:D1} both require. The family is constructed in four moves.
@@ -3051,11 +3177,12 @@ $\bar m = m_0+\Delta_m = m_1$ on the whole flagged cell, a constant.
 \emph{(b) The flagged pricing map therefore depends on one scalar.} By Step~4 and (a), the flagged
 map depends on $\sigma_F$ only through $\hat v(\sigma_F;k) = \Eop[v \mid \sigma_F, D=1]$. Write
 $\mathcal G_F$ for the map sending a belief $\hat v$ to the root of
-$\mathcal P_{\mathcal I}(\cdot)-\mathrm{id}$ at $(\hat v,\pi=1)$. Step~7 makes $\mathcal G_F$
-single-valued, by existence and uniqueness of the root under hypothesis (P-11), and Step~8 makes it
-continuous in the belief, indeed $1$-Lipschitz, since $\partial P/\partial\hat v \in (0,1]$ there.
-This is the one place at which continuity in the belief is load-bearing, because (d) below composes a
-Borel map with a continuous one.
+$\mathcal P_{\mathcal I}(\cdot)-\mathrm{id}$ at $(\hat v,\pi=1)$. Parts (ii) and (iii) of Step~7 make
+$\mathcal G_F$ single-valued, by existence and uniqueness of the root under hypothesis (P-11), and
+Step~8 makes it continuous in the belief, indeed $1$-Lipschitz in the $\hat v$ direction at fixed
+$\pi$, since $\partial P/\partial\hat v \in (0,1]$ there and $\pi \equiv 1$ on the flagged cell by
+(a). This is the one place at which continuity in the belief is load-bearing, because (d) below
+composes a Borel map with a continuous one.
 
 \emph{(c) The belief is a Borel function of the tuple.} Two routes are available and both are taken.
 First, $\hat v(\cdot;k)$ is a conditional expectation with respect to $\sigma(\sigma_F)$ and is
@@ -3076,7 +3203,8 @@ the composition of a Borel map with a continuous map, hence Borel. This is the m
 flagged price family, and it is pinned rather than chosen: uniqueness of the root at each $\sigma_F$
 leaves no freedom, so no selection principle is invoked and no two runs of the argument can produce
 different families. That is a statement about the \emph{price} family given the belief; the sense in
-which the flagged \emph{belief} is pinned is Step~10's, and is weaker.
+which the flagged \emph{belief} is pinned is Step~10's, and is weaker, being a version rather than a
+forcing.
 
 \smallskip
 \noindent\textbf{Step 7 (under $m_0 \ge 0$ the inner root exists and is unique, by derivation).}
@@ -3085,44 +3213,49 @@ only in this step and the next, and never subscripted, so that it does not colli
 $A_0,A_{1/2},A_1$ of \eqref{eq:atau}) and put
 \begin{equation}
 \label{eq:P1-rho}
-\varrho(P) \;=\; \mathcal P_{\mathcal I}(P) - P \;=\; \bigl(1-p(P)\bigr)(A-P) + p(P)\,\bar m,
+\mathfrak R_{\mathcal I}(P) \;=\; \mathcal P_{\mathcal I}(P) - P \;=\; \bigl(1-p(P)\bigr)(A-P) + p(P)\,\bar m,
 \end{equation}
 continuous in $P$ because $\Phi$ is. By hypothesis (P-11), the restriction $m_0 \ge 0$ of
 \eqref{eq:m0}, together with $\Delta_m > 0$ and $\pi \in [0,1]$ from clause (TR-i), we have
 $\bar m \ge 0$.
 
 \emph{(i) No root below $A$.} For $P < A$ both terms of \eqref{eq:P1-rho} are nonnegative and the
-first is strictly positive, since $p(P) < 1$ by Step~4; hence $\varrho(P) > 0$.
+first is strictly positive, since $p(P) < 1$ by Step~4; hence $\mathfrak R_{\mathcal I}(P) > 0$.
 
-\emph{(ii) A root exists.} We have $\varrho(A) = p(A)\bar m \ge 0$. If $\bar m = 0$ then $P = A$ is a
-root. If $\bar m > 0$ then $\varrho(A) > 0$, while as $P \to +\infty$ we have $p(P) \to 0$ and
-$(A-P) \to -\infty$, so $\varrho(P) \to -\infty$. An explicit bracket: for
+\emph{(ii) A root exists.} We have $\mathfrak R_{\mathcal I}(A) = p(A)\bar m \ge 0$. If $\bar m = 0$ then $P = A$ is a
+root. If $\bar m > 0$ then $\mathfrak R_{\mathcal I}(A) > 0$, while as $P \to +\infty$ we have $p(P) \to 0$ and
+$(A-P) \to -\infty$, so $\mathfrak R_{\mathcal I}(P) \to -\infty$. An explicit bracket: for
 $P \ge \bar S-K-\bar m+\sigma_\xi$ one has $p(P) \le 1-\Phi(1) < 0.159$, whence
-$\varrho(P) \le 0.159\,\bar m - 0.841\,(P-A) \le 0$ once additionally $P \ge A+0.19\,\bar m$. The
+$\mathfrak R_{\mathcal I}(P) \le 0.159\,\bar m - 0.841\,(P-A) \le 0$ once additionally $P \ge A+0.19\,\bar m$. The
 intermediate value theorem on $\bigl[A,\ \max\{\bar S-K-\bar m+\sigma_\xi,\ A+0.19\bar m\}\bigr]$
 delivers a root.
 
 \emph{(iii) The root is unique.} The residual is differentiable, with
-$\varrho'(P) = p'(P)\bigl(P+\bar m-A\bigr) + p(P) - 1$ and
-$p'(P) = -\phi\bigl((P+K+\bar m-\bar S)/\sigma_\xi\bigr)/\sigma_\xi < 0$. At any root, (i) gives
-$P \ge A$, so $P+\bar m-A \ge \bar m \ge 0$ and the first term is at most zero, while the second is
-strictly negative because $p < 1$. Hence $\varrho' < 0$ \emph{strictly at every root}. Suppose there
-were two roots $P_1 < P_2$ with no root between them. Then $\varrho'(P_1) < 0$ forces $\varrho < 0$
-immediately to the right of $P_1$, and since $\varrho$ has no zero on $(P_1,P_2)$ it is negative
-throughout that interval; but $\varrho'(P_2) < 0$ forces $\varrho > 0$ immediately to the left of
-$P_2$. The two conclusions contradict each other, so there is at most one root.
+$\mathfrak R_{\mathcal I}'(P) = p'(P)\bigl(P+\bar m-A\bigr) + p(P) - 1$ and
+$p'(P) = -\phi\bigl((P+K+\bar m-\bar S)/\sigma_\xi\bigr)/\sigma_\xi < 0$. Take any $P \ge A$. Then
+$P+\bar m-A \ge \bar m \ge 0$ by hypothesis (P-11), so the first term is at most zero, and
+$p(P)-1 < 0$ because $p < 1$ by Step~4. Hence
+\[
+\mathfrak R_{\mathcal I}'(P) \;<\; 0 \qquad \text{for every } P \ge A,
+\]
+and not merely at roots. By (i) every root lies in $[A,\infty)$, and a strictly decreasing function
+has at most one zero on an interval, so there is at most one root; (ii) supplies existence, so the
+root is unique. The global form of the sign statement, rather than its restriction to roots, is what
+the implicit-function argument of Step~8 consumes.
 
 On the maintained sign $m_0 \ge 0$ the existence and uniqueness content of Assumption~\ref{asm:A5} is
 therefore a theorem rather than an assumption, which is the first of the three parts of the
-proposition's trailing paragraph on that assumption. What is left over is continuity of the
-\emph{composition} in the conjecture $k$, which runs through the conditioning pair $(\hat v,\pi)$
-rather than through the pricing map; Step~15 takes that up and says exactly where it is assumed.
+proposition's trailing paragraph on that assumption, and Step~8 adds its continuity content in the
+belief. What is left over is continuity of the \emph{composition} in the conjecture $k$, which runs
+through the conditioning pair $(\hat v,\pi)$ rather than through the pricing map; Step~15 takes that
+up and says exactly where it is assumed.
 
 \smallskip
-\noindent\textbf{Step 8 (the inner root is monotone and non-expansive in the belief).}
+\noindent\textbf{Step 8 (the inner root is monotone and non-expansive in the belief, and continuous
+in the belief pair).}
 Continuity in the belief comes from the same scalar reduction. On \eqref{eq:P1-rho} the residual is
-continuously differentiable jointly in $(P,\hat v)$, and by Step~7(iii) $\partial_P\varrho < 0$
-strictly at every root, so the implicit-function argument applies to $\varrho(P;\hat v) = 0$ and
+continuously differentiable jointly in $(P,\hat v)$, and by Step~7(iii) $\partial_P\mathfrak R_{\mathcal I} < 0$
+strictly at every root, so the implicit-function argument applies to $\mathfrak R_{\mathcal I}(P;\hat v) = 0$ and
 yields
 \begin{equation}
 \label{eq:P1-dP}
@@ -3131,8 +3264,30 @@ yields
 \;\in\; (0,1],
 \end{equation}
 the denominator being at least $1-p > 0$ by hypothesis (P-11) and Step~7(i). So the root map is
-single-valued, strictly increasing and $1$-Lipschitz in the belief. This is the continuity content of
-Assumption~\ref{asm:A5}, derived rather than assumed, and it is what Step~6(b) consumes.
+single-valued, strictly increasing and $1$-Lipschitz in $\hat v$ at fixed $\pi$.
+
+The pooled layer moves both summaries, so the root is needed as a function of the pair
+$(\hat v,\pi)$ and not of $\hat v$ alone. Write the residual with both arguments,
+\[
+\mathfrak R_{\mathcal I}(P;\hat v,\pi) \;=\; \bigl(1-p(P;\pi)\bigr)\bigl(A(\hat v,\pi)-P\bigr) + p(P;\pi)\,\bar m(\pi),
+\]
+\[
+A = \hat v + \pi\Delta_V,
+\qquad
+\bar m = m_0 + \pi\Delta_m,
+\qquad
+p(P;\pi) = 1-\Phi\!\Bigl(\tfrac{P+K+\bar m(\pi)-\bar S}{\sigma_\xi}\Bigr).
+\]
+Both $A$ and $\bar m$ are affine in $(\hat v,\pi)$ by clause (TR-i) and \eqref{eq:m0}, and $\Phi$ is
+smooth, so $\mathfrak R_{\mathcal I}$ is $C^1$ jointly in $(P,\hat v,\pi)$ on $\mathbb R \times \mathbb R \times
+[0,1]$; by Step~7(iii) in its global form, $\partial_P\mathfrak R_{\mathcal I} < 0$ at every $P \ge A$ and hence at
+every root. The implicit-function theorem therefore gives a locally $C^1$ root
+$P = P(\hat v,\pi)$ around every belief pair, and the global existence and uniqueness of Step~7(ii)
+and~7(iii) make those local root functions agree wherever their domains overlap. Hence the unique
+inner root is a single-valued continuous function of $(\hat v,\pi)$ jointly on
+$\mathbb R \times [0,1]$. The bound \eqref{eq:P1-dP} is the non-expansiveness of that root in the
+$\hat v$ direction at fixed $\pi$, which is what Step~6(b) consumes on the flagged cell, where
+$\pi \equiv 1$; the joint statement is what Steps~5(a) and~9(b) consume, where $\pi$ moves.
 
 \medskip
 \noindent\emph{Part C: beliefs, on path and off.}
@@ -3170,15 +3325,22 @@ attainable under any \emph{one} plan.
 
 \emph{(b) The limit exists at every reachable history, and it is a limit of the joint posterior.}
 Index the perturbation by $n$: at stage $n$ every signal type plays every plan $j \in \mathcal J$
-with weight at least $1/n$, the remaining mass following $j_k$ of \eqref{eq:P1-jk}. Writing
+with weight at least $1/n$, the remaining mass following $j_k$ of \eqref{eq:P1-jk}. For integers
+$n \ge J$ write
 \begin{equation}
 \label{eq:P1-wn}
 w_n(j \mid s) \;=\; (1-t_n)\,\ind\{j = j_k(s)\} + \frac{t_n}{J},
 \qquad
-t_n := \frac{J}{n} \downarrow 0,
+t_n := \frac{J}{n} \in (0,1],
+\qquad
+t_n \downarrow 0,
 \end{equation}
-for the stage-$n$ mixing weight (the perturbation mass is written $t_n$ rather than with a Greek
-letter because $\varepsilon$ is the signal noise of Definition~\ref{def:primitives}) and
+for the stage-$n$ mixing weight: the weights are nonnegative, sum to one, and give every plan at
+least $t_n/J = 1/n$. (For $n < J$ the display is not a probability distribution, since $t_n > 1$
+makes $1-t_n$ negative, and a weight of at least $1/n$ on every plan is infeasible there; the limit
+is unaffected by dropping finitely many initial indices.) The perturbation mass is written $t_n$
+rather than with a Greek letter because $\varepsilon$ is the signal noise of
+Definition~\ref{def:primitives}. With
 \[
 L_j\bigl(\mathcal H_d^P \mid s\bigr)
 = \prod_{d' \le d} \Prb\bigl(z_{d'} = X_{d'}-q_{jd'}(s)\bigr)
@@ -3199,9 +3361,10 @@ witnessing pair $(j,S)$ contributes at least $(1/n)\int_S L_j(\mathcal H_d^P \mi
 reachability and, the mark $q_{jd'}(\cdot)$ taking finitely many values, $L_j$ takes finitely many
 positive values on $S$ and is bounded below by their minimum; every other term is nonnegative. A
 ratio of polynomials in $1/n$ whose denominator is nonzero for all large $n$ converges as
-$n \to \infty$, pointwise in $(j,s)$, and the limit is the plan-uniform-weighted joint law restricted
-to the history. This is where the finiteness clauses pay: with a continuum of pooled histories the
-limit would need a separate argument.
+$n \to \infty$, pointwise in $(j,s)$; write $\mu_\infty$ for the limit. Which law $\mu_\infty$ is
+depends on the same denominator split the envelope below needs, and the two cases are \emph{not} the
+same law; both are displayed there. This is where the finiteness clauses pay: with a continuum of
+pooled histories the limit would need a separate argument.
 
 The joint form is what the step must deliver rather than a flourish. Step~4 shows that the pricing
 map reads the information set through $(\hat v,\pi)$; while $\pi$ is a functional of the posterior
@@ -3219,23 +3382,48 @@ for the denominator of \eqref{eq:P1-mun} with $w_n$ expanded, where
 \qquad
 \Lambda_u = \sum_{j'} \int L_{j'}\bigl(\mathcal H_d^P \mid s'\bigr)\varphi_s(s')\,\mathrm{d}s'
 \]
-are the unperturbed and the plan-uniform likelihood aggregates. If $\Lambda_k > 0$ (the history is
-on path under
-$k$), then $Z_n \ge \Lambda_k/2$ for all large $n$, and
-$2\lvert \mu_v+\beta(s-\mu_v)\rvert\varphi_s L_j/\Lambda_k$ is an integrable envelope by the Gaussian
-tail of clause (TR-i) and the integrability clause of Assumption~\ref{asm:A2p}, so dominated
-convergence applies. If $\Lambda_k = 0$, the $k$-null case, then the $(1-t_n)$ term vanishes
-$\Phi_s$-almost everywhere in numerator and denominator alike, so $\mu_n = L_j\varphi_s/\Lambda_u$
-exactly and free of $n$, and there is nothing to pass to the limit; note that this limit does not
-depend on $k$, which is what makes one family serve at every $k \in \Theta$. Without the split the
-bare claim would be false as stated, since $\mu_n \le \varphi_s L_j/Z_n$ with $Z_n \downarrow 0$ is
-not a uniform envelope. Either way $\hat v_n \to \hat v_\infty$ and, by the $1$-Lipschitz bound
-\eqref{eq:P1-dP}, the prices converge with the beliefs. The limiting belief and the limiting price
-therefore exist at every reachable pooled history, on path and off, and on path the belief agrees
-with the Bayes posterior. This is load-bearing where it is least obvious: Step~13 evaluates the
-payoff to \emph{every} plan in the menu, including plans carrying zero probability under $k$ on a
-collapse face, whose pooled-execution bracket reads prices at $k$-null histories, so those prices
-must be defined, not merely constrained.
+are the unperturbed and the plan-uniform likelihood aggregates.
+
+If $\Lambda_k > 0$, so that the history is on path under $k$, then $Z_n \ge \Lambda_k/2$ for all
+large $n$, and $2\lvert \mu_v+\beta(s-\mu_v)\rvert\varphi_s L_j/\Lambda_k$ is an integrable envelope:
+the likelihood is a product of noise probabilities and an indicator, so $L_j \le 1$, the envelope's
+signal factor grows only linearly in $\lvert s\rvert$, and $\lvert s\rvert\varphi_s$ is integrable
+under the Gaussian law of clause (TR-i). Dominated convergence therefore applies, and since
+$w_n(j \mid s) \to \ind\{j = j_k(s)\}$ pointwise and $Z_n \to \Lambda_k$,
+\[
+\mu_\infty(j,s) \;=\; \frac{\ind\{j = j_k(s)\}\,L_j(\mathcal H_d^P \mid s)\,\varphi_s(s)}{\Lambda_k},
+\]
+the ordinary Bayes posterior generated by the conjectured map $j_k$: the uniform tremble washes out,
+and the limit is \emph{not} the plan-uniform law. If $\Lambda_k = 0$, the $k$-null case, then the
+$(1-t_n)$ term vanishes $\Phi_s$-almost everywhere in numerator and denominator alike, so
+\[
+\mu_n(j,s) \;=\; \mu_\infty(j,s) \;=\; \frac{L_j(\mathcal H_d^P \mid s)\,\varphi_s(s)}{\Lambda_u}
+\]
+exactly and free of $n$, as an identity between densities almost everywhere rather than pointwise at
+every signal, and there is nothing to pass to the limit: the limit is the plan-uniform posterior
+restricted to the history. Without the split the bare claim would be false as stated, since
+$\mu_n \le \varphi_s L_j/Z_n$ with $Z_n \downarrow 0$ is not a uniform envelope. In both cases the
+displayed density is a probability density at the history.
+
+Both belief summaries must be carried, because the pricing map of Step~4 reads the information set
+through the pair. Alongside $\hat v_n$ define the stage-$n$ engagement posterior
+\[
+\pi_n \;:=\; \sum_{j \in \mathcal J} a_j \int \mu_n(j,s)\,\mathrm{d}s \;\in\; [0,1],
+\]
+which is the engagement posterior $\pi(\mathcal I)$ of Definition~\ref{def:prices} evaluated at
+$\mu_n$ rather than a new object. If $\Lambda_k > 0$, then $a_j \in \{0,1\}$ makes
+$a_j\mu_n(j,s) \le \mu_n(j,s)$, so the same denominator bound gives the integrable envelope
+$2\varphi_s L_j/\Lambda_k$, again with $L_j \le 1$ and $\varphi_s$ integrable under clause (TR-i),
+and dominated convergence yields $\pi_n \to \pi_\infty$; if $\Lambda_k = 0$, then $\mu_n$ is free of
+$n$ by the display above, so $\pi_n$ is constant and the convergence is immediate. The same two cases
+give $\hat v_n \to \hat v_\infty$. Hence $(\hat v_n,\pi_n) \to (\hat v_\infty,\pi_\infty)$ and, by the
+joint continuity of the unique inner root in $(\hat v,\pi)$ established in Step~8, the prices converge
+with the beliefs, $P_n \to P_\infty$; the bound \eqref{eq:P1-dP} remains available for comparisons at
+fixed $\pi$. The limiting belief and the limiting price therefore exist at every reachable pooled
+history, on path and off, and on path the belief agrees with the Bayes posterior. This is
+load-bearing where it is least obvious: Step~13 evaluates the payoff to \emph{every} plan in the
+menu, including plans carrying zero probability under $k$ on a collapse face, whose pooled-execution
+bracket reads prices at $k$-null histories, so those prices must be defined, not merely constrained.
 
 \emph{(c) Unreachable histories carry no requirement, and a convention keeps the payoff defined at
 every signal.} An unreachable history has probability zero under \emph{every} plan profile,
@@ -3252,13 +3440,19 @@ $\bigl((q_{jd'}(s))_{d' \le d},\,\ind\{f_j(s) \le d\}\bigr)$ takes finitely many
 (P-2), so its level sets partition the line into finitely many Borel cells, and a particular cell
 may be $\Phi_s$-null while being nonempty. At such a signal, plan $j$'s own realised pooled histories
 are unreachable and Step~11's bracket would read a price that (b) has not defined. We therefore fix
-once and for all a \emph{reference belief} $(\hat v_\circ,\pi_\circ)$, for definiteness the prior pair
-$\bigl(\mu_v,\Prb(a=1)\bigr)$, and assign to every unreachable pooled history the inner root
+once and for all a $k$-independent \emph{reference belief} $(\hat v_\circ,\pi_\circ) \in \mathbb R
+\times [0,1]$, for definiteness $(\mu_v,1)$, the prior mean of $v$ of
+Definition~\ref{def:primitives} paired with certain engagement, any other pair fixed independently of
+the conjecture serving equally well, and assign to every unreachable pooled history the inner root
 $P_\circ$ at that belief, the unique solution of
 $\mathcal P_{(\hat v_\circ,\pi_\circ)}(P_\circ) = P_\circ$, which exists and is unique by Step~7 under
-hypothesis (P-11). The payoff is then defined at every triple $(j,s,k)$, and no requirement of
-Definition~\ref{def:cpbe} is touched, since requirements (iii), (iv) and (vi) constrain beliefs and
-prices only at histories carrying positive probability under some profile.
+hypothesis (P-11). Independence of the conjecture is what the convention has to deliver, for two
+reasons that meet here: clause (i) of the proposition asks for one price system fixed once and used
+at every $k \in \Theta$, and, as the rider below records, the reference belief can move a component
+of the outer map through a $\Phi_s$-null set of signals. The payoff is then defined at every triple
+$(j,s,k)$, and no requirement of Definition~\ref{def:cpbe} is touched, since requirements (iii), (iv)
+and (vi) constrain beliefs and prices only at histories carrying positive probability under some
+profile.
 
 The form of the convention matters, and the unconditional mean $\Eop[Y]$ will not serve. That
 quantity is an unconditional average of realised control-node values and is in general not a root of
@@ -3563,15 +3757,24 @@ j^\star(s;k) \ge i+1\bigr\},
 \end{equation}
 Since $\{s : j^\star \ge i+2\} \subseteq \{s : j^\star \ge i+1\}$, the infima satisfy
 $\Tmap_1(k) \le \Tmap_2(k) \le \dots \le \Tmap_{J-1}(k)$, and every component lies in
-$[\underline s,\overline s]$ by construction. The corner convention is the display's
-$\inf\emptyset := \overline s$: a plan optimal nowhere contributes an empty upper set, its cutoff
-sits at the top of the bracket, and it simply never appears in the range of $j^\star$. Because
-$j^\star(\cdot\,;k)$ is weakly increasing, each set $\{s : j^\star \ge i+1\}$ \emph{is} an upper set,
-so these infima genuinely represent it: $j^\star(\cdot\,;k)$ agrees with the induced map
-$j_{\Tmap(k)}$ of \eqref{eq:P1-jk} at every signal except possibly the finitely many $\Tmap_i(k)$ at
-which the upper set fails to contain its own infimum, where the two differ by the boundary convention
-alone, and requirement~(i) of Definition~\ref{def:cpbe} pins no convention there. Hence
-$\Tmap(k;\vartheta) \in \Theta$ for every $k \in \Theta$, including on the collapse faces where
+$[\underline s,\overline s]$ by construction. The convention $\inf\emptyset := \overline s$ in
+\eqref{eq:P1-Tmap} is a \emph{totalisation} and not a code for ``never'': it makes each $\Tmap_i$
+defined at every $k$, and under hypothesis (P-5) it is never triggered.
+
+What the bracket clause of hypothesis (P-5) is assumed to deliver can now be written out.
+Assumption~\ref{asm:A6} asserts that all best-response cutoffs lie in the common compact ordered
+polytope $\Theta$; read at the level Step~14 consumes it, that is the statement that for every
+$k \in \Theta$ and every $i \in \{1,\dots,J-1\}$ the set $\{s \in \mathbb R : j^\star(s;k) \ge i+1\}$
+is a \emph{nonempty} upper set whose infimum lies in $[\underline s,\overline s]$. Under that clause,
+and because $j^\star(\cdot\,;k)$ is weakly increasing, so that each such set is indeed an upper set,
+the infima genuinely represent $j^\star$ on the whole signal line: $j^\star(\cdot\,;k)$ agrees with
+the induced map $j_{\Tmap(k)}$ of \eqref{eq:P1-jk} at every signal except possibly the finitely many
+$\Tmap_i(k)$ at which the upper set fails to contain its own infimum, where the two differ by the
+boundary convention alone, and requirement~(i) of Definition~\ref{def:cpbe} pins no convention there.
+Weak increase on its own does not deliver the representation; it is the bracket clause that does, and
+Step~14 says what that clause excludes.
+
+Hence $\Tmap(k;\vartheta) \in \Theta$ for every $k \in \Theta$, including on the collapse faces where
 consecutive components coincide and the corresponding plan carries zero probability, which the
 weak inequalities of Definition~\ref{def:cpbe} admit. The ``weakly ordered'' and ``maps $\Theta$ into
 itself'' halves of Assumption~\ref{asm:A6} are thus derived here from the monotone-preferred-plan
@@ -3602,19 +3805,44 @@ restricting its shape in the posterior mean, and names only plan-locality and in
 properties ever used, neither of which is a shape restriction. At this level of generality the common
 bracket is therefore \emph{assumed}, and it is the first of the two things hypothesis (P-5) is doing.
 
+Said in the form Step~13 consumes it: what the bracket clause supplies is that \emph{every}
+adjacent-pair indifference signal \emph{exists} and lies in $[\underline s,\overline s]$. That is
+exactly what the four-action argument establishes in its own specialisation, and exactly what
+excludes both an adjacent pair with no crossing anywhere (in the canonical dominated-top case, where
+the top plan is dominated and therefore optimal nowhere) and an adjacent pair whose crossing sits
+outside the bracket. The exclusion is a genuine narrowing of the domain rather than a formality. A
+menu with a dominated top plan can satisfy every enumerated hypothesis other than (P-5) and fail this
+clause, and on such a menu the proposition asserts nothing. What goes wrong there is the
+representation itself: under the coding \eqref{eq:P1-jk} the finite cutoff vector cannot represent
+the best-response plan map on the Gaussian tails at such a menu, so the components returned by
+\eqref{eq:P1-Tmap} would not represent a best response.
+
 \smallskip
 \noindent\textbf{Step 15 (continuity: where hypothesis (P-5) assumes rather than derives, and what it
 assumes).}
-Continuity of $U_j(s;k)$ in $k$ at fixed $(j,s)$ is available. The pooled and flagged inner prices
-enter the payoff, by Step~4, only through $(\hat v,\pi)$; those are ratios of integrals over signal
-intervals with endpoints $k$ and are continuous in $k$ wherever the conditioning event has
-probability bounded away from zero, and at histories of vanishing probability the perturbation limit
-of Step~9 supplies the value, while the root map is $1$-Lipschitz in the belief by
-\eqref{eq:P1-dP}. That is continuity in $k$ at fixed $(j,s)$, \emph{and it is not enough}: continuity
-in $k$ at fixed $s$ together with continuity in $s$ at fixed $k$ is strictly weaker than continuity
-in the pair, and it is the joint statement that the crossing-point argument below consumes.
-Continuity of $\Tmap$ needs two further things that no hypothesis of
-Section~\ref{sec:hypotheses} supplies.
+Nothing in Steps~4 to~10 derives continuity of $k \mapsto U_j(s;k)$ at fixed $(j,s)$, and this step
+does not assert it. One link of the chain is derived: Step~7(iii) and Step~8 make the inner root
+exist, be unique and be continuous in its belief summaries $(\hat v,\pi)$, and by Step~4 those
+summaries are the only channel through which the information set enters the price. The other link is
+not. The $k$-dependence runs through the \emph{conditioning}: the pair $(\hat v,\pi)$ consists of
+ratios of integrals over signal intervals with endpoints $k$, continuous in $k$ only while the
+conditioning event's probability stays bounded away from zero, and at a history whose probability
+vanishes as $k$ moves it is the construction of Step~9, not a continuity argument, that supplies the
+value. The two branches of Step~9(b) are different laws (the $j_k$-concentrated Bayes posterior where
+$\Lambda_k > 0$, the plan-uniform posterior where $\Lambda_k = 0$), and no step here shows that they
+agree as $\Lambda_k$ falls to zero. The paragraph after Assumption~\ref{asm:A5} draws exactly this
+distinction and records the composition $k \mapsto (\hat v,\pi) \mapsto P$ as the underived one, and
+Remark~\ref{rem:A6record} records it measured to jump, on the boundaries of the reaching sets of the
+pooled histories, at the implemented calibration. The proposition therefore consumes hypothesis (P-5)
+as an assumption at precisely this point: for the named largest-weakly-increasing-selection
+tie-break, the totalisation of \eqref{eq:P1-Tmap} and the reference-belief convention of Step~9(c),
+$\Tmap$ is a continuous self-map of $\Theta$, which is what Step~16 applies. Neither of the two
+separate continuities is derived above, so the observation that their conjunction is strictly weaker
+than the joint statement the crossing-point argument consumes stands as a logical point and names no
+available route.
+
+Conditions (i) and (ii) below are candidate primitive sufficient conditions for that assumption, the
+weakest pair we can name, and they are not consequences of the steps above.
 
 \begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
 \item \emph{Joint continuity.} The map $(s,k) \mapsto U_j(s;k)$ is continuous on
@@ -3626,28 +3854,71 @@ Section~\ref{sec:hypotheses} supplies.
   stake path and Borel regularity, and nothing more; a plan acquiring a block discontinuously at a
   signal trigger is permitted and makes the payoff jump, at which point the best-response cutoff is a
   jump point rather than a crossing point and moves discontinuously with $k$.
-\item \emph{Transversality.} For every adjacent pair $(i,i+1)$ and every $k \in \Theta$, the
-  indifference set $\{s : U_{i+1}(s;k) = U_i(s;k)\}$ has empty interior. Assumption~\ref{asm:A3} says
-  the difference crosses zero at most once, which does not exclude an interval on which it vanishes
-  identically; on such an interval the cutoff is indeterminate, and as the interval opens and closes
-  with $k$ the selection jumps.
+\item \emph{Robust threshold identification.} For each adjacent pair write
+  $d_i(s,k) := U_{i+1}(s;k)-U_i(s;k)$, a function of the signal and of the cutoff vector which always
+  carries its adjacent-pair subscript, so that it is not read as the calendar index $d$ of
+  Definition~\ref{def:plans}. The condition is that for every $k \in \Theta$ there is a \emph{unique}
+  $c_i(k) \in [\underline s,\overline s]$ with
+  \[
+  d_i(s,k) < 0 \ \text{ for } s < c_i(k),
+  \qquad
+  d_i(s,k) > 0 \ \text{ for } s > c_i(k),
+  \]
+  and that across pairs these thresholds are weakly ordered,
+  $c_1(k) \le c_2(k) \le \dots \le c_{J-1}(k)$ for every $k \in \Theta$, equivalently that no plan is
+  absent from the argmax at every signal. (The threshold $c_i(k)$ carries an adjacent-pair subscript
+  and the conjecture as its argument, so it does not collide with the crossing date $c_j(s;\tau)$ of
+  Definition~\ref{def:plans}, which carries a signal argument and the threshold policy.) This asks
+  strictly more than Assumption~\ref{asm:A3} together with a tie set of empty interior. That
+  assumption says the difference \emph{crosses} zero at most once, which admits two failures: an
+  interval of ties, and an isolated \emph{tangency}, at which $d_i \le 0$ everywhere with a single
+  zero, so that there is no crossing, no sign change and no threshold at all. The counterexample in
+  Step~13 that rules out the largest maximiser is that tangency, and it sits inside
+  Assumption~\ref{asm:A3}.
 \end{enumerate}
 
-Under (i) and (ii), continuity of $\Tmap$ follows from the joint continuity together with the strict
-sign change of $U_{i+1}-U_i$ at each crossing: the sign change locates the crossing and the joint
-continuity moves it continuously with $k$. That is a topological argument rather than a calculus one;
-the implicit-function theorem is the wrong tool here, since it would need the payoff differentiable
-in $(s,k)$ and no hypothesis supplies that. Hypothesis (P-5) assumes the conclusion instead, by
-asserting continuity of $\Tmap$ directly. That is the single largest assuming-rather-than-deriving
-step in this proof, and (i) together with (ii) is the weakest pair of conditions we can name that
+Under (i) and (ii), each $\Tmap_i$ equals $c_i$ and each $c_i$ is continuous, by the topological
+argument that follows; the implicit-function theorem is the wrong tool here, since it would need the
+payoff differentiable in $(s,k)$ and no hypothesis supplies that.
+
+\emph{The identification.} Fix $k$ and $s$ and write $\mathfrak m := \#\{i : s > c_i(k)\}$ for the
+number of thresholds strictly below the signal. By the weak ordering the counted indices form a
+prefix $\{1,\dots,\mathfrak m\}$, so the increments of the payoff sequence
+$U_1(s;k),\dots,U_J(s;k)$ read $d_1,\dots,d_{\mathfrak m} > 0$ and
+$d_{\mathfrak m+1},\dots,d_{J-1} < 0$, each sign by the threshold clause: the sequence strictly
+increases up to index $1+\mathfrak m$ and strictly decreases after it. Hence, off the finitely many
+threshold points, the argmax is single-valued and equal to the counting map
+$1+\#\{i : s > c_i(k)\}$, which is \eqref{eq:P1-jk} evaluated at the cutoff vector
+$\bigl(c_1(k),\dots,c_{J-1}(k)\bigr)$; at a threshold point $s = c_i(k)$ the continuity in the signal
+supplied by (i) forces $d_i(s,k) = 0$, so the argmax there can only widen across the plans tied at
+that point. The counting map is weakly increasing in the signal, so it is itself a weakly increasing
+selection from the argmax, and every selection agrees with it off the threshold points. Therefore
+$j^\star(\cdot\,;k)$ is that counting map, and the vector $\bigl(c_1(k),\dots,c_{J-1}(k)\bigr)$
+represents it. Reading the infimum \eqref{eq:P1-Tmap} off that representation, the set
+$\{s : j^\star(s;k) \ge i+1\}$ is $\{s : s > c_i(k)\}$ up to the threshold points themselves, and
+below $c_i(k)$ the argmax never reaches plan $i+1$, so
+$\Tmap_i(k) = \inf\{s : s > c_i(k)\} = c_i(k)$ for every $i$.
+
+\emph{Continuity.} Let $k_n \to k$ in $\Theta$ and take any convergent subsequence
+$c_i(k_{n'}) \to c$, which exists because $[\underline s,\overline s]$ is compact. For every $s < c$
+one eventually has $s < c_i(k_{n'})$, so $d_i(s,k_{n'}) < 0$, and the joint continuity of (i) gives
+$d_i(s,k) \le 0$; symmetrically $d_i(s,k) \ge 0$ for every $s > c$. Uniqueness of the sign threshold
+at $k$ forces $c = c_i(k)$. Every convergent subsequence therefore has the same limit, so
+$c_i(k_n) \to c_i(k)$, which by the identification just argued is continuity of each component of
+$\Tmap$.
+
+These two conditions are sufficient and are not claimed weakest. The proposition continues to assume
+their conclusion through hypothesis (P-5), and (i) with (ii) is the weakest pair we can name that
 would replace it. Note also that (i) is not independent of hypothesis (P-6): a stake path flat on a
-signal interval destroys injectivity there, so continuity cannot be bought by weakening monotonicity.
+signal interval destroys injectivity there, so continuity cannot be bought by weakening
+monotonicity.
 
 Two configurations in which the named sufficient conditions fail are worth recording, because they
-show hypothesis (P-5) doing more work than Step~15 makes it look like it is doing. An engagement cost
-constant on a signal interval, with the conjecture such that $U_{i+1}(\cdot;k)-U_i(\cdot;k)$ vanishes
-there, makes every cutoff in that interval a best response, and the selection jumps as the plateau
-opens and closes with $k$: condition (ii) fails. Worse, plateaus are structural on exactly the menus
+show hypothesis (P-5) doing more work than this step makes it look like it is doing. An engagement
+cost constant on a signal interval, with the conjecture such that $d_i(\cdot\,,k)$ vanishes
+identically there, leaves the pair with no strict sign threshold at all, so condition (ii) fails;
+every cutoff in that interval represents a best response, and the selection jumps as the plateau
+opens and closes with $k$. Worse, plateaus are structural on exactly the menus
 hypothesis (P-10) exists for. By (c) of Step~12,
 $U_{j'}(s;k) = B_j^F(s)P^F(s)-C_j(s)-E_j(s;k)$ is the \emph{same function of the signal} for every
 member of a deviation class (the shared pooled path gives a common stake at filing and a common
@@ -3655,11 +3926,12 @@ execution bracket, and hypothesis (P-10) gives a common cost), so on any menu ca
 \emph{adjacent} class members the difference $U_{i+1}-U_i$ vanishes identically on the whole flagged
 region, and condition (ii) fails identically rather than on a knife-edge. Neither observation breaks
 the proof: hypothesis (P-5) asserts continuity of $\Tmap$ outright, and the selection
-\eqref{eq:P1-jstar} is single-valued across a plateau. But it should be said plainly that on
-multi-Voice shared-path menus that hypothesis is being assumed at a configuration where its own named
-sufficient condition provably fails. Remark~\ref{rem:A6record} carries the separate, measured record
-that the continuity clause fails at the implemented calibration for the $\Theta$ this argument
-constructs.
+\eqref{eq:P1-jstar} is single-valued across a plateau. Nor is any alternative route claimed to
+survive such a configuration, since the correspondence-valued argument of Step~18 draws no
+conclusion. But it should be said plainly that on multi-Voice shared-path menus that hypothesis is
+being assumed at a configuration where its own named sufficient condition provably fails.
+Remark~\ref{rem:A6record} carries the separate, measured record that the continuity clause fails at
+the implemented calibration for the $\Theta$ this argument constructs.
 
 \smallskip
 \noindent\textbf{Step 16 (Brouwer).}
@@ -3698,7 +3970,8 @@ Take $k^\star$ from Step~16 and check the definition item by item.
   signal by the definition of the selection. No appeal to indifference at the cutoff points is
   needed, and none is available: indifference there would require continuity of
   $s \mapsto U_j(s;k)$, which is condition (i) of Step~15, explicitly not a hypothesis and explicitly
-  not derived.
+  not derived, and a plan acquiring a block at a signal trigger, which the primitive table permits,
+  makes the payoff jump.
 \item \emph{Bayes-consistent on-path beliefs.} Step~9 for pooled histories of positive probability
   under $k^\star$; Step~10 for flagged tuples, where Assumption~\ref{asm:A7J} (A7-J) supplies the point mass
   at $\iota_F(\sigma_F)$ as the selected version.
@@ -3723,26 +3996,25 @@ construction has been carried out at an arbitrary $\kappa \in [0,1]$, endpoints 
 Step~9(d). This proves the existence half of the proposition together with its clauses (i) to (v).
 
 \smallskip
-\noindent\textbf{Step 18 (a strengthening recorded here, not part of the proposition).}
+\noindent\textbf{Step 18 (a possible route, outside the proposition and not established here).}
 Define instead the best-response correspondence
 \[
 \mathfrak T(k) \;=\; \bigl\{k' \in \Theta : k' \text{ represents some optimal weakly increasing plan
 selection at } k\bigr\}.
 \]
-It is nonempty by Assumption~\ref{asm:A3}; its values are convex, because at an
-indifference plateau the admissible values of a component form an interval and the ordering
-constraints cut the product of those intervals by half-spaces; its values are compact, being closed
-subsets of the compact $\Theta$; and its graph is closed by the maximum theorem, given that the
-payoff is jointly continuous in $(s,k)$, which is exactly what condition (i) of Step~15 states as a
-condition rather than deriving. Kakutani's fixed-point theorem then delivers a fixed point without
-condition (ii) of Step~15 and without the continuity clause of Assumption~\ref{asm:A6}. It removes
-the transversality condition and \emph{neither} condition (i) nor Step~14's bracket.
-Definition~\ref{def:cpbe} fixes the Brouwer route for this proposition, so this is a remark and not a
-part of the claim. One withdrawal is recorded with it: the Kakutani conclusion sketched in the
-preceding sentences is \emph{unestablished}, because convex values and a closed graph of
-$\mathfrak T$ would need a lemma this proof does not supply. No Kakutani conclusion is drawn; the
-step stays a remark outside the claim, no step reads it, and nothing the proposition rests on
-changes.
+It is nonempty by Assumption~\ref{asm:A3}, and its values are compact, being closed subsets of the
+compact $\Theta$. A Kakutani argument would additionally need a lemma that, under the cutoff encoding
+used here, $\mathfrak T$ has convex values and a closed graph, and no such lemma is proved above. The
+plateau picture, in which the admissible values of a component form an interval at an indifference
+plateau and the ordering constraints cut the product of those intervals by half-spaces, does not by
+itself show that every admissible cutoff vector is an independent component-wise choice, and it does
+not cover plans absent from the argmax or ties between non-adjacent plans. The maximum theorem, which
+concerns choice from a fixed set at a parameter, does not by itself deliver a closed graph for a
+\emph{selection-valued} problem whose limits must remain represented under the conventions of
+Step~13, and those conventions represent the best response only under the bracket clause of
+hypothesis (P-5). No Kakutani conclusion is therefore drawn here. Definition~\ref{def:cpbe} fixes the
+Brouwer route for this proposition, so this step is a remark outside the claim, and no step above or
+below reads it.
 
 \medskip
 \noindent\emph{Part F: Assumption~\ref{asm:A8} and both cells on path.}
@@ -3789,15 +4061,24 @@ Then the flagged set
 an upper interval of signals. The first condition defines an upper set because
 $j^\star(\cdot\,;k^\star)$ is weakly increasing, by construction in \eqref{eq:P1-jstar}, together with
 (a); and within that set the map $s \mapsto B_{j^\star(s;k^\star)}(s,H-T)$ is weakly increasing,
-because it increases in the signal at a fixed plan by (b) and increases across plans by (c). Writing
-$s_F(k^\star)$ for the infimum of that upper interval,
+because it increases in the signal at a fixed plan by (b) and increases across plans by (c). Write
+$s_F(k^\star)$ for the infimum of that upper interval, and adopt, \emph{for this step alone}, the
+extended-real conventions $\inf\emptyset := +\infty$ and $\inf\mathbb R := -\infty$. These are not
+the totalisation $\inf\emptyset := \overline s$ of \eqref{eq:P1-Tmap}, which totalises a component of
+the outer map inside the bracket and is a different convention for a different object. Then
 \begin{equation}
 \label{eq:P1-Omega}
-\Omega \;=\; 1 - \Phi_s\bigl(s_F(k^\star)\bigr),
+\Omega \;=\; 1 - \Phi_s\bigl(s_F(k^\star)\bigr) \;\in\; [0,1],
 \end{equation}
-and Assumption~\ref{asm:A8} is equivalent to $s_F(k^\star)$ being finite and strictly above
-$-\infty$. Without (a) and (c) the flagged set need not be an interval and $\Omega$ need not be a
-single-threshold object at all.
+with endpoint values $\Omega = 0$ at $s_F = +\infty$, where nothing flags, as when the threshold
+exceeds $\bar b$, and $\Omega = 1$ at $s_F = -\infty$, where everything flags. Hence
+\[
+0 < \Omega < 1
+\qquad \Longleftrightarrow \qquad
+s_F(k^\star) \in \mathbb R,
+\]
+which is Assumption~\ref{asm:A8} restated as a single signal threshold. Without (a) and (c) the
+flagged set need not be an interval and $\Omega$ need not be a single-threshold object at all.
 
 \medskip
 \noindent\textbf{Scope of the conclusion.}
@@ -3824,11 +4105,13 @@ cell at $\kappa = 1$ is asserted anywhere above, and none follows.
 Fourth, the equilibrium is an object built from one fixed convention. The reference-belief root of
 Step~9(c) can change the payoff on a $\Phi_s$-null set of signals and so can move a component of
 $\Tmap$; a different admissible reference belief yields another equilibrium rather than a failure of
-this one, and the proposition does not claim convention-independence. In the same spirit, neither the
-date at which the engagement cost is incurred nor the reading of \eqref{eq:Y}'s takeover-branch price
-is settled here: Remark~\ref{rem:Ctiming} records the first as open between two readings and
-hypothesis (P-10) is what makes the conclusion the same under both, while Step~5 records the second
-and shows its conclusion survives either.
+this one, and the proposition does not claim convention-independence. In the same spirit, the date at
+which the engagement cost is incurred is not settled here: Remark~\ref{rem:Ctiming} records it as open
+between two readings, and hypothesis (P-10) is what makes the conclusion the same under both. The
+reading of the takeover-branch price in \eqref{eq:Y} is settled, by the model's own convention that
+the genuine fixed point sits at the control nodes while earlier pooled prices are tower expectations
+of already-solved control-node values; Step~5 records both readings and shows its conclusion survives
+either.
 
 Fifth, the flagged order is optimal but not \emph{uniquely} optimal. Step~12 proves the opposite of
 uniqueness: on each deviation class the flagged price is invariant and the order cancels, so every
@@ -3850,8 +4133,11 @@ hypothesis (P-10) inherits the same three disclaimers, being vacuous on any sing
 genuine restriction only on menus whose Voice plans share a pooled path, where no step above verifies
 it. Finally, Assumption~\ref{asm:A6} is not claimed to be derivable at this level of generality: its
 ordering and self-map content is derived in Step~13, while the bracket of Step~14 and the continuity
-of Step~15 are assumed, and Remark~\ref{rem:A6record} carries the measured record that the continuity
-clause fails at the implemented calibration for the $\Theta$ this argument constructs.
+of Step~15 are assumed. The bracket clause is a named narrowing of the domain and not a technical
+convenience: menus on which some adjacent pair has no indifference signal in the common bracket,
+those with a dominated top plan among them, are excluded, and on such a menu the proposition asserts
+nothing. Remark~\ref{rem:A6record} carries the measured record that the continuity clause fails at
+the implemented calibration for the $\Theta$ this argument constructs.
 
 \medskip
 With those six scope statements attached, the proof of the proposition is complete.
@@ -4275,7 +4561,8 @@ policies and clauses~(br-i)--(br-v) of Assumption~\ref{asm:Abr}; Remark~\ref{rem
 that the support condition of $\Atau$ fails at every non-degenerate node of the implemented
 calibration, and clause~(br-i) carries that representation at both thresholds, so at that
 calibration Part~(B)'s antecedent is not satisfied and Part~(B) says nothing about the implemented
-pooled cell. The proof is untouched by that fact and so is the label. Second, the window-margin
+pooled cell. The implication is unaffected by that fact: the measurement bears on whether the
+antecedent holds at one calibration, not on the proof. Second, the window-margin
 evidence recorded at Remark~\ref{rem:T1record} is node evidence at one calibration; it is not a
 sign, and Part~(C) claims none.
 
@@ -4370,17 +4657,17 @@ $\lVert D_k\Tmap\rVert$ and one directional derivative of $\Tmap$, with no linea
 $\vartheta\in\mathcal R_r$ and write $k^0 = k(\vartheta)$. Pick $L'$ with
 $L_{\mathcal R} < L' < 1$. By the differentiability clause of Assumption~\ref{asm:AGE} the map
 $(k,\vartheta')\mapsto D_k\Tmap(k;\vartheta')$ is continuous, and by~(C-3) and~(C-2) there are
-$\delta,\varrho > 0$ with the closed ball $\bar B(k^0,\delta)$ inside the interior of $\Theta$, the
-closed ball $\bar B(\vartheta,\varrho)$ inside $\mathcal R_r$ and inside the domain on which
+$\delta,\delta_\vartheta > 0$ with the closed ball $\bar B(k^0,\delta)$ inside the interior of $\Theta$, the
+closed ball $\bar B(\vartheta,\delta_\vartheta)$ inside $\mathcal R_r$ and inside the domain on which
 Assumption~\ref{asm:AGE} and~(C-4) hold, and $\lVert D_k\Tmap(k';\vartheta')\rVert \le L'$
-throughout $\bar B(k^0,\delta)\times\bar B(\vartheta,\varrho)$. The ball being convex, the
+throughout $\bar B(k^0,\delta)\times\bar B(\vartheta,\delta_\vartheta)$. The ball being convex, the
 mean-value inequality along the segment gives
 $\lVert \Tmap(k_1;\vartheta') - \Tmap(k_2;\vartheta')\rVert \le L'\lVert k_1-k_2\rVert$ there.
-Shrinking $\varrho$ so that
+Shrinking $\delta_\vartheta$ so that
 $\lVert \Tmap(k^0;\vartheta') - \Tmap(k^0;\vartheta)\rVert \le (1-L')\delta$, and using
 $\Tmap(k^0;\vartheta) = k^0$ from~(C-3), gives
 $\lVert \Tmap(k_1;\vartheta') - k^0\rVert \le L'\delta + (1-L')\delta = \delta$ for every
-$k_1\in\bar B(k^0,\delta)$ and $\vartheta'\in\bar B(\vartheta,\varrho)$. So
+$k_1\in\bar B(k^0,\delta)$ and $\vartheta'\in\bar B(\vartheta,\delta_\vartheta)$. So
 $\Tmap(\cdot;\vartheta')$ maps the closed ball into itself and contracts it. That ball is a complete
 metric space, so by the contraction mapping theorem each such $\vartheta'$ admits exactly one fixed
 point $\hat k(\vartheta')$ of $\Tmap(\cdot;\vartheta')$ inside the ball, with
@@ -4389,12 +4676,12 @@ $\lVert\hat k(\vartheta')-\hat k(\vartheta'')\rVert \le (1-L')^{-1}\lVert
 \Tmap(\hat k(\vartheta'');\vartheta') - \Tmap(\hat k(\vartheta'');\vartheta'')\rVert$ makes
 $\hat k$ continuous. Local uniqueness and local continuity are consequences here, not hypotheses.
 
-Now put $\Phi(k',\vartheta') := k' - \Tmap(k';\vartheta')$ on
-$\bar B(k^0,\delta)\times\bar B(\vartheta,\varrho)$. It is twice continuously differentiable by
+Now put $\Psi(k',\vartheta') := k' - \Tmap(k';\vartheta')$ on
+$\bar B(k^0,\delta)\times\bar B(\vartheta,\delta_\vartheta)$. It is twice continuously differentiable by
 Assumption~\ref{asm:AGE}, it vanishes at $(k^0,\vartheta)$ by~(C-3), and
-$D_k\Phi = I - D_k\Tmap$ is invertible there by Step~1. The implicit function theorem in its twice
+$D_k\Psi = I - D_k\Tmap$ is invertible there by Step~1. The implicit function theorem in its twice
 continuously differentiable form supplies neighbourhoods and a twice continuously differentiable map
-$\vartheta'\mapsto\tilde k(\vartheta')$ solving $\Phi(\tilde k(\vartheta'),\vartheta') = 0$ with
+$\vartheta'\mapsto\tilde k(\vartheta')$ solving $\Psi(\tilde k(\vartheta'),\vartheta') = 0$ with
 $\tilde k(\vartheta) = k^0$, unique among solutions there; and since every such $\tilde k$ is a
 fixed point of $\Tmap(\cdot;\vartheta')$ inside the ball, $\tilde k = \hat k$ where both are
 defined. Hypothesis~(C-3)'s single-branch clause is consumed exactly here: the selected
@@ -4585,7 +4872,7 @@ convention and keep to it, which is what~(C-1) does.
 \emph{What is not delivered.} Nonemptiness of $\mathcal R_r$ is neither claimed nor provable here:
 the region is a hypothesis, and whether any parameter vector satisfies (C-1)--(C-7) together is a
 property of the calibration. Remark~\ref{rem:C1record} reports the dominance-and-contraction nodes
-found by the executed committed check, and what those nodes verify is narrow: the two pointwise
+found by the numerical check, and what those nodes verify is narrow: the two pointwise
 inequalities $L_{\mathcal R} < 1$ and $\eta_r > 0$ together with supporting diagnostics, and not the
 full antecedent (C-1)--(C-7) and not a named nonempty region. Promoting nodes to a region needs a
 modulus of continuity for $\eta_r$ on the hull of adjacent nodes and a genuine supremum for

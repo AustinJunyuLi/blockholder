@@ -71,3 +71,46 @@ write-up.
    fact: SPEC §0.1/§13 still record HANDOFF_sign.md as absent; the sign has landed, so the
    spec's three directional placeholders are fillable. ω_a remains absent and non-gating.
 5. Q6–Q13 remain open from the 2026-08-29 handoff; nothing here re-litigates them.
+
+---
+
+## Amendment, 2026-08-30 (fix round landed)
+
+The authorized fix round is complete. All twelve blocking findings are cured at source, and all
+76 minor/note findings are dispositioned in
+`quality_reports/session_logs/2026-08-30_draft_v3_minor_ledger.md` (57 FIXED-ALREADY, 11
+FIXED-NOW, 8 DEFERRED-with-reason). Final gates: four-pass build, 0 errors, 0 undefined, 86
+pages; duplicate-label / unresolved-ref / citation-key / quote-dash / workflow-register scans
+all clean; Table 2 arithmetic reconciles (0.68 × 150 = 102, 0.64 × 150 = 96); the diff is
+intended-only.
+
+**Landed.** Appendix B re-transcribed directly from `research/model_v4/proofs/P1_proof.md` at
+65b8db3 (B1–B10, including the scoped Step 18 and the filing-date-indexed eq:P1-BF); the D1
+display in Appendix A repaired to the same filing-date-indexed form; Table 2's caption now
+reports the full attrition (300 sampled, 198 parsed, 10 screened by the 0–60 business-day band
+reported as a count, 188 retained) per SPEC §2.3 (B12); the H=12 chord-route caveat is in
+rem:T1record and the Table 1 caption, calling the column directional corroboration, not a
+second independent magnitude (B11). The same pass removed the remaining repository
+workflow/register wording, applied the notation map (ρ_ch(τ), 𝔯_ℐ, δ_ϑ, Ψ; Φ reserved for the
+normal c.d.f.; no ϱ remains), repaired the A5 counterexample sentence, synchronized the three
+open questions across §5.5 and the conclusion with ω_a carried separately as an open,
+non-load-bearing input, named the MDE basis at the two remaining sites, rewrote the Figure 1
+caption to identify curves by style and marker with the crossing stated, fixed the O-1 prose
+(k₁, k₀ at baseline; only k_D moves), and corrected the CCKV and Trivedi bib entries.
+
+**Decisions that remain yours.**
+1. **Stale mirror handling.** `sections_v3/proofs_existence.tex` still advertises the freeze
+   stamp over ticket-35-era content — the defect that fed B1–B10. Re-sync it or stamp it stale;
+   the fix round left it untouched per the freeze.
+2. **The frozen D1 erratum.** The superseded crossing-date display also survives in the frozen
+   mirrors (`sections_v3/proofs_existence.tex` line 112, `sections_v3/proofs_core_lemmas.tex`
+   line 129). The draft carries the repaired form; the mirrors are read-only under the freeze,
+   so the erratum stands until you rule.
+3. **Headline choice.** Still pending and still non-blocking; the draft records the timing
+   split as the specification's default headline with final selection pending.
+4. **Empirical gates.** Unchanged from the list above: re-fetch/re-parse, CIK→CUSIP rebuild,
+   BID12 coder — all empirics-lane.
+5. **Deferred figure internals.** The two embedded figure PDFs keep their baked-in titles,
+   axis labels and legend placement (minor findings 43, 46, 60, 71); the captions now describe
+   the curves correctly, but the PDFs themselves need a `pyfig` regeneration pass that this
+   round was scoped not to run. Worth doing before anyone outside the project sees the PDF.

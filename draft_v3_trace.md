@@ -248,3 +248,57 @@ removed material, enumerated:
 from the repo root: **0 errors; `grep -in "undefined" draft_v3.log` returns nothing**
 (no undefined citations or references); 81 pages; both included graphics found. (Font
 warnings acceptable per the gate; none fatal.)
+
+---
+
+## Amendment, 2026-08-30 (fix round after the team review)
+
+This amendment records what the authorized fix round changed in the mapping above. The frozen
+record (65b8db3) was not touched; `research/model_v4/**` and `sections_v3/**` were read-only
+throughout.
+
+1. **Appendix B source route.** Appendix B was re-transcribed **directly from
+   `research/model_v4/proofs/P1_proof.md` at 65b8db3**, not from the intermediate
+   `sections_v3/proofs_existence.tex`, whose content predated the R36–R56 wording batch, the
+   R40-A substance batch and the gate repair round while its header carried the freeze stamp.
+   The mirror is thereby superseded as a source for this draft; its disposition (re-sync or
+   stamp stale) is Austin's call under the freeze and is recorded in the team-review brief.
+   The re-transcription carried the repaired filing-date stake display, the flagged-family
+   dichotomy, the perturbation branches with their n ≥ J restriction, the bracket clause, the
+   robust threshold identification, and the A8 endpoint conventions; the ten blocking passages
+   in the findings record are cured at source.
+2. **Step 18 scope.** As printed, Step 18 is "a possible route, outside the proposition and not
+   established here": it defines the best-response correspondence, states what a Kakutani
+   argument would additionally need, and draws no conclusion. No step reads it.
+3. **D1 repair.** The D1 display in Appendix A uses the filing-date-indexed form; eq:P1-BF no
+   longer contradicts its own definition.
+4. **Table 2 attrition arithmetic.** The caption now reports the full attrition: 300 sampled,
+   198 parsed (102 pre and 96 post, reconciling 0.68 × 150 = 102 and 0.64 × 150 = 96), 10
+   screened out by the 0–60 business-day band (4 pre and 6 post), 188 retained (98 pre and 90
+   post). The screen is reported as a count per SPEC §2.3.
+5. **H=12 chord-route caveat.** rem:T1record now states that the enumerated pooled-support
+   object is computationally unavailable at H = 12, so the column's composition ratio C_T is
+   obtained from the chord closed form whose support condition A(τ) is measured to fail at this
+   calibration, and that the H = 12 column is directional corroboration of the H = 10
+   comparison rather than a second independent magnitude. The Table 1 caption carries the weak
+   inequality and the reason the 0.9-quantile node returns 1.0000 (the τ ladder stops biting
+   and the two flagged weights coincide).
+6. **Same-round wording repairs** (detail in
+   `quality_reports/session_logs/2026-08-30_draft_v3_minor_ledger.md`): repository
+   workflow/register wording removed from the paper voice; the notation map applied
+   (ρ_ch(τ) for the main-text chord scalar, 𝔯_ℐ for the Appendix B pricing residual, δ_ϑ for
+   the Appendix C parameter radius, Ψ for the Appendix C implicit-function map, Φ reserved for
+   the normal c.d.f.); the A5 counterexample-attribution sentence repaired; §5.5 and the
+   conclusion now name the same three open questions with ω_a carried separately as an open,
+   non-load-bearing input; the MDE basis ("on the post-re-parse projection") stated at the
+   stake leg and Candidate B; the Figure 1 caption identifies curves by line style and markers
+   and the O-1 prose states that k₁ and k₀ stay at baseline while only k_D moves; the
+   conclusion's "only if and only if" is gone; the bib carries the Kyle–Vila, Norli, Becht and
+   Bebchuk metadata corrections and the CCKV forthcoming note, and the Trivedi editorial note
+   is removed from the References list.
+7. **Final compile gates (this round).** Four-pass build (`xelatex` → `biber` → `xelatex` →
+   `xelatex`): **0 errors; the undefined grep returns nothing; 86 pages**; both included
+   graphics found. 150 labels, no duplicates; 821 refs, none unresolved; 39 citation keys, all
+   present in the bib; no curly quotes or Unicode dashes; the 37 em-dash occurrences all sit
+   inside formal statement environments; the workflow-register scan is clean outside the
+   file's `%`-comment provenance header.
