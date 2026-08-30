@@ -1,0 +1,16 @@
+metric,value,note
+snapshot_permnos,14092,all PERMNOs in crsp_daily.csv
+candidate_pool,5443,ever EQTY/NS/US over the PERMNO's observed life (SPEC 2.3 filter 3 keeps delisted firms; a last-row test would drop them)
+candidate_pool_delisted,1607,pool PERMNOs delisted before the snapshot pull date
+universe_still_listed,2480,control-universe PERMNOs still listed at the pull date
+universe_delisted,1120,control-universe PERMNOs delisted before the pull date
+subjects_2022_2025,2735,unique subject CIKs in fact2_parsed.jsonl
+originals_2021_filings,1557,"2021 SC 13D originals from downloaded idx, unique filings (accession-deduped; EDGAR lists each 13D under filer and subject)"
+originals_2021_subjects,1041,unique 2021 subject CIKs parsed
+excluded_total,1843,union of E1-E6
+universe_size,3600,candidate_pool minus excluded
+amendments_in_window,21987,unique SC 13D/A filings 2021-2025 (accession-deduped)
+amendment_sample,200,seeded sample (seed 20260830)
+amendment_orphan_rate,0.2819,share of sampled amendment subjects with no in-window original; the unsampled remainder is the residual contamination
+amendment_orphan_extrapolated,6198,rough upper-bound estimate of missed amendment-only subjects (assumes sample rate applies to all amendments and one subject per amendment; not added to the exclusion set)
+jsonl_sha256,cc0e3f9d4c264ca4,fact2_parsed.jsonl used

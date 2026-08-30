@@ -112,7 +112,11 @@ FACT2_JSONL = os.path.join(DATA_DIR, "fact2_parsed.jsonl")
 CRSP_DAILY = os.path.join(DATA_DIR, "crsp_daily.csv")
 
 SEC_BULK_LOCK = "/tmp/sec_edgar_bulk.lock"
-LOCK_POLL_SECONDS = 60
+# Poll at 15s: peer lanes release the lock for ~20s gaps between holds, and
+# a 60s poll kept missing them (a control-universe build starved 35+ min
+# behind a bulk extraction on 2026-08-30). More polling never means more
+# requests — it only improves the odds of catching a release gap.
+LOCK_POLL_SECONDS = 15
 
 # The jsonl covers initial 13Ds filed 2022Q1-2025Q4; used as the fallback era
 # when a CIK has no usable filing dates.

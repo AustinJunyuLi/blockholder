@@ -1,0 +1,7 @@
+component,permnos,marginal_new,cumulative
+E1_link_matched,1014,1014,1014
+E2_link_ambiguous,36,27,1041
+E3_old_cusip_hdr,1322,417,1458
+E4_gap2021,552,340,1798
+E5_amendment_sample,102,27,1825
+E6_reverse_map,1246,18,1843

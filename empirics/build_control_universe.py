@@ -13,9 +13,9 @@ it to an in-window 13D subject):
 - E2  ambiguous ticker-collision candidate PERMNOs from that link (never
       silently resolved, so all candidates come out of the pool)
 - E3  reusable cover-page CUSIPs in ``fact2_parsed.jsonl`` (2022-2025
-      originals), matched to CRSP ``HdrCUSIP`` -- this is the only route that
-      reaches PERMNOs delisted before the snapshot pull (the snapshot header
-      is current-only; delisted PERMNOs carry no ticker)
+      originals), matched against each pool PERMNO's whole observed CUSIP
+      history (CUSIP union HdrCUSIP spans) -- reaches targets whose identity
+      drifted or who delisted before the snapshot pull
 - E4  2021 gap: the on-disk idx files start 2022Q1 but the SPEC window starts
       2021-01-01, so the four 2021 quarterly form.idx files are downloaded,
       2021 initial 13Ds enumerated, their texts fetched (cached under
@@ -54,7 +54,8 @@ from empirics.edgar_fetch import DATA_DIR, download_form_index, fetch, list_fili
 from empirics.parse_13d import RE_TAG, parse_filing
 from empirics.link_cik_cusip import (
     OUTPUT_DIR,
-    build_permno_table,
+    CrspIdentity,
+    build_crsp_identity,
     common_us_universe,
     ensure_cached,
     fetch_company_tickers,
@@ -144,13 +145,32 @@ def filing_cache_path(edgar_path: str) -> str:
     return os.path.join(FILINGS_DIR, f"{accession}.txt")
 
 
+def dedupe_by_accession(rows: pd.DataFrame) -> pd.DataFrame:
+    """One row per accession.
+
+    EDGAR's form.idx lists every 13D twice -- once under the filer's CIK
+    directory and once under the subject's (same accession, same submission
+    text, different edgar_path). See the re-parse report
+    (``research/empirics_v4/reparse_report_2026-08-30.md`` §0).
+    """
+    out = rows.copy()
+    out["accession"] = out["edgar_path"].map(
+        lambda p: os.path.basename(p).removesuffix(".txt"))
+    out = out.sort_values(["accession", "edgar_path"], kind="stable")
+    return out.drop_duplicates("accession", keep="first")
+
+
 def fetch_filing_texts(edgar_paths: list[str]) -> None:
-    """Cache master submission texts (throttled, one lock hold)."""
+    """Cache master submission texts (throttled, one lock hold).
+
+    Keyed by accession: duplicate idx rows (filer/subject directory) share
+    one cache file and are fetched once.
+    """
     os.makedirs(FILINGS_DIR, exist_ok=True)
-    requests = {
-        p: (f"https://www.sec.gov/Archives/{p}", filing_cache_path(p))
-        for p in edgar_paths
-    }
+    requests = {}
+    for p in edgar_paths:
+        requests[filing_cache_path(p)] = (
+            f"https://www.sec.gov/Archives/{p}", filing_cache_path(p))
     ensure_cached(requests, max_bytes=FILING_MAX_BYTES)
 
 
@@ -172,22 +192,24 @@ def parse_filings(edgar_paths: list[str]) -> pd.DataFrame:
 
 # -- exclusion helpers --------------------------------------------------------
 
-def hdrcusip_permnos(pool: pd.DataFrame, cusips: list[str]) -> set[int]:
-    """Pool PERMNOs whose HdrCUSIP matches any 8-char CUSIP prefix."""
-    prefixes = {c.upper()[:8] for c in cusips if c and len(c) >= 8}
+def cusip_history_permnos(pool: pd.DataFrame, crsp: CrspIdentity,
+                          cusips: list[str]) -> set[int]:
+    """Pool PERMNOs whose observed CUSIP history covers any 8-char prefix."""
+    prefixes = {str(c).upper()[:8] for c in cusips if c and len(str(c)) >= 8}
     if not prefixes:
         return set()
-    mask = pool["hdrcusip"].str.upper().isin(prefixes)
-    return set(pool.loc[mask, "permno"])
+    return {int(p) for p in pool["permno"]
+            if crsp.cusip_hist.get(int(p), set()) & prefixes}
 
 
 def link_ciks(ciks: list[str], filed: pd.DataFrame,
-              company_tickers: pd.DataFrame,
-              permno_common: pd.DataFrame) -> pd.DataFrame:
+              company_tickers: pd.DataFrame, permno_common: pd.DataFrame,
+              ticker_spans: pd.DataFrame) -> pd.DataFrame:
     """Run the ticker-match machinery for a fresh set of CIKs.
 
     ``filed`` carries subject_cik + filed_min/filed_max for the date-range
-    disambiguation. Submissions documents are fetched (cached) first.
+    disambiguation. Submissions documents are fetched (cached) first. The
+    join uses the same full ticker history as the committed link.
     """
     if not ciks:
         return pd.DataFrame()
@@ -198,7 +220,8 @@ def link_ciks(ciks: list[str], filed: pd.DataFrame,
                          ("n_filings", 1)):
         if col not in subjects:
             subjects[col] = default
-    return match_subjects(subjects, edgar, permno_common, company_tickers)
+    return match_subjects(subjects, edgar, permno_common, company_tickers,
+                          ticker_spans=ticker_spans)
 
 
 def permnos_from_link(link: pd.DataFrame) -> tuple[set[int], set[int]]:
@@ -228,22 +251,27 @@ def main() -> int:
     print(f"  fact2_parsed.jsonl sha256 {jsonl_hash[:16]}... "
           f"-> {len(subject_ciks_2225)} unique subject CIKs (2022-2025)")
 
-    permno_df = build_permno_table()
+    crsp = build_crsp_identity()
+    permno_df = crsp.permno_df
     pool = common_us_universe(permno_df)
-    print(f"  snapshot {len(permno_df)} PERMNOs; "
-          f"US common-stock candidate pool {len(pool)}")
+    print(f"  snapshot {len(permno_df)} PERMNOs; US common-stock candidate "
+          f"pool {len(pool)} (ever EQTY/NS/US over the observed life; "
+          f"{int((~pool['still_listed']).sum())} delisted before the pull "
+          f"date and kept per SPEC 2.3 filter 3)")
 
     link = pd.read_csv(LINK_CSV, dtype={"subject_cik": str})
     reverse_map = pd.read_csv(REVERSE_MAP_CSV, dtype={"cik": str})
 
     print("== 2021 gap: idx + filing texts ==")
     ensure_form_indexes(range(2021, 2022))
-    originals_2021 = list_originals(range(2021, 2022))
+    originals_2021_rows = list_originals(range(2021, 2022))
+    originals_2021 = dedupe_by_accession(originals_2021_rows)
     in_window_2021 = originals_2021[
         (originals_2021["date_filed"] >= WINDOW_START)
         & (originals_2021["date_filed"] <= WINDOW_END)]
-    print(f"  2021 SC 13D originals in idx: {len(originals_2021)}; "
-          f"in window: {len(in_window_2021)}")
+    print(f"  2021 SC 13D originals: {len(originals_2021_rows)} idx rows -> "
+          f"{len(originals_2021)} unique filings (filer/subject duplicate "
+          f"listing removed); in window: {len(in_window_2021)}")
     fetch_filing_texts(sorted(in_window_2021["edgar_path"].tolist()))
     parsed_2021 = parse_filings(sorted(in_window_2021["edgar_path"].tolist()))
     parsed_2021 = parsed_2021.merge(
@@ -255,11 +283,11 @@ def main() -> int:
           f"{int(parsed_2021['cover_cusip'].notna().sum())}")
 
     print("== amendment sample (contamination estimate) ==")
-    amendments = list_amendments(range(2021, 2026))
+    amendments = dedupe_by_accession(list_amendments(range(2021, 2026)))
     amendments = amendments[
         (amendments["date_filed"] >= WINDOW_START)
         & (amendments["date_filed"] <= WINDOW_END)]
-    amendments = amendments.sort_values(["date_filed", "edgar_path"],
+    amendments = amendments.sort_values(["date_filed", "accession"],
                                         kind="stable").reset_index(drop=True)
     n_amend = len(amendments)
     sample_idx = sorted(random.Random(AMENDMENT_SAMPLE_SEED).sample(
@@ -279,7 +307,8 @@ def main() -> int:
         filed_min=("date_filed", "min"), filed_max=("date_filed", "max"),
     ).reset_index().rename(columns={"cik_norm": "subject_cik"})
     link_2021 = link_ciks(sorted(filed_2021["subject_cik"].tolist(), key=int),
-                          filed_2021, company_tickers, pool)
+                          filed_2021, company_tickers, pool,
+                          crsp.ticker_spans)
     print(f"  2021 subjects: {len(filed_2021)} unique CIKs; ticker-link "
           f"routes: {link_2021['match_route'].value_counts().to_dict()}")
 
@@ -293,7 +322,7 @@ def main() -> int:
     ).reset_index().rename(columns={"cik_norm": "subject_cik"})
     link_amend = link_ciks(
         sorted(filed_amend["subject_cik"].tolist(), key=int),
-        filed_amend, company_tickers, pool)
+        filed_amend, company_tickers, pool, crsp.ticker_spans)
 
     # contamination: sampled amendment subjects with no in-window original
     subject_ciks_2021 = set(filed_2021["subject_cik"])
@@ -308,15 +337,15 @@ def main() -> int:
 
     print("== exclusion set ==")
     e1, e2 = permnos_from_link(link)
-    e3 = hdrcusip_permnos(
-        pool, [c for c in subjects_2225["old_cusip"].dropna().tolist()])
+    e3 = cusip_history_permnos(
+        pool, crsp, subjects_2225["old_cusip"].dropna().tolist())
     e4_matched, e4_ambig = permnos_from_link(link_2021)
-    e4_cusip = hdrcusip_permnos(
-        pool, parsed_2021["cover_cusip"].dropna().tolist())
+    e4_cusip = cusip_history_permnos(
+        pool, crsp, parsed_2021["cover_cusip"].dropna().tolist())
     e4 = e4_matched | e4_ambig | e4_cusip
     e5_matched, e5_ambig = permnos_from_link(link_amend)
-    e5_cusip = hdrcusip_permnos(
-        pool, parsed_amend["cover_cusip"].dropna().tolist())
+    e5_cusip = cusip_history_permnos(
+        pool, crsp, parsed_amend["cover_cusip"].dropna().tolist())
     e5 = e5_matched | e5_ambig | e5_cusip
     all_subject_ciks = in_window_originals | amend_subject_set
     e6 = set(reverse_map.loc[
@@ -346,16 +375,25 @@ def main() -> int:
     summary_rows = [
         ("snapshot_permnos", len(permno_df), "all PERMNOs in crsp_daily.csv"),
         ("candidate_pool", len(pool),
-         "SecurityType EQTY, ShareType NS, USIncFlg Y"),
+         "ever EQTY/NS/US over the PERMNO's observed life (SPEC 2.3 filter 3 "
+         "keeps delisted firms; a last-row test would drop them)"),
+        ("candidate_pool_delisted", int((~pool["still_listed"]).sum()),
+         "pool PERMNOs delisted before the snapshot pull date"),
+        ("universe_still_listed", int(universe["still_listed"].sum()),
+         "control-universe PERMNOs still listed at the pull date"),
+        ("universe_delisted", int((~universe["still_listed"]).sum()),
+         "control-universe PERMNOs delisted before the pull date"),
         ("subjects_2022_2025", len(subject_ciks_2225),
          "unique subject CIKs in fact2_parsed.jsonl"),
         ("originals_2021_filings", len(in_window_2021),
-         "2021 SC 13D originals enumerated from downloaded idx"),
+         "2021 SC 13D originals from downloaded idx, unique filings "
+         "(accession-deduped; EDGAR lists each 13D under filer and subject)"),
         ("originals_2021_subjects", len(subject_ciks_2021),
          "unique 2021 subject CIKs parsed"),
         ("excluded_total", len(excluded), "union of E1-E6"),
         ("universe_size", len(universe), "candidate_pool minus excluded"),
-        ("amendments_in_window", n_amend, "SC 13D/A rows 2021-2025 in idx"),
+        ("amendments_in_window", n_amend,
+         "unique SC 13D/A filings 2021-2025 (accession-deduped)"),
         ("amendment_sample", len(amend_sample),
          f"seeded sample (seed {AMENDMENT_SAMPLE_SEED})"),
         ("amendment_orphan_rate", round(orphan_rate, 4),
