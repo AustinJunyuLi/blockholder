@@ -19,6 +19,7 @@ import argparse
 import os
 import time
 import urllib.request
+from typing import Optional
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(HERE, "data")
@@ -79,15 +80,18 @@ _FORM_ALIASES = {
 }
 
 
-def _expand_form_type_aliases(form_types: tuple) -> set:
+def _expand_form_type_aliases(form_types: tuple[str, ...]) -> set[str]:
     return set(form_types) | {_FORM_ALIASES[f] for f in form_types if f in _FORM_ALIASES}
 
 
 def list_filings(idx_path: str,
-                  form_types: tuple = ("SC 13D", "SC 13G",
-                                        "SCHEDULE 13D", "SCHEDULE 13G")) -> list:
-    """Parse a form.idx into rows for exactly the requested form types
-    (plus their EDGAR-renamed aliases -- see ``_FORM_ALIASES``).
+                  form_types: Optional[tuple[str, ...]] = (
+                      "SC 13D", "SC 13G", "SCHEDULE 13D",
+                      "SCHEDULE 13G")) -> list[dict[str, str]]:
+    """Parse a form.idx into rows for the requested form types.
+
+    Pass ``None`` to return every row. Explicit form tuples also include
+    their EDGAR-renamed aliases; see ``_FORM_ALIASES``.
 
     Returns dicts: form, company, cik, date_filed, edgar_path.
     (Amendments 'SC 13D/A' / 'SCHEDULE 13D/A' are distinct form strings and
@@ -101,8 +105,9 @@ def list_filings(idx_path: str,
     import re
     tail = re.compile(r"(\d+)\s+(\d{4}-\d{2}-\d{2})\s+(edgar/\S+?\.txt)\s*$")
     form_field = re.compile(r"^(\S+(?: \S+)*?)\s{2,}")
-    wanted = _expand_form_type_aliases(form_types)
-    rows = []
+    wanted = (_expand_form_type_aliases(form_types)
+              if form_types is not None else None)
+    rows: list[dict[str, str]] = []
     with open(idx_path, "r", encoding="latin-1") as fh:
         in_body = False
         for line in fh:
@@ -115,7 +120,7 @@ def list_filings(idx_path: str,
             if not fm:
                 continue
             form = fm.group(1)
-            if form not in wanted:
+            if wanted is not None and form not in wanted:
                 continue
             m = tail.search(line)
             if not m:
