@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 2: Signal, noise, and inference</title>
+<link rel="stylesheet" href="../assets/lesson.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/signal-widget.js" defer></script>
+</head>
+<body>
+
+<nav class="course-nav" aria-label="Course navigation">
+  <span>v4 theory, from zero</span>
+  <span><a href="../report.html">grand tour</a> &middot; <a href="../reference/glossary.html">glossary</a> &middot; lesson 2</span>
+</nav>
+
+<p class="lesson-kicker">Lesson 0002</p>
+<h1>Signal, noise, and inference</h1>
+<p class="lesson-sub">How Northstar reads an imperfect signal, and how the market reads an order that may be noise.</p>
+
+<p>Lesson 1 split public histories into flagged and pooled cells. In the pooled cell, the market sees orders but not who placed them. This lesson teaches one skill. Update a belief with a noisy observation instead of taking the observation literally. Northstar applies that rule to its private signal, then the market applies it to the total order.</p>
+
+<h2>Do not take a noisy reading literally</h2>
+
+<p>Suppose firms like Harbor Tools are worth 100 on average. Northstar receives a private reading of 130. It trusts 60 percent of the reading's distance from the average. The reading is 30 above average, so Northstar moves its estimate by 18. Its estimate is 118, not 130.</p>
+
+<div class="result">
+  <span class="rid">The numerical case</span>
+  <p>Average value 100, private reading 130, trust weight 0.6.</p>
+  <p class="equation" aria-label="100 plus 0.6 times 130 minus 100 equals 118">100 + 0.6 &times; (130 &minus; 100) = 118</p>
+</div>
+
+<p>Now name the pieces. Let <i>v</i> be Harbor Tools' standalone value. Northstar observes a signal <i>s</i>. The error <i>&epsilon;</i> is independent of value, has mean zero, and is normally distributed. The model writes the signal as</p>
+
+<p class="equation" aria-label="s equals v plus epsilon"><i>s</i> = <i>v</i> + &epsilon;</p>
+
+<p>Value is also normally distributed around its mean &mu;<sub>v</sub>. These assumptions make the trust weight a variance ratio:</p>
+
+<p class="equation" aria-label="beta equals the variance of v divided by the variance of v plus the variance of epsilon">&beta; = &sigma;<sub>v</sub><sup>2</sup> / (&sigma;<sub>v</sub><sup>2</sup> + &sigma;<sub>&epsilon;</sub><sup>2</sup>)</p>
+
+<p>Holding value variance fixed, more signal-error variance makes &beta; smaller. Northstar then stays closer to the average. Its conditional estimate is</p>
+
+<p class="equation" aria-label="expected v given s equals mean v plus beta times s minus mean v">E[<i>v</i> | <i>s</i>] = &mu;<sub>v</sub> + &beta;(<i>s</i> &minus; &mu;<sub>v</sub>)</p>
+
+<h2>Now infer who placed the order</h2>
+
+<p>Use a one-day teaching case. Compare an engager who buys one unit with a passive holder who submits no informed order. The full model also allows exit. This case isolates one Bayes calculation. A noise trader may sell one unit, do nothing, or buy one unit. Set &kappa; = 0.30. Then no noise has probability 0.70, while a noise buy and a noise sale each have probability 0.15.</p>
+
+<p>The market sees a total order of +1 and starts with a 50 percent chance of engagement. Two explanations fit:</p>
+
+<ul>
+  <li>With engagement, Northstar buys +1 and noise is zero. Likelihood 0.70. Prior-weighted mass 0.5 &times; 0.70 = 0.350.</li>
+  <li>Without engagement in this comparison, Northstar submits zero and noise buys +1. Likelihood 0.15. Prior-weighted mass 0.5 &times; 0.15 = 0.075.</li>
+</ul>
+
+<p>Bayes' rule divides the engagement mass by the total mass that can explain the observation:</p>
+
+<p class="equation" aria-label="0.350 divided by 0.350 plus 0.075 equals 0.8235">0.350 / (0.350 + 0.075) = 0.8235</p>
+
+<p>So the +1 order raises the engagement belief from 0.5 to about 0.824. Now name the order terms. Let <i>q</i> be Northstar's order, <i>z</i> the noise order, and <i>X</i> the total the market observes. The full model calls the noise-order size <span aria-label="z bar"><i>z&#772;</i></span>. This lesson normalizes that size to one.</p>
+
+<p class="equation" aria-label="X equals q plus z"><i>X</i> = <i>q</i> + <i>z</i></p>
+
+<p class="equation" aria-label="probability z equals zero is one minus kappa, and probability z equals plus or minus one is kappa divided by two">Pr(<i>z</i> = 0) = 1 &minus; &kappa;, &nbsp; Pr(<i>z</i> = &plusmn;1) = &kappa;/2</p>
+
+<p>More generally, let <i>r</i> be the prior chance of engagement, and let <i>L</i><sub>1</sub> and <i>L</i><sub>0</sub> be the likelihoods of the observed order with and without engagement:</p>
+
+<p class="equation" aria-label="posterior engagement probability equals r times L1 divided by r times L1 plus one minus r times L0">Pr(engagement | order) = <i>rL</i><sub>1</sub> / [<i>rL</i><sub>1</sub> + (1 &minus; <i>r</i>)<i>L</i><sub>0</sub>]</p>
+
+<div class="widget signal-lab" data-prior="0.5">
+  <p class="wtitle">The pooled-cell lab</p>
+  <p class="whint">Choose the observed total order, then change &kappa;. The lab recomputes both prior-weighted masses and the posterior.</p>
+  <label for="signal-kappa">Noise intensity &kappa;
+    <input type="range" id="signal-kappa" min="0.05" max="0.95" step="0.05" value="0.30">
+    <output id="signal-kappa-out">0.30</output>
+  </label>
+  <div class="wbtnrow" role="group" aria-label="Observed total order">
+    <button type="button" data-signal-x="-1" aria-pressed="false">saw &minus;1</button>
+    <button type="button" data-signal-x="0" aria-pressed="false">saw 0</button>
+    <button type="button" data-signal-x="1" aria-pressed="true" class="sel">saw +1</button>
+    <button type="button" data-signal-x="2" aria-pressed="false">saw +2</button>
+  </div>
+  <p class="readout" id="signal-read" aria-live="polite"></p>
+  <p class="wcap">This lab sets the noise-order size and Northstar's buy to one. The full model uses a general order size and repeats the inference across several days.</p>
+</div>
+
+<p>Keep the observed order at +1 and raise &kappa;. A noise buy becomes more likely, while zero noise becomes less likely. For this observation, the posterior falls. That is the result the lab establishes.</p>
+
+<p>It does not establish a global sign for price or takeover premia. The full model combines many order histories, and its competitive price is a conditional expectation solved with the control outcome. Pricing gets its own lesson.</p>
+
+<h2>What a filing settles</h2>
+
+<p>A filing tells the market that engagement happened, so the engagement posterior equals one in the flagged cell. It does not reveal Harbor Tools' exact value. It also does not make every piece of earlier order flow irrelevant.</p>
+
+<div class="partition">
+  <div class="track"><span class="tag">pooled</span><span class="seg pooled">no filing yet</span><span class="seg pooled">order flow helps infer engagement</span></div>
+  <div class="track"><span class="tag">flagged</span><span class="seg flagged">engagement is public</span><span class="seg flagged">value can still be uncertain</span></div>
+</div>
+
+<p>The <a href="../../research/model_v4/MODEL_CARD.md">later L2 result</a> is stronger. Under fixed cutoff and execution policies, no feedback from observed orders into the trading plan, and the A7-prime condition that the flagged tuple identifies the informed component, the flagged posterior, price, entry probability, and expected premium do not depend on &kappa;. A filing alone is not enough for that theorem. We will prove it after the needed machinery is in place.</p>
+
+<h2>Check yourself</h2>
+
+<div class="quiz">
+  <fieldset class="quiz-q" data-answer="b">
+    <legend>1. If &beta; = 0.6 and the signal is 30 above the mean, the estimate moves</legend>
+    <button data-opt="a">30 above the mean</button>
+    <button data-opt="b">18 above the mean</button>
+    <p class="quiz-why" hidden>The estimate keeps 60 percent of the signal's distance from the mean. Here 0.6 &times; 30 = 18.</p>
+  </fieldset>
+  <fieldset class="quiz-q" data-answer="a">
+    <legend>2. When &kappa; rises, the same +1 order in this lab becomes</legend>
+    <button data-opt="a">less revealing of engagement</button>
+    <button data-opt="b">more revealing of engagement</button>
+    <p class="quiz-why" hidden>With more noise buying, +1 is easier to explain without Northstar. For this observation, the engagement posterior falls.</p>
+  </fieldset>
+  <fieldset class="quiz-q" data-answer="b">
+    <legend>3. What does the filing establish by itself?</legend>
+    <button data-opt="a">The firm's fundamental value becomes publicly known</button>
+    <button data-opt="b">The fund's engagement status becomes publicly known</button>
+    <p class="quiz-why" hidden>The filing settles whether engagement happened. Value and other hidden information can remain uncertain.</p>
+  </fieldset>
+  <p class="quiz-score" hidden></p>
+</div>
+
+<div class="win">
+  <h2>Retrieval before moving on</h2>
+  <p>Close the page. Explain why the 130 signal produces an estimate of 118. Then reconstruct the 0.350 and 0.075 masses behind the 0.824 posterior. Finish by saying what a filing reveals and what it does not reveal.</p>
+</div>
+
+<h2>Read next</h2>
+
+<ul class="sources">
+  <li>Primary source: sections 2 to 4 of <a href="../../research/model_v4/model_v4.md">the model note</a>, especially its signal, order-flow, posterior, and price definitions.</li>
+  <li>Background source: <a href="https://doi.org/10.2307/1913210">Kyle (1985)</a>, "Continuous Auctions and Insider Trading."</li>
+  <li>Review <a href="0001-the-flag-splits-the-world.html">lesson 1</a> if the flagged and pooled labels blur. Keep the <a href="../reference/glossary.html">glossary</a> nearby.</li>
+</ul>
+
+<p class="ask">Send me the retrieval explanation or ask about the first step that does not make sense. Your answer will set the pace of lesson 3.</p>
+
+</body>
+</html>

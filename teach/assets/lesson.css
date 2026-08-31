@@ -1,0 +1,381 @@
+/* Shared stylesheet for all lessons. Tufte-flavoured: serif body, wide margins,
+   restrained colour. Every lesson links this file so the course reads as one book. */
+
+:root {
+  --ink: #1b1b1b;
+  --paper: #fffffa;
+  --muted: #5a5a52;
+  --rule: #e3e0d5;
+  --flagged: #147765;
+  --pooled: #6f6413;
+  --exit: #cc6677;
+  --voice: #88ccee;
+  --accent: #4477aa;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 3rem 1.5rem 5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.58;
+}
+
+/* Course chrome */
+
+.course-nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.course-nav a { color: var(--muted); text-decoration: none; }
+.course-nav a:hover { color: var(--ink); text-decoration: underline; }
+
+.lesson-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.4rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+.lesson-sub {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 2.2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: normal;
+  margin: 2.6rem 0 0.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+
+p { margin: 0 0 1rem; }
+
+a { color: var(--accent); }
+
+/* Defined terms get a light underline, not bold shouting. */
+dfn {
+  font-style: normal;
+  border-bottom: 1px dotted var(--muted);
+}
+
+/* Player list in lesson 1 and its reuse elsewhere. */
+.cast p { margin-bottom: 0.7rem; }
+.cast .who {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+/* The two-cell diagram. Pure CSS, prints fine. */
+
+.partition {
+  margin: 1.6rem 0 2rem;
+  border: 1px solid var(--rule);
+  padding: 1.1rem 1.2rem 1.2rem;
+  background: #fff;
+}
+
+.partition .axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.partition .track {
+  display: flex;
+  align-items: stretch;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.partition .track:last-of-type { margin-bottom: 0; }
+
+.partition .tag {
+  flex: 0 0 5.2rem;
+  font-size: 0.8rem;
+  align-self: center;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.partition .seg {
+  flex: 1;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--rule);
+}
+
+.partition .seg.flagged { border-left: 4px solid var(--flagged); }
+.partition .seg.pooled { border-left: 4px solid var(--pooled); }
+
+.partition .caption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0.8rem 0 0;
+}
+
+/* Statement boxes and numerical cases. */
+
+.result {
+  margin: 1.4rem 0;
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--accent);
+  background: #fff;
+}
+
+.result .rid {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.result p { margin: 0.4rem 0 0; }
+
+.result ol { margin: 0.5rem 0 0.2rem; padding-left: 1.3rem; }
+.result li { margin-bottom: 0.3rem; }
+
+.equation {
+  overflow-x: auto;
+  padding: 0.35rem 0;
+  text-align: center;
+  font-size: 1.05rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* Shared controls for the small in-browser teaching labs. */
+
+.widget {
+  margin: 1.8rem 0 2.1rem;
+  border: 1px solid var(--rule);
+  background: #fff;
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.widget .wtitle {
+  margin-bottom: 0.2rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.widget svg { width: 100%; height: auto; display: block; }
+
+.widget .whint,
+.widget .wcap {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.widget .whint { margin: 0 0 0.8rem; }
+.widget .wcap { margin: 0.7rem 0 0; }
+
+.widget label,
+.wctl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.wctl { gap: 1.1rem; margin: 0.5rem 0 0.8rem; }
+.widget input[type="range"] { flex: 1 1 11rem; }
+.widget output { min-width: 3.2em; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+.widget .readout {
+  min-height: 1.4rem;
+  margin: 0.8rem 0 0;
+  padding: 0.6rem 0.7rem;
+  border: 1px dashed var(--rule);
+  background: var(--paper);
+  font-size: 0.92rem;
+}
+
+.widget .readout b.verdict-flag { color: var(--flagged); }
+.widget .readout b.verdict-pool { color: var(--pooled); }
+.wctl select { font: inherit; font-size: 0.85rem; }
+
+.wbtnrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+
+.wbtnrow button {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.wbtnrow button.sel { border-color: var(--accent); background: #eef2f7; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 620px) {
+  .course-nav,
+  .partition .axis { flex-wrap: wrap; gap: 0.45rem 1rem; }
+}
+
+/* Quiz widget (driven by assets/quiz.js). */
+
+.quiz { margin: 1.2rem 0 0; }
+
+.quiz-q {
+  border: 1px solid var(--rule);
+  background: #fff;
+  margin: 0 0 1.1rem;
+  padding: 0.9rem 1.1rem 1rem;
+}
+
+.quiz-q legend {
+  font-size: 0.95rem;
+  padding: 0 0.4rem;
+}
+
+.quiz-q button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 0.92rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+}
+
+.quiz-q button:hover:not(:disabled) { border-color: var(--accent); }
+
+.quiz-q button:disabled { cursor: default; opacity: 0.75; }
+
+.quiz-q button.correct {
+  border-color: var(--flagged);
+  background: #eef7f4;
+  opacity: 1;
+}
+
+.quiz-q button.incorrect {
+  border-color: var(--exit);
+  background: #faf0f1;
+  opacity: 1;
+}
+
+.quiz-why {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0.6rem 0 0;
+}
+
+.quiz-verdict {
+  display: block;
+  margin-top: 0.65rem;
+  font-weight: 700;
+}
+
+.quiz-score {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* The win: one tangible takeaway per lesson. */
+
+.win {
+  margin: 2rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--flagged);
+  background: #fff;
+}
+
+.win h2 {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+  color: var(--flagged);
+  font-size: 1.05rem;
+}
+
+/* Footnote-style source list. */
+
+.sources {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.sources li { margin-bottom: 0.45rem; }
+
+.ask {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Glossary reference pages. */
+
+dl.gloss dt {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  margin-top: 1.1rem;
+}
+
+dl.gloss dd {
+  margin: 0.2rem 0 0;
+  padding-left: 1rem;
+}
+
+dl.gloss dd .avoid {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+@media print {
+  body { background: #fff; max-width: none; padding: 0; }
+  .quiz-q button { border-style: dashed; }
+  a { color: var(--ink); text-decoration: none; }
+}
