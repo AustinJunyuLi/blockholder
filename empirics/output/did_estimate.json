@@ -2,7 +2,7 @@
  "estimate": "Matched DiD on BID12 (SPEC \u00a78, S1 primary)",
  "label": "NOT ESTIMATED",
  "status": "design_failure",
- "generated_at": "2026-08-31T09:21:38",
+ "generated_at": "2026-08-31T09:46:34",
  "script": "empirics/estimate_did.py",
  "reason": "post-match standardised differences remain above 0.10 after the predeclared 0.20-caliper rerun",
  "treated_funnel": {
@@ -160,7 +160,13 @@
   "reason": "corporate-action Item-4 coding is absent; no S2 row was synthesized"
  },
  "quote_as_result": false,
- "quote_as_result_until": "control half of the BID12 blind audit (protocol section 5); the design failure above is a separate and prior bar",
+ "quote_as_result_blocked_by": [
+  "the section 8.2 balance gate above: no coefficient exists",
+  "the section 8.8 pre-trend test, which blocks causal language on its own terms whatever the balance gate does (empirics/output/did_diagnostics.json)"
+ ],
+ "quote_as_result_cleared_bars": [
+  "the 30-filing blind hand audit of SPEC section 8.3 passed 0 of 30 on 2026-08-31 (research/empirics_v4/bid12_audit_result_2026-08-30.md)"
+ ],
  "survivorship": {
   "option_1_fallback": true,
   "recovery_gate_status": "passed_with_validated_rows",

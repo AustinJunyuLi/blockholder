@@ -873,9 +873,17 @@ def write_design_failure(meta: dict) -> int:
             "reason": "corporate-action Item-4 coding is absent; no S2 row was synthesized",
         },
         "quote_as_result": False,
-        "quote_as_result_until": (
-            "control half of the BID12 blind audit (protocol section 5); the "
-            "design failure above is a separate and prior bar"),
+        "quote_as_result_blocked_by": [
+            "the section 8.2 balance gate above: no coefficient exists",
+            "the section 8.8 pre-trend test, which blocks causal language on "
+            "its own terms whatever the balance gate does "
+            "(empirics/output/did_diagnostics.json)",
+        ],
+        "quote_as_result_cleared_bars": [
+            "the 30-filing blind hand audit of SPEC section 8.3 passed 0 of "
+            "30 on 2026-08-31 (research/empirics_v4/"
+            "bid12_audit_result_2026-08-30.md)",
+        ],
         "survivorship": survivorship_block(meta.get("control_pool", {})),
         "mde_pp_design_arithmetic": design_mde_pp(
             int(funnel.get("treated_pre", 0)),

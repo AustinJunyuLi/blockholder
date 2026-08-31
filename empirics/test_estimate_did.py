@@ -404,9 +404,13 @@ def test_estimate_stage_reuses_failed_match() -> None:
         check("the failed covariate and selected tighter caliper are recorded",
               result["matching"]["caliper_pooled_sd"] == 0.20
               and result["matching"]["balance_exceeds_0.10"] == ["logcap"])
-        check("a design failure still carries quote_as_result false",
+        check("a design failure still carries quote_as_result false, and "
+              "names live bars rather than a satisfied one",
               result["quote_as_result"] is False
-              and "control half" in result["quote_as_result_until"])
+              and any("8.2" in b for b in result["quote_as_result_blocked_by"])
+              and any("8.8" in b for b in result["quote_as_result_blocked_by"])
+              and "quote_as_result_until" not in result,
+              str(result.get("quote_as_result_blocked_by")))
         check("a design failure still signs the survivorship bias",
               result["survivorship"]["control_bid_rate_bias"] == "down"
               and result["survivorship"]["gamma_bias"] == "up")
