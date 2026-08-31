@@ -1,0 +1,157 @@
+cik,name,event_date,form,accession,route,confirm_detail
+0000043196,"GRAY MEDIA, INC",2021-12-01,8-K,0001193125-21-345550,A,8k-text:merger:3;target:1;acquirer:2;nonmerger:4;via-primary
+0000098338,TSR INC,2024-06-28,8-K,0001213900-24-057272,A,8k-text:merger:4;target:4;acquirer:1;nonmerger:1;via-primary
+0000315131,PHX MINERALS INC.,2025-05-12,8-K,0001104659-25-047293,A,8k-text:merger:4;target:3;acquirer:1;via-primary
+0000320017,"LISATA THERAPEUTICS, INC.",2026-01-21,8-K,0000320017-26-000006,A,8k-text:merger:1;target:2;acquirer:1;nonmerger:1;via-primary
+0000320017,"LISATA THERAPEUTICS, INC.",2026-02-27,8-K,0000320017-26-000012,A,8k-text:merger:1;target:2;acquirer:1;via-primary
+0000320017,"LISATA THERAPEUTICS, INC.",2026-07-17,8-K,0001140361-26-028763,A,8k-text:merger:3;via-primary
+0000704440,"KORU Medical Systems, Inc.",2023-05-17,8-K,0001161697-23-000302,A,8k-text:merger:3;via-primary
+0000708821,PAR TECHNOLOGY CORP,2021-04-08,8-K,0001140361-21-012100,A,8k-text:merger:3;target:1;acquirer:4;defence:1;nonmerger:1;via-primary
+0000711772,CAMBRIDGE BANCORP,2022-10-03,8-K,0000950170-22-019148,A,8k-text:merger:3;target:1;acquirer:1;via-primary
+0000714256,Sanara MedTech Inc.,2022-04-04,8-K,0001493152-22-008931,A,8k-text:merger:3;via-primary
+0000714562,FIRST FINANCIAL CORP /IN/,2024-07-03,8-K,0000714562-24-000037,A,8k-text:merger:2;target:2;acquirer:1;via-primary
+0000714562,FIRST FINANCIAL CORP /IN/,2025-11-06,8-K,0000714562-25-000065,A,8k-text:merger:3;target:1;acquirer:1;via-primary
+0000714562,FIRST FINANCIAL CORP /IN/,2026-03-02,8-K,0000714562-26-000011,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0000720005,RAYMOND JAMES FINANCIAL INC,2021-10-26,8-K,0001193125-21-308159,A,8k-text:merger:3;via-primary
+0000733269,"LiveRamp Holdings, Inc.",2026-05-18,8-K,0001104659-26-062908,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0000740971,OLD POINT FINANCIAL CORP,2025-04-07,8-K,0001104659-25-032666,A,8k-text:merger:3;via-primary
+0000740971,OLD POINT FINANCIAL CORP,2025-09-02,8-K,0001104659-25-086430,A,8k-text:merger:3;via-primary
+0000749660,ICAD INC,2025-04-15,8-K,0001193805-25-000483,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0000749660,ICAD INC,2025-07-17,8-K,0001193805-25-001039,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0000771497,ABM INDUSTRIES INC /DE/,2022-08-18,8-K,0001104659-22-092386,A,8k-text:merger:3;via-primary
+0000861838,"Aceragen, Inc.",2022-09-30,8-K,0001104659-22-104590,A,8k-text:merger:3;target:4;acquirer:1;nonmerger:2;via-primary
+0000876378,"ASENSUS SURGICAL, INC.",2024-08-22,8-K,0001437749-24-027539,A,8k-text:merger:3;target:3;acquirer:1;via-primary
+0000890821,"Enveric Biosciences, Inc.",2023-12-29,8-K,0001493152-23-046601,A,8k-text:merger:1;via-primary
+0000899460,MANNKIND CORP,2025-08-25,SC TO-C,0001193125-25-187082,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0000899460,MANNKIND CORP,2025-08-25,SC TO-C,0001193125-25-187714,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0000899460,MANNKIND CORP,2025-09-08,SC TO-T,0001193125-25-198346,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0000910638,3D SYSTEMS CORP,2021-09-09,8-K,0001171843-21-006385,A,8k-text:merger:3;via-primary
+0000910638,3D SYSTEMS CORP,2021-10-28,8-K,0001171843-21-007242,A,8k-text:merger:3;via-primary
+0000913760,StoneX Group Inc.,2025-07-08,8-K,0000913760-25-000123,A,8k-text:merger:1;target:1;acquirer:1;nonmerger:2;via-primary
+0000913760,StoneX Group Inc.,2025-07-31,8-K,0000913760-25-000127,A,8k-text:merger:3;target:1;acquirer:2;nonmerger:3;via-primary
+0000915358,SIGMATRON INTERNATIONAL INC,2025-05-21,8-K,0001213900-25-046220,A,8k-text:merger:4;target:5;acquirer:1;via-primary
+0000944148,"CBIZ, Inc.",2024-07-31,8-K,0001193125-24-189467,A,8k-text:merger:3;target:1;acquirer:2;via-primary
+0001000298,IMPAC MORTGAGE HOLDINGS INC,2022-04-29,8-K,0001104659-22-053641,A,8k-text:merger:1;via-primary
+0001000298,IMPAC MORTGAGE HOLDINGS INC,2022-06-23,8-K,0001104659-22-073749,A,8k-text:merger:1;via-primary
+0001000298,IMPAC MORTGAGE HOLDINGS INC,2022-10-26,8-K,0001104659-22-111578,A,8k-text:merger:1;via-primary
+0001001171,BROADWAY FINANCIAL CORP \DE\,2021-02-23,8-K,0001140361-21-005798,A,8k-text:merger:2;target:1;acquirer:1;via-primary
+0001007019,COFFEE HOLDING CO INC,2023-07-03,8-K,0001493152-23-023315,A,8k-text:merger:1;via-primary
+0001007019,COFFEE HOLDING CO INC,2024-01-04,8-K,0001493152-24-001093,A,8k-text:merger:1;via-primary
+0001021162,TRIUMPH GROUP INC,2025-02-03,8-K,0001193125-25-018820,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0001021270,"BBQ HOLDINGS, INC.",2022-08-09,8-K,0001193125-22-215609,A,8k-text:merger:4;target:4;acquirer:1;via-primary
+0001043509,SONIC AUTOMOTIVE INC,2021-09-22,8-K,0001043509-21-000016,A,8k-text:merger:3;target:1;acquirer:2;via-primary
+0001070081,"PTC THERAPEUTICS, INC.",2025-08-07,8-K,0001558370-25-010786,A,8k-text:merger:3;via-primary
+0001089063,"DICK'S SPORTING GOODS, INC.",2025-09-08,8-K,0001140361-25-034244,A,8k-text:merger:3;via-primary
+0001168455,PLUMAS BANCORP,2025-01-29,8-K,0001437749-25-002080,A,8k-text:merger:3;target:1;acquirer:1;via-primary
+0001168455,PLUMAS BANCORP,2025-07-02,8-K,0001437749-25-021869,A,8k-text:merger:3;target:1;acquirer:2;nonmerger:1;via-primary
+0001278021,MARKETAXESS HOLDINGS INC,2026-07-30,8-K,0001193125-26-324933,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0001285550,"ClearPoint Neuro, Inc.",2025-11-06,8-K,0001193125-25-269992,A,8k-text:merger:3;via-primary
+0001285550,"ClearPoint Neuro, Inc.",2025-11-20,8-K,0001193125-25-290003,A,8k-text:merger:3;via-primary
+0001289636,PROFIRE ENERGY INC,2024-10-29,8-K,0001289636-24-000038,A,8k-text:merger:4;target:2;acquirer:1;via-primary
+0001293971,"bluebird bio, Inc.",2025-05-14,8-K,0001193125-25-119447,A,8k-text:merger:3;via-primary
+0001305168,"ARC DOCUMENT SOLUTIONS, INC.",2024-09-11,8-K,0001140361-24-040783,A,8k-text:merger:3;via-primary
+0001326706,"ENvue Medical, Inc.",2025-02-14,8-K,0001493152-25-006855,A,8k-text:merger:3;target:1;acquirer:1;defence:1;via-primary
+0001327607,First Western Financial Inc,2021-07-22,8-K,0001104659-21-094957,A,8k-text:merger:3;via-primary
+0001327607,First Western Financial Inc,2022-01-03,8-K,0001558370-22-000006,A,8k-text:merger:3;target:1;acquirer:1;via-primary
+0001337553,AERIE PHARMACEUTICALS INC,2022-08-23,8-K,0001193125-22-227609,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0001356576,"SUPERNUS PHARMACEUTICALS, INC.",2021-10-12,SC TO-C,0001104659-21-125030,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001356576,"SUPERNUS PHARMACEUTICALS, INC.",2021-10-25,SC TO-T,0001104659-21-129312,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001356576,"SUPERNUS PHARMACEUTICALS, INC.",2025-06-16,SC TO-C,0001104659-25-059761,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001356576,"SUPERNUS PHARMACEUTICALS, INC.",2025-06-16,SC TO-C,0001104659-25-059956,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001356576,"SUPERNUS PHARMACEUTICALS, INC.",2025-07-02,SC TO-T,0001104659-25-065398,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001360214,"HARROW, INC.",2025-11-18,8-K,0001493152-25-023988,A,8k-text:merger:3;via-primary
+0001364479,HERC HOLDINGS INC,2025-03-19,SC TO-T,0001193125-25-057937,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001364479,HERC HOLDINGS INC,2025-06-02,8-K,0001193125-25-133360,A,8k-text:merger:4;target:1;acquirer:3;nonmerger:4;via-primary
+0001382574,"Scienture Holdings, Inc.",2023-06-23,8-K,0001493152-23-022184,A,8k-text:merger:1;via-primary
+0001382574,"Scienture Holdings, Inc.",2023-06-23,8-K,0001493152-23-022283,A,8k-text:merger:1;via-primary
+0001382574,"Scienture Holdings, Inc.",2024-07-31,8-K,0001493152-24-029787,A,8k-text:merger:3;target:3;acquirer:1;defence:1;nonmerger:2;via-primary
+0001392972,"PROS Holdings, Inc.",2025-09-22,8-K,0001193125-25-211519,A,8k-text:merger:3;target:1;acquirer:1;nonmerger:2;via-primary
+0001404912,KKR & Co. Inc.,2021-02-02,8-K,0001140361-21-003114,A,8k-text:merger:3;via-primary
+0001419951,Data Storage Corp,2021-02-16,8-K,0001731122-21-000256,A,8k-text:merger:3;via-primary
+0001419951,Data Storage Corp,2021-06-03,8-K,0001731122-21-000993,A,8k-text:merger:3;target:1;acquirer:1;nonmerger:1;via-primary
+0001420720,"iBio, Inc.",2022-05-12,8-K,0001420720-22-000018,A,8k-text:merger:1;via-primary
+0001425205,"IOVANCE BIOTHERAPEUTICS, INC.",2023-01-23,8-K,0001104659-23-005596,A,8k-text:merger:1;via-primary
+0001425627,"SOBR Safe, Inc.",2026-04-30,8-K,0001477932-26-002681,A,8k-text:merger:3;via-primary
+0001437352,"EVERBRIDGE, INC.",2024-03-01,8-K,0001193125-24-054346,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0001443669,Proto Labs Inc,2021-01-19,8-K,0001437749-21-000799,A,8k-text:merger:3;via-primary
+0001446159,Axe Compute Inc.,2025-01-06,8-K,0001171843-25-000051,A,8k-text:merger:1;via-primary
+0001446159,Axe Compute Inc.,2025-03-05,8-K,0001171843-25-001284,A,8k-text:merger:1;via-primary
+0001446847,IRONWOOD PHARMACEUTICALS INC,2023-05-22,SC TO-C,0001104659-23-063165,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001446847,IRONWOOD PHARMACEUTICALS INC,2023-05-22,SC TO-C,0001104659-23-063212,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001446847,IRONWOOD PHARMACEUTICALS INC,2023-05-23,SC TO-C,0001104659-23-063694,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001446847,IRONWOOD PHARMACEUTICALS INC,2023-05-31,SC TO-T,0001104659-23-066312,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001506983,"Glucotrack, Inc.",2026-07-15,8-K,0001493152-26-033393,A,8k-text:merger:3;target:2;acquirer:1;defence:1;nonmerger:1;via-primary
+0001521036,"Lantheus Holdings, Inc.",2026-08-04,8-K,0001193125-26-331138,A,8k-text:merger:3;target:3;acquirer:1;defence:1;via-primary
+0001524472,Xylem Inc.,2023-05-24,8-K,0001193125-23-152550,A,8k-text:merger:3;via-primary
+0001533998,DarioHealth Corp.,2021-06-08,8-K,0001104659-21-078234,A,8k-text:merger:2;via-primary
+0001534120,"Avalo Therapeutics, Inc.",2026-04-28,8-K,0001534120-26-000026,A,8k-text:merger:3;via-primary
+0001537917,"TYME TECHNOLOGIES, INC.",2022-07-05,8-K,0001193125-22-187526,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0001537917,"TYME TECHNOLOGIES, INC.",2022-09-16,8-K,0001193125-22-246379,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0001549346,"Shutterstock, Inc.",2025-01-07,8-K,0001140361-25-000468,A,8k-text:merger:3;target:2;acquirer:1;defence:1;nonmerger:1;via-primary
+0001560241,"G1 Therapeutics, Inc.",2024-08-07,8-K,0001193125-24-195484,A,8k-text:merger:5;target:1;acquirer:1;nonmerger:1;via-primary
+0001560241,"G1 Therapeutics, Inc.",2024-09-18,8-K,0001193125-24-221120,A,8k-text:merger:4;target:3;acquirer:2;nonmerger:1;via-primary
+0001562528,"Franklin BSP Realty Trust, Inc.",2021-07-26,8-K,0001104659-21-095615,A,8k-text:merger:3;via-primary
+0001562528,"Franklin BSP Realty Trust, Inc.",2021-09-23,8-K,0001104659-21-118429,A,8k-text:merger:3;via-primary
+0001562528,"Franklin BSP Realty Trust, Inc.",2021-10-21,8-K,0001104659-21-128156,A,8k-text:merger:3;via-primary
+0001571498,"Epizyme, Inc.",2022-06-27,8-K,0001193125-22-182030,A,8k-text:merger:4;target:3;acquirer:1;defence:1;via-primary
+0001572334,Virginia National Bankshares Corp,2021-04-01,8-K,0001193125-21-103756,A,8k-text:merger:3;target:1;acquirer:1;nonmerger:1;via-primary
+0001576263,"Mirati Therapeutics, Inc.",2023-10-10,8-K,0001193125-23-253090,A,8k-text:merger:3;target:3;acquirer:1;defence:1;via-primary
+0001576263,"Mirati Therapeutics, Inc.",2024-01-23,8-K,0001140361-24-003287,A,8k-text:merger:3;target:3;acquirer:1;defence:1;via-primary
+0001604950,scPharmaceuticals Inc.,2025-10-07,8-K,0001193125-25-232754,A,8k-text:merger:4;target:4;acquirer:1;defence:1;nonmerger:2;via-primary
+0001606698,"ALPINE 4 HOLDINGS, INC.",2021-02-09,8-K,0001096906-21-000295,A,8k-text:merger:1;via-primary
+0001611983,Liberty Broadband Corp,2024-11-13,8-K,0001104659-24-117312,A,8k-text:merger:3;target:2;acquirer:1;via-primary
+0001611983,Liberty Broadband Corp,2025-05-19,8-K,0001104659-25-050220,A,8k-text:merger:3;via-primary
+0001634447,"ISUN, INC.",2021-01-05,8-K,0001493152-21-000152,A,8k-text:merger:1;target:3;acquirer:1;via-primary
+0001634447,"ISUN, INC.",2021-01-25,8-K,0001493152-21-001739,A,8k-text:merger:3;target:1;acquirer:3;nonmerger:1;via-primary
+0001637761,SeaSpine Holdings Corp,2023-01-05,8-K,0001193125-23-001942,A,8k-text:merger:3;target:2;acquirer:2;nonmerger:1;via-primary
+0001642380,Insight Molecular Diagnostics Inc.,2021-02-03,8-K,0001493152-21-002461,A,8k-text:merger:3;via-primary
+0001648960,"Myseum.AI, Inc.",2022-07-05,8-K,0001213900-22-037213,A,8k-text:merger:3;via-primary
+0001648960,"Myseum.AI, Inc.",2024-11-04,8-K,0001213900-24-094213,A,8k-text:merger:1;via-primary
+0001660134,"Okta, Inc.",2021-03-03,8-K,0001193125-21-067561,A,8k-text:merger:3;target:3;acquirer:3;nonmerger:1;via-primary
+0001673481,Sports Entertainment Gaming Global Corp,2021-05-27,8-K,0001213900-21-029632,A,8k-text:merger:1;via-primary
+0001674227,SCWorx Corp.,2023-12-26,8-K,0001213900-23-098568,A,8k-text:merger:3;via-primary
+0001691337,PCSB Financial Corp,2022-05-24,8-K,0000950170-22-010585,A,8k-text:merger:3;via-primary
+0001693256,"Select Water Solutions, Inc.",2021-12-13,8-K,0001193125-21-354782,A,8k-text:merger:3;target:1;acquirer:1;nonmerger:1;via-primary
+0001718108,"Surface Oncology, Inc.",2023-09-08,8-K,0001193125-23-231197,A,8k-text:merger:3;target:2;acquirer:1;defence:1;via-primary
+0001720725,"Oyster Point Pharma, Inc.",2022-11-08,8-K,0001193125-22-280282,A,8k-text:merger:4;target:4;acquirer:1;via-primary
+0001720725,"Oyster Point Pharma, Inc.",2023-01-03,8-K,0001193125-23-000324,A,8k-text:merger:4;target:3;acquirer:2;nonmerger:1;via-primary
+0001726711,"Aditxt, Inc.",2024-01-05,8-K,0001213900-24-001538,A,8k-text:merger:3;via-primary
+0001726711,"Aditxt, Inc.",2024-02-06,8-K,0001213900-24-010576,A,8k-text:merger:3;via-primary
+0001726711,"Aditxt, Inc.",2024-02-21,8-K,0001213900-24-015781,A,8k-text:merger:1;via-primary
+0001726711,"Aditxt, Inc.",2024-02-29,8-K,0001213900-24-018477,A,8k-text:merger:3;via-primary
+0001726711,"Aditxt, Inc.",2025-04-09,8-K,0001213900-25-030353,A,8k-text:merger:1;via-primary
+0001726711,"Aditxt, Inc.",2025-04-15,8-K,0001213900-25-032119,A,8k-text:merger:2;via-primary
+0001726711,"Aditxt, Inc.",2026-06-10,8-K,0001213900-26-067421,A,8k-text:merger:1;via-primary
+0001777835,Perella Weinberg Partners,2024-04-01,8-K,0001777835-24-000059,A,8k-text:merger:3;via-primary
+0001794669,"Shift4 Payments, Inc.",2023-10-26,8-K,0001193125-23-263590,A,8k-text:merger:3;via-primary
+0001794669,"Shift4 Payments, Inc.",2025-03-21,SC TO-T,0001193125-25-059711,A+B,form-type|fts-cik-verified|subject-cik-mismatch|bidder-disagrees-header
+0001794905,"Cyxtera Technologies, Inc.",2021-02-22,8-K,0001104659-21-025980,A,8k-text:merger:3;target:1;acquirer:1;defence:1;via-primary
+0001796129,"Vincerx Pharma, Inc.",2025-02-06,8-K,0001193125-25-021771,A,8k-text:merger:1;via-primary
+0001796129,"Vincerx Pharma, Inc.",2025-03-18,8-K,0001193125-25-056229,A,8k-text:merger:2;target:1;acquirer:1;via-primary
+0001801777,Applied Molecular Transport Inc.,2023-09-21,8-K,0001193125-23-239684,A,8k-text:merger:3;via-primary
+0001801777,Applied Molecular Transport Inc.,2023-12-27,8-K,0001437749-23-035381,A,8k-text:merger:3;via-primary
+0001814140,"Apexigen, Inc.",2022-03-18,8-K,0001193125-22-078891,A,8k-text:merger:1;target:4;acquirer:1;defence:1;via-primary
+0001814140,"Apexigen, Inc.",2022-08-04,8-K,0001193125-22-212570,A,8k-text:merger:1;target:1;acquirer:2;defence:1;via-primary
+0001814140,"Apexigen, Inc.",2023-05-24,8-K,0001193125-23-152387,A,8k-text:merger:3;target:4;acquirer:1;via-primary
+0001823239,"MARAVAI LIFESCIENCES HOLDINGS, INC.",2021-08-10,8-K,0001823239-21-000018,A,8k-text:merger:2;via-primary
+0001823383,Globis Acquisition Corp.,2022-01-24,8-K,0001493152-22-002118,A,8k-text:merger:1;via-primary
+0001823383,Globis Acquisition Corp.,2022-01-31,8-K,0001493152-22-002657,A,8k-text:merger:1;via-primary
+0001823383,Globis Acquisition Corp.,2022-06-09,8-K,0001493152-22-016232,A,8k-text:merger:2;target:1;acquirer:2;via-primary
+0001823383,Globis Acquisition Corp.,2022-06-10,8-K,0001493152-22-016381,A,8k-text:merger:1;target:3;acquirer:1;via-primary
+0001826671,KLUDEIN I ACQUISITION CORP,2022-11-25,8-K,0001213900-22-075258,A,8k-text:merger:2;via-primary
+0001829322,Sizzle Acquisition Corp.,2023-01-05,8-K,0001213900-23-000987,A,8k-text:merger:3;via-primary
+0001829322,Sizzle Acquisition Corp.,2023-07-07,8-K,0001213900-23-055511,A,8k-text:merger:3;via-primary
+0001829322,Sizzle Acquisition Corp.,2023-10-27,8-K,0001013762-23-007325,A,8k-text:merger:3;via-primary
+0001829322,Sizzle Acquisition Corp.,2023-11-21,8-K,0001213900-23-089115,A,8k-text:merger:3;via-primary
+0001829322,Sizzle Acquisition Corp.,2024-02-08,8-K,0001213900-24-011356,A,8k-text:merger:4;via-primary
+0001829322,Sizzle Acquisition Corp.,2024-03-04,8-K,0001213900-24-019580,A,8k-text:merger:3;target:3;acquirer:1;nonmerger:1;via-primary
+0001832415,"Better Therapeutics, Inc.",2021-09-01,8-K,0001104659-21-112065,A,8k-text:merger:3;via-primary
+0001832415,"Better Therapeutics, Inc.",2021-09-28,8-K,0001104659-21-120307,A,8k-text:merger:3;via-primary
+0001835378,Innovid Corp.,2021-06-24,8-K,0001213900-21-033906,A,8k-text:merger:4;target:1;acquirer:2;defence:1;nonmerger:1;via-primary
+0001835378,Innovid Corp.,2021-10-20,8-K,0001213900-21-053648,A,8k-text:merger:4;target:1;acquirer:1;via-primary
+0001837686,"Vimeo, Inc.",2021-05-27,8-K,0001104659-21-073207,A,8k-text:merger:3;target:1;acquirer:1;nonmerger:1;via-primary
+0001837686,"Vimeo, Inc.",2025-11-24,8-K,0001104659-25-115501,A,8k-text:merger:3;target:3;acquirer:1;via-primary
+0001841873,Khosla Ventures Acquisition Co.,2021-07-30,8-K,0001193125-21-231615,A,8k-text:merger:3;via-primary
+0001841873,Khosla Ventures Acquisition Co.,2021-09-22,8-K,0001193125-21-279485,A,8k-text:merger:3;via-primary
+0001841873,Khosla Ventures Acquisition Co.,2021-11-09,8-K,0001193125-21-324638,A,8k-text:merger:3;via-primary
+0001921865,ASP Isotopes Inc.,2026-06-25,8-K,0001477932-26-004020,A,8k-text:merger:3;target:1;acquirer:1;defence:1;via-primary
