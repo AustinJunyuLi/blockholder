@@ -215,7 +215,12 @@ _SUFFIX_RE = re.compile(
 # EDGAR conformed-name state/country tags: '/DE/', '/NEW/', ... — and the
 # backslash variants ('\DE\', 'PLC\UK') that appear in parsed 13D headers;
 # an unstripped backslash makes the route-B FTS query a 400.
-_EDGAR_TAG_RE = re.compile(r"[/\\][A-Z&]{1,6}[/\\]?$")
+# EDGAR state tags: "/DE/", "\\DE\\", and the spaced forms "/ MA" and
+# "\\ CA" that the submissions feed also emits. A tag left on the name is
+# not cosmetic: it goes into the route-B full-text query, where a
+# backslash returns HTTP 400 and a spaced tag searches an exact phrase no
+# filing contains. Either way route B is blind for that firm.
+_EDGAR_TAG_RE = re.compile(r"[/\\]\s*[A-Z&]{1,6}\s*[/\\]?$")
 
 
 def normalize_cik(cik) -> str:

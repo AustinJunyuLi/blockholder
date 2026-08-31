@@ -134,6 +134,35 @@ PASSIVE_TARGET = (
     "Company is expected to close in the third quarter.")
 
 
+def test_core_name_edgar_tags() -> None:
+    """EDGAR state tags come in three spellings and all three must strip.
+
+    A tag left on the name goes straight into the route-B full-text query.
+    'ACME \\ CA' makes the query a 400 (backslash), and 'ACME / MA' makes it
+    an exact-phrase search for a string no filing contains — both blind
+    route B for that firm, silently.
+    """
+    print("\n== core name: EDGAR state tags ==")
+    for raw, want in (
+            ("ACME CORP /DE/", "ACME"),
+            ("ACME CORP \\DE\\", "ACME"),
+            ("VERTEX PHARMACEUTICALS INC / MA", "VERTEX PHARMACEUTICALS"),
+            ("California BanCorp \\ CA", "California BanCorp"),
+            ("MP Materials Corp. / DE", "MP Materials"),
+    ):
+        got = bid12.clean_core_name(raw)
+        check(f"{raw!r} -> {want!r}", got == want, f"got {got!r}")
+    # Slashes inside a name are not tags and must survive.
+    for raw, want in (
+            ("RE/MAX Holdings, Inc.", "RE/MAX Holdings"),
+            ("M/I HOMES, INC.", "M/I HOMES"),
+            ("Columbus Acquisition Corp/Cayman Islands",
+             "Columbus Acquisition Corp/Cayman Islands"),
+    ):
+        got = bid12.clean_core_name(raw)
+        check(f"{raw!r} keeps its slash", got == want, f"got {got!r}")
+
+
 def test_bare_acquirer_direction() -> None:
     print("\n== bare acquirer direction (rulebook §5 acquirer bullet 1) ==")
     v, d = bid12.confirm_8k_text(BARE_ACQUIRER, "Acme Holdings")
@@ -409,6 +438,7 @@ def test_live() -> None:
 
 def main() -> int:
     test_text_rules()
+    test_core_name_edgar_tags()
     test_bare_acquirer_direction()
     test_lookup()
     test_tender_verification()
