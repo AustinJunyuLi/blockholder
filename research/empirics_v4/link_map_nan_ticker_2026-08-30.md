@@ -106,19 +106,23 @@ Greenwood–Schor's 11 pp analogue) biases **up**. β, the reform effect, is
 affected only if the asymmetry differs pre/post — which it may, since the post
 window is shorter and gives less time to delist.
 
-**Options, none taken here.**
+**Decision (2026-08-30): option 2 is primary, option 1 is the fallback.** Austin
+authorised the CUSIP recovery route below as the first attempt. Controls that
+remain unresolved, or the full pass if the recovery cannot be completed, use
+option 1 with the survival asymmetry signed in the DiD report. No recovered CIK
+enters matching until its validation gate is recorded.
 
 1. Report the leg with the survivorship asymmetry stated and signed, as SPEC
    §8.5 row x already does for delisting. Cheapest, and consistent with how the
    amendment-orphan caveat is handled.
 2. Recover the delisted controls with a CUSIP→CIK route that does not depend on
-   current tickers. **Costed, not built** — see §5. Cheaper than it sounds.
+   current tickers. **Costed, then scripted** (see §5–§6). Cheaper than it sounds.
 3. Restrict both sides to survivors, which trades the asymmetry for a bias of
    known direction on both sides but throws away the acquired treated firms that
    §2.3 filter 3 was written to keep.
 
 This belongs beside the amendment-orphan caveat (SPEC §8.2) as a live limitation
-of the control group.
+of the control group. The fallback keeps that limitation explicit.
 
 ## 5. Costing the recovery route (measured 2026-08-30, not built)
 
@@ -161,8 +165,16 @@ to validate (many are already cached). The validation rule writes itself: a
 recovered CIK whose filings continue well past the CRSP delisting date is the
 wrong company, and the 15 ambiguous names are held out rather than guessed.
 
-**Still not built, and not a decision this session may take.** It would add a
-linkage route the SPEC's control universe was not built on, and it needs its own
-gate before any control it recovers enters the sample. What changes with this
-measurement is only Austin's menu: option 2 is cheap, not expensive, and worth
-weighing against simply signing the survivorship bias in the text.
+**Script is on disk; the five 13F fetches have not run.** The authorised pass
+is `empirics/recover_delisted_controls.py`. It still needs its own gate before
+any recovered control enters the sample. If that gate does not clear, the run
+falls back to option 1; the unresolved count and the signed survivorship
+limitation stay in the record.
+
+## 6. Status at the chain check (2026-08-30, later)
+
+The five Geode Q1 13F-HR masters are still uncached; fetch waits for a free
+SEC lane. The treated post-pass chain has not printed `== chain complete`
+(`/tmp/bid12_postpass_chain.log` is still the armed line;
+`/tmp/bid12_chain_failed.marker` is absent). No recovered CIK has entered
+matching.
