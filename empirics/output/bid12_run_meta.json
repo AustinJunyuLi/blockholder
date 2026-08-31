@@ -1,0 +1,41 @@
+{
+ "generated_at": "2026-08-31T02:03:54",
+ "rules_sha256": "e95c4f9f87d4224597f91b659251fd3b7f8d81ca748843ef7cc4a2c9255de0c6",
+ "rulebook": "../research/empirics_v4/bid12_coding_rules.md",
+ "fact2_parsed": {
+  "path": "/Users/austinli/Projects/blockholder_v4/empirics/data/fact2_parsed.jsonl",
+  "mtime": "2026-08-30T11:05:13",
+  "md5": "b10e2b6491a1e0fb32305e690ae05266",
+  "bytes": 2309345,
+  "n_rows": 4639,
+  "n_unique_subject_ciks": 2735
+ },
+ "n_filings_without_td": 929,
+ "n_ciks_missing_extraction": 0,
+ "window_days": 365,
+ "extraction_window": [
+  "2021-01-01",
+  "2026-12-31"
+ ],
+ "n_firms_extracted": 2735,
+ "fts_name_missing_firms": 0,
+ "n_events": 3547,
+ "events_by_route": {
+  "A": 3164,
+  "A+B": 370,
+  "B": 13
+ },
+ "n_8k_candidates": 21941,
+ "n_8k_rejected": 19737,
+ "fts_discarded_route_b_hits": 4172,
+ "treated_lookup": {
+  "n_rows": 3710,
+  "bid12_1": 431,
+  "bid12_0": 2987,
+  "bid12_empty_ambiguous": 292,
+  "bid12_not_extracted": 0,
+  "excluded_prior_bid": 385,
+  "prior_bid_any": 549,
+  "filer_own_bid": 79
+ }
+}

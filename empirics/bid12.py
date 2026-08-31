@@ -212,7 +212,10 @@ _SUFFIX_RE = re.compile(
     r"[,\s]+(?:Inc\.?|Corp\.?|Corporation|LLC|L\.L\.C\.|Ltd\.?|Limited|PLC|"
     r"N\.?V\.?|S\.?A\.?|A\.?G\.?|SE|L\.?P\.?|Co\.?|Company|Gp\.?|Bhd\.?|"
     r"S\.A\.B\.?\s*de\s*C\.?V\.?)\s*\.?\s*$", re.I)
-_EDGAR_TAG_RE = re.compile(r"/[A-Z&]{1,6}/?$")  # '/DE/', '/NEW/', ...
+# EDGAR conformed-name state/country tags: '/DE/', '/NEW/', ... — and the
+# backslash variants ('\DE\', 'PLC\UK') that appear in parsed 13D headers;
+# an unstripped backslash makes the route-B FTS query a 400.
+_EDGAR_TAG_RE = re.compile(r"[/\\][A-Z&]{1,6}[/\\]?$")
 
 
 def normalize_cik(cik) -> str:
@@ -369,7 +372,12 @@ def sec_bulk_lock(poll_seconds: int = LOCK_POLL_SECONDS) -> Iterator[None]:
     try:
         yield
     finally:
-        os.rmdir(SEC_BULK_LOCK)
+        # Tolerate a peer's cleanup having removed the lock dir during the
+        # hold — the release is idempotent in effect.
+        try:
+            os.rmdir(SEC_BULK_LOCK)
+        except FileNotFoundError:
+            pass
 
 
 # -- route A: submissions feed -------------------------------------------------
@@ -579,10 +587,14 @@ def header_parties(cik: str, accession: str,
     Used on SC TO-T / SC TO-C events: verifies the event really names the
     target (subject CIK must equal the firm's CIK) and yields the bidder CIK
     for the filer's-own-bid flag. Verified live: the master .txt resolves
-    under the target's CIK directory as well as the filer's. A header that
-    hits the byte cap carries ``"truncated": True`` — the caller then treats
-    the mandated verification as not completed (rulebook §5 row 8's
-    truncated-text rule applied to the verification document).
+    under the target's CIK directory as well as the filer's. The SGML header
+    is self-terminating: ``"truncated"`` is set only when the fetched bytes
+    do NOT contain the ``</SEC-HEADER>`` close tag (header block incomplete).
+    Hitting the 60 KB byte cap with the close tag present is NOT truncation —
+    the cap only cuts the filing body, which verification does not read
+    (calibrated: 363/363 capped headers in the treated pass carried the
+    complete header block; a byte-cap rule would have made 129/129 SC TO-T
+    events ambiguous). Rulebook §4 bullet 2.
     """
     url = (f"https://www.sec.gov/Archives/edgar/data/{int(cik)}/"
            f"{accession}.txt")
@@ -601,7 +613,7 @@ def header_parties(cik: str, accession: str,
         "filer_cik": str(int(fil.group(1))) if fil else None,
         "subject_name": subn.group(1).strip() if subn else None,
         "filer_name": filn.group(1).strip() if filn else None,
-        "truncated": len(raw) >= HEADER_MAX_BYTES,
+        "truncated": "</SEC-HEADER>" not in head,
     }
 
 
@@ -657,7 +669,9 @@ def extract_firm_events(cik: str, name: str = "",
     path = _cache_path("events", f"{cik10}.json")
     if os.path.exists(path):
         with open(path) as fh:
-            return json.load(fh)
+            rec = json.load(fh)
+        rec["cached"] = True
+        return rec
 
     record = {"cik": cik10, "name": name, "events": [],
               "n_8k_candidates": 0, "n_8k_rejected": 0, "errors": [],

@@ -1,0 +1,76 @@
+{
+ "checked_at": "2026-08-31T01:39:15",
+ "gates": [
+  {
+   "gate": "chain complete line",
+   "pass": true,
+   "detail": "== chain complete Mon Aug 31 01:31:09 BST 2026 =="
+  },
+  {
+   "gate": "no failure marker",
+   "pass": true,
+   "detail": "no failure marker"
+  },
+  {
+   "gate": "all fixtures passed",
+   "pass": true,
+   "detail": "67/67 checks passed, 0 failures"
+  },
+  {
+   "gate": "fixture suite exit status",
+   "pass": true,
+   "detail": "rc=0"
+  },
+  {
+   "gate": "rules_sha256 matches the rulebook on disk",
+   "pass": true,
+   "detail": "meta e95c4f9f87d42245\u2026 vs rulebook e95c4f9f87d42245\u2026"
+  },
+  {
+   "gate": "no CIK missing extraction",
+   "pass": true,
+   "detail": "n_ciks_missing_extraction = 0"
+  },
+  {
+   "gate": "not-extracted count is reported, not hidden",
+   "pass": true,
+   "detail": "bid12_not_extracted = 0, ambiguous = 292"
+  },
+  {
+   "gate": "treated BID12 base rate exceeds 18.1%",
+   "pass": false,
+   "detail": "0.1261 on 3418 coded rows of 3710 (ours counts failed and withdrawn bids, so it should exceed the Greenwood-Schor 'acquired within 12 months' anchor)"
+  },
+  {
+   "gate": "bid12_events_treated.csv present",
+   "pass": true,
+   "detail": "/Users/austinli/Projects/blockholder_v4/empirics/output/bid12_events_treated.csv"
+  },
+  {
+   "gate": "bid12_ambiguous_cases.csv present",
+   "pass": true,
+   "detail": "/Users/austinli/Projects/blockholder_v4/empirics/output/bid12_ambiguous_cases.csv"
+  },
+  {
+   "gate": "rows == metadata n_rows",
+   "pass": true,
+   "detail": "meta 3710 vs csv 3710"
+  },
+  {
+   "gate": "every empty BID12 is either ambiguous or not-extracted",
+   "pass": true,
+   "detail": "empty 292, ambiguous 292, not-extracted 0"
+  },
+  {
+   "gate": "no unextracted row is coded 0 (rulebook \u00a75.1 item 5)",
+   "pass": true,
+   "detail": "0 unextracted rows carry a BID12 value"
+  },
+  {
+   "gate": "no ambiguous row is forced to 0 or 1 (rulebook \u00a77)",
+   "pass": true,
+   "detail": "0 ambiguous rows carry a BID12 value"
+  }
+ ],
+ "all_passed": false
+}

@@ -114,6 +114,9 @@ def _fts_query(query: str, forms: Optional[tuple], max_pages: int = 3) -> list:
                     "form": s.get("form"),
                     "event_date": s.get("file_date"),
                     "display_names": s.get("display_names") or [],
+                    # keep the raw _source so bid12._display_name_ciks (which
+                    # reads hit["_source"]["display_names"]) works unchanged
+                    "_source": s,
                 }
             )
         if (page + 1) * FTS_PAGE_SIZE >= total:

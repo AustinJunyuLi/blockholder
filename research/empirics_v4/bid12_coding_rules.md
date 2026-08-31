@@ -211,12 +211,19 @@ should read this section as part of the operational rule. No registered rule
    lookahead — it does not fire on the noun phrase "acquisition of the
    Company" ("… and the acquisition of the Company is expected to close …"
    stays target).
-2. **Row 8's truncated-text rule applies to the verification document too.**
-   A tender-event header that hits its byte cap (60 KB) is *truncated*: the
-   §4 verification has not been completed, so the event is **ambiguous**
-   ("tender-header-truncated"), never confirmed. An 8-K text that hits its
-   byte cap (2 MB primary / 1.5 MB master .txt) is likewise **ambiguous**
-   ("text-truncated"), per row 8 as written.
+2. **Row 8's truncated-text rule applies to the verification document too —
+   with a completeness test, not a byte-count test.** The SGML header is
+   self-terminating: a tender-event header is *truncated* only when the
+   fetched bytes do not contain the `</SEC-HEADER>` close tag (header block
+   incomplete → **ambiguous**, "tender-header-truncated", never confirmed).
+   Hitting the 60 KB fetch cap with the close tag present is NOT truncation:
+   the cap only cuts the filing body, which the verification never reads.
+   (Calibration, treated pass 2026-08-31: 363/363 byte-capped headers carried
+   the complete header block; the earlier byte-count rule had made 129/129
+   SC TO-T events ambiguous — route B would never have confirmed anything.)
+   An 8-K text that hits its byte cap (2 MB primary / 1.5 MB master .txt) IS
+   **ambiguous** ("text-truncated"), per row 8 as written — there the body
+   itself, which carries the agreement language, is cut.
 3. **Tender verification semantics (§4).** "For every SC TO-T / SC TO-C
    event" means regardless of route: a route-B `display_names` bidder does
    not substitute for the header check. Unavailable header (permanent fetch

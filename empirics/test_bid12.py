@@ -167,10 +167,38 @@ def test_tender_verification() -> None:
           ev["confirm_detail"])
     ev = _tev()
     bid12._verify_tender_event(ev, {"truncated": True}, firm)
-    check("header truncated (byte cap) -> ambiguous",
+    check("header truncated (incomplete SEC-HEADER) -> ambiguous",
           ev["ambiguous"] == 1
           and "tender-header-truncated" in ev["confirm_detail"],
           ev["confirm_detail"])
+    close = "</SEC-HEADER>"
+    complete = (
+        "<SEC-HEADER>\nSUBJECT COMPANY:\n    COMPANY CONFORMED NAME: ACME\n"
+        "    CENTRAL INDEX KEY: 0001645569\nFILED BY:\n"
+        "    COMPANY CONFORMED NAME: BIDDER\n    CENTRAL INDEX KEY: "
+        f"0000059478\n{close}\n" + ("BODY" * 20000)
+    ).encode("latin-1")
+    incomplete = (
+        "<SEC-HEADER>\nSUBJECT COMPANY:\n    CENTRAL INDEX KEY: 0001645569\n"
+        + ("X" * bid12.HEADER_MAX_BYTES)
+    ).encode("latin-1")
+    saved = bid12._cached_bytes
+    try:
+        bid12._cached_bytes = lambda *a, **k: complete[:bid12.HEADER_MAX_BYTES]
+        parties = bid12.header_parties("1645569", "0001645569-23-000001",
+                                       cache_only=True)
+        check("capped header with close tag is not truncated",
+              parties is not None and parties["truncated"] is False
+              and parties["subject_cik"] == "1645569",
+              str(parties))
+        bid12._cached_bytes = lambda *a, **k: incomplete[:bid12.HEADER_MAX_BYTES]
+        parties = bid12.header_parties("1645569", "0001645569-23-000002",
+                                       cache_only=True)
+        check("capped header without close tag is truncated",
+              parties is not None and parties["truncated"] is True,
+              str(parties))
+    finally:
+        bid12._cached_bytes = saved
     ev = _tev()
     bid12._verify_tender_event(
         ev, {"subject_cik": "999", "filer_cik": "59478"}, firm)
