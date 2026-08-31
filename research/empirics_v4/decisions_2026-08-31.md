@@ -36,7 +36,7 @@ tighter caliper does not fix into a design failure.
 
 The registered remedy is a caliper on log size and log illiquidity. Neither of
 the two failing covariates is a caliper dimension, so tightening reaches them
-only through incidental correlation. It shows: between the two attempts
+only through incidental correlation. That is what the two attempts show.
 `idiovol` improved and `ret12m` got worse.
 
 **Option A, stand pat.** Cost: nothing to run. §8 stays `NOT ESTIMATED`, the §6
@@ -44,8 +44,8 @@ bounded null carries the leg alone, and the December sentence is the bounded
 null quoted against the design arithmetic, 15.32 pp clustered against a 3 pp
 headline rung.
 
-**Option B, narrow the gate to the two matched dimensions.** This is not only a
-relabel, and the fork inside it needs your ruling too. Under a narrowed gate
+**Option B, narrow the gate to the two matched dimensions.** This does more than
+relabel the draw on disk, and the fork inside it needs your ruling too. Under a narrowed gate
 the 0.25 attempt passes on first look at -0.078 and 0.060, so the predeclared
 0.20 rerun would never have fired. That leaves two candidate draws: 0.25 with
 932 pairs, which is not on disk, or the 0.20 draw that is, at 839 pairs. Say

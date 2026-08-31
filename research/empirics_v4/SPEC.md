@@ -1662,7 +1662,7 @@ falsifiable alternative, and the sign remains the estimand.
 
 ## Corrigendum — 2026-08-31 (realised §8 counts; no test changed)
 
-Two count notes of exactly the kind the 2026-08-30 corrigendum above already makes. Both
+Two count notes of the kind the 2026-08-30 corrigendum above already makes. Both
 are dated in place. Neither strikes a printed figure, because in both cases the printed
 figure remains correct for the object it counts.
 
