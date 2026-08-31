@@ -1,0 +1,145 @@
+{
+ "label": "DIAGNOSTIC",
+ "status": "BLOCKED",
+ "causal_language_allowed": false,
+ "generated_at": "2026-08-31T09:41:47",
+ "script": "empirics/estimate_did_diagnostics.py",
+ "inputs": {
+  "/Users/austinli/Projects/blockholder_v4/empirics/output/bid12_treated.csv": "0eadc703d70aea20a7a63014326cadfd30dfbac04e9e08a5c1c27f34a84e6238",
+  "/Users/austinli/Projects/blockholder_v4/empirics/output/bid12_control.csv": "45bf328c0e364336fbb2193461fabfc6a30259c1c9d7653b6292c6a0ead557d3",
+  "/Users/austinli/Projects/blockholder_v4/empirics/output/did_match_pairs.csv": "e49b3403cfd2083dc28343ac14a78a7d1e0f21701634c1e017dcc7aff0cdc6c9",
+  "/Users/austinli/Projects/blockholder_v4/empirics/output/did_estimate.json": "218f98f98fca57cea3d22248ace63ee03a55897b0ccbffc7749e62337f60a274"
+ },
+ "real_estimate_label": "NOT ESTIMATED",
+ "real_beta_treat_x_post": null,
+ "panel_drops": {
+  "controls_unresolved_bid12": 10,
+  "controls_excluded_prior_bid": 22,
+  "match_groups_dropped_no_contrast": 10
+ },
+ "placebo": {
+  "registered_range": [
+   "2021-07-01",
+   "2023-10-09"
+  ],
+  "calendar": "repo FEDERAL_HOLIDAYS",
+  "n_candidate_dates": 568,
+  "n_dates_with_two_sided_treated_support": 462,
+  "n_estimable_dates": 0,
+  "n_dates_without_pre_treated": 104,
+  "n_dates_without_post_treated": 2,
+  "estimates_written": 0
+ },
+ "pretrend": {
+  "status": "ESTIMATED",
+  "label": "ESTIMATED",
+  "reference_quarter": "2023Q3",
+  "n_rows": 791,
+  "n_match_groups": 226,
+  "n_month_clusters": 21,
+  "joint_f": 3.2492956071513426,
+  "joint_f_numerator_df": 6,
+  "joint_f_denominator_df": 20,
+  "joint_f_p": 0.021438290083987906,
+  "causal_language_allowed": false,
+  "decision_rule": "p < 0.10 blocks causal language",
+  "quarter_fe": "not identified; quarter is constant within match group under pseudo-TD inheritance, the same reason lambda Post is absorbed in the section 8.4 LPM",
+  "coefficients": [
+   {
+    "quarter": "2022Q1",
+    "coefficient": -0.03163841807909579,
+    "coefficient_pp": -3.163841807909579,
+    "se_twoway": 0.048067072492626095,
+    "ci95_low": -0.12584988016464294,
+    "ci95_high": 0.06257304400645136,
+    "ci95_low_pp": -12.584988016464294,
+    "ci95_high_pp": 6.257304400645136,
+    "reference": 0
+   },
+   {
+    "quarter": "2022Q2",
+    "coefficient": -0.042334935492031094,
+    "coefficient_pp": -4.233493549203109,
+    "se_twoway": 0.06412750055151549,
+    "ci95_low": -0.16802483657300146,
+    "ci95_high": 0.08335496558893926,
+    "ci95_low_pp": -16.802483657300147,
+    "ci95_high_pp": 8.335496558893926,
+    "reference": 0
+   },
+   {
+    "quarter": "2022Q3",
+    "coefficient": -0.10833852956181594,
+    "coefficient_pp": -10.833852956181595,
+    "se_twoway": 0.04417264074977855,
+    "ci95_low": -0.1949169054313819,
+    "ci95_high": -0.021760153692249984,
+    "ci95_low_pp": -19.49169054313819,
+    "ci95_high_pp": -2.1760153692249986,
+    "reference": 0
+   },
+   {
+    "quarter": "2022Q4",
+    "coefficient": 0.08868678517293684,
+    "coefficient_pp": 8.868678517293684,
+    "se_twoway": 0.10689462885596639,
+    "ci95_low": -0.12082668738475728,
+    "ci95_high": 0.29820025773063097,
+    "ci95_low_pp": -12.082668738475729,
+    "ci95_high_pp": 29.820025773063097,
+    "reference": 0
+   },
+   {
+    "quarter": "2023Q1",
+    "coefficient": -0.044006442211825716,
+    "coefficient_pp": -4.400644221182572,
+    "se_twoway": 0.07419881943225291,
+    "ci95_low": -0.18943612829904144,
+    "ci95_high": 0.10142324387538999,
+    "ci95_low_pp": -18.943612829904144,
+    "ci95_high_pp": 10.142324387538999,
+    "reference": 0
+   },
+   {
+    "quarter": "2023Q2",
+    "coefficient": 0.02021343377275614,
+    "coefficient_pp": 2.021343377275614,
+    "se_twoway": 0.05483012657293201,
+    "ci95_low": -0.08725361431019059,
+    "ci95_high": 0.12768048185570285,
+    "ci95_low_pp": -8.725361431019058,
+    "ci95_high_pp": 12.768048185570285,
+    "reference": 0
+   },
+   {
+    "quarter": "2023Q3",
+    "coefficient": 0.0,
+    "coefficient_pp": 0.0,
+    "se_twoway": 0.0,
+    "ci95_low": 0.0,
+    "ci95_high": 0.0,
+    "ci95_low_pp": 0.0,
+    "ci95_high_pp": 0.0,
+    "reference": 1
+   }
+  ]
+ },
+ "blockers": [
+  {
+   "code": "did_not_estimated",
+   "detail": "the section 8 estimate carries label 'NOT ESTIMATED' (design_failure: post-match standardised differences remain above 0.10 after the predeclared 0.20-caliper rerun), so there is no coefficient for the placebo band or the pre-trend to certify"
+  },
+  {
+   "code": "pseudo_date_support",
+   "detail": "106 of 568 registered pseudo-dates lack treated observations on one side"
+  },
+  {
+   "code": "rematch_inputs_missing",
+   "detail": "Final match pairs contain selected controls only. They cannot reproduce the section 8.7 requirement to re-match the full candidate pool at every pseudo-date."
+  },
+  {
+   "code": "length_ratio_rule_undefined",
+   "detail": "Section 8.7 fixes the real pre/post length ratio but does not state the window-selection rule around each pseudo-date."
+  }
+ ]
+}

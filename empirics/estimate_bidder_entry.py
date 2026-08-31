@@ -67,10 +67,12 @@ from empirics.estimate_h1 import (
     _independent_columns, ols_clustered, sha256_of, wild_cluster_bootstrap,
 )
 from empirics.estimate_did import (
-    CONTROL_LOOKUP_CSV, H1_SAMPLE_CSV, MATCH_OUT, _demean, build_treated,
+    CONTROL_LOOKUP_CSV, H1_SAMPLE_CSV, MATCH_META_OUT, MATCH_OUT, _demean,
+    build_treated,
 )
 
 RESULT_OUT = os.path.join(OUT_DIR, "bidder_entry_estimate.json")
+MATCH_META = MATCH_META_OUT
 N_BOOT = 9_999
 SEED = 20260830
 MAIN_SAMPLE_END = pd.Timestamp("2024-12-17")
@@ -139,6 +141,45 @@ def spec_within(tr: pd.DataFrame) -> dict:
         "t_beta": tb,
         "p_beta_normal": _p_normal(tb),
         "liq_sd_in_sample": float(D["liq"].std(ddof=1)),
+    }
+
+
+def match_design_status() -> dict:
+    """The section 8.2 match draw's own verdict, carried into tau.
+
+    The triple difference is estimated on that draw. If the draw failed its
+    balance gate, tau sits on an unbalanced matched sample; the estimate is
+    still worth printing beside its MDE, but it cannot be read as if the
+    match had passed. An absent meta file is unknown, never a pass.
+    """
+    import json
+    if not os.path.exists(MATCH_META):
+        return {
+            "design_status": "unknown",
+            "balance_exceeds_0.10": [],
+            "reading": "no match metadata on disk; the balance of the "
+                       "matched sample tau is estimated on is unverified",
+        }
+    with open(MATCH_META) as fh:
+        meta = json.load(fh)
+    status = meta.get("design_status", "unknown")
+    bad = meta.get("balance_exceeds_0.10", [])
+    if status == "pass":
+        reading = ("the section 8.2 match passed its balance gate at the "
+                   f"{meta.get('selected_caliper_sd')} pooled-sd caliper")
+    else:
+        reading = (
+            "the section 8.2 match is recorded as "
+            f"{status}: standardised differences on {bad} remain above 0.10 "
+            f"after the {meta.get('selected_caliper_sd')} caliper. tau is "
+            "therefore estimated on an unbalanced matched sample and "
+            "inherits that design failure. It is reported as an interval "
+            "and a sign, never as a test.")
+    return {
+        "design_status": status,
+        "caliper_pooled_sd": meta.get("selected_caliper_sd"),
+        "balance_exceeds_0.10": bad,
+        "reading": reading,
     }
 
 
@@ -353,6 +394,7 @@ def main(argv=None) -> int:
     if args.spec in ("triple", "both"):
         print("== T: triple difference ==", flush=True)
         out["triple"] = spec_triple(tr)
+        out["triple"]["match_design_status"] = match_design_status()
         tt = out["triple"]
         if tt.get("status") == "estimated":
             print(f"  τ(Treat×Post×LIQ) = {tt['tau_treat_x_post_x_liq_pp']:+.2f}"

@@ -371,6 +371,47 @@ def test_within_spec_does_not_need_matched_inputs() -> None:
         be.MATCH_OUT, be.CONTROL_LOOKUP_CSV = saved
 
 
+def test_triple_inherits_the_match_design_status() -> None:
+    """The triple difference is computed on the section 8.2 match draw.
+
+    If that draw failed its own balance gate, tau is estimated on an
+    unbalanced sample. The number is still worth reporting, but it cannot be
+    read as if the match had passed, so the status travels with it.
+    """
+    import json
+    import empirics.estimate_bidder_entry as be
+    print("\n== the triple difference carries the match draw's design status ==")
+    with tempfile.TemporaryDirectory() as tmp:
+        meta = os.path.join(tmp, "did_match_meta.json")
+        with open(meta, "w") as fh:
+            json.dump({"design_status": "failed_balance",
+                       "selected_caliper_sd": 0.20,
+                       "balance_exceeds_0.10": ["ret12m", "idiovol"]}, fh)
+        saved = be.MATCH_META
+        try:
+            be.MATCH_META = meta
+            block = be.match_design_status()
+        finally:
+            be.MATCH_META = saved
+    check("the failed status is carried, not silently dropped",
+          block["design_status"] == "failed_balance")
+    check("the failing covariates travel with it",
+          block["balance_exceeds_0.10"] == ["ret12m", "idiovol"])
+    check("the reading is stated, not left to the reader",
+          "unbalanced" in block["reading"].lower(),
+          block["reading"])
+
+    with tempfile.TemporaryDirectory() as tmp:
+        saved = be.MATCH_META
+        try:
+            be.MATCH_META = os.path.join(tmp, "absent.json")
+            block = be.match_design_status()
+        finally:
+            be.MATCH_META = saved
+    check("an absent match meta is unknown, never assumed to pass",
+          block["design_status"] == "unknown", str(block))
+
+
 def main() -> int:
     test_standardise_liq()
     test_within_recovery()
@@ -379,6 +420,7 @@ def main() -> int:
     test_pending_artifact()
     test_main_window_and_unestimated_extensions()
     test_within_spec_does_not_need_matched_inputs()
+    test_triple_inherits_the_match_design_status()
     n_fail = sum(1 for _, ok, _ in _results if not ok)
     print(f"\n{len(_results) - n_fail}/{len(_results)} checks passed"
           + (f", {n_fail} FAILED" if n_fail else ""))

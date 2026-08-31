@@ -115,13 +115,70 @@ neither was adopted here:
 Filed the way the Datavault rulebook-coverage observation was filed: recorded
 with its numbers, not acted on.
 
-## 6. What the failure does not block
+## 6. The §8.8 pre-trend blocks causal language independently
+
+`empirics/estimate_did_diagnostics.py` ran on the matched panel (791
+rows, 226 match groups, after dropping 10 controls with an unresolved
+BID12, 22 already under a bid at their pseudo-TD, and 10 match groups
+left with no within-group contrast).
+
+Seven pre-quarters, normalised to 2023Q3:
+
+| quarter | pi_q (pp) | 95% band |
+|---|---|---|
+| 2022Q1 | -3.16 | [-12.58, 6.26] |
+| 2022Q2 | -4.23 | [-16.80, 8.34] |
+| 2022Q3 | **-10.83** | **[-19.49, -2.18]** |
+| 2022Q4 | 8.87 | [-12.08, 29.82] |
+| 2023Q1 | -4.40 | [-18.94, 10.14] |
+| 2023Q2 | 2.02 | [-8.73, 12.77] |
+| 2023Q3 | 0.00 | reference |
+
+Joint F = 3.249, **p = 0.0214**. SPEC §8.8 fixes the rule in advance:
+p < 0.10 **blocks causal language**, the estimate is reported as a
+descriptive difference, the word "effect" is not used, and the bounded
+null carries the leg alone.
+
+So the leg is demoted on two independent registered grounds, and the
+second does not depend on the first. Even if Austin narrowed the balance
+gate to the two matched dimensions and the §8 coefficient were
+estimated, §8.8 would still bar causal language for it.
+
+## 7. The §8.7 placebo is BLOCKED, with its blockers named
+
+The 568-date grid is the registered one: `numpy.busday_count` over
+2021-07-01 to 2023-10-09 with the repo's own `FEDERAL_HOLIDAYS` table.
+No estimates were written and none was invented. Four blockers:
+
+1. **`did_not_estimated`.** The §8 estimate carries `NOT ESTIMATED`, so
+   there is no real coefficient for a placebo band to sit around.
+2. **`pseudo_date_support`.** 106 of 568 pseudo-dates lack treated
+   observations on one side (104 with no pre, 2 with no post). The
+   treated sample starts in 2022 and the grid starts 2021-07-01.
+3. **`rematch_inputs_missing`.** §8.7 requires re-matching the full
+   candidate pool at every pseudo-date. `did_match_pairs.csv` holds the
+   selected controls only, so it cannot reproduce that.
+4. **`length_ratio_rule_undefined`.** §8.7 fixes the real pre/post
+   length ratio but does not state the window-selection rule around each
+   pseudo-date. That is a gap in the registered text, recorded rather
+   than filled by a guess.
+
+## 8. What the failure does not block
 
 The design failure is a bar on the §8 coefficient. It does not touch the
-BID12 coder, so the control half of the blind audit proceeds unchanged and on
-the same 30-pair threshold. `did_match_pairs.csv` exists, so the control-side
-BID12 lookup and the §9 within-13D-targets leg both have their inputs. The
-§8.7 placebo re-matches at every pseudo-date and inherits the failure.
+BID12 coder, and the blind hand audit has since passed **0 of 30**
+(`bid12_audit_result_2026-08-30.md`). The control-side BID12 lookup landed
+(839 matched-control rows, 602 distinct linked CIKs, 0 not-extracted, control
+BID12 rate 5.07% against the Greenwood-Schor matched-control anchor of 7.2%,
+lower in the direction the signed survivorship bias predicts).
+
+§9 estimated on the same inputs and is ESTIMATED: within 13D targets
+delta(LIQ x Post) = -0.65 pp (se 3.93, quoted p 0.878, realised MDE 11.01
+pp); the triple difference tau = -5.94 pp (se 6.59, quoted p 0.398, realised
+MDE 18.45 pp against the §9 rule of thumb of 18.2 pp). Both are inside their
+MDEs, which is the outcome §9 registered as expected. `tau` carries the §8.2
+match's `failed_balance` status in its own record, because it is estimated on
+that draw and cannot be read as if the match had passed.
 
 `did_estimate.json` also carries `quote_as_result: false` and the signed
 survivorship block (control bid rate biased down, gamma biased up, 701
