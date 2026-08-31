@@ -1,25 +1,52 @@
-# BID12 blind hand audit — treated-half result
+# BID12 blind audit result — treated half (2026-08-31)
 
-**Run:** 2026-08-31 01:34–01:48 (protocol `bid12_audit_protocol.md`, written
-2026-08-30; registered design SPEC §8.3 / rulebook §10, both frozen).
-**Verdict: 0 disagreements of 15 — "0 of 15 so far".** Per the registered
-split, the blocking threshold stays on the full 30 (≥ 4 blocks the DiD leg);
-the treated half alone cannot clear the leg, and the escalation trigger
-(≥ 3 disagreements in the treated half) was not approached. The control half
-is drawn with the same seed (20260830) once the control-side lookup lands.
+Registered design: SPEC §8.3, rulebook §10, protocol
+`bid12_audit_protocol.md`. This is the treated half of the documented
+split draw. Blocking remains **4 of 30**. Three treated-half
+disagreements would escalate. This file does not clear the DiD leg.
 
-## Rulebook identity
+## Rulebook
 
-Auditor verified `shasum -a 256 research/empirics_v4/bid12_coding_rules.md`
-= `e95c4f9f87d4224597f91b659251fd3b7f8d81ca748843ef7cc4a2c9255de0c6`,
-matching `bid12_audit_manifest.json` (`rules_sha256`) before reading further.
+Auditor verified SHA-256
+`e95c4f9f87d4224597f91b659251fd3b7f8d81ca748843ef7cc4a2c9255de0c6`
+against `bid12_audit_manifest.json`. That hash matches
+`bid12_run_meta.json` after the completeness-test re-lookup.
 
-## Sample
+Readings were written to
+`empirics/output/bid12_audit_readings.csv` at 01:46, then sealed as
+`bid12_audit_readings_sealed_2026-08-31_sessionB.csv` at 01:47, after
+the 01:45 pairs file and before this adjudication opened the key.
 
-Drawn by `empirics/bid12_audit_sample.py --side treated`, seed 20260830,
-manifest `single_draw: false` with the split note. Cells: `treated_pre` 8,
-`treated_post` 7; no shortfalls moved between paired cells. The pairs file
-carries CIK, firm name, TD, stratum, and the 13D accession — no verdicts.
+A second independent auditor, which did not read the coder, wrote
+`bid12_audit_readings_sessionA_2026-08-31.csv` at 01:55. Same 15
+verdicts (13 zeros, one 1, one ambiguous). The protocol file was
+restored from the first sealed copy.
+
+## Counts
+
+| cell | n | auditor 1 | auditor 0 | auditor ambiguous |
+|---|---|---|---|---|
+| treated_pre | 8 | 1 | 7 | 0 |
+| treated_post | 7 | 0 | 6 | 1 |
+| treated half | 15 | 1 | 13 | 1 |
+
+Coder: 1, 13 zeros, 1 empty/`ambiguous=1`. **Disagreements: 0 of 15**
+on both independent readings. No escalation. The control half is still
+required.
+
+Four extra ambiguous events among the sampled firms were listed in
+`bid12_audit_ambiguous.csv` and do not count against the 15.
+
+## The two non-zero readings (agreement)
+
+**Agrify Corp, TD 2024-01-25, auditor 1, coder 1.** Item 1.01 8-K filed
+2024-04-22: Nature's Miracle Holding expects to acquire Agrify by reverse
+triangular merger. Section 5 row 1 confirms. The later termination does
+not matter (rulebook §7).
+
+**Datavault AI Inc., TD 2025-10-23, auditor ambiguous, coder empty.**
+Two in-window merger 8-Ks fire merger patterns with no clean target or
+acquirer direction (section 5 row 6). Section 7 leaves BID12 empty.
 
 ## Blindness record
 
@@ -98,7 +125,7 @@ independent reading, and the auditor independently landed on ambiguous
 4. **Guerrilla RF 2021-10-27 8-K** (0001213900-21-054809) — pre-TD (TD
    2023-09-06), outside the window; no bearing on the pair value.
 
-## Process record — mid-audit regeneration (transparency, not a complaint)
+## Process record: mid-audit regeneration
 
 The audit ran across a live repair by the other session:
 
@@ -135,10 +162,8 @@ differed, the audit would have been rerun against the new draw.
 3. Coder status note §9: **Gate 4 remains a recorded fail on the universe
    rate (S1/H1 = 18.66%)** — recorded, not resolved.
 
-## What remains
+## Verdict so far
 
-- Control half of the audit: drawn with seed 20260830 once the control-side
-  lookup lands (downstream of the control extraction and matching). Blocking
-  verdict stays on the full 30.
-- Per the protocol, the DiD estimate may be computed once the control lookup
-  lands but may not be quoted as a result until the control half passes.
+Treated half: 0 of 15. Quote as "0 of 15 so far", not as a 15-pair
+threshold. The DiD may be computed after control lookup. It may not be
+quoted as a result until the control half is audited.
