@@ -1,9 +1,20 @@
-# BID12 blind audit result — treated half (2026-08-31)
+# BID12 blind hand audit: full result, 30 of 30 (2026-08-31)
 
 Registered design: SPEC §8.3, rulebook §10, protocol
-`bid12_audit_protocol.md`. This is the treated half of the documented
-split draw. Blocking remains **4 of 30**. Three treated-half
-disagreements would escalate. This file does not clear the DiD leg.
+`bid12_audit_protocol.md`. Both halves of the documented split draw are
+now audited, each by a fresh agent that did not write the coder.
+
+**Verdict: 0 disagreements of 30. The audit does not block the leg.**
+Blocking was 4 of 30 (disagreement above 10%). The treated half was 0 of
+15 on two independent readings; the control half is 0 of 15.
+
+What this clears and what it does not. It clears the outcome coder,
+which is what the audit is about. It does not clear the §8 estimate:
+the matching stage fails its own balance gate, `did_estimate.json`
+carries `NOT ESTIMATED`, and the §8.8 pre-trend F-test blocks causal
+language on its own. See `did_matching_2026-08-31.md`.
+
+## Part A: the treated half
 
 ## Rulebook
 
@@ -162,8 +173,181 @@ differed, the audit would have been rerun against the new draw.
 3. Coder status note §9: **Gate 4 remains a recorded fail on the universe
    rate (S1/H1 = 18.66%)** — recorded, not resolved.
 
-## Verdict so far
+## Treated-half verdict
 
-Treated half: 0 of 15. Quote as "0 of 15 so far", not as a 15-pair
-threshold. The DiD may be computed after control lookup. It may not be
-quoted as a result until the control half is audited.
+0 of 15, on two independent readings. No escalation (the trigger was 3).
+
+---
+
+# Part B: the control half (2026-08-31, 09:27 to 09:40)
+
+## Draw and rulebook
+
+`bid12_audit_sample --side control --seed 20260830`, run after the
+control-side BID12 lookup landed (839 matched-control rows, 602 distinct
+linked CIKs, 0 not-extracted). The draw merged into the existing pairs
+file rather than overwriting it: 30 pairs, four cells, 8 / 7 per cell,
+and the 15 treated (CIK, TD) keys are identical to the sealed treated
+readings, checked key by key.
+
+A defect in the sampler was found and fixed **before** this draw ran. On
+a `--side control` call the key file was being built from the already
+merged pairs frame and then merged again against its own prior copy, so
+the 15 treated rows landed twice: once carrying verdicts, once blank. An
+adjudication joining readings to the key on (side, CIK, TD) would have
+matched the blank copies and scored 15 spurious disagreements, which
+would have blocked the leg on an artefact. The merged key now holds one
+verdict-carrying row per pair, checked in `test_bid12_audit_sample.py`.
+
+The auditor verified rulebook SHA-256
+`e95c4f9f87d4224597f91b659251fd3b7f8d81ca748843ef7cc4a2c9255de0c6`
+against `bid12_audit_manifest.json`.
+
+## Blindness record
+
+A fresh agent, which had not written the coder and had not read
+`empirics/bid12.py`. Its declared input was the protocol, the rulebook,
+and `bid12_audit_pairs.csv`. It attested it did not open the coder or
+its tests, `bid12_audit_key.csv`, `bid12_audit_ambiguous.csv`, any
+verdict-carrying output, `bid12_cache/events/`, the other auditor's
+readings, any session log or status note, or `git log` / `show` /
+`diff`. The only coder file it read is `empirics/edgar_fetch.py`, the
+throttled fetcher, which carries no coding logic.
+
+Seal ordering by file mtime: readings written 09:38:04 to
+`bid12_audit_readings_control.csv`, sealed 09:40:17 as
+`bid12_audit_readings_sealed_control_2026-08-31.csv`, key first opened
+by the orchestrator 09:40:34. The pairs and key were snapshotted at
+09:27:59, before the auditor started.
+
+One thing the auditor did beyond the protocol, and it is worth
+recording. Protocol §2 opens the `fts/` cache, but that cache stores the
+coder's route-B results **after** its CIK gate. To keep route B
+independent the auditor re-ran all 15 full-text-search queries live
+against `efts.sec.gov`, de-duplicated by accession, and applied the §4
+`display_names` CIK gate itself. The live results reproduce the cache
+exactly.
+
+## Result per pair (coder vs auditor)
+
+| cell | firm | CIK | pseudo-TD | coder | auditor |
+|---|---|---|---|---|---|
+| control_pre | CONMED Corp | 0000816956 | 2022-01-06 | 0 | 0 |
+| control_pre | Perma-Pipe International | 0000914122 | 2022-04-01 | 0 | 0 |
+| control_pre | Corcept Therapeutics | 0001088856 | 2022-03-28 | 0 | 0 |
+| control_pre | China Pharma Holdings | 0001106644 | 2023-08-22 | 0 | 0 |
+| control_pre | SoundThinking | 0001351636 | 2023-05-09 | 0 | 0 |
+| control_pre | Regional Management | 0001519401 | 2021-12-31 | 0 | 0 |
+| control_pre | G1 Therapeutics | 0001560241 | 2023-09-27 | **1** | **1** |
+| control_pre | KKR Real Estate Finance Trust | 0001631596 | 2023-05-10 | 0 | 0 |
+| control_post | Interlink Electronics | 0000828146 | 2024-05-28 | 0 | 0 |
+| control_post | Commvault Systems | 0001169561 | 2024-02-13 | 0 | 0 |
+| control_post | Inogen | 0001294133 | 2024-10-30 | 0 | 0 |
+| control_post | Supernus Pharmaceuticals | 0001356576 | 2024-03-28 | 0 | 0 |
+| control_post | Treace Medical Concepts | 0001630627 | 2024-10-30 | 0 | 0 |
+| control_post | Porch Group | 0001784535 | 2024-08-09 | 0 | 0 |
+| control_post | FinWise Bancorp | 0001856365 | 2024-02-07 | 0 | 0 |
+
+**Disagreements: 0 of 15.** No write-ups owed.
+
+The single BID12 = 1 pair agrees on the event, not merely the value.
+G1 Therapeutics: coder and auditor both record the first in-window event
+as `SC TO-C` `0001104659-24-086802`, filed 2024-08-07, Pharmacosmos A/S
+tender offer, with the §4 header verifying SUBJECT COMPANY CIK
+0001560241 as the firm's own.
+
+Both failure modes the rulebook was calibrated against appeared in this
+half and both were read correctly. CONMED is the **acquirer** in four
+in-window merger 8-Ks (In2Bones, Biorez) plus a notes offering that
+merely recites a merger agreement. Regional Management, SoundThinking,
+Porch, China Pharma and Corcept produce credit, securitisation, licence
+and collaboration Item 1.01s that are not merger agreements.
+
+## Full-audit counts
+
+| cell | n | 1 | 0 | ambiguous | disagreements |
+|---|---|---|---|---|---|
+| treated_pre | 8 | 1 | 7 | 0 | 0 |
+| treated_post | 7 | 0 | 6 | 1 | 0 |
+| control_pre | 8 | 1 | 7 | 0 | 0 |
+| control_post | 7 | 0 | 7 | 0 | 0 |
+| **all 30** | **30** | **2** | **27** | **1** | **0** |
+
+0 of 30 is 0%, against the registered blocking threshold of above 10%.
+
+Eleven ambiguous events among the sampled firms are listed in
+`bid12_audit_ambiguous.csv` and adjudicated separately; they do not
+count against the 30.
+
+## Control-side ambiguous adjudications
+
+Five are Supernus `SC TO-C` / `SC TO-T` events carrying
+`subject-cik-mismatch` (2021-10-12, 2021-10-25, 2025-06-16 x2,
+2025-07-02). These are Supernus's **own outbound** offers, for Adamas in
+2021 and Sage in 2025: the full-text name match catches Supernus as
+bidder and the header's SUBJECT COMPANY is someone else. §4 correctly
+makes them ambiguous rather than events. All five are outside the
+window in any case. The auditor reached the same reading independently.
+
+Two are G1 Therapeutics 8-Ks (2024-08-07 and 2024-09-18) that the coder
+marks ambiguous under §5 row 5, target and acquirer direction both
+firing. They have no effect on the pair, which is carried to BID12 = 1
+by the form-list `SC TO-C`. They are discussed in the next section,
+because the auditor predicted them from the rulebook text without
+having seen the coder.
+
+The four treated-side ambiguous events are adjudicated in Part A.
+
+## Two rulebook-coverage observations, for Austin
+
+Both come from the control-half auditor. Neither was acted on: the
+registered rule is frozen and a change is a post-registration decision.
+What makes these worth Austin's time is that the **coder independently
+landed on the same two cases**, from the other side of the blind, which
+is about as strong as corroboration of a specification gap gets.
+
+**1. §5.1 item 4's added patterns leave their gap operator undefined,
+and a wide reading false-fires.** The pattern
+`(the Company|{name}) … to purchase (shares|assets|stock)` is registered
+as acquirer-side evidence. Read with a permissive gap it also matches
+ordinary target-side merger boilerplate. In G1's own 2024-08-07 8-K it
+matches "each option **to purchase shares** granted under **the
+Company**'s equity incentive plans", which adds acquirer direction to a
+document that also carries target direction and flips a §5 row 1
+confirmation into a row 5 ambiguous. That is exactly what the coder's
+`confirm_detail` records for that filing: `target:1;acquirer:1`. The §5
+patterns written with `[^.]{0,80}` are unambiguous; the §5.1 item 4
+additions written with an ellipsis are not.
+
+**2. The bare acquirer form of §5.1 item 1 cannot see the sentence
+subject.** In G1's 2024-09-18 Item 2.01 8-K it matches "…Parent, as the
+parent of Purchaser, **acquired** control of the company", where the
+grammatical subject is Parent and the firm is plainly the target. The
+two registered guards (a passive-voice lookbehind and an "acquisition
+of" lookahead) do not cover that shape.
+
+Neither observation changes any verdict in this audit. G1's BID12 = 1
+rests on the form-list tender events, which are decided by §2 and §4
+without touching §5. The exposure is a **treated-side case resting on an
+8-K alone**, where the reading would turn entirely on how the ellipsis
+is read. The coder's own treated pass has 1,323 ambiguous 8-Ks, 768 of
+them on §5 row 6, so this is the population where it would bite.
+
+A third, minor observation: **§3 has no intra-day tie-break.** G1's
+first in-window evidence is two filings on the same filing date, a
+form-list `SC TO-C` and a row-1-confirming 8-K. The rulebook dates
+events on the filing date and gives no ordering within a date. Only the
+`first_event_form` label turns on it, never the verdict.
+
+## Verdict
+
+**0 disagreements of 30. The registered hand audit passes and does not
+block the DiD leg.** The BID12 outcome coder is audited on both sides,
+by two fresh agents, against a hash-verified rulebook, with readings
+sealed before either key was opened.
+
+The leg is blocked elsewhere, on two independent registered grounds
+recorded in `did_matching_2026-08-31.md`: the §8.2 match fails its
+balance gate after the predeclared 0.20-caliper rerun, and the §8.8
+pre-trend joint F-test returns p = 0.021, which is below 0.10 and
+blocks causal language on its own terms.
