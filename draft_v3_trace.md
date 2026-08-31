@@ -412,3 +412,96 @@ describes the content row for row; this amendment records where each row now liv
    sections print A (Discussion of assumptions), B (Numerical records, Remarks 1--6), C, D, E
    (proofs). Unicode quote/dash scan clean on both sources. The fidelity review of this
    restructure (fresh agent, none of it its own) is recorded in the session brief.
+
+---
+
+## Amendment, 2026-08-30 (fourth): prose rewrite of the main text — formal machinery reduced to two statements
+
+Austin's directive: a natural, singular-author economics paper in British English, at most two
+visible formal statements (fixed-policy attenuation and the general-equilibrium implication),
+existence and the intermediate results as concise prose, technical proofs in the online appendix.
+Only `draft_v3.tex` was edited; `draft_v3_onlineappendix.tex` is byte-identical to its state at
+`adf97c6`, and the frozen record under `research/model_v4/` and `sections_v3/` was not opened for
+writing.
+
+**What now prints as a formal statement.** Two objects, and only two: **Theorem 1** (disclosure
+attenuation at fixed policies, `thm:T1`) and **Proposition 2** (the dominance-and-contraction
+implication in general equilibrium, `prop:C1`). Their bodies, hypothesis lists (T-1)--(T-15) and
+(C-1)--(C-7), and displays `eq:T1B`, `eq:T1C`, `eq:C1` are unchanged in substance; the only edits
+inside them replace pointers to objects that no longer print as environments with pointers to the
+section that now carries the content (see "pointer repairs" below). The proposition counter is
+advanced by `\setcounter{proposition}{1}` immediately before `prop:C1` so that it prints 2, leaving
+1 to the existence anchor as in every earlier build.
+
+**What became prose.** The existence proposition (P1), the disclosure-partition lemma (D1), the
+two-cell decomposition (L1), the flagged-cell invariance (L2), the pooled interior-motion lemma
+(L3) and the three-leg threshold lemma (L4). Each keeps its claim content in full:
+
+- P1: the conclusion at every kappa in [0,1], the five conclusion clauses (perturbation family
+  fixed once and used at every k, boundary handling by extension rather than restriction, flagged
+  tuple beliefs as the point mass at the unique generating pair, the entry rule, flagged-component
+  sequential optimality at every flagged pair), the thirteen hypotheses **(P-1)--(P-13) still
+  printed and still tagged** (the online appendix cites those tags 67 times as literal text, so they
+  cannot leave the main text), the A7-J on-path-versus-joint erratum footnote, the two readings
+  (the pricing assumption not assumed here; the outer map read with a named tie-break-and-corner
+  selection and a common bracket), the interior-crossing addendum with its two extra hypotheses,
+  the proof route, and the six closing disclaimers. Anchor `\compatlabel{1}{prop:P1}`.
+- D1: parts (a), (b), (c) still lettered, `eq:runup-jump` still displayed, the clock-equivalence
+  gloss and the empirics counterpart retained. Anchor 1.
+- L1: `eq:L1` still displayed, the Omega in {0,1} degeneracy and the "undefined rather than
+  imputed" non-identification clause retained. Anchor 2.
+- L2: the conditional-independence conclusion, the almost-sure footnote, the bidder-entry
+  bookkeeping clause, and the "weak identification wording is not sufficient" paragraph retained.
+  Anchor 3.
+- L3: parts (a), (b), (c) still lettered, the minimal regularity, the Peano expansion, the uniform
+  bound at the seam, and the "if and never iff" sentence retained. Anchor 4.
+- L4: legs 1, 2 and 3 still named as legs, the leg-by-leg hypothesis split retained, and the
+  paragraph on leg 3's inherited conditionality and clause (br-iii) retained. Anchor 5.
+
+**Clause tags reinstated in Section 3.** The previous prose pass had dropped the clause markers the
+online appendix cites literally. They are back, inline, with no new environments: (TR-i)--(TR-iv)
+(12/15/10/2 appendix citations), the six requirements (i)--(vi) of the equilibrium definition
+(cited as `def:cpbe`(i), (ii), (iii), (vi)), ($\tau$-i) and ($\tau$-ii), and (br-i)--(br-v)
+(9/7/4/9/6 citations), each with the clause content transcribed from the state at `416600a`. The
+symbols A(tau) and A(br) are named in the main text, which the appendix's frozen bodies print.
+
+**Pointer repairs inside retained statements.** `Lemma~\ref{lem:D1}\,(b)` in Theorem 1(C) became
+"the clock equivalence of Section 5.1"; (T-2) "Assumption 1(d)" became "the interior-crossing
+condition"; (T-4)/(T-5)/(T-6)/(T-10)/(T-12) became the two-cell decomposition (11), the
+flagged-cell invariance of Section 5.2, the partition result of Section 5.1, the pooled
+interior-motion result of Section 5.3, and the three-leg threshold result of Section 5.3;
+(T-9)/(T-11) name A(tau) and A(br) by symbol; (T-13) drops the assumption number. In Proposition 2,
+(C-1) points to Section 3.4 and (C-5) to Section 3.5; the closing sign-constancy sentence names the
+general-equilibrium condition rather than its number. In Section 6, the timing-split paragraph now
+reads "the identity (10) and the flagged cell's kappa-invariance". In the introduction, one
+"Proposition~\ref{thm:T1}" was corrected to "Theorem~\ref{thm:T1}". In Section 3.3 and the
+conclusion, the two remaining `Assumption~\ref{...}` pointers (the integrability condition, and the
+scoped continuity problem named among the open questions) became prose names, since no Assumption
+environment prints.
+
+**`sec:hypotheses`.** The deleted "Standing assumptions" subsection took its label with it; the
+appendix cites it twice and Theorem 1's (T-8) once. The label is reattached to Section 3, so the
+pointer now resolves to "Section 3" where it read "Section 3.5". This is the **only** printed value
+in the entire cross-reference surface that differs from `adf97c6`.
+
+**Gates.**
+- Main text: `xelatex -> biber -> xelatex -> xelatex`, 0 errors, 0 undefined references, 0
+  multiply-defined labels, 27 pages (31 at `adf97c6`).
+- Online appendix: three passes against the refreshed `draft_v3.aux`, 0 errors, 0 undefined
+  references, 56 pages, zero `??` in the extracted text.
+- **Label-value diff against `adf97c6`.** HEAD's `draft_v3.tex` was built in a scratch directory and
+  the `\newlabel` printed values compared for all 51 labels the online appendix resolves into the
+  main text. 50 of 51 are byte-identical; the single difference is `sec:hypotheses` (3.5 -> 3),
+  explained above. In particular every assumption clause number (1(a)--6(b)), every definition
+  (1--7), the remark (1), the lemma anchors (1--5), `thm:T1` (1) and `prop:C1` (2) print exactly as
+  before, so no appendix sentence changes meaning.
+- Abstract: 146 words.
+- Unicode quote/dash scan clean. Em dashes: 7 remain, all inside the bodies of Theorem 1 and
+  Proposition 2, where the standing ruling keeps frozen-record transcription as written; the twelve
+  that the prose conversion would have moved out of statement bodies were rewritten away.
+- `deliverable/draft_v3.pdf` and `deliverable/draft_v3_onlineappendix.pdf` refreshed.
+
+**Environmental note.** `biber` failed silently (exit 25, empty `.bbl`) on the first attempt because
+its PAR extraction cache under `$TMPDIR/par-*` was incomplete (`Unicode::UCD: failed to find
+unicore/version`). Deleting that cache directory fixed it. Nothing in the manuscript caused it and
+nothing in the manuscript was changed for it.

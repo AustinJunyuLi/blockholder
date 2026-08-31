@@ -183,3 +183,57 @@ every pointer repair inside statement bodies.
 **Nothing theorem-level surfaced.** No new decisions are required of you beyond the three
 judgment calls above; the standing list (stale mirrors, frozen D1 erratum, headline choice,
 empirical gates, figure regeneration) is unchanged.
+
+---
+
+## Amendment, 2026-08-30 (fourth): the main text is now prose with two formal statements
+
+**What I did.** Carried out your prose rewrite of `draft_v3.tex` and nothing else. The main text
+prints exactly two formal statements: **Theorem 1**, disclosure attenuation at fixed policies, and
+**Proposition 2**, the general-equilibrium implication. Existence, the disclosure partition, the
+two-cell decomposition, the flagged-cell invariance, the pooled interior-motion result and the
+three-leg threshold result are all prose now. No claim, number, citation, qualification, equation,
+honesty label or appendix cross-reference was dropped; `draft_v3_trace.md` carries the item-by-item
+record as its fourth amendment.
+
+**Proved.** Both documents build clean: main text 0 errors, 0 undefined references, 27 pages (31
+before); online appendix 0 errors, 0 undefined references, 56 pages, zero `??` in the extracted
+text. Abstract 146 words. The decisive check was a label-value diff: I rebuilt `adf97c6`'s
+`draft_v3.tex` in a scratch directory and compared the printed value of every one of the 51 labels
+the online appendix resolves into the main text. **50 of 51 are identical.** Every assumption clause
+number, every definition, every lemma anchor, `thm:T1` and `prop:C1` print exactly as they did, so
+not one sentence of the appendix changes meaning. The online appendix file itself was not touched.
+
+**At risk / things you should look at.**
+
+1. **The P-hypothesis list still prints in full.** Your instruction was concise prose for existence.
+   I could not make (P-1)--(P-13) disappear: the online appendix cites those tags 67 times as plain
+   text, and the appendix was out of scope for this edit. So Section 4 keeps a tagged list of the
+   thirteen hypotheses under a `\paragraph{The hypotheses.}` heading, with the commentary compressed
+   and the conditions untouched. It is not a theorem environment, but it is a list. If you would
+   rather the list moved to the online appendix, that is a one-session edit to both files and I will
+   do it on your word.
+
+2. **The paper has a Proposition 2 and no visible Proposition 1.** The existence result holds
+   anchor 1, because the appendix's own section title is "Proof of Proposition 1 (existence)". If
+   Proposition 2 renumbered to 1, two different objects would both be called Proposition 1. The
+   alternative is editing the appendix, which was out of scope.
+
+3. **One printed value moved.** `sec:hypotheses` now resolves to "Section 3" where it read
+   "Section 3.5", because the "Standing assumptions" subsection that carried the label no longer
+   exists. Three sentences read "Section 3" instead of "Section 3.5". Harmless, but it is the one
+   thing a diff would flag.
+
+4. **Clause tags had been silently dropped and are now back.** The previous prose pass removed
+   (TR-i)--(TR-iv), ($\tau$-i)/($\tau$-ii), (br-i)--(br-v) and the (i)--(vi) requirement markers from
+   Section 3 while the appendix went on citing all of them literally, roughly 130 sites. A reader of
+   the appendix would have hit "requirement (ii) of Definition 5" with nothing marked (ii) anywhere.
+   All of them are reinstated inline, content transcribed from `416600a`.
+
+**Needs you.** Only item 1 and item 2 above, and neither blocks anything. The standing list (stale
+mirrors, the frozen D1 erratum, the headline choice, empirical gates, figure regeneration) is
+unchanged, and nothing theorem-level surfaced during this rewrite.
+
+**Environment.** `biber` died silently (exit 25, empty `.bbl`, no error on stdout) until I deleted
+its stale PAR extraction cache under `$TMPDIR/par-*`. Unrelated to the manuscript, but it will bite
+the next person who builds on this machine.
