@@ -1,0 +1,5 @@
+cik,name,event_date,form,accession,route,confirm_detail,side
+0001682149,Datavault AI Inc.,2026-08-19,8-K,0001104659-26-098835,A,8k-text:merger:3;via-primary,treated
+0001800637,Agrify Corp,2021-10-05,8-K,0001013762-21-000191,A,8k-text:merger:1;via-primary,treated
+0001800637,Agrify Corp,2024-05-20,8-K,0001213900-24-044908,A,8k-text:merger:3;via-primary,treated
+0001832487,"Guerrilla RF, Inc.",2021-10-27,8-K,0001213900-21-054809,A,8k-text:merger:3;target:3;acquirer:2;defence:3;nonmerger:4;via-primary,treated

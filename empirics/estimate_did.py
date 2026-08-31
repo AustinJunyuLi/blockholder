@@ -42,9 +42,11 @@ continuous dimensions plus the three §8.2 substitutes for book-to-market
 (turnover, past 12-month return, idiosyncratic volatility); any absolute
 standardised difference above 0.10 is reported explicitly, per §8.2.
 
-**Stage E — estimation.**  SPEC §8.4, linear probability model:
+**Stage E — estimation.**  SPEC §8.4, linear probability model, with the two
+matched dimensions carried as the X_i'θ adjustment terms:
 
-    BID12_i = α + β(Treat×Post) + γTreat + λPost + δ_match + ε
+    BID12_i = α + β(Treat×Post) + γTreat + λPost + logcap + logilliq
+              + δ_match + ε
 
 ``λPost`` is *not identified* alongside ``δ_match``: every member of a match
 group shares the treated TD, so Post is constant within group and absorbed.
@@ -94,17 +96,22 @@ CONTROL_CSV = os.path.join(OUT_DIR, "never13d_control_universe.csv")
 CONTROL_LOOKUP_CSV = os.path.join(OUT_DIR, "bid12_control.csv")
 H1_SAMPLE_CSV = os.path.join(OUT_DIR, "h1_sample.csv")
 PERMNO_MAP_CSV = os.path.join(OUT_DIR, "permno_cik_map.csv")
+RECOVERY_CSV = os.path.join(OUT_DIR, "delisted_control_cik_recovery.csv")
 SUBMISSIONS_DIRS = (os.path.join(DATA_DIR, "submissions"),
                     os.path.join(DATA_DIR, "bid12_cache", "submissions"))
 MATCH_OUT = os.path.join(OUT_DIR, "did_match_pairs.csv")
 QUALITY_OUT = os.path.join(OUT_DIR, "did_match_quality.csv")
+SHORTFALL_OUT = os.path.join(OUT_DIR, "did_match_shortfalls.csv")
+MATCH_META_OUT = os.path.join(OUT_DIR, "did_match_meta.json")
 RESULT_OUT = os.path.join(OUT_DIR, "did_estimate.json")
 
 N_BOOT = 9_999
 SEED = 20260830
 MATCH_RATIO = 3
 CALIPER_SD = 0.25
+TIGHT_CALIPER_SD = 0.20
 STD_DIFF_LIMIT = 0.10          # §8.2: above this, report and tighten
+MAIN_SAMPLE_END = pd.Timestamp("2024-12-17")
 COV_COLS = ["logcap", "logilliq", "turnover", "ret12m", "idiovol"]
 MATCHED_DIMS = ["logcap", "logilliq"]
 
@@ -211,12 +218,26 @@ def std_diff(t: np.ndarray, c: np.ndarray) -> float:
 # stage M — treated sample and matching
 # ---------------------------------------------------------------------------
 
-def build_treated() -> tuple:
-    """Treated rows with BID12 and the H1 covariates; plus the funnel counts."""
+def build_treated(*, main_sample: bool = False) -> tuple:
+    """Treated rows with BID12 and the H1 covariates; plus the funnel counts.
+
+    The shared loader keeps 2024-12-18 onward rows so downstream extension
+    code can see them. The registered main sample ends 2024-12-17; pass
+    ``main_sample=True`` to drop the structured-data regime and the 2025
+    extension from the matching/estimation frame.
+    """
     tr = pd.read_csv(TREATED_CSV, dtype={"cik": str, "subject_name": str})
     tr["td"] = pd.to_datetime(tr["td"])
     tr["fd"] = pd.to_datetime(tr["date_filed"])
     funnel = {"bid12_treated_rows": len(tr)}
+
+    after_main = tr["td"] > MAIN_SAMPLE_END
+    funnel["main_sample_end"] = str(MAIN_SAMPLE_END.date())
+    funnel["excluded_structured_data_regime"] = int(after_main.sum())
+    funnel["extension_2025_rows"] = int((tr["td"].dt.year == 2025).sum())
+    funnel["extension_2025_policy"] = "extension-only; excluded from main"
+    if main_sample:
+        tr = tr[~after_main].copy()
 
     unresolved = ~(tr["bid12"].notna() & (tr["extraction_status"] == "ok"))
     funnel["excluded_unresolved_bid12"] = int(unresolved.sum())
@@ -258,14 +279,87 @@ def build_treated() -> tuple:
     return tr.reset_index(drop=True), funnel
 
 
+def _listed_false(raw: object) -> bool:
+    return str(raw).strip().lower() in {"0", "false", "f", "no", "n"}
+
+
+def apply_recovery_gate(mapped: pd.DataFrame, controls: pd.DataFrame,
+                        recovery: pd.DataFrame | None = None
+                        ) -> tuple[dict[int, str], dict]:
+    """Permit a recovered CIK only when its validation row says so.
+
+    Ticker-route links are unchanged. A ``13f_name_unique`` map row without a
+    matching ``validated`` recovery row is refused, so an unvalidated CIK
+    cannot enter matching. Delisted controls that remain unlinked stay out of
+    the pool and are counted as the option-1 fallback.
+    """
+    validated: dict[int, str] = {}
+    if recovery is not None and len(recovery):
+        for row in recovery.itertuples():
+            if str(getattr(row, "status", "")).strip() != "validated":
+                continue
+            cik = str(getattr(row, "cik", "")).strip()
+            if not cik:
+                continue
+            validated[int(row.permno)] = cik
+
+    allowed: dict[int, str] = {}
+    n_refused = 0
+    n_recovered = 0
+    for row in mapped.itertuples():
+        permno = int(row.permno)
+        cik = str(getattr(row, "cik", "")).strip()
+        if cik in ("", "nan"):
+            continue
+        route = str(getattr(row, "map_route", "")).strip()
+        if route == "13f_name_unique":
+            if validated.get(permno) != cik:
+                n_refused += 1
+                continue
+            n_recovered += 1
+        allowed[permno] = cik
+
+    delisted_permnos = []
+    if "still_listed" in controls.columns:
+        delisted_permnos = [int(p) for p, listed in zip(
+            controls["permno"], controls["still_listed"]) if _listed_false(listed)]
+    n_delisted = len(delisted_permnos)
+    n_unresolved = sum(1 for p in delisted_permnos if p not in allowed)
+    n_delisted_linked = n_delisted - n_unresolved
+    option_1 = n_unresolved > 0 or recovery is None
+    if recovery is None:
+        gate = "option_1_fallback"
+    elif n_recovered:
+        gate = "passed_with_validated_rows"
+    else:
+        gate = "option_1_fallback"
+    counts = {
+        "n_delisted_controls": n_delisted,
+        "n_delisted_in_pool": n_delisted_linked,
+        "n_recovered_validated": n_recovered,
+        "n_unresolved_delisted": n_unresolved,
+        "refused_unvalidated_recovery": n_refused,
+        "recovery_gate_status": gate,
+        "option_1_fallback": option_1,
+        "control_bid_rate_bias": "down",
+        "gamma_bias": "up",
+        "survivorship_note": (
+            "control group is conditioned on survival for unresolved "
+            "delisted PERMNOs; treated side keeps acquired firms"),
+    }
+    return allowed, counts
+
+
 def control_pool(crsp: CrspPanel) -> tuple:
     """Never-13D PERMNOs that are usable as controls, with their SIC2."""
     ctrl = pd.read_csv(CONTROL_CSV)
     pm = pd.read_csv(PERMNO_MAP_CSV, dtype=str)
-    pm = pm[pm["cik"].notna() & (pm["cik"].astype(str).str.strip() != "")]
-    p2c = {int(p): str(c).strip() for p, c in zip(pm["permno"], pm["cik"])}
+    recovery = None
+    if os.path.exists(RECOVERY_CSV):
+        recovery = pd.read_csv(RECOVERY_CSV, dtype=str)
+    p2c, rec_counts = apply_recovery_gate(pm, ctrl, recovery)
 
-    counts = {"control_universe": len(ctrl)}
+    counts = {"control_universe": len(ctrl), **rec_counts}
     pool = [int(p) for p in ctrl["permno"] if int(p) in crsp.panel]
     counts["in_crsp_panel"] = len(pool)
     pool = [p for p in pool if p in p2c]
@@ -281,7 +375,7 @@ def control_pool(crsp: CrspPanel) -> tuple:
 
 
 def match(tr: pd.DataFrame, crsp: CrspPanel, pool: list,
-          sic_by_permno: dict) -> tuple:
+          sic_by_permno: dict, caliper_sd: float = CALIPER_SD) -> tuple:
     """3:1 NN without replacement (per quarter), exact SIC2 + quarter."""
     by_sic: dict = {}
     for p in pool:
@@ -318,8 +412,8 @@ def match(tr: pd.DataFrame, crsp: CrspPanel, pool: list,
     S_inv = np.linalg.inv(np.cov(pooled.values.T))
     print(f"  pooled sd: logcap {sd['logcap']:.3f}, "
           f"logilliq {sd['logilliq']:.3f} "
-          f"(calipers {CALIPER_SD * sd['logcap']:.3f} / "
-          f"{CALIPER_SD * sd['logilliq']:.3f})", flush=True)
+          f"(calipers {caliper_sd * sd['logcap']:.3f} / "
+          f"{caliper_sd * sd['logilliq']:.3f})", flush=True)
 
     # Pass 2 — matching, in a seeded random order over treated rows.
     rng = np.random.default_rng(SEED)
@@ -334,9 +428,9 @@ def match(tr: pd.DataFrame, crsp: CrspPanel, pool: list,
             c = cov_cache[(p, row["td"])]
             if not (np.isfinite(c["logcap"]) and np.isfinite(c["logilliq"])):
                 continue
-            if abs(c["logcap"] - row["logcap"]) > CALIPER_SD * sd["logcap"]:
+            if abs(c["logcap"] - row["logcap"]) > caliper_sd * sd["logcap"]:
                 continue
-            if abs(c["logilliq"] - row["logilliq"]) > CALIPER_SD * sd["logilliq"]:
+            if abs(c["logilliq"] - row["logilliq"]) > caliper_sd * sd["logilliq"]:
                 continue
             cands.append((p, c))
         if cands:
@@ -406,8 +500,39 @@ def match_quality(tr: pd.DataFrame, pairs: pd.DataFrame,
     return q
 
 
+def shortfalls_by_cell(tr: pd.DataFrame,
+                       per_treated: pd.DataFrame) -> pd.DataFrame:
+    """3:1 match shortfalls by the registered exact SIC2 x quarter cell."""
+    d = tr[["accession", "sic2", "quarter"]].merge(
+        per_treated[["accession", "n_matches"]], on="accession", how="left",
+        validate="one_to_one")
+    d["n_matches"] = d["n_matches"].fillna(0).astype(int)
+    d["pair_shortfall"] = (MATCH_RATIO - d["n_matches"]).clip(lower=0)
+    d["full"] = (d["n_matches"] == MATCH_RATIO).astype(int)
+    d["short"] = (d["n_matches"] < MATCH_RATIO).astype(int)
+    return (d.groupby(["sic2", "quarter"], as_index=False)
+            .agg(treated_rows=("accession", "size"),
+                 pairs_matched=("n_matches", "sum"),
+                 pair_shortfall=("pair_shortfall", "sum"),
+                 treated_with_3_matches=("full", "sum"),
+                 treated_with_fewer_than_3=("short", "sum"))
+            .assign(pairs_requested=lambda x: x["treated_rows"] * MATCH_RATIO)
+            [["sic2", "quarter", "treated_rows", "pairs_requested",
+              "pairs_matched", "pair_shortfall", "treated_with_3_matches",
+              "treated_with_fewer_than_3"]]
+            .sort_values(["quarter", "sic2"]).reset_index(drop=True))
+
+
+def balance_decision(quality: pd.DataFrame, caliper_sd: float) -> str:
+    """Registered one-rerun gate for post-match standardised differences."""
+    if not quality["exceeds_0.10"].astype(bool).any():
+        return "pass"
+    return ("retry_tighter" if math.isclose(caliper_sd, CALIPER_SD)
+            else "failed_balance")
+
+
 def stage_match() -> tuple:
-    tr, funnel = build_treated()
+    tr, funnel = build_treated(main_sample=True)
     print(f"treated matched sample: {len(tr)} "
           f"({funnel['treated_pre']} pre / {funnel['treated_post']} post)")
     for k, v in funnel.items():
@@ -419,7 +544,27 @@ def stage_match() -> tuple:
     for k, v in pool_counts.items():
         print(f"  control pool {k}: {v}")
 
-    pairs, per_treated, cov_cache = match(tr, crsp, pool, sic_by_permno)
+    attempts = []
+    for caliper_sd in (CALIPER_SD, TIGHT_CALIPER_SD):
+        print(f"== match attempt: {caliper_sd:.2f} pooled-sd caliper ==",
+              flush=True)
+        pairs, per_treated, cov_cache = match(
+            tr, crsp, pool, sic_by_permno, caliper_sd=caliper_sd)
+        q = match_quality(tr, pairs, cov_cache)
+        bad = q[q["exceeds_0.10"]]["covariate"].tolist()
+        decision = balance_decision(q, caliper_sd)
+        attempts.append({
+            "caliper_pooled_sd": caliper_sd,
+            "n_pairs": len(pairs),
+            "balance_exceeds_0.10": bad,
+            "match_quality_std_diffs": q.to_dict(orient="records"),
+            "decision": decision,
+        })
+        if decision != "retry_tighter":
+            break
+        print("  balance exceeds 0.10; rerunning once at the predeclared "
+              "0.20 caliper", flush=True)
+
     pairs.to_csv(MATCH_OUT, index=False)
     dist = per_treated["n_matches"].value_counts().sort_index().to_dict()
     n_full = int((per_treated["n_matches"] == MATCH_RATIO).sum())
@@ -430,16 +575,53 @@ def stage_match() -> tuple:
           f"({100 * n_full / max(len(tr), 1):.1f}%) — the shortfall is the "
           f"tight-pool outcome SPEC §8.2 asks to be reported, not assumed away")
 
-    q = match_quality(tr, pairs, cov_cache)
     q.to_csv(QUALITY_OUT, index=False)
     print(f"wrote {QUALITY_OUT}")
     print(q.to_string(index=False))
-    bad = q[q["exceeds_0.10"]]["covariate"].tolist()
+    shortfalls = shortfalls_by_cell(tr, per_treated)
+    shortfalls.to_csv(SHORTFALL_OUT, index=False)
+    print(f"wrote {SHORTFALL_OUT}: {len(shortfalls)} SIC2 x quarter cells")
     if bad:
         print(f"  standardised difference above {STD_DIFF_LIMIT} on: "
-              f"{bad} — §8.2 requires this to be reported and the match "
-              f"re-run with a tighter caliper")
-    return tr, pairs, per_treated, q, funnel, pool_counts
+              f"{bad} after the {caliper_sd:.2f} caliper — estimation blocked")
+
+    meta = {
+        "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
+        "design_status": "pass" if decision == "pass" else "failed_balance",
+        "selected_caliper_sd": caliper_sd,
+        "balance_exceeds_0.10": bad,
+        "attempts": attempts,
+        "treated_funnel": funnel,
+        "control_pool": pool_counts,
+        "inputs": {p: sha256_of(p) for p in
+                   (TREATED_CSV, CONTROL_CSV, H1_SAMPLE_CSV, PERMNO_MAP_CSV)},
+        "matching": {
+            "ratio_target": MATCH_RATIO,
+            "n_pairs": len(pairs),
+            "matches_per_treated": {str(k): int(v) for k, v in dist.items()},
+            "no_replacement_scope": "per (PERMNO, calendar quarter)",
+        },
+        "shortfalls": {
+            "artifact": SHORTFALL_OUT,
+            "n_sic2_quarter_cells": len(shortfalls),
+            "cells_with_shortfall": int((shortfalls["pair_shortfall"] > 0).sum()),
+            "pairs_requested": int(shortfalls["pairs_requested"].sum()),
+            "pairs_matched": int(shortfalls["pairs_matched"].sum()),
+            "pair_shortfall": int(shortfalls["pair_shortfall"].sum()),
+        },
+        "sample_window": {
+            "main_end": str(MAIN_SAMPLE_END.date()),
+            "2025": "extension-only; excluded from main estimate",
+        },
+        "s2": {
+            "status": "not_estimated",
+            "reason": "corporate-action Item-4 coding is absent; no S2 row was synthesized",
+        },
+    }
+    with open(MATCH_META_OUT, "w") as fh:
+        json.dump(meta, fh, indent=1)
+    print(f"wrote {MATCH_META_OUT}: {meta['design_status']}")
+    return tr, pairs, per_treated, q, funnel, pool_counts, meta
 
 
 # ---------------------------------------------------------------------------
@@ -455,9 +637,260 @@ def _demean(v: np.ndarray, codes: np.ndarray) -> np.ndarray:
     return v - (s / c)[codes]
 
 
+def conditional_fe_logit(D: pd.DataFrame, terms: list[str]) -> dict:
+    """Conditional match-FE logit and AME for the Treat x Post term."""
+    from itertools import combinations
+    from scipy.optimize import brentq, minimize
+    from scipy.special import expit, logsumexp
+
+    y = D["bid12"].to_numpy(dtype=float)
+    if not np.isin(y, (0.0, 1.0)).all():
+        return {"status": "not_estimated",
+                "blocker": "conditional logit requires binary BID12 rows"}
+    pieces = []
+    for group, g in D.groupby("match_group", sort=False):
+        Xg = g[terms].to_numpy(dtype=float)
+        yg = g["bid12"].to_numpy(dtype=int)
+        successes = int(yg.sum())
+        if successes in (0, len(g)):
+            continue
+        stats = np.array([Xg[list(ix)].sum(axis=0)
+                          for ix in combinations(range(len(g)), successes)])
+        pieces.append((group, str(pd.Timestamp(g["td"].iloc[0]).to_period("M")),
+                       Xg[yg == 1].sum(axis=0), stats))
+    if not pieces:
+        return {"status": "not_estimated",
+                "blocker": "no match group has within-group BID12 variation"}
+
+    def objective(beta: np.ndarray) -> tuple[float, np.ndarray]:
+        value = 0.0
+        gradient = np.zeros(len(terms))
+        for _, _, observed, stats in pieces:
+            logits = stats @ beta
+            weights = np.exp(logits - logsumexp(logits))
+            value += float(logsumexp(logits) - observed @ beta)
+            gradient += weights @ stats - observed
+        return value, gradient
+
+    fit = minimize(lambda b: objective(b)[0], np.zeros(len(terms)),
+                   jac=lambda b: objective(b)[1], method="BFGS",
+                   options={"gtol": 1e-9, "maxiter": 1000})
+    gradient_norm = float(np.linalg.norm(objective(fit.x)[1], ord=np.inf))
+    if not np.isfinite(fit.x).all() or (not fit.success and gradient_norm > 1e-6):
+        return {"status": "not_estimated",
+                "blocker": "conditional-FE logit did not converge",
+                "optimizer_message": str(fit.message),
+                "gradient_inf_norm": gradient_norm}
+
+    beta = fit.x
+    information = np.zeros((len(terms), len(terms)))
+    month_scores: dict[str, np.ndarray] = {}
+    for _, month, observed, stats in pieces:
+        logits = stats @ beta
+        weights = np.exp(logits - logsumexp(logits))
+        mean = weights @ stats
+        centered = stats - mean
+        information += (centered.T * weights) @ centered
+        month_scores.setdefault(month, np.zeros(len(terms)))
+        month_scores[month] += observed - mean
+    if np.linalg.matrix_rank(information) < len(terms):
+        return {"status": "not_estimated",
+                "blocker": "conditional-FE logit terms are not jointly identified"}
+    bread = np.linalg.inv(information)
+    meat = sum(np.outer(score, score) for score in month_scores.values())
+    if len(month_scores) > 1:
+        meat *= len(month_scores) / (len(month_scores) - 1)
+    covariance = bread @ meat @ bread
+    se = np.sqrt(np.clip(np.diag(covariance), 0, None))
+
+    k = terms.index("treat_x_post")
+    marginal = []
+    for _, g in D.groupby("match_group", sort=False):
+        Xg = g[terms].to_numpy(dtype=float)
+        yg = g["bid12"].to_numpy(dtype=float)
+        successes = int(yg.sum())
+        if successes == 0:
+            probability = np.zeros(len(g))
+        elif successes == len(g):
+            probability = np.ones(len(g))
+        else:
+            xb = Xg @ beta
+            # The group intercept solves fitted successes = observed
+            # successes. It is monotone in alpha, but its root sits at
+            # roughly -mean(xb), and matching drives the within-group
+            # covariate spread towards zero, which is exactly the regime
+            # where the conditional-logit coefficients blow up and |xb|
+            # runs to tens. A fixed [-50, 50] bracket then fails to
+            # straddle the root and brentq raises. Centre the bracket on
+            # the data and widen it until it does straddle.
+            lo, hi = -float(np.max(xb)) - 1.0, -float(np.min(xb)) + 1.0
+            f = lambda a: float(expit(a + xb).sum() - successes)
+            for _ in range(60):
+                if f(lo) < 0 < f(hi):
+                    break
+                lo -= 10.0
+                hi += 10.0
+            else:
+                return {"status": "not_estimated",
+                        "blocker": "conditional-FE logit group intercept "
+                                   "has no bracketed root; the fitted "
+                                   "coefficients are degenerate"}
+            alpha = brentq(f, lo, hi)
+            probability = expit(alpha + xb)
+        marginal.extend(beta[k] * probability * (1 - probability))
+    z = float(beta[k] / se[k]) if se[k] > 0 else float("nan")
+    return {
+        "status": "estimated",
+        "method": "conditional logit; match-group fixed effects conditioned out",
+        "fixed_effects": "match group, conditioned out",
+        "terms": terms,
+        "n": len(D),
+        "match_groups": int(D["match_group"].nunique()),
+        "informative_match_groups": len(pieces),
+        "month_clusters": len(month_scores),
+        "coefficient_treat_x_post": float(beta[k]),
+        "se_month_clustered_treat_x_post": float(se[k]),
+        "z_treat_x_post": z,
+        "p_normal_treat_x_post": float(
+            2 * (1 - 0.5 * math.erfc(-abs(z) / math.sqrt(2)))),
+        "average_marginal_effect_treat_x_post": float(np.mean(marginal)),
+        "average_marginal_effect_definition":
+            "mean beta*p*(1-p) over the same matched rows; group intercepts "
+            "solve fitted successes = observed successes",
+        "optimizer": {"success": bool(fit.success),
+                      "message": str(fit.message),
+                      "gradient_inf_norm": gradient_norm},
+    }
+
+
+# SPEC §8.6 anchors: p_T = 0.181, p_C = 0.072, so sigma^2_T + sigma^2_C/3 =
+# 0.1705, and the clustering multiplier is 1.31. These are the registered
+# design inputs, not anything measured here.
+VAR_TERM_SEC86 = 0.1705
+CLUSTER_MULT_SEC86 = 1.31
+
+
+def design_mde_pp(n_pre: int, n_post: int) -> dict:
+    """§8.6's counts-based MDE. Design arithmetic, never a realised MDE.
+
+    A realised MDE is Z x SE from an estimated regression. On the
+    design-failure path no regression exists, so this is the only MDE that can
+    honestly be printed, and it is labelled as what it is.
+    """
+    if n_pre <= 0 or n_post <= 0:
+        return {"n_pre": int(n_pre), "n_post": int(n_post),
+                "status": "not_computable",
+                "reason": "a period with no treated rows"}
+    inv = 1.0 / n_pre + 1.0 / n_post
+    se = math.sqrt(VAR_TERM_SEC86 * inv)
+    mde = Z_MDE * se
+    return {
+        "n_pre": int(n_pre), "n_post": int(n_post),
+        "basis": "SPEC §8.6 arithmetic on the realised treated counts: "
+                 "p_T = 0.181, p_C = 0.072 (Greenwood-Schor Table 6), "
+                 "variance term 0.1705, clustering multiplier 1.31",
+        "se_pp": se * 100,
+        "mde_pp": mde * 100,
+        "mde_pp_clustered": mde * CLUSTER_MULT_SEC86 * 100,
+        "not_a_realised_mde": "no regression was estimated on this path; a "
+                              "realised MDE is Z x SE from a fitted model",
+    }
+
+
+def survivorship_block(pool_counts: dict) -> dict:
+    """The signed survivorship caveat. True whether or not an estimate exists."""
+    return {
+        "option_1_fallback": bool(pool_counts.get("option_1_fallback", True)),
+        "recovery_gate_status": pool_counts.get(
+            "recovery_gate_status", "option_1_fallback"),
+        "n_unresolved_delisted": int(
+            pool_counts.get("n_unresolved_delisted", 0)),
+        "n_recovered_validated": int(
+            pool_counts.get("n_recovered_validated", 0)),
+        "control_bid_rate_bias": pool_counts.get(
+            "control_bid_rate_bias", "down"),
+        "gamma_bias": pool_counts.get("gamma_bias", "up"),
+        "note": pool_counts.get(
+            "survivorship_note",
+            "control group is conditioned on survival for unresolved "
+            "delisted PERMNOs; treated side keeps acquired firms"),
+    }
+
+
+class StaleMatchDraw(RuntimeError):
+    """The frozen match draw was built from different inputs than are on disk."""
+
+
+def load_match_state() -> tuple:
+    """Load the frozen match draw for the estimate-only stage.
+
+    Stage M records the SHA-256 of every input it consumed. Verify them
+    rather than trusting them: a rebuilt treated file paired with a stale
+    draw would estimate on one sample and report another sample's funnel,
+    and nothing downstream would notice.
+    """
+    with open(MATCH_META_OUT) as fh:
+        meta = json.load(fh)
+    stale = [p for p, want in (meta.get("inputs") or {}).items()
+             if os.path.exists(p) and sha256_of(p) != want]
+    if stale:
+        raise StaleMatchDraw(
+            "the match draw in "
+            f"{os.path.basename(MATCH_META_OUT)} was built from a different "
+            f"version of: {', '.join(os.path.basename(p) for p in stale)}. "
+            "Re-run --stage match before estimating.")
+    tr, current_funnel = build_treated(main_sample=True)
+    pairs = pd.read_csv(MATCH_OUT)
+    quality = pd.read_csv(QUALITY_OUT)
+    return (tr, pairs, quality, meta.get("treated_funnel", current_funnel),
+            meta.get("control_pool", {}), meta)
+
+
+def write_design_failure(meta: dict) -> int:
+    """Record the registered hard stop without producing an estimate."""
+    funnel = meta.get("treated_funnel", {})
+    result = {
+        "estimate": "Matched DiD on BID12 (SPEC §8, S1 primary)",
+        "label": "NOT ESTIMATED",
+        "status": "design_failure",
+        "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
+        "script": "empirics/estimate_did.py",
+        "reason": "post-match standardised differences remain above 0.10 "
+                  "after the predeclared 0.20-caliper rerun",
+        "treated_funnel": funnel,
+        "control_pool": meta.get("control_pool", {}),
+        "matching": {
+            "caliper_pooled_sd": meta.get("selected_caliper_sd"),
+            "balance_exceeds_0.10": meta.get("balance_exceeds_0.10", []),
+            "attempts": meta.get("attempts", []),
+        },
+        "sample_window": {
+            "main_end": str(MAIN_SAMPLE_END.date()),
+            "2025": "extension-only; excluded from main estimate",
+        },
+        "s2": {
+            "status": "not_estimated",
+            "reason": "corporate-action Item-4 coding is absent; no S2 row was synthesized",
+        },
+        "quote_as_result": False,
+        "quote_as_result_until": (
+            "control half of the BID12 blind audit (protocol section 5); the "
+            "design failure above is a separate and prior bar"),
+        "survivorship": survivorship_block(meta.get("control_pool", {})),
+        "mde_pp_design_arithmetic": design_mde_pp(
+            int(funnel.get("treated_pre", 0)),
+            int(funnel.get("treated_post", 0))),
+        "bounded_null_ladder_pp": LADDER_PP,
+    }
+    with open(RESULT_OUT, "w") as fh:
+        json.dump(result, fh, indent=1)
+    print(f"design failure recorded in {RESULT_OUT}: {result['reason']}")
+    return 3
+
+
 def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
                    funnel: dict, quality: pd.DataFrame,
-                   pool_counts: dict) -> int:
+                   pool_counts: dict, match_meta: dict | None = None) -> int:
     if not os.path.exists(CONTROL_LOOKUP_CSV):
         print(f"control BID12 lookup not landed ({CONTROL_LOOKUP_CSV}) — "
               f"matching stage written, estimation stage pending "
@@ -465,27 +898,39 @@ def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
         return 2
     cl = pd.read_csv(CONTROL_LOOKUP_CSV, dtype={"cik": str})
     cl["td"] = cl["td"].astype(str).str[:10]
-    ckey = {(int(r.permno), str(r.td), str(r.match_group)): r.bid12
+    ckey = {(int(r.permno), str(r.td), str(r.match_group)): r
             for r in cl.itertuples()}
 
     rows = []
     for r in tr.itertuples():
         rows.append({"permno": int(r.permno), "td": str(r.td.date()),
                      "treat": 1, "post": int(r.post), "bid12": r.bid12,
-                     "match_group": r.accession})
+                     "match_group": r.accession,
+                     "logcap": float(r.logcap),
+                     "logilliq": float(r.logilliq)})
     n_ctrl_missing = 0
+    n_ctrl_prior_bid = 0
     for r in pairs.itertuples():
         key = (int(r.control_permno), str(r.treated_td), str(r.match_group))
         if key not in ckey:
             n_ctrl_missing += 1
             continue
+        control = ckey[key]
+        if getattr(control, "excluded_prior_bid", 0) == 1:
+            n_ctrl_prior_bid += 1
+            continue
         rows.append({"permno": int(r.control_permno), "td": str(r.treated_td),
                      "treat": 0, "post": int(r.treated_post),
-                     "bid12": ckey[key], "match_group": r.match_group})
+                     "bid12": control.bid12, "match_group": r.match_group,
+                     "logcap": float(r.control_logcap),
+                     "logilliq": float(r.control_logilliq)})
     D = pd.DataFrame(rows)
     n_before = len(D)
     D = D[D["bid12"].notna()].copy()
     n_unresolved_rows = n_before - len(D)
+    n_before_adjustments = len(D)
+    D = D.dropna(subset=MATCHED_DIMS).copy()
+    n_missing_adjustments = n_before_adjustments - len(D)
     D["bid12"] = D["bid12"].astype(float)
 
     # A match group with no surviving control (or no treated row) carries no
@@ -507,15 +952,17 @@ def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
 
     # FWL: absorb δ_match by within-group demeaning.
     y = _demean(D["bid12"].values, g_codes)
-    Xw = np.column_stack([_demean(D["treat_x_post"].values.astype(float),
-                                  g_codes),
-                          _demean(D["treat"].values.astype(float), g_codes)])
+    terms = ["treat_x_post", "treat", *MATCHED_DIMS]
+    Xw = np.column_stack([_demean(D[c].values.astype(float), g_codes)
+                          for c in terms])
     keep = _independent_columns(Xw)
     Xw = Xw[:, keep]
+    kept_terms = [c for c, k0 in zip(terms, keep) if k0]
+    dropped_terms = [c for c, k0 in zip(terms, keep) if not k0]
     fit = ols_clustered(y, Xw, g_codes, m_codes)
     beta, V = fit["beta"], fit["V_twoway"]
     se = np.sqrt(np.clip(np.diag(V), 0, None))
-    k = 0                                            # treat_x_post
+    k = kept_terms.index("treat_x_post")
     t = float(beta[k] / se[k]) if se[k] > 0 else float("nan")
     p_n = float(2 * (1 - 0.5 * math.erfc(-abs(t) / math.sqrt(2))))
     p_w = wild_cluster_bootstrap(y, Xw, k, m_codes, n_boot=N_BOOT, seed=SEED)
@@ -523,17 +970,24 @@ def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
     # FWL equivalence check against the explicit-dummy design (§ docstring).
     Xd = np.column_stack([
         np.ones(len(D)),
-        D[["treat_x_post", "treat", "post"]].values.astype(float),
+        D[[*terms, "post"]].values.astype(float),
         pd.get_dummies(D["match_group"].astype(str), drop_first=True,
                        dtype=float).values])
+    dummy_names = ["const", *terms, "post"] + [
+        f"match_group:{x}" for x in
+        pd.get_dummies(D["match_group"].astype(str), drop_first=True).columns]
     kd = _independent_columns(Xd)
     Xd = Xd[:, kd]
+    kept_dummy_names = [c for c, k0 in zip(dummy_names, kd) if k0]
     fit_d = ols_clustered(D["bid12"].values, Xd, g_codes, m_codes)
     se_d = np.sqrt(np.clip(np.diag(fit_d["V_twoway"]), 0, None))
-    fwl = {"beta_dummy": float(fit_d["beta"][1]),
-           "se_dummy": float(se_d[1]),
-           "beta_abs_diff": float(abs(fit_d["beta"][1] - beta[k])),
-           "se_abs_diff": float(abs(se_d[1] - se[k]))}
+    kd_beta = kept_dummy_names.index("treat_x_post")
+    fwl = {"beta_dummy": float(fit_d["beta"][kd_beta]),
+           "se_dummy": float(se_d[kd_beta]),
+           "beta_abs_diff": float(abs(fit_d["beta"][kd_beta] - beta[k])),
+           "se_abs_diff": float(abs(se_d[kd_beta] - se[k]))}
+
+    logit = conditional_fe_logit(D, terms)
 
     treated_rate = float(D[D["treat"] == 1]["bid12"].mean())
     control_rate = float(D[D["treat"] == 0]["bid12"].mean())
@@ -544,21 +998,26 @@ def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
     result = {
         "estimate": "Matched DiD on BID12 (SPEC §8, S1 primary)",
         "label": "ESTIMATED",
+        "status": "estimated",
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
         "script": "empirics/estimate_did.py",
         "inputs": {p: sha256_of(p) for p in
-                   (TREATED_CSV, CONTROL_LOOKUP_CSV, MATCH_OUT, H1_SAMPLE_CSV)
+                   (TREATED_CSV, CONTROL_LOOKUP_CSV, MATCH_OUT, QUALITY_OUT,
+                    SHORTFALL_OUT, MATCH_META_OUT, H1_SAMPLE_CSV)
                    if os.path.exists(p)},
         "treated_funnel": funnel,
         "control_pool": pool_counts,
         "matching": {
-            "ratio_target": MATCH_RATIO, "caliper_pooled_sd": CALIPER_SD,
+            "ratio_target": MATCH_RATIO,
+            "caliper_pooled_sd": (match_meta or {}).get(
+                "selected_caliper_sd", CALIPER_SD),
             "exact": ["sic2", "quarter_of_TD (vacuous under pseudo-TD "
                       "inheritance — asserted, see module docstring)"],
             "n_pairs": len(pairs),
             "n_pairs_without_control_bid12": n_ctrl_missing,
             "no_replacement_scope": "per (PERMNO, calendar quarter)",
             "match_group": "treated accession",
+            "shortfalls": (match_meta or {}).get("shortfalls", {}),
         },
         "match_quality_std_diffs": quality.to_dict(orient="records"),
         "match_quality_exceeds_0.10": quality[quality["exceeds_0.10"]]
@@ -566,6 +1025,8 @@ def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
         "sample": {
             "rows_before_unresolved_drop": n_before,
             "rows_dropped_unresolved_bid12": n_unresolved_rows,
+            "rows_dropped_missing_adjustment_terms": n_missing_adjustments,
+            "controls_excluded_prior_bid": n_ctrl_prior_bid,
             "match_groups_dropped_no_contrast": n_dropped_groups,
             "treated_n": int((D["treat"] == 1).sum()),
             "control_n": int((D["treat"] == 0).sum()),
@@ -574,10 +1035,20 @@ def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
             "treated_bid12_rate": treated_rate,
             "control_bid12_rate": control_rate,
             "rates_by_cell": rate_by_cell.to_dict(orient="records"),
+            "treated_filer_own_bid": (
+                int(pd.to_numeric(tr["filer_own_bid"], errors="coerce")
+                    .fillna(0).sum()) if "filer_own_bid" in tr.columns else 0),
         },
+        "quote_as_result": False,
+        "quote_as_result_until": (
+            "control half of the BID12 blind audit (protocol section 5)"),
+        "survivorship": survivorship_block(pool_counts),
         "specification": {
             "model": "LPM, BID12 ~ beta(Treat x Post) + gamma Treat + "
-                     "delta_match (FWL-absorbed)",
+                     "logcap + logilliq + delta_match (FWL-absorbed)",
+            "adjustment_terms": MATCHED_DIMS,
+            "terms_estimated": kept_terms,
+            "terms_dropped_collinear": dropped_terms,
             "post_main_effect": "not identified — Post is constant within "
                                 "match group (every member shares the treated "
                                 "TD); max within-group deviation "
@@ -586,14 +1057,27 @@ def stage_estimate(tr: pd.DataFrame, pairs: pd.DataFrame,
                   "Cameron-Gelbach-Miller",
             "fwl_check": fwl,
         },
+        "logit_robustness": logit,
         "beta_treat_x_post": float(beta[k]),
         "beta_treat_x_post_pp": float(beta[k] * 100),
-        "gamma_treat_pp": float(beta[1] * 100) if Xw.shape[1] > 1 else None,
+        "gamma_treat_pp": (float(beta[kept_terms.index("treat")] * 100)
+                           if "treat" in kept_terms else None),
         "se_twoway": float(se[k]), "t": t,
         "p_normal": p_n, "p_wild_month": p_w,
         "p_quoted_conservative": max(p_n, p_w),
         "mde_pp_realised": mde_pp,
+        "mde_pp_design_arithmetic": design_mde_pp(
+            int(funnel.get("treated_pre", 0)),
+            int(funnel.get("treated_post", 0))),
         "bounded_null_ladder_pp": LADDER_PP,
+        "sample_window": {
+            "main_end": str(MAIN_SAMPLE_END.date()),
+            "2025": "extension-only; excluded from main estimate",
+        },
+        "s2": {
+            "status": "not_estimated",
+            "reason": "corporate-action Item-4 coding is absent; no S2 row was synthesized",
+        },
         "headline_frame_spec_sec6": (
             f"Realised MDE {mde_pp:.2f} pp against the §6 headline rung of "
             f"3 pp: the design "
@@ -623,14 +1107,30 @@ def main(argv=None) -> int:
     ap.add_argument("--stage", choices=("match", "estimate", "both"),
                     default="both")
     args = ap.parse_args(argv)
+    if args.stage == "estimate":
+        for p in (TREATED_CSV, H1_SAMPLE_CSV, MATCH_OUT, QUALITY_OUT,
+                  MATCH_META_OUT):
+            if not os.path.exists(p):
+                print(f"input not landed yet: {p}")
+                return 1
+        try:
+            tr, pairs, quality, funnel, pool_counts, meta = load_match_state()
+        except StaleMatchDraw as exc:
+            print(str(exc))
+            return 1
+        if meta.get("design_status") != "pass":
+            return write_design_failure(meta)
+        return stage_estimate(tr, pairs, funnel, quality, pool_counts, meta)
     for p in (TREATED_CSV, CONTROL_CSV, H1_SAMPLE_CSV, PERMNO_MAP_CSV):
         if not os.path.exists(p):
             print(f"input not landed yet: {p}")
             return 1
-    tr, pairs, per_treated, quality, funnel, pool_counts = stage_match()
+    tr, pairs, per_treated, quality, funnel, pool_counts, meta = stage_match()
     if args.stage == "match":
-        return 0
-    return stage_estimate(tr, pairs, funnel, quality, pool_counts)
+        return 0 if meta["design_status"] == "pass" else write_design_failure(meta)
+    if meta["design_status"] != "pass":
+        return write_design_failure(meta)
+    return stage_estimate(tr, pairs, funnel, quality, pool_counts, meta)
 
 
 if __name__ == "__main__":

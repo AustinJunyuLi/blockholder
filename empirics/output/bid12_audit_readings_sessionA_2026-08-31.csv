@@ -1,0 +1,16 @@
+cik,td,bid12,first_event_accession,first_event_date,rulebook_row,reason
+0001087786,2024-06-05,0,,,§2,"No original SC TO-T/C, SC 14D9, DEFM14A, PREM14A, or Item 1.01/2.01 8-K in [TD, TD+365]; DEFA14A/DEFC14A are near-misses not counted (§2)."
+0001556801,2025-01-22,0,,,7,"In-window Item 1.01/2.01 8-Ks are a subsidiary share sale and a land asset purchase, no merger pattern; row 7."
+0001624512,2025-06-11,0,,,7,"In-window Item 1.01 8-Ks are credit/inventory-finance/ATM/preferred-stock agreements, no merger pattern; row 7."
+0001682149,2025-10-23,ambiguous,0001104659-26-031770,2026-03-19,6,NYIAX/WDT 8-Ks name an Agreement and Plan of Merger but the firm is the acquirer and neither target nor acquirer direction patterns fire; row 6 (not forced to 0).
+0001914818,2024-05-07,0,,,§2,"FPI 6-Ks only; no counted form or Item 1.01/2.01 8-K in [TD, TD+365] (§2); FTS empty."
+0002011286,2024-12-17,0,,,§6,"Confirmed RMT merger 8-K 0000950157-24-001361 of 2024-10-03 is excluded_prior_bid (§6, row 1); no in-window counted original."
+0002065948,2025-07-17,0,,,7,"Sole in-window Item 1.01 8-K is the IPO underwriting/closing package, no merger pattern; row 7."
+0001016178,2022-12-20,0,,,7,"Sole in-window Item 1.01 8-K is an NCIF private-placement Investment Agreement, no merger pattern; row 7. Route-B SC TO-T is AllianceBernstein (CIK mismatch)."
+0001130713,2023-10-12,0,,,7,In-window Item 1.01 8-K is an HQ sale; prior BBB filing is an asset purchase with the firm as acquirer; no merger pattern; row 7.
+0001409430,2022-09-01,0,,,§2,"No counted form or Item 1.01/2.01 8-K in [TD, TD+365] (only an SC 13D); FTS empty (§2)."
+0001421636,2023-01-17,0,,,7,"In-window Item 1.01/2.01 8-Ks are notes and a division asset sale, no merger pattern; row 7."
+0001587264,2023-12-15,0,,,§6,"Cadeler SC TO-T 0001104659-23-115074 and SC 14D9 of 2023-11-07 are excluded_prior_bid (§6; SUBJECT CIK=0001587264, header closed); in-window only /A amendments, not counted (§2)."
+0001776932,2021-01-11,0,,,7,"In-window Item 1.01 8-Ks are credit-facility restatements, private placements, and a retention bonus, no merger pattern; row 7."
+0001800637,2024-01-25,1,0001213900-24-034983,2024-04-22,1,Nature's Miracle 8-K names a merger agreement and 'acquire the Company'; row 1. May 16 merger 8-K is also in-window; later withdrawal still counts (§7).
+0001832487,2023-09-06,0,,,7,"In-window Item 1.01 8-Ks are loan amendments and private placements, no merger pattern; row 7."

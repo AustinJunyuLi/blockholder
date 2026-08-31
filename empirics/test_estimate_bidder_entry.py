@@ -16,8 +16,10 @@ Run:
 
 from __future__ import annotations
 
+import json
 import os
 import sys
+import tempfile
 
 import numpy as np
 import pandas as pd
@@ -103,28 +105,31 @@ def _matched_files(tmp: str, n_groups: int = 120, seed: int = 6) -> tuple:
         td = f"{2023 if not post else 2024}-{1 + gi % 12:02d}-15"
         base = 0.10
         t_ill = float(rng.normal(-6, 2))
+        t_cap = float(rng.normal(14, 1))
         # LIQ is built downstream from logilliq, so plant on logilliq and
         # recover the planted tau from the realised design matrix instead of
         # asserting an exact number: what is under test is that the estimator
         # returns the OLS solution of the stated specification.
         tr_rows.append({"accession": acc, "permno": 1000 + gi, "td": td,
                         "post": post, "bid12": np.nan, "logilliq": t_ill,
-                        "logcap": 14.0, "liq": np.nan, "sic2": "20"})
+                        "logcap": t_cap, "liq": np.nan, "sic2": "20"})
         for j in range(3):
             c_ill = float(rng.normal(-6, 2))
+            c_cap = float(rng.normal(14, 1))
             pair_rows.append({"treated_permno": 1000 + gi,
                               "treated_accession": acc, "treated_td": td,
                               "treated_quarter": "", "treated_sic2": "20",
                               "treated_post": post,
                               "control_permno": 5000 + gi * 3 + j,
                               "match_group": acc, "mahalanobis_d2": 0.1,
-                              "control_logcap": 14.0,
+                              "control_logcap": c_cap,
                               "control_logilliq": c_ill,
                               "control_turnover": np.nan,
                               "control_ret12m": np.nan,
                               "control_idiovol": np.nan})
             ctrl_rows.append({"permno": 5000 + gi * 3 + j, "cik": "1",
-                              "td": td, "match_group": acc, "bid12": np.nan})
+                              "td": td, "match_group": acc, "bid12": np.nan,
+                              "excluded_prior_bid": 0})
     pairs = pd.DataFrame(pair_rows)
     ctrl = pd.DataFrame(ctrl_rows)
     tr = pd.DataFrame(tr_rows)
@@ -149,26 +154,48 @@ def test_triple() -> None:
             # plant the outcome on the same LIQ the estimator will build
             allrows = []
             pairs = pd.read_csv(p)
+            ctrl = pd.read_csv(c)
+            ctrl.loc[0, "excluded_prior_bid"] = 1
+            excluded = set(ctrl.loc[ctrl["excluded_prior_bid"] == 1, "permno"])
             for r in tr.itertuples():
                 allrows.append({"key": ("t", r.accession),
                                 "logilliq": r.logilliq, "td": str(r.td.date()),
+                                "logcap": r.logcap,
                                 "treat": 1, "post": r.post})
             for r in pairs.itertuples():
+                if int(r.control_permno) in excluded:
+                    continue
                 allrows.append({"key": ("c", int(r.control_permno)),
                                 "logilliq": r.control_logilliq,
+                                "logcap": r.control_logcap,
                                 "td": str(r.treated_td), "treat": 0,
                                 "post": int(r.treated_post)})
             A = pd.DataFrame(allrows)
             A["liq"] = standardise_liq(A["logilliq"], _quarter(A["td"]))
             A["y"] = (base + 0.03 * A["treat"] + 0.02 * A["liq"]
+                      + 0.01 * A["logcap"] + 0.005 * A["logilliq"]
                       + 0.07 * A["treat"] * A["post"] * A["liq"])
             ymap = {k: v for k, v in zip(A["key"], A["y"])}
             tr = tr.copy()
             tr["bid12"] = [ymap[("t", a)] for a in tr["accession"]]
-            ctrl = pd.read_csv(c)
-            ctrl["bid12"] = [ymap[("c", int(pn))] for pn in ctrl["permno"]]
+            ctrl["bid12"] = [ymap.get(("c", int(pn)), 1.0)
+                             for pn in ctrl["permno"]]
             ctrl.to_csv(c, index=False)
             r = be.spec_triple(tr)
+
+            extra_pair = pairs.iloc[[0]].copy()
+            extra_pair["control_permno"] = 999999
+            extra_pair["treated_td"] = "2024-12-18"
+            extra_pair["match_group"] = "post-main-window"
+            extra_pair["control_logilliq"] = 1000.0
+            pd.concat([pairs, extra_pair], ignore_index=True).to_csv(p, index=False)
+            extra_ctrl = pd.DataFrame([{
+                "permno": 999999, "cik": "1", "td": "2024-12-18",
+                "match_group": "post-main-window", "bid12": 1.0,
+                "excluded_prior_bid": 0,
+            }])
+            pd.concat([ctrl, extra_ctrl], ignore_index=True).to_csv(c, index=False)
+            r_extra = be.spec_triple(tr)
         finally:
             be.MATCH_OUT, be.CONTROL_LOOKUP_CSV, be.N_BOOT = saved
     check("estimated on the matched sample", r.get("status") == "estimated",
@@ -180,12 +207,23 @@ def test_triple() -> None:
           "post" not in r["terms_estimated"], str(r["terms_estimated"]))
     check("Post x LIQ survives (LIQ varies within match group)",
           "pl" in r["terms_estimated"], str(r["terms_estimated"]))
+    check("registered X adjustment uses both match covariates",
+          all(c in r["terms_estimated"] for c in ("logcap", "logilliq")),
+          str(r["terms_estimated"]))
     check("realised MDE reported next to the §9 rule of thumb",
           np.isfinite(r["mde_tau_pp_realised"])
           and r["mde_tau_pp_rule_of_thumb"]["S1"] == 18.2)
-    check("control and treated counts reported",
-          r["treated_n"] == 120 and r["control_n"] == 360,
+    check("prior-bid control omitted from the estimation sample",
+          r["treated_n"] == 120 and r["control_n"] == 359,
           f"{r['treated_n']}/{r['control_n']}")
+    check("prior-bid control exclusion counted",
+          r.get("controls_excluded_prior_bid") == 1,
+          str(r.get("controls_excluded_prior_bid")))
+    check("pairs outside the eligible treated sample never enter LIQ scaling",
+          r_extra["match_groups_dropped_no_contrast"] == 0
+          and abs(r_extra["tau_treat_x_post_x_liq_pp"] - 7.0) < 1e-6,
+          f"{r_extra['match_groups_dropped_no_contrast']}/"
+          f"{r_extra['tau_treat_x_post_x_liq_pp']}")
 
 
 def test_triple_gates() -> None:
@@ -202,11 +240,145 @@ def test_triple_gates() -> None:
           "not landed" in r.get("status", ""), str(r))
 
 
+def test_pending_artifact() -> None:
+    import empirics.estimate_bidder_entry as be
+    print("\n== missing matched inputs write a pending artifact ==")
+    with tempfile.TemporaryDirectory() as tmp:
+        h1 = os.path.join(tmp, "h1.csv")
+        result = os.path.join(tmp, "result.json")
+        pd.DataFrame([{"accession": "a", "liq": 0.0}]).to_csv(h1, index=False)
+        tr = pd.DataFrame([{"accession": "a", "td": pd.Timestamp("2024-01-02"),
+                            "post": 0, "bid12": 0.0, "logilliq": -6.0,
+                            "logcap": 14.0, "sic2": "20"}])
+        saved = (be.H1_SAMPLE_CSV, be.MATCH_OUT, be.CONTROL_LOOKUP_CSV,
+                 be.RESULT_OUT, be.build_treated)
+        be.H1_SAMPLE_CSV = h1
+        be.MATCH_OUT = os.path.join(tmp, "missing-pairs.csv")
+        be.CONTROL_LOOKUP_CSV = os.path.join(tmp, "missing-control.csv")
+        be.RESULT_OUT = result
+        be.build_treated = lambda: (tr.copy(), {"treated_pre": 1,
+                                                 "treated_post": 0})
+        try:
+            rc = be.main(["--spec", "triple"])
+            with open(result) as fh:
+                out = json.load(fh)
+        finally:
+            (be.H1_SAMPLE_CSV, be.MATCH_OUT, be.CONTROL_LOOKUP_CSV,
+             be.RESULT_OUT, be.build_treated) = saved
+    check("pending run returns a non-success status", rc != 0, str(rc))
+    check("artifact is not labelled ESTIMATED",
+          out.get("label") == "NOT ESTIMATED", str(out.get("label")))
+    check("artifact status names the pending matched inputs",
+          out.get("status") == "pending_matched_inputs", str(out.get("status")))
+    check("pending artifact contains no partial estimate",
+          "within" not in out and "tau_treat_x_post_x_liq_pp" not in str(out),
+          str(out.keys()))
+
+
+def test_main_window_and_unestimated_extensions() -> None:
+    import empirics.estimate_bidder_entry as be
+    print("\n== main window and unestimated samples are explicit ==")
+    with tempfile.TemporaryDirectory() as tmp:
+        h1 = os.path.join(tmp, "h1.csv")
+        pairs = os.path.join(tmp, "pairs.csv")
+        controls = os.path.join(tmp, "controls.csv")
+        result = os.path.join(tmp, "result.json")
+        accessions = ["a", "b", "c"]
+        pd.DataFrame({"accession": accessions, "liq": [0.0, 0.1, 0.2]}).to_csv(
+            h1, index=False)
+        pd.DataFrame({"match_group": accessions}).to_csv(pairs, index=False)
+        pd.DataFrame({"match_group": accessions}).to_csv(controls, index=False)
+        tr = pd.DataFrame({
+            "accession": accessions,
+            "td": pd.to_datetime(["2024-12-17", "2024-12-18", "2025-06-01"]),
+            "post": [1, 1, 1], "bid12": [0.0, 0.0, 0.0],
+            "logilliq": [-6.0, -6.1, -6.2], "logcap": [14.0, 14.1, 14.2],
+            "sic2": ["20", "20", "20"],
+        })
+        seen = {}
+
+        def fake_within(frame):
+            seen["within"] = frame["accession"].tolist()
+            return {"delta_liq_x_post_pp": 1.0, "se_delta_pp": 2.0,
+                    "p_delta_quoted_conservative": 0.5,
+                    "mde_delta_pp_realised": 5.6, "beta_liq_pp": 0.2,
+                    "se_beta_pp": 0.3, "p_beta_normal": 0.6}
+
+        def fake_triple(frame):
+            seen["triple"] = frame["accession"].tolist()
+            return {"status": "estimated", "tau_treat_x_post_x_liq_pp": 1.1,
+                    "se_tau_pp": 2.1, "p_tau_quoted_conservative": 0.4,
+                    "mde_tau_pp_realised": 5.9}
+
+        saved = (be.H1_SAMPLE_CSV, be.MATCH_OUT, be.CONTROL_LOOKUP_CSV,
+                 be.RESULT_OUT, be.build_treated, be.spec_within, be.spec_triple)
+        be.H1_SAMPLE_CSV, be.MATCH_OUT = h1, pairs
+        be.CONTROL_LOOKUP_CSV, be.RESULT_OUT = controls, result
+        be.build_treated = lambda: (tr.copy(), {"treated_pre": 0,
+                                                 "treated_post": 3})
+        be.spec_within, be.spec_triple = fake_within, fake_triple
+        try:
+            rc = be.main(["--spec", "both"])
+            with open(result) as fh:
+                out = json.load(fh)
+        finally:
+            (be.H1_SAMPLE_CSV, be.MATCH_OUT, be.CONTROL_LOOKUP_CSV,
+             be.RESULT_OUT, be.build_treated, be.spec_within,
+             be.spec_triple) = saved
+    check("only observations through 2024-12-17 enter both estimates",
+          seen == {"within": ["a"], "triple": ["a"]}, str(seen))
+    check("main-sample end is recorded",
+          out.get("sample_window", {}).get("main_end") == "2024-12-17",
+          str(out.get("sample_window")))
+    check("2025 extension is explicitly not estimated",
+          out.get("extension_2025", {}).get("status") == "NOT ESTIMATED"
+          and out["extension_2025"].get("treated_rows") == 1,
+          str(out.get("extension_2025")))
+    check("S2 is explicitly not estimated because coding is absent",
+          out.get("S2", {}).get("status") == "NOT ESTIMATED"
+          and "corporate-action" in out["S2"].get("reason", ""),
+          str(out.get("S2")))
+    check("complete S1 run retains the ESTIMATED label",
+          rc == 0 and out.get("label") == "ESTIMATED", f"{rc}/{out.get('label')}")
+
+
+def test_within_spec_does_not_need_matched_inputs() -> None:
+    """`--spec within` reads only the treated sample.
+
+    Gating it on the match pairs would let a pending stub overwrite a real
+    within-13D-targets result whenever the matched DiD had not landed.
+    """
+    import empirics.estimate_bidder_entry as be
+    print("\n== --spec within does not gate on the matched inputs ==")
+    saved = (be.MATCH_OUT, be.CONTROL_LOOKUP_CSV)
+    try:
+        be.MATCH_OUT = "/nonexistent/did_match_pairs.csv"
+        be.CONTROL_LOOKUP_CSV = "/nonexistent/bid12_control.csv"
+        import argparse
+        ap = argparse.ArgumentParser()
+        ap.add_argument("--spec", choices=("within", "triple", "both"),
+                        default="both")
+        for spec, gated in (("within", False), ("triple", True),
+                            ("both", False)):
+            args = ap.parse_args(["--spec", spec])
+            missing = ([p for p in (be.MATCH_OUT, be.CONTROL_LOOKUP_CSV)
+                        if not os.path.exists(p)]
+                       if args.spec in ("triple", "both") else [])
+            hard_stop = bool(missing) and args.spec == "triple"
+            check(f"--spec {spec} hard-stops on missing matched inputs: "
+                  f"{gated}", hard_stop == gated)
+    finally:
+        be.MATCH_OUT, be.CONTROL_LOOKUP_CSV = saved
+
+
 def main() -> int:
     test_standardise_liq()
     test_within_recovery()
     test_triple()
     test_triple_gates()
+    test_pending_artifact()
+    test_main_window_and_unestimated_extensions()
+    test_within_spec_does_not_need_matched_inputs()
     n_fail = sum(1 for _, ok, _ in _results if not ok)
     print(f"\n{len(_results) - n_fail}/{len(_results)} checks passed"
           + (f", {n_fail} FAILED" if n_fail else ""))

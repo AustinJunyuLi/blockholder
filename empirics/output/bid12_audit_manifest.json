@@ -1,0 +1,31 @@
+{
+ "generated_at": "2026-08-31T01:45:35",
+ "seed": 20260830,
+ "sides_drawn": [
+  "treated"
+ ],
+ "single_draw": false,
+ "treated_half_escalation": "3 or more disagreements in the treated half of 15 are escalated immediately; blocking remains >= 4 of 30",
+ "split_draw_note": "Only the treated half was drawn: the other side's lookup had not landed at draw time. Rulebook \u00a710 expects a single 30-draw; this split is a documented deviation, recorded here and in the dated note under research/empirics_v4/. The remaining cells are drawn with the same seed once their lookup lands, and no cell is dropped.",
+ "cell_targets": {
+  "treated_pre": 8,
+  "treated_post": 7,
+  "control_pre": 8,
+  "control_post": 7
+ },
+ "cells_drawn": {
+  "treated_pre": 8,
+  "treated_post": 7
+ },
+ "cell_shortfalls_moved_to_paired_cell": {
+  "treated_pre": 0,
+  "treated_post": 0
+ },
+ "rows_excluded_before_draw": {},
+ "n_pairs": 15,
+ "n_ambiguous_listed": 4,
+ "rules_sha256": "e95c4f9f87d4224597f91b659251fd3b7f8d81ca748843ef7cc4a2c9255de0c6",
+ "rulebook": "../research/empirics_v4/bid12_coding_rules.md",
+ "disagreement_rule": "disagreement > 10% (>= 4 of 30) blocks the leg (rulebook \u00a710, SPEC \u00a78.3/\u00a78.9)",
+ "blindness": "bid12_audit_pairs.csv is the auditor's only input besides the rulebook; bid12_audit_key.csv is revealed after the auditor's readings are recorded"
+}

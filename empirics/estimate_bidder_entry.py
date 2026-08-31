@@ -11,9 +11,10 @@ Two specifications, both on the BID12 outcome of §8.3:
     BID12_i = α + τ(Treat_i × Post_i × LIQ_i) + [all two-way interactions]
               + X_i'θ + δ_match + ε_i
 
-τ is the object: does the reform's effect on bidder entry differ by liquidity?
+τ is the object: does the Feb-2024 acceleration's effect on bidder entry differ
+by liquidity?
 
-Three implementation decisions the SPEC leaves open, fixed here and reported in
+Five implementation decisions the SPEC leaves open, fixed here and reported in
 the output rather than left to be inferred:
 
 1. **The within spec carries industry fixed effects, not calendar-quarter
@@ -33,6 +34,12 @@ the output rather than left to be inferred:
    `estimate_did`, so the 9,999-draw wild bootstrap stays tractable. Post is
    absorbed with them (constant within match group); Post × LIQ is not, since
    LIQ varies within group.
+4. **The main sample ends 2024-12-17**, before the structured-data mandate.
+   Observations from 2024-12-18 onward stay out of the estimate; the 2025
+   extension remains unestimated until it has its own parse-rate table.
+5. **S2 remains unestimated.** The corporate-action Item-4 coding and its
+   30-filing audit do not exist, so the script reports the registered realised-
+   count MDE rule of thumb without inventing an S2 sample.
 
 The realised MDE of τ is computed and printed against SPEC §9's rule of thumb
 (≈ 18.2 pp on S1, obtained by doubling §8.6's 9.09 pp). §9's registered
@@ -66,6 +73,7 @@ from empirics.estimate_did import (
 RESULT_OUT = os.path.join(OUT_DIR, "bidder_entry_estimate.json")
 N_BOOT = 9_999
 SEED = 20260830
+MAIN_SAMPLE_END = pd.Timestamp("2024-12-17")
 
 # SPEC §9's rescaled rule of thumb, printed alongside the realised MDE.
 MDE_RULE_OF_THUMB_PP = {"S1": 18.2, "S1_crsp_matched_variant": 15.8,
@@ -135,15 +143,18 @@ def spec_within(tr: pd.DataFrame) -> dict:
 
 
 def spec_triple(tr: pd.DataFrame) -> dict:
-    """T — triple difference on the matched sample; returns None if the
-    matched inputs have not landed."""
+    """T — triple difference on the matched sample, or a pending status."""
     if not (os.path.exists(MATCH_OUT) and os.path.exists(CONTROL_LOOKUP_CSV)):
         return {"status": "matched inputs not landed — run estimate_did's "
                           "matching stage and bid12_control_lookup first"}
     pairs = pd.read_csv(MATCH_OUT)
+    eligible_groups = set(tr["accession"].astype(str))
+    n_pairs_outside_sample = int(
+        (~pairs["match_group"].astype(str).isin(eligible_groups)).sum())
+    pairs = pairs[pairs["match_group"].astype(str).isin(eligible_groups)].copy()
     cl = pd.read_csv(CONTROL_LOOKUP_CSV, dtype={"cik": str})
     cl["td"] = cl["td"].astype(str).str[:10]
-    ckey = {(int(r.permno), str(r.td), str(r.match_group)): r.bid12
+    ckey = {(int(r.permno), str(r.td), str(r.match_group)): r
             for r in cl.itertuples()}
 
     rows = []
@@ -152,17 +163,22 @@ def spec_triple(tr: pd.DataFrame) -> dict:
                      "logilliq": float(r.logilliq), "logcap": float(r.logcap),
                      "td": str(r.td.date()), "match_group": r.accession})
     n_missing = 0
+    n_prior_bid = 0
     for r in pairs.itertuples():
         key = (int(r.control_permno), str(r.treated_td), str(r.match_group))
         if key not in ckey or not np.isfinite(r.control_logilliq):
             n_missing += 1
             continue
+        if int(ckey[key].excluded_prior_bid) == 1:
+            n_prior_bid += 1
+            continue
         rows.append({"treat": 0, "post": int(r.treated_post),
-                     "bid12": ckey[key],
+                     "bid12": ckey[key].bid12,
                      "logilliq": float(r.control_logilliq),
                      "logcap": float(r.control_logcap),
                      "td": str(r.treated_td), "match_group": r.match_group})
-    D = pd.DataFrame(rows).dropna(subset=["bid12", "logilliq"]).copy()
+    D = pd.DataFrame(rows).dropna(
+        subset=["bid12", "logcap", "logilliq"]).copy()
 
     # LIQ on one scale across treated and control (decision 2 in the docstring)
     D["quarter"] = _quarter(D["td"])
@@ -185,7 +201,8 @@ def spec_triple(tr: pd.DataFrame) -> dict:
     m_codes = pd.factorize(
         pd.to_datetime(D["td"]).dt.to_period("M").astype(str).values)[0]
 
-    cols = ["tpl", "tp", "tl", "pl", "treat", "liq"]   # post absorbed by FE
+    cols = ["tpl", "tp", "tl", "pl", "treat", "liq",
+            "logcap", "logilliq"]   # post absorbed by FE
     Xw = np.column_stack([_demean(D[c].values.astype(float), g_codes)
                           for c in cols])
     keep = _independent_columns(Xw)
@@ -206,9 +223,12 @@ def spec_triple(tr: pd.DataFrame) -> dict:
         "control_n": int((D["treat"] == 0).sum()),
         "match_groups": int(D["match_group"].nunique()),
         "pairs_dropped_no_control_outcome_or_liq": n_missing,
+        "pairs_excluded_outside_treated_sample": n_pairs_outside_sample,
+        "controls_excluded_prior_bid": n_prior_bid,
         "match_groups_dropped_no_contrast": n_dropped_groups,
         "terms_estimated": kept,
         "terms_dropped_collinear": dropped,
+        "x_adjustment": ["logcap", "logilliq"],
         "post_main_effect": "absorbed by the match fixed effects (constant "
                             "within group); Post x LIQ is not, since LIQ "
                             "varies within group",
@@ -236,17 +256,74 @@ def main(argv=None) -> int:
                     default="both")
     args = ap.parse_args(argv)
 
+    out = {
+        "estimate": "Bidder entry by liquidity (SPEC §9)",
+        "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
+        "script": "empirics/estimate_bidder_entry.py",
+        "requested_spec": args.spec,
+        "sample_window": {
+            "main_end": str(MAIN_SAMPLE_END.date()),
+            "structured_data_extension_start": "2024-12-18",
+        },
+        "extension_2025": {
+            "status": "NOT ESTIMATED",
+            "treated_rows": None,
+            "reason": "The 2025 extension requires its own structured-data "
+                      "parse-rate table.",
+        },
+        "S2": {
+            "status": "NOT ESTIMATED",
+            "reason": "The corporate-action Item-4 coding and 30-filing "
+                      "audit are absent.",
+            "mde_tau_pp_rule_of_thumb_realised_counts":
+                MDE_RULE_OF_THUMB_PP["S2"],
+        },
+    }
+
+    # The matched inputs are needed by the triple difference only. Gating the
+    # whole script on them would let `--spec within`, which reads nothing but
+    # the treated sample, overwrite a real result with a pending stub.
+    missing = ([p for p in (MATCH_OUT, CONTROL_LOOKUP_CSV)
+                if not os.path.exists(p)]
+               if args.spec in ("triple", "both") else [])
+    if missing and args.spec == "triple":
+        out.update({
+            "label": "NOT ESTIMATED",
+            "status": "pending_matched_inputs",
+            "pending_inputs": missing,
+            "next_step": "Run the matched DiD matching stage and the BID12 "
+                         "control lookup before estimating §9.",
+        })
+        with open(RESULT_OUT, "w") as fh:
+            json.dump(out, fh, indent=1)
+        print("§9 NOT ESTIMATED: matched inputs have not landed")
+        print(f"wrote pending artifact {RESULT_OUT}")
+        return 2
+    if missing:
+        # --spec both: the within-13D-targets half stands on its own, so run
+        # it and let spec_triple record its own pending status.
+        print("§9 matched inputs have not landed: "
+              f"{', '.join(os.path.basename(p) for p in missing)}. The "
+              "within-13D-targets leg does not need them and still runs.")
+
     tr, funnel = build_treated()
+    extension = tr[tr["td"] > MAIN_SAMPLE_END].copy()
+    funnel = dict(funnel)
+    funnel["excluded_after_2024_12_17"] = len(extension)
+    tr = tr[tr["td"] <= MAIN_SAMPLE_END].copy()
+    funnel["bidder_entry_main_sample"] = len(tr)
+    funnel["bidder_entry_main_pre"] = int((tr["post"] == 0).sum())
+    funnel["bidder_entry_main_post"] = int((tr["post"] == 1).sum())
     h1 = pd.read_csv(H1_SAMPLE_CSV)
     tr = tr.merge(h1[["accession", "liq"]], on="accession", how="left")
     print(f"treated sample: {len(tr)} rows "
-          f"({funnel['treated_pre']} pre / {funnel['treated_post']} post)")
+          f"({funnel['bidder_entry_main_pre']} pre / "
+          f"{funnel['bidder_entry_main_post']} post), main sample through "
+          f"{MAIN_SAMPLE_END.date()}")
 
-    out = {
-        "estimate": "Bidder entry by liquidity (SPEC §9)",
+    out.update({
         "label": "ESTIMATED",
-        "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
-        "script": "empirics/estimate_bidder_entry.py",
+        "status": "estimated",
         "inputs": {p: sha256_of(p) for p in
                    (os.path.join(OUT_DIR, "bid12_treated.csv"),
                     H1_SAMPLE_CSV, MATCH_OUT, CONTROL_LOOKUP_CSV)
@@ -259,7 +336,10 @@ def main(argv=None) -> int:
             "is reported with the estimate whichever way the number lands; "
             "the realised MDE is quoted in the same sentence as the point "
             "estimate."),
-    }
+    })
+    out["sample_window"]["rows_excluded_after_main_end"] = len(extension)
+    out["extension_2025"]["treated_rows"] = int(
+        (extension["td"].dt.year == 2025).sum())
     if args.spec in ("within", "both"):
         print("== W: within 13D targets ==", flush=True)
         out["within"] = spec_within(tr)

@@ -87,6 +87,24 @@ def _load_side(side: str) -> pd.DataFrame:
     return df
 
 
+def _keep_other_side(new: pd.DataFrame, path: str,
+                     sides_this_run: list[str]) -> pd.DataFrame:
+    """Keep already-drawn pairs from the side this call did not redraw."""
+    if not os.path.exists(path) or new.empty:
+        return new
+    existing = pd.read_csv(path, dtype={"cik": str, "td": str})
+    if existing.empty or "side" not in existing.columns:
+        return new
+    keep = existing[~existing["side"].isin(sides_this_run)].copy()
+    if keep.empty:
+        return new
+    for col in new.columns:
+        if col not in keep.columns:
+            keep[col] = ""
+    keep = keep.reindex(columns=list(new.columns), fill_value="")
+    return pd.concat([keep, new], ignore_index=True)
+
+
 def _draw(df: pd.DataFrame, cells: list, rng) -> tuple:
     """Draw the target per cell; a cell short of observations passes its
     balance to its **paired** cell on the same side (rulebook §10), and the
@@ -137,37 +155,54 @@ def main(argv=None) -> int:
     ap.add_argument("--seed", type=int, default=SEED)
     args = ap.parse_args(argv)
 
-    frames, cells = [], []
+    _FILTERED.clear()
+    frames = []
     for side in ("treated", "control"):
         if args.side not in (side, "both"):
             continue
         df = _load_side(side)
         if df.empty:
             print(f"{side} lookup not landed — cannot sample that side yet")
-            if args.side == side:
-                return 1
-            continue
-        frames.append(df)
-        cells.extend([f"{side}_pre", f"{side}_post"])
+            return 1
+        frames.append((df, [f"{side}_pre", f"{side}_post"]))
     if not frames:
         return 1
-    df = pd.concat(frames, ignore_index=True)
 
-    rng = np.random.default_rng(args.seed)
-    sample, shortfall = _draw(df, cells, rng)
-    sample = sample.sort_values(["side", "cell", "cik", "td"])
+    samples, shortfall = [], {}
+    for frame, cells in frames:
+        side_sample, side_shortfall = _draw(
+            frame, cells, np.random.default_rng(args.seed))
+        samples.append(side_sample)
+        shortfall.update(side_shortfall)
+    drawn = pd.concat(samples, ignore_index=True)
+    sides_this_run = sorted(set(drawn["side"]))
 
     auditor_cols = ["side", "cell", "cik", "subject_name", "td", "accession"]
     for c in auditor_cols:
-        if c not in sample.columns:
-            sample[c] = ""
-    sample[auditor_cols].to_csv(PAIRS_OUT, index=False)
+        if c not in drawn.columns:
+            drawn[c] = ""
+    key_cols = [c for c in KEY_COLS if c in drawn.columns]
+
+    # The pairs file and the key file each merge the untouched side from
+    # *their own* prior copy. Deriving the key from the already-merged pairs
+    # frame would re-add the other side's rows with blank verdicts alongside
+    # the ones the key already holds — 15 duplicate, verdict-free treated
+    # rows on a --side control draw, which an adjudication would score as
+    # disagreements.
+    sample = drawn[auditor_cols].copy()
+    key = drawn[auditor_cols + key_cols].copy()
+    if args.side != "both":
+        sample = _keep_other_side(sample, PAIRS_OUT, sides_this_run)
+        key = _keep_other_side(key, KEY_OUT, sides_this_run)
+    sample = sample.sort_values(["side", "cell", "cik", "td"])
+    key = key.sort_values(["side", "cell", "cik", "td"])
+
+    sample.to_csv(PAIRS_OUT, index=False)
     print(f"wrote {PAIRS_OUT}: {len(sample)} pairs "
           f"({sample['cell'].value_counts().to_dict()}) — auditor input, "
           f"carries no verdicts")
 
-    key_cols = [c for c in KEY_COLS if c in sample.columns]
-    sample[auditor_cols + key_cols].to_csv(KEY_OUT, index=False)
+    key.to_csv(KEY_OUT, index=False)
     print(f"wrote {KEY_OUT}: the coder's verdicts — reveal only after the "
           f"auditor's independent readings are recorded")
 
@@ -191,6 +226,27 @@ def main(argv=None) -> int:
     print(f"wrote {amb_out}: {len(amb)} ambiguous events among the sampled "
           f"firms (adjudicated, not counted against the 30)")
 
+    # The pairs and key files merge the untouched side; the manifest must
+    # too, or a shortfall recorded when the first half was drawn disappears
+    # from the audit record the moment the second half is drawn.
+    prior_manifest = {}
+    if args.side != "both" and os.path.exists(MANIFEST_OUT):
+        try:
+            with open(MANIFEST_OUT) as fh:
+                prior_manifest = json.load(fh)
+        except (OSError, ValueError):
+            prior_manifest = {}
+    merged_shortfall = {
+        k: v for k, v in (prior_manifest.get(
+            "cell_shortfalls_moved_to_paired_cell") or {}).items()
+        if not k.startswith(tuple(f"{side}_" for side in sides_this_run))}
+    merged_shortfall.update(shortfall)
+    merged_filtered = {
+        k: v for k, v in (prior_manifest.get(
+            "rows_excluded_before_draw") or {}).items()
+        if not k.startswith(tuple(f"{side}_" for side in sides_this_run))}
+    merged_filtered.update(dict(_FILTERED))
+
     rules_hash = ""
     if os.path.exists(bid12.RULEBOOK_PATH):
         with open(bid12.RULEBOOK_PATH, "rb") as fh:
@@ -200,6 +256,9 @@ def main(argv=None) -> int:
         "seed": args.seed,
         "sides_drawn": sorted(set(sample["side"])),
         "single_draw": args.side == "both",
+        "treated_half_escalation": (
+            "3 or more disagreements in the treated half of 15 are escalated "
+            "immediately; blocking remains >= 4 of 30"),
         "split_draw_note": None if args.side == "both" else (
             f"Only the {args.side} half was drawn: the other side's lookup "
             f"had not landed at draw time. Rulebook §10 expects a single "
@@ -209,8 +268,8 @@ def main(argv=None) -> int:
             f"lookup lands, and no cell is dropped."),
         "cell_targets": CELL_TARGET,
         "cells_drawn": sample["cell"].value_counts().to_dict(),
-        "cell_shortfalls_moved_to_paired_cell": shortfall,
-        "rows_excluded_before_draw": dict(_FILTERED),
+        "cell_shortfalls_moved_to_paired_cell": merged_shortfall,
+        "rows_excluded_before_draw": merged_filtered,
         "n_pairs": len(sample),
         "n_ambiguous_listed": len(amb),
         "rules_sha256": rules_hash,
