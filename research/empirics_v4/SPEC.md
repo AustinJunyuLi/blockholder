@@ -937,6 +937,18 @@ Initial 13Ds passing §2.3, one observation per (subject firm, trigger date), 20
   lives there); S1 is the powered one. **S1 is primary for the reported estimate; S2 is
   primary for the interpretation.** Both MDEs are quoted in the same sentence.
 
+> **The realised §8 treated sample, 2026-08-31.** The 569 / 543 above is the §2.3
+> estimation sample, and it is **not superseded**: §8.6's S1 row still computes on it.
+> This leg then applies §8's own restrictions on top of it, every one of them registered
+> above. Unresolved BID12 (§8.3, rulebook §7 and §5.1 item 5), the 2025 extension window
+> and the 2024-12-17 structured-data regime break (§8.5 row v), firms already under an
+> announced bid at TD (§8.3), §2.5 straddlers, the §2.6 anticipation stub, the H1 main
+> sample, and a 2-digit SIC present in EDGAR. What survives is the **treated matched
+> sample: 465, split 325 pre / 140 post**. The printed pair and this one count different
+> objects one funnel stage apart, so nothing here is struck. Step table:
+> `research/empirics_v4/did_matching_2026-08-31.md` §1; the same funnel is in
+> `empirics/output/did_estimate.json` under `treated_funnel`. No sample rule changes.
+
 Corporate-action filings (merger cleanups, SPV/group filings, post-restructuring stakes)
 are coded from Item 4 purpose language plus filer-name patterns; the coding rule is
 written down in ticket 13 before the pass starts, and 30 filings are hand-audited.
@@ -1124,6 +1136,25 @@ S2 realised   1/114 + 1/109 = 0.0087719 + 0.0091743 = 0.0179462
 ```
 
 All counts are the **trigger-date** split (§2.1), matching §2.5's Post assignment.
+
+**The same arithmetic on the realised §8 counts, 2026-08-31.** The S1 realised row
+computes on 569 / 543, the §2.3 estimation sample. Run this section's own arithmetic on
+the §8 treated matched sample instead (325 / 140, §8.1 note above), with the base rates,
+the 0.1705 variance term and the 1.31 multiplier all unchanged:
+
+```
+§8 matched    1/325 + 1/140 = 0.0030769 + 0.0071429 = 0.0102198
+              SE  = √(0.1705 × 0.0102198) = √0.00174247 = 0.04174 → 4.17 pp
+              MDE = 2.802 × 4.17 = 11.70 pp    ×1.31 = 15.32 pp    15.32 / 18.1 = 85%
+```
+
+**This is design arithmetic on registered anchors, not a realised MDE.** No regression was
+estimated on this path, so no fitted standard error exists
+(`empirics/output/did_estimate.json`, `mde_pp_design_arithmetic.not_a_realised_mde`).
+The three printed rows and the three realised rows in the table above are untouched, S2
+included. The reading below hardens without changing: the headline rung of §6's ladder is
+3 pp, and 15.32 pp is five times it where the printed 9.09 pp was three times it; the loose
+20 pp rung is still above the §8 figure on paper.
 
 The clustering multiplier 1.31 is `√(1 + (m̄−1)ρ)` with m̄ = 3.4 observations per subject
 firm and ρ = 0.30 — a deliberately pessimistic within-firm correlation for a binary
@@ -1628,3 +1659,28 @@ would defeat the purpose of pre-specifying them.
 **The sign corrigendum above stands unaltered.** Both H2 branches remain live, Branch A
 remains the theory-indicated branch under its four conditions, Branch B remains the
 falsifiable alternative, and the sign remains the estimand.
+
+## Corrigendum — 2026-08-31 (realised §8 counts; no test changed)
+
+Two count notes of exactly the kind the 2026-08-30 corrigendum above already makes. Both
+are dated in place. Neither strikes a printed figure, because in both cases the printed
+figure remains correct for the object it counts.
+
+1. **§8.1** — the realised **§8 treated matched sample, 465 (325 pre / 140 post)**,
+   recorded beside the printed 569 / 543. The printed pair is the §2.3 estimation sample,
+   one funnel stage above the §8 restrictions, and §8.6's S1 row still computes on it.
+2. **§8.6** — this section's arithmetic run on 325 / 140: **SE 4.17 pp, MDE 11.70 pp,
+   15.32 pp clustered**, with the base rates, the variance term and the clustering
+   multiplier unchanged. Labelled **design arithmetic**, not a realised MDE, because no
+   regression was estimated on that path.
+
+Sources: `research/empirics_v4/did_matching_2026-08-31.md` §1 and §4, and the committed
+outputs `empirics/output/did_estimate.json` and `did_match_meta.json`.
+
+**No prediction, no test, no sample rule, no variable, no window, no filter, no
+standard-error rule, no decision rule and no supportive/against condition is modified by
+this note.** §8.2's matching design, §8.8's pre-trend rule and §8.9's supportive/against
+list stand exactly as written. The three registered-rule questions those sections raise
+are filed unadopted, with their costs, in
+`research/empirics_v4/decisions_2026-08-31.md`; each is a post-registration decision for
+the author.
