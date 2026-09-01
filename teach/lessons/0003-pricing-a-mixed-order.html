@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 3: Pricing a mixed order</title>
+<link rel="stylesheet" href="../assets/lesson.css">
+<script src="../assets/quiz.js" defer></script>
+<script src="../assets/pricing-widget.js" defer></script>
+</head>
+<body>
+
+<nav class="course-nav" aria-label="Course navigation">
+  <span>v4 theory, from zero</span>
+  <span><a href="../report.html">grand tour</a> &middot; <a href="../reference/glossary.html">glossary</a> &middot; lesson 3</span>
+</nav>
+
+<p class="lesson-kicker">Lesson 0003</p>
+<h1>Pricing a mixed order</h1>
+<p class="lesson-sub">The market turns a belief into a price, and the price turns out to sit inside its own definition.</p>
+
+<p>Lesson 2 ended with a belief. The market saw a total order of +1 and put the chance of engagement at 0.824. A belief is not yet a price. This lesson turns beliefs into prices, shows why that step is a loop rather than a sum, and then explains why this paper calls &kappa; liquidity.</p>
+
+<h2>The pricing rule</h2>
+
+<p>Market makers compete. If one quoted a price below what a share is worth on public information, another would step in and buy. Competition drives expected trading profit to zero, so the quoted price equals the expected payoff given everything the public knows. Write the terminal shareholder payoff as <i>Y</i> and the public information set as <i>&#8464;</i>. Then</p>
+
+<p class="equation" aria-label="P of script I equals the expected value of Y given script I"><i>P</i>(<i>&#8464;</i>) = E[<i>Y</i> | <i>&#8464;</i>]</p>
+
+<p>This is the whole pricing rule. Everything hard about it lives in <i>Y</i>.</p>
+
+<h2>What is being priced</h2>
+
+<p>Two things can happen to a Harbor Tools share by the decision day. A bidder shows up, or no bidder shows up.</p>
+
+<div class="result">
+  <span class="rid">The two branches</span>
+  <p>No bidder. Shareholders keep the firm. Each share is worth its standalone value <i>v</i>, plus an improvement &Delta;<sub><i>V</i></sub> if Northstar engaged.</p>
+  <p>A bidder. Shareholders are bought out. They receive the prevailing price <i>P</i>, plus a takeover premium on top: <i>m</i><sub>0</sub> without engagement, and <i>m</i><sub>0</sub> + &Delta;<sub><i>m</i></sub> with it.</p>
+</div>
+
+<p>Let <i>a</i> be one when Northstar engaged and zero otherwise, and let <span aria-label="script B"><i>&#8492;</i></span> be one when the bidder enters. The model writes the payoff as</p>
+
+<p class="equation" aria-label="Y equals one minus script B times v plus a delta V, plus script B times P plus m zero plus a delta m"><i>Y</i> = (1 &minus; <i>&#8492;</i>)(<i>v</i> + <i>a</i>&Delta;<sub><i>V</i></sub>) + <i>&#8492;</i>(<i>P</i> + <i>m</i><sub>0</sub> + <i>a</i>&Delta;<sub><i>m</i></sub>)</p>
+
+<p>Read the takeover branch again. It contains <i>P</i>. A bidder does not pay the standalone value plus a premium; it has to beat the going market price, and the premium sits on top of that. So the price we are trying to compute appears inside the payoff we are averaging. This is not a modeling trick. It is what a premium means.</p>
+
+<h2>When does the bidder show up</h2>
+
+<p>The bidder is worth more to itself than to the market because it can run the firm differently. Its private synergy draw is <span aria-label="S bar plus xi"><i>S&#772;</i> + &xi;</span>, with mean synergy <span aria-label="S bar"><i>S&#772;</i></span> and a normal shock &xi;. Bidding costs <i>K</i>. The bidder enters when what it gets beats what it must pay.</p>
+
+<p class="equation" aria-label="enter when S bar plus xi is at least P plus K plus m bar"><i>S&#772;</i> + &xi; &nbsp;&ge;&nbsp; <i>P</i> + <i>K</i> + <span aria-label="m bar"><i>m&#772;</i></span>, &nbsp;&nbsp; where <span aria-label="m bar"><i>m&#772;</i></span> = <i>m</i><sub>0</sub> + &pi;&Delta;<sub><i>m</i></sub></p>
+
+<p>Here &pi; is the market's engagement posterior from lesson 2, and <span aria-label="m bar"><i>m&#772;</i></span> is the premium the bidder expects to owe. Because &xi; is normal with standard deviation &sigma;<sub>&xi;</sub>, the entry probability is</p>
+
+<p class="equation" aria-label="p of P equals one minus Phi of P plus K plus m bar minus S bar, all over sigma xi"><i>p</i>(<i>P</i>) = 1 &minus; &Phi;&#8202;((<i>P</i> + <i>K</i> + <span aria-label="m bar"><i>m&#772;</i></span> &minus; <i>S&#772;</i>) / &sigma;<sub>&xi;</sub>)</p>
+
+<p>The one property to carry forward is the direction. A higher price makes the bidder's bill larger, so <i>p</i> falls as <i>P</i> rises. Entry probability slopes down in price.</p>
+
+<h2>Close the loop</h2>
+
+<p>Now average the two branches. Write <span aria-label="y bar"><i>y&#772;</i></span> = E[<i>v</i> | <i>&#8464;</i>] + &pi;&Delta;<sub><i>V</i></sub> for the expected no-takeover value, and keep <span aria-label="m bar"><i>m&#772;</i></span> for the expected premium. Then</p>
+
+<p class="equation" aria-label="P equals one minus p times y bar plus p times P plus m bar"><i>P</i> = (1 &minus; <i>p</i>)<span aria-label="y bar"><i>y&#772;</i></span> + <i>p</i>(<i>P</i> + <span aria-label="m bar"><i>m&#772;</i></span>)</p>
+
+<p>Collect the <i>P</i> terms. Subtract <i>pP</i> from both sides, factor, and divide by 1 &minus; <i>p</i>:</p>
+
+<p class="equation" aria-label="P equals y bar plus m bar times p over one minus p"><i>P</i> = <span aria-label="y bar"><i>y&#772;</i></span> + <span aria-label="m bar"><i>m&#772;</i></span> &middot; <i>p</i> / (1 &minus; <i>p</i>)</p>
+
+<p>The premium is multiplied by the <em>odds</em> of entry, not by the probability of entry. That is the whole content of the loop. The takeover branch pays the price rather than the standalone value, so every dollar of premium gets levered up by the chance that the branch happens at all.</p>
+
+<h2>Work it once with numbers</h2>
+
+<p>Take the market's expected standalone value to be 100. Engagement adds 4 without a takeover, so &Delta;<sub><i>V</i></sub> = 4. The premium is 6 without engagement and 16 with it, so <i>m</i><sub>0</sub> = 6 and &Delta;<sub><i>m</i></sub> = 10. Put the engagement posterior at the prior, &pi; = 0.5. Then</p>
+
+<div class="result">
+  <span class="rid">The belief summaries</span>
+  <p class="equation" aria-label="y bar equals 100 plus 0.5 times 4 equals 102"><span aria-label="y bar"><i>y&#772;</i></span> = 100 + 0.5 &times; 4 = 102</p>
+  <p class="equation" aria-label="m bar equals 6 plus 0.5 times 10 equals 11"><span aria-label="m bar"><i>m&#772;</i></span> = 6 + 0.5 &times; 10 = 11</p>
+</div>
+
+<p>Suppose for a moment the bidder entered with probability 0.5 regardless of price. The odds of entry are 0.5 / 0.5 = 1, so <i>P</i> = 102 + 11 &times; 1 = 113. Check it by hand against the branches. Without a bidder a share is worth 102. With a bidder it is worth 113 + 11 = 124. Average the two at even odds and you get 113 back. The price reproduces itself.</p>
+
+<p>Compare that with the answer most people write first. Averaging 102 and 102 + 11 gives 107.5. That number treats the bidder as paying the standalone value plus a premium. The missing 5.5 is the part of the premium that gets paid on the price itself.</p>
+
+<p>Now let entry respond to price, with <i>K</i> = 5, <span aria-label="S bar"><i>S&#772;</i></span> = 129 and &sigma;<sub>&xi;</sub> = 20. Entry probability becomes 1 &minus; &Phi;((<i>P</i> &minus; 113) / 20). Tabulate the map against the price you fed it:</p>
+
+<div class="result">
+  <span class="rid">One crossing</span>
+  <p>At <i>P</i> = 100 the map returns 133.66, which is above 100.</p>
+  <p>At <i>P</i> = 113 the map returns 113.00, which is exactly 113.</p>
+  <p>At <i>P</i> = 120 the map returns 108.27, which is below 120.</p>
+</div>
+
+<p>The equilibrium price is 113, with entry probability one half. That the calibration lands on a round number is arranged, not general.</p>
+
+<h2>Why the crossing is unique</h2>
+
+<p>Look at what the two sides of <i>P</i> = <span aria-label="y bar"><i>y&#772;</i></span> + <span aria-label="m bar"><i>m&#772;</i></span> <i>p</i>(<i>P</i>) / (1 &minus; <i>p</i>(<i>P</i>)) do as you raise <i>P</i>. The left side rises with slope one. On the right, <i>p</i> falls, so the odds fall, and if <span aria-label="m bar"><i>m&#772;</i></span> is not negative the whole right side falls too. A falling curve meets a rising line at most once, and the two ends guarantee it happens at least once.</p>
+
+<p>The condition that keeps <span aria-label="m bar"><i>m&#772;</i></span> from going negative is the card's restriction <i>m</i><sub>0</sub> &ge; 0. Since &Delta;<sub><i>m</i></sub> &gt; 0 and &pi; lies in [0, 1], <i>m</i><sub>0</sub> &ge; 0 forces <span aria-label="m bar"><i>m&#772;</i></span> &ge; 0 at every posterior the model can produce. Drop it and the right side can slope upward, where a crossing may be missing or repeated. Lesson 5 does that argument properly. For now, hold the picture: one curve down, one line up, one crossing.</p>
+
+<div class="widget pricing-lab"
+     data-prior="0.5" data-ev="100" data-dv="4"
+     data-m0="6" data-dm="10" data-k="5" data-sbar="129" data-sigma="20">
+  <p class="wtitle">The pricing lab</p>
+  <p class="whint">This lab runs lesson 2 and lesson 3 back to back. Pick the observed order, set &kappa;, and it computes the posterior, then solves the price.</p>
+  <label for="price-kappa">Noise intensity &kappa;
+    <input type="range" id="price-kappa" min="0.05" max="0.95" step="0.05" value="0.30">
+    <output id="price-kappa-out">0.30</output>
+  </label>
+  <div class="wbtnrow" role="group" aria-label="Observed total order">
+    <button type="button" data-price-x="-1" aria-pressed="false">saw &minus;1</button>
+    <button type="button" data-price-x="0" aria-pressed="false">saw 0</button>
+    <button type="button" data-price-x="1" aria-pressed="true" class="sel">saw +1</button>
+    <button type="button" data-price-x="2" aria-pressed="false">saw +2</button>
+  </div>
+  <svg id="price-plot" viewBox="0 0 640 336"></svg>
+  <p class="readout" id="price-read" aria-live="polite"></p>
+  <p class="wcap">The lab holds the market's expected standalone value fixed at 100 while the engagement posterior moves. In the full model order flow updates beliefs about value as well, so this lab isolates the engagement channel on purpose. Noise size and Northstar's buy are normalised to one, as in lesson 2.</p>
+</div>
+
+<h2>Price impact runs through the belief</h2>
+
+<p>Nothing in this model says the price moves by some fixed amount per unit of order flow. An order changes the price only by changing what the market believes. Raise &pi; and three things happen at once.</p>
+
+<ul>
+  <li>The no-takeover branch is worth more, because engagement adds &Delta;<sub><i>V</i></sub>. This pushes the price up.</li>
+  <li>The takeover branch is worth more, because the premium rises by &Delta;<sub><i>m</i></sub> times the odds of entry. This also pushes the price up.</li>
+  <li>The bidder's bill rises by the same &Delta;<sub><i>m</i></sub>, so it enters less often. This pushes the price down.</li>
+</ul>
+
+<p>The third channel is easy to forget and it is real. At the calibration above, moving &pi; from 0.5 upward, the first channel contributes 4.00, the second 10.00, and the third &minus;8.78. The net is positive here and gets damped by a further factor from the price feeding back into entry. That is a fact about these numbers, not a sign the model proves in general.</p>
+
+<div class="result">
+  <span class="rid">The same order, two liquidity levels</span>
+  <p>With no order seen, the price is 113.0000 and entry has chance 0.5000.</p>
+  <p>At &kappa; = 0.30 a +1 order lifts &pi; to 0.8235 and the price to 113.6932. Impact +0.6932.</p>
+  <p>At &kappa; = 0.60 the same +1 order lifts &pi; only to 0.5714 and the price to 113.1871. Impact +0.1871.</p>
+</div>
+
+<h2>Why the paper calls &kappa; liquidity</h2>
+
+<p>Doubling &kappa; cut the price impact of the same order to about a quarter. Lesson 2 explains the mechanism: with more noise trading around, a buy order is easier to explain without Northstar, so the posterior moves less. Lesson 3 adds that the price moves only when the posterior moves. Put them together and higher &kappa; means less price movement per unit of order flow.</p>
+
+<p>That is exactly what a trader means by a liquid market. You can push size through it without moving the quote. So the paper defines liquidity as noise-trading intensity and gives it the symbol &kappa;. It does not mean depth, volume, or turnover, and using those words for &kappa; is a vocabulary error the project treats as a real one. On the empirical side &kappa; is measured by an Amihud-type illiquidity ratio inverted, and Amihud's ratio is price move per unit of volume, which is the same quantity this lesson just computed.</p>
+
+<p>Two limits to state now, before they get assumed away. This is not Kyle's linear rule: no &lambda; multiplies order flow here, and the impact of an order is whatever Bayes plus the fixed point deliver, which is generally not linear. And &kappa; enters through the posterior, so it does its work on the pooled cell. On the flagged cell the filing has already settled engagement, &pi; = 1, and there is no inference left for noise to obscure.</p>
+
+<div class="partition">
+  <div class="track"><span class="tag">pooled</span><span class="seg pooled">&pi; inferred from order flow</span><span class="seg pooled">&kappa; damps the price impact</span></div>
+  <div class="track"><span class="tag">flagged</span><span class="seg flagged">&pi; = 1 by the filing</span><span class="seg flagged">same fixed point, no engagement inference</span></div>
+</div>
+
+<h2>Where the loop actually lives</h2>
+
+<p>The self-referential fixed point sits at the day the bidder decides, because that is where the takeover branch is live. At an earlier trading day the price is an average of control-day values that have already been solved, so nothing refers to itself. The model also fixes the price before any trading as the plain unconditional expectation of <i>Y</i>, which is the 113.0000 the lab uses as its no-order baseline. Lesson 4 lays out the timeline that makes this precise.</p>
+
+<h2>Check yourself</h2>
+
+<div class="quiz">
+  <fieldset class="quiz-q" data-answer="a">
+    <legend>1. On the takeover branch, shareholders receive</legend>
+    <button data-opt="a">the prevailing price plus premium</button>
+    <button data-opt="b">the standalone value plus premium</button>
+    <p class="quiz-why" hidden>The bidder must beat the going market price, and the premium sits on top. That is why <i>P</i> appears inside <i>Y</i>.</p>
+  </fieldset>
+  <fieldset class="quiz-q" data-answer="b">
+    <legend>2. In the solved price, the premium is multiplied by</legend>
+    <button data-opt="a">the chance of entry, <i>p</i></button>
+    <button data-opt="b">the odds of entry, <i>p</i>/(1&minus;<i>p</i>)</button>
+    <p class="quiz-why" hidden>Solving <i>P</i> = (1&minus;<i>p</i>)<i>y&#772;</i> + <i>p</i>(<i>P</i> + <i>m&#772;</i>) divides by 1 &minus; <i>p</i>, which turns the probability into odds.</p>
+  </fieldset>
+  <fieldset class="quiz-q" data-answer="a">
+    <legend>3. Raising &kappa; makes a given order's price impact</legend>
+    <button data-opt="a">smaller, because beliefs move less</button>
+    <button data-opt="b">larger, because beliefs move more</button>
+    <p class="quiz-why" hidden>More noise makes the order easier to explain without Northstar. The posterior moves less, so the price moves less.</p>
+  </fieldset>
+  <fieldset class="quiz-q" data-answer="b">
+    <legend>4. In this paper, liquidity means</legend>
+    <button data-opt="a">how much total volume trades</button>
+    <button data-opt="b">how much noise trading happens</button>
+    <p class="quiz-why" hidden>&kappa; is noise-trading intensity. Depth, volume, and turnover are different objects, and the project treats the substitution as an error.</p>
+  </fieldset>
+  <p class="quiz-score" hidden></p>
+</div>
+
+<div class="win">
+  <h2>Retrieval before moving on</h2>
+  <p>Close the page. Explain why the price appears inside the payoff it is supposed to average, and why that turns the probability of entry into the odds of entry. Then rebuild the 113 by hand from 102 and 11. Finish by saying, in your own words, what makes &kappa; a liquidity parameter and what would be wrong about calling it turnover.</p>
+</div>
+
+<h2>Read next</h2>
+
+<ul class="sources">
+  <li>Primary source: the information, prices, and control-outcome part of section 2 of <a href="../../research/model_v4/model_v4.md">the model note</a>, and A5 in section 5 for the pricing map and the role of <i>m</i><sub>0</sub> &ge; 0.</li>
+  <li>Background source: <a href="https://doi.org/10.2307/1913210">Kyle (1985)</a> for informed trading hidden in noise, read as a benchmark rather than as this model.</li>
+  <li>Vocabulary: the liquidity entry in <a href="../../CONTEXT.md">CONTEXT.md</a> and the <a href="../reference/glossary.html">glossary</a>. Review <a href="0002-signal-noise-and-price.html">lesson 2</a> if the posterior step feels shaky.</li>
+</ul>
+
+<p class="ask">Send me the retrieval explanation, or ask about the first step that does not make sense. Lesson 4 puts these prices on a timeline and builds the two rounds.</p>
+
+</body>
+</html>

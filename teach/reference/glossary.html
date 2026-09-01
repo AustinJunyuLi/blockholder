@@ -100,6 +100,15 @@
 
 <h2 id="price-path">The price path</h2>
 <dl class="gloss">
+  <dt id="competitive-price">Competitive price, <i>P</i></dt>
+  <dd>The expected terminal shareholder payoff given public information, <i>P</i>(<i>&#8464;</i>) = E[<i>Y</i> | <i>&#8464;</i>]. Because a takeover pays the prevailing price plus a premium, <i>P</i> appears inside the payoff being averaged, so at the control node it solves a fixed point rather than a sum: <i>P</i> = <i>y&#772;</i> + <i>m&#772;</i> <i>p</i>/(1 &minus; <i>p</i>). The premium is scaled by the odds of entry, not by its probability.</dd>
+
+  <dt id="bidder-entry">Bidder entry, <i>p</i></dt>
+  <dd>The chance a bidder enters, 1 &minus; &Phi;((<i>P</i> + <i>K</i> + <i>m&#772;</i> &minus; <i>S&#772;</i>)/&sigma;<sub>&xi;</sub>). It falls as the price rises, which is what makes the pricing map non-increasing and its crossing with the identity unique once <i>m</i><sub>0</sub> &ge; 0.</dd>
+
+  <dt id="price-impact">Price impact</dt>
+  <dd>How much an observed order moves the price. In this model it runs entirely through the engagement posterior, so it is not a fixed coefficient on order flow and is generally not linear. Higher &kappa; damps it, which is the sense in which &kappa; is liquidity. <span class="avoid">Never: Kyle's &lambda; (bare &lambda; is reserved).</span></dd>
+
   <dt id="run-up">Run-up, <i>R</i></dt>
   <dd>The price change from just before the threshold crossing to just before the filing. It can be positive, zero, or negative.</dd>
 
