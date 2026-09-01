@@ -115,7 +115,7 @@ const chains = [
   async () => {
     results.t06 = DONE.has('06') ? SALVAGED : await attempt('engineer', '06', 'Ticket 06-empirics-build-and-e1-run.md. Build empirics/fingerprints.py and empirics/test_fingerprints.py to empirics/spec.md exactly, run build and run e1, and report the coverage counts and gate values.', { phase: 'Empirics', effort: 'high', retryEffort: 'xhigh' })
     if (results.t06.status !== 'PASS') return
-    results.t06v = await run('auditor', `${PRE}\n\nTicket 06, second agent. Run the tests and rerun e1 from the cache; confirm e1_estimate.json is byte-identical to the file the builder produced (compare against this report: ${JSON.stringify(results.t06)}). PASS or FAIL.`, { effort: 'low', schema: VERDICT, label: '06 rerun', phase: 'Empirics' })
+    if (!DONE.has('06')) results.t06v = await run('auditor', `${PRE}\n\nTicket 06, second agent. Run the tests and rerun e1 from the cache; confirm e1_estimate.json is byte-identical to the file the builder produced (compare against this report: ${JSON.stringify(results.t06)}). PASS or FAIL.`, { effort: 'low', schema: VERDICT, label: '06 rerun', phase: 'Empirics' })
     results.t07 = DONE.has('07') ? SALVAGED : await attempt('auditor', '07', 'Ticket 07-e1-blind-audit.md. You did not write the parser or the loader. Do the sixty-case audit and write gate E1-G2 into e1_estimate.json.', { phase: 'Empirics', effort: 'medium' })
   },
   async () => {
