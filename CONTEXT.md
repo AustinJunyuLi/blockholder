@@ -100,23 +100,29 @@ The claim (draft_v2's R1) that minority gains from control are non-monotone in l
 ### The empirics
 
 **Feb-2024 acceleration**:
-SEC Release 33-11253: 13D window 10 → 5 business days from 2024-02-05; 13D/A 2 business days; 13G changes from 2024-09-30. A candidate anchor, already used by Trivedi, Corum, Polk et al. and the author's `proposal/`.
+SEC Release 33-11253: 13D window 10 → 5 business days from 2024-02-05; 13D/A 2 business days; 13G changes from 2024-09-30. The anchor of E1; already used by Trivedi, Corum, Polk et al. and the author's `proposal/`.
 _Avoid_: the reform, the shock (say which)
 
-**Timing split**:
-The division of the target's price reaction into the run-up from the trigger date to the filing date and the jump on the filing day itself. The headline test.
+**E1**:
+The only empirical exercise: a before-after comparison of the realised 13D filing delay around the Feb-2024 acceleration. Descriptive; no control group; no causal claim; tests neither T1 nor L2. Registered specification `research/empirics_v4/e1_spec.md` (corrected only by a dated amendment inside the file); single result authority `empirics/output/e1_estimate.json`.
+_Avoid_: the empirics left unnamed, treatment effect, natural experiment
 
-**Bindingness dose**:
-The split of filers into those whose pre-rule filing delay ran past five business days — for whom the new deadline binds — and those already filing fast.
+**Filing delay**:
+Federal business days between the trigger date (the cover page's "Date of Event Which Requires Filing") and the effective filing date (the acceptance timestamp; acceptance after 17:30 New York time rolls to the next business day).
+_Avoid_: calendar-day delay
 
-**Stake at filing**:
-The percent of the class of shares printed on the 13D itself.
+**Campaign**:
+The unit of E1: one (subject firm, trigger date) pair. Simultaneous group filings collapse to the earliest acceptance.
 
-**Bounded null**:
-The arithmetic on the SEC's own tables that caps the aggregate effect of the rule on the bid hazard at about three percentage points. A ceiling, not an estimate.
+**Complete-case share and worst-case bound**:
+The share of resolved campaigns filed within five business days, reported beside bounds that assign every unresolved campaign to both extremes. The bounds sit beside the estimate, never in place of it.
 
-**Run-up path**:
-The daily price path of the target from the trigger date to the filing date.
+**Gates (G1, G2, G3)**:
+E1's three binding checks: the worst-case lower bound on the post-minus-pre difference clears zero; the pre-post gap in unresolved share stays within 10 percentage points; the blind parser audit stays within three material errors. A failed gate writes NO-GO and suppresses the headline; it never licenses editing the spec.
+
+**Viewed August record**:
+The August 2026 empirical record, deleted 2026-09-01 (history `9b98089`) and preserved exactly as viewed in the online appendix (`app:honesty`). Its terms — timing split, bindingness dose, stake at filing, bounded null, run-up path — name record content, not live objects.
+_Avoid_: quoting its numbers as live estimates; every live empirical number comes from `e1_estimate.json`
 
 **Referee checklist**:
 The fixed list a design must pass: control group or bounded null, confound list (EDGAR cut-off, anticipation, T+1), power/MDE, placebo, pre-trend, parser validation.
