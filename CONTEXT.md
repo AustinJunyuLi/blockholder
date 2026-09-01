@@ -34,8 +34,8 @@ The blockholder's per-round order while building the stake, equal to two noise l
 ADR 0003.
 
 **Two dials**:
-The headline. Tightening the threshold always lowers the noise sensitivity of prices at fixed
-policies. Shortening the clock does so if and only if the newly caught histories are at least as
+The headline. Tightening the threshold lowers the noise sensitivity of prices at fixed
+policies, under the condition the theorem states. Shortening the clock does so if and only if the newly caught histories are at least as
 noise-sensitive as the pool.
 
 **Weight effect / Composition effect**:

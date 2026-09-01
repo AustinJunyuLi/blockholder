@@ -6,8 +6,8 @@ date: 2026-09-01
 
 The paper's object is the partition of blockholder histories into a flagged cell and a pooled
 cell. Its margins are the two dials of a disclosure rule, the stake threshold and the filing
-clock. Its claim is an asymmetry: tightening the threshold always lowers the noise sensitivity of
-prices at fixed policies, while shortening the clock does so if and only if the histories it
+clock. Its claim is an asymmetry: tightening the threshold lowers the noise sensitivity of prices
+at fixed policies under the condition the theorem states, while shortening the clock does so if and only if the histories it
 newly catches are at least as noise-sensitive as the pooled cell. The paper does not lead with
 equilibrium existence and does not carry a general-equilibrium dominance result.
 
