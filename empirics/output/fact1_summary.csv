@@ -1,3 +1,0 @@
-window,count,mean,median,p90,share_within_5bd,share_within_10bd,parse_rate
-"post (2024Q3-Q4, 5-business-day rule)",90,6.4,5.0,11.100000000000009,0.7555555555555555,0.8888888888888888,0.64
-"pre (2023Q2-Q3, 10-calendar-day rule)",98,9.63265306122449,7.0,23.0,0.35714285714285715,0.8061224489795918,0.68
