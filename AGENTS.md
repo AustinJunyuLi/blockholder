@@ -14,7 +14,8 @@ labels exactly.
   `empirics/output/e1_estimate.json`. Correct the spec with a dated amendment inside the file.
 - E1 is descriptive. Make no causal claim from the before-after timing comparison.
 - The August empirical record was deleted on 2026-09-01 and lives in history at `9b98089`.
-  `draft_v3` still cites some of it.
+  The same day's manuscript revision stripped those citations from `draft_v3`; the online
+  appendix preserves the record exactly as viewed (`app:honesty`).
 - The orchestrator owns git. Workers edit only assigned paths, preserve concurrent work, run no
   git, and report exact changes.
 

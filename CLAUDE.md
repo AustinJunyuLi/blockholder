@@ -27,8 +27,9 @@ PROVED, NUMERICAL, ESTIMATED, CONJECTURE. A review may demote a claim. Prose nev
 
 Every estimator, committed output, registered specification, and audit from the August
 empirical lane was deleted, along with the Codex E1 protocol and evidence manifest. All of it
-remains reachable in history at `9b98089`. `draft_v3` still cites some of those artifacts; strip
-those references when the manuscript is next revised.
+remains reachable in history at `9b98089`. The 2026-09-01 manuscript revision stripped those
+citations from `draft_v3`; the online appendix preserves the record exactly as viewed
+(`app:honesty`).
 
 What survived: `parse_13d.py` and its tests, `edgar_fetch.py`, and `facts.py`, which seed the
 rebuild, plus the GPT Pro review.
