@@ -22,12 +22,8 @@ Before sending it: open `/config` and raise "Dynamic workflow size" above the de
 of fifteen agents (Phase A alone spawns about fifteen).
 Start this session only after ~/.claude/agents/kimi.md and glm.md exist; agent types load at
 session start.
-
-Launch every phase with two args: `done`, the salvaged labels, and `run`, a fresh tag for that
-launch (for example `a2`). Each ally dispatch writes to
-`~/.claude/ally-runs/<run>/<phase>/<label>-<provider>-<n>/`; the worker runs detached there,
-so a dead dispatcher loses nothing, and a reader agent collects the answer from disk. A reused
-tag could hand a reader a stale answer, so never reuse one.
+Launch every phase with two args: `done`, the salvaged labels, and `run`, a tag not used by any
+earlier launch (for example `a2`).
 
 What the orchestrator does between phases:
 
