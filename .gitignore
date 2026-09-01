@@ -26,6 +26,10 @@ venv/
 # Generated data (reproducible via `make data`)
 numerical_output/data/*.csv
 
+# Root build PDFs (the committed copies live in deliverable/)
+/draft_v3.pdf
+/draft_v3_onlineappendix.pdf
+
 # Archived matplotlib figures (superseded by numerical_output/)
 /figures/
 
