@@ -41,7 +41,7 @@ rewritten); no statement was strengthened, weakened, or re-scoped.
 | "From fixed policies to equilibrium" paragraph (region as named hypothesis; 18/80 nodes) | Card C1 row (PROVED + NUMERICAL node evidence) |
 | Window record numbers 18–77%; composition leg carries; weight leg 3–14% shave | HANDOFF_sign.md §8.1 (t2_t1_check block 4 + H=12 robustness) |
 | A(τ) failure numbers (23–767 values, 180 non-degenerate nodes) | Card §5 A(τ) evidence note (ticket 33; t2_atau_support_check) |
-| Delay-compression facts (median 6→5 bd; share within 5bd 38.9→67.1%; +28.2pp, 95% cluster-bootstrap interval 21.8–34.8; descriptive, no control group; the pre-specified design for the market/takeover implications executed August 2026, viewed, preserved exactly as viewed in the online appendix, not the headline) | `empirics/output/e1_estimate.json` (per_period, difference_complete_case, inference); `draft_v3_onlineappendix.tex` §app:honesty (the viewed record, quoted from 9b98089) — see §6 below |
+| Delay-compression facts (median 6→5 bd; share within 5bd 38.9→67.1%; +28.2pp, 95% cluster-bootstrap interval 21.8–34.8; descriptive, no control group) | `empirics/output/e1_estimate.json` (per_period, difference_complete_case, inference) |
 | "No paper combines the two margins, liquidity, and a control outcome" | competitor_map.md Part 3 (W1–W6) and Sweep summary ("none found") |
 | Classics one-parameter answers; Maug's disclosure remark | lit_classic-exit-voice.md §A (cross-strand synthesis), Maug card §"Institutional facts" (p. 73) |
 | Back-et-al isomorphism quote; CCKV pre-disclosure window; Kyle–Vila boundary | competitor_map Part 1 rows 5, 3; W3 refuter list (Kyle–Vila p. 54 n.1) |
@@ -126,11 +126,7 @@ repo paths and process metadata removed) and moved as noted.
 
 Rebuilt 2026-09-01 (section rewrite commit 0e1e5e2). The section is now "Did the clock move?
 Filing-delay evidence": one registered exercise, E1, descriptive, every number drawn from the
-run's result record. The earlier map of this section — the seeded n=98/90 Fact-1 sample and the
-prospective seven-leg specification — cited artifacts deleted from the live tree on 2026-09-01
-(deletion commit 235de22); that design survives only as the viewed record quoted in
-`draft_v3_onlineappendix.tex` §app:honesty from history at 9b98089 (appendix section added in
-1243cd4). The registered specification is `research/empirics_v4/e1_spec.md` (four dated
+run's result record. The registered specification is `research/empirics_v4/e1_spec.md` (four dated
 amendments, all 2026-09-01); the single result authority is `empirics/output/e1_estimate.json`.
 
 | Draft content | Source |
@@ -141,8 +137,7 @@ amendments, all 2026-09-01); the single result authority is `empirics/output/e1_
 | §6.2 Figure (fig:e1cdf): empirical CDF pre (450) vs post (432), dashed line at the five-business-day deadline; resolved campaigns only; no outcome screen, so the right tail stays visible | `empirics/output/e1_cdf.pdf` (on file), plotted from `empirics/output/e1_delays.csv` per e1_spec.md Outputs |
 | §6.2 two readings: the compression is real and large (median bounds [6, 7] vs [5, 5] do not overlap; G1's lower bound clears zero); agreement in kind with the Commission's arithmetic (≈29% of 2022's initial filings already inside the amended deadline vs 38.9% here; earlier filing expected for ≈59% of timely 13D reports; "different samples and windows, the same direction"); BBJJ deadline-bucket mass (45.3% at 8–10bd, 16.5% inside 3bd, 7.1% beyond 15bd); Polk calendar-day misclassification (48% at their day-ten marker) | e1_estimate.json (medians, shares, bounds, G1 verdict); Release 33-11253 pp. 178, 193 via `research/cards/_institutional_sec_33_11253.md` §4.1; \cite{SEC2023}; `research/cards/bebchuk_brav_jackson_jiang_2013_jcl.md` R1 (Table 2, p. 10); competitor_map Part 1 row 9 + reading note 9 (Polk) |
 | §6.3 The denominator and the audit (sec:e1audit): G2 differential coverage (unresolved 2.4% pre vs 0.7% post; gap 1.7pp against the registered 10pp cap); G3 blind hand-audit (60 filings, 20 per non-empty period-by-route stratum — pre-text, post-text, post-xml; the blind enforced by commit order; 0 of 60 disagreements against the registered threshold of 3; the 20 xml-route excerpts read LABEL NOT FOUND and were coded from the dateOfEvent element); three data-quality items stated rather than absorbed (14 unresolved, 3 of them Sageworth self-CIK rows; 10 of 521 post filings declaring a non-zero amendment number in the body, population stays as registered; no outcome screen) | e1_estimate.json gates block (G2 values, G3 verdict); e1_spec.md third and fourth dated amendments (stratum allocation; LABEL NOT FOUND; the amendment-number scan); e1_delays.csv (status/reason codes); audit sample `empirics/output/e1_audit_cases.csv` |
-| §6.4 The viewed pre-specified record (sec:e1record): the seven-leg pre-specification (run-up/jump timing split, bindingness dose, stake at filing, bounded null from the Commission's tables, matched DiD on the bid hazard, bidder entry by liquidity, referee checklist) executed in August 2026 and viewed; preserved exactly as viewed in the online appendix; not the headline; no estimate in it cited as evidence in the main text | `draft_v3_onlineappendix.tex` §app:honesty ("The August 2026 empirical record, exactly as viewed"), quoting the record deleted from the live tree on 2026-09-01 (deletion commit 235de22) and preserved in history at 9b98089 |
-| §6.5 The headline (sec:e1headline): the choice the earlier draft left pending is made — the filing-delay result of tab:e1; descriptive; establishes that the statutory clock moved in practice, nothing about returns/activism/bidder entry/premia; the candidates requiring return or takeover estimates retired with the viewed August record | e1_estimate.json (`headline_suppressed: false` — the registered gates passed, so the registered headline runs; the tab:e1 block); retired candidates preserved at §app:honesty (9b98089 provenance) |
+| §6.4 The headline (sec:e1headline): the filing-delay result of tab:e1; descriptive; establishes that the statutory clock moved in practice, nothing about returns/activism/bidder entry/premia | e1_estimate.json (`headline_suppressed: false` — the registered gates passed, so the registered headline runs; the tab:e1 block) |
 | Independent reproduction | `quality_reports/verification/2026-09-01_e1_reproduction_verify.md` (fresh-session clean-clone rerun at 1f23867: e1_delays.csv bit-identical; e1_estimate.json identical outside the G3 block, whose `NOT RUN` rerun state is the expected consequence of not re-scoring the hand audit; test_e1.py 13/13, test_parse_13d.py 11/11) |
 
 ### §7 Conclusion (`sec:conclusion`)
@@ -151,9 +146,7 @@ No new claims. Restates: the identity (card §1); the three results and their co
 (card rows); the window record + A(τ) failure "in the same section because they are both
 true" (HANDOFF §8 + ticket 33); the E1 filing-delay descriptive (median 6→5 bd; share
 38.9→67.1%; +28.2pp with its bootstrap interval; worst-case bounds and the registered gates;
-no control group, no causal claim — `empirics/output/e1_estimate.json`) and the preservation
-sentence for the viewed August record (`draft_v3_onlineappendix.tex` §app:honesty, quoted
-from 9b98089); three open questions (card §9 items 1–2 + A6 scoped remainder + the ω_a
+no control group, no causal claim — `empirics/output/e1_estimate.json`); three open questions (card §9 items 1–2 + A6 scoped remainder + the ω_a
 anchor absence from HANDOFF §6).
 
 ### Appendices
@@ -236,22 +229,14 @@ removed material, enumerated:
 
 ## 5. Notes for Austin
 
-1. **Headline (§6.5, `sec:e1headline`)**: resolved on 2026-09-01. The `[headline choice
-   pending]` marker and Candidates A/B/C left the draft with the §6 rebuild; the headline is
-   the filing-delay result of Table `tab:e1`, stated descriptively, and the candidates that
-   needed return or takeover estimates were retired with the viewed August record preserved
-   at §app:honesty (9b98089 provenance). The result authority carries
-   `headline_suppressed: false` — the registered gates passed, so the registered headline
-   runs.
-2. The deleted spec's pre-registered power numbers (1.1–2.3pp timing split; 0.85pp stake;
-   4.4pp DiD) are quoted nowhere in the draft; the §6 sentences that carried them left with
-   the seven-leg design. Where the design's numbers survive, it is as viewed-record content
-   in §app:honesty quoted from 9b98089, never as live sourcing.
-3. The two included figures: `fig_disclosure.pdf` is the one with a card row; `e1_cdf.pdf`
+1. **Headline (§6.4, `sec:e1headline`)**: the filing-delay result of Table `tab:e1`, stated
+   descriptively. The result authority carries `headline_suppressed: false` — the registered
+   gates passed, so the registered headline runs.
+2. The two included figures: `fig_disclosure.pdf` is the one with a card row; `e1_cdf.pdf`
    enters under the registered spec's Outputs row (`research/empirics_v4/e1_spec.md`). If a
    v4 figure set is ever rendered from the t2_* checks, Table 1 and the three numerical
    remarks are the natural targets.
-4. Nothing in the draft states an empirical value for ω_a (card §9); the conclusion
+3. Nothing in the draft states an empirical value for ω_a (card §9); the conclusion
    names its absence as an open input, per HANDOFF §6.
 
 ## 6. Compile gates
@@ -284,28 +269,21 @@ throughout.
    argument would additionally need, and draws no conclusion. No step reads it.
 3. **D1 repair.** The D1 display in Appendix A uses the filing-date-indexed form; eq:P1-BF no
    longer contradicts its own definition.
-4. **Table 2 attrition arithmetic.** The caption now reports the full attrition: 300 sampled,
-   198 parsed (102 pre and 96 post, reconciling 0.68 × 150 = 102 and 0.64 × 150 = 96), 10
-   screened out by the 0–60 business-day band (4 pre and 6 post), 188 retained (98 pre and 90
-   post). The screen is reported as a count per SPEC §2.3. *(Superseded 2026-09-01: Table 2
-   (`tab:fact1`) and the seeded 300-filing sample left the draft with the §6 rebuild; the
-   current table is `tab:e1` — see the 2026-09-01 amendment below.)*
-5. **H=12 chord-route caveat.** rem:T1record now states that the enumerated pooled-support
+4. **H=12 chord-route caveat.** rem:T1record now states that the enumerated pooled-support
    object is computationally unavailable at H = 12, so the column's composition ratio C_T is
    obtained from the chord closed form whose support condition A(τ) is measured to fail at this
    calibration, and that the H = 12 column is directional corroboration of the H = 10
    comparison rather than a second independent magnitude. The Table 1 caption carries the weak
    inequality and the reason the 0.9-quantile node returns 1.0000 (the τ ladder stops biting
    and the two flagged weights coincide).
-6. **Same-round wording repairs** (detail in
+5. **Same-round wording repairs** (detail in
    `quality_reports/session_logs/2026-08-30_draft_v3_minor_ledger.md`): repository
    workflow/register wording removed from the paper voice; the notation map applied
    (ρ_ch(τ) for the main-text chord scalar, 𝔯_ℐ for the Appendix B pricing residual, δ_ϑ for
    the Appendix C parameter radius, Ψ for the Appendix C implicit-function map, Φ reserved for
    the normal c.d.f.); the A5 counterexample-attribution sentence repaired; §5.5 and the
    conclusion now name the same three open questions with ω_a carried separately as an open,
-   non-load-bearing input; the MDE basis ("on the post-re-parse projection") stated at the
-   stake leg and Candidate B; the Figure 1 caption identifies curves by line style and markers
+   non-load-bearing input; the Figure 1 caption identifies curves by line style and markers
    and the O-1 prose states that k₁ and k₀ stay at baseline while only k_D moves; the
    conclusion's "only if and only if" is gone; the bib carries the Kyle–Vila, Norli, Becht and
    Bebchuk metadata corrections and the CCKV forthcoming note, and the Trivedi editorial note
@@ -522,16 +500,12 @@ nothing in the manuscript was changed for it.
 
 ---
 
-## Amendment, 2026-09-01 (empirical layer rebuilt: E1 replaces the seeded sample and the prospective spec)
+## Amendment, 2026-09-01 (empirical layer rebuilt around E1)
 
 The manuscript's empirical layer was rebuilt on 2026-09-01: §6 of `draft_v3.tex` was rewritten
-(commit 0e1e5e2) around the single registered exercise E1, and the superseded August design was
-preserved, exactly as viewed, as `draft_v3_onlineappendix.tex` §app:honesty, "The August 2026
-empirical record, exactly as viewed" (commit 1243cd4). The August record was deleted from the
-live tree the same day (deletion commit 235de22) and lives in history at 9b98089; the appendix
-quotes it from there. What changed in this map:
+(commit 0e1e5e2) around the single registered exercise E1. What changed in this map:
 
-1. **New authorities.** Every empirical number in `draft_v3.tex` draws on
+1. **Authorities.** Every empirical number in `draft_v3.tex` draws on
    `empirics/output/e1_estimate.json` (the single result authority), registered against
    `research/empirics_v4/e1_spec.md` (four dated amendments, all 2026-09-01); the row-level
    record is `empirics/output/e1_delays.csv` (1,137 accessions, a status and reason on every
@@ -540,27 +514,15 @@ quotes it from there. What changed in this map:
    (`e1_delays.csv` bit-identical; the JSON identical outside the G3 block, whose `NOT RUN`
    rerun state is the expected consequence of not re-scoring the hand audit; test_e1.py 13/13,
    test_parse_13d.py 11/11).
-2. **§6 re-mapped.** The old §6 rows (the two-layer split; the seeded n=98/90 Table 2
-   (`tab:fact1`) and Figure 2 (`fact1_delay.pdf`); the §6.2 seven-leg prospective map (a)–(f);
-   the §6.3 headline shell) were replaced by rows for the five new subsections:
-   `sec:e1protocol`, `sec:e1result` (Table `tab:e1`, Figure `fig:e1cdf`), `sec:e1audit`,
-   `sec:e1record`, `sec:e1headline`. Rows elsewhere that cited the deleted artifacts were
-   re-pointed: the abstract and intro empirical rows and the conclusion paragraph now draw on
-   `e1_estimate.json` and the appendix's preservation pointer; the included-figures list
-   carries `e1_cdf.pdf`; the honesty-label crosswalk carries the E1 descriptives row, and the
-   Trivedi ESTIMATED row's location lost the deleted §6.2(b) leg. The BBJJ bucket and Trivedi
-   first-stage rows, which had cited SPEC.md merely as the place a literature number was
-   recorded, now point at the live cards (`bebchuk_brav_jackson_jiang_2013_jcl.md` R1–R2;
-   `trivedi_2026_ssrn.md` R2), and the §2.1 date confirmations point at
-   `_institutional_sec_33_11253.md` and lit_institutional-facts §1.3. Content of the deleted
-   SPEC.md that survives only as viewed record is cited at §app:honesty with the 9b98089
-   provenance, never as a live source.
-3. **Headline shell resolved.** The "[headline choice pending]" state is gone: the headline is
-   the E1 filing-delay result (§6.5, `sec:e1headline`), with `headline_suppressed: false` in
-   the result authority. Notes-for-Austin items 1–2 were rewritten accordingly (the section
-   heading's "in the shell" went with them), and the 2026-08-30 fix-round amendment's item 4
-   (the old Table 2 attrition caption) is marked superseded in place.
+2. **§6 mapped.** The section's rows are the four subsections `sec:e1protocol`, `sec:e1result`
+   (Table `tab:e1`, Figure `fig:e1cdf`), `sec:e1audit` and `sec:e1headline`. The abstract and
+   intro empirical rows and the conclusion paragraph draw on `e1_estimate.json`; the
+   included-figures list carries `e1_cdf.pdf`; the honesty-label crosswalk carries the E1
+   descriptives row. The BBJJ bucket and Trivedi first-stage rows point at the live cards
+   (`bebchuk_brav_jackson_jiang_2013_jcl.md` R1–R2; `trivedi_2026_ssrn.md` R2), and the §2.1
+   date confirmations point at `_institutional_sec_33_11253.md` and lit_institutional-facts §1.3.
+3. **Headline.** The headline is the E1 filing-delay result (§6.4, `sec:e1headline`), with
+   `headline_suppressed: false` in the result authority; Notes-for-Austin item 1 records it.
 4. **What did not move.** Every theory row (model card, HANDOFF_sign, sections_v3), the
    removed-claims enumeration, and the earlier rounds' compile-gate records are untouched. The
-   frozen record under `research/model_v4/` and `sections_v3/` was not opened for writing, and
-   this pass edited no file other than this one.
+   frozen record under `research/model_v4/` and `sections_v3/` was not opened for writing.
