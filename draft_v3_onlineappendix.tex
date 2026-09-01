@@ -9,10 +9,12 @@
 %
 % Content: the extended discussion of the standing assumptions and the
 % numerical records that measure them against the implemented calibration
-% (both moved from draft_v3.tex on 2026-08-30), then the proofs of every
-% result stated in the main text (moved verbatim from draft_v3.tex on
-% 2026-08-30). Numbered objects cited without a section letter
-% (Assumption 3, Lemma 2, equation (8)) refer to the main text.
+% (both moved from draft_v3.tex on 2026-08-30), the August 2026 empirical
+% record preserved exactly as viewed (added 2026-09-01; the record itself was
+% deleted from the live tree the same day and lives in history at 9b98089),
+% then the proofs of every result stated in the main text (moved verbatim
+% from draft_v3.tex on 2026-08-30). Numbered objects cited without a section
+% letter (Assumption 3, Lemma 2, equation (8)) refer to the main text.
 % =============================================================================
 
 \documentclass[11pt]{article}
@@ -66,6 +68,8 @@ Premia''}\\[0.3em]
 \noindent This appendix carries the material the main text compresses out of the reader's path.
 Section~\ref{sec:app-assumptions} discusses the standing assumptions; Section~\ref{sec:app-records}
 carries the numerical records that measure them against the implemented calibration;
+Section~\ref{app:honesty} preserves the August 2026 empirical record --- a registered design the
+paper has superseded --- exactly as viewed, with its estimates, intervals, MDEs and gate verdicts;
 Sections~\ref{sec:proofs-core}, \ref{sec:proofs-existence} and~\ref{sec:proofs-ge} give the proofs
 of every result stated in the main text. A numbered object cited without a section letter, such as
 an assumption, a lemma or an equation, refers to the main text.
@@ -325,8 +329,8 @@ directional corroboration of the $H = 10$ comparison rather than a second indepe
 What the record does not do is supply a sign theorem: it is node evidence at one
 calibration, and Part~(C) claims none. At this calibration the model's directional prediction for
 the February 2024 acceleration is attenuation, with the composition leg carrying it, a
-prediction the empirics of Section~\ref{sec:empirics} treats as one of two live branches, not as a
-derived sign, because the antecedent behind the composition leg's closed form is the very $\Atau$
+prediction the superseded registered design preserved in Section~\ref{app:honesty} treats as one
+of two live branches, not as a derived sign, because the antecedent behind the composition leg's closed form is the very $\Atau$
 that Remark~\ref{rem:AtauRecord} measures to fail here.
 \end{remark}
 
@@ -349,6 +353,240 @@ left open, for which an $\varepsilon$-ball plus integral-control pattern is the 
 proof also gives the bound $\mathcal B_r^{GE} = O\bigl((1-L_{\mathcal R})^{-3}\bigr)$, so
 the dominance-and-contraction nodes are cubically bounded away from $L_{\mathcal R} = 1$.
 \end{remark}
+
+%==============================================================================
+\section{The August 2026 empirical record, exactly as viewed}
+\label{app:honesty}
+%==============================================================================
+
+\noindent This section preserves, as a record, an empirical design the paper no longer uses. The
+design was registered as \path{research/empirics_v4/SPEC.md} on 2026-08-20, before any
+estimation: seven pre-specified legs around the February 2024 acceleration of the Schedule 13D
+filing deadline --- the run-up/jump partition test (H1), the post-reform slope change (H2), the
+bindingness dose, the stake at filing, a bounded null computed from the Commission's own tables,
+the hand-audited bid-arrival coding, and the matched difference-in-differences on the twelve-month
+bid hazard --- plus two supporting legs, the pseudo-trigger placebo and the bidder-entry-by-liquidity
+triple difference. Four dated corrigenda (2026-08-23; two of 2026-08-30; 2026-08-31) updated
+counts, power inputs and the theory-lane sign as they landed, each marked ``no test changed''. The
+design was executed in late August 2026 and its outcomes were viewed. The headline interpretation
+the design was built for was rejected: H1's calendar-return windows are not the theory's
+information cells, H2's detection thresholds are far above any economically relevant sign, and the
+matched control-outcome leg is not estimated. Under the position this paper adopts, the registered
+results therefore remain here, in an honesty appendix, rather than in the headline: every viewed
+result and every design failure is disclosed with its intervals, minimum detectable effects (MDEs)
+and gate verdicts. The record was deleted from the live tree on 2026-09-01 (deletion commit
+\texttt{235de22}) and is preserved in the repository's history at commit \texttt{9b98089};
+everything below is quoted from that record exactly as viewed, without recomputation and without
+re-interpretation. Each leg names its registered location in the specification and the file that
+carries its realised numbers; paths are those the record carried before the deletion. Throughout,
+``pp'' abbreviates percentage points.
+
+The viewed-result lock that bound the record binds it here: the outcomes may be reproduced,
+tabulated and diagnosed, but not searched for significance. Nothing in this section is cited as
+evidence anywhere in the main text; the main text's empirical content is the descriptive
+filing-delay result of Section~\ref{sec:empirics}.
+
+\paragraph{H1 --- the run-up/jump partition test (specification \S3.4). Label: ESTIMATED.}
+Source: \path{empirics/output/h1_estimate.json} (block \path{h1_main}). The registered
+estimand is the partition coefficient $\hat\beta_2$ on $\mathrm{LIQ} \times \mathrm{Flagged}$ in
+the stacked run-up/jump regression: the pooled (run-up) cell should carry the liquidity derivative,
+the flagged (jump) cell none, and the two slopes should differ. The realised sample is $979$
+filings ($446$ pre-reform, $533$ post; $1{,}958$ stacked rows, $891$ firm clusters, $47$ month
+clusters). The realised partition coefficient is $+0.58$pp with a two-way clustered standard error
+of $1.56$pp; the quoted $p$-value is the conservative wild month-bootstrap value $0.741$; the
+realised MDE is $4.38$pp. The pooled slope is $+0.67$pp (standard error $2.84$pp) and the flagged
+slope $+1.24$pp (standard error $1.93$pp); the record's corroboration audit derives, and flags as
+derived, the flagged slope's $95$\% interval, $-2.5$ to $+5.0$pp
+(\path{research/empirics_v4/theory_corroboration_2026-08-31.md}). Under the registered
+decision table (\S10, row~1) the leg is uninformative: a supportive reading needs the partition
+coefficient significant with the pooled slope significantly non-zero and the flagged slope inside
+its MDE, and the second condition fails. Robustness rows in the same file: the
+$\mathrm{FD}^* \equiv \mathrm{FD}$ variant ($p = 0.725$, $N = 979$), the
+one-to-thirteen-calendar-day screen ($p = 0.913$, $N = 779$), and the full-funnel variant
+($p = 0.834$, $N = 1{,}075$). The within-sample standard deviation of log illiquidity is $2.926$
+(interquartile range $4.303$), the reporting companion the specification attaches to every slope.
+Two record-keeping facts travel with the leg, both documented in the verification note named below.
+The first-run estimate ($+0.95$pp, $p = 0.586$, $N = 976$) was disclosed alongside the corrected
+one under the specification's own no-change rule, with the cause named (a calendar-date bracket
+where a trading-day bracket was registered). And the liquidity standardisation ran over the
+$1{,}093$-row full-funnel frame rather than the estimation sample --- the largest of the seven
+minor script-versus-specification deviations the verification records; re-standardising moves
+$\hat\beta_2$ from $+0.58$ to $+0.48$pp, against the $4.38$pp MDE.
+
+\paragraph{H2 --- the reform slope change (specification \S3.5). Label: ESTIMATED.}
+Source: \path{empirics/output/h2_estimate.json}. The theory lane's directional sign landed on
+2026-08-30 (attenuation, the specification's Branch~A; both branches remained live). The registered
+contamination check runs first: a slope change on the filing-day jump of the same sign and
+comparable size as on the run-up would refute the partition itself. It recorded
+$\hat\delta(\mathrm{JUMP}) = +0.54$pp ($p = 0.928$) against
+$\hat\delta(\mathrm{RUNUP5}) = +0.02$pp ($p = 0.997$), \path{partition_refuted: false} --- and
+the record's own caption is honest about it: the check fires only on a significant jump
+interaction, so with an $11.62$pp MDE against a $0.54$pp coefficient it had no power to fire; an
+untaken test, not a passed one (\path{theory_corroboration_2026-08-31.md}, \S2). The leg
+proper: $\hat\delta(\mathrm{RUNUP5}) = +0.02$pp, standard error $4.42$pp, quoted $p = 0.997$,
+realised MDE $12.39$pp; $\hat\delta(\mathrm{JUMP}) = +0.54$pp, standard error $4.15$pp, quoted
+$p = 0.928$, realised MDE $11.62$pp. Under the decision table (\S10, row~2) both are uninformative
+bounded nulls: the principal coefficient is roughly one seven-hundredth of its own MDE, and the
+design cannot discriminate economically relevant signs. The pre-period level prediction both
+branches shared (a negative liquidity slope on the run-up, \S3.5.1) did not come through
+point-wise either: the realised pre-reform slope on the five-day run-up is $+4.14$pp with standard
+error $3.95$pp. The level shift $\gamma$(Post) is not identified under the year-quarter fixed
+effects and was correctly not reported (\S3.5's collinearity note). Two registered defence rows:
+the per-day run-up variant, $\hat\delta = -1.39$pp ($p = 0.341$, $N = 882$), and the
+identical-window variant in which every run-up is exactly five trading days, $\hat\delta = +4.18$pp
+($p = 0.478$, $N = 242$, MDE $14.71$pp).
+
+\paragraph{The bindingness dose (specification \S4). Label: ESTIMATED.}
+Source: \path{empirics/output/dose_estimate.json}. The dose --- a filer's pre-period propensity
+to file past the five-business-day deadline, built from pre-period behaviour only --- is directly
+measured for $127$ filers covering $249$ filings; the imputed-dose robustness row carries $731$,
+and the specification's realised-counts corrigendum records how thin the directly measured
+coverage is ($189$ of $1{,}710$ pre-period filers, $27.5$ percent of pre-period filings, on the
+dose window without the script's $90$-day band). Every dose interaction is a null. On the primary
+dose: run-up $\hat\varphi = +3.83$pp ($p = 0.620$, MDE $17.01$pp), jump $+3.14$pp ($p = 0.362$,
+MDE $8.62$pp), stake $+0.14$pp of stake ($p = 0.966$, MDE $7.51$pp). The alternative-dose,
+imputed-dose and within-liquidity-tercile rows run from $p = 0.31$ to $0.87$ with MDEs from $9.45$
+to $62.36$pp. The registered confound diagnostic records $\mathrm{corr}(D, \mathrm{LIQ}) = -0.027$.
+The first stage --- high-dose filers cut their realised delay by $7.25$ business days more than
+low-dose filers, standard error $1.44$, $t = -5.03$, $N = 249$ --- is labelled in the artifact
+itself as a mechanical validity check, not a finding. Under the decision table (\S10, row~3) the
+leg is uninformative: its discriminating cells cannot fire when the H2 interaction they key on is
+a zero.
+
+\paragraph{Stake at filing (specification \S5). Label: ESTIMATED.}
+Source: \path{empirics/output/stake_estimate.json}. The sample is $962$ filings with a usable
+parsed stake (seven rows outside $[0,100]$ dropped; $81$ rows below five percent carried as a
+count; winsorised at $[1.66, 93.53]$, winsorised standard deviation $18.57$pp; raw median $9.43$
+percent against the activist-hedge-fund benchmark median of $6.3$ percent, carried as a parser
+validation). The registered object is the level shift, identified by dropping the year-quarter
+effects for a linear trend and quarter-of-year dummies: $\hat\gamma(\mathrm{Post}) = -0.98$pp of
+stake, standard error $2.34$pp, wild-bootstrap $p = 0.714$, realised MDE $6.55$pp. The interaction
+is $\hat\delta = -2.16$pp (standard error $1.27$pp, wild $p = 0.120$, realised MDE $3.57$pp), with
+the year-quarter-fixed-effects variant at $-2.19$pp ($p = 0.117$) and $\gamma$ absorbed there by
+construction. The liquidity main effect, $-6.65$pp of stake per standard deviation of illiquidity
+(standard error $1.37$pp), is the strongest outcome coefficient in the package, and the record
+notes that the model signs nothing about it. The specification's registered power warning was borne
+out: the historical days-to-stake gradient implies a mechanical change of about $0.12$pp for the
+two-business-day cut in the median delay, so the realised MDE is about fifty-five times what a
+purely mechanical channel could produce --- the design registered in advance that it could not see
+that channel, and it did not.
+
+\paragraph{The bounded null (specification \S6). Arithmetic, not an estimate.}
+Sources: \path{research/empirics_v4/SPEC.md}, \S6, re-verified against the release text in the
+verification note named below; the ladder as stored in
+\path{empirics/output/did_estimate.json} (block \path{bounded_null_ladder_pp}). The
+Commission's Table~3 classifies non-corporate-action initial 13Ds, 2011--2021, by how much of the
+reported stake was already accumulated by the amended deadline: $80$ percent of campaigns were
+unconstrained, $20$ percent would have had some accumulation cut, $3$ percent would have lost at
+least a tenth of the stake, $1$ percent at least a quarter. Even if every constrained campaign's
+bid outcome flipped, the accumulation channel's aggregate effect on the twelve-month bid hazard is
+therefore capped by a ladder: at most $20$pp at the loosest rung, at most $3$pp at the headline
+rung, at most $1$pp at the tightest --- a ceiling, not an estimate. Three registered restrictions
+travel with it: it covers the accumulation channel only, not the rule's aggregate footprint; a
+reduced-form matched estimate may legitimately exceed it; and the dollar figures that accompany it
+are the release's own, which the Commission itself disclaims. Every figure was re-grepped clean
+against the release text on 2026-08-30.
+
+\paragraph{The bid-arrival coding (specification \S8.3): gates and audit.}
+Sources: \path{empirics/output/bid12_gates.json};
+\path{research/empirics_v4/bid12_audit_result_2026-08-30.md}. Of the fourteen recorded coding
+gates, thirteen pass; the one failure is the treated base-rate gate: the realised bid-arrival rate
+is $12.61$ percent on $3{,}418$ coded rows of $3{,}710$, against the $18.1$ percent
+acquired-within-twelve-months anchor borrowed from the literature for every power calculation in
+\S8.6 and \S9 --- the coder counts failed and withdrawn bids, so the realised rate was expected to
+run above the anchor and runs below it, and the artifact's own summary line is
+\path{all_passed: false}. The caveat travels with every bid-outcome MDE the record prints: each
+is built on the borrowed $18.1$ percent. The registered blind hand audit --- thirty filings,
+independent fresh readers who had not written the coder, readings sealed before the keys were
+opened, the control half's full-text searches re-run live --- found $0$ disagreements of $30$
+against a blocking threshold above $10$ percent, and does not block the leg. Two rulebook-coverage
+gaps the audit surfaced were flagged to the author with the registered rule frozen.
+
+\begingroup\sloppy
+\paragraph{The matched difference-in-differences (specification \S8). Label: NOT ESTIMATED.}
+Sources: \path{empirics/output/did_estimate.json};
+\path{empirics/output/did_diagnostics.json};
+\path{research/empirics_v4/did_matching_2026-08-31.md}. The matched control-outcome design is
+not estimated, and the artifact says so: label \texttt{NOT ESTIMATED}, status
+\path{design_failure}, \path{quote_as_result: false}. The registered funnel cuts $3{,}710$
+treated rows to a matched treated sample of $465$ ($325$ pre / $140$ post). The \S8.2 balance gate
+fails: post-match standardised differences on the past twelve-month return ($-0.131$) and
+idiosyncratic volatility ($0.122$) remain above $0.10$ after the predeclared tighter-caliper rerun
+($839$ pairs at the $0.20$ caliper; $932$ at $0.25$), so no coefficient exists. The \S8.8
+pre-trend test independently prohibits causal language on its own terms: joint $F = 3.25$ on six
+pre-quarters, $p = 0.0214$, below the registered $0.10$ block --- nothing in this leg may be read
+as an effect, whatever the balance gate had done. The \S8.7 placebo is recorded as blocked: of
+$568$ registered pseudo-reform dates none was estimable, with four blockers named in the artifact.
+There is no realised MDE --- no regression was fitted, and the artifact labels the power numbers
+``not a realised MDE''. What exists is design arithmetic on the registered anchors: on the realised
+matched counts, standard error $4.17$pp, MDE $11.70$pp, $15.32$pp clustered; the specification's
+printed $9.09$pp (clustered) computes one funnel stage higher, on $569$/$543$. Against the $3$pp
+headline rung of the bounded null, the design was three to five times too coarse: it could only
+ever have ruled out a large effect. The registered S2 sample (corporate-action Item-4 coding) does
+not exist, and no S2 row was synthesised. The survivorship treatment is recorded with its bias
+directions (the control group is conditioned on survival for $701$ unresolved delisted firms, $419$
+recovered and validated; the control bid rate biased down, the level coefficient biased up). One
+registered bar is cleared: the hand audit above.\par\endgroup
+
+\paragraph{Bidder entry by liquidity (specification \S9). Label: ESTIMATED, inheriting a failed
+gate.} Source: \path{empirics/output/bidder_entry_estimate.json}. Within 13D targets
+($N = 465$), the liquidity-by-post interaction is $-0.65$pp (standard error $3.93$pp, quoted
+$p = 0.878$, realised MDE $11.01$pp), with the liquidity main effect at $-1.63$pp (standard error
+$2.65$pp). The triple difference against the matched controls ($N = 1{,}133$; $326$ treated, $807$
+controls) is $\hat\tau = -5.94$pp (standard error $6.59$pp, quoted $p = 0.398$, realised MDE
+$18.45$pp) --- estimated on the unbalanced matched sample, so the artifact carries
+\path{design_status: failed_balance} and the standing instruction that $\hat\tau$ is reported
+as an interval and a sign, never as a test. The specification's printed rule-of-thumb MDEs
+($8.8$pp on S1, $19.8$pp on S2) were rescaled on realised counts to $18.2$ and $40.6$pp ($15.8$pp
+on the CRSP-matched variant), with the registered reading unchanged: the leg is not powered to
+detect anything economically plausible, and an uninformative landing was the registered
+expectation. The S2 row and the $2025$ extension are NOT ESTIMATED. Every MDE in this leg sits
+downstream of the failed base-rate gate above.
+
+\begingroup\sloppy
+\paragraph{The pseudo-trigger placebo (specification \S3.7). Label: ESTIMATED.}
+Source: \path{empirics/output/placebo_h1h2_estimate.json}. Trigger and filing dates are shifted
+back $63$ trading days with windows identical by construction, on the full-funnel basis ($1{,}071$
+rows; the basis deviation from the main-sample registration is disclosed in the record). The
+pseudo-partition coefficient is $-0.19$pp (quoted $p = 0.754$, MDE $1.58$pp) and the pseudo-jump
+slope change $+0.21$pp ($p = 0.727$, MDE $1.66$pp), both clean. The pseudo-run-up slope change is
+$-2.01$pp ($p = 0.081$, MDE $3.22$pp): a borderline flag, recorded as one with its reasoning (the
+real run-up slope change is null at $p = 0.997$), and no demotion, since the registered rule
+demotes only on a significant pseudo-slope. Two registered checks produced no artifact: the 13G
+descriptive placebo, pending its own fetch and parse pass and recorded in the artifact's
+\path{not_run} field, and the quarterly liquidity-slope pre-trend $F$-test for the timing split,
+unrun and unflagged, as the verification note records. The registered run-up path (\S7) ---
+descriptive by design --- was never executed; it is listed here so that the register of registered
+legs is complete.\par\endgroup
+
+\paragraph{The independent verification of 2026-08-30.}
+Source: \path{quality_reports/verification/2026-08-30_estimates_verify.md} (which survives in
+the live tree). A fresh session that had written none of the scripts re-ran the four committed
+estimation sets of 2026-08-30 --- the timing split, the dose, the stake, the placebo, and the
+bounded-null sources --- from the manifest inputs and diffed against the committed outputs: five of
+six artifacts identical up to the timestamp field, the sample file bit-identical, two spot
+quantities recomputed with independent code agreeing to fifteen significant digits, and every
+release figure behind the bounded null re-grepped clean. Every claimed number matched. The named
+caveats: three documentation imprecisions (full-frame figures quoted where the estimation sample
+was meant), seven minor script-versus-specification deviations (the largest the standardisation
+population noted under H1), and the unrun pre-trend bullet noted above. The matched-DiD and
+bidder-entry artifacts landed on 2026-08-31, after that verification; they carry their own gates
+and audits, recorded above.
+
+\paragraph{What the record does and does not establish.}
+H1 does not establish the pooled slope: the registered supportive cell needs the run-up's liquidity
+slope significantly non-zero, and it is $+0.67$pp against a $2.84$pp standard error. H2's principal
+coefficient is roughly one seven-hundredth of its own minimum detectable effect; its nominal sign
+is not evidence of the branch it points to. The dose is null at every row; the stake's level shift
+is null at fifty-five times the mechanical magnitude it was hunting; the matched control-outcome
+design is not estimated, its pre-trend test bars causal language in any case, and the bidder-entry
+triple difference inherits the failed match. The most the record honestly provides is labelled
+estimates, intervals, MDEs and failures --- plus one arithmetic ceiling, the Commission's Table~3
+ladder, which caps the accumulation channel at about three percentage points of the twelve-month
+bid hazard and is a ceiling, not an estimate. The record is preserved because it was registered,
+executed, viewed and verified: a pre-specified design that is superseded belongs in the open,
+disclosed in full and relied on for nothing. That is the position this paper adopts, and it is the
+whole of what this section is for.
 
 %==============================================================================
 \section{Proofs of the core lemmas}
