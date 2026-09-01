@@ -23,8 +23,15 @@
       "verdict": "PASS"
     },
     "G3_parser_validation": {
-      "note": "run audit-sample, hand-code, commit, then audit-report",
-      "verdict": "NOT RUN"
+      "error_cases": [],
+      "errors_by_window": {
+        "post": 0,
+        "pre": 0
+      },
+      "material_errors": 0,
+      "n_coded": 60,
+      "threshold": 3,
+      "verdict": "PASS"
     }
   },
   "headline_suppressed": false,
