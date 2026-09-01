@@ -7,6 +7,7 @@ Run:
 from __future__ import annotations
 
 import datetime as dt
+import json
 import os
 
 import numpy as np
@@ -119,6 +120,31 @@ def check_campaign_collapse_keeps_earliest_acceptance():
     kept = e1.collapse_campaigns(df)
     assert len(kept) == 1
     assert kept.iloc[0]["accession"] == "a"
+
+
+@check
+def check_draft_numbers_match_estimate():
+    # The draft hardcodes the E1 numbers in prose and tables; this guard fails the
+    # suite when a re-run of e1.py changes any headline rendering.
+    root = os.path.dirname(os.path.dirname(os.path.abspath(e1.__file__)))
+    draft = open(os.path.join(root, "draft_v3.tex")).read()
+    est = json.load(open(os.path.join(root, "empirics", "output", "e1_estimate.json")))
+    pre, post = est["per_period"]["pre"], est["per_period"]["post"]
+    inf, g1 = est["inference"], est["gates"]["G1_worst_case_bound"]
+    expected = [
+        f"{est['enumerated']['pre']} & {est['enumerated']['post']}",
+        f"{pre['n_eligible']} & {post['n_eligible']}",
+        f"{pre['n_resolved']} & {post['n_resolved']}",
+        f"{100 * pre['share_complete_case']:.1f}\\% & {100 * post['share_complete_case']:.1f}\\%",
+        f"$+{100 * est['difference_complete_case']:.1f}$",
+        f"[$+{100 * inf['difference_ci_low']:.1f}$, $+{100 * inf['difference_ci_high']:.1f}$]",
+        f"[$+{100 * g1['difference_lower']:.1f}$, $+{100 * g1['difference_upper']:.1f}$]",
+        f"${pre['n_unresolved']}$ pre, ${post['n_unresolved']}$ post",
+        f"seed ${inf['seed']}$",
+        f"{inf['n_boot']:,}".replace(",", "{,}"),
+    ]
+    for rendering in expected:
+        assert rendering in draft, f"draft_v3.tex lost the E1 rendering {rendering!r}"
 
 
 def main() -> int:
