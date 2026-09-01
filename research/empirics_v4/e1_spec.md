@@ -1,0 +1,114 @@
+# E1: realised filing delay around the Feb-2024 acceleration
+
+Registered 2026-09-01. This file is the specification. Committing it before any run is the
+registration. Git commit order is the evidence; there are no hash chains, sidecars, or
+manifests.
+
+## Question
+
+Did the realised delay between the trigger event and the Schedule 13D filing fall after the
+Feb-2024 acceleration moved the window margin from 10 calendar days to 5 business days?
+
+## Claim boundary
+
+E1 is descriptive. It is a before-and-after comparison with no control group. It does not
+identify an effect on liquidity, returns, activism, bidder entry, takeover premia, or control
+outcomes. It does not test L2 or T1. Prose may not promote it.
+
+## Population
+
+Every `SC 13D` original listed in the EDGAR quarterly form indexes for:
+
+- pre: 2023Q2 and 2023Q3, 1,223 filings
+- post: 2024Q3 and 2024Q4, 904 filings
+
+Exact form-type match excludes `SC 13D/A`. The full universe, not a sample.
+
+## Unit
+
+One row per `(subject_cik, trigger_date)`. Where a reporting group files simultaneously on the
+same subject and trigger, keep the earliest accession by acceptance timestamp, breaking ties on
+accession string. Accession-level estimates are reported as a sensitivity.
+
+## Measurement
+
+- Trigger date: "Date of Event Which Requires Filing". Structured XML tag first, cover-page
+  regex second.
+- Filing date: the EDGAR `ACCEPTANCE-DATETIME`. Acceptance after 17:30 America/New_York rolls
+  the effective date to the next business day.
+- Delay: federal business days from trigger date to effective filing date, computed with
+  `numpy.busday_count` against the federal holiday list generated in `empirics/facts.py`.
+
+## Status
+
+Every enumerated accession receives exactly one status: `resolved`, `ineligible`, or
+`unresolved`, each with a reason code. No row disappears because its delay is negative, long,
+missing, or inconvenient.
+
+There is no outcome screen. No filing is dropped for an implausible delay. Extremes stay
+visible and are reported separately as a data-quality item.
+
+## Estimands
+
+- Primary: the share of filings with delay of 5 business days or fewer, pre and post, and the
+  post-minus-pre difference.
+- Co-primary: the median delay in business days, pre and post.
+- Secondary: the empirical CDF of delay in each period.
+
+## Inference
+
+Cluster bootstrap on `subject_cik`, 2,000 draws, seed 20260901, percentile confidence intervals
+at 95 percent.
+
+## Bounds
+
+Report worst-case lower and upper bounds on the primary share and on the post-minus-pre
+difference, assigning every unresolved eligible filing to the extreme that most hurts the claim
+and then to the extreme that most helps it. Report the bounds beside the complete-case
+estimates, never instead of them.
+
+## Gates
+
+Three gates, all binding. A failure writes a `NO-GO` note and suppresses the headline. A
+failure does not license editing this file.
+
+**G1, worst-case bound.** The worst-case lower bound on the post-minus-pre difference in the
+primary share is above zero.
+
+This gate has a known feasibility threshold, derived before registration from the June 2026
+sample (resolved shares 0.357 pre and 0.756 post; parse rates 0.68 pre and 0.64 post):
+
+```
+worst-case post lower = 0.756 x 0.64        = 0.484
+worst-case pre  upper = 0.357 x 0.68 + 0.32 = 0.563
+worst-case difference                       = -0.079
+```
+
+Solving `0.756r - [0.357r + (1-r)] > 0` for a common resolved rate r gives **r > 71.5 percent**.
+G1 therefore cannot pass below roughly 72 percent coverage in each period. Raising coverage to
+at least 75 percent is a prerequisite of the run, not an adjustment made after seeing a result.
+Parser improvement and manual recovery are measurement work; they change no rule in this file.
+
+If the bound still fails to clear zero at achieved coverage, the paper reports the bounded range
+as the result and claims no decline. That is a finding about what this data supports.
+
+**G2, differential coverage.** The absolute gap between the pre and post unresolved shares is at
+most 10 percentage points.
+
+This is the live hazard. Structured XML became mandatory on 2024-12-18, inside the post window,
+so post filings parse more easily than pre filings by construction. Differential coverage alone
+would manufacture the primary result. G2 catches it.
+
+**G3, parser validation.** Hand-code 60 filings, stratified by period and parse route, before
+seeing the parser's answer for those cases. At most 3 material date errors, and no directional
+pattern of errors by period. Parser validation is on the referee checklist.
+
+The blind is enforced by commit order. The audit sample carries case IDs and source excerpts and
+no parser output. Coding is committed before the comparison runs.
+
+## Outputs
+
+`empirics/output/e1_delays.csv`, `e1_estimate.json`, `e1_cdf.pdf`. The JSON is the single result
+authority and records per-period enumerated, resolved, ineligible and unresolved counts, all
+three gate verdicts, complete-case estimates, worst-case bounds, confidence intervals, the seed,
+and `causal_claim: false`.
