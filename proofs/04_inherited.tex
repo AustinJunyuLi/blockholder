@@ -1,0 +1,731 @@
+% ===========================================================================
+% The flagged cell is free of the noise-trading intensity.
+% ===========================================================================
+
+\providecommand{\Eop}{\mathbb{E}}
+\providecommand{\Prb}{\mathbb{P}}
+\providecommand{\ind}{\mathbf{1}}
+\providecommand{\ND}{\mathrm{ND}}
+\providecommand{\Sfl}{\mathsf{S}_F}
+
+\begin{lemma}[The flagged cell does not move with liquidity]
+\label{lem:flagged-kappa-free}
+Fix the cutoff policy and the execution policy, and let the disclosure rule $(\tau,T)$ be fixed.
+Assume the primitive draws are mutually independent with strictly positive variances; the menu, the
+image of the coarsening $\Gamma$, the noise support and the calendar are finite; every stake path
+$s\mapsto B_j(s,d)$ is Borel, with Voice stakes weakly increasing in the signal and in the date; the
+blockholder does not revise the stake path in response to realised order flow or prices; the legal-clock definitions
+hold, including $D=1\Rightarrow a=1$ and the restriction that only Voice plans cross; the composed
+terminal target $s\mapsto b^*_{j(s)}(s)$ is strictly increasing on the flagged signal region, almost
+surely on the flagged set; the inner pricing fixed point is unique; the flagged weight satisfies
+$\Omega>0$; and the bidder's entry rule has the two properties
+\begin{equation}
+\label{eq:entry-props}
+\Prb(\mathsf B=1\mid\mathcal I_H)=p(\mathcal I_H)
+\qquad\text{and}\qquad
+\mathsf B \perp v \mid \mathcal I_H .
+\end{equation}
+Then, on the flagged cell $\mathcal C_F$, the flagged tuple $\Sfl=(B^F,Q^F,a{=}1)$ makes the
+pre-filing pooled history conditionally independent of $(v,s,\xi)$, and the flagged posterior, the
+flagged price, the bidder's entry probability and the flagged cell average $M_F$ do not depend on
+$\kappa$. In addition $\Omega$ does not depend on $\kappa$, so $\partial_\kappa\Omega=0$ at fixed
+policies.
+\end{lemma}
+
+\begin{proof}
+Write $\Xi:=(v,s,\xi)$ for the triple whose conditional independence is at issue, $z_{0:H}$ for the
+noise vector, $\mathcal H_{f^-}^P$ for the pre-filing pooled history on a flagged path, and
+$\mathcal I_H$ for the public information set at the control node, which the model sets equal to
+$\Sfl$ on the flagged cell. The functions $u_1,u_2,u_3,u_5$ below are bounded and measurable and are
+local to this proof.
+
+\emph{Step 1 (where $\kappa$ lives).} At fixed cutoff and execution policies, and with no revision of
+the path within the window, every policy object is a function of $(s;\tau,T)$ alone: the selected
+plan $j=j(s)$, the stake path $B_j(s,\cdot)$, the order marks $q_{jd}(s)$, the terminal target
+$b_j^*(s)$, the crossing date $c_j(s)$, the filing date $f_j(s)$, the disclosure indicator $D_j(s)$,
+the stake at filing $B_j^F(s)$ and the flagged order $Q_j^F(s)$. Absence of feedback removes any
+dependence on realised order flow or prices, and fixed policies remove any dependence on $\kappa$
+through re-optimised cutoffs. Among the primitives, $\kappa$ appears in exactly one place, the law of
+the ternary noise mark; the laws of $v$, $\varepsilon$ and $\xi$ and the remaining constants carry no
+$\kappa$. Write $Q_\kappa$ for the law of $z_{0:H}$. At fixed policies, then, $\kappa$ enters the
+model only through $Q_\kappa$.
+
+\emph{Step 2 (the flagged set and its mass are free of $\kappa$).} The disclosure indicator
+$D=\ind\{a=1,\ c(\tau)+T\le H\}$ is measurable, and by Step~1 it is a function of the signal alone.
+Hence the flagged cell $\mathcal C_F=\{D=1\}$ lies in $\sigma(s)$ and is one fixed Borel subset of
+the signal line, the same subset at every $\kappa$. The signal $s=v+\varepsilon$ is
+$N(\mu_v,\sigma_v^2+\sigma_\varepsilon^2)$, a law free of $\kappa$ because the noise mark enters
+neither $v$ nor $\varepsilon$. Therefore $\Omega=\Prb(s\in\mathcal C_F)$ is the same number at every
+$\kappa$, which is the last conclusion of the statement.
+
+\emph{Step 3 (the flagged tuple pins the signal, with a measurable inverse).} On $\mathcal C_F$ the
+engagement flag is $a=1$, since disclosure implies engagement and only Voice plans cross, so the
+third coordinate of $\Sfl$ is uninformative there. By the definition $Q_j^F=b_j^*(s)-B_j^F$,
+\begin{equation}
+\label{eq:flagged-target}
+B^F_{j(s)}(s) \;+\; Q^F_{j(s)}(s) \;=\; b^*_{j(s)}(s).
+\end{equation}
+The composed terminal target on the right of \eqref{eq:flagged-target} is strictly increasing in the
+signal on the flagged region and is therefore injective there. That monotonicity is consumed almost
+surely on the flagged set, which is the only coherent reading when $B^F$ is continuum-valued: no
+individual flagged tuple then carries positive probability, so injectivity holds almost surely on a
+set of positive probability rather than on a set of atoms. Consequently the first two coordinates of
+$\Sfl$ determine $b^*_{j(s)}(s)$, which determines $s$, which at fixed policies determines $j=j(s)$.
+Write $\iota_F$ for the resulting inverse. It is strictly increasing on the image of the composed
+target, and a monotone real function on a Borel set is Borel, so $\iota_F$ is measurable; no
+measurable-selection theorem is needed. Since $\Omega>0$, the set on which this holds carries
+strictly positive probability and the statement is not vacuous. Restricted to $\mathcal C_F$,
+therefore, $\sigma(\Sfl)=\sigma(s)$ up to null sets. Strict monotonicity is what the step consumes:
+if two signals produced the same flagged tuple while carrying different pooled paths,
+\eqref{eq:flagged-target} would fail to be injective and the tuple would not pin the pooled path.
+
+\emph{Step 4 (the pre-filing pooled history is a noise transform indexed by plan and signal).}
+Define, for a plan $j$ and a signal $s$,
+\begin{equation}
+\label{eq:flagged-upsilon}
+\Upsilon_{j,s}(z_{0:H}) \;:=\;
+  \Bigl( \bigl(q_{j0}(s)+z_0,\dots,q_{j,f_j(s)-1}(s)+z_{f_j(s)-1}\bigr);\ \text{flag not landed by }
+  f_j(s)-1 \Bigr),
+\end{equation}
+so that $\mathcal H_{f^-}^P=\Upsilon_{j(s),s}(z_{0:H})$ pointwise on $\mathcal C_F$. The indexing by
+$(j,s)$ alone is exactly the absence of feedback: with re-optimisation inside the window the marks
+would depend on realised flow, hence on past noise, and no such indexing would exist. The map
+\eqref{eq:flagged-upsilon} is jointly measurable in $(s,z_{0:H})$. The filing date takes finitely
+many values because the calendar is finite, and on each of its finitely many measurable level sets
+the map is $(s,z)\mapsto(q_{j(s)d}(s)+z_d)_{d<t}$, measurable because
+$q_{jd}=\Gamma\bigl(B_j(\cdot,d)-B_j(\cdot,d-1)\bigr)$ composes a Borel function, Voice stakes being
+monotone in the signal and only Voice plans reaching $\mathcal C_F$, with the coarsening $\Gamma$,
+itself Borel because it is ordered in the increment. This is unaffected by the size of the
+blockholder's per-round order, which fixes the value the mark takes on a building round but not its
+measurability in the signal. Patching finitely many measurable restrictions gives a measurable map.
+The second component of \eqref{eq:flagged-upsilon} is a deterministic function of $s$ by Step~1 and
+carries no information beyond $s$.
+
+\emph{Step 5 (observed prices enlarge nothing).} Each pooled price is the unique fixed point of the
+pricing map at its pooled history and is therefore a function of that history, and likewise the
+flagged price is a function of the flagged information set. Adjoining the value of a function of a
+generator of a $\sigma$-algebra to that $\sigma$-algebra does not enlarge it, so prices may be
+ignored when the information content of $\mathcal I_H$ is computed.
+
+\emph{Step 6 (an information sandwich).} On $\mathcal C_F$,
+\begin{equation}
+\label{eq:flagged-sandwich}
+\sigma(s) \cap \mathcal C_F \;\subseteq\; \mathcal I_H \;\subseteq\;
+  \sigma(s,z_{0:H}) \cap \mathcal C_F .
+\end{equation}
+For the left inclusion: the filing reveals $F=(B^F,a{=}1)$ and the flagged order is submitted and
+priced, so $\Sfl$ belongs to $\mathcal I_H$; by Step~3 the tuple recovers $s$; and
+$\mathcal C_F\in\sigma(s)$ by Step~2, so restricting to the flagged cell is itself an operation
+within $\sigma(s)$. For the right inclusion: every component of $\mathcal I_H$, namely pooled order
+flow, flag status, filing content, the flagged order and prices, is a measurable function of
+$(s,z_{0:H})$ by Steps~1, 4 and~5. Everything below uses only \eqref{eq:flagged-sandwich}, so the
+conclusion is robust to the exact content assigned to the control-node information set, provided it
+satisfies the sandwich.
+
+\emph{Step 7 (a freezing lemma).} Let $\mathcal G$ be a $\sigma$-algebra with $z_{0:H}$ independent
+of $\mathcal G$, let $S$ be $\mathcal G$-measurable, let $w$ be bounded and jointly measurable, and
+put $\bar w(x):=\int w(x,\zeta)\,Q_\kappa(\mathrm d\zeta)$. Then
+$\Eop[w(S,z_{0:H})\mid\mathcal G]=\bar w(S)$. For a product form $w(x,\zeta)=u_1(x)u_2(\zeta)$ this
+is $\Eop[u_1(S)u_2(z_{0:H})\mid\mathcal G]=u_1(S)\Eop[u_2(z_{0:H})]=\bar w(S)$, pulling out the
+$\mathcal G$-measurable factor and using independence. The product forms generate the product
+$\sigma$-algebra and are closed under multiplication; both sides of the asserted equality are linear
+in $w$ and stable under bounded monotone limits, so the monotone class theorem extends the equality
+to every bounded jointly measurable $w$.
+
+\emph{Step 8 (the conditional independence).} By Step~3, conditioning on $\sigma(\Sfl)$ on the
+flagged set is conditioning on $\sigma(s)$, so what has to be shown is
+$\mathcal H_{f^-}^P \perp \Xi \mid s$ on $\mathcal C_F$. Given $s$, the middle coordinate of $\Xi$ is
+degenerate, so it suffices to show, for bounded measurable $u_1$ on the pre-filing history space and
+bounded measurable $u_2$ on $\mathbb R^2$,
+\begin{equation}
+\label{eq:flagged-factor}
+\Eop\bigl[u_1(\mathcal H_{f^-}^P)\,u_2(v,\xi) \mid s\bigr]
+ \;=\; \Eop\bigl[u_1(\mathcal H_{f^-}^P) \mid s\bigr]\cdot\Eop\bigl[u_2(v,\xi) \mid s\bigr]
+ \qquad \text{a.s.\ on } \mathcal C_F,
+\end{equation}
+which is the standard characterisation of conditional independence given a $\sigma$-algebra. Put
+$w(x,\zeta):=u_1\bigl(\Upsilon_{j(x),x}(\zeta)\bigr)$, bounded and jointly measurable by Step~4, so
+that $u_1(\mathcal H_{f^-}^P)=w(s,z_{0:H})$. The noise vector is independent of
+$(v,\varepsilon,\xi)$ and hence of $\Xi$, which is a measurable function of that triple. Apply
+Step~7 with $\mathcal G=\sigma(v,s,\xi)$ and $S=s$:
+$\Eop[w(s,z_{0:H})u_2(v,\xi)\mid v,s,\xi]=u_2(v,\xi)\,\bar w(s)$. Taking $\Eop[\,\cdot\mid s]$ of
+both sides and pulling out the $\sigma(s)$-measurable factor $\bar w(s)$ gives
+$\Eop[u_1u_2\mid s]=\bar w(s)\,\Eop[u_2\mid s]$; setting $u_2\equiv1$ in the same display gives
+$\Eop[u_1\mid s]=\bar w(s)$, and substituting yields \eqref{eq:flagged-factor}. Unconditionally the
+pre-filing pooled history depends strongly on the signal through the order marks, and the
+conditioning event removes that dependence by pinning the signal, leaving the noise as the only
+remaining randomness in \eqref{eq:flagged-upsilon}.
+
+\emph{Step 9 (the flagged posterior).} Let $u_3$ be bounded, $\mathcal I_H$-measurable and supported
+on $\mathcal C_F$. By the right inclusion of \eqref{eq:flagged-sandwich} and the Doob--Dynkin lemma,
+$u_3=u_5(s,z_{0:H})$ for some bounded jointly measurable $u_5$. Running the computation of Step~8
+with $u_5$ in place of $w$ gives $\Eop[u_2u_3]=\Eop\bigl[\bar u_5(s)\,\Eop[u_2\mid s]\bigr]$, while
+the tower property together with $\Eop[u_3\mid s]=\bar u_5(s)$ from Step~7 gives
+$\Eop\bigl[u_3\,\Eop[u_2\mid s]\bigr]=\Eop\bigl[\bar u_5(s)\,\Eop[u_2\mid s]\bigr]$. Hence
+$\Eop[u_2u_3]=\Eop\bigl[\Eop[u_2\mid s]\,u_3\bigr]$ for every such $u_3$; since $\Eop[u_2\mid s]$ is
+$\sigma(s)$-measurable and the left inclusion of \eqref{eq:flagged-sandwich} places
+$\sigma(s)\cap\mathcal C_F$ inside $\mathcal I_H$, it is a version of $\Eop[u_2\mid\mathcal I_H]$ on
+the flagged set:
+\begin{equation}
+\label{eq:flagged-posterior}
+\Eop[u_2(v,\xi) \mid \mathcal I_H] \;=\; \Eop[u_2(v,\xi) \mid s]
+ \qquad \text{a.s.\ on } \mathcal C_F .
+\end{equation}
+The extension from bounded to integrable $u_2$, needed at Step~11 for $u_2(v,\xi)=v$, follows by
+applying \eqref{eq:flagged-posterior} to the truncations $\max(-n,\min(n,u_2))$ and passing to the
+limit under conditional dominated convergence, the dominating variable being $|u_2|$, integrable
+because $v$ is Gaussian. Separately, the engagement posterior satisfies $\pi(\mathcal I_H)=1$ on
+$\mathcal C_F$, because the flagged cell lies inside $\{a=1\}$, and because the cell is itself
+$\mathcal I_H$-measurable, being $\{D=1\}$ with $D$ part of the flag status carried in
+$\mathcal I_H$.
+
+\emph{Step 10 (the posterior does not move with $\kappa$).} By \eqref{eq:flagged-posterior} the
+conditional law of $(v,\xi)$ given $\mathcal I_H$ on the flagged set equals its conditional law given
+$s$. That law is $v\mid s \sim N\bigl(\mu_v+\beta(s-\mu_v),(1-\beta)\sigma_v^2\bigr)$ with
+$\beta=\sigma_v^2/(\sigma_v^2+\sigma_\varepsilon^2)$, and $\xi\mid s \sim N(0,\sigma_\xi^2)$
+independent of $v$. Neither depends on $\kappa$, which by Step~1 lives only in $Q_\kappa$ and enters
+no coordinate of $\Xi$. With $\pi=1$ from Step~9, the flagged posterior over $(v,a,\xi)$ is a
+function of the signal that does not move with $\kappa$, hence by Step~3 a function of $\Sfl$ that
+does not move with $\kappa$.
+
+\emph{Step 11 (the flagged price).} The flagged price solves the inner fixed point
+$P=\Eop[Y\mid\mathcal I_H]$. On the flagged cell $a=1$ and $\pi=1$, so
+$m_0+\Delta_m=m_1$. Only the two entry properties \eqref{eq:entry-props} are used. The entry rule of
+the model has both, since the bidder's shock satisfies $\xi\mid\mathcal I_H \sim N(0,\sigma_\xi^2)$
+independently of $v$ by Step~10 and the entry indicator is a function of $\xi$ and of
+$\mathcal I_H$-measurable quantities; any other rule with these two properties works as well. Under
+them,
+\begin{equation}
+\label{eq:flagged-innerFP}
+P \;=\; \bigl(1-p(P)\bigr)\Bigl(\mu_v+\beta(s-\mu_v)+\Delta_V\Bigr) \;+\; p(P)\bigl(P+m_1\bigr),
+\qquad
+p(P) \;=\; 1-\Phi\!\left(\frac{P+K+m_1-\bar S}{\sigma_\xi}\right),
+\end{equation}
+where $\Eop[v\mid\mathcal I_H]=\Eop[v\mid s]=\mu_v+\beta(s-\mu_v)$ by
+\eqref{eq:flagged-posterior}. The data of \eqref{eq:flagged-innerFP} are the single number
+$\Eop[v\mid s]$ and the primitive parameters, none of which depends on $\kappa$ by Step~10.
+Uniqueness of the inner fixed point makes the solution a function of the data alone, so equal data
+give equal solutions. Uniqueness is load-bearing rather than decorative: without it an extraneous
+selection among fixed points could vary with $\kappa$ even though the map does not. Hence the flagged
+price is a function of the signal, and by Step~3 of $\Sfl$, that does not move with $\kappa$.
+
+\emph{Step 12 (the entry probability).} With $\pi=1$ from Step~9, the flagged entry probability is
+$p=1-\Phi\bigl((P^F+K+m_1-\bar S)/\sigma_\xi\bigr)$ on the flagged cell. Every argument is free of
+$\kappa$, by Step~11 for the price and by the primitive table for the constants. Write $p_F(s)$ for
+it. It is measurable as a composition of the monotone map $s\mapsto\Eop[v\mid s]$, the fixed-point
+solution and the normal distribution function, and it takes values in $(0,1)$.
+
+\emph{Step 13 (the flagged cell average).} The kernel of the premium is $h=\pi p$, so $h=p_F(s)$ on
+the flagged cell by Steps~9 and~12. Since $\Omega>0$, the partition result gives
+\begin{equation}
+\label{eq:flagged-MF}
+M_F \;=\; \Delta_m\,\Eop[h \mid D=1]
+     \;=\; \frac{\Delta_m\,\Eop\bigl[p_F(s)\,\ind\{s \in \mathcal C_F\}\bigr]}{\Omega} .
+\end{equation}
+The numerator of \eqref{eq:flagged-MF} integrates a bounded measurable function free of $\kappa$
+(Step~12) over a Borel set free of $\kappa$ (Step~2) against the law of the signal, itself free of
+$\kappa$ (Step~2), and the denominator is free of $\kappa$ and strictly positive. Hence $M_F$ does
+not move with $\kappa$, which completes the four invariance conclusions.
+\end{proof}
+
+Two boundaries of the result are part of it. Nothing above asserts that the pre-filing pooled price
+does not move with $\kappa$: that price conditions on order flow whose law is $Q_\kappa$, and it
+moves with $\kappa$ in general. With $J=P^F-P_{\ND}$, where $P_{\ND}$ is the last pre-filing pooled
+price at the same realised order flow, and with $\partial_\kappa P^F=0$ on the flagged set, wherever
+the derivative exists $\partial_\kappa J=-\partial_\kappa P_{f^-}^P$. The result therefore makes no
+claim about the filing-day jump. And the result is a fixed-policy statement: if cutoffs or execution
+paths move with $\kappa$, Step~1 is unavailable and the conclusions do not follow.
+
+%==============================================================================
+% The partition and the factorisation  S = (1 - Omega) S_P
+%==============================================================================
+
+\providecommand{\Prb}{\mathbb{P}}
+\providecommand{\Eop}{\mathbb{E}}
+\providecommand{\ind}{\mathbf{1}}
+\providecommand{\Dact}{\Delta_{\mathrm{act}}}
+
+\subsection{The partition and the factorisation}
+\label{sec:partition-factorisation}
+
+The disclosure rule $(\tau,T)$ acts on the model first as a partition of histories and only then as
+a statement about prices. This subsection separates the two. The partition is combinatorial and
+needs no restriction on cell mass; the two-cell decomposition of the premium needs an interior
+partition; the factorisation of the liquidity sensitivity needs, in addition, that the flagged
+endpoint and the flagged weight are both free of $\kappa$.
+
+\subsubsection*{Standing conditions}
+
+The following are in force throughout the subsection.
+
+\begin{enumerate}[label=(S\arabic*),leftmargin=3.0em,itemsep=2pt]
+\item \label{p:space} \emph{One probability space.} The primitive vector, the value $v$, the signal
+  noise $\varepsilon$, the bidder draw $\xi$ and the noise-trader marks $z_{0:H}$, has a joint law
+  on a finite product of Polish spaces, with the noise marks valued in the finite set
+  $\{-\bar z,0,+\bar z\}$. The signal is $s = v + \varepsilon$.
+\item \label{p:menu} \emph{A finite menu and a finite calendar.} The plan menu $\mathcal J$ is
+  finite, the horizon $H$ is finite, and the window margin satisfies $T \in \{1,\dots,H\}$.
+\item \label{p:cutoff} \emph{A cutoff selection map.} The signal is carried into a plan by a step
+  function $j(\cdot)$ with breakpoints $k_1 \le \dots \le k_{J-1}$.
+\item \label{p:paths} \emph{Monotone Voice paths and a clean start.} Each plan $j$ carries a stake
+  path $B_j(s,\cdot)$ with $B_j(s,-1) = b_0 < \tau$; for a Voice plan the path is weakly increasing
+  in the signal and weakly increasing in the calendar date.
+\item \label{p:clock} \emph{Legal-clock discipline.} Only Voice plans cross the threshold; the
+  crossing date $c_j(s)$ is the first date at which the path reaches $\tau$, or $+\infty$ if the
+  path never reaches it; the filing lands exactly at $f_j = c_j + T$ and only through the disclosure
+  node; the filing reports the stake truthfully.
+\item \label{p:public} \emph{The flag is public.} Each pooled history carries the coordinate ``the
+  filing has landed by date $d$'', and the control-node information set $\mathcal I_H$ contains the
+  pooled history up to the control node.
+\item \label{p:nofeedback} \emph{No-feedback timing.} The executed path, the order marks, the
+  terminal target, the crossing date, the filing date, the filing stake and the flagged order are
+  functions of the plan and the signal alone. Neither realised order flow nor a realised price
+  enters any of them.
+\item \label{p:kernel} \emph{A bounded, pinned kernel.} The engagement-premium kernel is
+  $h(\mathcal I) = \pi(\mathcal I)\,p(\mathcal I)$, where the engagement posterior
+  $\pi(\mathcal I) = \Prb(a = 1 \mid \mathcal I)$ takes values in $[0,1]$ and the bidder-entry
+  probability $p(\mathcal I)$ takes values in $(0,1)$ and is a continuous function of the posterior
+  and the price. The pricing rule pins one version of $\Eop[Y \mid \mathcal I]$ rather than an
+  equivalence class.
+\item \label{p:wedge} \emph{A finite wedge.} The premium wedge $\Delta_m$ is a finite, strictly
+  positive constant, and $\Dact = \Delta_m\,\Eop[h(\mathcal I_H)]$.
+\item \label{p:kappa} \emph{Liquidity enters in one place.} The intensity $\kappa$ appears in the
+  primitives only in the law of the ternary noise mark. The laws of $v$, $\varepsilon$ and $\xi$
+  and the remaining constants carry no $\kappa$.
+\item \label{p:fixed} \emph{Fixed policies.} The plan menu, the execution policies and the cutoff
+  vector $k$ are held fixed in $\kappa$ and held fixed across any two rules compared.
+\end{enumerate}
+
+\subsubsection*{The partition}
+
+\begin{lemma}[Disclosure partition]
+\label{lem:partition}
+Under \ref{p:space}--\ref{p:public}, the disclosure indicator
+$D = \ind\{a = 1,\ c(\tau) + T \le H\}$ is a measurable function of the control-node history, and
+the flagged cell $\mathcal C_F = \{D = 1\}$ and the pooled cell $\mathcal C_P = \{D = 0\}$ are
+disjoint and cover the space. Consequently the flagged weight $\Omega = \Prb(D = 1)$ is defined and
+$\Prb(D = 0) = 1 - \Omega$. No restriction on the mass of either cell is used.
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1 (the selection map is Borel).} By \ref{p:space} the signal $s = v + \varepsilon$ is a
+sum of two coordinates of a Borel vector and is therefore Borel. By \ref{p:cutoff} the map
+$j(\cdot)$ is a step function whose breakpoints are finite in number, by \ref{p:menu}, so it is a
+finite sum of indicators of half-lines and hence Borel. The set $\{s : j(s) = j\}$ is Borel for each
+$j \in \mathcal J$.
+
+\emph{Step 2 (the engagement flag is measurable).} The realised flag is $a = a_{j(s)}$, the
+composition of the Borel map of Step~1 with the map $j \mapsto a_j$ defined on the finite set
+$\mathcal J$. A map on a finite set carrying its discrete $\sigma$-algebra is measurable, so
+$\{a = 1\}$ is Borel and lies in $\sigma(s)$.
+
+\emph{Step 3 (the crossing date is attained, unique and measurable).} Fix a Voice plan $j$. By
+\ref{p:paths} the map $s \mapsto B_j(s,d)$ is weakly increasing, and the preimage of
+$[\tau,\infty)$ under a weakly monotone real function is an interval, so
+$\{s : B_j(s,d) \ge \tau\}$ is Borel at each date $d$. The calendar $\{0,\dots,H\}$ is finite by
+\ref{p:menu}, so
+\[
+  \{c_j \le d\} \;=\; \bigcup_{d' \le d}\{s : B_j(s,d') \ge \tau\}
+\]
+is a finite union of Borel sets and $c_j$ is a Borel map into $\{0,\dots,H\} \cup \{+\infty\}$. Its
+value is unique: a nonempty subset of the finite well-ordered set $\{0,\dots,H\}$ has exactly one
+minimum, and by \ref{p:clock} the crossing date is that minimum; if the subset is empty then
+$c_j = +\infty$.
+
+\emph{Step 4 (the disclosure indicator is measurable).} By \ref{p:clock} a filing requires
+$a = 1$, and $f_j = c_j + T \le H$ holds exactly when $c_j \le H - T$, the convention
+$(+\infty) + T = +\infty > H$ being available because $H$ is finite by \ref{p:menu}. Hence
+\begin{equation}
+\label{eq:cell-union}
+  \{D = 1\} \;=\; \bigcup_{j \in \mathcal J\,:\,a_j = 1}
+    \Bigl( \{s : j(s) = j\} \;\cap\; \{s : c_j(s) \le H - T\} \Bigr).
+\end{equation}
+Each set on the right is Borel by Steps~1 and~3, and the union is finite by \ref{p:menu}, so
+$\{D = 1\}$ is Borel and $D$ is a measurable $\{0,1\}$-valued map. Record one fact for later: at a
+fixed cutoff policy every ingredient of \eqref{eq:cell-union} is a function of $s$ alone, so
+$\{D = 1\} \in \sigma(s)$. Record a second: regularity of $s \mapsto B_j(s,d)$ was needed only for
+Voice plans, the conjunct $a = 1$ having removed the others from the union.
+
+\emph{Step 5 (exactly one cell, at the level of states).} By Step~4, $D$ is the indicator of a Borel
+event, so at every sample point it takes exactly one of the values $0$ and $1$. Therefore
+$\mathcal C_F \cap \mathcal C_P = \varnothing$ and $\mathcal C_F \cup \mathcal C_P$ is the whole
+space.
+
+\emph{Step 6 (the cell is a function of the observed history).} Step~5 partitions the space of
+states; the claim is about control-node histories. By \ref{p:public} each pooled history carries the
+coordinate ``the filing has landed by date $d$'', so the flag is public by construction, and
+$\mathcal I_H$ contains that coordinate at $d = H$. By \ref{p:clock} the filing lands exactly at
+$c + T$ and only through the disclosure node, so the coordinate ``the filing has landed by $H$''
+equals $\ind\{f \le H\}$; combining this with $D = \ind\{a = 1,\ c < \infty,\ f \le H\}$ and with the
+restriction that only Voice plans cross, that coordinate equals $D$. Hence $D$ is measurable with
+respect to the control-node history and the map from a history to its cell is single-valued and onto
+$\{\mathcal C_F, \mathcal C_P\}$. The public flag coordinate is what carries this step: without it
+$D$ would still be a measurable function of the state by Step~4, while the cell assignment would
+stop being a function of what is observed at the control node.
+
+\emph{Step 7 (the weight).} By Steps~5 and~6 the two cells are measurable, disjoint and exhaustive,
+so $\Omega = \Prb(D = 1)$ is defined and $\Prb(D = 0) = 1 - \Omega$. Steps~1 to~7 used no
+restriction on the value of $\Omega$, which may be $0$ or $1$.
+\end{proof}
+
+\subsubsection*{The two-cell decomposition}
+
+\begin{lemma}[Two-cell decomposition of the premium]
+\label{lem:two-cell}
+Under \ref{p:space}--\ref{p:wedge}, with the partition of Lemma~\ref{lem:partition}, and whenever
+$0 < \Omega < 1$,
+\begin{equation}
+\label{eq:two-cell}
+  \Dact \;=\; \Omega\,M_F \;+\; (1 - \Omega)\,M_P,
+  \qquad
+  M_F = \Delta_m\Eop[h \mid D = 1],
+  \quad
+  M_P = \Delta_m\Eop[h \mid D = 0].
+\end{equation}
+At $\Omega = 1$ the identity reads $\Dact = M_F$ and at $\Omega = 0$ it reads $\Dact = M_P$; in each
+of those two cases the average over the null cell is undefined rather than zero, and it is not
+determined by the law.
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1 (the kernel is bounded).} By \ref{p:kernel}, $\pi \in [0,1]$ and $p \in (0,1)$, so
+their product satisfies $0 \le h \le 1$ pointwise.
+
+\emph{Step 2 (the kernel is a random variable).} The posterior
+$\pi(\mathcal I_H) = \Prb(a = 1 \mid \mathcal I_H)$ is a version of a conditional probability and is
+$\mathcal I_H$-measurable, and so is the price $\Eop[Y \mid \mathcal I_H]$, whose version is pinned
+by \ref{p:kernel}. That is what makes $h(\mathcal I_H)$ one well-defined random variable rather than
+an equivalence class from which the decomposition would have to choose. The entry probability is the
+composition of the posterior and the price with a continuous map, hence $\mathcal I_H$-measurable,
+and a product of measurable functions is measurable. With Step~1 the kernel is integrable.
+
+\emph{Step 3 (the pointwise split).} By Lemma~\ref{lem:partition} exactly one of $\ind\{D = 1\}$ and
+$\ind\{D = 0\}$ equals one at every sample point and the other equals zero, so
+$h = h\,\ind\{D = 1\} + h\,\ind\{D = 0\}$ pointwise.
+
+\emph{Step 4 (integration).} Each summand in Step~3 is bounded in absolute value by $1$ by Step~1,
+hence integrable on the single probability space of \ref{p:space}. Linearity of the integral gives
+$\Eop[h] = \Eop[h\,\ind\{D = 1\}] + \Eop[h\,\ind\{D = 0\}]$.
+
+\emph{Step 5 (the interior case).} Suppose $0 < \Omega < 1$. Both conditioning events have strictly
+positive probability, so the elementary conditional expectations
+$\Eop[h \mid D = 1] := \Eop[h\,\ind\{D = 1\}]/\Omega$ and
+$\Eop[h \mid D = 0] := \Eop[h\,\ind\{D = 0\}]/(1 - \Omega)$ are defined, and Step~1 bounds both by
+$1$. This is the defining property of conditioning on an event of positive probability. Substituting
+into Step~4 gives $\Eop[h] = \Omega\,\Eop[h \mid D = 1] + (1 - \Omega)\,\Eop[h \mid D = 0]$.
+
+\emph{Step 6 (scaling to premia).} By \ref{p:wedge} the wedge $\Delta_m$ is finite and strictly
+positive. Multiplying Step~5 by $\Delta_m$ and reading off $\Dact$, $M_F$ and $M_P$ gives
+\eqref{eq:two-cell}.
+
+\emph{Step 7 (the case $\Omega = 1$).} Then $\Prb(D = 0) = 0$, and by Step~1
+$|\Eop[h\,\ind\{D = 0\}]| \le \Prb(D = 0) = 0$, so that term of Step~4 vanishes and
+$\Eop[h] = \Eop[h\,\ind\{D = 1\}] = \Omega\,\Eop[h \mid D = 1] = \Eop[h \mid D = 1]$, the middle
+equality being Step~5's definition, available because $\Omega = 1 > 0$. Multiplying by $\Delta_m$
+gives $\Dact = M_F$.
+
+\emph{Step 8 (at $\Omega = 1$ the pooled average is not determined by the law).} Step~5's definition
+does not apply to $M_P$, since it would divide by $\Prb(D = 0) = 0$. Conditioning on the generated
+$\sigma$-algebra supplies no value either. Let $\mathcal D := \sigma(D)$, whose atoms are
+$\{D = 1\}$ and $\{D = 0\}$, and let $x$ be any real number. The function
+\begin{equation}
+\label{eq:version}
+  \Delta_m\,\Eop[h \mid D = 1]\,\ind\{D = 1\} \;+\; x\,\ind\{D = 0\}
+\end{equation}
+is $\mathcal D$-measurable and integrates to $\Delta_m\Eop[h\,\ind_A]$ over every
+$A \in \mathcal D$, because two such functions with different values of $x$ differ only on the null
+set $\{D = 0\}$. Every real $x$ therefore yields a version of $\Delta_m\Eop[h \mid \mathcal D]$, so
+no value of $M_P$ is determined by the law, and the statement at $\Omega = 1$ is Step~7's one-term
+equation.
+
+\emph{Step 9 (the case $\Omega = 0$).} Mirror Steps~7 and~8 with the cells exchanged:
+$|\Eop[h\,\ind\{D = 1\}]| \le \Prb(D = 1) = 0$, so $\Eop[h] = \Eop[h \mid D = 0]$ and
+$\Dact = M_P$, while $M_F$ is left undetermined by the argument of Step~8.
+\end{proof}
+
+\medskip
+\noindent\emph{The identity is tied to this partition.} The identity \eqref{eq:two-cell} is tied to the disclosure partition and to no other. The flagged
+weight factors as $\Omega = \Prb(a = 1)\,\omega_a$ with $\omega_a = \Prb(D = 1 \mid a = 1)$, so
+$\Omega \le \Prb(a = 1)$, strictly when $\Prb(a = 1) > 0$ and $\omega_a < 1$. Averaging the kernel
+over $\{a = 1\}$ and $\{a = 0\}$ therefore gives a different decomposition, with the engaged but
+unflagged histories sitting in the pooled cell of \eqref{eq:two-cell}.
+\medskip
+
+\subsubsection*{The factorisation}
+
+Write $\mathcal S = |\partial_\kappa \Dact|$ for the liquidity sensitivity of the premium and
+$\mathcal S_P = |\partial_\kappa M_P|$ for the liquidity sensitivity of the pooled cell.
+
+\begin{proposition}[Factorisation of the liquidity sensitivity]
+\label{prop:factorisation}
+Assume \ref{p:space}--\ref{p:fixed}, the partition of Lemma~\ref{lem:partition}, the two-cell
+decomposition of Lemma~\ref{lem:two-cell}, an interior partition $0 < \Omega < 1$ at the policy under
+consideration, the invariance of the flagged endpoint in $\kappa$ at fixed policies, and, as an
+explicit hypothesis, differentiability of $\kappa \mapsto M_P$. Then
+\begin{equation}
+\label{eq:factorisation}
+  \mathcal S(\kappa,\tau,T) \;=\; \bigl(1 - \Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
+\end{equation}
+exactly. The same factor scales the total variation of $\Dact$ over any grid in $\kappa$, and there
+no differentiability is used.
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1 (the two-cell identity).} The partition is interior at the policy considered, so
+Lemma~\ref{lem:two-cell} applies in its non-degenerate branch and \eqref{eq:two-cell} holds at
+$(\kappa,\tau,T)$, with $M_F$ and $M_P$ the two cell averages.
+
+% The flagged-cell invariance is the companion result of this subsection ("the flagged cell is
+% kappa-free"); the cross-reference is wired when the appendix is assembled.
+\emph{Step 2 (the flagged cell does not move with $\kappa$).} At the fixed cutoff and execution
+policies of \ref{p:fixed}, the flagged posterior, the flagged price, the entry probability and $M_F$
+are invariant to $\kappa$, by the flagged-cell invariance assumed in the statement. Hence
+$\partial_\kappa M_F = 0$, and indeed $M_F$ is one and the same number at any two values of
+$\kappa$.
+
+\emph{Step 3 (the flagged weight does not move with $\kappa$ either).} This is derived, not assumed.
+By Step~4 of Lemma~\ref{lem:partition}, $\{D = 1\}$ is the finite union \eqref{eq:cell-union}, each
+of whose ingredients is a function of the signal alone once the cutoff policy is fixed. By
+\ref{p:nofeedback} the executed path $B_j(s,d)$ is a function of $(j,s,d)$ alone, so no realised
+order flow and no realised price enters it, and with the policies frozen by \ref{p:fixed} the
+indicator $D$ is a function of $s$ alone. The law of $s$ carries no $\kappa$: by \ref{p:space} the
+signal is $v + \varepsilon$, and by \ref{p:kappa} the laws of $v$ and $\varepsilon$ do not involve
+$\kappa$. Indeed $\kappa$ enters the primitives in one place only, the law of the noise mark $z_d$,
+which reaches observed pooled order flow $X_d = q_{jd} + z_d$ and reaches nothing that $D$ depends
+on. Hence $\Omega = \Prb(D = 1)$ is literally the same number at every $\kappa$, and in particular
+$\partial_\kappa\Omega = 0$. This step consumes the freezing of the cutoff vector in \ref{p:fixed},
+and no property of the disclosure rule beyond the partition.
+
+\emph{Step 4 (differentiating in $\kappa$).} Two of the three factors on the right of
+\eqref{eq:two-cell} are constant in $\kappa$: $M_F$ by Step~2 and $\Omega$ by Step~3. Neither of
+those steps uses the present one, so nothing here is circular. With those factors constant,
+$\kappa \mapsto \Dact$ is an affine image of $\kappa \mapsto M_P$, which the statement's
+differentiability hypothesis makes differentiable; hence $\partial_\kappa\Dact$ exists and equals
+$(1 - \Omega)\,\partial_\kappa M_P$. Written with one term per factor that could carry $\kappa$, the
+same computation reads
+\begin{equation}
+\label{eq:three-term}
+  \partial_\kappa\Dact
+  \;=\; \Omega\,\partial_\kappa M_F
+  \;+\; (1 - \Omega)\,\partial_\kappa M_P
+  \;+\; (\partial_\kappa\Omega)\,(M_F - M_P),
+\end{equation}
+the three terms being the flagged cell's own motion, the pooled cell's own motion, and the
+reallocation of mass between the cells. Step~2 kills the first and Step~3 the third. The third
+deletion assumes nothing about $M_F - M_P$, which is neither small nor signed here; the term goes
+because its coefficient is zero.
+
+\emph{Step 5 (the factorisation).} Since $0 < \Omega < 1$ we have $1 - \Omega \in (0,1)$ and
+$|1 - \Omega| = 1 - \Omega$. Taking absolute values in the conclusion of Step~4 gives
+\eqref{eq:factorisation}, exactly. Step~3 licenses writing the argument of $\Omega$ as $(\tau,T)$
+rather than $(\kappa,\tau,T)$, and that convention is kept from here on. Two consequences are worth
+recording. First, $\mathcal S > 0$ exactly when $\mathcal S_P > 0$. Second, when $\mathcal S_P > 0$
+the map $x \mapsto |x|$ is differentiable at $\partial_\kappa M_P \ne 0$, so $\mathcal S_P$ inherits
+whatever differentiability $\partial_\kappa M_P$ has in a policy coordinate. That transfer creates
+no differentiability; it moves it.
+
+\emph{Step 6 (the aggregate form, with no differentiability used).} Fix any grid
+$\kappa_0 < \kappa_1 < \dots < \kappa_n$ inside the maintained parameter set, with the partition
+interior at each node. Applying Step~1 at $\kappa_i$ and at $\kappa_{i+1}$, and using Steps~2 and~3
+in their constancy form, that $M_F$ and $\Omega$ are one and the same number at the two nodes, which
+a vanishing derivative at a single $\kappa$ would not deliver, gives
+$\Dact(\kappa_{i+1}) - \Dact(\kappa_i) = (1 - \Omega)\bigl[M_P(\kappa_{i+1}) - M_P(\kappa_i)\bigr]$.
+Summing absolute values,
+\begin{equation}
+\label{eq:tv-form}
+  \sum_{i=0}^{n-1}\bigl\lvert \Dact(\kappa_{i+1}) - \Dact(\kappa_i)\bigr\rvert
+  \;=\; (1 - \Omega)\sum_{i=0}^{n-1}\bigl\lvert M_P(\kappa_{i+1}) - M_P(\kappa_i)\bigr\rvert,
+\end{equation}
+which is the total-variation clause, finite differences throughout. The same argument runs for any
+aggregator of the increment vector that is positively homogeneous of degree one, such as total
+variation, mean absolute slope, or the supremum of the absolute increments, because $1 - \Omega$ is
+one nonnegative scalar common to every increment. A measurement convention that reports
+$\kappa$-sensitivity as a total variation over a grid rather than as a pointwise derivative is then
+measuring the same functional.
+\end{proof}
+
+% ===========================================================================
+% The weight leg at the threshold margin: a tighter threshold raises the
+% flagged weight, so the pooled share weakly falls.
+% ===========================================================================
+
+\providecommand{\Prb}{\mathbb{P}}
+\providecommand{\ind}{\mathbf{1}}
+
+\begin{lemma}[The weight leg at the threshold margin]
+\label{lem:threshold-weight}
+Fix the liquidity $\kappa$, the window margin $T$, and the plan and cutoff policies. Compare two
+threshold margins with $b_0 < \tau' < \tau$, so that $\tau'$ is the tighter threshold, and assume
+$\Omega(\tau',T) < 1$. The configuration $b_0 < \tau'$ is what puts the clock equivalence in force
+at both thresholds. Then
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
+\item the flagged cells are nested, $\mathcal C_F(\tau,T) \subseteq \mathcal C_F(\tau',T)$, and
+every history the tighter threshold newly flags carries the engagement flag $a=1$;
+\item the flagged weight rises, $\Omega(\tau',T) \ge \Omega(\tau,T)$, so the weight leg
+\begin{equation}
+\label{eq:threshold-weight-leg}
+W_\tau \;=\; \frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)}
+\end{equation}
+is defined and attenuates: $0 < W_\tau \le 1$;
+\item if in addition $\Omega(\tau,T) > 0$, $\mathcal S_P(\kappa,\tau,T) > 0$, and the hypotheses of
+Proposition~\ref{prop:factorisation} hold at both thresholds, the sensitivity
+ratio at this margin factors into the weight leg and the composition leg
+$C_\tau = \mathcal S_P(\kappa,\tau',T)/\mathcal S_P(\kappa,\tau,T)$,
+\begin{equation}
+\label{eq:threshold-ratio}
+\frac{\mathcal S(\kappa,\tau',T)}{\mathcal S(\kappa,\tau,T)} \;=\; W_\tau\,C_\tau .
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Fixed policies hold the map from the signal to the plan, the executed stake path of each plan, and
+the law of the signal common to the two rules. The disclosure rule writes the stake path with no
+threshold argument, while the crossing date, the filing date, the stake at filing and the
+disclosure indicator each carry one. The only objects that move when the threshold moves are
+therefore those four, and every comparison below is made at one and the same plan, one and the same
+path, and one and the same signal law.
+
+\emph{The product form of the disclosure indicator.} For every plan $j$, every signal $s$, and each
+of the two thresholds,
+\begin{equation}
+\label{eq:threshold-product}
+D_j(s;\tau,T) \;=\; \ind\{a_j = 1\}\cdot\ind\{B_j(s,H-T) \ge \tau\} .
+\end{equation}
+If $a_j = 0$ both sides vanish, the left side because engagement is a conjunct of disclosure and the
+right side through its first factor. If $a_j = 1$ the left side is the event that the filing lands
+by the horizon: the filing date is the crossing date plus the window margin, and with a finite
+window margin the filing landing by the horizon already forces the crossing to be finite, so the
+requirement that a crossing occur adds nothing. The clock equivalence then converts the filing
+landing by the horizon into the stake $T$ rounds before the horizon having reached the threshold,
+which is the second factor. Because $b_0 < \tau' < \tau$, the crossing is the first passage at each
+of the two thresholds and the equivalence is available at both.
+
+\emph{The inclusion.} Take any control-node history that the looser threshold flags,
+$D_j(s;\tau,T) = 1$. By \eqref{eq:threshold-product} this says $a_j = 1$ and
+$B_j(s,H-T) \ge \tau$. Since $\tau' < \tau$, the same real number satisfies
+$B_j(s,H-T) \ge \tau > \tau'$, and reading \eqref{eq:threshold-product} at $\tau'$ for the same plan
+and the same signal gives $D_j(s;\tau',T) = 1$. The number $B_j(s,H-T)$ that appears in the two
+comparisons is one number, and this is where fixed policies are consumed: were the path free to move
+with the threshold, the comparison at $\tau'$ would be about a different path. The history was
+arbitrary, so $\mathcal C_F(\tau,T) \subseteq \mathcal C_F(\tau',T)$, and taking complements in the
+exclusive and exhaustive partition gives
+$\mathcal C_P(\tau',T) \subseteq \mathcal C_P(\tau,T)$: a tighter threshold can only shrink the
+pooled cell. Every newly flagged history satisfies $D(\tau') = 1$, and by
+\eqref{eq:threshold-product} that carries $a = 1$ as a conjunct, so the engagement flag is
+identically one on the newly flagged set. Nestedness is a conclusion here rather than a hypothesis.
+This is clause~(i).
+
+\emph{The weight leg.} The joint law of the primitives is itself a primitive and does not depend on
+the threshold, which enters only through the flagged event. Monotonicity of a probability measure
+applied to the inclusion gives
+\[
+\Omega(\tau',T) \;=\; \Prb\bigl(\mathcal C_F(\tau',T)\bigr)
+\;\ge\; \Prb\bigl(\mathcal C_F(\tau,T)\bigr) \;=\; \Omega(\tau,T),
+\]
+so $1-\Omega(\tau',T) \le 1-\Omega(\tau,T)$. The hypothesis $\Omega(\tau',T) < 1$ makes the
+numerator of \eqref{eq:threshold-weight-leg} strictly positive, and the same hypothesis with the
+inequality just established gives $\Omega(\tau,T) \le \Omega(\tau',T) < 1$, so the denominator is
+strictly positive as well. The quotient is therefore defined, and dividing a weakly smaller strictly
+positive number by a strictly positive one gives $0 < W_\tau \le 1$. This is clause~(ii).
+
+\emph{The ratio identity.} With $\Omega(\tau,T) > 0$ the weight-leg inequality puts
+both flagged weights strictly inside the unit interval, so Proposition~\ref{prop:factorisation}
+applies at each threshold and the noise sensitivity of the price is the pooled share times the pooled sensitivity,
+\[
+\mathcal S(\kappa,\tau,T) \;=\; \bigl(1-\Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
+\qquad
+\mathcal S(\kappa,\tau',T) \;=\; \bigl(1-\Omega(\tau',T)\bigr)\,\mathcal S_P(\kappa,\tau',T) .
+\]
+The flagged weight does not move with $\kappa$, which is what licenses writing it as
+$\Omega(\cdot,T)$ with no liquidity argument on either side. Since $1-\Omega(\tau,T) > 0$ and
+$\mathcal S_P(\kappa,\tau,T) > 0$, the denominator $\mathcal S(\kappa,\tau,T)$ is strictly positive
+and the quotient of the two displays is defined. Dividing and grouping the two factors gives
+\eqref{eq:threshold-ratio}, which is clause~(iii).
+\end{proof}
+
+\noindent
+The weight leg at this margin is signed outright, and it is signed by the geometry of the flagged
+set alone: no restriction on the pooled experiment and no restriction on the noise-trading intensity
+enters clauses~(i) and~(ii). What clause~(iii) then supplies is the exact form in which the
+composition leg has to be signed, since $W_\tau \le 1$ leaves $W_\tau C_\tau \le 1$ resting on
+$C_\tau$ alone whenever $C_\tau \le 1$.
+
+% Clock theorem: a shorter clock lowers noise sensitivity iff W_T C_T is at most one.
+
+\begin{theorem}[The clock dial]
+\label{thm:clock}
+Fix the liquidity $\kappa$, the threshold margin $\tau$, and the plan and cutoff policies. Compare
+two window margins $T' < T$, so that $T'$ is the shorter clock. Assume $0 < \Omega(\tau,T) < 1$ and
+$0 < \Omega(\tau,T') < 1$, and $\mathcal S_P(\kappa,\tau,T) > 0$. Write
+\begin{equation}
+\label{eq:clock-legs}
+W_T \;=\; \frac{1-\Omega(\tau,T')}{1-\Omega(\tau,T)},
+\qquad
+C_T \;=\; \frac{\mathcal S_P(\kappa,\tau,T')}{\mathcal S_P(\kappa,\tau,T)} .
+\end{equation}
+Then
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
+\item the weight leg attenuates: $0 < W_T \le 1$;
+\item the sensitivity ratio factors into the two legs,
+\begin{equation}
+\label{eq:clock-ratio}
+\frac{\mathcal S(\kappa,\tau,T')}{\mathcal S(\kappa,\tau,T)} \;=\; W_T\,C_T ;
+\end{equation}
+\item the shorter clock lowers noise sensitivity exactly when the product of the two legs is at
+most one,
+\begin{equation}
+\label{eq:clock-iff}
+\mathcal S(\kappa,\tau,T') \;\le\; \mathcal S(\kappa,\tau,T)
+\qquad\Longleftrightarrow\qquad
+W_T\,C_T \;\le\; 1 .
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Fixed policies hold the map from the signal to the plan, the executed stake path of each plan, and
+the law of the signal common to the two rules, so every object below is compared at one and the
+same plan and one and the same signal law.
+
+\emph{The weight leg.} Let $j$ be a Voice plan and $s$ a signal whose history is flagged under the
+longer clock, $D_j(s;\tau,T) = 1$. By the clock equivalence, the filing lands by the horizon exactly
+when the stake $T$ rounds before the horizon has reached the threshold, so
+$B_j(s,H-T) \ge \tau$. Since $T' < T$ gives $H-T' > H-T$, and since the stake path of a Voice plan
+is weakly increasing in the round, $B_j(s,H-T') \ge B_j(s,H-T) \ge \tau$. The engagement flag
+$a_j = 1$ does not move with the clock. Reading the clock equivalence in the other direction at the
+shorter clock gives $D_j(s;\tau,T') = 1$. Only Voice plans reach the threshold, so no other history
+has to be checked, and the flagged cell at the longer clock is contained in the flagged cell at the
+shorter clock. Taking probabilities under the common signal law, $\Omega(\tau,T') \ge
+\Omega(\tau,T)$, so $1 - \Omega(\tau,T') \le 1 - \Omega(\tau,T)$. Both sides are strictly
+positive because $\Omega < 1$ at each clock, so the quotient in \eqref{eq:clock-legs} is defined and
+$0 < W_T \le 1$. This is clause~(i).
+
+\emph{The ratio identity.} By the factorisation, at each clock the noise sensitivity of the price is
+the pooled share times the pooled sensitivity,
+\[
+\mathcal S(\kappa,\tau,T) \;=\; \bigl(1-\Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
+\qquad
+\mathcal S(\kappa,\tau,T') \;=\; \bigl(1-\Omega(\tau,T')\bigr)\,\mathcal S_P(\kappa,\tau,T') .
+\]
+The flagged weight does not move with $\kappa$, which is what licenses writing it as
+$\Omega(\tau,\cdot)$ with no liquidity argument on either side. Since $1-\Omega(\tau,T) > 0$ and
+$\mathcal S_P(\kappa,\tau,T) > 0$, the denominator $\mathcal S(\kappa,\tau,T)$ is strictly positive
+and the quotient of the two displays is defined. Dividing and grouping the two factors gives
+\eqref{eq:clock-ratio}, which is clause~(ii).
+
+\emph{The equivalence.} Multiplying an inequality by the strictly positive number
+$\mathcal S(\kappa,\tau,T)$ preserves it in both directions, so
+$\mathcal S(\kappa,\tau,T') \le \mathcal S(\kappa,\tau,T)$ holds exactly when
+$\mathcal S(\kappa,\tau,T')/\mathcal S(\kappa,\tau,T) \le 1$, and by \eqref{eq:clock-ratio} that
+quotient is $W_T C_T$. This is \eqref{eq:clock-iff} and clause~(iii).
+\end{proof}
+
+\noindent
+Because $W_T > 0$, the criterion \eqref{eq:clock-iff} can be read as a ceiling on the composition
+leg: the shorter clock lowers noise sensitivity exactly when
+\[
+C_T \;\le\; \frac{1}{W_T} \;=\; \frac{1-\Omega(\tau,T)}{1-\Omega(\tau,T')} .
+\]
+By clause~(i) that ceiling is at least one, so $C_T \le 1$ is sufficient for attenuation at the
+clock margin.
