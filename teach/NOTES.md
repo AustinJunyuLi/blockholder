@@ -57,5 +57,5 @@ Working preferences for this teaching workspace.
 - The sensitivity of price to the posterior is taught as three channels with a
   net computed at this calibration only. It is not a signed general result: the
   entry-deterrence channel is negative and the net sign is not guaranteed.
-- No learning record for Lesson 3 yet. Austin has not explained it back. Write
-  record 0007 only after he does.
+- Record 0007 covers Lesson 3: written 2026-09-01 after Austin explained the pricing
+  logic back, per the rule above.
