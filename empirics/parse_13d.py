@@ -17,6 +17,7 @@ FILED BY blocks) and a best-effort percent-of-class extraction.
 from __future__ import annotations
 
 import datetime as dt
+import html
 import re
 from typing import Optional
 
@@ -31,8 +32,10 @@ RE_FILER_CIK = re.compile(
 
 # -- event date --------------------------------------------------------------
 
+# Cover pages say "Statement" or "Schedule", and some omit the article.
 EVENT_LABEL = re.compile(
-    r"\(?\s*Date\s+of\s+Event\s+Which\s+Requires\s+Filing\s+of\s+(?:this|the)\s+Statement\s*\)?",
+    r"\(?\s*Date\s+of\s+Event\s+Which\s+Requires\s+Filing\s+of\s+"
+    r"(?:this|the\s+)?\s*(?:Statement|Schedule)\s*\)?",
     re.I)
 XML_EVENT = re.compile(
     r"<dateOfEvent>\s*(\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})\s*"
@@ -84,7 +87,11 @@ def parse_event_date(text: str) -> Optional[dt.date]:
     # "...Requires</P>\n<P ...>Filing of this Statement)" -- the label
     # regex needs plain text between the words, so strip tags first (same
     # approach as parse_percent_of_class).
-    plain = RE_TAG.sub(" ", text)
+    # Cover-page dates are routinely written with HTML entities inside them
+    # ("June&nbsp;1,&nbsp;2023"). Stripping tags leaves the entity in place, and
+    # "&nbsp;" is not whitespace to the date patterns, so the date is missed
+    # even though it sits beside the label. Decode entities before matching.
+    plain = html.unescape(RE_TAG.sub(" ", text))
     lab = EVENT_LABEL.search(plain)
     if not lab:
         return None

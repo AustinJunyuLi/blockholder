@@ -1,25 +1,25 @@
 {
   "campaigns": {
-    "post": 344,
-    "pre": 336
+    "post": 432,
+    "pre": 450
   },
   "causal_claim": false,
-  "difference_complete_case": 0.24356312292358806,
+  "difference_complete_case": 0.2824074074074074,
   "enumerated": {
     "post": 521,
     "pre": 616
   },
   "gates": {
     "G1_worst_case_bound": {
-      "difference_lower": -0.1448024316109422,
-      "difference_upper": 0.48328267477203646,
-      "verdict": "NO-GO"
+      "difference_lower": 0.26319595083152564,
+      "difference_upper": 0.29395367392225796,
+      "verdict": "PASS"
     },
     "G2_differential_coverage": {
-      "absolute_gap": 0.09191489361702126,
+      "absolute_gap": 0.01696461964245643,
       "threshold": 0.1,
-      "unresolved_share_post": 0.2680851063829787,
-      "unresolved_share_pre": 0.36,
+      "unresolved_share_post": 0.006896551724137931,
+      "unresolved_share_pre": 0.02386117136659436,
       "verdict": "PASS"
     },
     "G3_parser_validation": {
@@ -27,10 +27,10 @@
       "verdict": "NOT RUN"
     }
   },
-  "headline_suppressed": true,
+  "headline_suppressed": false,
   "inference": {
-    "difference_ci_high": 0.31442825048258743,
-    "difference_ci_low": 0.17061491359591113,
+    "difference_ci_high": 0.34752566389574974,
+    "difference_ci_low": 0.21795259771272016,
     "n_boot": 2000,
     "seed": 20260901
   },
@@ -38,25 +38,25 @@
   "per_period": {
     "post": {
       "median_complete_case": 5.0,
-      "median_lower": 3.0,
-      "median_upper": 6.0,
-      "n_eligible": 470,
-      "n_resolved": 344,
-      "n_unresolved": 126,
-      "share_complete_case": 0.6453488372093024,
-      "share_lower": 0.4723404255319149,
-      "share_upper": 0.7404255319148936
+      "median_lower": 5.0,
+      "median_upper": 5.0,
+      "n_eligible": 435,
+      "n_resolved": 432,
+      "n_unresolved": 3,
+      "share_complete_case": 0.6712962962962963,
+      "share_lower": 0.6666666666666666,
+      "share_upper": 0.6735632183908046
     },
     "pre": {
-      "median_complete_case": 7.0,
-      "median_lower": 2.0,
-      "median_upper": 9.0,
-      "n_eligible": 525,
-      "n_resolved": 336,
-      "n_unresolved": 189,
-      "share_complete_case": 0.4017857142857143,
-      "share_lower": 0.2571428571428571,
-      "share_upper": 0.6171428571428571
+      "median_complete_case": 6.0,
+      "median_lower": 6.0,
+      "median_upper": 7.0,
+      "n_eligible": 461,
+      "n_resolved": 450,
+      "n_unresolved": 11,
+      "share_complete_case": 0.3888888888888889,
+      "share_lower": 0.3796095444685466,
+      "share_upper": 0.403470715835141
     }
   },
   "spec": "research/empirics_v4/e1_spec.md"

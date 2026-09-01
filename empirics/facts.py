@@ -144,7 +144,10 @@ def main(argv=None) -> int:
     df.to_csv(os.path.join(OUT_DIR, "fact1_filings.csv"), index=False)
 
     ok = df.dropna(subset=["delay_bdays"])
-    ok = ok[(ok["delay_bdays"] >= 0) & (ok["delay_bdays"] <= 60)]  # filter parse junk
+    # LEGACY. This outcome-based screen is superseded by empirics/e1.py, whose
+    # registered spec forbids dropping a filing for an implausible delay. Kept
+    # only so the v0 Fact 1 numbers remain reproducible; do not copy it.
+    ok = ok[(ok["delay_bdays"] >= 0) & (ok["delay_bdays"] <= 60)]
     summary = (ok.groupby("window")["delay_bdays"]
                .agg(["count", "mean", "median",
                      lambda s: float(np.quantile(s, 0.9)),

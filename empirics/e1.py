@@ -59,7 +59,9 @@ def read_source(edgar_path: str) -> tuple[str | None, bool]:
         return None, False
     size = os.path.getsize(path)
     with open(path, "r", encoding="latin-1") as fh:
-        return fh.read(), size >= TRUNCATION_BYTES
+        # A source sitting exactly on the fetch cap was cut short; a larger one
+        # was fetched complete. Only the exact match is evidence of truncation.
+        return fh.read(), size == TRUNCATION_BYTES
 
 
 # -- time --------------------------------------------------------------------
@@ -332,6 +334,10 @@ def _plot_cdf(camp: pd.DataFrame) -> None:
 def cmd_audit_sample(args) -> int:
     """Emit 60 cases with source excerpts and no parser answer."""
     df = pd.read_csv(os.path.join(OUT_DIR, "e1_delays.csv"))
+    # The audit measures precision: is a parsed trigger date correct? Unresolved
+    # rows have no date to check, and their recall cost is already carried by the
+    # G1 bounds and the G2 gap. Sample resolved rows only.
+    df = df[df["status"] == "resolved"]
     rng = np.random.default_rng(SEED)
     picks = []
     for w in ("pre", "post"):
