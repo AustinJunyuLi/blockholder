@@ -4,7 +4,9 @@
 and compile. **Blocked by:** 02, 03, 04, 05, 06, 07, 08, 09, 10. **Blocks:** 12.
 
 **What to write.** `paper.tex`, `appendix.tex`, `paper.bib` (copy the inherited bib and prune
-to what is cited). Structure: abstract; introduction leading with the partition and the two dials;
+to what is cited). `appendix.tex` assembles the `proofs/` files by `\input` and adds the
+hypothesis lists. The headline wording in the abstract and introduction follows ticket 02's
+outcome: if the threshold theorem carries a named condition, the wording names it. Structure: abstract; introduction leading with the partition and the two dials;
 the institutional setting in one section; the model; the results (factorisation, garbling lemma,
 threshold dial, clock dial, who gets caught, existence if present), each with its label and a
 route map of at most six lines; the calibration and figures; the empirics (E1, E2, the clock

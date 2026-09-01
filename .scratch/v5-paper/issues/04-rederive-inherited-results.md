@@ -9,7 +9,7 @@ factorisation's role in the threshold theorem's weight leg. For each, an agent w
 the inherited proofs receives the model section of the inherited draft (restated with order size
 two, which does not touch these results) and the statement, re-derives it, and returns PASS or
 FAIL. On FAIL a writer repairs the proof once and a fresh re-deriver checks once. Proofs that pass
-are transcribed into `appendix.tex` in the paper's notation.
+are transcribed into `proofs/04_inherited.tex` in the paper's notation.
 
 **Acceptance.**
 - [ ] Four PASS verdicts, or STOP.

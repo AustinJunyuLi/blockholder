@@ -24,6 +24,7 @@ async function attempt(label, prompt, opts) {
 }
 async function twoPass(label, writePrompt, rederivePrompt) {
   let w = await agent(`${PRE}\n\n${writePrompt}`, { model: "opus", effort: "high", schema: RESULT, label: `${label} write` })
+  if (w && w.status === "ABSENT") return { status: "ABSENT", ticket: label, write: w }
   if (!w || w.status !== "PASS") return { status: "STOP", ticket: label, stage: "write", report: w }
   let v = await agent(`${PRE}\n\n${rederivePrompt}`, { model: "opus", effort: "high", schema: VERDICT, label: `${label} re-derive` })
   if (v && v.verdict === "PASS") return { status: "PASS", ticket: label, write: w, verdict: v }
@@ -34,7 +35,7 @@ async function twoPass(label, writePrompt, rederivePrompt) {
   if (v && v.verdict === "PASS") return { status: "PASS", ticket: label, write: w, verdict: v }
   return { status: "STOP", ticket: label, stage: "re-derive", report: v }
 }
-const REDERIVE = (ticket, what) => `Ticket ${ticket}. You are the independent re-deriver. Read only the model section (the inherited model restated with order size two, as described in .scratch/v5-paper/spec.md section 3) and the statement of ${what} as written in appendix.tex. Do not read the proof. Re-derive the statement from the model. Return PASS if your derivation reaches the statement as written, FAIL with precise reasons otherwise (a missing hypothesis, a step you cannot justify, a counterexample).`
+const REDERIVE = (ticket, what) => `Ticket ${ticket}. You are the independent re-deriver. Read only the model section of inherited/draft_v3/draft_v3.tex (that section and nothing else of that file), with the blockholder order set to two noise lumps as .scratch/v5-paper/spec.md section 3 says, and the statement of ${what} as written at the top of the ticket's file under proofs/. Do not read the proof. Re-derive the statement from the model. Return PASS if your derivation reaches the statement as written, FAIL with precise reasons otherwise (a missing hypothesis, a step you cannot justify, a counterexample).`
 
 // ---- Phase A chains run concurrently; the barrier at the end is real: the orchestrator commits all of it.
 const results = {}
@@ -46,12 +47,12 @@ const chains = [
   },
   async () => {
     results.t02 = await twoPass('02',
-      'Ticket 02-garbling-lemma-and-threshold-dial.md. Write the garbling lemma and the threshold theorem with their proofs into appendix.tex (create the file as a standalone appendix if absent). If any bridge clause does not follow from the order-size-two structure, state it as one named condition in the theorem and put its exact mathematical form in the named_condition field of your report; otherwise leave that field empty.',
+      'Ticket 02-garbling-lemma-and-threshold-dial.md. Write the garbling lemma and the threshold theorem with their proofs into proofs/02_garbling.tex, statement first. If any bridge clause does not follow from the order-size-two structure, state it as one named condition in the theorem and put its exact mathematical form in the named_condition field of your report; otherwise leave that field empty.',
       REDERIVE('02', 'the garbling lemma and the threshold theorem'))
   },
   async () => {
     results.t03 = await twoPass('03',
-      'Ticket 03-who-gets-caught.md. Write the corollary and its proof into appendix.tex. The grid check is a separate agent; do not write it.',
+      'Ticket 03-who-gets-caught.md. Write the corollary and its proof into proofs/03_caught.tex, statement first. The grid check is a separate agent; do not write it.',
       REDERIVE('03', 'the who-gets-caught corollary'))
   },
   async () => {
@@ -60,14 +61,14 @@ const chains = [
       (stmt) => agent(`${PRE}\n\nTicket 04-rederive-inherited-results.md. You are an independent re-deriver who has not read any proof. Derive ${stmt} from the model section of inherited/draft_v3/draft_v3.tex (read only the model section) with the blockholder order set to two noise lumps. Return PASS if you reach the statement, FAIL with reasons otherwise.`, { model: 'opus', effort: 'high', schema: VERDICT, label: '04 re-derive', phase: 'Proofs' }),
       async (v, stmt) => {
         if (v && v.verdict === 'PASS') return { stmt, status: 'PASS', verdict: v }
-        const w = await agent(`${PRE}\n\nTicket 04. A re-deriver failed on ${stmt} with reasons: ${v ? v.reasons : 'none'}. Repair the proof once, working from the inherited proof in inherited/draft_v3/ (never cited), and write it into appendix.tex.`, { model: 'opus', effort: 'high', schema: RESULT, label: '04 repair', phase: 'Proofs' })
+        const w = await agent(`${PRE}\n\nTicket 04. A re-deriver failed on ${stmt} with reasons: ${v ? v.reasons : 'none'}. Repair the proof once, working from the inherited proof in inherited/draft_v3/ (never cited), and write it into proofs/04_inherited.tex.`, { model: 'opus', effort: 'high', schema: RESULT, label: '04 repair', phase: 'Proofs' })
         if (!w || w.status !== 'PASS') return { stmt, status: 'STOP', report: w }
         const v2 = await agent(`${PRE}\n\nTicket 04. Fresh re-deriver: derive ${stmt} from the model section only. PASS or FAIL with reasons.`, { model: 'opus', effort: 'high', schema: VERDICT, label: '04 re-derive 2', phase: 'Proofs' })
         return { stmt, status: v2 && v2.verdict === 'PASS' ? 'PASS' : 'STOP', verdict: v2 }
       },
       async (r, stmt) => {
         if (!r || r.status !== 'PASS' || r.report) return r
-        await agent(`${PRE}\n\nTicket 04. Transcribe the proof of ${stmt} into appendix.tex in the paper's notation, from the inherited proof (never cited), and report the file changed.`, { model: 'opus', schema: RESULT, label: '04 transcribe', phase: 'Proofs' })
+        await agent(`${PRE}\n\nTicket 04. Transcribe the proof of ${stmt} into proofs/04_inherited.tex in the paper's notation, from the inherited proof (never cited), and report the file changed.`, { model: 'opus', schema: RESULT, label: '04 transcribe', phase: 'Proofs' })
         return r
       })
   },
@@ -92,7 +93,7 @@ if (results.t01 && results.t01.status === 'PASS') {
     gridJobs.push(() => attempt('03 grid', 'Ticket 03-who-gets-caught.md, grid check section. Write numerical_v4/checks/t5_who_gets_caught.py exactly as the ticket describes and report the comparison table against the T1 record.', { phase: 'Grid checks' }))
   }
   gridJobs.push(() => twoPass('05',
-    'Ticket 05-existence-if-clean.md. Attempt the existence proof at order size two under grid-checkable conditions; write a check script under numerical_v4/checks/ that verifies the conditions at every calibration node. Return PASS only if the proof is complete and the conditions hold at every node; return ABSENT otherwise with the reason in the summary.',
+    'Ticket 05-existence-if-clean.md. Attempt the existence proof at order size two under grid-checkable conditions; write a check script under numerical_v4/checks/ that verifies the conditions at every calibration node. Write the statement and proof into proofs/05_existence.tex. Return PASS only if the proof is complete and the conditions hold at every node; return ABSENT otherwise with the reason in the summary.',
     REDERIVE('05', 'the existence proposition')))
   const g = await parallel(gridJobs)
   results.grid = g

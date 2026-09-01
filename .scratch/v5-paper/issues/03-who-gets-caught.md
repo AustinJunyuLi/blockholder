@@ -10,7 +10,7 @@ identity for the noise sensitivity of the pooled expectation after the cut: with
 ∂_κ E[h | A \ B] = (P(A) s_A − P(B) s_B) / (P(A) − P(B)), and conclude that the composition
 ratio C_T is at most one if and only if |s_B| ≥ |s_A| whenever s_A and s_B share a sign, with the
 mixed-sign case stated. State it as a corollary of the clock theorem in the paper's notation, in
-`appendix.tex`, with the one-sentence economic reading: the clock lowers noise sensitivity when
+`proofs/03_caught.tex`, with the one-sentence economic reading: the clock lowers noise sensitivity when
 it catches the histories the market was reading most from order flow.
 
 **Grid check.** A script under `numerical_v4/checks/` reconstructs the per-history, per-type mass

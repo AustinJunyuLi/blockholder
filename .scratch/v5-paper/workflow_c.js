@@ -18,6 +18,7 @@ async function attempt(label, prompt, opts) {
 }
 async function twoPass(label, writePrompt, rederivePrompt) {
   let w = await agent(`${PRE}\n\n${writePrompt}`, { model: "opus", effort: "high", schema: RESULT, label: `${label} write` })
+  if (w && w.status === "ABSENT") return { status: "ABSENT", ticket: label, write: w }
   if (!w || w.status !== "PASS") return { status: "STOP", ticket: label, stage: "write", report: w }
   let v = await agent(`${PRE}\n\n${rederivePrompt}`, { model: "opus", effort: "high", schema: VERDICT, label: `${label} re-derive` })
   if (v && v.verdict === "PASS") return { status: "PASS", ticket: label, write: w, verdict: v }
@@ -28,7 +29,7 @@ async function twoPass(label, writePrompt, rederivePrompt) {
   if (v && v.verdict === "PASS") return { status: "PASS", ticket: label, write: w, verdict: v }
   return { status: "STOP", ticket: label, stage: "re-derive", report: v }
 }
-const REDERIVE = (ticket, what) => `Ticket ${ticket}. You are the independent re-deriver. Read only the model section (the inherited model restated with order size two, as described in .scratch/v5-paper/spec.md section 3) and the statement of ${what} as written in appendix.tex. Do not read the proof. Re-derive the statement from the model. Return PASS if your derivation reaches the statement as written, FAIL with precise reasons otherwise (a missing hypothesis, a step you cannot justify, a counterexample).`
+const REDERIVE = (ticket, what) => `Ticket ${ticket}. You are the independent re-deriver. Read only the model section of inherited/draft_v3/draft_v3.tex (that section and nothing else of that file), with the blockholder order set to two noise lumps as .scratch/v5-paper/spec.md section 3 says, and the statement of ${what} as written at the top of the ticket's file under proofs/. Do not read the proof. Re-derive the statement from the model. Return PASS if your derivation reaches the statement as written, FAIL with precise reasons otherwise (a missing hypothesis, a step you cannot justify, a counterexample).`
 
 const CHECK = 'Ticket 11, checker. Run PYTHONPATH=. .venv/bin/python -m empirics.test_fingerprints and the compile sequence in CLAUDE.md. Then grep paper.tex and appendix.tex for any reference to earlier versions, dropped results, attempts, or the inherited draft, and for any label stronger than the one the result holds. Return PASS only if the number guard is green, both files compile with zero errors, undefined references, or citations, and the grep finds nothing. Otherwise FAIL with the exact lines.'
 let w = await attempt('11', 'Ticket 11-paper-writer.md. Write paper.tex, appendix.tex and paper.bib as the ticket says. Apply the unslop rules to the prose.', { phase: 'Write', effort: 'high' })

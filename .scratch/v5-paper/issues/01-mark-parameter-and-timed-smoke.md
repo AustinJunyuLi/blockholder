@@ -10,7 +10,8 @@ cannot produce flow below `mark - 1`; an idle type cannot produce flow above 1),
 table generalised, and `n_hist` computed from the support size. `menu.py`, `flagged.py`,
 `premium.py`, `policy.py`, `solver.py` are touched only where the support size is assumed.
 `numerical_v4/checks/t2_t1_check.py`, `t2_l3_check.py`, `t2_l4_check.py`, `t2_atau_support_check.py`
-and `t2_p1_check.py` run at `mark=2` and write their JSON records next to themselves, including
+and `t2_p1_check.py` run at `mark=2` and write their JSON records next to themselves (a check whose premise is
+specific to order size one reports not-applicable in its record instead of failing), including
 the frozen-policy κ sweep of the run-up share R/(R+J) per node (needed for the E2 direction note).
 
 **Acceptance.**

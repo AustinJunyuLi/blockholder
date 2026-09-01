@@ -15,8 +15,8 @@ tighter threshold weakly lowers S = (1 minus Ω) S_P through the weight leg (Ω 
 composition leg (S_P does not rise). Where the inherited proof used bridge clauses, prove each
 from the order-size-two structure; any clause that does not follow is stated as one named
 condition in the theorem's hypothesis and verified on the grid (NUMERICAL, grid named). The proof
-is written into `appendix.tex` (created by this ticket if absent, as a standalone appendix file
-that ticket 11 will integrate) with the statement in the paper's notation.
+is written into `proofs/02_garbling.tex`, statement first, in the paper's notation. Ticket 11
+assembles `appendix.tex` from the `proofs/` files.
 
 **Two-pass gate.** The re-deriver receives the model section and the statement only, re-derives,
 and returns PASS or FAIL with reasons. On FAIL the writer fixes once; a second FAIL is STOP.
