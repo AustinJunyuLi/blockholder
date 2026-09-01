@@ -8,7 +8,7 @@
 
 **Blocked by:** 11 (E3), 12 (E4), 14 (E6), 15 (E7).
 
-**Status:** ready-for-agent
+**Status:** stale (2026-09-01) — targets the E8 empirics section built on the E3–E7 results of the August empirical record, deleted 2026-09-01 (history: 9b98089; record preserved in draft_v3_onlineappendix.tex §app:honesty). Do not execute.
 
 - [ ] Section compiles on its own with xelatex, no undefined references
 - [ ] Every number in the text and in the tables traceable to a committed script's output

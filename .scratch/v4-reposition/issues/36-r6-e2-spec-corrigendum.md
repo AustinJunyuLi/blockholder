@@ -7,6 +7,10 @@ works from the theory worktree; this one ticket's edit + commit happen in the ot
 **Routing (lane v2, agentic):** Sonnet, effort low — the text is given verbatim below; append
 only. Orchestrator commits (on `v4`) and pushes.
 
+**Status:** stale (2026-09-01) — targets `research/empirics_v4/SPEC.md` (the E2 spec) of the August
+empirical record, deleted 2026-09-01 (history: 9b98089; record preserved in
+draft_v3_onlineappendix.tex §app:honesty); the SPEC file no longer exists on disk. Do not execute.
+
 **Premise:** Audit finding 4. The SPEC's "Note on the O-1 history" (≈ :366-371) repeats the
 withdrawn mislabel ("the window-margin attenuation claim is false at baseline in the repo
 model"). The SPEC is pre-registered: the original text is **never edited**; corrections are

@@ -8,7 +8,7 @@
 
 **Blocked by:** 09 (E1).
 
-**Status:** ready-for-agent
+**Status:** stale (2026-09-01) — targets the E7 run-up path figure of the August empirical record, deleted 2026-09-01 (history: 9b98089; record preserved in draft_v3_onlineappendix.tex §app:honesty). Do not execute.
 
 - [ ] Figure produced by a committed script from data on disk, vector output in the existing house style
 - [ ] The number of filings behind each line shown in the figure or its note

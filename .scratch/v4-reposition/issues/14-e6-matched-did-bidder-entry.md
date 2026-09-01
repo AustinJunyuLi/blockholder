@@ -8,7 +8,7 @@
 
 **Blocked by:** 13 (E5); design from 10 (E2).
 
-**Status:** ready-for-agent
+**Status:** stale (2026-09-01) — targets the E6 matched-DiD bid-hazard and bidder-entry-by-liquidity estimators of the August empirical record, deleted 2026-09-01 (history: 9b98089; record preserved in draft_v3_onlineappendix.tex §app:honesty). Do not execute.
 
 - [ ] Estimate, standard errors, matching diagnostics, placebos and pre-trends all produced by a committed script following the pre-specified design; every departure from the spec named and justified in writing
 - [ ] Bidder entry by liquidity estimated on the same outcome coding

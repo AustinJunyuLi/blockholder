@@ -8,7 +8,7 @@
 
 **Blocked by:** 09 (E1).
 
-**Status:** ready-for-agent
+**Status:** stale (2026-09-01) — targets the E5 twelve-month bid outcome coding of the August empirical record, deleted 2026-09-01 (history: 9b98089; record preserved in draft_v3_onlineappendix.tex §app:honesty). Do not execute.
 
 - [ ] Outcome coded for every initial 13D by a committed script; the form types used and the twelve-month clock definition written down before coding
 - [ ] Thirty-filing hand audit with the disagreement rate reported; the coding rule fixed wherever the audit found it wrong, then re-run

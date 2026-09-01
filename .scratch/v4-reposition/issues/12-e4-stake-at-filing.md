@@ -8,7 +8,7 @@
 
 **Blocked by:** 09 (E1) — the percent-of-class field is only trustworthy after the parser fix. Reads 05 (T1)'s prediction if it exists; soft, does not wait.
 
-**Status:** ready-for-agent
+**Status:** stale (2026-09-01) — targets the E4 stake-at-filing tabulation of the August empirical record, deleted 2026-09-01 (history: 9b98089; record preserved in draft_v3_onlineappendix.tex §app:honesty). Do not execute.
 
 - [ ] Distribution plus the before/after and liquidity splits produced by a committed script
 - [ ] Filings whose percent of class could not be parsed counted and reported, never silently dropped

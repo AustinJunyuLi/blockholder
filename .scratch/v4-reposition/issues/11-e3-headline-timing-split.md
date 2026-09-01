@@ -8,7 +8,7 @@
 
 **Blocked by:** 09 (E1), 10 (E2).
 
-**Status:** ready-for-agent
+**Status:** stale (2026-09-01) — targets the E3 headline estimator (timing split, bindingness dose, bounded null) of the August empirical record, deleted 2026-09-01 (history: 9b98089; record preserved in draft_v3_onlineappendix.tex §app:honesty). Do not execute.
 
 - [ ] Estimates, standard errors and the pre-specified robustness table all produced by a committed script, none by hand
 - [ ] The bounded null computed from a named SEC table with the arithmetic shown, presented as a ceiling and not as an estimate
