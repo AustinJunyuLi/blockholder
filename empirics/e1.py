@@ -78,17 +78,29 @@ def is_business_day(d: dt.date) -> bool:
     return bool(np.is_busday(np.datetime64(d, "D"), holidays=FEDERAL_HOLIDAYS))
 
 
-def next_business_day(d: dt.date) -> dt.date:
-    nxt = np.busday_offset(np.datetime64(d, "D"), 1, roll="forward",
+def _busday(d: dt.date, offset: int, roll: str) -> dt.date:
+    out = np.busday_offset(np.datetime64(d, "D"), offset, roll=roll,
                            holidays=FEDERAL_HOLIDAYS)
-    return nxt.astype(dt.date)
+    return out.astype("datetime64[D]").astype(object)
+
+
+def next_business_day(d: dt.date) -> dt.date:
+    """The first business day strictly after d."""
+    return _busday(d, 1, "forward") if is_business_day(d) else _busday(d, 0, "forward")
 
 
 def effective_filing_date(accepted: dt.datetime) -> dt.date:
-    """Acceptance after 17:30 ET, or on a non-business day, arrives next session."""
+    """When the filing becomes public.
+
+    Acceptance on a non-business day arrives at the next session, whatever the
+    time. Acceptance after the 17:30 cut-off on a business day arrives at the
+    following session. Otherwise it is public the same day.
+    """
     day = accepted.date()
-    if accepted.time() > CUTOFF or not is_business_day(day):
-        return next_business_day(day)
+    if not is_business_day(day):
+        return _busday(day, 0, "forward")
+    if accepted.time() > CUTOFF:
+        return _busday(day, 1, "forward")
     return day
 
 

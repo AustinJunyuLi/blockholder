@@ -1,0 +1,63 @@
+{
+  "campaigns": {
+    "post": 344,
+    "pre": 336
+  },
+  "causal_claim": false,
+  "difference_complete_case": 0.24356312292358806,
+  "enumerated": {
+    "post": 521,
+    "pre": 616
+  },
+  "gates": {
+    "G1_worst_case_bound": {
+      "difference_lower": -0.1448024316109422,
+      "difference_upper": 0.48328267477203646,
+      "verdict": "NO-GO"
+    },
+    "G2_differential_coverage": {
+      "absolute_gap": 0.09191489361702126,
+      "threshold": 0.1,
+      "unresolved_share_post": 0.2680851063829787,
+      "unresolved_share_pre": 0.36,
+      "verdict": "PASS"
+    },
+    "G3_parser_validation": {
+      "note": "run audit-sample, hand-code, commit, then audit-report",
+      "verdict": "NOT RUN"
+    }
+  },
+  "headline_suppressed": true,
+  "inference": {
+    "difference_ci_high": 0.31442825048258743,
+    "difference_ci_low": 0.17061491359591113,
+    "n_boot": 2000,
+    "seed": 20260901
+  },
+  "label": "descriptive",
+  "per_period": {
+    "post": {
+      "median_complete_case": 5.0,
+      "median_lower": 3.0,
+      "median_upper": 6.0,
+      "n_eligible": 470,
+      "n_resolved": 344,
+      "n_unresolved": 126,
+      "share_complete_case": 0.6453488372093024,
+      "share_lower": 0.4723404255319149,
+      "share_upper": 0.7404255319148936
+    },
+    "pre": {
+      "median_complete_case": 7.0,
+      "median_lower": 2.0,
+      "median_upper": 9.0,
+      "n_eligible": 525,
+      "n_resolved": 336,
+      "n_unresolved": 189,
+      "share_complete_case": 0.4017857142857143,
+      "share_lower": 0.2571428571428571,
+      "share_upper": 0.6171428571428571
+    }
+  },
+  "spec": "research/empirics_v4/e1_spec.md"
+}
