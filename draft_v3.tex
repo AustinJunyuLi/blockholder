@@ -13,8 +13,10 @@
 % sections_v3/{model_section,theorem_section}.tex; proofs adapted from
 % sections_v3/proofs_*.tex and moved verbatim to draft_v3_onlineappendix.tex
 % (2026-08-30); numerical records from research/model_v4/HANDOFF_sign.md
-% (the executed t2_* checks); empirics from empirics/output/fact1_* and the
-% pre-specified design in research/empirics_v4/SPEC.md. Section-by-section map:
+% (the executed t2_* checks); Section 6 draws on research/empirics_v4/e1_spec.md
+% (the registered E1 specification) and empirics/output/e1_estimate.json (the
+% single result authority); the superseded August 2026 empirical record, executed
+% and viewed, is preserved in draft_v3_onlineappendix.tex. Section-by-section map:
 % draft_v3_trace.md.
 % =============================================================================
 
@@ -70,16 +72,23 @@
 
 %==============================================================================
 \begin{abstract}
-\noindent Disclosure rules change what a market knows while an investor is building a stake. I study
-how that timing affects bidder entry and the takeover premium. In the model, a blockholder first
-trades without a public flag. If her stake crosses the legal threshold and the filing window
-expires, the market sees her stake and intent; otherwise it sees only order flow. This split gives
-the threshold and the filing window different economic roles. At fixed trading policies, a tighter
-threshold reduces the sensitivity of the engagement-related premium to liquidity. A shorter window
-does so only when the change in who remains hidden is not too large. The model therefore gives no
-unconditional sign for the 2024 US acceleration. Seeded filing data show that median delay fell
-from seven to five business days. I set out a pre-specified design to test the market and takeover
-implications.
+\noindent A blockholder who crosses five percent of a voting class must reveal herself on Schedule
+13D, and since February 2024 that filing is due in five business days rather than ten calendar
+days. I study how this legal disclosure clock --- a stake threshold plus a filing window ---
+shapes what the market knows while a stake is being built, and what that means for corporate
+control. In the model, the blockholder first trades without a public flag; once her stake
+crosses the threshold and the filing arrives, the market sees her stake and intent. This
+partition of histories into flagged and pooled cells gives the threshold and the window
+different economic roles. The pooled cell carries all of the liquidity sensitivity of the
+engagement-related premium, while the flagged endpoint is insulated from noise-trading intensity. At fixed
+trading policies, a tighter threshold reduces that sensitivity unconditionally; a shorter window
+does so only when the change in who remains hidden is not too large. The clock binds in
+practice: in a near-census of initial Schedule 13D filings from mid-2023 and late 2024, the
+median trigger-to-filing delay fell from six business days to five, and the share filed within
+five business days rose from $38.9$ to $67.1$ percent --- a $28.2$-percentage-point difference,
+a descriptive comparison with no control
+group. The model gives no unconditional sign for the 2024 US acceleration, and the paper
+estimates no causal effect on returns, activism, or takeovers.
 \end{abstract}
 
 \newpage
@@ -140,23 +149,25 @@ long-window value at every checked node. The composition effect accounts for mos
 At the same calibration, however, the pooled posterior has 23 to 767 distinct values at each of 180
 non-degenerate nodes, rather than the three-point support required by the threshold comparison. The
 directional window result is therefore numerical evidence, not a theorem about the implemented
-two-round model. The empirical design keeps attenuation and amplification as live possibilities.
+two-round model.
 
-The first descriptive fact is already visible in the filing data. In a seeded sample, the median
-trigger-to-filing delay fell from 7.0 business days before the February 2024
-acceleration to 5.0 afterwards, and the share
-filed within five business days rose from 35.7 to 75.6 percent. The remaining empirical work is a
-written specification rather than a set of estimates. It tests the run-up and filing-day jump
-separately, uses pre-period filing behaviour as a bindingness dose, studies the stake at filing, bounds
-the accumulation channel's effect on the bid hazard, and estimates bidder entry by liquidity. The
-specification reports both signs and treats the preliminary sample as descriptive.
+The filing data show that the clock binds in practice. Comparing the near-census of initial
+Schedule 13D filings from 2023Q2--Q3, ahead of the rule's adoption, with 2024Q3--Q4, after the
+new deadline took effect, the median trigger-to-filing delay fell from six business days to
+five, and the share filed within five business days rose from $38.9$ to $67.1$ percent --- a
+difference of $28.2$ percentage points, with a $95$ percent cluster-bootstrap interval of
+$21.8$ to $34.8$. The comparison is descriptive and has no control group; it establishes that
+the statutory clock moved realised filing timing, and it identifies no effect on liquidity,
+returns, or control outcomes. The pre-specified design for the market and takeover implications
+was executed in August 2026, and its outcomes have been viewed. It is preserved exactly as
+viewed in the online appendix and is not the paper's headline.
 
 Section~\ref{sec:lit} describes the rule and the literature. Section~\ref{sec:model} lays out the
 two-round game in words and notation. Section~\ref{sec:existence} records the equilibrium construction
 briefly; the technical argument is in the appendix. Section~\ref{sec:outcomes} gives the two
 comparative-statics results and the calibration record. Section~\ref{sec:empirics} presents the
-descriptives and the pre-specified tests. Section~\ref{sec:conclusion} closes. The proofs sit in the
-online appendix.
+filing-delay evidence and the audit behind it. Section~\ref{sec:conclusion} closes. The proofs
+sit in the online appendix.
 
 %==============================================================================
 \section{Institutional setting and related literature}
@@ -289,10 +300,10 @@ themselves state in business days. \citet{Trivedi2026} runs a difference-in-diff
 filings with 13G controls and finds a first stage on compliance timing (the share filed within
 five business days rises by 34.8 percentage points, standard error 13.0) and nulls on spread and
 Amihud changes that carry no minimum detectable effect; there is no control outcome in the paper,
-its sampling frame is never stated, and it is not peer reviewed. The cell this paper's empirics
-occupies (a rule margin, a liquidity split, and a control outcome, with the timing split as the
-identity claim) remains open, and the specification in Section~\ref{sec:empirics} is written so
-that every estimate it will report was specified before any of them existed.
+its sampling frame is never stated, and it is not peer reviewed. The cell this paper occupies (a rule margin, a liquidity split, and a control outcome) remains open.
+The pre-specified design for the return and control-outcome estimates was executed and its
+outcomes viewed; the record is preserved in the online appendix, while
+Section~\ref{sec:empirics} reports the descriptive filing-delay evidence.
 
 %==============================================================================
 \section{The model}
@@ -740,7 +751,8 @@ P^F - P_{c^-}^P \;=\; R + J.
 Part~(b) is the \emph{clock equivalence}, and the threshold and window results both consume it: it
 converts a statement about the filing date into a statement about the stake path $T$ days before the
 horizon, which is what makes window comparisons tractable. Identity \eqref{eq:runup-jump} is the
-model counterpart of the timing split the empirics of Section~\ref{sec:empirics} measure: the total
+model counterpart of the timing split studied in the executed empirical record preserved in the
+online appendix: the total
 price move from just before the crossing to the flagged price decomposes exactly into the cumulative
 run-up plus the filing-day jump.
 
@@ -984,8 +996,8 @@ $T = 10$ is strictly interior, points the same way but travels the chord closed 
 condition fails at this calibration, so it is directional corroboration rather than a second
 independent magnitude. And the record is node evidence at one calibration, not a sign theorem:
 Part~(C) claims none. At this calibration the model's directional prediction for the February 2024
-acceleration is attenuation, and the empirics of Section~\ref{sec:empirics} treat that as one of
-two live branches, not as a derived sign.
+acceleration is attenuation; the empirical layer does not test that direction, and the
+filing-delay evidence of Section~\ref{sec:empirics} speaks to timing only.
 
 \begin{table}[H]
 \centering
@@ -1016,259 +1028,171 @@ numerical fact, not evidence of a region: whether any parameter vector satisfies
 antecedent of Proposition~\ref{prop:C1} is open.
 
 %==============================================================================
-\section{Empirics: motivating facts and the written specification}
+\section{Did the clock move? Filing-delay evidence}
 \label{sec:empirics}
 %==============================================================================
 
-The empirical half of the paper has two layers with different statuses, and the draft keeps them
-apart. The motivating facts in Section~\ref{sec:facts} have been run: they are descriptives computed
-from the seeded filing sample, with the sample stated exactly and no standard errors claimed. The
-specification in Section~\ref{sec:spec} is prospective: it states the variables, windows, samples,
-standard errors, placebos, and decision rules before any estimate exists. The timing split is the
-specification's default headline; final selection remains pending in
-Section~\ref{sec:headline-shell}.
+The empirical layer of the paper is one exercise, and it is descriptive. E1 asks whether the
+realised delay between the trigger event and the Schedule 13D filing fell after the window
+margin moved from ten calendar days to five business days on 2024-02-05. It is a
+before-and-after comparison with no control group: it identifies no effect on liquidity,
+returns, activism, bidder entry, takeover premia, or control outcomes, and it tests neither the
+invariance result nor the attenuation theorem. What it establishes is narrower and, for a paper
+that treats the statutory clock as a primitive, load-bearing: the clock moved realised filing
+timing. The specification was registered before the run, and every number in this section is
+drawn from the run's result record.
 
-\subsection{Motivating facts: the delay distribution before and after the acceleration}
-\label{sec:facts}
+\subsection{Protocol and population}
+\label{sec:e1protocol}
 
-The anchor is the February 2024 acceleration: the initial Schedule 13D deadline moved from ten
-calendar days to five business days for trigger dates from 2024-02-05 \citep{SEC2023}. The first
-question is whether filers moved at all. They did. Drawing a seeded sample of roughly one hundred
-fifty initial 13D filings from each of two windows (2023Q2--Q3, the last full pre-rule quarters,
-and 2024Q3--Q4, well after the effective date) and measuring the trigger-to-filing delay in
-business days with the federal-holiday calendar, the distribution compresses sharply
-(Table~\ref{tab:fact1} and Figure~\ref{fig:fact1}).
+The population is every \texttt{SC 13D} or \texttt{SCHEDULE 13D} original listed in the EDGAR
+quarterly form indexes for two windows: 2023Q2--Q3, ahead of the rule's adoption, and
+2024Q3--Q4, after the new deadline took effect. Both EDGAR spellings are taken and both
+amendment spellings excluded; the enumeration collapses on accession, giving $616$ filings pre
+and $521$ post --- the near-census of the two windows, not a sample. The unit of analysis is the
+campaign: one row per subject firm and trigger date, keeping the earliest accession where a
+reporting group files simultaneously. That leaves $461$ eligible units pre and $435$ post, of
+which $450$ and $432$ resolve to a measured delay; $14$ rows ($11$ pre, $3$ post) remain
+unresolved and are carried through the bounds below.
+
+The trigger date is the filing's own ``Date of Event Which Requires Filing,'' read from the
+structured XML tag where it exists and from the cover-page text otherwise. The filing date is
+the EDGAR acceptance timestamp, with acceptance after 17:30 Eastern rolled to the next business
+day. The delay is counted in federal business days. Inference on the headline difference is a
+cluster bootstrap on the subject firm, $2{,}000$ draws at seed $20260901$, percentile interval
+at $95$ percent. Because the unresolved rows carry no measured delay, every estimate is reported
+complete-case and bounded, with every unresolved row assigned first to the extreme that most
+hurts the claim and then to the one that most helps it. Three gates were registered as binding.
+G1 requires the worst-case lower bound on the post-minus-pre difference to clear zero. G2 caps
+the gap between the pre and post unresolved shares at ten percentage points --- the live hazard,
+because structured XML became mandatory on 2024-12-18, inside the post window, so post filings
+parse more easily than pre filings by construction. G3 is a blind hand-audit of the parser. All
+three pass; the audit details sit with the denominator discussion below.
+
+\subsection{The delay distribution before and after the acceleration}
+\label{sec:e1result}
+
+Table~\ref{tab:e1} reports the result; Figure~\ref{fig:e1cdf} draws the distributions.
 
 \begin{table}[H]
 \centering
-\caption{The trigger-to-filing delay in business days, before and after the February 2024
-acceleration. Seeded samples of initial 13D filings drawn from EDGAR, with the trigger date read
-from the filing itself and the delay counted in business days on the federal-holiday calendar. Of
-the $300$ sampled filings ($150$ in each window), $198$ carry a trigger date that parses: $102$ pre
-and $96$ post, which are the parse rates of $0.68$ and $0.64$ against the $150$ drawn per window.
-An admissible band of $0$ to $60$ business days then screens out ten of those, $4$ pre (delays of
-$129$, $143$, $526$ and $567$ business days) and $6$ post (delays of $62$, $73$, $133$, $262$,
-$407$ and $1{,}365$ business days), and the statistics below are computed on the $188$ that remain
-($98$ pre, $90$ post). Because the parse rates are below one, every count is a floor. Descriptive
-statistics; no standard errors are claimed.}
-\label{tab:fact1}
-\begin{tabular}{lcccccc}
+\caption{Realised trigger-to-filing delay of initial Schedule 13D filings before and after the
+February 2024 acceleration. Enumerated: unique accessions listed as \texttt{SC 13D} or
+\texttt{SCHEDULE 13D} originals in the EDGAR quarterly form indexes for the window. Eligible:
+one campaign per (subject firm, trigger date), earliest accession kept, plus the unresolved
+rows. Resolved campaigns carry a measured delay: the trigger date is the filing's ``Date of
+Event Which Requires Filing'' (structured XML tag first, cover-page text second), the filing
+date is the EDGAR acceptance timestamp rolled to the next business day when acceptance falls
+after 17:30~ET, and the delay is counted in federal business days. The share is the fraction of
+resolved campaigns filed within five business days, complete-case. Bracketed values are
+worst-case bounds that assign every unresolved row to one extreme and then the other. The
+difference is post minus pre; its interval is a cluster bootstrap on the subject firm, $2{,}000$
+draws, seed $20260901$. Descriptive; no control group; no causal claim.}
+\label{tab:e1}
+\begin{tabular}{lcc}
 \toprule
-Window & $n$ & Mean & Median & p90 & Share $\le 5$ bd & Share $\le 10$ bd \\
+& Pre (2023Q2--Q3) & Post (2024Q3--Q4) \\
+& (10-calendar-day rule) & (5-business-day rule) \\
 \midrule
-Pre (2023Q2--Q3, 10-calendar-day rule)  & 98 & 9.63 & 7.0 & 23.0 & 35.7\% & 80.6\% \\
-Post (2024Q3--Q4, 5-business-day rule)  & 90 & 6.40 & 5.0 & 11.1 & 75.6\% & 88.9\% \\
+Enumerated filings & 616 & 521 \\
+Eligible units & 461 & 435 \\
+\quad Resolved campaigns & 450 & 432 \\
+\quad Unresolved & 11 & 3 \\
+Median delay, business days & 6 [6, 7] & 5 [5, 5] \\
+Share filed within 5 business days & 38.9\% & 67.1\% \\
+\quad worst-case bound & [38.0, 40.3] & [66.7, 67.4] \\
+\midrule
+Difference, percentage points & \multicolumn{2}{c}{$+28.2$} \\
+\quad 95\% bootstrap interval & \multicolumn{2}{c}{[$+21.8$, $+34.8$]} \\
+\quad worst-case bound & \multicolumn{2}{c}{[$+26.3$, $+29.4$]} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.72\textwidth]{empirics/output/fact1_delay.pdf}
-\caption{The filing-delay distribution, pre (2023Q2--Q3) versus post (2024Q3--Q4) acceleration, in
-business days. The mass under the old ten-day regime piles between five and ten business days, with
-a long right tail of late filers; under the five-business-day rule the mass concentrates inside the
-new deadline. Descriptives from the seeded samples of Table~\ref{tab:fact1}.}
-\label{fig:fact1}
+\includegraphics[width=0.72\textwidth]{empirics/output/e1_cdf.pdf}
+\caption{The empirical CDF of the trigger-to-filing delay in federal business days, pre ($450$
+campaigns, 2023Q2--Q3) against post ($432$ campaigns, 2024Q3--Q4). The dashed line marks the
+five-business-day deadline in force from 2024-02-05. Resolved campaigns only; there is no
+outcome screen, so late and catch-up filings stay in the population and form the right tail
+visible in both periods.}
+\label{fig:e1cdf}
 \end{figure}
 
-Three readings of the table, each bounded. First, the compression is real and large: the median
-delay falls from seven business days to five, and the share of filings inside the new five-day
-deadline more than doubles, from 35.7 to 75.6 percent. Second, the pre-rule distribution was not
-bimodal. It was already
-spread across the old window in the way \citet{BebchukBravJacksonJiang2013} document on filings by
-engaging investors: the mass rises into the deadline bucket, where 45.3 percent of their filings sit
-at eight to ten business days, with 16.5 percent inside three business days and a tail of 7.1
-percent beyond fifteen. The acceleration bit a population that was heterogeneous in exactly the
-dimension the rule targets; the design below exploits that heterogeneity as a dose. Third, the numbers agree in kind with the Commission's own
-arithmetic: the release expected earlier filing for about 59 percent of timely 13D reports and put
-about 29 percent of 2022's initial filings already inside the amended deadline, against our 35.7
-percent already inside before the rule. Different samples and different windows, but the same
-direction \citep{SEC2023}. The honest caveats travel with the table: the samples are seeded draws,
-not the universe; the parse rates are floors; ten filings whose measured delay falls outside a
-nought-to-sixty business-day band are screened out and counted in the table note rather than cut
-silently; and these are descriptives, with no standard errors, because none are claimed. The delay is counted in business days throughout; counting calendar
-days against a business-day rule, as \citet{PolkBuchheitRileyStone2024} do, misclassifies the
-48 percent of their sample that piles at their day-ten marker.
+Two readings of the result, each bounded. First, the compression is real and large. The median
+delay falls from six business days to five, and the worst-case bounds on the median do not
+overlap --- $[6, 7]$ pre against $[5, 5]$ post --- so the decline survives any assignment of
+the unresolved rows. The share
+filed within five business days rises from $38.9$ to $67.1$ percent, a difference of $+28.2$
+percentage points with a $95$ percent bootstrap interval of $[+21.8, +34.8]$. Nor does the
+result rest on the unresolved rows: assigning all fourteen to the extremes bounds the difference
+between $+26.3$ and $+29.4$ points, and gate G1, which requires that lower bound to clear zero,
+passes.
 
-\subsection{The written specification for the full empirics}
-\label{sec:spec}
+Second, the numbers agree in kind with the Commission's own arithmetic: the release put about
+$29$ percent of 2022's initial filings already inside the amended deadline, against $38.9$
+percent here in the pre window, and expected earlier filing for about $59$ percent of timely 13D
+reports --- different samples and windows, the same direction \citep{SEC2023}. The population
+the deadline bit was heterogeneous in exactly the dimension the rule targets: in
+\citet{BebchukBravJacksonJiang2013}'s sample of filings by engaging investors, the mass rises
+into the deadline bucket, with $45.3$ percent of their filings at eight to ten business days,
+$16.5$ percent inside three, and a tail of $7.1$ percent beyond fifteen. And the delay is
+counted in business days throughout; counting calendar days against a business-day rule, as
+\citet{PolkBuchheitRileyStone2024} do, misclassifies the $48$ percent of their sample that piles
+at their day-ten marker.
 
-This subsection summarises a design fixed before estimation; nothing in it has been run. Every
-estimate the December draft will report is specified here or in the underlying document, and the
-rule the design imposes on itself is that no specification may change after an estimate is seen, and
-that a null is reported with its minimum detectable effect rather than as ``no effect''.
+\subsection{The denominator and the audit}
+\label{sec:e1audit}
 
-\paragraph{Sample and split.}
-The universe is all initial Schedule 13D filings from 2022-01-01 to 2025-12-31, enumerated from
-EDGAR quarterly indexes, matched to CRSP. The treatment split is on the \emph{trigger} date, not the
-filing date: the deadline attaches to the crossing, so a block crossed on 2024-01-30 and filed on
-2024-02-08 belonged to the old regime. Filings that straddle are excluded and counted. The main
-pre window is 2022-01-01 through 2023-10-09. The adoption date, 2023-10-10, begins a separately
-reported adoption-to-effect stub through 2024-02-04; the stub is not pooled into ``pre''. The
-structured-data mandate on 2024-12-18 is a second measurement break, so the main sample ends on
-2024-12-17 and 2025 is reported as an extension with its own parse-rate table. The EDGAR
-dissemination cut-off moved from 5:30 pm to 10:00 pm ET on the same date the window changed, which
-shifts the flagged day by one for part of the post sample; the effective filing date FD$^{*}$ is
-constructed to absorb this, and re-running with FD$^{*} \equiv$ FD is a required robustness row. A
-full re-fetch and re-parse with the current parser is a stated precondition for any estimate, and
-every count in the design is a floor until it has run.
+The result could be manufactured by measurement rather than by the rule, and the audit exists to
+close that off. Structured XML became mandatory on 2024-12-18, inside the post window, so post
+filings parse more easily than pre filings by construction; differential coverage alone would
+manufacture the primary result if the pre period simply failed to resolve more often. Gate G2
+caps exactly this differential: the unresolved share is $2.4$ percent pre against $0.7$ percent
+post, a gap of $1.7$ percentage points against a registered threshold of ten, and it passes.
+Gate G3 validates the parser itself: sixty filings, twenty from each non-empty period-by-route
+stratum (pre-text, post-text, post-xml), hand-coded before the parser's answer for those cases
+was seen, with the blind enforced by the order of the commits. The coded and parsed trigger
+dates disagree on zero of the sixty, against a registered threshold of three. The twenty
+xml-route excerpts in the audit sample read LABEL NOT FOUND, because the excerpt window targets
+a cover-page label that XML submissions do not carry; those cases were coded from the
+\texttt{dateOfEvent} element in the cached source document, the text a human coder would read.
 
-\paragraph{(a) The timing split.}
-For every filing, two abnormal returns from a market model estimated over $[\mathrm{TD}-252,
-\mathrm{TD}-22]$: the \emph{run-up}, from the trigger to the day before the flag lands, and the
-\emph{jump}, on the filing day (a three-day window around the effective filing date). This is
-the identity \eqref{eq:runup-jump} and the flagged cell's $\kappa$-invariance turned into
-a regression pair. The partition test (H1) is sign-free: the run-up's liquidity slope should be
-non-zero, the jump's zero, and the two different. It is estimated as one
-stacked regression with a flagged-half interaction, so the difference carries a standard error;
-inference is two-way clustered on subject firm and on calendar month, with a wild cluster bootstrap
-on the month dimension and the more conservative of the two reported. The February 2024
-acceleration test (H2) asks
-whether the run-up's liquidity slope changed after February 2024, on a fixed five-trading-day window from
-the trigger so the outcome's length does not change mechanically with the rule; both signs are
-written out in advance: attenuation (the shorter window moves mass to the $\kappa$-invariant
-flagged cell and flattens the composite slope) and amplification (the same informed trading
-concentrated into fewer days steepens it). One check can kill the identity: if the jump's
-slope moves the same way as the run-up's, there is no partition to write about. Liquidity is a
-pre-treatment Amihud-type illiquidity measure, inverted and standardised within quarter, with the
-orientation printed in every table note. The run-up \emph{path} from trigger to filing, cut by
-liquidity tercile and period, is reported as a figure in the house style, descriptive only; the
-benchmark shape is a $0.9$ percent abnormal return on the trigger date and $1.6$ percent on the day
-after \citep{PolkBuchheitRileyStone2024}, with the run-up beginning on the trigger date itself
-\citep{Zeng2026}.
+Three data-quality items are stated rather than absorbed. Fourteen rows remain unresolved ---
+$2.4$ percent of the eligible pre population, $0.7$ percent post --- all on the text route with
+no recoverable trigger date. Three are Sageworth Trust Co.\ filings that name the filer's own
+CIK as the subject, form-type noise rather than campaigns; the other eleven are filings whose
+trigger date could not be recovered. Every estimate above carries all fourteen in its bounds.
+Ten of the $521$ post filings declare a non-zero amendment number in the document body although
+the index lists them as originals; the population stays as registered --- it is defined by the
+index form type --- and these rows can only depress the post share. And there is no outcome
+screen: catch-up filings with extreme delays stay in the population, and the right tail they
+form is visible in Figure~\ref{fig:e1cdf}.
 
-\paragraph{(b) The bindingness dose.}
-The rule binds filers unevenly: those already filing inside five business days cannot be moved by
-it. The primary dose is a filer attribute built from pre-period behaviour only and is computed for
-filers with at least two pre-period initial 13Ds: the share whose delay exceeded five business days,
-in $[0,1]$. For a single-filing filer, a leave-one-out pre-period stratum mean, by filer type,
-size tercile and illiquidity tercile, is imputed only in a robustness row and never in the primary
-estimate. The dose specification interacts the dose with Post and clusters on filer as well. Its first stage is
-mechanical (a fast filer cannot get faster) and is labelled a validity check, not a finding; the
-only working-paper estimate of the same first stage is \citet{Trivedi2026}'s compliance share, $+0.348$
-with standard error $0.130$, whose own primary outcome, mean lag, is null, and whose sampling
-frame is never stated. Because slow filers are plausibly smaller and less liquid, the correlation
-between dose and liquidity is reported, and the dose specification is re-run within liquidity
-tercile.
+\subsection{The viewed pre-specified record}
+\label{sec:e1record}
 
-\paragraph{(c) Stake at filing.}
-The percent of the class printed on the 13D is the empirical counterpart of the model's stake at
-filing $B^F$, an object the two-round model produces and the predecessor model could not. The
-specification asks whether the stake at filing fell after the acceleration and whether the fall is
-ordered by liquidity. One hazard is stated before the estimate because it points the other way: in
-the cross-section of delays, \citet{BebchukBravJacksonJiang2013} find the \emph{negative} gradient:
-filers who take longer end up with smaller stakes, $0.6$ percentage points per ten days. The
-cross-section of delays is therefore never read as a window effect; only the 5 February 2024
-filing-window change is. The historical
-days--stake gradient implies a mechanical stake change of roughly $0.12$ percentage points from the
-two-day median-delay cut, against the stake leg's minimum detectable effect of $0.85$ percentage
-points on the post-re-parse projection, so a detectable
-estimate would have to be behavioural rather than arithmetic, and the paper would have to say which.
+The design that was to carry the rest of the empirics is no longer prospective. The seven-leg
+pre-specification --- the timing split of the run-up and the filing-day jump, the bindingness
+dose built from pre-period filing behaviour, the stake at filing, the bounded null on the
+accumulation channel from the Commission's own tables, the matched difference-in-differences on
+the bid hazard, bidder entry by liquidity, and the referee checklist --- was executed in August
+2026, and its outcomes have been viewed. Under the position this paper adopts, the record is
+preserved exactly as viewed in the online appendix. It is not the paper's headline, and no
+estimate in it is cited as evidence in the main text.
 
-\paragraph{(d) The bounded null.}
-The Commission's own tables cap what the accumulation channel can do. Classifying 2011--2021
-non-corporate-action initial 13Ds by how much of the reported stake was already accumulated by the
-amended five-business-day deadline: 80 percent of campaigns were unconstrained; 20 percent would
-have had some accumulation cut; 3 percent would have had at least a tenth of the stake cut; 1
-percent at least a quarter \citep{SEC2023}. If only constrained campaigns can have their bid
-outcomes moved by the rule, the aggregate effect on the twelve-month bid hazard is capped by the
-constrained share, and the design reports the whole ladder (20, 3 and 1 percentage points)
-rather than picking one. The 3-point rung is a judgement about what counts as a materially cut
-campaign, and it is stated as such. The bound covers the accumulation channel only; it is not the
-aggregate footprint of the rule, and the dollar figures that travel with it in the release are the
-Commission's own, and the Commission disclaims them.
+\subsection{The headline}
+\label{sec:e1headline}
 
-\paragraph{(e) The matched difference-in-differences on the bid hazard.}
-The control-outcome leg asks whether a bid arrives within twelve months of the trigger, for 13D
-targets against \emph{never-13D} firms matched three-to-one on size, illiquidity, industry and
-quarter, each control inheriting its treated firm's trigger date as a pseudo-trigger so both are
-measured over the identical calendar window. Never-13D rather than 13G controls: 13G filers
-disclaim control intent, and selection between the two forms is itself plausibly responsive to the
-rule. Bid arrival is coded from tender-offer and merger filings, with a thirty-filing hand audit
-done blind. Base rates anchor the power arithmetic: 18.1 percent of campaign targets are acquired
-within twelve months against 7.2 percent of matched controls \citep{GreenwoodSchor2009}. The power
-arithmetic gives minimum detectable effects of $5.8$ percentage points on today's counts, $4.4$
-percentage points for S1 after the re-parse, and $9.9$ percentage points for S2. The latter two use
-the optimistic projection $N \approx 4{,}950$, $w \approx 0.394$; they are projections, not estimates.
-The MDE exceeds the 3-point ceiling of the bounded null, so the difference-in-differences cannot
-separate the accumulation effect from zero even at that ceiling. Only an estimate's excess above
-3 percentage points can be attributed to incumbent defence or selection; the first 3 points remain
-compatible with accumulation.
-
-\paragraph{(f) Bidder entry by liquidity.}
-Within the 13D sample, the bidder-entry leg estimates the liquidity interaction
-\begin{equation*}
-\mathrm{BID12}_i = \alpha + \delta(\mathrm{LIQ}_i\times\mathrm{Post}_i) + \beta\,\mathrm{LIQ}_i
-  + \gamma\,\mathrm{Post}_i + X_i'\theta + \mathrm{FE} + \varepsilon_i .
-\end{equation*}
-Against the matched never-13D controls it estimates the matched triple difference
-\begin{equation*}
-\mathrm{BID12}_i = \alpha + \tau(\mathrm{Treat}_i\times\mathrm{Post}_i\times\mathrm{LIQ}_i)
-  + \text{all lower-order interactions} + X_i'\theta + \delta_{\mathrm{match}} + \varepsilon_i .
-\end{equation*}
-The coefficient $\tau$ asks whether the effect of the February 2024 acceleration on bidder
-entry differs by liquidity. A
-rule-of-thumb power calculation gives projected MDEs of about $8.8$ percentage points for S1 and
-$19.8$ percentage points for S2. These are weakly powered projections, and the realised variance
-will replace the rule of thumb before an estimate is interpreted.
-
-\paragraph{(g) The referee checklist.}
-Control group or bounded null: both, as above. Confounds: ten named ones with a stated handling
-each, including the three the literature specifically warns about: the EDGAR cut-off moving on
-the same date as the window, calendar-day screens that stop being neutral under a business-day rule,
-and the incumbent-defence channel, which runs opposite to accumulation. Rights-plan coverage is
-untested: the proposed moderator uses best-effort EDGAR searches for $8$-K Item 3.03 and $8$-A12B;
-if coverage is insufficient, the defence channel is retained with its signed-bias fallback. Power:
-computed from counts on disk plus stated variance assumptions, with the arithmetic shown; the timing split
-detects $1.1$--$2.3$ percentage points per standard deviation of illiquidity after the re-parse,
-against a mean pre-rule run-up of $2.8$ percent \citep{Zeng2026}, and anything smaller is reported
-as a bounded null. Placebos use all 568 holiday-adjusted dates before the 10 October 2023 adoption
-of the February 2024 acceleration, plus a pseudo-trigger placebo one quarter before the real
-crossing and a descriptive 13G
-placebo whose deadlines did not change until September 2024. Pre-trends: quarterly liquidity-slope
-estimates over the seven pre-adoption quarters, joint $F$-test, and a fixed blocking rule:
-a $p$-value below $0.10$ removes causal language from the leg. Parser validation remains incomplete:
-the available pipeline output is pre-XML and the full-universe re-parse has not run; both limitations
-are reported.
-
-\subsection{Headline shell}
-\label{sec:headline-shell}
-
-The headline empirical result is a choice that has not been made, and this subsection is a shell:
-it fixes what the headline subsection must contain, lists the candidate headlines with what each
-would claim and what would kill each, and marks the choice pending rather than picking one. \\
-\textbf{[headline choice pending]}
-
-\paragraph{Candidate A: the partition test as headline.}
-Claim: the run-up's liquidity slope is non-zero, the jump's is zero, and the difference is measured
-with a standard error: the paper's identity in one regression pair, sign-free and needing no
-theory input. What it needs: the re-parsed sample and the stacked specification of (a). What kills
-it: a jump slope that moves with liquidity like the run-up's, which would refute the partition
-itself and is reported first if it happens. Scope: it is an identity claim, not an estimate of the
-February 2024 acceleration, and a referee will ask what the 5 February 2024 filing-window change did.
-
-\paragraph{Candidate B: the slope change after the February 2024 acceleration.}
-Claim: the run-up's liquidity slope changed after February 2024, in the direction the window record
-of Table~\ref{tab:window-record} points (attenuation at every checked node, composition leg
-carrying it). What it needs: the same sample, the fixed-length run-up, and a decision on how much
-weight to put on a theory direction whose antecedent $\Atau$ is measured to fail at the implemented
-calibration, so the design keeps both branches live and pre-specifies what each sign
-means. What kills it: a bounded null (the minimum detectable effect is $1.1$--$2.3$ percentage
-points on the post-re-parse projection), which is a reportable outcome rather than a failure. Scope: it is the candidate most
-directly about the anchor, and the one most exposed to the theory's honest conditionality.
-
-\paragraph{Candidate C: the bounded null as headline.}
-Claim: the accumulation channel's aggregate effect on the bid hazard is capped at about three
-percentage points by the Commission's own tables, the matched design cannot separately detect even
-the ceiling, and that arithmetic, not a point estimate, is the paper's answer to what the
-acceleration could do to control outcomes. What it needs: the matched sample and the ladder of
-rungs. What kills it: nothing in the data; the risk is presentation, since it reports a ceiling rather
-than an effect. Scope: it is the most defensible statement and the least newsy one, and it can be
-combined with either A or B as a supporting leg rather than standing alone.
-
-The choice among A, B, and C is mine, and the December draft's headline subsection will be
-written into this shell once it is made.
+The earlier draft held the empirical headline open among candidates and left the choice pending.
+It is made here. The headline is the filing-delay result of Table~\ref{tab:e1}: after the
+February 2024 acceleration, the realised filing-delay distribution compressed sharply toward the
+five-business-day deadline, and the compression survives worst-case treatment of every
+unresolved filing. The statement is descriptive. It establishes that the statutory clock moved
+in practice; it says nothing about returns, activism, bidder entry, or takeover premia. The
+candidates that required return or takeover estimates were retired with the viewed August
+record, which the online appendix preserves.
 
 %==============================================================================
 \section{Conclusion}
@@ -1296,14 +1220,16 @@ trading, continuous-time execution, or welfare or optimal rule design; nor that 
 model's non-monotone result for minority gains survives in the two-round model, nor that the
 predecessor calibration at $\Omega \approx 0.037$ is economically meaningful.
 
-The empirics rest on the February 2024 acceleration. The established descriptive fact is that filers moved: the
-median delay fell from seven business days to five, and the share inside the new deadline more than
-doubled. The specification for everything beyond that is written: a timing split that tests the
-partition directly, a bindingness dose, a stake-at-filing leg, a bounded null from the
-Commission's own tables, a matched
-design on the bid hazard whose honest deliverable is already known to be a ceiling, and a
-bidder-entry-by-liquidity leg. The
-headline choice is recorded as pending.
+The empirics rest on the February 2024 acceleration. The established fact is descriptive: the
+statutory clock moved in practice. In the near-census of initial Schedule 13D filings, the
+median trigger-to-filing delay fell from six business days to five and the share filed within
+the new five-business-day deadline rose from $38.9$ to $67.1$ percent, a difference of $28.2$
+percentage points with a $95$ percent bootstrap interval of $21.8$ to $34.8$; the difference
+survives assigning all fourteen unresolved filings to the extremes, and the registered coverage
+and parser gates passed. No control group supports the comparison, and it identifies no effect
+on liquidity, returns, or control outcomes. The pre-specified design for everything beyond it
+was executed in August 2026, its outcomes have been viewed, and it is preserved exactly as
+viewed in the online appendix.
 
 Three open questions carry the research forward: whether any two-round pooled cell satisfies the
 chord restriction's support condition, which is the largest single conditionality in the stack;
