@@ -345,7 +345,7 @@ def cmd_audit_sample(args) -> int:
             pool = df[(df["window"] == w) & (df["parse_route"] == route)]
             if pool.empty:
                 continue
-            take = min(15, len(pool))
+            take = min(20, len(pool))
             picks.append(pool.iloc[rng.choice(len(pool), size=take, replace=False)])
     sample = pd.concat(picks).sort_values(["window", "parse_route", "accession"])
 
@@ -384,9 +384,20 @@ def cmd_audit_report(args) -> int:
     by_window = coded.groupby("window")["error"].sum().to_dict()
     verdict = "PASS" if n_err <= 3 else "NO-GO"
     report = {"n_coded": int(len(coded)), "material_errors": n_err,
+              "error_cases": sorted(coded.loc[coded["error"], "case_id"].tolist()),
               "errors_by_window": {k: int(v) for k, v in by_window.items()},
               "threshold": 3, "verdict": verdict}
     print(json.dumps(report, indent=2))
+
+    est_path = os.path.join(OUT_DIR, "e1_estimate.json")
+    with open(est_path) as fh:
+        result = json.load(fh)
+    result["gates"]["G3_parser_validation"] = report
+    result["headline_suppressed"] = any(
+        g["verdict"] != "PASS" for g in result["gates"].values())
+    with open(est_path, "w") as fh:
+        json.dump(result, fh, indent=2, sort_keys=True)
+    print(f"G3 verdict written to {est_path}")
     return 0 if verdict == "PASS" else 1
 
 

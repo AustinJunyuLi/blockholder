@@ -125,6 +125,13 @@ pattern of errors by period. Parser validation is on the referee checklist.
 The blind is enforced by commit order. The audit sample carries case IDs and source excerpts and
 no parser output. Coding is committed before the comparison runs.
 
+**Third amendment, 2026-09-01, before the audit sample was drawn.** Fifteen cases per
+period-by-route stratum cannot yield 60: the pre-xml stratum is empty, because structured XML did
+not exist before 2024-12-18, so the non-empty strata are pre-text, post-text, and post-xml. The
+allocation is 20 cases per non-empty stratum, 60 in total. A material error is any disagreement
+between the hand-coded and the parsed trigger date; there is no de minimis tolerance. The error
+threshold and the blind are unchanged. This corrects an infeasible allocation, not the gate.
+
 ## Outputs
 
 `empirics/output/e1_delays.csv`, `e1_estimate.json`, `e1_cdf.pdf`. The JSON is the single result

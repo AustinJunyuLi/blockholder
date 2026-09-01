@@ -15,7 +15,7 @@ anything here. `empirics/output/e1_estimate.json` is the single result authority
 ```bash
 PYTHONPATH=. .venv/bin/python -m empirics.e1 run           # enumerate, parse, estimate, gate
 PYTHONPATH=. .venv/bin/python -m empirics.e1 audit-sample  # 60 blind cases for G3
-PYTHONPATH=. .venv/bin/python -m empirics.e1 audit-report  # score them after hand-coding
+PYTHONPATH=. .venv/bin/python -m empirics.e1 audit-report  # score them; writes the G3 verdict into e1_estimate.json
 PYTHONPATH=. .venv/bin/python empirics/test_e1.py
 ```
 
@@ -24,7 +24,8 @@ so `run` needs no network. `form.idx` is filer-indexed, so one joint filing appe
 reporting person under the same accession; enumeration collapses on accession first.
 
 Outputs: `output/e1_delays.csv` (one row per accession, every row carrying a status and reason),
-`output/e1_estimate.json`, `output/e1_cdf.pdf`.
+`output/e1_estimate.json`, `output/e1_cdf.pdf`, `output/e1_audit_cases.csv` (the G3 blind sample,
+committed uncoded and then again hand-coded, in that order).
 
 ## Modules
 
