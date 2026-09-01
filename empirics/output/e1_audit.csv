@@ -1,0 +1,61 @@
+accession,year,parse_route,parsed_stake,hand_stake,abs_diff,stake_error,parsed_trigger,hand_trigger,trigger_error,material_error,excerpt
+0000904454-21-000204,2021,cover,8.0,8.0,0.0,False,2021-02-04,2021-02-04,False,False,"cover: 'February 4, 2021 (Date of Event Which Requires Filing of This Statement)'; row 13: 8.0%*; Item 4 confirms the Feb 4 2021 closing"
+0000919574-21-007285,2021,cover,5.1,5.1,0.0,False,2021-11-30,2021-11-30,False,False,"cover: 'November 30, 2021 (Date of Event Which Requires Filing of this Statement)'; row 13: 5.1%"
+0001062993-21-003594,2021,cover,6.3,6.3,0.0,False,2021-04-01,2021-04-01,False,False,"cover: 'April 1, 2021 (Date of Event which Requires Filing of this Statement)'; row 13: 6.3% on all five pages"
+0001104659-21-062447,2021,cover,7.1,7.1,0.0,False,2021-04-29,2021-04-29,False,False,"cover: 'April 29, 2021 (Date of Event which Requires Filing of this Statement)'; row 13: 7.1% / 6.4% / 0.5%"
+0001193125-21-043391,2021,cover,31.6,31.6,0.0,False,2020-07-29,2020-07-29,False,False,"cover: 'July 29, 2020 (Date of Event Which Requires Filing of this Statement)'; row 13: 31.6% x3 / 25.1% x2 / 0.0% / 8.7%"
+0001193125-21-070575,2021,cover,6.1,6.1,0.0,False,2021-02-23,2021-02-23,False,False,"cover: 'February 23, 2021 (Date of Event which Requires Filing of this Statement)'; row 13: 6.1% and 5.5%; Item 5 table repeats 6.1 / 5.5"
+0001213900-21-013483,2021,cover,13.3,13.3,0.0,False,2021-01-21,2021-01-21,False,False,"cover: 'January 21, 2021 (Date of Event Which Requires Filing of this Statement)'; row 13: 13.3%* / 13.1%* / 0%*"
+0001213900-21-035044,2021,cover,12.1,12.1,0.0,False,2021-05-24,2021-05-24,False,False,"cover: 'May 24, 2021 (Date of Event which Requires Filing of this Statement)'; row 13: 12.1% (2) on all three pages"
+0001552781-21-000424,2021,cover,17.6,17.6,0.0,False,2021-05-04,2021-05-04,False,False,"cover: 'May 4, 2021 (Date of Event Which Requires Filing of this Statement)'; row 13: 17.6% (3)"
+0001564590-21-050037,2021,cover,9.9,9.9,0.0,False,2021-09-24,2021-09-24,False,False,"cover: 'September 24, 2021 (Date of Event Which Requires Filing of this Statement)'; cover row (13) is left blank; Item 5(a)-(b): 'Dr. Smith beneficially owns an aggregate of 14,147,276 shares of Common Stock, or 9.9% of the Issuer's outstanding shares'"
+0000807249-22-000131,2022,cover,9.26,9.26,0.0,False,2022-10-07,2022-10-07,False,False,"cover: 'October 7, 2022 (Date of Event which Requires Filing of this Statement)'; row 13: 0.01% / 1.19% / 8.82% / 0.00% / 0.00% / 9.26%"
+0000921895-22-002795,2022,cover,8.5,8.5,0.0,False,2022-10-06,2022-10-06,False,False,"cover: 'October 6, 2022 (Date of Event Which Requires Filing of This Statement)'; row 13 across eight cover pages, max 8.5%*"
+0001096906-22-002326,2022,cover,100.0,100.0,0.0,False,2019-02-20,2019-02-20,False,False,"cover: 'February 20, 2019 (Date of Event which Requires Filing of this Statement)'; row 13: 100%"
+0001104659-22-059185,2022,cover,8.7,8.7,0.0,False,2022-05-02,2022-05-02,False,False,"cover: 'May 2, 2022 (Date of Event Which Requires Filing of This Statement)'; row 13: 8.7% on all six pages"
+0001104659-22-065365,2022,cover,12.82,12.82,0.0,False,2022-05-26,2022-05-26,False,False,"cover: 'May 26, 2022 (Date of Event Which Requires Filing of This Statement)'; row 13: 12.82% on both pages"
+0001193125-22-054686,2022,cover,5.2,5.2,0.0,False,2022-02-24,2022-02-24,False,False,"cover: 'February 24, 2022 (Date of Event which Requires Filing of this Statement)'; row 13: 5.20%"
+0001193125-22-143660,2022,cover,27.3,27.3,0.0,False,2022-04-28,2022-04-28,False,False,"cover: 'April 28, 2022 (Date of Event Which Requires Filing of This Statement)'; row 13 max across ten pages: 27.3%"
+0001213900-22-027493,2022,cover,10.06,10.06,0.0,False,2022-05-13,2022-05-13,False,False,cover: '5/13/2022 (Date of Event which Requires Filing of this Statement)'; row 13: 2.95% / 10.06% / 2.95% / 2.95% / 2.62% / 4.72%
+0001213900-22-055642,2022,cover,37.14,37.14,0.0,False,2022-09-13,2022-09-13,False,False,"cover: 'September 13, 2022 (Date of Event which Requires Filing of this Statement)'; row 13: 37.14%*"
+0001654954-22-002576,2022,cover,6.3,6.3,0.0,False,2021-09-16,2021-09-16,False,False,"cover: 'September 16, 2021 (Date of Event Which Requires Filing of This Statement)'; row 13: 6.3%"
+0000921895-23-000084,2023,cover,9.99,9.99,0.0,False,2023-01-09,2023-01-09,False,False,"cover: 'January 9, 2023 (Date of Event Which Requires Filing of This Statement)'; row 13: 9.99% on five pages, 'Less than 1%' on two"
+0000950170-23-046488,2023,cover,10.8,10.8,0.0,False,2023-08-28,2023-08-28,False,False,"cover: 'August 28, 2023 (Date of Event Which Requires Filing of This Statement)'; row 13: 10.8% / 0.7%"
+0001018399-23-000105,2023,cover,9.8,9.8,0.0,False,2023-06-28,2023-06-28,False,False,"cover: 'June 28, 2023 (Date of Event Which Requires Filing of this Statement)'; row 13: 9.8% / 6.9%; Item 4 confirms the June 28 2023 death of the trustee"
+0001062993-23-011036,2023,cover,5.03,5.03,0.0,False,2023-05-11,2023-05-11,False,False,"cover: 'May 11, 2023 (Date of Event Which Requires Filing of This Statement)'; row 13: 5.03% on all three pages"
+0001104659-23-089455,2023,cover,10.5,10.5,0.0,False,2023-07-31,2023-07-31,False,False,"cover: 'July 31, 2023 (Date of Event Which Requires Filing of this Statement)'; row 13: 10.5% (2)"
+0001193125-23-001641,2023,cover,16.6,16.6,0.0,False,2022-12-26,2022-12-26,False,False,"cover: 'December 26, 2022 (Date of Event Which Requires Filing of this Statement)'; row 13: 16.6% / 14.2%; Item 4 confirms the Dec 26 2022 business combination agreement"
+0001213900-23-079675,2023,cover,32.68,32.68,0.0,False,2023-09-11,2023-09-11,False,False,"cover: 'September 11, 2023 (Date of Event which Requires Filing of this Statement)'; row 13: 32.68%* / 28.69%*"
+0001531612-23-000002,2023,cover,7.89,7.89,0.0,False,2023-01-12,2023-01-12,False,False,"cover: 'January 12, 2023 (Date of Event which Requires Filing of this Statement)'; row 13: 7.89% x2 / 1.39%"
+0001567619-23-006436,2023,cover,13.7,13.7,0.0,False,2023-06-26,2023-06-26,False,False,"cover: 'June 26, 2023 (Date of Event which Requires Filing of this Statement)'; row 13: 13.0% / 13.7%"
+0001731122-23-002194,2023,cover,6.6,6.6,0.0,False,2023-11-27,2023-11-27,False,False,"cover: 'November 27, 2023 (Date of Event Which Requires Filing of This Statement)'; row 13: 6.6%* (2) on both pages"
+0000029332-24-000015,2024,cover,8.89,8.89,0.0,False,2024-03-18,2024-03-18,False,False,"cover: 'March 18, 2024 (Date of Event which Requires Filing of this Statement)'; row 13 across four cover pages: 8.89% / 2.73% / .01% / .002%"
+0000038777-24-000109,2024,cover,100.0,100.0,0.0,False,2024-07-03,2024-07-03,False,False,"cover: 'July 3, 2024 (Date of Event Which Requires Filing of this Statement)'; row 13: 100.0% / (See Item 5) / (See Item 5) / 100.0%"
+0000950170-24-007777,2024,cover,5.13,5.13,0.0,False,2024-01-19,2024-01-19,False,False,"cover: 'January 19, 2024 (Date of Event Which Requires Filing of This Statement)'; row 13: 5.13% on both pages"
+0000950170-24-122379,2024,cover,4.6,4.6,0.0,False,2024-11-04,2024-11-04,False,False,"cover: 'November 4, 2024 (Date of Event which Requires Filing of this Statement)'; row 13: 4.6% / 1.3% / See Item 5"
+0001062993-24-008824,2024,cover,5.07,5.07,0.0,False,2024-04-22,2024-04-22,False,False,"cover: 'April 22, 2024 (Date of Event Which Requires Filing of This Statement)'; row 13: 5.07% on all three pages"
+0001062993-24-008825,2024,cover,5.12,5.12,0.0,False,2024-04-22,2024-04-22,False,False,"cover: 'April 22, 2024 (Date of Event Which Requires Filing of This Statement)'; row 13: 5.12% on all three pages"
+0001104659-24-031497,2024,cover,5.2,5.2,0.0,False,2024-03-04,2024-03-04,False,False,"cover: 'March 4, 2024 (Date of Event which Requires Filing of this Statement)'; row 13: 2.1% / 0.5% / 2.5% / 2.3% / 4.8% / 5.2%"
+0001104659-24-041578,2024,cover,9.8,9.8,0.0,False,2024-03-28,2024-03-28,False,False,"cover: 'March 28, 2024 (Date of event which requires filing of this statement)'; row 13: 9.8% on all four pages; Item 4 confirms the Mar 28 2024 board appointment"
+0001213900-24-000549,2024,cover,15.2,15.2,0.0,False,2023-12-21,2023-12-21,False,False,"cover: 'December 21, 2023 (Date of Event which Requires Filing of this Statement)'; row 13: 15.2% (1)"
+0001493152-24-008747,2024,cover,7.8,7.8,0.0,False,2024-01-05,2024-01-05,False,False,"cover: 'January 5, 2024 (Date of event which requires filing of this statement)'; row 13: 7.8% (4)"
+0001104659-24-130738,2024,xml,6.03,6.03,0.0,False,2024-12-13,2024-12-13,False,False,XML cover: dateOfEvent 12/13/2024; percentOfClass 6.03 for all four reporting persons
+0001104659-24-131320,2024,xml,15.9,15.9,0.0,False,2024-12-17,2024-12-17,False,False,XML cover: dateOfEvent 12/17/2024; percentOfClass 9.7 / 9.7 / 0 / 0 / 15.9
+0001104659-24-131447,2024,xml,9.3,9.3,0.0,False,2024-12-22,2024-12-22,False,False,"XML cover: dateOfEvent 12/22/2024; percentOfClass over 17 reporting persons, max 9.3 (Anne E. Gittinger)"
+0001104659-24-132897,2024,xml,30.7,30.7,0.0,False,2024-12-29,2024-12-29,False,False,XML cover: dateOfEvent 12/29/2024; percentOfClass 30.7 for all three; Item 5 repeats 'approximately 30.7%'
+0001373604-24-000114,2024,xml,8.5,8.5,0.0,False,2024-12-13,2024-12-13,False,False,XML cover: dateOfEvent 12/13/2024; percentOfClass 8.1 / 8.5; Item 4 confirms the Dec 13 2024 letter to the board
+0001398344-24-023420,2024,xml,6.37,6.37,0.0,False,2024-12-18,2024-12-18,False,False,XML cover: dateOfEvent 12/18/2024; percentOfClass 6.37 for both; Item 5 repeats 'approximately 6.37%'
+0002013085-24-000007,2024,xml,35.5,35.5,0.0,False,2024-10-31,2024-10-31,False,False,XML cover: dateOfEvent 10/31/2024; percentOfClass 35.5; Item 5 states 35.45%
+0002021677-24-000001,2024,xml,5.0,5.0,0.0,False,2024-05-01,2024-05-01,False,False,XML cover: dateOfEvent 05/01/2024; percentOfClass 5.0
+0002022936-24-000016,2024,xml,16.2,16.2,0.0,False,2024-10-15,2024-10-15,False,False,XML cover: dateOfEvent 10/15/2024; percentOfClass 16.2; Item 5 states 16.18%
+0002034863-24-000003,2024,xml,73.0,73.0,0.0,False,2024-08-08,2024-08-08,False,False,XML cover: dateOfEvent 08/08/2024; percentOfClass 73.0 for both; Item 5 states 'Approximately 73%'
+0000897069-25-000660,2025,xml,6.3,6.3,0.0,False,2025-03-12,2025-03-12,False,False,XML cover: dateOfEvent 03/12/2025; percentOfClass 6.3 x3 then 0 for the remaining eight of eleven persons
+0000919574-25-000562,2025,xml,7.45,7.45,0.0,False,2025-01-22,2025-01-22,False,False,XML cover: dateOfEvent 01/22/2025; percentOfClass 7.45 for all four
+0000947871-25-001032,2025,xml,76.02,76.02,0.0,False,2025-11-12,2025-11-12,False,False,XML cover: dateOfEvent 11/12/2025; percentOfClass 76.02 for both
+0000950170-25-005474,2025,xml,35.3,35.3,0.0,False,2025-01-06,2025-01-06,False,False,XML cover: dateOfEvent 01/06/2025; percentOfClass 35.30 for both; Item 5 repeats 'approximately 35.30%'
+0001079973-25-000383,2025,xml,37.6,37.6,0.0,False,2025-03-06,2025-03-06,False,False,XML cover: dateOfEvent 03/06/2025; percentOfClass 37.6 for both
+0001104659-25-014424,2025,xml,20.2,20.2,0.0,False,2024-10-23,2024-10-23,False,False,XML cover: dateOfEvent 10/23/2024; percentOfClass 19.9 / 20.2
+0001104659-25-021530,2025,xml,48.2,48.2,0.0,False,2025-03-01,2025-03-01,False,False,XML cover: dateOfEvent 03/01/2025; percentOfClass 46.3 / 48.2; Item 4 confirms the Mar 1 2025 proposal
+0001104659-25-052758,2025,xml,20.7,20.7,0.0,False,2025-05-19,2025-05-19,False,False,XML cover: dateOfEvent 05/19/2025; percentOfClass 20.7 for both
+0001104659-25-089649,2025,xml,8.9,8.9,0.0,False,2017-09-07,2017-09-07,False,False,XML cover: dateOfEvent 09/07/2017; percentOfClass 8.9; Item 4 confirms the Sep 7 2017 board seat
+0001140361-25-032112,2025,xml,20.4,20.4,0.0,False,2025-08-13,2025-08-13,False,False,XML cover: dateOfEvent 08/13/2025; percentOfClass 20.4 for all six

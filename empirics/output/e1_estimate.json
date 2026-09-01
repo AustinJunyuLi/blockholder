@@ -1,0 +1,351 @@
+{
+  "by_period": {
+    "post": {
+      "mean": 23.9374259913259,
+      "median": 12.8,
+      "n": 1614,
+      "p25": 6.9,
+      "p75": 29.4
+    },
+    "pre": {
+      "mean": 22.2732727617036,
+      "median": 13.1,
+      "n": 2888,
+      "p25": 7.2,
+      "p75": 26.25
+    }
+  },
+  "by_trigger_year": {
+    "2010": {
+      "mean": 99.5,
+      "median": 99.5,
+      "n": 1,
+      "p25": 99.5,
+      "p75": 99.5
+    },
+    "2014": {
+      "mean": 7.523333333333333,
+      "median": 5.78,
+      "n": 3,
+      "p25": 5.585,
+      "p75": 8.59
+    },
+    "2015": {
+      "mean": 22.766666666666666,
+      "median": 8.8,
+      "n": 3,
+      "p25": 7.15,
+      "p75": 31.4
+    },
+    "2016": {
+      "mean": 48.1875,
+      "median": 47.925,
+      "n": 4,
+      "p25": 19.7175,
+      "p75": 76.395
+    },
+    "2017": {
+      "mean": 18.419999999999998,
+      "median": 14.31,
+      "n": 7,
+      "p25": 7.415,
+      "p75": 22.405
+    },
+    "2018": {
+      "mean": 20.56375,
+      "median": 9.05,
+      "n": 8,
+      "p25": 6.3475,
+      "p75": 15.245000000000001
+    },
+    "2019": {
+      "mean": 25.754,
+      "median": 9.665,
+      "n": 10,
+      "p25": 4.6125,
+      "p75": 17.925
+    },
+    "2020": {
+      "mean": 24.398266666666668,
+      "median": 15.100000000000001,
+      "n": 90,
+      "p25": 8.725,
+      "p75": 29.75
+    },
+    "2021": {
+      "mean": 21.797662268199232,
+      "median": 14.55,
+      "n": 1044,
+      "p25": 7.8,
+      "p75": 26.3
+    },
+    "2022": {
+      "mean": 22.906781053952322,
+      "median": 12.94,
+      "n": 797,
+      "p25": 7.1,
+      "p75": 26.128
+    },
+    "2023": {
+      "mean": 22.088779819024975,
+      "median": 11.1,
+      "n": 841,
+      "p25": 6.7,
+      "p75": 25.7
+    },
+    "2024": {
+      "mean": 24.108889106487148,
+      "median": 12.1,
+      "n": 817,
+      "p25": 6.78,
+      "p75": 31.7
+    },
+    "2025": {
+      "mean": 23.42437075256556,
+      "median": 12.9,
+      "n": 877,
+      "p25": 7.0,
+      "p75": 27.9
+    }
+  },
+  "by_year": {
+    "2021": {
+      "mean": 21.7990927,
+      "median": 14.4,
+      "n": 1040,
+      "p25": 7.7,
+      "p75": 26.45
+    },
+    "2022": {
+      "mean": 22.640066294919457,
+      "median": 12.94,
+      "n": 807,
+      "p25": 6.98,
+      "p75": 25.3
+    },
+    "2023": {
+      "mean": 21.541061714719625,
+      "median": 11.0,
+      "n": 856,
+      "p25": 6.7225,
+      "p75": 24.9625
+    },
+    "2024": {
+      "mean": 24.39973357058126,
+      "median": 12.65,
+      "n": 843,
+      "p25": 6.83,
+      "p75": 31.549999999999997
+    },
+    "2025": {
+      "mean": 24.069563964435147,
+      "median": 13.71,
+      "n": 956,
+      "p25": 7.1525,
+      "p75": 29.474999999999998
+    }
+  },
+  "causal_claim": false,
+  "clock": {
+    "by_period": {
+      "post": {
+        "median_delay_bdays": 5.0,
+        "n": 1677,
+        "share_within_5bd": 0.7590936195587359,
+        "share_within_5bd_ci": {
+          "ci_high": 0.7793679189028027,
+          "ci_low": 0.7382230172927847,
+          "n_boot": 2000,
+          "point": 0.7590936195587359,
+          "seed": 5
+        }
+      },
+      "pre": {
+        "median_delay_bdays": 7.0,
+        "n": 3237,
+        "share_within_5bd": 0.3265369168983627,
+        "share_within_5bd_ci": {
+          "ci_high": 0.3426088971269694,
+          "ci_low": 0.31109051590979303,
+          "n_boot": 2000,
+          "point": 0.3265369168983627,
+          "seed": 5
+        }
+      }
+    },
+    "by_trigger_year": {
+      "2010": {
+        "median_delay_bdays": 2870.0,
+        "n": 1,
+        "share_within_5bd": 0.0
+      },
+      "2014": {
+        "median_delay_bdays": 2146.0,
+        "n": 3,
+        "share_within_5bd": 0.0
+      },
+      "2015": {
+        "median_delay_bdays": 2123.5,
+        "n": 4,
+        "share_within_5bd": 0.0
+      },
+      "2016": {
+        "median_delay_bdays": 1684.5,
+        "n": 4,
+        "share_within_5bd": 0.0
+      },
+      "2017": {
+        "median_delay_bdays": 1235.0,
+        "n": 7,
+        "share_within_5bd": 0.0
+      },
+      "2018": {
+        "median_delay_bdays": 683.5,
+        "n": 10,
+        "share_within_5bd": 0.0
+      },
+      "2019": {
+        "median_delay_bdays": 539.0,
+        "n": 11,
+        "share_within_5bd": 0.0
+      },
+      "2020": {
+        "median_delay_bdays": 94.0,
+        "n": 98,
+        "share_within_5bd": 0.030612244897959183
+      },
+      "2021": {
+        "median_delay_bdays": 7.0,
+        "n": 1177,
+        "share_within_5bd": 0.2786745964316058
+      },
+      "2022": {
+        "median_delay_bdays": 7.0,
+        "n": 887,
+        "share_within_5bd": 0.3416009019165727
+      },
+      "2023": {
+        "median_delay_bdays": 6.0,
+        "n": 949,
+        "share_within_5bd": 0.40042149631190727
+      },
+      "2024": {
+        "median_delay_bdays": 5.0,
+        "n": 879,
+        "share_within_5bd": 0.7428896473265074
+      },
+      "2025": {
+        "median_delay_bdays": 5.0,
+        "n": 884,
+        "share_within_5bd": 0.75
+      }
+    },
+    "by_year": {
+      "2021": {
+        "median_delay_bdays": 7.0,
+        "n": 1167,
+        "share_within_5bd": 0.2776349614395887
+      },
+      "2022": {
+        "median_delay_bdays": 7.0,
+        "n": 903,
+        "share_within_5bd": 0.3388704318936877
+      },
+      "2023": {
+        "median_delay_bdays": 6.0,
+        "n": 962,
+        "share_within_5bd": 0.3898128898128898
+      },
+      "2024": {
+        "median_delay_bdays": 5.0,
+        "n": 918,
+        "share_within_5bd": 0.7058823529411765
+      },
+      "2025": {
+        "median_delay_bdays": 5.0,
+        "n": 964,
+        "share_within_5bd": 0.7022821576763485
+      }
+    },
+    "definition": "federal business days from the trigger date to the filing date, holidays from empirics/facts.py",
+    "within_bdays": 5
+  },
+  "coverage": {
+    "campaigns": 4914,
+    "campaigns_multi_filing": 713,
+    "cusip_multi_candidate": 151,
+    "cusip_readable": 4736,
+    "index_accessions": 6196,
+    "missing_text": 0,
+    "negative_delay": 2,
+    "no_acceptance": 0,
+    "no_subject_cik": 0,
+    "no_trigger": 81,
+    "resolved_filings": 6115,
+    "stake_only_elsewhere": 60,
+    "stake_readable": 4502,
+    "stake_share": 0.9161579161579162,
+    "truncated_source": 415
+  },
+  "design": "descriptive",
+  "difference": {
+    "mean": {
+      "ci_high": 3.108520017493093,
+      "ci_low": 0.20486364832173098,
+      "n_boot": 2000,
+      "point": 1.6641532296223005,
+      "seed": 5
+    },
+    "median": {
+      "ci_high": 1.3000000000000007,
+      "ci_low": -1.6151249999999984,
+      "n_boot": 2000,
+      "point": -0.29999999999999893,
+      "seed": 5
+    }
+  },
+  "exercise": "e1",
+  "gates": {
+    "E1-G1_parse_coverage": {
+      "share_with_stake": 0.9161579161579162,
+      "threshold": 0.9,
+      "verdict": "PASS"
+    },
+    "E1-G2_blind_audit": {
+      "audit_file": "empirics/output/e1_audit.csv",
+      "material_error_rule": "a stake reading off by more than 0.5 percentage points, or a trigger date that differs from the hand reading",
+      "material_errors": 0,
+      "n_audited": 60,
+      "note": "sixty stratified campaigns, hand-read by an independent worker",
+      "read_by": "an independent worker who wrote neither the parser nor the loader",
+      "sampling": "sixty campaigns from e1_campaigns.csv, sorted by accession, drawn with random.Random(5).sample within each stratum; strata are calendar year of the filing date crossed with parser route; ten campaigns from each of the six non-empty strata (2021 cover, 2022 cover, 2023 cover, 2024 cover, 2024 xml, 2025 xml)",
+      "seed": 5,
+      "stake_errors": 0,
+      "threshold": 3,
+      "trigger_date_errors": 0,
+      "verdict": "PASS"
+    },
+    "E1-G3_differential_coverage": {
+      "absolute_gap": 0.07024879482150426,
+      "share_with_stake_post": 0.962432915921288,
+      "share_with_stake_pre": 0.8921841210997837,
+      "threshold": 0.1,
+      "verdict": "PASS"
+    }
+  },
+  "headline_suppressed": false,
+  "label": "ESTIMATED",
+  "object": "stake at filing, B^F, percent of class",
+  "population": {
+    "forms": [
+      "SC 13D",
+      "SCHEDULE 13D"
+    ],
+    "period_cut": "2024-02-05",
+    "quarters": "2021 Q1 through 2025 Q4",
+    "unit": "campaign, one (subject CIK, trigger date) pair",
+    "year_key": "calendar year of the filing date"
+  },
+  "spec": "empirics/spec.md",
+  "status": "GO"
+}
