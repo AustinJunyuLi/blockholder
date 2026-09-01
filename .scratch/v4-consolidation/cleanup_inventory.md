@@ -15,7 +15,7 @@ Run ticket 07 before ticket 06 so the cleanup removes caches and LaTeX files reg
 | Path | Action | Recovery |
 |---|---|---|
 | `/Users/austinli/Projects/blockholder_v4/HANDOFF.md` | Delete only after ticket 04 migrates its WRDS to-do | Git |
-| `/Users/austinli/Projects/blockholder_v4/quality_reports/session_logs/2026-02-24_description.md` | Delete dangling Linux-path symlink; the real adjacent file remains | Git |
+| `/Users/austinli/Projects/blockholder_v4/quality_reports/session_logs/2026-02-24_description.md` | Delete dangling Linux-path symlink; the real adjacent file remains — executed 2026-09-01 | Git |
 | `/Users/austinli/Projects/blockholder_v4/.scratch/v4-reposition/issues/` | Refresh stale or missing status lines from current authorities; keep every ticket — executed 2026-09-01 (stale markings 5b85766; missing R-series statuses recorded from the theory record this date) | Git |
 
 ## Trash after verification
