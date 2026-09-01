@@ -1,5 +1,11 @@
 # Handoff — empirics lane, 2026-08-30 (E2 execution after the sign landing)
 
+> **Superseded 2026-09-01.** This handoff serves the August empirical record, deleted at
+> `235de22` (history: `9b98089`; preserved as viewed in `draft_v3_onlineappendix.tex`
+> §app:honesty). Its authority file `research/empirics_v4/SPEC.md` and its scripts no longer
+> exist. The live empirical lane is E1 alone: spec `research/empirics_v4/e1_spec.md`, single
+> result authority `empirics/output/e1_estimate.json`. Retained as a session record only.
+
 **Lane:** empirics (`v4` worktree `/Users/austinli/Projects/blockholder_v4`).
 **Trigger:** `HANDOFF_sign.md` §8 landed on `origin/v4-theory` (theory frozen `65b8db3`).
 **Authority for every method, number and filter:** `research/empirics_v4/SPEC.md`.
