@@ -18,21 +18,10 @@ PROVED, NUMERICAL, ESTIMATED, CONJECTURE. A review may demote a claim. Prose nev
 | Frozen theory | `research/model_v4/MODEL_CARD.md`, `research/model_v4/`, `sections_v3/` | Preserve both trees byte-for-byte. The R-number sequence and the label gate are closed. Reopen only when Austin authorises correcting a genuine logical error. |
 | Theory implementation | `numerical_v4/`, `quality_reports/fixes/t2_*` | Keep the code consistent with the frozen card. The smoke run is the minimum gate. |
 | Empirics | `research/empirics_v4/e1_spec.md`, `empirics/e1.py`, `empirics/output/e1_*` | E1 is the only empirical exercise. The spec is registered; correct it with a dated amendment inside the file, never a silent edit. |
-| Paper position | `research/empirics_v4/2026-08-31_gpt_pro_integration_angle_review.md` | The surviving statement of what the paper argues. |
+| Paper position | `draft_v3.tex` abstract and §1 | The statement of what the paper argues. |
 | Live paper | `draft_v3.tex`, `draft_v3.bib`, `draft_v3_onlineappendix.tex`, `draft_v3_trace.md`, `deliverable/` | Edit presentation without touching the frozen theory record. Trace theory claims to the card and empirical numbers to `e1_estimate.json`. |
 | Frozen v2 reference | `draft_v2.tex`, `numerical/`, `pyfig/`, `pres/`, D-series records | Historical reference. Regenerate only to verify or to make an authorised repair. |
 | Teaching and provenance | `teach/`, `quality_reports/`, `.scratch/`, `docs/adr/` | Preserve learning state, checks, audits, and session records unless the active ticket names the exact file. |
-
-## The empirical record was cleared on 2026-09-01
-
-Every estimator, committed output, registered specification, and audit from the August
-empirical lane was deleted, along with the Codex E1 protocol and evidence manifest. All of it
-remains reachable in history at `9b98089`. The 2026-09-01 manuscript revision stripped those
-citations from `draft_v3`; the online appendix preserves the record exactly as viewed
-(`app:honesty`).
-
-What survived: `parse_13d.py` and its tests, `edgar_fetch.py`, and `facts.py`, which seed the
-rebuild, plus the GPT Pro review.
 
 ## E1
 

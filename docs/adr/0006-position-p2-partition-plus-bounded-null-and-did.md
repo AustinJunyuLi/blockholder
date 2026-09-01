@@ -1,5 +1,5 @@
 ---
-status: accepted
+status: superseded 2026-09-01. The paper's position is stated in draft_v3.tex (abstract and section 1); E1 is the only empirical exercise.
 date: 2026-08-19
 ---
 # The position is P2 (the disclosure rule as the market's partition), carrying P4's bounded null and P4's matched DiD as a run result

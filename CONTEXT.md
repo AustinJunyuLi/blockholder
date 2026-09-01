@@ -27,7 +27,7 @@ _Avoid_: hook, motivation
 Whether the author can robustly finish a piece by the December package without new tools, data or coauthors. A ranking criterion, not a nice-to-have.
 
 **December package**:
-The department-review deliverable: a full draft (draft_v3) with a clean core model and one clean empirical result, plus a written empirical spec for the rest. Never described as a job-market paper; never names a journal.
+The department-review deliverable: a full draft (draft_v3) with a clean core model and one clean empirical result, E1, run from its registered specification. Never described as a job-market paper; never names a journal.
 
 **Clean result**:
 One empirical estimate whose design and data survive the referee checklist and that can be re-run from files in hand.
@@ -120,9 +120,5 @@ The share of resolved campaigns filed within five business days, reported beside
 **Gates (G1, G2, G3)**:
 E1's three binding checks: the worst-case lower bound on the post-minus-pre difference clears zero; the pre-post gap in unresolved share stays within 10 percentage points; the blind parser audit stays within three material errors. A failed gate writes NO-GO and suppresses the headline; it never licenses editing the spec.
 
-**Viewed August record**:
-The August 2026 empirical record, deleted 2026-09-01 (history `9b98089`) and preserved exactly as viewed in the online appendix (`app:honesty`). Its terms — timing split, bindingness dose, stake at filing, bounded null, run-up path — name record content, not live objects.
-_Avoid_: quoting its numbers as live estimates; every live empirical number comes from `e1_estimate.json`
-
 **Referee checklist**:
-The fixed list a design must pass: control group or bounded null, confound list (EDGAR cut-off, anticipation, T+1), power/MDE, placebo, pre-trend, parser validation.
+The checks a result must pass before it counts as clean, as E1's registered specification applies them: the specification committed before the run, the three binding gates (G1, G2, G3), the stated population and campaign unit, and a rerun from files in hand that reproduces the result record.
