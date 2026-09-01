@@ -103,6 +103,16 @@ Gates:
 Result file: `empirics/output/e2_estimate.json`. Campaign table: `empirics/output/e2_campaigns.csv`.
 Figure: `empirics/output/e2_runup_jump.pdf` (run-up share by tercile and period).
 
+**Amendment, 2026-09-01, before any run.** Three changes to the E2 rules above. First, the
+reported object is not a per-campaign share on campaigns with R + J > 0, which would condition on
+the outcome. The paper reports, by cell, the mean and median of R and of J and the ratio of cell
+means, mean R over (mean R plus mean J), with campaign-level bootstrap intervals on all three.
+Second, gate E2-G1 counts coverage among campaigns whose subject CIK has a ticker in the SEC
+company-tickers file, the listing proxy: at least 80 percent of those must link to CRSP with
+valid prices on every needed day, and the share of all campaigns with such a ticker is reported
+as `coverage.listed_share`. Third, campaigns with fewer than 60 valid pre-trigger days are
+excluded from the liquidity split and counted in `coverage.no_liquidity`.
+
 ## Runner and tests
 
 `empirics/fingerprints.py` builds the campaign table once and runs `e1` and `e2` from it.
