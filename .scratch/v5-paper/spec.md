@@ -55,21 +55,22 @@ phases A and B. A failed gate makes the exercise absent from the paper with no s
 
 ## 5. Phases and the commit points
 
-Registration is a commit and workers run no git, so the work runs as four Workflow invocations
-with the orchestrator committing between them. Scripts are in this directory.
+Registration is a commit and workers run no git, so the work runs as four phases from
+`.scratch/v5-paper/orchestration.md`, the orchestrator committing between them. Kimi authors,
+GLM engineers and audits, Opus judges; every step, effort and dependency is in that file.
 
-- Phase A, `workflow_a.js`: mark parameter and timed smoke (01); garbling lemma and threshold
-  dial (02); who gets caught (03); re-derivation of the inherited results (04); existence attempt
-  (05); empirics build and the E1 run (06); E1 blind audit (07); literature check (09).
-  Orchestrator then: reads the mark-2 grid record for the run-up share direction in κ, appends the
-  dated E2 direction note to `empirics/spec.md`, commits all Phase A files, one concern per commit.
-- Phase B, `workflow_b.js`: E2 run (08); E2 link audit (08); grid figures at order size two and
-  the two exercise figures (10). Orchestrator commits.
-- Phase C, `workflow_c.js`: the paper writer (11) produces `paper.tex`, `appendix.tex`,
-  `paper.bib` from the v5 proofs, the result files, the brief, and the inherited draft's prose
-  where it survives; number guard and compile check (11). Orchestrator commits.
-- Phase D, `workflow_d.js`: one referee pass (12); one author fix pass (13); compile, visual
-  inspection, PDFs to `deliverable/` (14). Orchestrator commits and pushes.
+- Phase A: mark parameter and timed smoke (01); garbling lemma and threshold dial (02); who gets
+  caught (03); re-derivation of the inherited results (04); existence attempt (05); empirics
+  build and the E1 run (06); E1 blind audit (07); literature check (09). Orchestrator then:
+  reads the mark-2 grid record for the run-up share direction in κ, appends the dated E2
+  direction note to `empirics/spec.md`, commits all Phase A files, one concern per commit.
+- Phase B: E2 run (08); E2 link audit (08); grid figures at order size two and the two exercise
+  figures (10). Orchestrator commits.
+- Phase C: the paper writer (11) produces `paper.tex`, `appendix.tex`, `paper.bib` from the v5
+  proofs, the result files, the brief, and the inherited draft's prose where it survives; number
+  guard and compile check (11). Orchestrator commits.
+- Phase D: one referee pass (12); one author fix pass (13); compile, visual inspection, PDFs to
+  `deliverable/` (14). Orchestrator commits and pushes.
 
 ## 6. Policies every worker follows
 
@@ -91,9 +92,9 @@ with the orchestrator committing between them. Scripts are in this directory.
 
 ## 7. Routing and budget
 
-Opus workers throughout. Effort `high` for proof writers and re-derivers, `medium` for the
-referee, default otherwise. About 20 agents across the four phases. Raise the workflow size
-guideline in `/config` before Phase A. The orchestrator is Fable and never delegates git.
+Kimi (kimi-dispatch) authors, GLM (glm-dispatch) engineers and audits, Opus subagents judge;
+the orchestrating session plans, arbitrates and owns git. Efforts are set per step in
+`.scratch/v5-paper/orchestration.md`. The orchestrator is Fable and never delegates git.
 
 ## 8. Done
 

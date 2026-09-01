@@ -1,0 +1,1 @@
+{ "type": "object", "required": ["status", "summary", "files_changed", "evidence"], "properties": { "status": { "type": "string", "enum": ["PASS", "FAIL", "ABSENT", "STOP"] }, "summary": { "type": "string" }, "files_changed": { "type": "array", "items": { "type": "string" } }, "evidence": { "type": "string" }, "named_condition": { "type": "string" } } }

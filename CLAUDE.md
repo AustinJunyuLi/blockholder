@@ -55,8 +55,9 @@ gate is absent, not mentioned.
 - Change assumptions when a proof fails once, if a cleaner assumption is available, and record
   the change in the ticket. A changed assumption counts as the second attempt if it fails.
 - Empirics are descriptive. No causal claim, no control group, no identification language.
-- Routing: Fable plans, arbitrates, and owns git. Opus workers execute. High reasoning effort for
-  proofs and independent re-derivations, default effort otherwise. No GPT Pro.
+- Routing: the orchestrating session plans, arbitrates and owns git. Kimi (kimi-dispatch)
+  authors, GLM (glm-dispatch) engineers and audits, Opus subagents judge; efforts are set per
+  step in .scratch/v5-paper/orchestration.md. No Workflow tool.
 - `H` (the trading horizon) is a calibration parameter, not a speed knob. Do not lower it to make
   a run fit.
 - Never use bare `git stash`. Set work aside with a temporary commit.

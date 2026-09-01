@@ -28,3 +28,6 @@ empirics/data
 .claude/state/
 .claude/settings.local.json
 .DS_Store
+
+# Session run records
+.scratch/v5-paper/runs/

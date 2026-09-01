@@ -3,27 +3,21 @@
 Paste this as the first message of a fresh Claude Code session started in
 `/Users/austinli/Projects/blockholder_v5` with Fable 5.1 as the model.
 
-> Use a workflow. Read CLAUDE.md, CONTEXT.md and .scratch/v5-paper/spec.md. Workers run on three
-> providers through agent types kimi, glm and opus; the role table at the top of each script
-> decides which. First, commit the rewritten workflow scripts and KICKOFF.md as one commit. Then
-> salvage: the killed run lives in ~/.claude/projects/-Users-austinli-Projects-
-> blockholder-v4/fa1ebbf1-9665-45cb-b8ab-f623d293f851/subagents/workflows/wf_d074b870-c81/. If it
-> has a journal.jsonl read that; otherwise read each agent-*.jsonl there and take the input of its
-> last StructuredOutput call (the ticket is named in the first user message). Tickets 04, 06, 07
-> and 09 ended PASS there; confirm, commit their files from the working tree one concern per
-> commit, and pass those labels as args.done when you launch workflow_a.js. A ticket without a
-> PASS record runs again. Then run .scratch/v5-paper/workflow_a.js to workflow_d.js in order with
-> the Workflow tool (scriptPath, absolute), committing between phases as the spec says. Load the
-> workflow-authoring skill before the first run. You own git; workers run none. If any phase
-> returns stop: true, write the one-page judgment and wait for me. Deliver paper.pdf and
-> appendix.pdf.
+> Read CLAUDE.md, CONTEXT.md, .scratch/v5-paper/spec.md and .scratch/v5-paper/orchestration.md.
+> Run the steps in orchestration.md phase by phase yourself: Kimi and GLM steps through
+> kimi-dispatch and glm-dispatch as background Bash jobs, Opus steps as opus subagents. A step
+> whose runs/<label>/result.txt shows PASS or ABSENT, or whose ticket is already committed on v5,
+> is done. Commit between phases as the spec says; you own git, workers run none. A STOP ends the
+> build: write the one-page judgment and wait for me. Deliver paper.pdf and appendix.pdf.
 
-Before sending it: open `/config` and raise "Dynamic workflow size" above the default guideline
-of fifteen agents (Phase A alone spawns about fifteen).
-Start this session only after ~/.claude/agents/kimi.md and glm.md exist; agent types load at
-session start.
-Launch every phase with two args: `done`, the salvaged labels, and `run`, a tag not used by any
-earlier launch (for example `a2`).
+Every step, effort, dependency and prompt text is in `.scratch/v5-paper/orchestration.md`; the
+run records land under `.scratch/v5-paper/runs/` and are the record of what has already run.
+
+State at handover (2026-09-02): tickets 04, 06, 07 and 09 are committed and done. The uncommitted
+changes under `numerical_v4/` and the files `proofs/02_garbling.tex`, `proofs/03_caught.tex` and
+`numerical_v4/checks/t2_threshold_revelation_check.*` are unfinished work of the killed runs on
+tickets 01, 02 and 03, with no PASS record. Those tickets run again from their steps; a worker may
+read what is there but the step's own gate decides what stays.
 
 What the orchestrator does between phases:
 
@@ -35,4 +29,4 @@ What the orchestrator does between phases:
 3. After C: commit the paper.
 4. After D: commit, push `v5`, write `.scratch/v5-paper/session_note.md`.
 
-Any `stop: true` ends the session's build. The judgment goes to Austin before anything else.
+Any STOP ends the session's build. The judgment goes to Austin before anything else.
