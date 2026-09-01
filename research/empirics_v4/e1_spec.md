@@ -19,9 +19,9 @@ outcomes. It does not test L2 or T1. Prose may not promote it.
 
 Every `SC 13D` original listed in the EDGAR quarterly form indexes for:
 
-- pre: 2023Q2 and 2023Q3, 1,223 filings
-- post: 2024Q3 and 2024Q4, 1,036 filings
-- total: 2,259 filings
+- pre: 2023Q2 and 2023Q3, 616 filings
+- post: 2024Q3 and 2024Q4, 521 filings
+- total: 1,137 filings
 
 Form-type match takes both EDGAR spellings, `SC 13D` and `SCHEDULE 13D`, and excludes both
 amendment spellings. The full universe, not a sample.
@@ -31,6 +31,17 @@ filings. That count came from a grep for `SC 13D` alone and missed the `SCHEDULE
 EDGAR adopted during 2024Q3: 18 filings in Q3 and 114 in Q4. The correct post count is 1,036 and
 the correct total is 2,259. No outcome had been parsed, so this corrects an enumeration error and
 not a result. The original count is preserved in this note and in commit 28ad200.
+
+**Second amendment, 2026-09-01, after a diagnostic run and before any reported result.** The
+counts above were index-row counts. `form.idx` is filer-indexed: one joint filing appears once
+per reporting person, under each person's CIK, every row pointing at the same accession. A
+first run enumerated 2,259 rows and then collapsed 1,633 resolved rows into 680
+subject-trigger campaigns, a ratio that exposed the duplication rather than any property of
+group filings. Counting unique accessions gives 616 pre and 521 post, 1,137 in total, which
+matches the independently recorded denominator from the discarded lane. The enumeration now
+collapses on accession before parsing. This corrects how the population is counted, not what
+counts as a population, and no estimate or gate verdict from the diagnostic run is carried
+forward.
 
 ## Unit
 
