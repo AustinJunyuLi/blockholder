@@ -1,41 +1,35 @@
 # AGENTS.md
 
-This file provides guidance to Codex and other coding agents working in this repository. (Kept in sync with CLAUDE.md — that file is the canonical, more detailed version.)
+`CLAUDE.md` is the canonical repository contract. Read it before substantive work.
 
-## Project Overview
+One branch, `v4`, one worktree. `CONTEXT.md` is the glossary; use its vocabulary and its honesty
+labels exactly.
 
-Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an economic theory model of blockholder behavior (exit, voice, corporate control). Layers: numerical computation (Python, `numerical/`), visualization (Python/matplotlib, `pyfig/`), empirics (`empirics/`, EDGAR 13D/G), and manuscript/presentation (XeLaTeX/Beamer).
+## Rules needed on every task
 
-**v4-theory lane status:** the theory record is FROZEN (2026-08-30, commit `65b8db3` — R-numbers closed, `research/model_v4/threads/` is archive; no proof repairs or label-gate runs unless Austin reopens). The live work in this checkout is **draft_v3** (`draft_v3.tex`/`.bib`/`.pdf` + `draft_v3_trace.md` at the repo root) and code: one review per artifact, author fixes once, session-end one-pager for Austin. Empirical work happens in the `blockholder_v4` worktree, not here. See CLAUDE.md for the full rules.
+- Preserve `research/model_v4/` and `sections_v3/` byte-for-byte. `MODEL_CARD.md` is the frozen
+  theory authority. A theory-level defect stops the affected draft section and goes to Austin.
+- E1 is the only empirical exercise. Its registered specification is
+  `research/empirics_v4/e1_spec.md` and its single result authority is
+  `empirics/output/e1_estimate.json`. Correct the spec with a dated amendment inside the file.
+- E1 is descriptive. Make no causal claim from the before-after timing comparison.
+- The August empirical record was deleted on 2026-09-01 and lives in history at `9b98089`.
+  `draft_v3` still cites some of it.
+- The orchestrator owns git. Workers edit only assigned paths, preserve concurrent work, run no
+  git, and report exact changes.
 
-## Build Pipeline (Python end-to-end)
+## Build gates
 
 ```bash
-make venv      # create .venv from requirements.txt (once)
-make all       # data (16 CSVs in numerical_output/data/) + figures (15 PDFs)
-make data      # numerical/export_data.py only
-make figures   # pyfig/render_all.py only
-make clean
+.venv/bin/python -m numerical_v4.smoke
+PYTHONPATH=. .venv/bin/python empirics/test_e1.py
+PYTHONPATH=. .venv/bin/python empirics/test_parse_13d.py
+make clean && make all
+xelatex -interaction=nonstopmode draft_v3.tex && biber draft_v3 && \
+  xelatex -interaction=nonstopmode draft_v3.tex && xelatex -interaction=nonstopmode draft_v3.tex
+xelatex -interaction=nonstopmode draft_v3_onlineappendix.tex
+xelatex -interaction=nonstopmode draft_v3_onlineappendix.tex
 ```
 
-Manuscript: `xelatex draft_v2.tex && biber draft_v2 && xelatex draft_v2.tex` (×2).
-Presentation: same in `pres/` (bibliography: `pres/slides.bib`, a real file — do not recreate the old symlink).
-
-## Architecture
-
-- `numerical/params.py` → `model.py` → `solver.py` → `export_data.py`; `accel.py` optional Numba mirror; `takeover_game.py` = Appendix-D7 tender game (microfounded premium wedge; opt-in via `params_with_endogenous_wedge`).
-- `pyfig/style.py` (Paul Tol muted palette, CM mathtext) + `figures.py` (`fig01`–`fig15`, `ALL_FIGURES`) + `render_all.py`.
-- `empirics/` — stdlib-only EDGAR pipeline (throttled, declared User-Agent); raw data gitignored under `empirics/data/`; summaries committed under `empirics/output/`.
-- `quality_reports/fixes/` — D-series derivation records (`DN_*.tex`, some `\input` into the draft) + paired `dN_*_check.py` verification scripts with JSON artifacts. Never weaken the honesty labels (proved vs conditional vs numerically-verified) in these files or the draft.
-
-## Conventions
-
-- Pure functions, full type hints, `params: ModelParams` argument, NamedTuple returns.
-- Tolerances in `params.py` (`TOL_CONVERGE=1e-6`, `TOL_RESIDUAL=5e-3`, `TOL_REGION=1e-4`, `TOL_PROB=1e-10`) — do not change casually.
-- Solver NA rows at extreme `kappa` are expected; figure functions drop NAs.
-- No formal test suite; verification = `make clean && make all` + the `dN_*_check.py` scripts + compile gates (0 errors, 0 undefined refs).
-
-## Known environment notes (this host)
-
-- `biber` requires `libxcrypt-compat` (RHEL10): `sudo dnf install libxcrypt-compat` if citation resolution fails with a `libcrypt.so.1` error.
-- TeX Gyre fonts are exposed to fontconfig via `~/.config/fontconfig/fonts.conf`.
+Run applicable committed `t2_*` checks for `numerical_v4` changes. TeX delivery also requires zero
+undefined references or citations and visual inspection of both PDFs.
