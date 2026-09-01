@@ -5,6 +5,8 @@ Date: 2026-09-01
 Authority: `research/empirics_v4/2026-08-31_gpt_pro_integration_angle_review.md:14-41,345-416,475-523,655-684,818-822`, plus the frozen theory card, registered empirical records, and the Position 1 ADR created by consolidation ticket 04.
 Prerequisite: `.scratch/v4-consolidation/issues/08-land-tag-and-retire-theory-worktree.md` is resolved and the canonical `v4` worktree is clean.
 
+Authority reconciliation: the Position 1 review's draft E1 row names a unique accession and also requires duplicate group filings to be resolved by a predeclared hierarchy. The earlier registered `SPEC.md:269-276` fixes one observation per subject-trigger event. The protocol therefore enumerates and reconciles every accession, selects one canonical accession per subject-trigger campaign under the frozen group hierarchy, and reports raw accession results only as a sensitivity. This applies the registered event unit before any adopted E1 run and prevents simultaneous group filings from receiving extra weight.
+
 ## Outcome
 
 Deliver one polished paper, *The Disclosure Clock: Market Inference and Corporate Control*, with one technical appendix. The theory explains the legal clock as a public-market information partition. E1 is the only authorised December empirical headline, and only if its fixed denominator, audit, artifact, and reproduction gates pass.

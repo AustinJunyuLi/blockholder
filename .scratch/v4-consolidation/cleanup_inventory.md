@@ -67,7 +67,7 @@ Delete these 16 ignored TeX intermediates after the compile gate:
 
 ### Temporary handoffs
 
-Trash these 11 paths after their decisions and inventories are committed. Before removing the first path, compare its handoff byte-for-byte with `.scratch/v4-consolidation/governing-handoff.md`, verify both SHA-256 values and the committed Git blob equal `b0f99d485900b029f9d4aa41a1668ff958b37f00add1c4b6ababd470065b781c`, and save the evidence in the final manifest:
+Trash these 11 paths after their decisions and inventories are committed. Before removing the first path, compare its handoff byte-for-byte with `.scratch/v4-consolidation/governing-handoff.md`, verify both filesystem SHA-256 values equal `b0f99d485900b029f9d4aa41a1668ff958b37f00add1c4b6ababd470065b781c`, then run `git show HEAD:.scratch/v4-consolidation/governing-handoff.md | shasum -a 256` and require the same content hash. Save the evidence in the final manifest; the repository's Git blob object ID uses Git's own object-hash format and is not compared to the SHA-256 digest.
 
 - `/private/tmp/blockholder-consolidation-handoff.3DjoUp/`
 - `/private/tmp/blockholder_handoff_2026-08-29.md`
