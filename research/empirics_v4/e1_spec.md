@@ -20,9 +20,17 @@ outcomes. It does not test L2 or T1. Prose may not promote it.
 Every `SC 13D` original listed in the EDGAR quarterly form indexes for:
 
 - pre: 2023Q2 and 2023Q3, 1,223 filings
-- post: 2024Q3 and 2024Q4, 904 filings
+- post: 2024Q3 and 2024Q4, 1,036 filings
+- total: 2,259 filings
 
-Exact form-type match excludes `SC 13D/A`. The full universe, not a sample.
+Form-type match takes both EDGAR spellings, `SC 13D` and `SCHEDULE 13D`, and excludes both
+amendment spellings. The full universe, not a sample.
+
+**Amendment, 2026-09-01, before any run.** The registering commit gave the post window as 904
+filings. That count came from a grep for `SC 13D` alone and missed the `SCHEDULE 13D` spelling
+EDGAR adopted during 2024Q3: 18 filings in Q3 and 114 in Q4. The correct post count is 1,036 and
+the correct total is 2,259. No outcome had been parsed, so this corrects an enumeration error and
+not a result. The original count is preserved in this note and in commit 28ad200.
 
 ## Unit
 
