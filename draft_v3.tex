@@ -873,6 +873,27 @@ not deliver window-margin attenuation as a theorem. The two margins of the discl
 enter the policy discussion with different epistemic status, and the February 2024 acceleration,
 a window change, lands on the margin where the theory signs nothing.
 
+\paragraph{How the proof goes.} The argument decomposes one derivative and compares two ratios, and
+the online appendix carries it in full. Policies stay frozen, so the cutoff vector never re-solves
+its fixed point at the second rule. The flagged cell average $M_F$ does not move with $\kappa$, by
+the flagged-cell invariance result and its travelling hypotheses. The flagged weight $\Omega$ is
+constant in $\kappa$, and that constancy is derived rather than assumed, since the clock equivalence
+writes filing through the executed stake path, no-feedback timing keeps order flow out of that path,
+and $\kappa$ reaches only the noise law. Differentiating the decomposition in $\kappa$, with
+differentiability of $M_P$ carried as a hypothesis, removes the flagged cell's motion and the
+reallocation term, the second because its coefficient is zero, not because $M_F - M_P$ is small or
+signed. Absolute values give Part~(A), whose aggregate clause repeats the two constancies as finite
+differences, needing no differentiability. Part~(B) writes the sensitivity ratio as $W_\tau C_\tau$
+and puts both factors in $[0,1]$, the weight ratio because a tighter threshold weakly raises the
+flagged weight, the composition ratio through a chain whose chord and coefficient comparisons are
+taken rather than derived; both push the same way, so no dominance is compared. Part~(C) proves $W_T
+\le 1$ from the clock equivalence and the monotone Voice stake path and signs nothing further, since
+three reasons block a window analogue of that chain and nothing signs $C_T$. The rest is an exact
+equivalence, which a smooth window interpolation, taken rather than derived, restates as the local
+criterion integrated along the tightening path and matched with it in the infinitesimal limit. The
+proof claims no window sign, records the threshold inequality as weak and an equality when no
+history is reclassified, and shows the local criterion false read pointwise.
+
 \paragraph{The disclosure-regime comparison, and why it is not a window test.}
 A separate numerical comparison is sometimes read as evidence about the window, and it is not one. In
 the one-round predecessor model the expected engagement-related
@@ -943,6 +964,28 @@ sign --- is confirmed unused in \eqref{eq:C1}: its work is one of naming, fixing
 may be called a survival of the fixed-policy sign. The sign-constancy clause of the
 general-equilibrium condition is likewise unused.
 \end{proposition}
+
+\paragraph{How the proof goes.} The argument bounds the general-equilibrium channel rather than
+signing it, and the online appendix carries it in full. Four conventions come first. The strictness
+coordinate is the threshold one, the window being integer-valued with no domain for a local
+derivative, and one norm is fixed on the cutoff space with matching operator and dual pairings,
+since a mismatched pairing can make the bound understate the remainder it bounds. The equilibrium
+sensitivity $\mathcal S^{GE}$ lives along the selected branch, apart from the fixed-policy $\mathcal
+S$, and the contraction is read as a supremum along that branch, the weaker of two available
+readings. A geometric series of powers inverts $I - D_k\Tmap$, with $I$ the identity, and bounds the
+inverse in norm by $1/(1-L_{\mathcal R})$, with no linear system solved. A contraction argument and
+the implicit function theorem give a twice continuously differentiable branch, and the single-branch
+hypothesis is consumed exactly there. Differentiating the fixed-point identity once bounds the
+branch's first derivatives and twice bounds its cross derivative. The chain rule then produces an
+exact identity in five terms for the mixed derivative of the premium along the branch, one the
+fixed-policy cross derivative and four the general-equilibrium remainder, where the reallocation
+term the fixed-policy theorem discards reappears. The triangle inequality and the fixed pairings
+bound that remainder by $\mathcal B_r^{GE}$. The equilibrium liquidity derivative vanishes nowhere
+on the region, so on a connected neighbourhood its sign is constant, derived rather than assumed,
+which removes the one point where the absolute value has a kink. Reading the fixed-policy group
+through $-g_r^{PE}$ and applying strict dominance then closes the argument with slack $\eta_r$. The
+proof needs the remainder's size and never its sign, and every step runs at a point of the named
+region without exhibiting one.
 
 \subsection{The model at the implemented calibration}
 \label{sec:calibration}
