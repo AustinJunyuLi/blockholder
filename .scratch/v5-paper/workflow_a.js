@@ -51,8 +51,9 @@ async function run(role, prompt, o) {
     const dir = `${RUNS}/${key}-${SEQ[key]}`
     const head = `effort: ${o.effort || "high"}\n` + (target === "kimi" ? `context: ${o.ctx || "256k"}\n` : "") + `artifact-dir: ${dir}\n`
     const tail = o.schema ? `\n\nReturn JSON matching this schema and nothing else:\n${JSON.stringify(o.schema)}` : ""
-    let out = parseReply(await agent(head + prompt + tail, { agentType: target, label: o.label, phase: o.phase }), o.schema)
-    if (!hasProvenance(out, o.schema) && !isRateLimit(out)) {
+    const raw = await agent(head + prompt + tail, { agentType: target, label: o.label, phase: o.phase })
+    let out = parseReply(raw, o.schema)
+    if (!hasProvenance(out, o.schema) && !isRateLimit(out) && !/^\s*DISPATCH FAIL/.test(String(raw == null ? "" : raw))) {
       log(`${o.label || role}: no ${target} provenance in the dispatcher reply; a reader collects ${dir}`)
       out = parseReply(await agent(READER(dir), { model: "sonnet", effort: "low", label: `${o.label || role} reader`, phase: o.phase }), o.schema)
     }
