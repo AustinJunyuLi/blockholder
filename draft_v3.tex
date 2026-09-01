@@ -133,7 +133,8 @@ direct effect dominates the feedback bound. The region is a condition of the res
 claim to have found. Eighteen of eighty grid nodes satisfy the pointwise inequalities, with a largest
 contiguous block of nine. Proposition~\ref{prop:C1} states this implication.
 
-The calibration gives a useful but limited guide to the reform. Holding policies fixed and shortening
+The calibration gives a useful but limited guide to the 5 February 2024 filing-window
+change. Holding policies fixed and shortening
 the window from ten to five days reduces the computed sensitivity to between 18 and 77 percent of its
 long-window value at every checked node. The composition effect accounts for most of the reduction.
 At the same calibration, however, the pooled posterior has 23 to 767 distinct values at each of 180
@@ -142,7 +143,8 @@ directional window result is therefore numerical evidence, not a theorem about t
 two-round model. The empirical design keeps attenuation and amplification as live possibilities.
 
 The first descriptive fact is already visible in the filing data. In a seeded sample, the median
-trigger-to-filing delay fell from 7.0 business days before the reform to 5.0 afterwards, and the share
+trigger-to-filing delay fell from 7.0 business days before the February 2024
+acceleration to 5.0 afterwards, and the share
 filed within five business days rose from 35.7 to 75.6 percent. The remaining empirical work is a
 written specification rather than a set of estimates. It tests the run-up and filing-day jump
 separately, uses pre-period filing behaviour as a bindingness dose, studies the stake at filing, bounds
@@ -1121,7 +1123,8 @@ a regression pair. The partition test (H1) is sign-free: the run-up's liquidity 
 non-zero, the jump's zero, and the two different. It is estimated as one
 stacked regression with a flagged-half interaction, so the difference carries a standard error;
 inference is two-way clustered on subject firm and on calendar month, with a wild cluster bootstrap
-on the month dimension and the more conservative of the two reported. The reform test (H2) asks
+on the month dimension and the more conservative of the two reported. The February 2024
+acceleration test (H2) asks
 whether the run-up's liquidity slope changed after February 2024, on a fixed five-trading-day window from
 the trigger so the outcome's length does not change mechanically with the rule; both signs are
 written out in advance: attenuation (the shorter window moves mass to the $\kappa$-invariant
@@ -1156,7 +1159,8 @@ specification asks whether the stake at filing fell after the acceleration and w
 ordered by liquidity. One hazard is stated before the estimate because it points the other way: in
 the cross-section of delays, \citet{BebchukBravJacksonJiang2013} find the \emph{negative} gradient:
 filers who take longer end up with smaller stakes, $0.6$ percentage points per ten days. The
-cross-section of delays is therefore never read as a window effect; only the reform is. The historical
+cross-section of delays is therefore never read as a window effect; only the 5 February 2024
+filing-window change is. The historical
 days--stake gradient implies a mechanical stake change of roughly $0.12$ percentage points from the
 two-day median-delay cut, against the stake leg's minimum detectable effect of $0.85$ percentage
 points on the post-re-parse projection, so a detectable
@@ -1203,7 +1207,8 @@ Against the matched never-13D controls it estimates the matched triple differenc
 \mathrm{BID12}_i = \alpha + \tau(\mathrm{Treat}_i\times\mathrm{Post}_i\times\mathrm{LIQ}_i)
   + \text{all lower-order interactions} + X_i'\theta + \delta_{\mathrm{match}} + \varepsilon_i .
 \end{equation*}
-The coefficient $\tau$ asks whether the reform's effect on bidder entry differs by liquidity. A
+The coefficient $\tau$ asks whether the effect of the February 2024 acceleration on bidder
+entry differs by liquidity. A
 rule-of-thumb power calculation gives projected MDEs of about $8.8$ percentage points for S1 and
 $19.8$ percentage points for S2. These are weakly powered projections, and the realised variance
 will replace the rule of thumb before an estimate is interpreted.
@@ -1218,8 +1223,9 @@ if coverage is insufficient, the defence channel is retained with its signed-bia
 computed from counts on disk plus stated variance assumptions, with the arithmetic shown; the timing split
 detects $1.1$--$2.3$ percentage points per standard deviation of illiquidity after the re-parse,
 against a mean pre-rule run-up of $2.8$ percent \citep{Zeng2026}, and anything smaller is reported
-as a bounded null. Placebos: 568 holiday-adjusted pseudo-reform dates before the adoption, every
-one, plus a pseudo-trigger placebo one quarter before the real crossing and a descriptive 13G
+as a bounded null. Placebos use all 568 holiday-adjusted dates before the 10 October 2023 adoption
+of the February 2024 acceleration, plus a pseudo-trigger placebo one quarter before the real
+crossing and a descriptive 13G
 placebo whose deadlines did not change until September 2024. Pre-trends: quarterly liquidity-slope
 estimates over the seven pre-adoption quarters, joint $F$-test, and a fixed blocking rule:
 a $p$-value below $0.10$ removes causal language from the leg. Parser validation remains incomplete:
@@ -1239,10 +1245,10 @@ Claim: the run-up's liquidity slope is non-zero, the jump's is zero, and the dif
 with a standard error: the paper's identity in one regression pair, sign-free and needing no
 theory input. What it needs: the re-parsed sample and the stacked specification of (a). What kills
 it: a jump slope that moves with liquidity like the run-up's, which would refute the partition
-itself and is reported first if it happens. Scope: it is an identity claim, not a reform estimate,
-and a referee will ask what the reform did.
+itself and is reported first if it happens. Scope: it is an identity claim, not an estimate of the
+February 2024 acceleration, and a referee will ask what the 5 February 2024 filing-window change did.
 
-\paragraph{Candidate B: the reform's slope change as headline.}
+\paragraph{Candidate B: the slope change after the February 2024 acceleration.}
 Claim: the run-up's liquidity slope changed after February 2024, in the direction the window record
 of Table~\ref{tab:window-record} points (attenuation at every checked node, composition leg
 carrying it). What it needs: the same sample, the fixed-length run-up, and a decision on how much
