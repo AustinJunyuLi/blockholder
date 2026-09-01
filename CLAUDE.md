@@ -1,145 +1,116 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+## Project overview
 
-## Project Overview
+Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an
+economic theory model of blockholder behaviour (exit, voice, corporate control). Two eras
+coexist in this repo: the **frozen draft_v2 record** (one-round model, figure pipeline, and the
+manuscript the supervisor has seen) and the **live v4 effort** (one theorem, two-round model,
+two lanes — ADR-0007). In this worktree the live work is the theory lane; the draft_v2 layers
+are reference.
 
-Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an economic theory model studying blockholder behavior (exit, voice, corporate control). The codebase has three layers: numerical computation (Python), visualization (Python/matplotlib), and manuscript/presentation (LaTeX/Beamer).
+## v4-theory lane — theory record FROZEN 2026-08-30; live work is draft_v3 + code
 
-## Build Pipeline
+This checkout is the **`v4-theory` worktree** (branch `v4-theory`), one of three worktrees of
+the same repo: `blockholder` (`proposal`), `blockholder_v4` (`v4`, the **empirics lane** — do
+no empirics work here), and this one. Read `CONTEXT.md` and `docs/adr/` first.
 
-The pipeline flows (Python end-to-end): **Python → CSV → matplotlib → PDF figures → LaTeX manuscript**.
+**The theory record is FROZEN** (2026-08-30, commit `65b8db3`; card stamp `2026-08-30 · F5
+route R40-A applied + batched two-pass gate PASS + theory-record freeze`). The R-number
+sequence is closed, `threads/` is archive, and no proof repairs, audits of audits, or
+label-gate runs happen unless Austin reopens the record. From the freeze, **the only artifacts
+under review in this checkout are draft_v3 and code.** The live work is `draft_v3.tex` (+`.bib`,
+`.pdf`, and `draft_v3_trace.md`) at the repo root: every claim in the draft traces to a card
+row via the trace file; a sentence with no card row behind it is a defect to remove, not an
+addition to verify. Empirical results come from the empirics lane into the draft's §6 — still
+do no empirics work here.
 
-Set up the environment once with `make venv` (creates `.venv/` from `requirements.txt`).
+**Where the theory lives**
 
-```bash
-# Full pipeline (data export + figure generation)
-make all
+- `research/model_v4/` — `MODEL_CARD.md` is the single source of truth; **check its version
+  stamp before answering from it** (an answer written against a stale stamp is re-asked).
+  Beside it: `model_v4.tex`/`model_v4.md` (mirrors — transcription of the card, never new
+  claims), `proofs/`, `rederive/`, `threads/` (GPT Pro courier record, filed verbatim),
+  `impl_design.md`, and the two ledgers: `LABEL_LEDGER.md` (every label move:
+  `ID | old→new | evidence | who | date | commit`) and `HANDOFF_sign.md` (the empirics lane's
+  only hard dependency on this lane — amend it only with a dated marker).
+- `numerical_v4/` — the two-round implementation. Its gate is the smoke run:
+  `.venv/bin/python -m numerical_v4.smoke` (one baseline equilibrium + one frozen-policy kappa
+  sweep; `range M_F < 1e-10` is the L2 assertion). Executed checks land as
+  `quality_reports/fixes/t2_*.py` with a JSON verdict beside the script.
+- `teach/` — the from-zero curriculum (`MISSION.md`, `lessons/`); prose there follows the
+  unslop rules in `MISSION.md`.
+- Governing plan: `quality_reports/plans/2026-08-20_theory-lane-agentic.md`. Session logs:
+  `quality_reports/session_logs/`.
 
-# Step 1 only: Python model → 13 CSV files in numerical_output/data/
-make data
+**Label discipline.** Honesty labels (PROVED / NUMERICAL / ESTIMATED / CONJECTURE) are defined
+in `CONTEXT.md`. CONJECTURE → PROVED needs the **two-pass gate**: the writer's proof, an
+adversarial proof-read PASS, and a statements-only re-derivation PASS — two fresh agents,
+neither of whom wrote the proof, the re-deriver working from the card row alone with `proofs/`,
+`threads/`, and `rederive/` unopened. An executed, committed check → NUMERICAL. GPT Pro's end
+review can demote, never promote by prose. Never weaken a label in the card, the ledger, or the
+draft; supersede a landed record line with a dated amendment, never a silent rewrite. **The gate
+ran for the last time on 2026-08-30** (`rederive/P1_gate_2026-08-30.md`); the machinery is closed
+with the record.
 
-# Step 2 only: matplotlib → 13 PDF figures in numerical_output/
-make figures
+**Roles and rules.** Opus agents write proofs, proof-read (never their own), re-derive, and
+build/verify `numerical_v4`; Sonnet does search, extraction, LaTeX plumbing, and file moves;
+the session model orchestrates and reasons directly only on the hardest bits (writer-vs-verifier
+disputes, implementation design review, the final coherence read). Finder ≠ verifier throughout.
+Verification vocabulary: WRONG blocks with one retry; MISCITED and UNCHECKED never block.
+**Git belongs to the orchestrator alone** — agents never run git; each landed unit is committed
+and pushed by the orchestrator with explicit paths; `<pending-orchestrator-hash>` placeholders
+in stamps and ledger lines are filled in a follow-up commit. **One card writer at a time** — a
+parallel ticket returns its card text and the orchestrator applies it verbatim in a quiet
+window.
 
-# Remove all generated CSVs and PDFs
-make clean
+**Post-freeze review rules (2026-08-30 →).** Each artifact — draft_v3, or code — gets **one
+review**, by one fresh agent that wrote none of it, and its author fixes the findings **once**.
+A review reads the artifact as its reader would. A finding about another review goes to
+Austin's one-pager, never into a new file. If drafting surfaces a theorem-level problem: stop
+that section, write it into the one-pager, and ask Austin. Every session ends with a one-page
+brief for Austin (proved / at risk / needs me) — the only document written for him.
 
-# Full rebuild
-make clean && make all
-```
+## Tracker, triage, domain docs
 
-**Individual commands** (when Make isn't needed):
-```bash
-# Python data export
-.venv/bin/python -m numerical.export_data --output-dir numerical_output
+- **Issue tracker**: one file per ticket under `.scratch/<feature>/issues/` — mechanics in
+  `docs/agents/issue-tracker.md`. `.scratch/` is git-tracked per branch and the branches have
+  diverged: the canonical v4 tracker (tickets 21+) lives on branch `v4` — read it from the
+  `~/Projects/blockholder_v4` worktree.
+- **Triage labels**: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`,
+  `wontfix` — mapping in `docs/agents/triage-labels.md`.
+- **Domain docs**: `CONTEXT.md` (the glossary — use its vocabulary, never the terms it avoids)
+  and `docs/adr/` — consumption rules in `docs/agents/domain.md`.
 
-# Python figure rendering
-.venv/bin/python -m pyfig.render_all --data-dir numerical_output/data --output-dir numerical_output
+## Frozen draft_v2 layer (reference)
 
-# Compile manuscript
-xelatex draft_v2.tex && biber draft_v2 && xelatex draft_v2.tex
+`draft_v2.tex` is frozen. Its stack still builds and remains the reference for the one-round
+model:
 
-# Compile presentation
-cd pres && xelatex presentation.tex && biber presentation && xelatex presentation.tex
-```
-
-## Architecture
-
-### Python numerical package (`numerical/`)
-
-All modules import from `params.py` (the foundational module). Dependencies flow one way:
-
-```
-params.py → model.py → solver.py → export_data.py
-                                  ↗
-              accel.py (optional Numba JIT)
-```
-
-- **`params.py`**: `ModelParams` dataclass (baseline calibration), `Action` enum (EXIT/HOLD/QUIET/PUBLIC), `Cutoffs` and `MinorityGains` named tuples, tolerance constants
-- **`takeover_game.py`**: Disagreement-node tender game (Appendix D7) — derives the appropriability coefficient `lambda = 1 - q(1-gamma)psi` and the microfounded premium wedge; `params_with_endogenous_wedge` maps game primitives into `ModelParams` (opt-in; exogenous `(m0, m1)` remains the default)
-- **`model.py`**: Core economic functions — posteriors, prices, payoffs, welfare, information regimes. Sections of the paper are cited in comments
-- **`solver.py`**: Equilibrium solver using damped fixed-point iteration with `scipy.optimize.brentq`. Multi-start search with collapsed-hold fallback
-- **`export_data.py`**: Sweeps parameter grids and writes 13 CSV files — this is the interface contract between the model and the figure layer (`pyfig/`)
-- **`accel.py`**: Optional Numba JIT layer. Performance optimization only; `solver.py` is the reference implementation
-
-**Conventions**: Pure functions throughout, full type hints, all functions take `params: ModelParams` argument, immutable return types (NamedTuples).
-
-### Python visualization (`pyfig/`)
-
-- **`pyfig/style.py`**: Shared matplotlib house style, Paul Tol colourblind-friendly palette, and helpers (`apply_style`, `new_ax`, `legend_outside`, `save_fig`). Editorial-minimal, with Computer-Modern math typography matching the manuscript
-- **`pyfig/figures.py`**: One function per figure (`fig01_*` … `fig15_*`; fig14 = GE channel decomposition, fig15 = microfounded wedge), each taking `(data_dir, output_dir)`; `ALL_FIGURES` lists them in render order
-- **`pyfig/render_all.py`**: Master orchestrator (`python -m pyfig.render_all`) that applies the style and calls all 13 figures
-
-**Color palette** (Paul Tol muted, used consistently across all figures):
-- Exit: `#cc6677` (rose), Hold: `#ddcc77` (sand), Quiet Voice: `#88ccee` (cyan), Public Voice: `#44aa99` (teal)
-- Sensitivity: `#4477aa`, `#ee6677`, `#228833`, `#ccbb44`
-
-### CSV interface contract
-
-The CSV files in `numerical_output/data/` (16 as of 2026-06: the original 13 plus `ge_decomposition.csv`, `ge_cellmap.csv`, `wedge_primitives.csv`) are the stable boundary between the model and the figure layer. Column names match paper notation. When modifying the model, update both the export logic and the corresponding figure function in `pyfig/figures.py`.
-
-### Empirics layer (`empirics/`)
-
-Stdlib-only EDGAR pipeline for the de-risk data leg: `edgar_fetch.py` (quarterly form.idx enumeration, throttled fetcher), `parse_13d.py` (event/filed dates, CIKs), `facts.py` (Fact 1: 13D disclosure-delay compression around the 2024-02-05 five-business-day rule). Raw data in `empirics/data/` is gitignored; summaries committed in `empirics/output/`. See `empirics/README.md`.
-
-### Derivation records (`quality_reports/fixes/`)
-
-D-series pattern: each derivation lands as `DN_*.tex` (spliced into `draft_v2.tex` via `\input` for D7/D8) plus a paired `dN_*_check.py` verification script with JSON output. D7 = tender-game microfoundation of the premium wedge; D8 = GE cutoff-shift region theorem + counterexample.
-
-### LaTeX
-
-- **`draft_v2.tex`**: Main manuscript (XeLaTeX + biblatex/biber). References figures from `numerical_output/`
-- **`pres/presentation.tex`**: Beamer slides with UCL institutional theme (`beamerthemeucl.sty`)
-- **`bibliography.bib`**: Manuscript bibliography; `pres/slides.bib`: separate presentation bibliography
-
-## Key Model Concepts
-
-The blockholder chooses among four actions based on a private signal `s`:
-- **Exit** (sell stake) when `s < k1`
-- **Hold** (passive) when `k1 ≤ s < k0`
-- **Quiet Voice** (engage below disclosure threshold) when `k0 ≤ s < kD`
-- **Public Voice** (buy, engage, trigger disclosure) when `s ≥ kD`
-
-Equilibrium cutoffs `(k1, k0, kD)` are solved via fixed-point iteration. The parameter `kappa` (noise trading intensity, 0 to 1) is the primary comparative statics variable.
-
-## Numerical Tolerances
-
-Defined in `params.py` — do not change without understanding downstream effects:
-- `TOL_CONVERGE = 1e-6`: fixed-point convergence
-- `TOL_RESIDUAL = 5e-3`: equilibrium quality gate
-- `TOL_REGION = 1e-4`: cutoff collapse detection
-- `TOL_PROB = 1e-10`: near-zero probability threshold
-
-## Python Dependencies
-
-`numpy`, `scipy`, `pandas`, `matplotlib` (pinned in `requirements.txt`; install via `make venv`). Figures are written as vector PDF with embedded fonts (`pdf.fonttype = 42`) and matplotlib `mathtext` (Computer Modern) for math labels.
-
-## Working Notes
-
-- The active visualization pipeline is Python/matplotlib (`pyfig/`); the earlier R/ggplot2 layer (`R/`) was removed in favour of an end-to-end Python pipeline
-- The `figures/` directory (if present) holds archived PDFs superseded by `numerical_output/*.pdf`
-- Solver may produce NA rows at extreme `kappa` values (edge-case non-convergence) — this is expected and the figure functions drop NA rows gracefully
-- No formal test suite; verification is via `make clean && make all` + visual inspection of output PDFs and CSV row counts
-
-## Agent skills
-
-### Issue tracker
-
-Local markdown: specs and one-file-per-ticket issues under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Default vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Single-context: `CONTEXT.md` (glossary) + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
-
-## v4 effort (2026-08 →)
-
-This checkout is the `v4` worktree. `draft_v2.tex` is frozen (the record the
-supervisor has seen); new work targets `draft_v3.tex`, `framework_v4.*` and the
-tickets in `.scratch/v4-reposition/`. Read `CONTEXT.md` and `docs/adr/` first.
-**Fable head, Sonnet/Opus hands:** the session model orchestrates only; every
-ticket is executed by fresh subagents (see ADR-0005).
+- **Pipeline**: Python → CSV → matplotlib → PDF → LaTeX. `make venv` once (creates `.venv/`
+  from `requirements.txt`), then `make all` (or `make data` / `make figures` / `make clean`).
+  The CSVs in `numerical_output/data/` are the model↔figure contract — column names match paper
+  notation; when the model changes, change `numerical/export_data.py` and the matching function
+  in `pyfig/figures.py` together.
+- **`numerical/`**: `params.py → model.py → solver.py → export_data.py`; `accel.py` is an
+  optional Numba layer (`solver.py` is the reference implementation); `takeover_game.py` is the
+  D7 tender game (`params_with_endogenous_wedge` is opt-in; exogenous `(m0, m1)` is the
+  default). Conventions: pure functions, full type hints, a `params: ModelParams` argument,
+  NamedTuple returns. Tolerance constants live in `params.py` — do not change them without
+  understanding downstream effects.
+- **`pyfig/`**: `style.py` (house style; the Paul Tol palette's canonical hex values live
+  there), `figures.py` (one function per figure; `ALL_FIGURES` is the render list),
+  `render_all.py` (`python -m pyfig.render_all`).
+- **`empirics/`**: stdlib-only EDGAR pipeline for the de-risk leg; raw data gitignored,
+  summaries committed. See `empirics/README.md`.
+- **D-series** (`quality_reports/fixes/`): each draft_v2 derivation is `DN_*.tex` plus a paired
+  `dN_*_check.py` with JSON output.
+- **LaTeX**: `xelatex draft_v2.tex && biber draft_v2 && xelatex draft_v2.tex`; the presentation
+  builds the same way in `pres/` (`presentation.tex`, its own `slides.bib`).
+- **One-round model**: four actions off a private signal `s` — Exit (`s < k1`), Hold, Quiet
+  Voice, Public Voice (`s ≥ kD`); cutoffs solved by damped fixed-point iteration; `kappa`
+  (noise-trading intensity) is the comparative-statics variable. The two-round model in
+  `research/model_v4/` supersedes this for the live lane.
+- **Gotchas**: the solver may return NA rows at extreme `kappa` (expected; figure functions
+  drop them). No formal test suite — verification is `make clean && make all` plus visual
+  inspection of the PDFs.

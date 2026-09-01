@@ -1,0 +1,1812 @@
+{
+ "what": "verifier probe 3 -- locus (ii) A3 reversal vs off-path family, at both located fixed points",
+ "date": "2026-08-29",
+ "gates": [
+  {
+   "gate": "Q0_edge_anchor_reproduces",
+   "pass_": true,
+   "edge_recomputed": 1.6590621627456204,
+   "edge_filed": 1.659062162746,
+   "tol": 1e-09,
+   "params_default_equals_baseline": true
+  },
+  {
+   "gate": "Q1_shipped_reproduces_the_curated_locus2_record",
+   "pass_": true,
+   "twelve_filed_strings_match": true,
+   "n_days_match": true,
+   "reversal_both_fps": true,
+   "source": "a6_B_findings.md section 4, replayed by t2_a3_ordered_plans_check.py"
+  },
+  {
+   "gate": "Q2_reversal_survives_shipped_every_step9b_family_and_every_family_at_OFF_PATH_EPS",
+   "pass_": true,
+   "restructured": "(S1) run 1 asked for all 20 and got 18.  The two misses are uniform-floor rows at eps = 1e-6 at fp2 -- off-spec on both axes and ~110x larger an injection than Step 9(b) at the same eps.  They are finding F-uniform-1e6.",
+   "n_variants": 20,
+   "n_true": 18,
+   "per_variant": {
+    "switch_uniform|1e-14|fp1": true,
+    "switch_uniform|1e-14|fp2": true,
+    "switch_uniform|1e-06|fp1": true,
+    "switch_uniform|1e-06|fp2": false,
+    "switch_step9b|1e-14|fp1": true,
+    "switch_step9b|1e-14|fp2": true,
+    "switch_step9b|1e-06|fp1": true,
+    "switch_step9b|1e-06|fp2": true,
+    "switch_expl|1e-14|fp1": true,
+    "switch_expl|1e-14|fp2": true,
+    "switch_expl|1e-06|fp1": true,
+    "switch_expl|1e-06|fp2": true,
+    "blend_uniform|1e-14|fp1": true,
+    "blend_uniform|1e-14|fp2": true,
+    "blend_uniform|1e-06|fp1": true,
+    "blend_uniform|1e-06|fp2": false,
+    "blend_step9b|1e-14|fp1": true,
+    "blend_step9b|1e-14|fp2": true,
+    "blend_step9b|1e-06|fp1": true,
+    "blend_step9b|1e-06|fp2": true
+   },
+   "misses": [
+    "switch_uniform|1e-06|fp2",
+    "blend_uniform|1e-06|fp2"
+   ],
+   "step9b_rows": {
+    "switch_step9b|1e-14|fp1": true,
+    "switch_step9b|1e-14|fp2": true,
+    "switch_step9b|1e-06|fp1": true,
+    "switch_step9b|1e-06|fp2": true,
+    "switch_expl|1e-14|fp1": true,
+    "switch_expl|1e-14|fp2": true,
+    "switch_expl|1e-06|fp1": true,
+    "switch_expl|1e-06|fp2": true,
+    "blend_step9b|1e-14|fp1": true,
+    "blend_step9b|1e-14|fp2": true,
+    "blend_step9b|1e-06|fp1": true,
+    "blend_step9b|1e-06|fp2": true
+   },
+   "rows_at_OFF_PATH_EPS": {
+    "switch_uniform|1e-14|fp1": true,
+    "switch_uniform|1e-14|fp2": true,
+    "switch_step9b|1e-14|fp1": true,
+    "switch_step9b|1e-14|fp2": true,
+    "switch_expl|1e-14|fp1": true,
+    "switch_expl|1e-14|fp2": true,
+    "blend_uniform|1e-14|fp1": true,
+    "blend_uniform|1e-14|fp2": true,
+    "blend_step9b|1e-14|fp1": true,
+    "blend_step9b|1e-14|fp2": true
+   },
+   "exploration_claim": "8 of 8 in {switch,blend} x {uniform,massprop} x {1e-14,1e-6} at fp1"
+  },
+  {
+   "gate": "Q2b_exploration_eight_of_eight_at_fp1_reproduces",
+   "pass_": true,
+   "subset": {
+    "switch_uniform|1e-14|fp1": true,
+    "switch_uniform|1e-06|fp1": true,
+    "switch_expl|1e-14|fp1": true,
+    "switch_expl|1e-06|fp1": true,
+    "blend_uniform|1e-14|fp1": true,
+    "blend_uniform|1e-06|fp1": true
+   },
+   "note": "the exploration's own eight variants are the uniform and voice-only-massprop rows at fp1; all ten families x scales at fp1 are reported here, and all ten reverse -- the exploration's claim reproduces and widens at the pinned point."
+  },
+  {
+   "gate": "Q3_locus2_carries_A3s_verdict_independently_of_the_family",
+   "pass_": true,
+   "restructured": "(S1), same three variant classes.",
+   "reasoning": "the argmax is a strict singleton on both sides of the edge at both fixed points, VOICE below and HOLD above, under the shipped uniform floor, the exact Step-9(b) mass-proportional floor and both genuine fixed-t blends, at both eps.  HOLD < VOICE in the menu order, so the preferred plan DECREASES in s and no cutoff vector represents the best response: S(k) is empty under EVERY family tested.",
+   "not_claimed": "an edge-pinned fixed point of the implemented cutoff map is not an equilibrium (payoff-scale residual 1.77e-3 against a 1e-9 criterion), and nothing here shows nonexistence."
+  }
+ ],
+ "rows": [
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310351104607136,
+      "HOLD": 0.03666082806200871,
+      "VOICE": 0.03842655830210328
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": true,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0017657302400945693,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0017657302400945693
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310351104607136,
+      "HOLD": 0.03666083919882061,
+      "VOICE": 0.03538271283545994
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012781263633606724,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012781263633606724
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.932048271369169e-16,
+   "family": "shipped",
+   "eps": null
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.0332205575063266,
+      "HOLD": 0.036797713916743434,
+      "VOICE": 0.03786058775642193
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": true,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0010628738396784992,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0010628738396784992
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.0332205575063266,
+      "HOLD": 0.03679772521867469,
+      "VOICE": 0.034762078654898824
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0020356465637758683,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0020356465637758683
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.194425197110661e-16,
+   "family": "shipped",
+   "eps": null
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310351104607136,
+      "HOLD": 0.03666082806200871,
+      "VOICE": 0.03842655830210328
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": true,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0017657302400945693,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0017657302400945693
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310351104607136,
+      "HOLD": 0.03666083919882061,
+      "VOICE": 0.03538271283545994
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012781263633606724,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012781263633606724
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.932048271369169e-16,
+   "family": "switch_uniform",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.0332205575063266,
+      "HOLD": 0.036797713916743434,
+      "VOICE": 0.03786058775642193
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": true,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0010628738396784992,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0010628738396784992
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.0332205575063266,
+      "HOLD": 0.03679772521867469,
+      "VOICE": 0.034762078654898824
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0020356465637758683,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0020356465637758683
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.194425197110661e-16,
+   "family": "switch_uniform",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310351216330386,
+      "HOLD": 0.036660828199636335,
+      "VOICE": 0.03730486013870254
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0373049"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.000644031939066203,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.000644031939066203
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310351216330386,
+      "HOLD": 0.03666083933644853,
+      "VOICE": 0.035383222793582435
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353832"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012776165428660946,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012776165428660946
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0881733842070815e-16,
+   "family": "switch_uniform",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03322055852716657,
+      "HOLD": 0.03679771404678514,
+      "VOICE": 0.036759231620473586
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0367592"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 3.848242631155491e-05,
+     "strict_singleton": true,
+     "UV_minus_UH": -3.848242631155491e-05
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03322055852716657,
+      "HOLD": 0.0367977253487167,
+      "VOICE": 0.034762960179055995
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347630"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.002034765169660703,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.002034765169660703
+    }
+   },
+   "n_sign_changes": {
+    "4001": 1,
+    "6001": 1
+   },
+   "reverses_voice_to_hold": false,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0556473190325164e-16,
+   "family": "switch_uniform",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.033103511046071336,
+      "HOLD": 0.036660828062008696,
+      "VOICE": 0.03905069500473086
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0390507"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0023898669427221617,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0023898669427221617
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.033103511046071336,
+      "HOLD": 0.03666083919882059,
+      "VOICE": 0.035382712835455625
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012781263633649675,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012781263633649675
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.932048271369169e-16,
+   "family": "switch_step9b",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03322055750632659,
+      "HOLD": 0.03679771391674341,
+      "VOICE": 0.03848472422061323
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0384847"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.001687010303869814,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.001687010303869814
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03322055750632659,
+      "HOLD": 0.03679772521867468,
+      "VOICE": 0.034762078654891386
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.002035646563783293,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.002035646563783293
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0729945537922845e-16,
+   "family": "switch_step9b",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310351039410106,
+      "HOLD": 0.03666082811023242,
+      "VOICE": 0.03862323469060321
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0386232"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.001962406580370793,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.001962406580370793
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310351039410106,
+      "HOLD": 0.03666083924704442,
+      "VOICE": 0.035382792655920516
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353828"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012780465911239047,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012780465911239047
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0426368929626904e-16,
+   "family": "switch_step9b",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03322055680790193,
+      "HOLD": 0.03679771396226565,
+      "VOICE": 0.03807326143258024
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0380733"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0012755474703145878,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0012755474703145878
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03322055680790193,
+      "HOLD": 0.036797725264197015,
+      "VOICE": 0.03476221609506331
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347622"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.002035509169133705,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.002035509169133705
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.8973538018496328e-16,
+   "family": "switch_step9b",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310351104607132,
+      "HOLD": 0.03666082806200871,
+      "VOICE": 0.03905069414373386
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0390507"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.002389866081725152,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.002389866081725152
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310351104607132,
+      "HOLD": 0.03666083919882061,
+      "VOICE": 0.035382712835457235
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012781263633633785,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012781263633633785
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.975416358268589e-16,
+   "family": "switch_expl",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.033220557506326576,
+      "HOLD": 0.03679771391674343,
+      "VOICE": 0.03848472339918634
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0384847"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0016870094824429152,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0016870094824429152
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.033220557506326576,
+      "HOLD": 0.036797725218674686,
+      "VOICE": 0.034762078654894134
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.002035646563780552,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.002035646563780552
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0729945537922845e-16,
+   "family": "switch_expl",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310350909016641,
+      "HOLD": 0.036660828173104336,
+      "VOICE": 0.0385655361660017
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0385655"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.001904707992897367,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.001904707992897367
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310350909016641,
+      "HOLD": 0.036660839309916475,
+      "VOICE": 0.035382952294258134
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353830"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.001277887015658341,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.001277887015658341
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.187919984075748e-16,
+   "family": "switch_expl",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.033220555411059234,
+      "HOLD": 0.03679771402167079,
+      "VOICE": 0.038017667517268615
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0380177"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0012199534955978225,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0012199534955978225
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.033220555411059234,
+      "HOLD": 0.03679772532360229,
+      "VOICE": 0.034762490963447655
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347625"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.002035234360154632,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.002035234360154632
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.8973538018496328e-16,
+   "family": "switch_expl",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.033103511046071704,
+      "HOLD": 0.036660828062008724,
+      "VOICE": 0.038426558302102225
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": true,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0017657302400935007,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0017657302400935007
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.033103511046071704,
+      "HOLD": 0.03666083919882062,
+      "VOICE": 0.03538271283545875
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012781263633618728,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012781263633618728
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0952206983282373e-16,
+   "family": "blend_uniform",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.033220557506326964,
+      "HOLD": 0.036797713916743455,
+      "VOICE": 0.037860587756421045
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": true,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0010628738396775902,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0010628738396775902
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.033220557506326964,
+      "HOLD": 0.03679772521867471,
+      "VOICE": 0.034762078654897825
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0020356465637768814,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0020356465637768814
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0952206983282373e-16,
+   "family": "blend_uniform",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310354755892187,
+      "HOLD": 0.036660830090494076,
+      "VOICE": 0.037304756451622116
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0373048"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0006439263611280402,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0006439263611280402
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310354755892187,
+      "HOLD": 0.03666084122730854,
+      "VOICE": 0.035383104345059625
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353831"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012777368822489144,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012777368822489144
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0648630374986432e-16,
+   "family": "blend_uniform",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.033220595308783796,
+      "HOLD": 0.036797715729065136,
+      "VOICE": 0.036759144599184466
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0367591"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 3.857112988066985e-05,
+     "strict_singleton": true,
+     "UV_minus_UH": -3.857112988066985e-05
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.033220595308783796,
+      "HOLD": 0.03679772703099874,
+      "VOICE": 0.034762860772754235
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347629"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0020348662582445054,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0020348662582445054
+    }
+   },
+   "n_sign_changes": {
+    "4001": 1,
+    "6001": 1
+   },
+   "reverses_voice_to_hold": false,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0860049798621105e-16,
+   "family": "blend_uniform",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310351104607134,
+      "HOLD": 0.0366608280620087,
+      "VOICE": 0.03905069500473086
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0390507"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0023898669427221547,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0023898669427221547
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310351104607134,
+      "HOLD": 0.03666083919882059,
+      "VOICE": 0.035382712835455625
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012781263633649675,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012781263633649675
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.932048271369169e-16,
+   "family": "blend_step9b",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.033220557506326596,
+      "HOLD": 0.036797713916743434,
+      "VOICE": 0.03848472422061324
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0384847"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.001687010303869807,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.001687010303869807
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.033220557506326596,
+      "HOLD": 0.036797725218674686,
+      "VOICE": 0.034762078654891386
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": true,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0020356465637833,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0020356465637833
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 2.0729945537922845e-16,
+   "family": "blend_step9b",
+   "eps": 1e-14
+  },
+  {
+   "fixed_point": 1,
+   "k": [
+    1.020221781,
+    1.659062163
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03310351161003019,
+      "HOLD": 0.0366608293708041,
+      "VOICE": 0.03862323502954581
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0386232"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0384266"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.0019624056587417074,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.0019624056587417074
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03310351161003019,
+      "HOLD": 0.0366608405076176,
+      "VOICE": 0.03538279314128038
+     },
+     "U_7dp": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353828"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0331035",
+      "HOLD": "0.0366608",
+      "VOICE": "0.0353827"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0012780473663372219,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0012780473663372219
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.8973538018496328e-16,
+   "family": "blend_step9b",
+   "eps": 1e-06
+  },
+  {
+   "fixed_point": 2,
+   "k": [
+    1.0260443221,
+    1.7104049079
+   ],
+   "sides": {
+    "below": {
+     "s": 1.6590611627460001,
+     "n": 8,
+     "n_filed": 8,
+     "U": {
+      "EXIT": 0.03322055790591286,
+      "HOLD": 0.03679771508378579,
+      "VOICE": 0.03807326206009653
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0380733"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0378606"
+     },
+     "strings_match": false,
+     "argmax": "VOICE",
+     "argmax_filed": "VOICE",
+     "gap_to_runner_up": 0.001275546976310736,
+     "strict_singleton": true,
+     "UV_minus_UH": 0.001275546976310736
+    },
+    "above": {
+     "s": 1.659063162746,
+     "n": 7,
+     "n_filed": 7,
+     "U": {
+      "EXIT": 0.03322055790591286,
+      "HOLD": 0.03679772638571852,
+      "VOICE": 0.0347622169026331
+     },
+     "U_7dp": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347622"
+     },
+     "U_7dp_filed": {
+      "EXIT": "0.0332206",
+      "HOLD": "0.0367977",
+      "VOICE": "0.0347621"
+     },
+     "strings_match": false,
+     "argmax": "HOLD",
+     "argmax_filed": "HOLD",
+     "gap_to_runner_up": 0.0020355094830854237,
+     "strict_singleton": true,
+     "UV_minus_UH": -0.0020355094830854237
+    }
+   },
+   "n_sign_changes": {
+    "4001": 5,
+    "6001": 5
+   },
+   "reverses_voice_to_hold": true,
+   "strict_both_sides": true,
+   "max_price_residual": 1.8973538018496328e-16,
+   "family": "blend_step9b",
+   "eps": 1e-06
+  }
+ ],
+ "node": {
+  "kappa": 0.15,
+  "tau": 0.05,
+  "T": 5,
+  "params_hash": "77fdc51c849b2102",
+  "params_default_equals_baseline": true,
+  "edge_literal": 1.659062162746,
+  "edge_recomputed": 1.6590621627456204,
+  "edge_abs_diff": 3.7969627442180354e-13,
+  "edge_m": 7,
+  "OFF_PATH_EPS": 1e-14,
+  "J": 3.0,
+  "mass_step9b": {
+   "0": 2.0,
+   "1": 0.0006812715248017964,
+   "2": 0.01386689335923652,
+   "3": 0.028792256602720667,
+   "4": 0.03402403926934272,
+   "5": 0.034362466156835136,
+   "6": 0.032930488291469384,
+   "7": 0.030996725639316658,
+   "8": 0.02904360127464889,
+   "9": 0.027244039324555436,
+   "10": 0.02564880237656686,
+   "11": 0.7424094142073305
+  },
+  "ref_D": {
+   "0": 0.0,
+   "1": 1.0,
+   "2": 1.0,
+   "3": 1.0,
+   "4": 1.0,
+   "5": 1.0,
+   "6": 1.0,
+   "7": 1.0,
+   "8": 1.0,
+   "9": 1.0,
+   "10": 1.0,
+   "11": 0.0
+  },
+  "ref_f": {
+   "0": null,
+   "1": 5.0,
+   "2": 5.0,
+   "3": 5.0,
+   "4": 6.0,
+   "5": 6.0,
+   "6": 6.0,
+   "7": 7.0,
+   "8": 7.0,
+   "9": 8.0,
+   "10": 8.0,
+   "11": null
+  }
+ },
+ "findings": [
+  {
+   "id": "F-uniform-1e6",
+   "gated": false,
+   "claim": "At the SECOND fixed point fp2 = (1.0260443221, 1.7104049079) a UNIFORM off-path floor at eps = 1e-6 destroys the VOICE -> HOLD reversal (U_V - U_H just below the edge goes +1.06e-3 at eps = 1e-14 to -3.85e-5 at eps = 1e-6), in both the switch and the blend form.  The Step-9(b) family at the same eps does NOT: it keeps the reversal at +1.28e-3.",
+   "misses": [
+    "switch_uniform|1e-06|fp2",
+    "blend_uniform|1e-06|fp2"
+   ],
+   "reading": "a uniform floor injects eps per dead type where Step 9(b) injects eps*m[t]/J, so at eps = 1e-6 the uniform family is a ~110x larger perturbation.  This bounds how far the uniform floor can be scaled before it changes the locus-(ii) finding; it does not bear on the shipped construction, which runs at eps = 1e-14, nor on the pinned point fp1, where all ten rows reverse."
+  }
+ ],
+ "summary": {
+  "n_variants": 20,
+  "n_reversal": 18,
+  "shipped_sign_changes": {
+   "fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "fp2": {
+    "4001": 5,
+    "6001": 5
+   }
+  },
+  "family_sign_changes": {
+   "switch_uniform|1e-14|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_uniform|1e-14|fp2": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_uniform|1e-06|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_uniform|1e-06|fp2": {
+    "4001": 1,
+    "6001": 1
+   },
+   "switch_step9b|1e-14|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_step9b|1e-14|fp2": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_step9b|1e-06|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_step9b|1e-06|fp2": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_expl|1e-14|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_expl|1e-14|fp2": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_expl|1e-06|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "switch_expl|1e-06|fp2": {
+    "4001": 5,
+    "6001": 5
+   },
+   "blend_uniform|1e-14|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "blend_uniform|1e-14|fp2": {
+    "4001": 5,
+    "6001": 5
+   },
+   "blend_uniform|1e-06|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "blend_uniform|1e-06|fp2": {
+    "4001": 1,
+    "6001": 1
+   },
+   "blend_step9b|1e-14|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "blend_step9b|1e-14|fp2": {
+    "4001": 5,
+    "6001": 5
+   },
+   "blend_step9b|1e-06|fp1": {
+    "4001": 5,
+    "6001": 5
+   },
+   "blend_step9b|1e-06|fp2": {
+    "4001": 5,
+    "6001": 5
+   }
+  },
+  "n_gates": 5,
+  "n_failed": 0,
+  "wall_seconds": 70.3
+ },
+ "pass": true,
+ "exactness_caveat": "type 11's n(s) cell is not (D, f)-constant at this node (v_offpath_family_facts.json); menu.type_reference reads one midpoint clock for it, so no family here -- shipped or mass-proportional -- is exactly Step 9(b)'s Lambda_u for type 11.  That gap is common to all families and orthogonal to the axis under test, but it is a third, independent implementation-vs-card discrepancy."
+}

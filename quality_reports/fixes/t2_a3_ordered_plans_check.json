@@ -1,0 +1,923 @@
+{
+  "kind": "A3 applicability evidence (panel-probe curation)",
+  "checks": [
+    {
+      "name": "a3_params_baseline_identity",
+      "kind": "wiring",
+      "pass": true,
+      "baseline_hash": "b4482d7fee83a8e8",
+      "default_hash": "b4482d7fee83a8e8",
+      "note": "a6_A_probe8_open.py builds locus 1 from ParamsV4.baseline(); a6_B_argmax.py / a6_B_alt.py build locus 2 from ParamsV4().  The two must be the same starting point for the two loci to be the same calibration."
+    },
+    {
+      "name": "a3_l1_calibration_anchors_reproduce",
+      "kind": "wiring",
+      "pass": true,
+      "tau50": 0.09076405861553302,
+      "tau50_filed": 0.09076405861553302,
+      "tau50_abs_diff": 0.0,
+      "k1": 1.2405757282617416,
+      "k1_filed": 1.2405757282617416,
+      "k1_abs_diff": 0.0,
+      "kstar": [
+        1.2405757282617416,
+        1.5310222869296415
+      ],
+      "edges": {
+        "1": 3.2644882372722086,
+        "2": 2.54303349962092,
+        "3": 2.2113957548203436,
+        "4": 2.006230589874905,
+        "5": 1.8608284620211166,
+        "6": 1.7492686492653553,
+        "7": 1.6590621627456204,
+        "8": 1.583333333333333,
+        "9": 1.517932397378237,
+        "10": 1.4601789933084222,
+        "11": 1.4082482904638631
+      },
+      "edges_filed": {
+        "8": 1.583333333333333,
+        "7": 1.659062163,
+        "6": 1.749268649265
+      },
+      "edge_abs_diff": {
+        "8": 0.0,
+        "7": 2.5437962847263407e-10,
+        "6": 3.552713678800501e-13
+      },
+      "tol": 1e-09,
+      "seed_cutoff_scale": 1.3427259304421568e-11,
+      "base_cutoff_scale": 2.595657022652631e-11,
+      "base_payoff_scale": 0.0,
+      "note": "a6_A_probe8_open.py hard-codes tau = 0.09076405861553302 and K1 = 1.2405757282617416; both are recomputed here and the recomputed values are the ones used, as in t2_a6_edge_jump_check.py.  k_1 is held at k*[0] throughout, as the probe does.  edge(6) is the hyperplane the card's open set sits above; the three sign changes sit far below it, around edge(8)."
+    },
+    {
+      "name": "a3_l1_open_set_three_sign_changes",
+      "kind": "card",
+      "pass": true,
+      "offsets": [
+        1e-09,
+        0.0001,
+        0.001,
+        0.005,
+        0.02
+      ],
+      "counts": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "expected": 3,
+      "grid": 6001,
+      "card_wording": "k_2 on an open set above cell edge 6 (verified at offsets 1e-9 through 2e-2), U_V - U_H has three strict sign changes",
+      "criterion": "sign(g[:-1]) * sign(g[1:]) < 0, verbatim from a6_A_probe8_open.py, on its own 6001-point grid"
+    },
+    {
+      "name": "a3_l1_set_closes_outside_the_card_range",
+      "kind": "panel_filed",
+      "pass": true,
+      "offsets": [
+        -1e-09,
+        0.05,
+        0.1
+      ],
+      "counts": [
+        1,
+        1,
+        1
+      ],
+      "expected": 1,
+      "scope": "PANEL-FILED, NOT CARD-QUOTED.  The card claims openness only through +2e-2.  a6_A_findings.md (A) records one sign change below the edge and the count back to 1 at +5e-2 and +1e-1; those rows are reproduced here so the OPENNESS of the set is bounded on both sides rather than merely asserted."
+    },
+    {
+      "name": "a3_l1_ladder_containment",
+      "kind": "declared_window",
+      "pass": true,
+      "window": [
+        1.55,
+        1.62
+      ],
+      "per_offset": {
+        "1e-09": [
+          "1.5754434",
+          "1.5833333",
+          "1.5902426"
+        ],
+        "1e-04": [
+          "1.5754807",
+          "1.5833333",
+          "1.5902862"
+        ],
+        "1e-03": [
+          "1.5758178",
+          "1.5833333",
+          "1.5906810"
+        ],
+        "5e-03": [
+          "1.5773568",
+          "1.5833333",
+          "1.5924915"
+        ],
+        "2e-02": [
+          "1.5802338",
+          "1.5833333",
+          "1.5963773"
+        ]
+      },
+      "scope": "COARSE and declared.  The card files the three locations at the probes' own +1e-9 offset only; how they move across the ladder is not a filed number, so it is recorded rather than gated against a tolerance."
+    },
+    {
+      "name": "a3_l1_crossing_locations_card_7dp",
+      "kind": "card",
+      "pass": true,
+      "measured": [
+        1.5754433915929242,
+        1.5833333333334159,
+        1.5902426052317846
+      ],
+      "measured_7dp": [
+        "1.5754434",
+        "1.5833333",
+        "1.5902426"
+      ],
+      "card_7dp": [
+        "1.5754434",
+        "1.5833333",
+        "1.5902426"
+      ],
+      "offset": 1e-09,
+      "k2": 1.7492686502653554,
+      "abs_diff_from_card_string": [
+        8.407075702265843e-09,
+        3.333341580535887e-08,
+        5.231784561132713e-09
+      ]
+    },
+    {
+      "name": "a3_l1_middle_sign_change_is_an_n_step_jump",
+      "kind": "structure",
+      "pass": true,
+      "located": 1.5833333333334159,
+      "cell_edge_8": 1.583333333333333,
+      "abs_diff_from_edge8": 8.282263763703668e-14,
+      "n_below": 9,
+      "n_above": 8,
+      "gap_below": 0.0003067417026010946,
+      "gap_above": -0.000268731745443368,
+      "gap_below_1e6": 0.0003067028033012023,
+      "gap_above_1e6": -0.0002686929435736854,
+      "U_HOLD_below": 0.036477834228224974,
+      "U_HOLD_above": 0.03647784567619513,
+      "U_VOICE_below": 0.03678453703152618,
+      "U_VOICE_above": 0.036209152732621444,
+      "one_sided_limits_differ": true,
+      "note": "the middle sign change is NOT a root: n(s) steps 9 -> 8 at cell edge 8 and U_VOICE jumps through zero.  brentq converges on the discontinuity, which is the right location to 7 dp.  U_HOLD does not move across it -- the whole step is in U_VOICE.  This is the route the card names (Step 15(i) / WHERE IT FAILS 4's card-legal counterexample, instantiated by the solver's own N_GRID note) interacting with the off-path price snap."
+    },
+    {
+      "name": "a3_l1_middle_excursions",
+      "kind": "card+panel",
+      "pass": true,
+      "measured_panel_grid": [
+        0.000280370586579648,
+        0.00024010706561748696
+      ],
+      "filed": [
+        0.00028,
+        0.00024
+      ],
+      "measured_3sf": [
+        "0.00028",
+        "0.00024"
+      ],
+      "filed_3sf": [
+        "0.00028",
+        "0.00024"
+      ],
+      "three_sf_match": [
+        true,
+        true
+      ],
+      "rel_diff_ungated": [
+        0.0013226482207424886,
+        0.00044600725610755574
+      ],
+      "superseded_tol_rel": 0.0005,
+      "card_band": [
+        0.00024,
+        0.00028
+      ],
+      "card_band_read_at_3sf": [
+        0.00028,
+        0.00024
+      ],
+      "in_card_band": [
+        true,
+        true
+      ],
+      "payoff_tolerance": 1e-09,
+      "ratio_to_payoff_tolerance": [
+        280370.58657964796,
+        240107.06561748695
+      ],
+      "required_ratio": 100000.0,
+      "above_tolerance": [
+        true,
+        true
+      ],
+      "refined_ungated": [
+        0.00030658813141261343,
+        0.0002685976037033952
+      ],
+      "scope": "GATED ON PROBE 8's OWN 6001-POINT GRID, which is where the filed 2.80e-4 / 2.40e-4 were measured: it spans [s_lo, s_hi] at a spacing of 1.4142e-3, so it puts only 6 and 5 points inside the two middle intervals (widths 7.890e-3 and 6.909e-3).  The refined-interval maxima are recorded and NOT gated: a finer grid finds a larger maximum for grid reasons, not model reasons.",
+      "gate_form": "EXACT equality at the filed precision (3 s.f.), which is the form t2_a6_edge_jump_check.py uses for 3-s.f. figures.  The relative differences against a 5e-4 tolerance are retained above, ungated -- that tolerance was transplanted from the A6 check's 5-s.f. filed values and is the gate this one replaced after the first run; see known_discrepancies and the module docstring."
+    },
+    {
+      "name": "a3_l1_argmax_H_V_H_V_single_valued",
+      "kind": "card",
+      "pass": true,
+      "pattern_measured": [
+        [
+          "HOLD"
+        ],
+        [
+          "VOICE"
+        ],
+        [
+          "HOLD"
+        ],
+        [
+          "VOICE"
+        ]
+      ],
+      "pattern_card": [
+        "HOLD",
+        "VOICE",
+        "HOLD",
+        "VOICE"
+      ],
+      "min_gap_to_runner_up": [
+        2.6815469608726383e-05,
+        2.682296156811953e-05,
+        2.690628805296358e-05,
+        2.6913574571761634e-05
+      ],
+      "buffer_fraction": 0.1,
+      "flank_width": 0.006909271898368763,
+      "buffer": 0.0006909271898368763,
+      "n_samples_per_interval": 41,
+      "scope": "Intervals are crossing-delimited with a declared 10% buffer off each crossing and outer windows one middle-interval wide; see the docstring's DECLARED SAMPLING GEOMETRY.  Singleton-ness is tested as strict float uniqueness at the sampled points; the card's quantitative 'against the 1e-9 payoff tolerance' content is carried by the excursion gate."
+    },
+    {
+      "name": "a3_l1_no_weakly_increasing_selection_exists",
+      "kind": "derived",
+      "pass": true,
+      "argmax_sequence": [
+        "HOLD",
+        "VOICE",
+        "HOLD",
+        "VOICE"
+      ],
+      "menu_order": "EXIT < HOLD < VOICE",
+      "descent_at_crossing_2": 1.5833333333334159,
+      "reasoning": "the best-response correspondence is a strict singleton at every sampled point of all four intervals, so every selection of it EQUALS the pointwise argmax there.  That argmax is VOICE on interval 2 and HOLD on interval 3, and HOLD < VOICE in the menu order, so every selection strictly decreases across crossing 2.  Hence S(k) -- Step 13's set of weakly increasing selections -- is EMPTY, and the card's outer map T is UNDEFINED at this k, not merely discontinuous.  This is a logical consequence of the measured rows above, not a separate measurement.",
+      "not_claimed": "this does not establish that no equilibrium exists at this calibration; it establishes that A3, and with it the Step 13 construction P1 runs through, is unavailable here."
+    },
+    {
+      "name": "a3_l1_dense_grid_robustness",
+      "kind": "declared",
+      "pass": true,
+      "grid": 60001,
+      "n_sign_changes": 3,
+      "located": [
+        1.5754433915929242,
+        1.5833333333333723,
+        1.5902426052317615
+      ],
+      "located_7dp": [
+        "1.5754434",
+        "1.5833333",
+        "1.5902426"
+      ],
+      "distance_to_nearest_panel_grid_crossing": [
+        0.0,
+        4.3520742565306136e-14,
+        2.3092638912203256e-14
+      ],
+      "radius": 0.001,
+      "panel_grid_spacing": 0.0014142135623731455,
+      "dense_grid_spacing": 0.00014142135623718133,
+      "smallest_gap_between_crossings": 0.006909271898368763,
+      "scope": "count AND location, so a spurious count can be diagnosed rather than merely reported.  The radius 1e-3 compares brentq-LOCATED crossings (xtol = 1e-13 on each grid's own sign-change brackets), not grid points, so what it must clear is the root-finder's precision rather than either grid's spacing -- and it clears it by about eleven orders, the measured cross-grid agreement being <= 4.4e-14. At the other end it sits an order of magnitude below the smallest inter-crossing gap (6.909e-3), so it cannot merge two crossings either."
+    },
+    {
+      "name": "a3_l2_edge_anchor_reproduces",
+      "kind": "wiring",
+      "pass": true,
+      "edge_recomputed": 1.6590621627456204,
+      "edge_filed": 1.659062162746,
+      "abs_diff": 3.7969627442180354e-13,
+      "m": 7,
+      "tol": 1e-09,
+      "node": {
+        "kappa": 0.15,
+        "tau": 0.05,
+        "T": 5
+      },
+      "params_hash": "77fdc51c849b2102",
+      "params_identity_note": "a6_B_argmax.py starts from ParamsV4(), a6_A_probe8_open.py from ParamsV4.baseline(); the two agree before the .replace() calls, checked in a3_params_baseline_identity.",
+      "edges": {
+        "1": 3.2644882372722086,
+        "2": 2.54303349962092,
+        "3": 2.2113957548203436,
+        "4": 2.006230589874905,
+        "5": 1.8608284620211166,
+        "6": 1.7492686492653553,
+        "7": 1.6590621627456204,
+        "8": 1.583333333333333,
+        "9": 1.517932397378237,
+        "10": 1.4601789933084222,
+        "11": 1.4082482904638631
+      }
+    },
+    {
+      "name": "a3_l2_fp1_residual_reproduces",
+      "kind": "panel_filed",
+      "pass": true,
+      "k": [
+        1.0202217805248246,
+        1.6590621627461504
+      ],
+      "cutoff_scale": 5.340172748447003e-13,
+      "cutoff_scale_filed": 5.340172748447003e-13,
+      "cutoff_rel": 0.0,
+      "payoff_scale": 0.0017657302401005992,
+      "payoff_scale_filed": 0.0017657302401005992,
+      "payoff_rel": 0.0,
+      "tol_rel": 1e-06,
+      "source": "t2_t34_account_sweep.json provenance.node15_reference_values",
+      "note": "the pinned fixed point is a fixed point of the IMPLEMENTED CUTOFF MAP and is NOT an equilibrium: its payoff-scale residual is 1.77e-3 against a 1e-9 criterion.  Recorded here only to identify the configuration the argmax reversal is measured at."
+    },
+    {
+      "name": "a3_l2_fp2_reproduces_from_filed_k_init",
+      "kind": "panel_filed",
+      "pass": true,
+      "k_init": [
+        1.02,
+        1.71
+      ],
+      "k": [
+        1.026044322101858,
+        1.71040490790821
+      ],
+      "k_filed": [
+        1.0260443221,
+        1.7104049079
+      ],
+      "max_abs_diff": 8.209877222498108e-12,
+      "tol": 1e-09,
+      "cutoff_scale": 2.8781865779592408e-11,
+      "payoff_scale": 0.0003054682590988636,
+      "payoff_scale_filed_4sf": 0.0003055,
+      "payoff_scale_rel_to_filed": 0.00010390360109119553,
+      "n_below_k2": 7,
+      "n_above_k2": 7,
+      "scope": "the filed payoff_scale 3.055e-4 is quoted to 4 s.f. in t2_t34_account_sweep.json and is RECORDED, not gated; the gate is the fixed-point coordinates.",
+      "route": "a6_B_alt.py: this is the interior-crossing fixed point, reached from k_init = (1.02, 1.71).  It is a second, independent basin at the same node, which is why the card says the reversal holds at BOTH located fixed points."
+    },
+    {
+      "name": "a3_l2_argmax_reverses_voice_to_hold",
+      "kind": "card",
+      "pass": true,
+      "per_fixed_point": [
+        {
+          "k": [
+            1.020221781,
+            1.659062163
+          ],
+          "below": "VOICE",
+          "above": "HOLD",
+          "min_gap": 0.0012781263633606724
+        },
+        {
+          "k": [
+            1.0260443221,
+            1.7104049079
+          ],
+          "below": "VOICE",
+          "above": "HOLD",
+          "min_gap": 0.0010628738396784992
+        }
+      ],
+      "edge": 1.659062162746,
+      "offset": 1e-06,
+      "card_wording": "the argmax reverses VOICE -> HOLD across cell edge s = 1.659062163 at both located fixed points: the preferred plan decreases in s"
+    },
+    {
+      "name": "a3_l2_filed_payoff_strings_reproduce",
+      "kind": "panel_filed",
+      "pass": true,
+      "n_strings": 12,
+      "all_match": true,
+      "n_days_match": true,
+      "n_below_filed": 8,
+      "n_above_filed": 7,
+      "source": "a6_panel_probes_2026-08-27/a6_B_findings.md section 4, replayed at a6_B_argmax.py's own k literals, its own 12-dp edge and its own +/-1e-6 offsets"
+    },
+    {
+      "name": "a3_l2_preferred_plan_decreasing_in_s",
+      "kind": "derived",
+      "pass": true,
+      "menu_order": "EXIT < HOLD < VOICE",
+      "reasoning": "the argmax is a strict singleton on both sides of the edge at both fixed points, VOICE below and HOLD above, and HOLD < VOICE in the menu order.  The preferred plan therefore DECREASES in s, contradicting A3's second clause -- independently of locus 1, at a different (kappa, tau, T) and by a different route.  As at locus 1, S(k) is empty and no cutoff vector represents the best response.",
+      "route": "the s-direction step of U_VOICE (n(s) is integer-valued) interacting with the off-path price snap; NOT a non-monotone cost",
+      "not_claimed": "an edge-pinned fixed point of the implemented cutoff map is not an equilibrium, and none of this resolves the four ticket-34 existence questions."
+    }
+  ],
+  "n_fail": 0,
+  "loci_done": 2,
+  "locus1_node": {
+    "kappa": 0.5,
+    "tau": 0.09076405861553302,
+    "T": 5,
+    "k1_held": 1.2405757282617416,
+    "edge6": 1.7492686492653553,
+    "edge8": 1.583333333333333,
+    "params_hash": "8ef7c5c2d3896bf8",
+    "grid_panel": 6001,
+    "grid_dense": 60001,
+    "s_lo": -3.2426406871192857,
+    "s_hi": 5.242640687119286
+  },
+  "locus1_ladder": [
+    {
+      "offset": -1e-09,
+      "k2": 1.7492686482653552,
+      "n_sign_changes": 1,
+      "located": [
+        1.6037224388246636
+      ],
+      "located_7dp": [
+        "1.6037224"
+      ],
+      "expect": 1
+    },
+    {
+      "offset": 1e-09,
+      "k2": 1.7492686502653554,
+      "n_sign_changes": 3,
+      "located": [
+        1.5754433915929242,
+        1.5833333333334159,
+        1.5902426052317846
+      ],
+      "located_7dp": [
+        "1.5754434",
+        "1.5833333",
+        "1.5902426"
+      ],
+      "expect": 3
+    },
+    {
+      "offset": 0.0001,
+      "k2": 1.7493686492653553,
+      "n_sign_changes": 3,
+      "located": [
+        1.5754806631209444,
+        1.5833333333333794,
+        1.590286210140761
+      ],
+      "located_7dp": [
+        "1.5754807",
+        "1.5833333",
+        "1.5902862"
+      ],
+      "expect": 3
+    },
+    {
+      "offset": 0.001,
+      "k2": 1.7502686492653552,
+      "n_sign_changes": 3,
+      "located": [
+        1.5758177980808545,
+        1.5833333333333839,
+        1.5906809864746987
+      ],
+      "located_7dp": [
+        "1.5758178",
+        "1.5833333",
+        "1.5906810"
+      ],
+      "expect": 3
+    },
+    {
+      "offset": 0.005,
+      "k2": 1.7542686492653552,
+      "n_sign_changes": 3,
+      "located": [
+        1.577356810033722,
+        1.5833333333332968,
+        1.59249150549121
+      ],
+      "located_7dp": [
+        "1.5773568",
+        "1.5833333",
+        "1.5924915"
+      ],
+      "expect": 3
+    },
+    {
+      "offset": 0.02,
+      "k2": 1.7692686492653553,
+      "n_sign_changes": 3,
+      "located": [
+        1.580233787576087,
+        1.5833333333333282,
+        1.5963772878663716
+      ],
+      "located_7dp": [
+        "1.5802338",
+        "1.5833333",
+        "1.5963773"
+      ],
+      "expect": 3
+    },
+    {
+      "offset": 0.05,
+      "k2": 1.7992686492653553,
+      "n_sign_changes": 1,
+      "located": [
+        1.6037165924911148
+      ],
+      "located_7dp": [
+        "1.6037166"
+      ],
+      "expect": 1
+    },
+    {
+      "offset": 0.1,
+      "k2": 1.8492686492653554,
+      "n_sign_changes": 1,
+      "located": [
+        1.616085791771835
+      ],
+      "located_7dp": [
+        "1.6160858"
+      ],
+      "expect": 1
+    }
+  ],
+  "locus1_excursions": [
+    {
+      "lo": 1.5754433915929242,
+      "hi": 1.5833333333334159,
+      "width": 0.007889941740491624,
+      "n_panel_points": 6,
+      "max_abs_gap_panel_grid": 0.000280370586579648,
+      "max_abs_gap_refined_ungated": 0.00030658813141261343,
+      "filed": 0.00028,
+      "rel_diff_from_filed": 0.0013226482207424886,
+      "measured_3sf": "0.00028",
+      "filed_3sf": "0.00028"
+    },
+    {
+      "lo": 1.5833333333334159,
+      "hi": 1.5902426052317846,
+      "width": 0.006909271898368763,
+      "n_panel_points": 5,
+      "max_abs_gap_panel_grid": 0.00024010706561748696,
+      "max_abs_gap_refined_ungated": 0.0002685976037033952,
+      "filed": 0.00024,
+      "rel_diff_from_filed": 0.00044600725610755574,
+      "measured_3sf": "0.00024",
+      "filed_3sf": "0.00024"
+    }
+  ],
+  "locus1_intervals": [
+    {
+      "window": [
+        1.5685341196945555,
+        1.5747524644030872
+      ],
+      "want": "HOLD",
+      "got": [
+        "HOLD"
+      ],
+      "constant": true,
+      "matches": true,
+      "n_samples": 41,
+      "min_gap_to_runner_up": 2.6815469608726383e-05,
+      "strict_singleton_everywhere": true,
+      "worst_point": 1.5747524644030872,
+      "worst_payoffs": {
+        "EXIT": 0.03402905700599457,
+        "HOLD": 0.03642872318651405,
+        "VOICE": 0.036401907716905324
+      }
+    },
+    {
+      "window": [
+        1.5761343187827612,
+        1.582642406143579
+      ],
+      "want": "VOICE",
+      "got": [
+        "VOICE"
+      ],
+      "constant": true,
+      "matches": true,
+      "n_samples": 41,
+      "min_gap_to_runner_up": 2.682296156811953e-05,
+      "strict_singleton_everywhere": true,
+      "worst_point": 1.5761343187827612,
+      "worst_payoffs": {
+        "EXIT": 0.03402905700599457,
+        "HOLD": 0.036436632900360456,
+        "VOICE": 0.036463455861928576
+      }
+    },
+    {
+      "window": [
+        1.5840242605232526,
+        1.5895516780419476
+      ],
+      "want": "HOLD",
+      "got": [
+        "HOLD"
+      ],
+      "constant": true,
+      "matches": true,
+      "n_samples": 41,
+      "min_gap_to_runner_up": 2.690628805296358e-05,
+      "strict_singleton_everywhere": true,
+      "worst_point": 1.5895516780419476,
+      "worst_payoffs": {
+        "EXIT": 0.03402905700599457,
+        "HOLD": 0.03651343366451888,
+        "VOICE": 0.03648652737646592
+      }
+    },
+    {
+      "window": [
+        1.5909335324216216,
+        1.5971518771301534
+      ],
+      "want": "VOICE",
+      "got": [
+        "VOICE"
+      ],
+      "constant": true,
+      "matches": true,
+      "n_samples": 41,
+      "min_gap_to_runner_up": 2.6913574571761634e-05,
+      "strict_singleton_everywhere": true,
+      "worst_point": 1.5909335324216216,
+      "worst_payoffs": {
+        "EXIT": 0.03402905700599457,
+        "HOLD": 0.036521343378365295,
+        "VOICE": 0.03654825695293706
+      }
+    }
+  ],
+  "locus2_fixed_points": [
+    {
+      "fixed_point": 1,
+      "k": [
+        1.020221781,
+        1.659062163
+      ],
+      "sides": {
+        "below": {
+          "s": 1.6590611627460001,
+          "offset": -1e-06,
+          "n": 8,
+          "n_filed": 8,
+          "U": {
+            "EXIT": 0.03310351104607136,
+            "HOLD": 0.03666082806200871,
+            "VOICE": 0.03842655830210328
+          },
+          "U_7dp": {
+            "EXIT": "0.0331035",
+            "HOLD": "0.0366608",
+            "VOICE": "0.0384266"
+          },
+          "U_7dp_filed": {
+            "EXIT": "0.0331035",
+            "HOLD": "0.0366608",
+            "VOICE": "0.0384266"
+          },
+          "strings_match": true,
+          "argmax": "VOICE",
+          "argmax_filed": "VOICE",
+          "argmax_matches": true,
+          "gap_to_runner_up": 0.0017657302400945693,
+          "strict_singleton": true
+        },
+        "above": {
+          "s": 1.659063162746,
+          "offset": 1e-06,
+          "n": 7,
+          "n_filed": 7,
+          "U": {
+            "EXIT": 0.03310351104607136,
+            "HOLD": 0.03666083919882061,
+            "VOICE": 0.03538271283545994
+          },
+          "U_7dp": {
+            "EXIT": "0.0331035",
+            "HOLD": "0.0366608",
+            "VOICE": "0.0353827"
+          },
+          "U_7dp_filed": {
+            "EXIT": "0.0331035",
+            "HOLD": "0.0366608",
+            "VOICE": "0.0353827"
+          },
+          "strings_match": true,
+          "argmax": "HOLD",
+          "argmax_filed": "HOLD",
+          "argmax_matches": true,
+          "gap_to_runner_up": 0.0012781263633606724,
+          "strict_singleton": true
+        }
+      },
+      "extra_offsets_ungated": {
+        "below": {
+          "offset": -0.0001,
+          "argmax": "VOICE",
+          "n": 8,
+          "U": {
+            "EXIT": 0.03310351104607136,
+            "HOLD": 0.03666027678981983,
+            "VOICE": 0.038422012294007504
+          },
+          "gap_to_runner_up": 0.0017617355041876712
+        },
+        "above": {
+          "offset": 0.0001,
+          "argmax": "HOLD",
+          "n": 7,
+          "U": {
+            "EXIT": 0.03310351104607136,
+            "HOLD": 0.03666139047100949,
+            "VOICE": 0.03538715987218219
+          },
+          "gap_to_runner_up": 0.0012742305988273014
+        }
+      },
+      "reverses_voice_to_hold": true
+    },
+    {
+      "fixed_point": 2,
+      "k": [
+        1.0260443221,
+        1.7104049079
+      ],
+      "sides": {
+        "below": {
+          "s": 1.6590611627460001,
+          "offset": -1e-06,
+          "n": 8,
+          "n_filed": 8,
+          "U": {
+            "EXIT": 0.0332205575063266,
+            "HOLD": 0.036797713916743434,
+            "VOICE": 0.03786058775642193
+          },
+          "U_7dp": {
+            "EXIT": "0.0332206",
+            "HOLD": "0.0367977",
+            "VOICE": "0.0378606"
+          },
+          "U_7dp_filed": {
+            "EXIT": "0.0332206",
+            "HOLD": "0.0367977",
+            "VOICE": "0.0378606"
+          },
+          "strings_match": true,
+          "argmax": "VOICE",
+          "argmax_filed": "VOICE",
+          "argmax_matches": true,
+          "gap_to_runner_up": 0.0010628738396784992,
+          "strict_singleton": true
+        },
+        "above": {
+          "s": 1.659063162746,
+          "offset": 1e-06,
+          "n": 7,
+          "n_filed": 7,
+          "U": {
+            "EXIT": 0.0332205575063266,
+            "HOLD": 0.03679772521867469,
+            "VOICE": 0.034762078654898824
+          },
+          "U_7dp": {
+            "EXIT": "0.0332206",
+            "HOLD": "0.0367977",
+            "VOICE": "0.0347621"
+          },
+          "U_7dp_filed": {
+            "EXIT": "0.0332206",
+            "HOLD": "0.0367977",
+            "VOICE": "0.0347621"
+          },
+          "strings_match": true,
+          "argmax": "HOLD",
+          "argmax_filed": "HOLD",
+          "argmax_matches": true,
+          "gap_to_runner_up": 0.0020356465637758683,
+          "strict_singleton": true
+        }
+      },
+      "extra_offsets_ungated": {
+        "below": {
+          "offset": -0.0001,
+          "argmax": "VOICE",
+          "n": 8,
+          "U": {
+            "EXIT": 0.0332205575063266,
+            "HOLD": 0.03679715447114594,
+            "VOICE": 0.03785606019394101
+          },
+          "gap_to_runner_up": 0.0010589057227950727
+        },
+        "above": {
+          "offset": 0.0001,
+          "argmax": "HOLD",
+          "n": 7,
+          "U": {
+            "EXIT": 0.0332205575063266,
+            "HOLD": 0.036798284664272186,
+            "VOICE": 0.03476650546879295
+          },
+          "gap_to_runner_up": 0.0020317791954792344
+        }
+      },
+      "reverses_voice_to_hold": true
+    }
+  ],
+  "seconds": 71.26456379200681,
+  "all_pass": true,
+  "known_discrepancies": [
+    {
+      "item": "the excursion gate's FORM was restructured after the first run (declared, not silent)",
+      "reproduced": true,
+      "original_gate": "relative agreement with the filed excursions to TOL_PANEL_REL = 5e-4",
+      "original_result": "MISSED on the first interval: relative differences 1.3226e-3 and 4.4601e-4 against 5e-4, so the run reported 1 gate failing.  The measured maxima were 2.80370586579648e-4 and 2.40107065617487e-4 -- unchanged by the restructure, and unchanged since.",
+      "why": "5e-4 relative was carried over from t2_a6_edge_jump_check.py, whose filed panel values are quoted to FIVE significant figures (6.3333e-03), where 5e-4 is about the last-digit rounding window.  Analyst A filed the A3 excursions to THREE ('max|gap| = 2.80e-4 and 2.40e-4'), so the transplanted tolerance demanded digits the source never recorded.  Both measured maxima round to the filed strings EXACTLY.",
+      "new_gate": "'%.3g' string equality against the filed values, plus the card's 2.4e-4 - 2.8e-4 band read at the same 3 s.f. -- the form t2_a6_edge_jump_check.py itself uses for 3-s.f. card figures (card_3sf)",
+      "direction": "NUMERICALLY WIDER, not tighter: the 3-s.f. rounding window is about 1.8e-3 relative against the original 5e-4.  Digit-exact in form.  It keeps teeth -- the refined-grid maximum 3.07e-4 would still fail it.  No measured number moved, no other gate moved, and both relative differences remain in the JSON, ungated."
+    },
+    {
+      "item": "the card's quoted excursion band is a GRID-RESOLUTION quantity and understates the true excursions",
+      "reproduced": true,
+      "card_wording": "middle excursions 2.4-2.8e-4 against a 1e-9 payoff tolerance",
+      "measured_on_the_panel_grid": [
+        0.000280370586579648,
+        0.00024010706561748696
+      ],
+      "measured_on_a_refined_interval_grid": [
+        0.00030658813141261343,
+        0.0002685976037033952
+      ],
+      "finding": "the filed 2.80e-4 / 2.40e-4 are maxima over probe 8's 6001-point GLOBAL signal grid, which puts only 5 and 6 points inside the two middle intervals.  Resampling each interval on its own 2001-point grid gives 3.066e-4 and 2.686e-4 -- about 9% and 12% larger.  The card's band is therefore a property of the panel's sampling, not the true suprema of |U_V - U_H| on those intervals.",
+      "direction": "This STRENGTHENS the A3 failure rather than weakening it: the true excursions are LARGER than the card quotes, so the departure from single crossing is bigger than recorded, and the margin over the 1e-9 payoff tolerance rises from ~2.8e5 to ~3.1e5.  Nothing in the finding is in doubt; only the two quoted figures are resolution-limited.",
+      "recommendation": "a wording note if the card is ever touched here -- the numbers are correct AS the panel-grid maxima they are, and this check gates them as such.  No label implication either way."
+    }
+  ],
+  "verdict": "A3 failure REPRODUCED at calibration -- locus 1 (kappa=0.5, tau_50, T=5): three strict sign changes in U_VOICE - U_HOLD on an open set of k_2 above cell edge 6, at the card's quoted signals, with the pointwise argmax H,V,H,V single-valued on each interval, so no weakly increasing selection exists and Step 13's outer map is undefined there.  locus 2 (kappa=0.15, 0.05, 5): the argmax reverses VOICE -> HOLD across cell edge 1.659062163 at both located fixed points, so the preferred plan decreases in s.  NO LABEL MOVES AND NONE IS LICENSED -- A3 is a listed hypothesis of P1 and carries no label of its own, so this is applicability evidence on an antecedent at the implemented calibration, in the A(tau) pattern.  P1 stays PROVED as a conditional.",
+  "provenance": {
+    "follow_up": "the standing 'a separate follow-up owns the A3 locus' item recorded in t2_a6_edge_jump_check.py, t2_a6_node15_check.py and t2_a6_collapse_face_check.py, re-requested as UNCHECKED item 5 of GPT Pro's 2026-08-28 re-review and carried in quality_reports/session_logs/2026-08-28_gpt_rereview_audit_repairs.md as 'on file, not started'",
+    "card_row": "research/model_v4/MODEL_CARD.md section 5, A3 evidence note (stamp 2026-08-28, commit 59c0dfc -- verified against the file before this script was written)",
+    "check_request": "research/model_v4/threads/2026-08-28_gpt_rereview.md, A3 section, NUMERICAL CHECK REQUEST",
+    "source_probes": [
+      "a6_panel_probes_2026-08-27/a6_A_probe8_open.py (locus 1: the k_2 offset ladder, the 6001-point grid, the strict sign-change criterion)",
+      "a6_panel_probes_2026-08-27/a6_A_findings.md (A) (locus 1: the three crossing locations, the two middle excursions, the H,V,H,V argmax, the open-set width, the closing offsets)",
+      "a6_panel_probes_2026-08-27/a6_B_argmax.py (locus 2: the argmax reversal at both fixed points; its k literals, its 12-dp edge and its +/-1e-6 offsets are used verbatim)",
+      "a6_panel_probes_2026-08-27/a6_B_alt.py (locus 2: the interior-crossing fixed point, from k_init = (1.02, 1.71))",
+      "a6_panel_probes_2026-08-27/a6_B_findings.md section 4 (locus 2: the filed 7-dp payoff strings)",
+      "quality_reports/fixes/t2_t34_account_sweep.json provenance.node15_reference_values (locus 2: the full-precision pinned fixed point and its two residuals)"
+    ],
+    "panel_reports": [
+      "research/model_v4/threads/2026-08-27_A6_panel_substantiate.md",
+      "research/model_v4/threads/2026-08-27_A6_panel_defuse.md"
+    ],
+    "pre_registration": "PRE-REGISTERED BY CONSTRUCTION.  Every gated number is the card's section 5 A3 evidence note or a panel-filed value, both written before this script; GPT Pro's NUMERICAL CHECK REQUEST restates the same predictions.  The two declared choices the card does not make -- the argmax sampling geometry and the dense-grid location radius -- are set out in the module docstring with their reasons, and neither was moved after a run.",
+    "verdict_semantics": "INVERTED relative to a proof check.  pass = the panel's measurement REPRODUCED, i.e. A3 fails at the quoted loci in the quoted way.  pass does NOT mean A3 holds.  A3 is a HYPOTHESIS of P1 and carries no honesty label of its own, so NO LABEL MOVE is possible or licensed here; this is applicability evidence in the A(tau) pattern.  P1 stays PROVED as a conditional.",
+    "environment_gate": ".venv/bin/python -m numerical_v4.smoke, exit 0, SMOKE COMPLETE in 65.9 s, run before this script",
+    "determinism": "no randomness, no wall-clock dependence, no Monte Carlo, no file input, no network; every k, offset, grid and seed is a frozen literal; numerical_v4 imported read-only",
+    "does_not": [
+      "touch MODEL_CARD.md, the mirrors, sections_v3/, LABEL_LEDGER.md, HANDOFF_sign.md or anything under research/",
+      "modify anything under numerical_v4/ (imported read-only)",
+      "move, or license moving, any honesty label -- A3 has none",
+      "claim or deny existence of equilibrium at either locus",
+      "turn an edge-pinned fixed point of the cutoff map into an equilibrium",
+      "resolve any of the four ticket-34 UNRESOLVED nodes",
+      "re-run the ticket-34 sweep or recheck, or change any tolerance in numerical_v4",
+      "curate the A6 material (the T_2 edge jumps, the collapse face, the chamber-interior Theta+ rescue) -- the three committed t2_a6_* checks own it"
+    ]
+  }
+}

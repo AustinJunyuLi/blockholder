@@ -6,6 +6,8 @@ This file provides guidance to Codex and other coding agents working in this rep
 
 Academic research project: **"Liquidity, Activism Disclosure, and Takeover Premia"** — an economic theory model of blockholder behavior (exit, voice, corporate control). Layers: numerical computation (Python, `numerical/`), visualization (Python/matplotlib, `pyfig/`), empirics (`empirics/`, EDGAR 13D/G), and manuscript/presentation (XeLaTeX/Beamer).
 
+**v4-theory lane status:** the theory record is FROZEN (2026-08-30, commit `65b8db3` — R-numbers closed, `research/model_v4/threads/` is archive; no proof repairs or label-gate runs unless Austin reopens). The live work in this checkout is **draft_v3** (`draft_v3.tex`/`.bib`/`.pdf` + `draft_v3_trace.md` at the repo root) and code: one review per artifact, author fixes once, session-end one-pager for Austin. Empirical work happens in the `blockholder_v4` worktree, not here. See CLAUDE.md for the full rules.
+
 ## Build Pipeline (Python end-to-end)
 
 ```bash

@@ -1,0 +1,748 @@
+%==============================================================================
+%  sections_v3/proofs_theorem_ge.tex -- proofs of the paper's Theorem (T1) and
+%  of the general-equilibrium Proposition (C1).
+%
+%  SOURCE OF TRUTH: research/model_v4/MODEL_CARD.md, version stamp 2026-08-30
+%  (F5 route R40-A, gate PASS, theory-record freeze;
+%  commit 65b8db3), section 6 result ledger.  The two
+%  proofs below establish exactly the statements carried in
+%  sections_v3/theorem_section.tex; no statement is strengthened, weakened or
+%  re-scoped here.  Sources: research/model_v4/proofs/T1_proof.md (fix round
+%  closed, items N1-N4 applied) and research/model_v4/proofs/C1_proof.md with
+%  research/model_v4/rederive/C1_rederivation.md (additions N1, N2).
+%
+%  Internal labels are prefixed eq:T1- and eq:C1-.  No environment is defined
+%  here; amsthm's proof environment only.
+%==============================================================================
+
+\begin{proof}[Proof of Theorem~\ref{thm:T1} (T1)]
+Throughout, policies are frozen in the sense of hypothesis~(T-1): the plan menu $\mathcal J$, the
+execution policies $B_j(\cdot,\cdot)$, $b_j^*(\cdot)$ and $Q_j^F(\cdot)$, and the cutoff vector $k$
+are held fixed in $\kappa$ and held fixed across the two rules compared at each margin. Nothing
+below lets $k$ re-solve $k = \Tmap(k;\vartheta)$ at the second rule; that is the whole difference
+between this theorem and Proposition~\ref{prop:C1}.
+
+Two pieces of hypothesis traffic are worth naming before the argument starts, because several steps
+draw on them. First, hypothesis~(T-5) imports Lemma~\ref{lem:L2} \emph{with its own hypotheses
+travelling}, and those hypotheses are Assumption~\ref{asm:A1}, Assumption~\ref{asm:A2p} together
+with the primitive table restrictions of Assumption~\ref{asm:TR}, Assumption~\ref{asm:A4},
+Assumption~\ref{asm:A5}, Assumption~\ref{asm:A7p} in its on-path injective form,
+Lemma~\ref{lem:D1}, the no-feedback timing of Assumption~\ref{asm:nofeedback}, $\Omega > 0$, and an
+explicit bidder-entry rule. Where a step below consumes one of them it is cited by name, and it is
+consumed as a travelling hypothesis of~(T-5) rather than as a free-standing assumption of this
+theorem. The A7 form matters and is therefore named every time: the form
+Lemma~\ref{lem:L2} consumes is Assumption~\ref{asm:A7p} (A7$'$), not the weak identification
+wording of Assumption~\ref{asm:A7}, which permits two pairs $(j,s)$ with different pooled paths and
+is that lemma's first failure case. Second, hypothesis~(T-8) --- $\kappa$-differentiability of
+$M_P$ --- is supplied by no standing hypothesis of Section~\ref{sec:hypotheses} and is carried here
+as a hypothesis of the theorem; Step~4 is where it is used, and the integrability clause of
+Assumption~\ref{asm:A2p} is \emph{not} cited for it, since boundedness is not differentiability.
+
+\medskip
+\noindent\emph{Part~(A): the factorisation.}
+
+\emph{Step 1 (the two-cell identity).} By hypothesis~(T-2), Assumption~\ref{asm:A8} holds at the
+policy under consideration, so $0 < \Omega < 1$ and Lemma~\ref{lem:L1}, imported by
+hypothesis~(T-4), applies in its non-degenerate branch: identity~\eqref{eq:L1} holds at
+$(\kappa,\tau,T)$, with $M_F$ and $M_P$ the cell averages of Definition~\ref{def:premium}.
+
+\emph{Step 2 (the flagged cell does not move with $\kappa$).} By Lemma~\ref{lem:L2}, imported with
+its hypotheses by~(T-5), and at the fixed cutoff and execution policies of~(T-1), the flagged
+posterior, the flagged price, the entry probability and $M_F$ are invariant to $\kappa$. Hence
+$\partial_\kappa M_F = 0$. This is the step at which Lemma~\ref{lem:L2}'s stack is consumed, and in
+particular Assumption~\ref{asm:A7p}: on a menu that violates it the flagged tuple no longer
+identifies the informed component of the selected plan, $M_F$ retains direct $\kappa$-dependence,
+and everything after this step is void.
+
+\emph{Step 3 (the flagged weight does not move with $\kappa$ either --- derived, not assumed).}
+Hypothesis~(T-7) is PE-$\Omega$, the statement that $\Omega(\cdot,\tau,T)$ does not move with
+$\kappa$ at fixed policies. It is derivable at fixed policies, and deriving it is what makes the
+partial-equilibrium restriction visible rather than buried. By the clock equivalence of
+Lemma~\ref{lem:D1}\,(b), imported by~(T-6), a Voice plan $j$ files by the horizon exactly when
+$B_j(s,H-T) \ge \tau$, so with $j(s)$ the plan the frozen cutoff vector assigns to the signal,
+\[
+D \;=\; \ind\bigl\{a_{j(s)} = 1,\ B_{j(s)}(s,H-T) \ge \tau\bigr\}.
+\]
+The no-feedback timing of Assumption~\ref{asm:nofeedback}, carried as hypothesis~(T-13), makes
+$B_j(s,d)$ a function of $(j,s,d)$ alone: no realised order flow and no realised price enters the
+executed path. With the policies frozen by~(T-1), $D$ is therefore a function of $s$ alone. The law
+of $s$ carries no $\kappa$: Assumption~\ref{asm:A1} makes $v$ and $\varepsilon$ independent with
+strictly positive variances, and the distributional forms of clause~(TR-i) of
+Assumption~\ref{asm:TR} --- both travelling with Lemma~\ref{lem:L2} under~(T-5) --- give
+$s = v + \varepsilon \sim N(\mu_v,\sigma_v^2+\sigma_\varepsilon^2)$, in which $\kappa$ does not
+appear. Indeed $\kappa$ enters the primitives of Definition~\ref{def:primitives} in exactly one
+place, the ternary noise-mark law of $z_d$, which reaches observed pooled order flow
+$X_d = q_{jd} + z_d$ and reaches nothing that $D$ depends on. Hence $\Omega = \Prb(D=1)$ is
+literally the same number at every $\kappa$. The constancy is the form Step~6 needs; the derivative
+form $\partial_\kappa\Omega = 0$ is its corollary, and it is the form Step~4 needs.
+
+What this derivation consumes is the freezing of the cutoff vector, not any property of the
+disclosure rule. In equilibrium $k$ solves $k = \Tmap(k;\vartheta)$ and moves with $\kappa$,
+$\Omega$ moves with it, and the term discarded in Step~4 returns at full size. That term is the
+object Proposition~\ref{prop:C1} bounds.
+
+\emph{Step 4 (differentiating in $\kappa$).} Two of the three factors on the right of \eqref{eq:L1}
+are constant in $\kappa$: $M_F$ by Step~2 and $\Omega$ by Step~3. Neither step uses the present one,
+so nothing here is circular. With those two factors constant, $\kappa \mapsto \Dact$ is an affine
+image of $\kappa \mapsto M_P$, which hypothesis~(T-8) makes differentiable; hence
+$\partial_\kappa\Dact$ exists and equals $(1-\Omega)\,\partial_\kappa M_P$. Written as one term per
+factor that could carry $\kappa$, the same computation reads
+\begin{equation}
+\label{eq:T1-three}
+\partial_\kappa\Dact
+\;=\; \Omega\,\partial_\kappa M_F
+\;+\; (1-\Omega)\,\partial_\kappa M_P
+\;+\; (\partial_\kappa\Omega)\,(M_F - M_P),
+\end{equation}
+the three terms being the flagged cell's own motion, the pooled cell's own motion, and the
+reallocation of mass between the cells. Step~2 kills the first and Step~3 the third. Note what the
+third deletion does \emph{not} assume: $M_F - M_P$ is neither small nor signed here, and the term
+goes because its coefficient is zero.
+
+\emph{Step 5 (Part~(A)'s factorisation).} By~(T-2), $1-\Omega \in (0,1)$, so
+$|1-\Omega| = 1-\Omega$. Taking absolute values in the conclusion of Step~4, and writing
+$\mathcal S = |\partial_\kappa\Dact|$ and $\mathcal S_P = |\partial_\kappa M_P|$ as in
+Definition~\ref{def:premium},
+\begin{equation}
+\label{eq:T1-factor}
+\mathcal S(\kappa,\tau,T) \;=\; \bigl(1-\Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
+\end{equation}
+exactly, which is the first clause of Part~(A). Step~3 licenses writing the argument of $\Omega$ as
+$(\tau,T)$ rather than $(\kappa,\tau,T)$, and that convention is kept from here on. Two consequences
+are used later. First, $\mathcal S > 0$ exactly when $\mathcal S_P > 0$, which hypothesis~(T-3)
+supplies. Second, when $\mathcal S_P > 0$ the map $x \mapsto |x|$ is differentiable at
+$\partial_\kappa M_P \neq 0$, so $\mathcal S_P$ inherits whatever differentiability
+$\partial_\kappa M_P$ has in a policy coordinate. That transfer creates no differentiability; it
+only moves it, which is why Part~(C)'s local form carries its own smoothness hypothesis.
+
+\emph{Step 6 (the aggregate form, with no differentiability used).} Fix any grid
+$\kappa_0 < \kappa_1 < \dots < \kappa_n$ inside the maintained parameter set, with~(T-2) holding at
+each node. Applying Step~1 at $\kappa_i$ and at $\kappa_{i+1}$, and using Step~2 and Step~3 in their
+\emph{constancy} form --- $M_F$ and $\Omega$ are one and the same number at the two nodes, which a
+vanishing derivative at a single $\kappa$ would not deliver --- gives
+$\Dact(\kappa_{i+1}) - \Dact(\kappa_i) = (1-\Omega)\bigl[M_P(\kappa_{i+1}) - M_P(\kappa_i)\bigr]$.
+Summing absolute values,
+\begin{equation}
+\label{eq:T1-tv}
+\sum_{i=0}^{n-1}\bigl\lvert \Dact(\kappa_{i+1}) - \Dact(\kappa_i)\bigr\rvert
+\;=\; (1-\Omega)\sum_{i=0}^{n-1}\bigl\lvert M_P(\kappa_{i+1}) - M_P(\kappa_i)\bigr\rvert,
+\end{equation}
+which is the total-variation clause of Part~(A). Hypothesis~(T-8) is not used: \eqref{eq:T1-tv} is
+finite differences throughout. The same argument runs for any aggregator of the increment vector
+that is positively homogeneous of degree one --- total variation, mean absolute slope, the supremum
+of the absolute increments --- because $1-\Omega$ is one nonnegative scalar common to every
+increment. Every ratio statement in Parts~(B) and~(C) therefore holds verbatim with $\mathcal S$ and
+$\mathcal S_P$ replaced by their aggregate counterparts. This matters because a measurement
+convention that reports $\kappa$-sensitivity as a total variation over a grid rather than as a
+pointwise derivative is then measuring the same functional the theorem is about. Part~(A) is
+Steps~5 and~6.
+
+\medskip
+\noindent\emph{Part~(B): the threshold margin.}
+
+Throughout Part~(B) the window $T$ is common to the two rules and the comparison is
+$b_0 < \tau' < \tau$, so $\tau'$ is the tighter threshold. The maintained configuration
+$b_0 < \tau$ is clause~(TR-i) of Assumption~\ref{asm:TR}, and it is imposed at both thresholds.
+
+\emph{Step 7 (the chord form of the pooled sensitivity).} By hypothesis~(T-9),
+Assumption~\ref{asm:Atau} holds at each compared policy, with $\bar\pi$ read as the upper support
+point of the pooled engagement posterior in \eqref{eq:atau} and not as the pooled engagement share.
+Clause~(br-ii) of Assumption~\ref{asm:Abr}, imported by hypothesis~(T-11), places all
+$\kappa$-dependence of $M_P$ in the weights of \eqref{eq:atau} and delivers
+$\partial_\kappa M_P = \Delta_m\,\Akap\,C_h(\bar\pi)$ exactly, with no
+composition-through-$\kappa$ remainder; this is the $M_P$-level form of part~(a) of
+Lemma~\ref{lem:L3}, imported by hypothesis~(T-10), which gives
+$\partial_\kappa\Eop_\kappa[h] = \Akap\,C_h(\bar\pi)$. Taking absolute values, and using
+$\Delta_m > 0$ from clause~(TR-i) of Assumption~\ref{asm:TR} as it travels with~(T-5),
+\begin{equation}
+\label{eq:T1-chord}
+\mathcal S_P \;=\; \Delta_m\,\lvert\Akap\rvert\,\lvert C_h(\bar\pi)\rvert
+\;=\; \frac{\Delta_m}{4}\,\lvert\Akap\rvert\,\bar\pi^2\,\lvert h''(\zeta)\rvert
+\qquad\text{for some }\zeta\in(0,\bar\pi),
+\end{equation}
+the second equality by part~(b) of Lemma~\ref{lem:L3}, which is an identity rather than an
+approximation. The reading used below is that $\mathcal S_P$ is a \emph{product} of a
+weight-derivative magnitude and a chord magnitude. That is why leg~3 of Lemma~\ref{lem:L4} needs
+both a coefficient comparison and a chord comparison, and neither alone.
+
+\emph{Step 8 (the ratio identity).} Apply \eqref{eq:T1-factor} at $(\tau',T)$ and at $(\tau,T)$,
+which~(T-2) permits at both. By~(T-3), $\mathcal S_P(\kappa,\tau,T) > 0$, so
+$\mathcal S(\kappa,\tau,T) > 0$ by \eqref{eq:T1-factor} and the quotient is defined:
+\begin{equation}
+\label{eq:T1-ratio-tau}
+\frac{\mathcal S(\kappa,\tau',T)}{\mathcal S(\kappa,\tau,T)}
+\;=\; \frac{\bigl(1-\Omega(\tau',T)\bigr)\mathcal S_P(\kappa,\tau',T)}
+            {\bigl(1-\Omega(\tau,T)\bigr)\mathcal S_P(\kappa,\tau,T)}
+\;=\; W_\tau\,C_\tau,
+\qquad
+W_\tau = \frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)},\quad
+C_\tau = \frac{\mathcal S_P(\kappa,\tau',T)}{\mathcal S_P(\kappa,\tau,T)},
+\end{equation}
+with $W_\tau$ and $C_\tau$ the weight-effect and composition-effect ratios of
+Definition~\ref{def:premium} at this margin. The identity is exact --- it is
+\eqref{eq:T1-factor} twice and one division --- and it consumes~(T-1) to guarantee that the two
+sides are one model with one primitive changed rather than two different equilibria.
+
+\emph{Step 9 (the weight ratio lies in $[0,1]$).} By leg~1 of Lemma~\ref{lem:L4}, imported by
+hypothesis~(T-12) and proved outright there from the clock equivalence of Lemma~\ref{lem:D1}\,(b)
+and $b_0 < \tau' < \tau$, we have $\Omega(\tau',T) \ge \Omega(\tau,T)$. Subtracting from one
+reverses the inequality, and both sides are strictly positive by~(T-2), so dividing preserves the
+direction: $0 \le W_\tau \le 1$, the lower bound because $1-\Omega > 0$ at both policies.
+
+\emph{Step 10 (the composition ratio lies in $[0,1]$).} By leg~3 of Lemma~\ref{lem:L4},
+$\mathcal S_P(\kappa,\tau',T) \le \mathcal S_P(\kappa,\tau,T)$, and that leg holds only under
+Assumption~\ref{asm:Abr}. With~(T-3) supplying a strictly positive denominator, and with
+$\mathcal S_P$ an absolute value by Definition~\ref{def:premium}, $0 \le C_\tau \le 1$. The chain
+leg~3 executes is cited rather than re-derived, but it is worth setting out so that each clause can
+be seen carrying its own inch of the argument.
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
+\item A tighter threshold weakly lowers the pooled engagement \emph{share}
+  $\bar\pi_{\mathrm{pr}} = \Prb(a=1\mid D=0)$. This is leg~2 of Lemma~\ref{lem:L4}, proved outright
+  by conditional-probability arithmetic on the nested flagged sets of leg~1.
+\item A weakly lower share gives a weakly lower chord endpoint $\bar\pi$. This is clause~(br-iv) of
+  Assumption~\ref{asm:Abr}, and it is the clause that keeps the two objects apart: leg~2 moves a
+  share, the chord moves an upper support point, and only~(br-iv) links them. Without it leg~2 says
+  nothing about $\bar\pi$.
+\item A weakly lower $\bar\pi$ gives a weakly smaller $\lvert C_h(\bar\pi)\rvert$. Two clauses do
+  different jobs here. The maintained magnitude monotonicity of $\lvert C_h\rvert$ in $\bar\pi$,
+  carried by Assumption~\ref{asm:Atau}, orders two values of \emph{one} functional; and
+  clause~(br-v) of Assumption~\ref{asm:Abr} is what makes the values at $\tau$ and at $\tau'$ two
+  values of one functional rather than of two, since at fixed policies a change in $\tau$ moves
+  which histories are pooled, which moves the pooled price, which enters the kernel
+  $h = \pi\,p$ through the entry probability \eqref{eq:entry}. The sign half $C_h \le 0$ of
+  Assumption~\ref{asm:Atau} is not used at this leg.
+\item $\lvert\Akap(\tau')\rvert \le \lvert\Akap(\tau)\rvert$, which is clause~(br-iii) of
+  Assumption~\ref{asm:Abr}.
+\item Multiplying the two nonnegative factors of the product form \eqref{eq:T1-chord}, using
+  items~(iii) and~(iv), gives leg~3.
+\end{enumerate}
+Items~(iii)--(v) are unavailable unless the representation \eqref{eq:atau} holds at \emph{both}
+compared policies, which is clause~(br-i); and item~(v) is unavailable without clause~(br-ii),
+because a composition-through-$\kappa$ remainder in $\partial_\kappa M_P$ would destroy the product
+form. The threshold leg therefore rests on Assumption~\ref{asm:Atau} at both policies and on all
+five clauses~(br-i)--(br-v) of Assumption~\ref{asm:Abr}.
+
+\emph{Step 11 (Part~(B)'s conclusion).} By Steps~9 and~10 both ratios lie in $[0,1]$, so their
+product does: $W_\tau C_\tau \le 1\cdot 1 = 1$. Substituting into \eqref{eq:T1-ratio-tau} and
+multiplying through by the strictly positive number $\mathcal S(\kappa,\tau,T)$ gives
+\eqref{eq:T1B} and, with it,
+$\mathcal S(\kappa,\tau',T) \le \mathcal S(\kappa,\tau,T)$. Threshold tightening attenuates at
+fixed policies. The structural point is that no dominance condition appears anywhere in Steps~9--11:
+at this margin the weight effect and the composition effect push the same way, so the product is
+bounded by one without the two being compared in size. The inequality is weak, and it is an
+equality when the move from $\tau$ to $\tau'$ reclassifies no history --- when no pair $(j,s)$ has
+$\tau' \le B_j(s,H-T) < \tau$ --- since then $\Omega$, $\bar\pi_{\mathrm{pr}}$, $\bar\pi$ and
+$\mathcal S_P$ are all unchanged and both ratios equal one. No strict attenuation is claimed.
+
+\medskip
+\noindent\emph{Part~(C): the window margin.}
+
+Throughout Part~(C) the threshold $\tau$ is common to the two rules and the comparison is
+$T' < T$, so $T'$ is the tighter window.
+
+\emph{Step 12 (the weight ratio is at most one, and this is proved).} Let $j$ be a Voice plan and
+$s$ a signal with $D_j(s;\tau,T) = 1$. By the clock equivalence of Lemma~\ref{lem:D1}\,(b),
+$B_j(s,H-T) \ge \tau$. Since $T' < T$ gives $H-T' > H-T$, and since $\partial_d B_j \ge 0$ for Voice
+plans by clause~(TR-ii) of Assumption~\ref{asm:TR} as it travels with~(T-5), monotonicity of the
+stake path in the date gives $B_j(s,H-T') \ge B_j(s,H-T) \ge \tau$; and the engagement flag $a_j=1$
+is untouched by the window. Applying the clock equivalence in the other direction at $T'$ yields
+$D_j(s;\tau,T') = 1$. By Assumption~\ref{asm:A4} only Voice plans cross the threshold in the core
+model, so no other history has to be checked. Hence $\mathcal C_F(\tau,T) \subseteq
+\mathcal C_F(\tau,T')$, so $\Omega(\tau,T') \ge \Omega(\tau,T)$, and, exactly as in Step~9 with
+\mbox{(T-2)} supplying a strictly positive denominator and~(T-1) holding the plans fixed across the
+two windows,
+\[
+0 \;\le\; W_T \;=\; \frac{1-\Omega(\tau,T')}{1-\Omega(\tau,T)} \;\le\; 1 .
+\]
+This inequality is a consequence of Lemma~\ref{lem:D1} and the monotone Voice stake path rather
+than a hypothesis of the theorem, and it is the bridge from ``shorter window'' to ``higher flagged
+weight'' that the legal clock supplies.
+
+\emph{Step 13 (the composition ratio carries no sign).} No hypothesis of this theorem signs $C_T$.
+Three reasons block a window analogue of Lemma~\ref{lem:L4}'s third leg, and any one of them
+suffices.
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
+\item Assumption~\ref{asm:Abr} is quantified over the threshold pair. Clause~(br-i) asserts the
+  representation under $\tau$ and under $\tau'$; clause~(br-iii) compares $\lvert\Akap(\tau')\rvert$
+  with $\lvert\Akap(\tau)\rvert$; clause~(br-iv) asserts one endpoint function at $\tau$ and at
+  $\tau'$; clause~(br-v) asserts one chord functional at $\tau$ and at $\tau'$. None of them says
+  anything about two window environments, so Step~10's chain has no window instance to run on, and
+  Lemma~\ref{lem:L4} has no window leg to cite.
+\item The window has a channel the threshold does not. At fixed policies, changing $T$ changes the
+  filing date $f_j = c_j + T$ and hence the objects clause~(TR-iii) of Assumption~\ref{asm:TR}
+  already signs: $T' < T$ implies $B^F(T') \le B^F(T)$ and $Q^F(T') \ge Q^F(T)$. Trade moves from
+  the pooled round into the flagged round on histories flagged under \emph{both} windows. A
+  threshold change at a fixed window moves no unit of trade across the filing date in this way; it
+  relabels which histories file at all.
+\item The pooled cell's own information changes. The pooled public history of
+  Definition~\ref{def:prices} is $\mathcal H_d^P = (X_0,\dots,X_d;\ \text{flag landed by }d)$, so a
+  pooled history carries the event ``no flag has landed by $d$''. Under a tighter window that event
+  excludes more crossing dates --- it excludes $c \le d - T'$ rather than only $c \le d - T$ --- so
+  the pooled cell's updating changes even holding the set of pooled histories fixed. Clause~(br-ii)
+  requires the support points and the kernel not to move with $\kappa$; here the conditioning event
+  itself moves with the policy, which is a composition change of the kind~(br-ii) excludes at the
+  $\kappa$ margin and says nothing about at the $T$ margin.
+\end{enumerate}
+
+\emph{Step 14 (the exact finite equivalence).} Apply \eqref{eq:T1-factor} at $(\tau,T')$ and at
+$(\tau,T)$, which~(T-2) permits at both. By~(T-3) and \eqref{eq:T1-factor},
+$\mathcal S(\kappa,\tau,T) > 0$, so
+\begin{equation}
+\label{eq:T1-ratio-T}
+\frac{\mathcal S(\kappa,\tau,T')}{\mathcal S(\kappa,\tau,T)}
+\;=\; \frac{\bigl(1-\Omega(\tau,T')\bigr)\mathcal S_P(\kappa,\tau,T')}
+            {\bigl(1-\Omega(\tau,T)\bigr)\mathcal S_P(\kappa,\tau,T)}
+\;=\; W_T\,C_T,
+\qquad
+C_T = \frac{\mathcal S_P(\kappa,\tau,T')}{\mathcal S_P(\kappa,\tau,T)} .
+\end{equation}
+Multiplying an inequality by the strictly positive number $\mathcal S(\kappa,\tau,T)$ preserves it
+in both directions, so
+\begin{equation}
+\label{eq:T1-iff}
+\mathcal S(\kappa,\tau,T') \;\le\; \mathcal S(\kappa,\tau,T)
+\qquad\Longleftrightarrow\qquad
+W_T\,C_T \;\le\; 1 ,
+\end{equation}
+which is the equivalence of Part~(C). Both directions hold, and neither side is a sign claim: the
+identity \eqref{eq:T1-ratio-T} is the falsifiable content at this margin, and the equivalence is
+empty of economics until $C_T$ is measured. Since $W_T > 0$, \eqref{eq:T1-iff} rearranges to
+$C_T \le 1/W_T = \bigl(1-\Omega(\tau,T)\bigr)/\bigl(1-\Omega(\tau,T')\bigr)$: attenuation holds
+exactly when the composition effect does not exceed the reciprocal of the weight effect. That is
+what ``the weight effect dominates the composition effect'' means here, and it means nothing more.
+In particular it does not mean $\lvert 1-W_T\rvert \ge \lvert 1-C_T\rvert$, and it does not mean
+$C_T \le 1$.
+
+\emph{Step 15 (the local form).} Adopt the smooth window interpolation of hypothesis~(T-14), which
+is consumed here and nowhere else: there is an open interval of window values containing $[T',T]$
+and continuously differentiable extensions $r \mapsto \Omega(r)$ and
+$r \mapsto \partial_\kappa M_P(r)$ of the model's integer-valued objects, agreeing with them at
+$r = -T$ and $r = -T'$, with $\Omega(r) \in (0,1)$ and $\mathcal S_P(r) > 0$ throughout and with
+$r \mapsto \Omega(r)$ weakly increasing. Write $r = r_T = -T$ as in Definition~\ref{def:theta}, so
+higher $r$ is tighter, and set $r_0 = -T < r_1 = -T'$. On the interpolating interval
+$\mathcal S_P(r) > 0$, so $x \mapsto |x|$ is differentiable at $\partial_\kappa M_P(r) \neq 0$ and
+$\mathcal S_P$ is continuously differentiable in $r$ by Step~5's second consequence. Differentiating
+\eqref{eq:T1-factor} in $r$,
+\[
+\partial_{r_T}\mathcal S \;=\; -\,\Omega_{r_T}\,\mathcal S_P \;+\; (1-\Omega)\,\partial_{r_T}\mathcal S_P .
+\]
+The monotonicity clause of~(T-14) gives $\Omega_{r_T} \ge 0$, so the first term is the attenuating
+weight effect and the second is the unsigned composition effect. That sign comes from~(T-14) and not
+from Step~12: Step~12 compares two \emph{integer} windows and delivers the inequality at the
+endpoints only, and nothing outside~(T-14) forbids an interpolant that dips in between. Dividing by
+the strictly positive $\mathcal S = (1-\Omega)\mathcal S_P$ and writing, for this proof only,
+\begin{equation}
+\label{eq:T1-Lambda}
+\Lambda(r) \;:=\; \frac{\partial_{r}\mathcal S_P(r)}{\mathcal S_P(r)} \;-\; \frac{\Omega_{r}(r)}{1-\Omega(r)},
+\end{equation}
+we get $\partial_{r_T}\mathcal S/\mathcal S = \Lambda(r)$, so
+$\operatorname{sgn}(\partial_{r_T}\mathcal S) = \operatorname{sgn}(\Lambda)$ and
+\begin{equation}
+\label{eq:T1-local}
+\partial_{r_T}\mathcal S \;\le\; 0
+\qquad\Longleftrightarrow\qquad
+\frac{\partial_{r_T}\mathcal S_P}{\mathcal S_P} \;\le\; \frac{\Omega_{r_T}}{1-\Omega} ,
+\end{equation}
+an equivalence at each $r$, with no sign supplied for either side. Display \eqref{eq:T1-local} is
+pure algebra --- a division by a strictly positive number --- and holds whether or not the
+interpolant is monotone; only the \emph{reading} of the first term as attenuating uses
+$\Omega_{r_T} \ge 0$.
+
+\emph{Step 16 (in what sense \eqref{eq:T1C} is the same criterion as \eqref{eq:T1-iff}).} The
+statement of Part~(C) says that \eqref{eq:T1C} holds on average along the tightening path,
+integrated over $[-T,-T']$, and exactly in the infinitesimal limit, and that it is false read
+pointwise. Each of those three clauses is a separate assertion, and each is proved here. Let
+$\Lambda$ be as in \eqref{eq:T1-Lambda}, continuous on $[r_0,r_1]$ by~(T-14).
+
+\emph{(i) The finite product criterion is the sign of the integrated local difference.} By~(T-14),~(T-3)
+and \eqref{eq:T1-factor}, $\mathcal S(r) > 0$ and is continuously differentiable on $[r_0,r_1]$, so
+$\log\mathcal S$ is continuously differentiable there and the fundamental theorem of calculus gives
+$\log\bigl(\mathcal S(r_1)/\mathcal S(r_0)\bigr) = \int_{r_0}^{r_1}\partial_r\log\mathcal S(r)\,dr
+= \int_{r_0}^{r_1}\Lambda(r)\,dr$, the second equality by Step~15. By \eqref{eq:T1-ratio-T},
+$\mathcal S(r_1)/\mathcal S(r_0) = W_T C_T$, so
+\begin{equation}
+\label{eq:T1-integral}
+W_T\,C_T \;=\; \exp\!\left(\int_{r_0}^{r_1}\Lambda(r)\,dr\right),
+\qquad\text{hence}\qquad
+W_T\,C_T \le 1 \iff \int_{r_0}^{r_1}\Lambda(r)\,dr \le 0 .
+\end{equation}
+The exponential is strictly increasing, so the equivalence holds in both directions. Written out,
+the integrand is the left side of \eqref{eq:T1C} minus its right side: the product criterion is
+the local criterion integrated along the tightening path. This is the ``on average'' reading, and
+it is exact at finite scale.
+
+\emph{(ii) Pointwise local implies the finite product.} If $\Lambda(r) \le 0$ at every
+$r \in [r_0,r_1]$, the integral of a nonpositive continuous function over that interval is
+nonpositive, so $W_T C_T \le 1$ by \eqref{eq:T1-integral}. If in addition $\Lambda < 0$ on a
+subinterval of positive length, the integral is strictly negative and $W_T C_T < 1$.
+
+\emph{(iii) The finite product implies the local criterion at one point, and no more --- so read
+pointwise, \eqref{eq:T1C} is false.} If $W_T C_T \le 1$ then $\int_{r_0}^{r_1}\Lambda \le 0$ by
+\eqref{eq:T1-integral}, and since $\Lambda$ is continuous the mean value theorem for integrals
+supplies some $r^\star \in (r_0,r_1)$ with
+$\Lambda(r^\star) = (r_1-r_0)^{-1}\int_{r_0}^{r_1}\Lambda \le 0$. The local criterion therefore
+holds \emph{somewhere} in the interval. It does not hold everywhere in general, and the
+counterexample shape is a configuration \eqref{eq:T1C} is not entitled to exclude: a $\Lambda$ that
+is positive on $[r_0,\tfrac12(r_0+r_1)]$ and sufficiently negative on $[\tfrac12(r_0+r_1),r_1]$
+integrates to a nonpositive number while violating the local criterion on the first half. The
+finite comparison from $T$ to $T'$ then reports attenuation even though an intermediate window
+tightening amplifies. The implication in this direction is ``at some point'', never ``at every
+point''.
+
+\emph{(iv) The two forms coincide exactly in the infinitesimal limit.} Fix $r_0$ and let
+$r_1 \downarrow r_0$. By \eqref{eq:T1-ratio-T}, $W_T C_T = \mathcal S(r_1)/\mathcal S(r_0)$ as a
+function of $r_1$, and it equals $1$ at $r_1 = r_0$, so
+\[
+\lim_{r_1\downarrow r_0}\frac{W_TC_T-1}{r_1-r_0}
+\;=\; \frac{d}{dr_1}\left.\frac{\mathcal S(r_1)}{\mathcal S(r_0)}\right|_{r_1=r_0}
+\;=\; \frac{\partial_r\mathcal S(r_0)}{\mathcal S(r_0)} \;=\; \Lambda(r_0).
+\]
+Hence if $\Lambda(r_0) < 0$ then $W_TC_T < 1$ for every $r_1 > r_0$ close enough to $r_0$; and if
+$W_TC_T \le 1$ for every such $r_1$, the limit is at most zero, so $\Lambda(r_0) \le 0$. The
+boundary case $\Lambda(r_0) = 0$ is undetermined at first order, the finite sign there being decided
+by higher-order terms, and it is named rather than resolved.
+
+\emph{Step 17 (no unconditional window sign).} Nothing in hypotheses~(T-1)--(T-15) signs $C_T$, by
+Step~13, and nothing in them signs $\Lambda$, by Step~15. So nothing in them signs
+$\partial_{r_T}\mathcal S$ or $W_TC_T - 1$. Both branches are consistent with every hypothesis
+maintained here: $W_TC_T \le 1$ and $W_TC_T > 1$ each require only a value of $C_T$ that the
+hypotheses leave free. Part~(C) is an equivalence and an identity, and the sign is an empirical
+question about the composition ratio. This is what the statement's closing clause records, and it is
+why the model does not deliver window-margin attenuation as a theorem.
+
+Parts~(A), (B) and~(C) are Steps~5--6, Step~11, and Steps~12--17 respectively.
+\end{proof}
+
+\medskip
+\noindent\emph{Scope of the argument above.}
+Hypothesis~(T-15), threshold-side smoothness, is consumed by no step of the proof above. That is the
+content of the statement's ``confirmed non-load-bearing'': Part~(B)'s conclusion \eqref{eq:T1B} is a
+finite-difference comparison throughout, and Parts~(A) and~(C) never differentiate in $r_\tau$. A
+smooth local reading of Part~(B) is available under~(T-15) and would say that
+$\partial_{r_\tau}\mathcal S \le 0$ with slack on both sides of zero, which is the same statement as
+``no dominance condition needed''; it is not claimed here, and if~(T-15) fails nothing above moves.
+
+Two limits on the proof are worth restating where the argument is, rather than only beside the
+statement. First, Part~(B)'s Steps~7 and~10 consume Assumption~\ref{asm:Atau} at both compared
+policies and clauses~(br-i)--(br-v) of Assumption~\ref{asm:Abr}; Remark~\ref{rem:AtauRecord} records
+that the support condition of $\Atau$ fails at every non-degenerate node of the implemented
+calibration, and clause~(br-i) carries that representation at both thresholds, so at that
+calibration Part~(B)'s antecedent is not satisfied and Part~(B) says nothing about the implemented
+pooled cell. The proof is untouched by that fact and so is the label. Second, the window-margin
+evidence recorded at Remark~\ref{rem:T1record} is node evidence at one calibration; it is not a
+sign, and Part~(C) claims none.
+
+\begin{proof}[Proof of Proposition~\ref{prop:C1} (C1)]
+Four conventions are fixed first, because the statement's hypotheses are stated against them.
+
+\emph{The margin.} By hypothesis~(C-7) the strictness coordinate is the threshold one,
+$r = r_\tau = -\tau$ of Definition~\ref{def:theta}, and $\vartheta = (\kappa,r)$.
+Definition~\ref{def:primitives} restricts only the window to integers and places no discreteness on
+$\tau$, so $r$ is a coordinate on an interval and the derivatives below have a domain to live on.
+The window coordinate is excluded: $T$ takes values in $\{1,\dots,H\}$ there, so $\partial_{r_T}$,
+$\partial_{\kappa r_T}\Dact$ and $g_{r_T}^{PE}$ have no meaning without an interpolation of the
+model in $T$, and nothing local is claimed at that margin.
+
+\emph{The norm.} By hypothesis~(C-1) one norm $\lVert\cdot\rVert$ is fixed on the cutoff space
+$\mathbb R^{J-1}$, and every magnitude bar in the $\bar k_x$ and $\bar k_{\kappa r}$ rows of
+Definition~\ref{def:theta}, in $L_{\mathcal R}$, and in \eqref{eq:BGE} is read as the member of the
+family that norm induces: $\lVert\cdot\rVert$ itself for the vector-valued objects
+$\partial_\kappa\Tmap$, $\partial_r\Tmap$ and $\Tmap_{\kappa r}$; the induced operator norm
+$\sup_{\lVert w\rVert\le1}\lVert Aw\rVert$ for the matrices $D_k\Tmap$, $\Tmap_{\kappa k}$ and
+$\Tmap_{rk}$; $\sup_{\lVert w_1\rVert,\lVert w_2\rVert\le1}\lVert\Tmap_{kk}[w_1,w_2]\rVert$ for the
+vector-valued bilinear form $\Tmap_{kk}$; the \emph{dual} norm
+$\lVert\phi\rVert_* = \sup_{\lVert w\rVert\le1}\lvert\phi(w)\rvert$ for the covectors $\Delta_k$,
+$\Delta_{\kappa k}$ and $\Delta_{kr}$; and
+$\sup_{\lVert w_1\rVert,\lVert w_2\rVert\le1}\lvert\Delta_{kk}[w_1,w_2]\rvert$ for the scalar
+bilinear form $\Delta_{kk}$. Two consequences are used. The operator norm must be induced, hence
+submultiplicative, because Step~1 needs $\lVert A^n\rVert \le \lVert A\rVert^n$; and the pairing
+must be the matching one, because pairing a covector with a vector through a magnitude that is not
+the dual norm can make \eqref{eq:BGE} \emph{understate} the remainder it is meant to bound, which
+voids the implication silently. At $J-1 = 1$ the whole family collapses to the absolute value and
+the convention is vacuous.
+
+\emph{The equilibrium objects.} By hypothesis~(C-3) there is, at every $\vartheta$ in the region
+$\mathcal R_r$, a cutoff vector $k(\vartheta)$ in the interior of $\Theta$ with
+$k(\vartheta) = \Tmap(k(\vartheta);\vartheta)$, and $\vartheta\mapsto k(\vartheta)$ is one branch,
+with no switch of selected equilibrium inside $\mathcal R_r$. Interiority is a genuine restriction:
+Definition~\ref{def:cpbe}\,(i) has weak inequalities and so permits collapsed action regions, and a
+collapsed region puts $k$ on the boundary of $\Theta$, where the fixed-point equation may hold only
+as a one-sided condition. Write, for this proof,
+\[
+\mathcal D(\kappa,r) \;:=\; \Dact\bigl(k(\kappa,r),\kappa,r\bigr),
+\qquad
+\mathcal S^{GE} \;:=\; \Bigl\lvert \frac{d\mathcal D}{d\kappa} \Bigr\rvert ,
+\]
+so that $\mathcal D$ is the premium \eqref{eq:Dact} evaluated along the equilibrium branch --- not
+the disclosure indicator $D$ --- and $\mathcal S^{GE}$ is the equilibrium liquidity sensitivity of
+hypothesis~(C-5). It is a different object from the fixed-policy $\mathcal S = |\partial_\kappa\Dact|$
+of Definition~\ref{def:premium}, which holds $k$ frozen; the two agree only where the cutoff
+response contributes nothing, and the entire content of this proposition sits in the difference.
+Every partial derivative of $\Dact$ and of $\Tmap$ written below is a partial of the
+\emph{fixed-policy} map $(k,\kappa,r)\mapsto\Dact(k,\kappa,r)$, respectively of
+$(k,\kappa,r)\mapsto\Tmap(k;\kappa,r)$, evaluated at the equilibrium point
+$(k(\vartheta),\vartheta)$.
+
+\emph{The region and its regularity.} Hypothesis~(C-1) puts Assumption~\ref{asm:AGE} in force on
+$\mathcal R_r$, and names the clause that carries the weight: the contraction bound
+$L_{\mathcal R} = \sup_{\mathcal R}\lVert D_k\Tmap\rVert < 1$ of Definition~\ref{def:theta}, read
+along the equilibrium path, that is, as the supremum over $\vartheta \in \mathcal R_r$ of
+$\lVert D_k\Tmap(k(\vartheta);\vartheta)\rVert$. That reading is the one used at Steps~1--4 and it
+is the weaker of the two available; the stronger reading, a supremum over all of $\Theta$ as well,
+is not consumed anywhere below. The differentiability clause of Assumption~\ref{asm:AGE} supplies
+twice continuous differentiability of $\Tmap$ on a neighbourhood of the equilibrium graph
+$\{(k(\vartheta),\vartheta) : \vartheta\in\mathcal R_r\}$, which is the weakest domain Steps~1--4
+use; smoothness away from that graph is never called on. Hypothesis~(C-4) supplies twice continuous
+differentiability of $\Dact$ in $(k,\kappa,r)$ on the same neighbourhood, and with it finiteness of
+the derivatives named in \eqref{eq:BGE} and in $\bar k_{\kappa r}$. The integrability clause of
+Assumption~\ref{asm:A2p} is not cited for that and cannot be: boundedness is not differentiability.
+Finally, hypothesis~(C-2) makes $\mathcal R_r$ relatively open in both coordinates with
+$\kappa\notin\{0,1\}$, so that every $\vartheta\in\mathcal R_r$ has a full two-dimensional
+neighbourhood inside $\mathcal R_r$ --- which the implicit function theorem of Step~2, the mixed
+partial of Step~5 and the sign argument of Step~7 all need, and which openness in $r$ alone would
+not give, $\kappa$ ranging over $[0,1]$ in Definition~\ref{def:primitives}.
+
+\emph{Step 1 (invertibility, without forming an inverse).} Fix $\vartheta\in\mathcal R_r$ and write
+$A = D_k\Tmap(k(\vartheta);\vartheta)$, so $\lVert A\rVert \le L_{\mathcal R} < 1$ by~(C-1). By
+submultiplicativity, $\lVert A^n\rVert \le L_{\mathcal R}^{\,n}$, so
+$\sum_{n\ge0}\lVert A^n\rVert \le (1-L_{\mathcal R})^{-1} < \infty$. The space of
+$(J-1)\times(J-1)$ matrices being finite dimensional and complete, the partial sums
+$S_N = \sum_{n=0}^{N}A^n$ converge to a limit $S$ with
+$\lVert S\rVert \le (1-L_{\mathcal R})^{-1}$; and from $(I-A)S_N = S_N(I-A) = I - A^{N+1}$ with
+$\lVert A^{N+1}\rVert \le L_{\mathcal R}^{\,N+1} \to 0$, passing to the limit gives
+$(I-A)S = S(I-A) = I$. Hence $I - D_k\Tmap$ is invertible at every point of the equilibrium graph,
+with
+\begin{equation}
+\label{eq:C1-neumann}
+\bigl\lVert (I-D_k\Tmap)^{-1} \bigr\rVert \;\le\; \frac{1}{1-L_{\mathcal R}} .
+\end{equation}
+The bound is a geometric sum of norms, so every derivative bound below is available from
+$\lVert D_k\Tmap\rVert$ and one directional derivative of $\Tmap$, with no linear system solved.
+
+\emph{Step 2 (the equilibrium branch is twice continuously differentiable).} Fix
+$\vartheta\in\mathcal R_r$ and write $k^0 = k(\vartheta)$. Pick $L'$ with
+$L_{\mathcal R} < L' < 1$. By the differentiability clause of Assumption~\ref{asm:AGE} the map
+$(k,\vartheta')\mapsto D_k\Tmap(k;\vartheta')$ is continuous, and by~(C-3) and~(C-2) there are
+$\delta,\varrho > 0$ with the closed ball $\bar B(k^0,\delta)$ inside the interior of $\Theta$, the
+closed ball $\bar B(\vartheta,\varrho)$ inside $\mathcal R_r$ and inside the domain on which
+Assumption~\ref{asm:AGE} and~(C-4) hold, and $\lVert D_k\Tmap(k';\vartheta')\rVert \le L'$
+throughout $\bar B(k^0,\delta)\times\bar B(\vartheta,\varrho)$. The ball being convex, the
+mean-value inequality along the segment gives
+$\lVert \Tmap(k_1;\vartheta') - \Tmap(k_2;\vartheta')\rVert \le L'\lVert k_1-k_2\rVert$ there.
+Shrinking $\varrho$ so that
+$\lVert \Tmap(k^0;\vartheta') - \Tmap(k^0;\vartheta)\rVert \le (1-L')\delta$, and using
+$\Tmap(k^0;\vartheta) = k^0$ from~(C-3), gives
+$\lVert \Tmap(k_1;\vartheta') - k^0\rVert \le L'\delta + (1-L')\delta = \delta$ for every
+$k_1\in\bar B(k^0,\delta)$ and $\vartheta'\in\bar B(\vartheta,\varrho)$. So
+$\Tmap(\cdot;\vartheta')$ maps the closed ball into itself and contracts it. That ball is a complete
+metric space, so by the contraction mapping theorem each such $\vartheta'$ admits exactly one fixed
+point $\hat k(\vartheta')$ of $\Tmap(\cdot;\vartheta')$ inside the ball, with
+$\hat k(\vartheta) = k^0$; and the standard estimate
+$\lVert\hat k(\vartheta')-\hat k(\vartheta'')\rVert \le (1-L')^{-1}\lVert
+\Tmap(\hat k(\vartheta'');\vartheta') - \Tmap(\hat k(\vartheta'');\vartheta'')\rVert$ makes
+$\hat k$ continuous. Local uniqueness and local continuity are consequences here, not hypotheses.
+
+Now put $\Phi(k',\vartheta') := k' - \Tmap(k';\vartheta')$ on
+$\bar B(k^0,\delta)\times\bar B(\vartheta,\varrho)$. It is twice continuously differentiable by
+Assumption~\ref{asm:AGE}, it vanishes at $(k^0,\vartheta)$ by~(C-3), and
+$D_k\Phi = I - D_k\Tmap$ is invertible there by Step~1. The implicit function theorem in its twice
+continuously differentiable form supplies neighbourhoods and a twice continuously differentiable map
+$\vartheta'\mapsto\tilde k(\vartheta')$ solving $\Phi(\tilde k(\vartheta'),\vartheta') = 0$ with
+$\tilde k(\vartheta) = k^0$, unique among solutions there; and since every such $\tilde k$ is a
+fixed point of $\Tmap(\cdot;\vartheta')$ inside the ball, $\tilde k = \hat k$ where both are
+defined. Hypothesis~(C-3)'s single-branch clause is consumed exactly here: the selected
+$\vartheta'\mapsto k(\vartheta')$ does not jump to a different fixed point at nearby parameters, so
+it stays in $\bar B(k^0,\delta)$ near $\vartheta$ and coincides there with $\hat k = \tilde k$. As
+$\vartheta$ was an arbitrary point of the relatively open $\mathcal R_r$, the branch $k(\cdot)$ is
+twice continuously differentiable on $\mathcal R_r$.
+
+\emph{Step 3 (the first-derivative bounds).} Let $x\in\{\kappa,r\}$. Differentiating the identity
+$k(\vartheta) = \Tmap(k(\vartheta);\vartheta)$ in $x$, which Step~2 licenses and which~(C-2) makes
+meaningful in both coordinates, and applying the chain rule in the first argument,
+$\partial_x k = D_k\Tmap\,\partial_x k + \partial_x\Tmap$, that is
+$(I-D_k\Tmap)\,\partial_x k = \partial_x\Tmap$. Taking norms and using
+$\lVert\partial_x k\rVert \le L_{\mathcal R}\lVert\partial_x k\rVert + \lVert\partial_x\Tmap\rVert$,
+which may be rearranged because $\lVert\partial_x k\rVert$ is finite by Step~2 and
+$L_{\mathcal R} < 1$,
+\begin{equation}
+\label{eq:C1-kbar}
+\lVert\partial_\kappa k\rVert \;\le\; \bar k_\kappa = \frac{\lvert\partial_\kappa\Tmap\rvert}{1-L_{\mathcal R}},
+\qquad
+\lVert\partial_r k\rVert \;\le\; \bar k_r = \frac{\lvert\partial_r\Tmap\rvert}{1-L_{\mathcal R}},
+\end{equation}
+which are the $\bar k_x$ rows of Definition~\ref{def:theta}. The derivative on the right is the
+\emph{partial} derivative of the outer map in the parameter at frozen cutoffs, not a total
+derivative.
+
+\emph{Step 4 (the cross-derivative bound).} Differentiate the $x = \kappa$ instance of Step~3 once
+more in $r$, with every $\Tmap$ derivative evaluated at $(k(\vartheta),\vartheta)$ and the chain
+rule applied through $k(\vartheta)$ in each slot. In components,
+\[
+\partial^2_{\kappa r}k^i
+= \sum_j\Bigl[\Bigl(\sum_l\Tmap^i_{k_jk_l}\,\partial_r k^l + \Tmap^i_{k_jr}\Bigr)\partial_\kappa k^j
++ \Tmap^i_{k_j}\,\partial^2_{\kappa r}k^j\Bigr]
++ \sum_l\Tmap^i_{\kappa k_l}\,\partial_r k^l + \Tmap^i_{\kappa r},
+\]
+that is,
+$(I-D_k\Tmap)\,\partial^2_{\kappa r}k = \Tmap_{\kappa r} + \Tmap_{\kappa k}[\partial_r k]
++ \Tmap_{rk}[\partial_\kappa k] + \Tmap_{kk}[\partial_r k,\partial_\kappa k]$. Taking norms on the
+right with the pairings fixed above and the bounds \eqref{eq:C1-kbar}, then rearranging as in
+Step~3,
+\begin{equation}
+\label{eq:C1-kkr}
+\lVert\partial^2_{\kappa r}k\rVert
+\;\le\; \bar k_{\kappa r}
+= \frac{\lvert\Tmap_{\kappa r}\rvert + \lvert\Tmap_{\kappa k}\rvert\,\bar k_r
++ \lvert\Tmap_{rk}\rvert\,\bar k_\kappa + \lvert\Tmap_{kk}\rvert\,\bar k_\kappa\bar k_r}
+{1-L_{\mathcal R}},
+\end{equation}
+which is the $\bar k_{\kappa r}$ row of Definition~\ref{def:theta}.
+
+\emph{Step 5 (the exact cross-derivative decomposition).} By~(C-4) and Step~2 the composition
+$\mathcal D$ is twice continuously differentiable on $\mathcal R_r$, and~(C-2) supplies the
+two-dimensional domain the mixed partial needs. The chain rule in $\kappa$ gives
+$\partial_\kappa\mathcal D = \Delta_k\cdot\partial_\kappa k + \Delta_\kappa$, and differentiating
+that in $r$ term by term, with
+$\partial_r(\Delta_k) = \Delta_{kk}[\,\cdot\,,\partial_r k] + \Delta_{kr}$ and
+$\partial_r(\Delta_\kappa) = \Delta_{\kappa k}[\partial_r k] + \Delta_{\kappa r}$, gives the exact
+identity
+\begin{equation}
+\label{eq:C1-decomp}
+\frac{d^2\mathcal D}{d\kappa\,dr}
+\;=\; \underbrace{\Delta_{\kappa r}}_{\text{fixed policy}}
+\;+\; \underbrace{\Delta_{\kappa k}[\partial_r k]
+\;+\; \bigl(\Delta_{kr} + \Delta_{kk}[\partial_r k]\bigr)\cdot\partial_\kappa k
+\;+\; \Delta_k\cdot\partial^2_{\kappa r}k}_{\text{general-equilibrium remainder}} .
+\end{equation}
+Nothing is dropped and no inequality has been used: \eqref{eq:C1-decomp} is one identity in five
+terms, grouped in four. Two features of it are where a miscount would hide. No term
+$\Delta_{\kappa\kappa}$ or $\Delta_{rr}$ can appear, the derivative being mixed and each coordinate
+differentiated once; and the last term is the only place a \emph{second} derivative of the
+equilibrium map enters, which is why Step~4 is needed at all. The remainder is the object
+Theorem~\ref{thm:T1} sets its equilibrium free of: the term
+$(\partial_\kappa\Omega)(M_F - M_P)$ discarded at \eqref{eq:T1-three} under hypothesis~(T-7) is a
+piece of $\Delta_k\cdot\partial_\kappa k$, and it reappears here.
+
+\emph{Step 6 (the remainder is bounded by $\mathcal B_r^{GE}$).} Write $\mathcal E$ for the
+remainder group of \eqref{eq:C1-decomp}, so that
+$\mathcal E = d^2\mathcal D/d\kappa\,dr - \partial_{\kappa r}\Dact$. Apply the triangle inequality
+to its four terms, bound each with the pairings fixed above --- covector against vector through the
+dual norm, bilinear form against two vectors --- and insert \eqref{eq:C1-kbar} and
+\eqref{eq:C1-kkr}, every factor being finite by~(C-4):
+\[
+\bigl\lvert\Delta_{\kappa k}[\partial_r k]\bigr\rvert \le \lvert\Delta_{\kappa k}\rvert\bar k_r,
+\qquad
+\bigl\lvert\bigl(\Delta_{kr}+\Delta_{kk}[\partial_r k]\bigr)\cdot\partial_\kappa k\bigr\rvert
+\le \bigl(\lvert\Delta_{kr}\rvert + \lvert\Delta_{kk}\rvert\bar k_r\bigr)\bar k_\kappa,
+\qquad
+\bigl\lvert\Delta_k\cdot\partial^2_{\kappa r}k\bigr\rvert \le \lvert\Delta_k\rvert\bar k_{\kappa r}.
+\]
+Summing the three,
+\begin{equation}
+\label{eq:C1-remainder}
+\bigl\lvert \mathcal E \bigr\rvert
+\;\le\; \lvert\Delta_{\kappa k}\rvert\bar k_r
++ \bigl(\lvert\Delta_{kr}\rvert + \lvert\Delta_{kk}\rvert\bar k_r\bigr)\bar k_\kappa
++ \lvert\Delta_k\rvert\bar k_{\kappa r}
+\;=\; \mathcal B_r^{GE},
+\end{equation}
+which is \eqref{eq:BGE}. The bookkeeping is worth auditing, since this is where the argument turns:
+\eqref{eq:BGE} has three groups and $\mathcal E$ has four terms, mapped one to the first group, two
+to the second, and one to the third; every cross-term of the mixed second derivative lands in
+exactly one group, no group is fed by a term outside $\mathcal E$, and the only term of
+\eqref{eq:C1-decomp} outside the groups is the fixed-policy cross-derivative that
+\eqref{eq:C1-remainder} subtracts off. The only inequalities used are the triangle inequality and
+the norm pairings. One consequence of \eqref{eq:C1-kbar} and \eqref{eq:C1-kkr} is worth naming: each
+$\bar k_x$ carries one factor of $(1-L_{\mathcal R})^{-1}$ and $\bar k_{\kappa r}$ carries three, so
+$\mathcal B_r^{GE} = O\bigl((1-L_{\mathcal R})^{-3}\bigr)$ as $L_{\mathcal R}\uparrow1$.
+
+\emph{Step 7 (differentiating the equilibrium sensitivity).} Write $f(\vartheta') :=
+d\mathcal D/d\kappa$ at $\vartheta'$, which is continuously differentiable on $\mathcal R_r$ by
+Step~5. By hypothesis~(C-5), $f$ does not vanish on $\mathcal R_r$. Take a connected relatively open
+neighbourhood $\mathcal N\subseteq\mathcal R_r$ of $\vartheta$, which~(C-2) supplies. A continuous
+nowhere-zero real function on a connected set takes values of one sign: otherwise the intermediate
+value theorem, applied along a path in $\mathcal N$ joining a point where $f>0$ to one where $f<0$,
+would produce a zero of $f$ inside $\mathcal N$, contradicting~(C-5). So
+$\operatorname{sgn} f$ is constant on $\mathcal N$; write $\mathfrak s\in\{-1,+1\}$ for that
+constant. On $\mathcal N$,
+$\mathcal S^{GE} = \lvert f\rvert = \mathfrak s\,f$, an identity of functions and not merely of
+values at one point, and the right side is continuously differentiable as a constant multiple of a
+continuously differentiable function. Hence $\mathcal S^{GE}$ is differentiable at $\vartheta$ with
+\begin{equation}
+\label{eq:C1-deriv}
+\partial_r\mathcal S^{GE} \;=\; \mathfrak s\,\frac{d^2\mathcal D}{d\kappa\,dr} .
+\end{equation}
+What~(C-5) does here is remove the single point at which $x\mapsto|x|$ is not differentiable;
+without it the conclusion is false, because at a parameter where the equilibrium liquidity
+derivative vanishes $\mathcal S^{GE}$ has a kink and $\partial_r\mathcal S^{GE}$ does not exist. The
+constancy of the sign is \emph{derived} on $\mathcal N$ from~(C-5) and~(C-2) and is not assumed.
+
+\emph{Step 8 (splitting off the direct margin).} Substitute \eqref{eq:C1-decomp} into
+\eqref{eq:C1-deriv} and use $\mathfrak s^2 = 1$. The fixed-policy group is read through
+\eqref{eq:gPE}, whose sign factor is the sign of the \emph{equilibrium} liquidity derivative
+$d\Dact/d\kappa$ evaluated along $k(\kappa,r)$ --- that is, $\mathfrak s$ --- while its
+cross-derivative factor $\partial_{\kappa r}\Dact$ is the fixed-policy partial at
+$(k(\vartheta),\vartheta)$. Hence $\mathfrak s\,\Delta_{\kappa r} = -g_r^{PE}$, and
+\begin{equation}
+\label{eq:C1-split}
+\partial_r\mathcal S^{GE} \;=\; -\,g_r^{PE} \;+\; \mathfrak s\,\mathcal E ,
+\end{equation}
+every object in which is finite by~(C-4).
+
+\emph{Step 9 (dominance closes the argument).} Multiplying by a factor of modulus one leaves the
+modulus alone, so $\lvert \mathfrak s\,\mathcal E\rvert = \lvert\mathcal E\rvert \le
+\mathcal B_r^{GE}$ by \eqref{eq:C1-remainder}; only the one-sided half
+$\mathfrak s\,\mathcal E \le \mathcal B_r^{GE}$ is consumed. With \eqref{eq:C1-split},
+\begin{equation}
+\label{eq:C1-eta}
+\partial_r\mathcal S^{GE}
+\;\le\; -\,g_r^{PE} + \mathcal B_r^{GE}
+\;=\; -\bigl(g_r^{PE} - \mathcal B_r^{GE}\bigr)
+\;=\; -\,\eta_r ,
+\end{equation}
+with $\eta_r$ the slack of Definition~\ref{def:theta}; and $\eta_r > 0$ at every
+$\vartheta\in\mathcal R_r$ by the strict dominance of hypothesis~(C-6). Therefore
+$\partial_r\mathcal S^{GE} \le -\eta_r < 0$ at every $\vartheta\in\mathcal R_r$, which is
+\eqref{eq:C1}. The argument never needs the remainder's sign, only its size, which is the point of
+bounding the general-equilibrium channel rather than signing it.
+\end{proof}
+
+\medskip
+\noindent\emph{Sign coherence, the norm, and what the argument above does not deliver.}
+Three things are worth stating beside the argument rather than only beside the statement.
+
+\emph{Sign coherence is not consumed.} Neither reading of the sign clause reaches \eqref{eq:C1}. The
+constancy clause of Assumption~\ref{asm:AGE} --- that the sign of the equilibrium liquidity
+derivative is constant on the region --- is not used: Step~7 derives constancy on a connected
+neighbourhood from hypotheses~(C-5) and~(C-2), and \eqref{eq:C1-deriv} is a pointwise statement, so
+the clause would matter only for naming one sign across a disconnected region. Nor is the coherence
+of the fixed-policy sign with the equilibrium sign used. That coherence has one job and it is a job
+of naming: at frozen $k$ the fixed-policy sensitivity $\mathcal S$ of Definition~\ref{def:premium}
+has $r$-derivative $\operatorname{sgn}(\partial_\kappa\Dact)\,\partial_{\kappa r}\Dact$, and only
+when that leading sign equals $\mathfrak s$ does the fixed-policy attenuation rate equal $-g_r^{PE}$
+and the phrase ``the fixed-policy attenuation sign survives in equilibrium'' describe
+\eqref{eq:C1}. Steps~1--9 are untouched either way, because \eqref{eq:C1-split} pulls out
+$\mathfrak s$ and never the fixed-policy sign.
+
+\emph{The hypotheses are relative to the norm.} Every quantity in \eqref{eq:C1-neumann} through
+\eqref{eq:C1-eta} other than $\partial_{\kappa r}\Dact$ and $\mathfrak s$ depends on the norm fixed
+by hypothesis~(C-1): $L_{\mathcal R}$, the bounds $\bar k_x$ and $\bar k_{\kappa r}$,
+$\mathcal B_r^{GE}$, and hence $\eta_r$. A matrix with spectral radius below one has induced
+operator norm below one in some norm but not necessarily in a given one, so both the hypothesis
+$L_{\mathcal R} < 1$ and the slack in the conclusion are properties of the pair (region, norm), and
+a rescaling of the cutoff coordinates can move a parameter vector across the boundary in either
+direction. This is not a free lunch, since a change of norm also moves the dual norms inside
+$\mathcal B_r^{GE}$; it is a reason to read the hypothesis existentially in the norm and to fix one
+convention and keep to it, which is what~(C-1) does.
+
+\emph{What is not delivered.} Nonemptiness of $\mathcal R_r$ is neither claimed nor provable here:
+the region is a hypothesis, and whether any parameter vector satisfies (C-1)--(C-7) together is a
+property of the calibration. Remark~\ref{rem:C1record} reports the dominance-and-contraction nodes
+found by the executed committed check, and what those nodes verify is narrow: the two pointwise
+inequalities $L_{\mathcal R} < 1$ and $\eta_r > 0$ together with supporting diagnostics, and not the
+full antecedent (C-1)--(C-7) and not a named nonempty region. Promoting nodes to a region needs a
+modulus of continuity for $\eta_r$ on the hull of adjacent nodes and a genuine supremum for
+$L_{\mathcal R}$ over the region, neither of which more grid nodes can supply. Finally, because
+$\mathcal B_r^{GE}$ is a triangle-inequality bound rather than a tight one, $\eta_r \le 0$ carries
+no information about the sign of $\partial_r\mathcal S^{GE}$: a failure of dominance is compatible
+with equilibrium attenuation, with equilibrium amplification, and with equality.

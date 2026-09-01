@@ -1,0 +1,62 @@
+% sections_v3/v3_macros.tex
+% Math macros for the v4 theory sections (ticket 08), transcribed verbatim
+% from research/model_v4/model_v4.tex lines 42-51 (card stamp 2026-08-30,
+% F5 route R40-A, gate PASS, theory-record freeze; commit
+% 65b8db3).
+%
+% Collision note: \Tmap is the ONLY name below that draft_v2.tex already
+% defines (\providecommand{\Tmap}{T} at draft_v2.tex line 54, part of the
+% D6/S2 splice macro block, used ~10x in the draft_v2 body) -- and it is a
+% DIFFERENT object: model_v4.tex's \Tmap is the two-round outer
+% best-response map \mathcal{T}; draft_v2's is the filing window T.
+%   - In THIS repo's standalone driver (sections_v3/standalone_v3.tex),
+%     draft_v2's macro block is deliberately NOT replicated (see
+%     standalone_v3.tex), so here \Tmap is undefined before this file loads
+%     and plain \newcommand binds it to \mathcal{T} with no collision -- the
+%     driver still compiles clean. Do NOT paste draft_v2's macro block into
+%     the driver "for completeness" -- that would introduce the same
+%     collision described below into the standalone build too.
+%   - In a future draft_v3.tex -- a draft_v2 copy carrying
+%     \providecommand{\Tmap}{T} forward -- \Tmap is already defined by the
+%     time this file is \input, PROVIDED v3_macros.tex is \input AFTER
+%     draft_v2's macro block (the normal arrangement, since that block sits
+%     in draft_v2's preamble). \Tmap below is deliberately left as plain
+%     \newcommand, NOT guarded with \providecommand, so that collision
+%     fails LOUDLY ("already defined") at \input time instead of the two
+%     bindings silently merging: with a guard, draft_v2's T would win
+%     silently and roughly a hundred uses of \Tmap across the six section
+%     files (107 at the checker's 2026-08-27 delta-pass count, 96 at an
+%     edit-time recount the same day -- a snapshot, not an invariant;
+%     recount before relying on any exact figure) would render the outer
+%     best-response map as the filing window, in direct contradiction of
+%     MODEL_CARD.md section 4.5 (\Tmap always calligraphic; upright T is
+%     the filing window) and section 8 rule 4.
+%     Reverse the \input order and the failure mode inverts SILENTLY
+%     instead of disappearing: if v3_macros.tex loads BEFORE draft_v2's
+%     macro block, plain \newcommand binds \Tmap to \mathcal{T} first, so
+%     draft_v2's own \providecommand{\Tmap}{T} later no-ops, and draft_v2's
+%     own ~10 body uses of \Tmap silently render the filing window as the
+%     calligraphic outer map instead.
+%     Ticket 18 (the draft_v3 assembler) must resolve the name collision
+%     consciously (rename one of the two \Tmap's) whichever order it
+%     assembles draft_v3 in -- the loud error described above fires only in
+%     the macros-after direction, and ticket 18 is not free to silence it
+%     by re-adding a guard.
+% All other names below are likewise new in draft_v2's namespace (verified
+% by grep across the full draft_v2.tex, not just its preamble) and use
+% plain \newcommand.
+
+\newcommand{\Eop}{\mathbb{E}}
+\newcommand{\Prb}{\mathbb{P}}
+\newcommand{\ind}{\mathbf{1}}
+\newcommand{\Dact}{\Delta^{\mathrm{act}}}
+\newcommand{\Tmap}{\mathcal{T}}
+\newcommand{\Atau}{\mathrm{A}(\tau)}
+\newcommand{\Abr}{\mathrm{A}(\mathrm{br})}
+\newcommand{\Akap}{A'_{\kappa}}
+\newcommand{\ND}{\mathrm{ND}}
+\newcommand{\Sfl}{\mathsf{S}_F}
+
+% Honesty-label status line (CONTEXT.md: PROVED / NUMERICAL / ESTIMATED /
+% CONJECTURE). Usage: \resultstatus{PROVED}
+\newcommand{\resultstatus}[1]{\par\smallskip\noindent\textbf{Status.}\ #1\par}

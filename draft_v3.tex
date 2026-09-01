@@ -1,0 +1,1321 @@
+% =============================================================================
+% draft_v3.tex -- "Liquidity, Activism Disclosure, and Takeover Premia"
+% December-package working draft: v4 two-round model.
+%
+% Compilation (from the repo root):
+%   xelatex -interaction=nonstopmode draft_v3.tex
+%   biber   draft_v3
+%   xelatex -interaction=nonstopmode draft_v3.tex
+%   xelatex -interaction=nonstopmode draft_v3.tex
+%
+% Content sources (frozen theory record, card stamp 2026-08-30, commit 65b8db3):
+% model and results sections adapted from research/model_v4/MODEL_CARD.md via
+% sections_v3/{model_section,theorem_section}.tex; proofs adapted from
+% sections_v3/proofs_*.tex and moved verbatim to draft_v3_onlineappendix.tex
+% (2026-08-30); numerical records from research/model_v4/HANDOFF_sign.md
+% (the executed t2_* checks); empirics from empirics/output/fact1_* and the
+% pre-specified design in research/empirics_v4/SPEC.md. Section-by-section map:
+% draft_v3_trace.md.
+% =============================================================================
+
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=authoryear,natbib=true,maxcitenames=2,maxbibnames=99]{biblatex}
+\addbibresource{draft_v3.bib}
+
+\setstretch{1.1}
+
+% The main text keeps only the two formal statements that carry economic results:
+% the fixed-policy attenuation result and its general-equilibrium implication.
+% Every other object of the earlier draft is prose here; the anchors below keep
+% the online appendix's cross-references live and at their established numbers.
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+
+% The appendix was written against named objects in the earlier draft. These
+% anchors keep its cross-references live while the objects appear as prose here.
+\makeatletter
+\newcommand{\compatlabel}[2]{\begingroup\phantomsection\def\@currentlabel{#1}\label{#2}\endgroup}
+\makeatother
+
+% Math macros (v4 two-round objects; \Tmap is always the calligraphic outer
+% best-response map, never the filing window T)
+\newcommand{\Eop}{\mathbb{E}}
+\newcommand{\Prb}{\mathbb{P}}
+\newcommand{\ind}{\mathbf{1}}
+\newcommand{\Dact}{\Delta^{\mathrm{act}}}
+\newcommand{\Tmap}{\mathcal{T}}
+\newcommand{\Atau}{\mathrm{A}(\tau)}
+\newcommand{\Abr}{\mathrm{A}(\mathrm{br})}
+\newcommand{\Akap}{A'_{\kappa}}
+\newcommand{\ND}{\mathrm{ND}}
+\newcommand{\Sfl}{\mathsf{S}_F}
+
+\title{\textbf{Liquidity, Activism Disclosure, and Takeover Premia}\\[0.3em]
+\large A Theory of Exit, Voice, and Corporate Control}
+\author{Austin Li\\[0.25em]}
+\date{This draft: 30 August 2026}
+
+\begin{document}
+\maketitle
+
+%==============================================================================
+\begin{abstract}
+\noindent Disclosure rules change what a market knows while an investor is building a stake. I study
+how that timing affects bidder entry and the takeover premium. In the model, a blockholder first
+trades without a public flag. If her stake crosses the legal threshold and the filing window
+expires, the market sees her stake and intent; otherwise it sees only order flow. This split gives
+the threshold and the filing window different economic roles. At fixed trading policies, a tighter
+threshold reduces the sensitivity of the engagement-related premium to liquidity. A shorter window
+does so only when the change in who remains hidden is not too large. The model therefore gives no
+unconditional sign for the 2024 US acceleration. Seeded filing data show that median delay fell
+from seven to five business days. I set out a pre-specified design to test the market and takeover
+implications.
+\end{abstract}
+
+\newpage
+
+%==============================================================================
+\section{Introduction}
+\label{sec:intro}
+%==============================================================================
+
+A blockholder who learns that a company is worth more than the market price can sell, wait, or try to
+change the company. If she builds a large enough position while she waits, the law makes her disclose
+it. In the United States, Section 13(d) of the Williams Act requires a holder who crosses 5 percent
+of a voting class to file a Schedule 13D. Until February 2024 the initial deadline was ten calendar
+days; it is now five business days \citep{SEC2023}. That rule gives me two policy variables. The
+threshold determines which positions become public. The window determines how much trading can take
+place before the filing. A lower threshold and a shorter window can therefore change different parts
+of the market's information.
+
+The central point is that disclosure divides the histories seen by the bidder and by market makers.
+After a filing, the market sees the blockholder's stake and her intention to engage. Before a filing,
+it sees order flow and must infer whether an informed holder is trading. I call these the flagged and
+pooled cells. The distinction matters because a bidder responds to both the expected value of the
+firm and the chance that engagement has raised it. Liquidity changes the inference in the pooled cell,
+but it need not change what the market learns from a completed filing.
+
+Several literatures contain pieces of this argument. Liquidity can finance monitoring
+\citep{Maug1998}, have no effect under free entry \citep{KahnWinton1998}, or weaken the information
+in an exit threat \citep{AdmatiPfleiderer2009}. Trading models study pooled and revealed orders
+without a legal disclosure rule \citep{KyleVila1991}. With a fixed disclosure horizon, shortening
+the horizon can be equivalent to reducing noise-trading volatility \citep{BackEtAl2018}; other work
+places a multi-trader game inside a pre-disclosure window \citep{CetemenCisternasKolbViswanathan2026}.
+None of these papers combines the two legal margins with liquidity and an endogenous control
+outcome. That combination is the contribution here.
+
+The model has three main implications. First, a cutoff equilibrium over complete trading plans exists
+under conditions on the plan menu, prices, and the best-response map. The exact construction and its
+proof are in the online appendix. Two of the conditions fail at the implemented calibration, so the
+result does not establish existence there. Twenty-three of twenty-seven numerical sweep nodes
+converge, and the other four remain unresolved. I make no nonexistence claim.
+
+Second, at fixed trading policies, the expected engagement-related premium has a simple decomposition:
+only the pooled cell contributes to its liquidity sensitivity. A tighter threshold moves histories
+into the flagged cell and therefore reduces that sensitivity. A shorter window has a weaker result.
+It reduces the weight on the pooled cell, but it also changes which histories remain there. The window
+reduces sensitivity precisely when the weight effect dominates that composition effect. This is the
+fixed-policy result stated in Theorem~\ref{thm:T1}.
+
+Third, allowing the blockholder's policy to respond to liquidity adds a feedback term. The fixed-policy
+sign survives for the threshold margin on a region where the best-response map contracts and the
+direct effect dominates the feedback bound. The region is a condition of the result, not an object I
+claim to have found. Eighteen of eighty grid nodes satisfy the pointwise inequalities, with a largest
+contiguous block of nine. Proposition~\ref{prop:C1} states this implication.
+
+The calibration gives a useful but limited guide to the 5 February 2024 filing-window
+change. Holding policies fixed and shortening
+the window from ten to five days reduces the computed sensitivity to between 18 and 77 percent of its
+long-window value at every checked node. The composition effect accounts for most of the reduction.
+At the same calibration, however, the pooled posterior has 23 to 767 distinct values at each of 180
+non-degenerate nodes, rather than the three-point support required by the threshold comparison. The
+directional window result is therefore numerical evidence, not a theorem about the implemented
+two-round model. The empirical design keeps attenuation and amplification as live possibilities.
+
+The first descriptive fact is already visible in the filing data. In a seeded sample, the median
+trigger-to-filing delay fell from 7.0 business days before the February 2024
+acceleration to 5.0 afterwards, and the share
+filed within five business days rose from 35.7 to 75.6 percent. The remaining empirical work is a
+written specification rather than a set of estimates. It tests the run-up and filing-day jump
+separately, uses pre-period filing behaviour as a bindingness dose, studies the stake at filing, bounds
+the accumulation channel's effect on the bid hazard, and estimates bidder entry by liquidity. The
+specification reports both signs and treats the preliminary sample as descriptive.
+
+Section~\ref{sec:lit} describes the rule and the literature. Section~\ref{sec:model} lays out the
+two-round game in words and notation. Section~\ref{sec:existence} records the equilibrium construction
+briefly; the technical argument is in the appendix. Section~\ref{sec:outcomes} gives the two
+comparative-statics results and the calibration record. Section~\ref{sec:empirics} presents the
+descriptives and the pre-specified tests. Section~\ref{sec:conclusion} closes. The proofs sit in the
+online appendix.
+
+%==============================================================================
+\section{Institutional setting and related literature}
+\label{sec:lit}
+%==============================================================================
+
+\subsection{The disclosure rule and its two margins}
+\label{sec:institutional}
+
+Section 13(d) of the Williams Act of 1968 requires any person or group acquiring beneficial
+ownership of more than 5 percent of a class of registered voting equity to file a Schedule 13D
+disclosing the stake and its purpose. From 1968 until 2024 the initial deadline was ten calendar
+days. The SEC proposed shortening it in February 2022, adopted the amendments in October 2023, and
+made them effective February 5, 2024: the initial 13D deadline became five business days, amendments
+on material change became two business days, and the parallel changes for Schedule 13G took effect
+September 30, 2024 \citep{SEC2022,SEC2023}. Item 4 of the form asks the filer to state its purpose;
+control-intent filers use the 13D, while the shorter 13G is open to three eligible classes (exempt
+investors, qualified institutional investors, and passive holders below 20 percent who certify no
+control intent). Which of the two a given block lands in is a choice the rule frames rather than an
+accident of the holder, and eligibility for the short form is itself a type variable rather than a
+random one.
+
+Both margins of the rule vary across jurisdictions, and the variation is not subtle. The United
+Kingdom sets the initial threshold at 3 percent with notification at every additional percentage
+point, within two trading days. The EU Transparency Directive sets a ladder at 5 percent and above
+with four trading days, and several member states start at 3 percent. The threshold margin is
+therefore a cross-section object and the window margin a time-series one. Other jurisdictions have
+moved their windows too, the EU cutting its Transparency Directive deadline to four trading days in
+2013 among them; what recommends the February 2024 acceleration as an anchor is that it is a dated
+change to one margin, in one jurisdiction, with a clean before and after. That is why
+it anchors this paper and why it has begun to anchor others \citep{PolkBuchheitRileyStone2024,
+Trivedi2026}.
+
+Two institutional facts discipline the model. First, the window is a \emph{legal deadline attached
+to a partition}, not a random horizon: the clock starts when the stake crosses the threshold, the
+filing lands at most $T$ days later, and between the crossing and the filing the market prices the
+stock without the flag. The model takes the deadline itself as the filing date, so filing early is
+outside what it claims. Second, the pooled cell is pooled \emph{for the price-setting market}.
+\citet{Zeng2026} documents that a target's own managers learn of the accumulation through
+stock-surveillance vendors before the filing, and that the price run-up begins on the trigger date.
+The cell is leaky at its edges, which is a measurement problem for the empirics, not a failure
+of the partition for the market makers who set prices. On the delay distribution itself,
+\citet{BebchukBravJacksonJiang2013} show filers bunching at the old deadline: 45.3 percent of
+filings by engaging investors in their sample land in the eight-to-ten-\emph{business}-day bucket
+and roughly a fifth on the tenth business day itself, their delays being counted in business days
+against a deadline the rule states in calendar days. So the window binds for a large share of filers, which is what makes the February 2024
+acceleration a treatment rather than a formality.
+
+\subsection{Exit, voice, and liquidity}
+\label{sec:lit-exit-voice}
+
+The classic trade-off originates with \citet{Hirschman1970}. \citet{Coffee1991} and \citet{Bhide1993}
+argue that liquidity weakens governance by letting blockholders sell instead of fight;
+\citet{Maug1998} reverses the logic: liquid markets let a monitor recoup the costs of engagement
+through informed trading, and with an endogenous stake liquidity raises equilibrium monitoring.
+\citet{KahnWinton1998} show the sign of the trading motive depends on whether engagement deepens the
+blockholder's information advantage; \citet{FaureGrimaudGromb2004} make price informativeness and
+insider incentives complements; \citet{AdmatiPfleiderer2009} make exit itself a disciplining threat.
+On the empirical side, \citet{EdmansFangZur2013} find more liquid targets shift from voice to exit,
+and \citet{NorliOstergaardSchindele2015} find liquidity predicts the incidence of costly voice.
+
+Two limitations of this strand shape the present paper. The four classics use four different
+liquidity parameters (camouflage, noise volume, informativeness, exit noise) with three
+different signs, so ``liquidity and governance'' is not one question. And none of the four has a
+bidder, an offer, or a premium: takeovers appear in \citet{Maug1998} only as a relabelled intervention
+technology, \citet{KahnWinton1998} and \citet{FaureGrimaudGromb2004} set control transfers aside in
+terms, and \citet{AdmatiPfleiderer2009} simply has no bidder. The object this paper studies,
+the sensitivity of an expected takeover premium to liquidity and what the disclosure rule does
+to that sensitivity, is not stated in any of them.
+
+\subsection{Trading, disclosure, and the market for control}
+\label{sec:lit-microstructure}
+
+The trading model builds on discrete order flow in the Kyle tradition \citep{Kyle1985,
+GlostenMilgrom1985}, in the tractable form of \citet{EdmansGoldsteinJiang2015}, and on the feedback
+between prices and real decisions \citep{EdmansGoldsteinJiang2012, BondEdmansGoldstein2012,
+Goldstein2023}. \citet{GrossmanHart1980} make the takeover premium the welfare object for dispersed
+minority shareholders, and \citet{BurkartGrombPanunzi1998} show why higher premia protect them.
+
+Against the closest theory papers the position is specific. \citet{KyleVila1991} have an endogenous
+pooled/revealed split in mixing equilibria but disclaim disclosure requirements on their first page,
+and their traders disclose nothing at a legal deadline; the defensible contrast is that their split
+is endogenous, un-keyed, and available only where the trader happens to mix, while the rule-keyed
+partition here is imposed by a stake trigger and a deadline in every parameter configuration.
+\citet{CollinDufresneFos2015} show measured price impact falls when informed blockholders trade
+against liquidity, and \citet{CollinDufresneFos2016} fix a trading horizon, but the presence of the
+informed trader is common knowledge in their model; they name the inference problem and set it
+aside. \citet{BackEtAl2018} embed an engaged blockholder in a continuous-time Kyle model with a
+fixed horizon at which the stake is disclosed; for them a shorter horizon is a re-parameterisation
+of noise-trading volatility (``reducing the trading horizon $T$ is isomorphic to reducing noise
+trading volatility''), there is no acquirer and no premium, and endogenizing the horizon is their
+own declared out-of-scope extension. \citet{CetemenCisternasKolbViswanathan2026} study multiple
+blockholders timing trades and coordinating through market signals inside a pre-disclosure window
+they leave unmodelled (their own reading of their model), with liquidity the comparative static
+and no premium object. \citet{Corum2025} has the closest reduced form of the rule, two scalars
+measuring how much of the stake is tradable before disclosure bites, but collapses threshold and
+window into them and has no second player. \citet{CorumLevit2019} put a takeover probability and a
+disclosure threshold in one model, but the threshold does three jobs at once (liquidity break, 13D
+trigger, pill trigger), no comparative static in it is stated, and the flagged state never occurs on
+path. \citet{OrdonezCalafiBernhardt2022} study the optimal threshold level (crossing reveals the
+position, so in equilibrium the engaging blockholder's stake is the smaller of the threshold and its
+unconstrained optimum, the threshold acting as an upper bound on the position and hence on trading
+profits), and they assert, without
+a proposition, the interaction between liquidity and the threshold on managerial discipline; the
+object here is a control outcome and the interaction is proved. \citet{BurkartLee2022} have the
+premium and explicitly hand over the missing piece: they do not endogenize the toehold in anonymous
+pre-disclosure markets and leave the interaction of pre- and post-disclosure decisions to future
+work.
+
+\subsection{Structural and empirical work on activism}
+\label{sec:lit-structural}
+
+A mature structural literature estimates activism along complementary margins:
+\citet{Gantchev2013} the sequential costs of campaigns; \citet{JohnsonSwem2021} a dynamic reputation
+model in which buying and filing are one move; \citet{AlbuquerqueFosSchroth2022} the binary
+13D-versus-13G choice jointly with announcement returns, with liquidity a control variable and no
+control outcome; \citet{CelentanoLevine2025} an equilibrium model of activism, takeovers, and
+managerial discipline in which the 5 percent threshold enters once, as a calibration constant, and
+the window never appears. None of these models the trading-and-disclosure environment itself.
+\citet{BravJiangPartnoyThomas2008} and \citet{GreenwoodSchor2009} document that the targets of engagement campaigns
+are unusually likely to be acquired, and that fact makes bidder entry the natural control
+outcome; \citet{BechtFranksGrantWagner2017} show the returns internationally; \citet{Zeng2026}
+measures what leaks inside the window.
+
+On the February 2024 acceleration itself, two papers precede this one and neither occupies the
+cell. \citet{PolkBuchheitRileyStone2024} use pre-rule data only, a cross-section of self-selected
+delays offered as a projection with no control group, no post-rule data, and no standard errors
+anywhere in the paper. Their treatment variable counts calendar days against a rule they
+themselves state in business days. \citet{Trivedi2026} runs a difference-in-differences on 333
+filings with 13G controls and finds a first stage on compliance timing (the share filed within
+five business days rises by 34.8 percentage points, standard error 13.0) and nulls on spread and
+Amihud changes that carry no minimum detectable effect; there is no control outcome in the paper,
+its sampling frame is never stated, and it is not peer reviewed. The cell this paper's empirics
+occupies (a rule margin, a liquidity split, and a control outcome, with the timing split as the
+identity claim) remains open, and the specification in Section~\ref{sec:empirics} is written so
+that every estimate it will report was specified before any of them existed.
+
+%==============================================================================
+\section{The model}
+\label{sec:model}
+\label{sec:hypotheses}
+%==============================================================================
+
+\subsection{Object and partition}
+\label{sec:object}
+
+The disclosure rule divides the market's information into two cases. A stake threshold $\tau$ and a
+filing window $T$ determine whether the filing has arrived by the control decision. In the \emph{flagged}
+cell, the market sees the stake and the intention to engage. In the \emph{pooled} cell, it sees only
+order flow and must infer whether an informed blockholder is trading. The cells are exhaustive. The
+outcome of interest is the expected engagement-related premium $\Dact(\kappa,\tau,T)$. I also track
+the run-up before the filing and the jump when the filing arrives. A lower threshold is a tighter
+threshold margin; a shorter window is a tighter window margin.
+
+The model uses the discrete order-flow structure of \citet{Kyle1985} and
+\citet{EdmansGoldsteinJiang2015}, competitive prices as in \citet{GlostenMilgrom1985}, and the
+takeover premium as the dispersed shareholder's control-outcome measure in the spirit of
+\citet{GrossmanHart1980}. The contribution is the legal partition between those familiar pieces.
+\subsection{Timing: the two rounds}
+\label{sec:timing}
+
+Trading runs over business days $d=0,\ldots,H$. Nature draws the firm's standalone value and the
+blockholder's private signal. The blockholder then chooses a complete contingent plan from a finite
+ordered menu. The plan fixes the stake path and whether it is meant to engage the firm.
+
+In the first round, market makers see the plan's order flow mixed with ternary noise. The blockholder
+does not revise the path in response to realised prices or order flow. The filing arrives exactly $T$
+business days after the first crossing of $\tau$, provided that date is before the horizon. That filing
+ends the pooled round. In the second round the blockholder trades the residual position, the market
+updates its price, and the bidder decides whether to enter. If no filing arrives, the bidder acts on the
+pooled history. The technical appendix spells out the off-path beliefs and the regularity conditions
+needed for this timing.
+\compatlabel{1}{asm:timing}
+\compatlabel{1(a)}{asm:nofeedback}
+\compatlabel{1(b)}{asm:flagterm}
+\compatlabel{1(c)}{asm:A4}
+\compatlabel{1(d)}{asm:A8}
+
+\subsection{Primitives}
+\label{sec:primitives}
+
+% The model's ingredients are described in prose; the appendix retains the technical labels.
+\compatlabel{1}{def:primitives}
+The firm's standalone value is $v \sim N(\mu_v,\sigma_v^2)$. The blockholder observes
+$s=v+\varepsilon$, where $\varepsilon \sim N(0,\sigma_\varepsilon^2)$ is independent of $v$. Her
+posterior mean is $\Eop[v\mid s]=\mu_v+\beta(s-\mu_v)$, with
+$\beta=\sigma_v^2/(\sigma_v^2+\sigma_\varepsilon^2)\in(0,1)$. A potential bidder has an independent
+synergy shock $\xi\sim N(0,\sigma_\xi^2)$, mean synergy $\bar S$, and entry cost $K>0$. Engagement
+changes the takeover premium from $m_0$ to $m_1$, where $\Delta_m=m_1-m_0>0$, and creates non-takeover
+value $\Delta_V\geq0$.
+
+Noise trading takes the values $-\bar z$, $0$, and $+\bar z$. The zero-noise probability is
+$1-\kappa$ and each nonzero value has probability $\kappa/2$, so $\kappa\in[0,1]$ measures
+noise-trading intensity. The disclosure policy is $(\tau,T)$, with $T\in\{1,\ldots,H\}$; $b_0$ and
+$\bar b$ are the initial and maximum stakes.
+
+The blockholder chooses a plan from a finite menu $\mathcal J$, ordered from least to most aggressive.
+Plan $j$ has an engagement flag $a_j$, equal to one for Voice and zero for Exit or Hold. Its pooled
+stake at date $d$ is $B_j(s,d)$, with $B_j(s,-1)=b_0$, and its terminal target is
+$b_j^*(s)=B_j(s,H)$. The first crossing of the threshold is
+$c_j(s;\tau)=\inf\{d:B_j(s,d)\geq\tau\}$, with value $+\infty$ when no crossing occurs. The filing
+date is $f_j=c_j+T$, and disclosure occurs when $a_j=1$ and $f_j\leq H$. At a filing, the reported
+stake is $B_j^F=B_j(s,f_j)$ and the remaining order is $Q_j^F=b_j^*(s)-B_j^F$. A finite coarsening
+$\Gamma$ maps the stake increment into the pooled order mark
+$q_{jd}(s)=\Gamma(B_j(s,d)-B_j(s,d-1))$, so observed pooled flow is $X_d=q_{jd}+z_d$.
+\compatlabel{2}{def:plans}
+
+Market makers observe the pooled history
+$\mathcal H_d^P=(X_0,\ldots,X_d;\ \text{flag landed by }d)$. A filing reports
+$F=(B^F,a=1)$, and the flagged tuple adds the residual order, $\Sfl=(B^F,Q^F,a=1)$. At the control
+node, public information is $\mathcal H_H^P$ in the pooled cell and $\Sfl$ in the flagged cell; the
+bidder's $\xi$ remains private. I write these cells as $\mathcal C_P$ and $\mathcal C_F$. They are
+exclusive and exhaustive. The engagement posterior is $\pi(\mathcal I)=\Prb(a=1\mid\mathcal I)$, and
+equals one after a filing. The bidder enters with probability
+\begin{equation}
+\label{eq:entry}
+p(\mathcal I) \;=\; 1 - \Phi\!\left(\frac{P + K + m_0 + \pi\Delta_m - \bar S}{\sigma_\xi}\right)
+\;\in\;(0,1).
+\end{equation}
+With $\mathsf B$ the entry indicator, the terminal shareholder payoff is
+\begin{equation}
+\label{eq:Y}
+Y \;=\; (1-\mathsf B)\,(v + a\Delta_V) \;+\; \mathsf B\,(P + m_0 + a\Delta_m),
+\end{equation}
+and prices satisfy the inner fixed point $P(\mathcal I) = \Eop[Y\mid\mathcal I]$. Two conventions are
+part of the model rather than notation. First, $P_{-1}^P := \Eop[Y]$ is the pre-trading pooled
+price, which is needed whenever $c = 0$, as $T = H$ forces on every flagged history. Second,
+$P_{\ND}(\mathcal H_{f^-}^P) := P_{f^-}^P$: the not-yet-disclosed price is the last pre-filing pooled
+price at the \emph{same} realised order flow, whose history already carries ``flag not landed by
+$f-1$'', and not a never-disclosed counterfactual. Throughout, $c^-$ and $f^-$ denote the business days
+immediately before the crossing date and the filing date. The price-path objects are the run-up path
+$R_d = P_d^P - P_{c^-}^P$, the cumulative run-up $R = P_{f^-}^P - P_{c^-}^P$, and the filing-day
+jump $J = P^F - P_{\ND}$; $R_d$, $R$ and $J$ are unsigned, and $J$ is not claimed to be
+$\kappa$-invariant.\compatlabel{3}{def:prices}
+
+The genuine fixed point sits at the control nodes. At an earlier pooled date $d < H$ the price is a
+tower expectation of already-solved control-node values, with no self-reference; only the
+control-node map is a fixed point to be solved.
+
+The blockholder evaluates a plan by the expected terminal value of the position it builds, less the
+trading outlay and the cost of engagement:
+\begin{equation}
+\label{eq:Uj}
+U_j(s) \;=\; \Eop\Bigl[\, b_j^*(s)\,Y \;-\; \mathcal C_j^{\mathrm{trade}} \;-\; a_j\,C_j(s)
+\;\Bigm\vert\; s,\, j \,\Bigr],
+\end{equation}
+where $\mathcal C_j^{\mathrm{trade}}$ is the execution outlay, with increments valued at the pooled
+prices $P_d^P$ up to the plan's last pooled date and $Q_j^F(s)\,P^F$ when $D_j = 1$, and
+$C_j(s) \ge 0$ is the engagement cost. Only two properties of \eqref{eq:Uj} are ever used:
+\emph{plan-locality}, that $U_j$ depends on $j$ only through the executed stake path, the prices paid
+on it, the terminal stake, the engagement flag and the cost; and \emph{integrability},
+$\Eop[\max_{j}|U_j|] < \infty$ under the finiteness conditions of Section~\ref{sec:primitives}.
+\compatlabel{4}{def:U}
+
+The cost in \eqref{eq:Uj} is not tied to a particular date. It can be booked when the plan is completed
+or treated as sunk once the filing arrives. These readings give the same comparison among flagged
+round-two deviations, so the existence argument does not depend on the convention.
+\compatlabel{1}{rem:Ctiming}
+
+
+The primitive draws are mutually independent, with strictly positive variances. The menu, order-mark
+support, noise support, and calendar are finite; prices and payoffs are locally bounded on the
+maintained parameter set; and $\Eop[\max_{j\in\mathcal J}|U_j|]<\infty$ throughout the cutoff set.
+
+Four restrictions on the primitive table travel together, and several results below consume them as
+a block. Clause (TR-i), \emph{distributional forms and signs}: the distributions above hold as
+stated, with $\sigma_v^2,\sigma_\varepsilon^2,\sigma_\xi^2>0$, $K>0$, $\bar z>0$, $\Delta_m>0$,
+$\Delta_V\geq0$, and
+\begin{equation}
+\label{eq:m0}
+m_0\geq0,
+\end{equation}
+so that $\bar m(\mathcal I)=m_0+\pi(\mathcal I)\Delta_m\geq0$. Restriction \eqref{eq:m0} is what
+makes the inner pricing root exist, be unique and be continuous; when it is dropped, executed
+counterexamples produce both no root and three roots. The initial stake satisfies $b_0<\tau$, so a
+crossing that predates the model is outside the core analysis. Clause (TR-ii), \emph{stake-path
+regularity}: Voice stakes are weakly increasing in the calendar date and in the signal, Hold stakes
+are constant, Exit stakes are weakly decreasing in the date, and every map $s\mapsto B_j(s,d)$ is
+Borel. Borel regularity is automatic for Voice and for Hold and is a genuine addition for Exit,
+where the primitives supply monotonicity in the date alone; without it the pooled prices are not
+defined, because pooled pricing integrates over every type. Stake levels themselves remain
+continuum-valued: the finiteness above covers the menu, the image of $\Gamma$, the noise support and
+the calendar, not the stake level. Clause (TR-iii), \emph{legal-clock objects}: the crossing,
+filing, stake-at-filing, residual-order and terminal-target definitions hold as stated, together
+with $D=1\Rightarrow a=1$, $Q^F\geq0$ for Voice plans, and, at fixed policies, $T'<T$ implying
+$B^F(T')\leq B^F(T)$ and $Q^F(T')\geq Q^F(T)$. Clause (TR-iv), \emph{pricing and entry}: the
+terminal payoff is \eqref{eq:Y}, prices obey $P(\mathcal I)=\Eop[Y\mid\mathcal I]$, entry obeys
+\eqref{eq:entry}, the control-node information set is the fill given above, and the two price
+conventions $P_{-1}^P=\Eop[Y]$ and $P_{\ND}=P_{f^-}^P$ hold.\compatlabel{2}{asm:primitives}
+\compatlabel{2(a)}{asm:A1}
+\compatlabel{2(b)}{asm:A2p}
+\compatlabel{2(c)}{asm:TR}
+
+\subsection{Equilibrium notion}
+\label{sec:equilibrium-notion}
+
+
+I use a cutoff perfect Bayesian equilibrium, and it carries six requirements: (i) a weakly ordered
+cutoff vector $k=(k_1,\ldots,k_{J-1})$ selects the plan as a function of the signal; (ii) the pooled
+and flagged actions are sequentially optimal at every history; (iii) beliefs obey Bayes' rule at
+every history reached with positive probability; (iv) prices solve their competitive fixed points;
+(v) the bidder follows \eqref{eq:entry}; and (vi) off-path beliefs are limits along one fixed
+full-support perturbation family over plans. Weak inequalities allow an action region, including
+Hold, to collapse. The outer cutoff map is solved on a compact ordered polytope, and uniqueness is
+not claimed.\compatlabel{5}{def:cpbe}
+
+The timing and primitive restrictions accompany every result. The cutoff construction requires adjacent
+plan payoff differences to cross at most once in the signal, with the preferred plan weakly increasing
+in the signal. It also requires a common compact bracket containing an indifference signal for every
+adjacent plan pair at every point of $\Theta$, and a continuous, self-mapping outer best-response map
+$\Tmap(k;\vartheta)$. The inner pricing root is unique and continuous in its belief summaries under
+\eqref{eq:m0}; continuity of the composed price family in the cutoff vector is the part retained as a
+condition.\compatlabel{3}{asm:eqobject}
+\compatlabel{3(a)}{asm:A3}
+\compatlabel{3(b)}{asm:A6}
+\compatlabel{3(c)}{asm:A5}
+
+On a flagged history, $(B^F,Q^F,a=1)$ identifies the informed plan component, so the remaining pooled
+order is independent noise conditional on that tuple. For the fixed-policy comparisons, the composed
+terminal target $s\mapsto b^*_{j(s)}(s)$ must be strictly increasing on the flagged signal region for
+every $k\in\Theta$. The existence construction uses the stronger statement that
+$(j,s)\mapsto(B_j^F,Q_j^F,a_j)$ is injective over all flagged pairs, including pairs not selected by
+the cutoff policy.\compatlabel{4}{asm:ident}
+\compatlabel{4(a)}{asm:A7}
+\compatlabel{4(b)}{asm:A7p}
+\compatlabel{4(c)}{asm:A7J}
+
+The pooled-cell comparison uses a strong support restriction. Its posterior law must have the
+three-point form
+\begin{equation}
+\label{eq:atau}
+\Eop[h] \;=\; A_0(\kappa)\,h(0) \;+\; A_{1/2}(\kappa)\,h(\bar\pi/2) \;+\; A_1(\kappa)\,h(\bar\pi),
+\end{equation}
+with $A_0'=A_1'=\Akap$, $A_{1/2}'=-2\Akap$, and a non-positive chord whose absolute value is weakly
+increasing in $\bar\pi$. Two clauses carry the restriction's remaining bite: ($\tau$-i),
+\emph{kernel through posterior}, that $h$ depends on the information set through the posterior
+alone; and ($\tau$-ii), \emph{$\kappa$-free support}, that the three support points, the upper point
+$\bar\pi$ included, do not move with $\kappa$. I write the restriction $\Atau$. Whether the
+two-round pooled cell satisfies the support condition is open; the implemented calibration does
+not.\compatlabel{5}{asm:Atau}
+
+A threshold comparison $\tau'<\tau$ at fixed policies and a common $\kappa$ needs a bridge between
+the two pooled classes, written $\Abr$, in five clauses. (br-i), \emph{representation at both
+policies}: \eqref{eq:atau} holds under $\tau$ and under $\tau'$, with endpoints $\bar\pi(\tau)$ and
+$\bar\pi(\tau')$ and coefficients $\Akap(\tau)$ and $\Akap(\tau')$. (br-ii),
+\emph{$\kappa$-localisation}: all $\kappa$-dependence of $M_P$ sits in the weights, so that
+$\partial_\kappa M_P=\Delta_m\Akap C_h(\bar\pi)$ exactly, with no composition remainder; that last
+step is derived rather than assumed, and the clause names the same object as ($\tau$-i) against the
+reading $h=\pi\,p(\hat v,\pi)$ rather than adding an independent restriction. (br-iii),
+\emph{coefficient stability}: $|\Akap(\tau')|\leq|\Akap(\tau)|$, whose weakest sufficient form is
+equality, reclassification changing which histories are pooled rather than the $\kappa$-responsiveness
+of the pooled weights. (br-iv), \emph{endpoint linkage}: $\bar\pi$ is the chord endpoint of
+\eqref{eq:atau} and is the same weakly increasing function of the pooled prior engagement share
+$\bar\pi_{\mathrm{pr}}=\Prb(a=1\mid D=0)$ at $\tau$ and at $\tau'$, the identity branch
+$\bar\pi=\bar\pi_{\mathrm{pr}}$ being excluded as degenerate. (br-v), \emph{comparability of the
+chord functional}: $C_h(\cdot)$ and the kernel behind it are the same functions of the posterior at
+both thresholds; without it the threshold comparison sets $|C_h|$ against a different functional and
+means nothing. These clauses are used only for the threshold sensitivity result. For the
+general-equilibrium result I require a twice continuously differentiable outer map on a candidate
+region $\mathcal R$, a contraction bound $L_{\mathcal R}<1$, and a constant sign for the equilibrium
+liquidity derivative.\compatlabel{6}{asm:bridge}
+\compatlabel{6(a)}{asm:Abr}
+\compatlabel{6(b)}{asm:AGE}
+
+\subsection{The cutoff polytope and the premium objects}
+\label{sec:polytope}
+
+
+The cutoff vector is $k=(k_1,\ldots,k_{J-1})$ with weak ordering. The compact, convex set of such
+vectors is $\Theta$, and $\vartheta$ collects the remaining parameters. The outer map
+$\Tmap(k;\vartheta)$ gives the cutoff vector implied by a conjectured vector $k$. On a candidate
+region $\mathcal R$, write $L_{\mathcal R}=\sup_{\mathcal R}\lVert D_k\Tmap\rVert$ and use
+$r_\tau=-\tau$ and $r_T=-T$ so that a larger $r$ means a tighter rule. The fixed-policy attenuation
+margin is
+\begin{equation}
+\label{eq:gPE}
+g_r^{PE} \;=\; -\operatorname{sgn}\!\bigl(d\Dact/d\kappa\bigr)\;\partial_{\kappa r}\Dact,
+\end{equation}
+and the inversion-free cutoff bounds are $\bar k_x=|\partial_x\Tmap|/(1-L_{\mathcal R})$ and
+$\bar k_{\kappa r}$. The general-equilibrium remainder is
+\begin{equation}
+\label{eq:BGE}
+\mathcal B_r^{GE} \;=\; |\Delta_{\kappa k}|\,\bar k_r
+\;+
+\bigl(|\Delta_{kr}|+|\Delta_{kk}|\,\bar k_r\bigr)\bar k_\kappa
+\;+
+|\Delta_k|\,\bar k_{\kappa r}.
+\end{equation}
+Here the $\Delta$ terms are the gradient and cross-partials of $\Dact$ in $(k,\kappa,r)$ along the
+equilibrium branch. The dominance-and-contraction region $\mathcal R_r$ has slack
+$\eta_r=g_r^{PE}-\mathcal B_r^{GE}$ and may be empty.\compatlabel{6}{def:theta}
+
+The engagement component of the premium is built from
+$h(\mathcal I)=\pi(\mathcal I)p(\mathcal I)$. The kernel satisfies $h\geq0$ and $h(0)=0$, and the
+expected engagement-related premium is
+\begin{equation}
+\label{eq:Dact}
+\Dact \;=\; \Delta_m\,\Eop\bigl[h(\mathcal I_H)\bigr] \;\ge\; 0.
+\end{equation}
+The cell averages are $M_F=\Delta_m\Eop[h\mid D=1]$ and $M_P=\Delta_m\Eop[h\mid D=0]$ when the
+corresponding cell has positive mass. The flagged weight is $\Omega=\Prb(D=1)=\Prb(a=1)\omega_a$,
+where $\omega_a=\Prb(D=1\mid a=1)$. In the three-point representation, $\bar\pi$ is the upper
+support point, not the mean pooled engagement share. The latter is $\kappa$-invariant under the support
+restriction and is strictly below $\bar\pi$ away from the degenerate case; it equals $\bar\pi/2$ only
+when $A_0=A_1$. Define $\mathcal S=|\partial_\kappa\Dact|$ and
+$\mathcal S_P=|\partial_\kappa M_P|$. The chord is
+\begin{equation}
+\label{eq:chord}
+C_h(\bar\pi) \;=\; h(0) \;-\; 2h(\bar\pi/2) \;+\; h(\bar\pi),
+\end{equation}
+maintained non-positive with $|C_h|$ weakly increasing in $\bar\pi$, and $\Akap$ is the common
+derivative of the weights in \eqref{eq:atau}, bounded on $[0,1]$. The weight-effect ratios are
+$W_\tau$ and $W_T$, for instance $W_T = (1-\Omega(\tau,5))/(1-\Omega(\tau,10))$, which is at most
+$1$ when $\Omega$ rises. The composition-effect ratios are $C_\tau$ and $C_T$, for instance
+$C_T = \mathcal S_P(\tau,5)/\mathcal S_P(\tau,10)$, which are unsigned. The margin subscript on a
+composition ratio is always written, because $C$ is otherwise overloaded by the chord $C_h$, the
+engagement cost $C_j(s)$ and the cells $\mathcal C_F,\mathcal C_P$.\compatlabel{7}{def:premium}
+
+Reading $\bar\pi$ as the mean of the pooled posterior law rather than as its upper support point
+forces a point mass at $\bar\pi$ with $\Akap = 0$ and zero interior motion for every kernel. That is
+degenerate, and it is excluded throughout.
+
+%==============================================================================
+\section{Equilibrium existence}
+\label{sec:existence}
+%==============================================================================
+
+Existence is standing ground here, not the claim. The claim the paper is making is the attenuation
+result of Section~\ref{sec:outcomes}; what this section supplies is the conditional on which the
+whole construction rests.
+
+Under the hypotheses (P-1)--(P-13) below, a cutoff perfect Bayesian equilibrium over complete
+contingent plans exists at \emph{every} $\kappa\in[0,1]$: there is $k^\star\in\Theta$ with
+$k^\star=\Tmap(k^\star;\vartheta)$, prices at their inner fixed points, and beliefs Bayes-consistent
+on path. Uniqueness is not claimed, in any form.
+
+Five things travel with that conclusion. Off-path beliefs are limits of \emph{one} full-support
+perturbation family over plans, fixed once and used to define the price system at every
+$k\in\Theta$ and not only at $k^\star$, because the deviation payoffs that define $\Tmap$ read
+off-path pooled histories. They are supplied at every pooled history reachable with positive
+probability under some plan profile. The boundary values of $\kappa$ are handled by \emph{extension}
+rather than by restriction: at $\kappa\in\{0,1\}$ the noise support degenerates to $\{0\}$ and to
+$\{\pm\bar z\}$, and a pooled history needing a mark outside the surviving support is null under
+every profile, so it lies off nature's path rather than off the players', carries no requirement
+under clause (vi) of the equilibrium definition, and is read by no step. No cut to $\kappa\in[0,1)$
+is taken. Flagged-tuple beliefs are the point mass at the unique generating pair, supplied at every
+tuple in the image of $(j,s)\mapsto(B_j^F,Q_j^F,a_j)$, on path and off, since that image includes
+tuples the cutoff vector does not select; the point mass is a \emph{version} of the conditional law
+at every image tuple, which is what a conditional law is when the signal is continuous, and any
+a.e.-equal version serves clauses (iii) and (vi) equally. No tuple outside the image arises, because
+the round-two action-set hypothesis (P-9) leaves no off-menu order to produce one. The bidder
+follows \eqref{eq:entry}. And there is a sequentially optimal flagged component at \emph{every}
+flagged pair $(j,s)$, selected or not: the flagged price is invariant across the round-two deviation
+set, so the flagged order cancels out of the continuation and (P-10) makes what remains constant.
+
+\paragraph{The hypotheses.} The list is long, and every clause of it is load-bearing, so it is
+enumerated rather than gathered into a sentence.
+\begin{enumerate}[label=(P-\arabic*),leftmargin=3.2em,itemsep=2pt]
+\item Independent primitives.
+\item The finite model and integrable objective.
+\item Ordered plans and single crossing.
+\item Legal-clock discipline.
+\item The compact continuous outer self-map, read as set out below.
+\item \emph{Joint tuple injectivity}: the map $(j,s)\mapsto(B_j^F,Q_j^F,a_j)$ is injective on the
+  whole flagged-pair set $\{(j,s):D_j=1\}$, \emph{including pairs no cutoff vector selects}. This is
+  strictly stronger than the on-path form, and it is the form the argument consumes where it pins
+  \emph{off-path} flagged beliefs.\footnote{The distinction is not cosmetic. An earlier recorded
+  statement of this result carried the on-path form while the proof consumed the joint form. The
+  joint form is stated here because the proof uses it to pin off-path flagged beliefs; the on-path
+  form alone would not suffice. Which form is meant is named every time either appears.}
+\item The disclosure partition and price-path decomposition of Section~\ref{sec:partition-results},
+  by statement, \emph{with its own hypotheses travelling}.
+\item The no-feedback timing, read together with the flag-termination clause.
+\item The \emph{definitional} round-two action-set hypothesis: the flagged-round action set \emph{is}
+  the plan-generated set $\{Q_{j'}^F(s)\}$ taken over menu elements agreeing with $j$ on everything
+  already played. This is not a closure condition; the closure form is jointly unsatisfiable with
+  finiteness, by cardinality.
+\item \emph{Continuation-cost equivalence on that same set}: menu elements sharing $j$'s pooled path
+  up to $f_j(s)$ and carrying $a_{j'}=a_j$ have the same engagement cost, $C_{j'}(s)=C_j(s)$. It
+  holds trivially on any single-Voice menu, where the set is a singleton, and is live only on menus
+  with two or more Voice plans sharing a pooled path. What it buys, under the plan-completion
+  reading of the cost timing, is this: on that set the flagged price does not move and the flagged
+  order cancels, so the engagement cost is the only thing that can differ between staying and
+  deviating, and at a flagged pair the cutoff vector does not select there is no date-$0$ optimality
+  to fall back on, so without the clause the deviator takes the class member with the smallest
+  cost and clause (ii) of the equilibrium definition fails at that node. Under the sunk reading the
+  continuation is constant on the deviation set with no clause at all and the hypothesis is not
+  consumed; it is listed because the statement does not commit to a reading, and it is what makes
+  the conclusion hold under both.
+\item The restriction $m_0\geq0$ of \eqref{eq:m0}.
+\item The blockholder's objective \eqref{eq:Uj}, whose $-a_jC_j(s)$ term carries the engagement cost,
+  together with the cost timing convention: the cost may be booked on completing the plan or treated
+  as sunk once the filing has landed, the two give the same round-two comparison on the round-two
+  deviation set, and the result does not depend on the choice.
+\item The primitive table restrictions the argument consumes, in particular: the terminal payoff
+  \eqref{eq:Y} with the price convention $P(\mathcal I)=\Eop[Y\mid\mathcal I]$ and the entry rule
+  \eqref{eq:entry}, both from clause (TR-iv); clause (TR-ii)'s Borel regularity for \emph{every}
+  plan including Exit, needed here \emph{directly} and not by way of the partition result, whose
+  conclusion is measurability of $D$ and of the cell map; clause (TR-iii)'s implication
+  $D=1\Rightarrow a=1$, the definitions of $c$, $f$, $B^F$, $Q^F$ and $b^*$, and
+  $\partial_sB_j\geq0$ for Voice; and clause (TR-i)'s distributional forms with $\Delta_m>0$.
+\end{enumerate}
+
+\paragraph{Two readings.} Both belong to the statement rather than to the proof. First, the pricing
+assumption of Section~\ref{sec:equilibrium-notion} \emph{is not assumed here}: its existence and
+uniqueness content is derived from $m_0\geq0$, its continuity content \emph{in the belief summaries}
+$(\hat v,\pi)$ from the same scalar reduction, and its measurable-selection content from joint tuple
+injectivity together with clause (TR-ii). What is \emph{not} derived is its cutoff clause, the
+continuity of the composed pooled price family in the cutoff vector $k$, which runs through the
+conditioning pair $(\hat v,\pi)$ rather than through the pricing map. That continuity enters only
+through the second reading, and Section~\ref{sec:calibration} records it measured to fail at the
+implemented calibration. Second, the outer-map assumption \emph{is read} as asserting that $\Tmap$,
+under a named tie-break-and-corner selection, without which a correspondence cannot be called
+continuous, is a well-defined, single-valued, continuous self-map of the nonempty polytope
+$\Theta$; and, in its \emph{bracket} half, that there is a fixed compact signal interval, \textbf{the
+common bracket} $[s_{\mathrm{lo}},s_{\mathrm{hi}}]$ at the given $\vartheta$, common in
+$k\in\Theta$ and in the adjacent plan pair, of which $\Theta$ is the ordered part
+($s_{\mathrm{lo}}\leq k_1\leq\dots\leq k_{J-1}\leq s_{\mathrm{hi}}$), such that for every
+$k\in\Theta$ and every adjacent plan pair the best-response indifference signal \textbf{exists} and
+lies in the bracket. That is what makes the finite cutoff vector represent the best-response plan
+map on the whole Gaussian signal line and not merely inside the bracket. The clause excludes every
+menu-and-price-system at which some adjacent indifference signal fails to exist, never-selected
+middle plans as well as dominated extreme plans; the stronger form is taken so that the cutoff
+vector carries interior data at every $k$, and the exclusion is a named domain narrowing.
+
+Finally, at any such equilibrium at which the interior-crossing condition holds, both cells carry
+strictly positive probability and both are on path; restating that condition as a single signal
+threshold needs two further hypotheses, Voice stake monotonicity across plans and engagement flags
+equal to one \emph{exactly} on an upper set of the ordered menu.
+
+\paragraph{How the proof goes.} The argument builds the equilibrium object rather than
+characterising it, and the online appendix carries it in full. A conjectured cutoff vector induces a
+measurable plan-selection map, under which every date-$0$ object is a deterministic Borel function of
+the pair $(j,s)$. The inner price system at that conjecture separates a finite pooled layer from a
+continuum-indexed flagged layer: the scalar reduction behind \eqref{eq:m0} gives existence,
+uniqueness and continuity of the inner root, and the flagged layer is priced by inverting the
+flagged-pair map, which joint injectivity makes invertible. Beliefs are then supplied at every
+history that carries a requirement, Bayes where the reaching weight is positive and the fixed
+perturbation family's limit elsewhere, and sequential optimality of the flagged component is
+discharged at every flagged pair, selected or not. The outer best-response map is built on the
+common bracket; that it is weakly ordered and carries $\Theta$ into itself follows from single
+crossing, while the bracket and the continuity of the map are taken rather than derived. Brouwer's
+fixed-point theorem then applies, and the six requirements of the equilibrium definition are
+assembled at the fixed point, with the boundary values of $\kappa$ handled by extension. The proof
+closes with six disclaimers: uniqueness in no form; the interior-crossing addendum conditional at
+the equilibrium and nowhere else; boundary extension, which is where a withdrawn claim of a belief
+at every pooled history at $\kappa=1$ sat; one fixed convention; flagged-order optimality without
+uniqueness; and two hypotheses that are sufficient rather than necessary and are not verified menu
+by menu.\compatlabel{1}{prop:P1}
+
+%==============================================================================
+\section{Liquidity and control outcomes}
+\label{sec:outcomes}
+%==============================================================================
+
+This section states what the model delivers about the control outcome. The order is the order the
+model builds it in: the partition and its accounting identities, then what liquidity does inside
+each cell, then the attenuation theorem, then what survives the move from fixed policies to
+equilibrium. Section~\ref{sec:calibration} then reads the whole stack against the implemented
+calibration and says plainly what it makes of the antecedents. Each statement carries its
+conditionality with it; the full numerical records sit in the online appendix.
+
+\subsection{The partition and its accounting identities}
+\label{sec:partition-results}
+
+Three facts about the partition come first, and the rest of the section rests on them. They hold
+under the independence, finiteness, legal-clock and pricing conditions of Section~\ref{sec:model},
+the cutoff selection map of clause (i) of the equilibrium definition, and the two price conventions
+$P_{-1}^P=\Eop[Y]$ and $P_{\ND}=P_{f^-}^P$; part~(c) also consumes clause (TR-ii)'s Borel regularity
+of $s\mapsto B_j(s,d)$ for \emph{every} plan including Exit, because pooled pricing integrates over
+every type, and a content for the control-node information set. (a) The disclosure indicator
+$D=\ind\{a=1,\ c(\tau)+T\leq H\}$ is measurable, and it maps every control-node history into exactly
+one cell. (b) For every Voice plan, $f_j\leq H$ if and only if $B_j(s,H-T)\geq\tau$. (c) Each flagged
+history yields $B^F$, $R_d$, $R$ and $J$, and these satisfy the exact identity
+\begin{equation}
+\label{eq:runup-jump}
+P^F - P_{c^-}^P \;=\; R + J.
+\end{equation}
+\compatlabel{1}{lem:D1}
+
+Part~(b) is the \emph{clock equivalence}, and the threshold and window results both consume it: it
+converts a statement about the filing date into a statement about the stake path $T$ days before the
+horizon, which is what makes window comparisons tractable. Identity \eqref{eq:runup-jump} is the
+model counterpart of the timing split the empirics of Section~\ref{sec:empirics} measure: the total
+price move from just before the crossing to the flagged price decomposes exactly into the cumulative
+run-up plus the filing-day jump.
+
+The premium then decomposes across the two cells. Given the partition, the definitions of
+Section~\ref{sec:primitives}, the version of $\Eop[Y\mid\mathcal I]$ pinned by the pricing
+assumption, finiteness of $\Delta_m$, and one common probability space, whenever $0<\Omega<1$,
+\begin{equation}
+\label{eq:L1}
+\Dact \;=\; \Omega\,M_F \;+\; (1-\Omega)\,M_P .
+\end{equation}
+At $\Omega=1$ this degenerates to $\Dact=M_F$ and at $\Omega=0$ to $\Dact=M_P$; in each degenerate
+case the average over the null cell is \emph{undefined rather than imputed}. That last clause is a
+non-identification statement, and it is proved rather than asserted.\compatlabel{2}{lem:L1}
+
+\subsection{Liquidity in the flagged cell}
+\label{sec:flagged-results}
+
+Liquidity does nothing inside the flagged cell. At fixed cutoff \emph{and} execution policies, under
+the same standing conditions together with the on-path injective identification condition consumed
+almost surely on the flagged set,\footnote{``Almost surely'' is the permissive reading, and it is
+the only coherent one when $B^F$ is continuum-valued, since then no individual flagged tuple has
+positive probability.} the partition result above, the no-feedback timing, $\Omega>0$, and an
+explicit bidder-entry rule, either \eqref{eq:entry} or any rule with the two properties named in
+the proof and carried as bookkeeping, the flagged tuple $\Sfl=(B^F,Q^F,a{=}1)$ makes the pre-filing
+pooled history conditionally independent of $(v,s,\xi)$ on the flagged set. The flagged posterior,
+the flagged price, the entry probability and $M_F$ are therefore all invariant to
+$\kappa$.\compatlabel{3}{lem:L2}
+
+The weak identification wording of the identification assumption is not sufficient here: it permits
+two pairs $(j,s)$ with different pooled paths, which is this result's first failure case. The form
+consumed is the on-path injective one, named as such. This is the theoretical statement behind the
+empirics' identification claim: the flagged half of the timing split should not move with liquidity,
+and the pooled half should carry the entire liquidity derivative.
+
+\subsection{Liquidity in the pooled cell}
+\label{sec:pooled-results}
+
+Inside the pooled cell liquidity does move the premium, but only under the support restriction
+$\Atau$, and the restriction is the substance of the result rather than a caveat on it. Assume
+$\Atau$, both clauses ($\tau$-i) and ($\tau$-ii); $h(0)=0$; $\kappa$-free pooled mass and
+$\kappa$-free pooled engagement moment at fixed policies; the partition result by statement; and
+regularity stated minimally, $h$ continuous on $[0,\bar\pi]$ and twice differentiable on
+$(0,\bar\pi)$, with Darboux's theorem doing the rest and no continuity of $h''$ required. Then
+(a) $\partial_\kappa\Eop_\kappa[h]=\Akap\,C_h(\bar\pi)$, exactly; and (b)
+$C_h(\bar\pi)=\tfrac14\bar\pi^2h''(\zeta)$ for some $\zeta\in(0,\bar\pi)$, an identity rather than an
+approximation. Adding a second-order Peano expansion of $h$ at $0+$ and one and the same kernel along
+a shrinking family gives (c) $C_h=\tfrac14h''(0)\,\bar\pi^2+o(\bar\pi^2)$, so the interior motion
+vanishes at rate $\bar\pi^2$ as $\bar\pi\downarrow0$; the seam at which the threshold result consumes
+part~(c) needs $|\Akap|$ bounded \emph{uniformly in $\bar\pi$} along the limit. The statement is an
+``if'' and never an ``iff'': $\Akap=0$ also kills the interior motion.\compatlabel{4}{lem:L3}
+
+Whether the two-round pooled cell of Section~\ref{sec:timing} satisfies the support condition of
+$\Atau$ is \textbf{open}: the online appendix shows that the support condition is the assumption's
+entire remaining bite, and exhibits a one-round market that satisfies it and a no-disclosure
+structure that does not.
+
+Tightening the threshold then moves the pooled cell in three steps. Take $b_0<\tau'<\tau$ at a common
+window $T$ and a common $\kappa$, with $\Omega(\tau',T)<1$, at fixed policies. Leg 1, which is
+unconditional: $\mathcal C_F(\tau,T)\subseteq\mathcal C_F(\tau',T)$, with every newly flagged history
+generated by a Voice plan, so $\Omega(\tau',T)\geq\Omega(\tau,T)$. Leg 2, also unconditional: the
+pooled engagement \emph{share} falls, $\bar\pi_{\mathrm{pr}}(\tau')\leq\bar\pi_{\mathrm{pr}}(\tau)$,
+with an exact identity for the difference between the two shares. Leg 3, under $\Abr$:
+$\mathcal S_P(\tau',T)\leq\mathcal S_P(\tau,T)$, with equality whenever $C_h(\bar\pi(\tau))=0$. Legs
+1 and 2 need only the clock equivalence, the no-feedback timing, fixed policies, $b_0<\tau'<\tau$
+imposed at \emph{both} thresholds, independence, legal-clock discipline, clause (TR-iii)'s
+implication $D=1\Rightarrow a=1$, and $\Omega(\tau')<1$; nestedness is a \emph{conclusion} of leg 1,
+not a hypothesis of it. Leg 3 also needs the pooled interior-motion result by statement, the
+maintained \emph{magnitude} monotonicity of $|C_h|$ in $\bar\pi$ from $\Atau$, the sign half
+$C_h\leq0$ being unused at this leg, and clauses (br-i)--(br-v) of
+$\Abr$.\compatlabel{5}{lem:L4}
+
+Leg 3 inherits the conditionality of $\Abr$, and through clause (br-i) it inherits the representation
+\eqref{eq:atau} at \emph{both} compared thresholds; the numerical record in the online appendix
+therefore bears on leg 3 as directly as it bears on the interior-motion result. At the implemented
+calibration leg 3's antecedent is not satisfied, and at that calibration leg 3 says nothing about the
+implemented pooled cell. Legs 1 and 2 are unaffected: they consume no chord restriction. Clause
+(br-iii) is the clause with the least justification behind it and is the one to attack first.
+
+\subsection{Disclosure attenuation}
+\label{sec:attenuation}
+
+\begin{theorem}[Disclosure attenuation at fixed policies]
+\label{thm:T1}
+At fixed plan and cutoff policies, with $0 < \Omega < 1$ and $\mathcal S_P > 0$, and under the
+hypotheses (T-1)--(T-15) listed below:
+\begin{enumerate}[label=(\Alph*),leftmargin=2.4em,itemsep=3pt]
+\item \emph{Factorisation.} $\mathcal S = (1-\Omega)\,\mathcal S_P$, exactly; and the same
+  factorisation holds for the total-variation aggregate of $\Dact$ over any $\kappa$-grid, with no
+  differentiability required.
+\item \emph{Threshold margin.} Threshold tightening attenuates:
+  \begin{equation}
+  \label{eq:T1B}
+  \frac{\mathcal S(\tau')}{\mathcal S(\tau)} \;=\; W_\tau\,C_\tau \;\le\; 1,
+  \end{equation}
+  because \emph{both} ratios lie in $[0,1]$. No dominance condition is needed.
+\item \emph{Window margin.} Window tightening attenuates \emph{if and only if} $W_T C_T \le 1$, where
+  $W_T \le 1$ is proved --- from the clock equivalence of Section~\ref{sec:partition-results} and the monotone
+  Voice stake path --- and $C_T$ is \emph{unsigned}. The equivalent form
+  \begin{equation}
+  \label{eq:T1C}
+  \frac{\partial_{r_T}\mathcal S_P}{\mathcal S_P} \;\le\; \frac{\partial_{r_T}\Omega}{1-\Omega}
+  \end{equation}
+  holds \emph{on average along the tightening path}, integrated over $[-T,-T']$, and exactly in the
+  infinitesimal limit; read pointwise, \eqref{eq:T1C} is false.
+\end{enumerate}
+The hypotheses are: (T-1) fixed policies; (T-2) the interior-crossing condition at each compared
+policy; (T-3) $\mathcal S_P > 0$; (T-4) the two-cell decomposition \eqref{eq:L1}; (T-5) the
+flagged-cell invariance of Section~\ref{sec:flagged-results}, with its own hypotheses travelling;
+(T-6) the partition result of Section~\ref{sec:partition-results}; (T-7) PE-$\Omega$, that is
+$\partial_\kappa\Omega = 0$ at fixed policies --- derivable rather than assumed, and it is exactly
+what fails in general equilibrium, which is the term Proposition~\ref{prop:C1} bounds; (T-8)
+$\kappa$-differentiability of $M_P$, which no standing hypothesis of Section~\ref{sec:hypotheses}
+supplies and which is therefore carried in the proof; (T-9) the support restriction $\Atau$ at
+\emph{both} compared policies, with $\bar\pi$ read as the upper support point; (T-10) the pooled
+interior-motion result of Section~\ref{sec:pooled-results}; (T-11) clauses (br-i)--(br-v) of $\Abr$
+at the threshold pair; (T-12) the three-leg threshold result of Section~\ref{sec:pooled-results};
+(T-13) the no-feedback timing; (T-14) a smooth window interpolation, for the local form
+\eqref{eq:T1C} only; and (T-15) threshold-side smoothness, which has been confirmed
+non-load-bearing. \emph{No unconditional window sign is claimed.}
+\end{theorem}
+Part~(A) is the weight effect in its exact form: the liquidity sensitivity of the expected
+engagement-related premium is the pooled cell's sensitivity, scaled by the pooled cell's weight.
+Part~(B) is the threshold-margin result and needs no dominance condition, because the weight ratio
+and the composition ratio both lie in $[0,1]$. Part~(C) is the window-margin result, and it is an
+``if and only if'' rather than a sign: the composition ratio $C_T$ is unsigned, so the model does
+not deliver window-margin attenuation as a theorem. The two margins of the disclosure rule therefore
+enter the policy discussion with different epistemic status, and the February 2024 acceleration,
+a window change, lands on the margin where the theory signs nothing.
+
+\paragraph{The disclosure-regime comparison, and why it is not a window test.}
+A separate numerical comparison is sometimes read as evidence about the window, and it is not one. In
+the one-round predecessor model the expected engagement-related
+premium can be computed twice: once with the market seeing the disclosure flag alongside order
+flow, once with order flow alone. The cutoffs $k_1$ and $k_0$ stay at the baseline equilibrium
+throughout and only the disclosure cutoff $k_D$ moves; moving it across four values generates the
+flagged weights $\Omega = 0.037$, $0.129$, $0.286$ and $0.50$. The ratio of liquidity sensitivities
+(flagged divided by pooled,
+total variation over $\kappa \in [0.15,0.85]$) is $1.064$, $1.184$ and $1.136$ at the first three
+of those weights, falling to $0.378$ at $\Omega = 0.50$, with the sign crossing
+located by bisection at $\Omega^\star = 0.343$. Above one, the flag makes premia \emph{more}
+liquidity-sensitive. Figure~\ref{fig:disclosure} plots the two curves at the baseline. This is a
+\emph{disclosure-regime} comparison (the flag observed versus hidden, at a fixed filing window),
+and its ratios are regime-comparison composition outcomes: they are not $W_T C_T$, they measure no
+window pair, and the predecessor model has no window to vary. The comparison earns its place for one
+reason: it shows that a composition factor can exceed one, which is what motivates the genuine
+window-margin ``if and only if'' of Part~(C) and warns against reading attenuation into any flag
+comparison.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{numerical_output/fig_disclosure.pdf}
+\caption{The disclosure-regime comparison in the one-round predecessor model, at fixed cutoffs
+($\Omega = 0.037$). The solid line with circle markers prices the blockholder's engagement-driven
+premium with the market seeing order flow and the disclosure flag (threshold disclosure,
+baseline); the dashed line with square markers prices it from order flow alone (no disclosure,
+counterfactual). The two curves cross near $\kappa = 0.73$.
+At this baseline the flagged cell is \emph{more} liquidity-sensitive than the pooled one (total
+variation ratio $1.064$), so this comparison refutes attenuation in $\kappa$ for the regime margin
+at this weight. It is a composition fact, not a window test; the window record is
+Table~\ref{tab:window-record}.}
+\label{fig:disclosure}
+\end{figure}
+
+\subsection{From fixed policies to equilibrium}
+\label{sec:ge-results}
+
+Theorem~\ref{thm:T1} holds at fixed policies, and hypothesis (T-7) is exactly what fails once the
+cutoff vector is allowed to move with $\kappa$. The next result asks what survives that move. It
+carries the region as a \emph{named hypothesis} rather than exhibiting one.
+
+\setcounter{proposition}{1}
+\begin{proposition}[The dominance-and-contraction implication in general equilibrium]
+\label{prop:C1}
+Assume:
+\begin{enumerate}[label=(C-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item the along-the-path contraction $L_{\mathcal R} < 1$ of Section~\ref{sec:equilibrium-notion}, in
+  \emph{one fixed norm convention} --- an induced operator norm with its dual pairings; a mismatched
+  pairing silently voids the implication;
+\item $\mathcal R_r$ relatively open in \emph{both} coordinates, with $\kappa \notin \{0,1\}$;
+\item an interior single-branch equilibrium;
+\item twice continuous differentiability of $\Dact$ in $(k,\kappa,r)$;
+\item a non-vanishing \emph{equilibrium} liquidity derivative --- the equilibrium sensitivity
+  $\mathcal S^{GE}$, which is distinguished from the fixed-policy sensitivity $\mathcal S$ of
+  Section~\ref{sec:polytope};
+\item strict dominance $g_r^{PE} > \mathcal B_r^{GE}$ on the region, with $g_r^{PE}$ as in
+  \eqref{eq:gPE} and $\mathcal B_r^{GE}$ as in \eqref{eq:BGE};
+\item the \emph{threshold} margin $r_\tau$ only: the window coordinate is an integer, and nothing
+  local is claimed there.
+\end{enumerate}
+Then the fixed-policy attenuation sign survives in equilibrium on the region:
+\begin{equation}
+\label{eq:C1}
+\partial_r \mathcal S^{GE} \;\le\; -\eta_r \;<\; 0 .
+\end{equation}
+The sign-coherence hypothesis --- that the fixed-policy attenuation sign agrees with the equilibrium
+sign --- is confirmed unused in \eqref{eq:C1}: its work is one of naming, fixing when that conclusion
+may be called a survival of the fixed-policy sign. The sign-constancy clause of the
+general-equilibrium condition is likewise unused.
+\end{proposition}
+
+\subsection{The model at the implemented calibration}
+\label{sec:calibration}
+
+The results above are conditionals, and this subsection says plainly what the implemented
+calibration makes of their antecedents. The online appendix carries the full measurements.
+
+\emph{Existence.} The two main hypotheses about the equilibrium object are measured to fail at the
+calibration the implementation runs. The single-crossing clause fails at two independently found
+loci: at one, an adjacent-plan payoff difference crosses zero three times on an open set of the
+second cutoff; at the other, the preferred plan decreases in the signal across a cell edge. The
+outer map's continuity fails for the polytope the proof constructs, with measured jumps of
+$6.33\times10^{-3}$ to $2.83\times10^{-2}$ across steps in the cutoff of at most
+$2\times10^{-9}$ at the baseline node, and jumps reaching $0.16$ at a second node. In plain words: the proof needs the outer best-response map to be continuous and
+single-valued, and at the implemented calibration that map has measured jumps and stretches where
+no weakly increasing selection exists at all. Nonexistence is neither claimed nor shown:
+twenty-three of twenty-seven equilibrium-sweep nodes converge, the remaining four stay unresolved
+after thirty seeds each, and a discontinuous self-map may still have fixed points.
+
+\emph{The chord restriction.} The restriction behind the pooled-cell results fails at the same
+calibration. The pooled cell's engagement-posterior law, enumerated exactly over all $4^{H+1}$
+order-flow paths at $H = 10$, at two hundred nodes, carries between $23$ and $767$ distinct posterior values
+where the restriction's representation asks for three, at every one of the $180$ non-degenerate
+nodes; the remaining twenty nodes are degenerate and decide nothing. The interior motion of the
+pooled premium, leg 3 of the threshold-nesting result and Part~(B) of the attenuation theorem
+remain proved as conditionals; at this calibration they say nothing about the implemented pooled
+cell. The open question concerns the restriction's domain: a different menu, a different horizon,
+or a different calibration could still satisfy the support condition.
+
+\emph{The window record.} At frozen policies, with cutoffs pinned at the baseline equilibrium, the
+flagged weight is $\Omega = 13.84$ percent, the disclosed share of engagements is $\omega_a =
+61.15$ percent, and the cell averages are $M_F = 0.553$ and $M_P = 0.223$ premium percentage
+points. Cutting the window from $T=10$ to $T=5$ then cuts the premium's liquidity sensitivity to
+between $18$ and $77$ percent of its long-window value at every checked node, and the composition
+leg carries almost all of it: $C_T$ runs from $0.21$ to $0.79$ while the weight leg shaves $3$ to
+$14$ percent (Table~\ref{tab:window-record}). The same record confirms the flagged cell's
+invariance exactly, with every flagged object invariant in $\kappa$ to machine zero over the grid
+while the pooled $M_P$ moves $0.0722$ premium percentage points, and gives the threshold margin
+the same direction, with zero of eight compared pairs above one. Two caveats travel with the
+record. At $H = 10$ the long window is the corner $T = H$; the $H = 12$ column of the table, where
+$T = 10$ is strictly interior, points the same way but travels the chord closed form whose support
+condition fails at this calibration, so it is directional corroboration rather than a second
+independent magnitude. And the record is node evidence at one calibration, not a sign theorem:
+Part~(C) claims none. At this calibration the model's directional prediction for the February 2024
+acceleration is attenuation, and the empirics of Section~\ref{sec:empirics} treat that as one of
+two live branches, not as a derived sign.
+
+\begin{table}[H]
+\centering
+\caption{The window-margin record at fixed policies: cutting the window from $T=10$ to $T=5$ at the
+implemented calibration. Weight leg $W_T$, composition leg $C_T$, product $W_T C_T \le 1$
+(attenuation), with no $\tau$ node above one. Verified on the numerical grid; sensitivity measured as the total variation of
+$\Dact$ over the $\kappa$ grid. The $H = 12$ column re-runs the comparison with $T = 10$ strictly
+interior to the horizon, where the $0.9$-quantile node returns $1.0000$ because the $\tau$
+ladder stops biting and the two flagged weights coincide, not because the product crosses one.}
+\label{tab:window-record}
+\begin{tabular}{lcccc c}
+\toprule
+$\tau$ quantile & $W_T$ & $C_T$ & $W_T C_T$ & \quad & $W_T C_T$ at $H = 12$ \\
+\midrule
+0.1 & 0.8559 & 0.2124 & \textbf{0.1818} & & 0.1099 \\
+0.3 & 0.8559 & 0.2124 & \textbf{0.1818} & & 0.1099 \\
+0.5 & 0.8622 & 0.2384 & \textbf{0.2055} & & 0.2406 \\
+0.7 & 0.9176 & 0.4686 & \textbf{0.4299} & & 0.5772 \\
+0.9 & 0.9730 & 0.7939 & \textbf{0.7724} & & 1.0000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\emph{The equilibrium region.} For the move from fixed policies to equilibrium, eighteen of eighty
+grid nodes satisfy the two pointwise inequalities, the contraction bound below one and positive
+dominance slack, with the largest contiguous block, nine nodes, at $T = 5$. A node is a pointwise
+numerical fact, not evidence of a region: whether any parameter vector satisfies the full
+antecedent of Proposition~\ref{prop:C1} is open.
+
+%==============================================================================
+\section{Empirics: motivating facts and the written specification}
+\label{sec:empirics}
+%==============================================================================
+
+The empirical half of the paper has two layers with different statuses, and the draft keeps them
+apart. The motivating facts in Section~\ref{sec:facts} have been run: they are descriptives computed
+from the seeded filing sample, with the sample stated exactly and no standard errors claimed. The
+specification in Section~\ref{sec:spec} is prospective: it states the variables, windows, samples,
+standard errors, placebos, and decision rules before any estimate exists. The timing split is the
+specification's default headline; final selection remains pending in
+Section~\ref{sec:headline-shell}.
+
+\subsection{Motivating facts: the delay distribution before and after the acceleration}
+\label{sec:facts}
+
+The anchor is the February 2024 acceleration: the initial Schedule 13D deadline moved from ten
+calendar days to five business days for trigger dates from 2024-02-05 \citep{SEC2023}. The first
+question is whether filers moved at all. They did. Drawing a seeded sample of roughly one hundred
+fifty initial 13D filings from each of two windows (2023Q2--Q3, the last full pre-rule quarters,
+and 2024Q3--Q4, well after the effective date) and measuring the trigger-to-filing delay in
+business days with the federal-holiday calendar, the distribution compresses sharply
+(Table~\ref{tab:fact1} and Figure~\ref{fig:fact1}).
+
+\begin{table}[H]
+\centering
+\caption{The trigger-to-filing delay in business days, before and after the February 2024
+acceleration. Seeded samples of initial 13D filings drawn from EDGAR, with the trigger date read
+from the filing itself and the delay counted in business days on the federal-holiday calendar. Of
+the $300$ sampled filings ($150$ in each window), $198$ carry a trigger date that parses: $102$ pre
+and $96$ post, which are the parse rates of $0.68$ and $0.64$ against the $150$ drawn per window.
+An admissible band of $0$ to $60$ business days then screens out ten of those, $4$ pre (delays of
+$129$, $143$, $526$ and $567$ business days) and $6$ post (delays of $62$, $73$, $133$, $262$,
+$407$ and $1{,}365$ business days), and the statistics below are computed on the $188$ that remain
+($98$ pre, $90$ post). Because the parse rates are below one, every count is a floor. Descriptive
+statistics; no standard errors are claimed.}
+\label{tab:fact1}
+\begin{tabular}{lcccccc}
+\toprule
+Window & $n$ & Mean & Median & p90 & Share $\le 5$ bd & Share $\le 10$ bd \\
+\midrule
+Pre (2023Q2--Q3, 10-calendar-day rule)  & 98 & 9.63 & 7.0 & 23.0 & 35.7\% & 80.6\% \\
+Post (2024Q3--Q4, 5-business-day rule)  & 90 & 6.40 & 5.0 & 11.1 & 75.6\% & 88.9\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{empirics/output/fact1_delay.pdf}
+\caption{The filing-delay distribution, pre (2023Q2--Q3) versus post (2024Q3--Q4) acceleration, in
+business days. The mass under the old ten-day regime piles between five and ten business days, with
+a long right tail of late filers; under the five-business-day rule the mass concentrates inside the
+new deadline. Descriptives from the seeded samples of Table~\ref{tab:fact1}.}
+\label{fig:fact1}
+\end{figure}
+
+Three readings of the table, each bounded. First, the compression is real and large: the median
+delay falls from seven business days to five, and the share of filings inside the new five-day
+deadline more than doubles, from 35.7 to 75.6 percent. Second, the pre-rule distribution was not
+bimodal. It was already
+spread across the old window in the way \citet{BebchukBravJacksonJiang2013} document on filings by
+engaging investors: the mass rises into the deadline bucket, where 45.3 percent of their filings sit
+at eight to ten business days, with 16.5 percent inside three business days and a tail of 7.1
+percent beyond fifteen. The acceleration bit a population that was heterogeneous in exactly the
+dimension the rule targets; the design below exploits that heterogeneity as a dose. Third, the numbers agree in kind with the Commission's own
+arithmetic: the release expected earlier filing for about 59 percent of timely 13D reports and put
+about 29 percent of 2022's initial filings already inside the amended deadline, against our 35.7
+percent already inside before the rule. Different samples and different windows, but the same
+direction \citep{SEC2023}. The honest caveats travel with the table: the samples are seeded draws,
+not the universe; the parse rates are floors; ten filings whose measured delay falls outside a
+nought-to-sixty business-day band are screened out and counted in the table note rather than cut
+silently; and these are descriptives, with no standard errors, because none are claimed. The delay is counted in business days throughout; counting calendar
+days against a business-day rule, as \citet{PolkBuchheitRileyStone2024} do, misclassifies the
+48 percent of their sample that piles at their day-ten marker.
+
+\subsection{The written specification for the full empirics}
+\label{sec:spec}
+
+This subsection summarises a design fixed before estimation; nothing in it has been run. Every
+estimate the December draft will report is specified here or in the underlying document, and the
+rule the design imposes on itself is that no specification may change after an estimate is seen, and
+that a null is reported with its minimum detectable effect rather than as ``no effect''.
+
+\paragraph{Sample and split.}
+The universe is all initial Schedule 13D filings from 2022-01-01 to 2025-12-31, enumerated from
+EDGAR quarterly indexes, matched to CRSP. The treatment split is on the \emph{trigger} date, not the
+filing date: the deadline attaches to the crossing, so a block crossed on 2024-01-30 and filed on
+2024-02-08 belonged to the old regime. Filings that straddle are excluded and counted. The main
+pre window is 2022-01-01 through 2023-10-09. The adoption date, 2023-10-10, begins a separately
+reported adoption-to-effect stub through 2024-02-04; the stub is not pooled into ``pre''. The
+structured-data mandate on 2024-12-18 is a second measurement break, so the main sample ends on
+2024-12-17 and 2025 is reported as an extension with its own parse-rate table. The EDGAR
+dissemination cut-off moved from 5:30 pm to 10:00 pm ET on the same date the window changed, which
+shifts the flagged day by one for part of the post sample; the effective filing date FD$^{*}$ is
+constructed to absorb this, and re-running with FD$^{*} \equiv$ FD is a required robustness row. A
+full re-fetch and re-parse with the current parser is a stated precondition for any estimate, and
+every count in the design is a floor until it has run.
+
+\paragraph{(a) The timing split.}
+For every filing, two abnormal returns from a market model estimated over $[\mathrm{TD}-252,
+\mathrm{TD}-22]$: the \emph{run-up}, from the trigger to the day before the flag lands, and the
+\emph{jump}, on the filing day (a three-day window around the effective filing date). This is
+the identity \eqref{eq:runup-jump} and the flagged cell's $\kappa$-invariance turned into
+a regression pair. The partition test (H1) is sign-free: the run-up's liquidity slope should be
+non-zero, the jump's zero, and the two different. It is estimated as one
+stacked regression with a flagged-half interaction, so the difference carries a standard error;
+inference is two-way clustered on subject firm and on calendar month, with a wild cluster bootstrap
+on the month dimension and the more conservative of the two reported. The February 2024
+acceleration test (H2) asks
+whether the run-up's liquidity slope changed after February 2024, on a fixed five-trading-day window from
+the trigger so the outcome's length does not change mechanically with the rule; both signs are
+written out in advance: attenuation (the shorter window moves mass to the $\kappa$-invariant
+flagged cell and flattens the composite slope) and amplification (the same informed trading
+concentrated into fewer days steepens it). One check can kill the identity: if the jump's
+slope moves the same way as the run-up's, there is no partition to write about. Liquidity is a
+pre-treatment Amihud-type illiquidity measure, inverted and standardised within quarter, with the
+orientation printed in every table note. The run-up \emph{path} from trigger to filing, cut by
+liquidity tercile and period, is reported as a figure in the house style, descriptive only; the
+benchmark shape is a $0.9$ percent abnormal return on the trigger date and $1.6$ percent on the day
+after \citep{PolkBuchheitRileyStone2024}, with the run-up beginning on the trigger date itself
+\citep{Zeng2026}.
+
+\paragraph{(b) The bindingness dose.}
+The rule binds filers unevenly: those already filing inside five business days cannot be moved by
+it. The primary dose is a filer attribute built from pre-period behaviour only and is computed for
+filers with at least two pre-period initial 13Ds: the share whose delay exceeded five business days,
+in $[0,1]$. For a single-filing filer, a leave-one-out pre-period stratum mean, by filer type,
+size tercile and illiquidity tercile, is imputed only in a robustness row and never in the primary
+estimate. The dose specification interacts the dose with Post and clusters on filer as well. Its first stage is
+mechanical (a fast filer cannot get faster) and is labelled a validity check, not a finding; the
+only working-paper estimate of the same first stage is \citet{Trivedi2026}'s compliance share, $+0.348$
+with standard error $0.130$, whose own primary outcome, mean lag, is null, and whose sampling
+frame is never stated. Because slow filers are plausibly smaller and less liquid, the correlation
+between dose and liquidity is reported, and the dose specification is re-run within liquidity
+tercile.
+
+\paragraph{(c) Stake at filing.}
+The percent of the class printed on the 13D is the empirical counterpart of the model's stake at
+filing $B^F$, an object the two-round model produces and the predecessor model could not. The
+specification asks whether the stake at filing fell after the acceleration and whether the fall is
+ordered by liquidity. One hazard is stated before the estimate because it points the other way: in
+the cross-section of delays, \citet{BebchukBravJacksonJiang2013} find the \emph{negative} gradient:
+filers who take longer end up with smaller stakes, $0.6$ percentage points per ten days. The
+cross-section of delays is therefore never read as a window effect; only the 5 February 2024
+filing-window change is. The historical
+days--stake gradient implies a mechanical stake change of roughly $0.12$ percentage points from the
+two-day median-delay cut, against the stake leg's minimum detectable effect of $0.85$ percentage
+points on the post-re-parse projection, so a detectable
+estimate would have to be behavioural rather than arithmetic, and the paper would have to say which.
+
+\paragraph{(d) The bounded null.}
+The Commission's own tables cap what the accumulation channel can do. Classifying 2011--2021
+non-corporate-action initial 13Ds by how much of the reported stake was already accumulated by the
+amended five-business-day deadline: 80 percent of campaigns were unconstrained; 20 percent would
+have had some accumulation cut; 3 percent would have had at least a tenth of the stake cut; 1
+percent at least a quarter \citep{SEC2023}. If only constrained campaigns can have their bid
+outcomes moved by the rule, the aggregate effect on the twelve-month bid hazard is capped by the
+constrained share, and the design reports the whole ladder (20, 3 and 1 percentage points)
+rather than picking one. The 3-point rung is a judgement about what counts as a materially cut
+campaign, and it is stated as such. The bound covers the accumulation channel only; it is not the
+aggregate footprint of the rule, and the dollar figures that travel with it in the release are the
+Commission's own, and the Commission disclaims them.
+
+\paragraph{(e) The matched difference-in-differences on the bid hazard.}
+The control-outcome leg asks whether a bid arrives within twelve months of the trigger, for 13D
+targets against \emph{never-13D} firms matched three-to-one on size, illiquidity, industry and
+quarter, each control inheriting its treated firm's trigger date as a pseudo-trigger so both are
+measured over the identical calendar window. Never-13D rather than 13G controls: 13G filers
+disclaim control intent, and selection between the two forms is itself plausibly responsive to the
+rule. Bid arrival is coded from tender-offer and merger filings, with a thirty-filing hand audit
+done blind. Base rates anchor the power arithmetic: 18.1 percent of campaign targets are acquired
+within twelve months against 7.2 percent of matched controls \citep{GreenwoodSchor2009}. The power
+arithmetic gives minimum detectable effects of $5.8$ percentage points on today's counts, $4.4$
+percentage points for S1 after the re-parse, and $9.9$ percentage points for S2. The latter two use
+the optimistic projection $N \approx 4{,}950$, $w \approx 0.394$; they are projections, not estimates.
+The MDE exceeds the 3-point ceiling of the bounded null, so the difference-in-differences cannot
+separate the accumulation effect from zero even at that ceiling. Only an estimate's excess above
+3 percentage points can be attributed to incumbent defence or selection; the first 3 points remain
+compatible with accumulation.
+
+\paragraph{(f) Bidder entry by liquidity.}
+Within the 13D sample, the bidder-entry leg estimates the liquidity interaction
+\begin{equation*}
+\mathrm{BID12}_i = \alpha + \delta(\mathrm{LIQ}_i\times\mathrm{Post}_i) + \beta\,\mathrm{LIQ}_i
+  + \gamma\,\mathrm{Post}_i + X_i'\theta + \mathrm{FE} + \varepsilon_i .
+\end{equation*}
+Against the matched never-13D controls it estimates the matched triple difference
+\begin{equation*}
+\mathrm{BID12}_i = \alpha + \tau(\mathrm{Treat}_i\times\mathrm{Post}_i\times\mathrm{LIQ}_i)
+  + \text{all lower-order interactions} + X_i'\theta + \delta_{\mathrm{match}} + \varepsilon_i .
+\end{equation*}
+The coefficient $\tau$ asks whether the effect of the February 2024 acceleration on bidder
+entry differs by liquidity. A
+rule-of-thumb power calculation gives projected MDEs of about $8.8$ percentage points for S1 and
+$19.8$ percentage points for S2. These are weakly powered projections, and the realised variance
+will replace the rule of thumb before an estimate is interpreted.
+
+\paragraph{(g) The referee checklist.}
+Control group or bounded null: both, as above. Confounds: ten named ones with a stated handling
+each, including the three the literature specifically warns about: the EDGAR cut-off moving on
+the same date as the window, calendar-day screens that stop being neutral under a business-day rule,
+and the incumbent-defence channel, which runs opposite to accumulation. Rights-plan coverage is
+untested: the proposed moderator uses best-effort EDGAR searches for $8$-K Item 3.03 and $8$-A12B;
+if coverage is insufficient, the defence channel is retained with its signed-bias fallback. Power:
+computed from counts on disk plus stated variance assumptions, with the arithmetic shown; the timing split
+detects $1.1$--$2.3$ percentage points per standard deviation of illiquidity after the re-parse,
+against a mean pre-rule run-up of $2.8$ percent \citep{Zeng2026}, and anything smaller is reported
+as a bounded null. Placebos use all 568 holiday-adjusted dates before the 10 October 2023 adoption
+of the February 2024 acceleration, plus a pseudo-trigger placebo one quarter before the real
+crossing and a descriptive 13G
+placebo whose deadlines did not change until September 2024. Pre-trends: quarterly liquidity-slope
+estimates over the seven pre-adoption quarters, joint $F$-test, and a fixed blocking rule:
+a $p$-value below $0.10$ removes causal language from the leg. Parser validation remains incomplete:
+the available pipeline output is pre-XML and the full-universe re-parse has not run; both limitations
+are reported.
+
+\subsection{Headline shell}
+\label{sec:headline-shell}
+
+The headline empirical result is a choice that has not been made, and this subsection is a shell:
+it fixes what the headline subsection must contain, lists the candidate headlines with what each
+would claim and what would kill each, and marks the choice pending rather than picking one. \\
+\textbf{[headline choice pending]}
+
+\paragraph{Candidate A: the partition test as headline.}
+Claim: the run-up's liquidity slope is non-zero, the jump's is zero, and the difference is measured
+with a standard error: the paper's identity in one regression pair, sign-free and needing no
+theory input. What it needs: the re-parsed sample and the stacked specification of (a). What kills
+it: a jump slope that moves with liquidity like the run-up's, which would refute the partition
+itself and is reported first if it happens. Scope: it is an identity claim, not an estimate of the
+February 2024 acceleration, and a referee will ask what the 5 February 2024 filing-window change did.
+
+\paragraph{Candidate B: the slope change after the February 2024 acceleration.}
+Claim: the run-up's liquidity slope changed after February 2024, in the direction the window record
+of Table~\ref{tab:window-record} points (attenuation at every checked node, composition leg
+carrying it). What it needs: the same sample, the fixed-length run-up, and a decision on how much
+weight to put on a theory direction whose antecedent $\Atau$ is measured to fail at the implemented
+calibration, so the design keeps both branches live and pre-specifies what each sign
+means. What kills it: a bounded null (the minimum detectable effect is $1.1$--$2.3$ percentage
+points on the post-re-parse projection), which is a reportable outcome rather than a failure. Scope: it is the candidate most
+directly about the anchor, and the one most exposed to the theory's honest conditionality.
+
+\paragraph{Candidate C: the bounded null as headline.}
+Claim: the accumulation channel's aggregate effect on the bid hazard is capped at about three
+percentage points by the Commission's own tables, the matched design cannot separately detect even
+the ceiling, and that arithmetic, not a point estimate, is the paper's answer to what the
+acceleration could do to control outcomes. What it needs: the matched sample and the ladder of
+rungs. What kills it: nothing in the data; the risk is presentation, since it reports a ceiling rather
+than an effect. Scope: it is the most defensible statement and the least newsy one, and it can be
+combined with either A or B as a supporting leg rather than standing alone.
+
+The choice among A, B, and C is mine, and the December draft's headline subsection will be
+written into this shell once it is made.
+
+%==============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%==============================================================================
+
+The disclosure rule is the market's partition, and this paper takes the identity literally. A stake
+threshold and a filing window split the histories that reach a control decision into a flagged cell
+and a pooled one; the window is a primitive of the model rather than a rescaling of noise, and the
+stake at filing is an object the model produces. On that ground the paper proves what it can and
+records where it cannot. Existence is a conditional whose two main hypotheses about the equilibrium
+object are measured to fail at the implemented calibration, stated once, in plain words, because
+a reader deserves to know exactly what the proposition does and does not cover. The attenuation
+theorem separates the rule's two margins honestly: the threshold margin attenuates with no
+dominance condition; the window margin attenuates if and only if a weight ratio times an unsigned
+composition ratio is at most one. The general-equilibrium survival of the fixed-policy sign is an
+implication with the region as a named hypothesis, plus numerical nodes. The numerical layer reads
+the same stack against the implemented calibration and reports an attenuation-direction window
+record alongside the measured failure of the chord restriction that would close the loop; the
+two facts sit in the same section because they are both true. The scope is stated as plainly as
+the results: the paper does not claim a global window-margin attenuation sign, $\kappa$-invariance
+of the filing-day jump, equilibrium uniqueness, a nonempty general-equilibrium region as a
+theorem, endogenous filing before the deadline, noisy or partially revealing flagged-round
+trading, continuous-time execution, or welfare or optimal rule design; nor that the predecessor
+model's non-monotone result for minority gains survives in the two-round model, nor that the
+predecessor calibration at $\Omega \approx 0.037$ is economically meaningful.
+
+The empirics rest on the February 2024 acceleration. The established descriptive fact is that filers moved: the
+median delay fell from seven business days to five, and the share inside the new deadline more than
+doubled. The specification for everything beyond that is written: a timing split that tests the
+partition directly, a bindingness dose, a stake-at-filing leg, a bounded null from the
+Commission's own tables, a matched
+design on the bid hazard whose honest deliverable is already known to be a ceiling, and a
+bidder-entry-by-liquidity leg. The
+headline choice is recorded as pending.
+
+Three open questions carry the research forward: whether any two-round pooled cell satisfies the
+chord restriction's support condition, which is the largest single conditionality in the stack;
+whether the existence assumptions can be satisfied on a relevant menu, including the
+incentive-compatibility question for a fully separating plan; and whether the scoped continuity
+problem in the outer-map assumption can be repaired constructively. Alongside them stands one open
+calibration input that is nowhere load-bearing: the disclosed share of engagements $\omega_a$, for which no
+dataset in the literature offers an anchor, and which the paper does not invent. Each question is
+about the domain of an assumption
+this paper states rather than hides, which is where a theory of a legal rule should leave its
+unfinished work.
+
+\printbibliography
+
+\end{document}

@@ -1,0 +1,384 @@
+{
+  "checks": [
+    {
+      "name": "l2_flagged_invariance_ranges",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "range_kappa of each flagged engagement posterior, each conditional-value posterior used by pricing, P^F, the bidder-entry probability p, and M_F; predicted exactly zero, required below 1e-10",
+      "tol": 1e-10,
+      "max_range": {
+        "v_hat": 0.0,
+        "pi_flagged": 0.0,
+        "P_F": 0.0,
+        "p_bid": 0.0,
+        "M_F": 0.0,
+        "Omega": 0.0
+      },
+      "note": "P^F and p are compared POINTWISE over the flagged quadrature nodes, not only in the M_F average, so a sign-cancelling error cannot hide inside M_F",
+      "Omega_note": "range_kappa Omega is the Step 2 by-product: D is deterministic in (j,s) and never touches the noise law",
+      "rows": [
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 5,
+          "tau_quantile": 0.1,
+          "tau": 0.08462696676439771,
+          "n_flagged_nodes": 260,
+          "M_F_pp_at_kappa_ref": 0.5781240792474046,
+          "Omega_at_kappa_ref": 0.14465741548984065
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 5,
+          "tau_quantile": 0.3,
+          "tau": 0.08788437014471917,
+          "n_flagged_nodes": 240,
+          "M_F_pp_at_kappa_ref": 0.5781240792474042,
+          "Omega_at_kappa_ref": 0.1446574154898407
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 5,
+          "tau_quantile": 0.5,
+          "tau": 0.09076405861553302,
+          "n_flagged_nodes": 200,
+          "M_F_pp_at_kappa_ref": 0.552817848535105,
+          "Omega_at_kappa_ref": 0.1383963119314466
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 5,
+          "tau_quantile": 0.7,
+          "tau": 0.09337594348697996,
+          "n_flagged_nodes": 100,
+          "M_F_pp_at_kappa_ref": 0.33067147617283865,
+          "Omega_at_kappa_ref": 0.08303778676423275
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 5,
+          "tau_quantile": 0.9,
+          "tau": 0.09602833824479486,
+          "n_flagged_nodes": 60,
+          "M_F_pp_at_kappa_ref": 0.111337098812026,
+          "Omega_at_kappa_ref": 0.02767926159701934
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 10,
+          "tau_quantile": 0.1,
+          "tau": 0.08462696676439771,
+          "n_flagged_nodes": 20,
+          "M_F_pp_at_kappa_ref": 0.0032653741961090753,
+          "Omega_at_kappa_ref": 0.0006812715261460647
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 10,
+          "tau_quantile": 0.3,
+          "tau": 0.08788437014471917,
+          "n_flagged_nodes": 40,
+          "M_F_pp_at_kappa_ref": 0.003265374196109537,
+          "Omega_at_kappa_ref": 0.0006812715261460647
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 10,
+          "tau_quantile": 0.5,
+          "tau": 0.09076405861553302,
+          "n_flagged_nodes": 40,
+          "M_F_pp_at_kappa_ref": 0.003265374196109093,
+          "Omega_at_kappa_ref": 0.0006812715261460647
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 10,
+          "tau_quantile": 0.7,
+          "tau": 0.09337594348697996,
+          "n_flagged_nodes": 20,
+          "M_F_pp_at_kappa_ref": 0.0032653741961090753,
+          "Omega_at_kappa_ref": 0.0006812715261460647
+        },
+        {
+          "range_v_hat_max_over_nodes": 0.0,
+          "range_P_F_max_over_nodes": 0.0,
+          "range_p_bid_max_over_nodes": 0.0,
+          "range_pi_flagged": 0.0,
+          "range_M_F": 0.0,
+          "range_Omega": 0.0,
+          "T": 10,
+          "tau_quantile": 0.9,
+          "tau": 0.09602833824479486,
+          "n_flagged_nodes": 20,
+          "M_F_pp_at_kappa_ref": 0.0032653741961090753,
+          "Omega_at_kappa_ref": 0.0006812715261460648
+        }
+      ]
+    },
+    {
+      "name": "l2_flagged_invariance_derivs",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "central finite-difference derivatives in kappa below 1e-8 in absolute value",
+      "tol": 1e-08,
+      "kappa": 0.5,
+      "method": "premium.d_dkappa, 4th-order central difference, h = 1e-3",
+      "derivatives": {
+        "dM_F_dkappa": 0.0,
+        "dOmega_dkappa": 0.0,
+        "dP_F_dkappa": 0.0,
+        "dp_bid_dkappa": 0.0
+      }
+    },
+    {
+      "name": "l2_placebo_M_P_moves",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "PLACEBO 1: D_P = max_kappa |M_P(kappa) - M_P(0.5)| must be STRICTLY POSITIVE. If it returns at solver tolerance the invariance check is uninformative rather than confirmatory, and the grid must be rebuilt with pi_bar bounded away from zero",
+      "D_P": 0.0007223678779180148,
+      "D_P_pp": 0.07223678779180148,
+      "M_P_min_pp": 0.1505616879790367,
+      "M_P_max_pp": 0.222842170198758,
+      "range_M_P_pp": 0.07228048221972129,
+      "pi_bar_pr_at_reference": 0.10206126073370039,
+      "verdict": "the invariance target is NOT vacuous at this calibration: M_P moves by 0.072280 premium pp over the kappa grid while M_F moves by exactly 0",
+      "M_P_pp_by_kappa": [
+        0.1505616879790367,
+        0.15143696821182068,
+        0.15434757499494428,
+        0.16000431833787593,
+        0.16849001460233046,
+        0.17947885602943942,
+        0.19222594660915387,
+        0.2052357869349295,
+        0.21623100522062338,
+        0.2227984757708382,
+        0.222842170198758,
+        0.2155322480848083,
+        0.2032398320886169,
+        0.18990130006898892,
+        0.17681465827525022,
+        0.164914461162899,
+        0.15639967882785788,
+        0.1519726357256568,
+        0.15060053491851783
+      ]
+    },
+    {
+      "name": "l2_placebo_J_moves",
+      "kind": "substantive",
+      "pass": true,
+      "vacuous": false,
+      "request": "PLACEBO 2: D_J = max_kappa |J(s_0;kappa) - J(s_0;0.5)| must be STRICTLY POSITIVE, with d_kappa J = -d_kappa P^P_{f-}. D_J = 0 would indicate the pooled price is being cached rather than recomputed",
+      "s_0": 2.662283757197735,
+      "atom": [
+        2.549291170307685,
+        2.7752763440877857
+      ],
+      "D_J": 0.5089777332231028,
+      "D_J_bp": 5089.777332231028,
+      "J_min_bp": 593.5941104243373,
+      "J_max_bp": 5804.298321506394,
+      "J_bp_by_kappa": [
+        593.5941104243373,
+        2061.876946057806,
+        3456.665510217509,
+        4504.935350954081,
+        5173.931374365166,
+        5552.995181702133,
+        5740.861681065689,
+        5804.298321506394,
+        5779.306765326507,
+        5683.371442655365,
+        5524.447377101687,
+        5305.438050467293,
+        5026.875409522197,
+        4689.177781892557,
+        4291.864308201056,
+        3827.172357400965,
+        3267.765275950655,
+        2527.145256162311,
+        1261.930711645676
+      ]
+    },
+    {
+      "name": "l2_placebo_M_P_sign_A_tau",
+      "kind": "substantive",
+      "pass": false,
+      "vacuous": false,
+      "request": "the placebo's SIGN clause: d_kappa M_P <= 0 under A(tau)'s maintained C_h(pi_bar) <= 0",
+      "n_positive_increments": 10,
+      "n_total_increments": 18,
+      "n_sign_changes": 1,
+      "kappa_at_M_P_peak": 0.55,
+      "finding": "FAILED HYPOTHESIS, reported and not smoothed: the enumerated pooled M_P is HUMP-SHAPED in kappa on this calibration -- it rises to a peak near kappa = 0.55 and falls after -- so d_kappa M_P changes sign and the A(tau)-conditional prediction d_kappa M_P <= 0 does not hold globally. This is a statement about A(tau)'s orientation on the enumerated two-round pooled law, NOT about L2: L2's own claims are the flagged-side ranges and derivatives above, which are exactly zero. Design section 0 rules that the enumeration never imposes A(tau), so this gap is the object the design intended to measure.",
+      "scope": "ancillary to L2; L2's verdict is carried by l2_flagged_invariance_ranges and _derivs"
+    }
+  ],
+  "n_fail": 1,
+  "n_vacuous": 0,
+  "provenance": {
+    "model_card_stamp": "2026-08-20 (commit 0c9185b)",
+    "commit": "0c9185b -- MODEL_CARD stamp as recorded in numerical_v4/smoke.py; this script does not shell out to git",
+    "params_hash": "8ef7c5c2d3896bf8",
+    "design": "research/model_v4/impl_design.md section 13 APPROVED",
+    "request": "research/model_v4/threads/thread1_turn2_answer.md, L2 NUMERICAL CHECK REQUEST; placebos from core_D1_L1_L2_rederivation.md section C",
+    "classification": "design section 0 rules L2 SUBSTANTIVE: the flagged path must never touch the kappa-dependent array"
+  },
+  "grid": {
+    "kappa": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "kappa_reference": 0.5,
+    "tau": [
+      0.08462696676439771,
+      0.08788437014471917,
+      0.09076405861553302,
+      0.09337594348697996,
+      0.09602833824479486
+    ],
+    "tau_quantiles": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "T": [
+      5,
+      10
+    ],
+    "H": 10,
+    "M": 2,
+    "tau_frozen_from": "percentiles of the seed-equilibrium (tau=0.05) Voice b*(s) distribution, design section 6.2",
+    "policy": "frozen at the baseline equilibrium k; L2 is a fixed-policy statement and a re-solve at each kappa would test a GE channel the lemma explicitly does not claim",
+    "n_nodes": 190
+  },
+  "counts": {
+    "n_hist": 4194304,
+    "n_hist_feasible": 826686,
+    "n_theta": 12,
+    "n_atoms_baseline": 19,
+    "discarded_mass": 0.0
+  },
+  "degenerate_nodes": [
+    {
+      "T": 10,
+      "tau": 0.08462696676439771,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "T": 10,
+      "tau": 0.08788437014471917,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "T": 10,
+      "tau": 0.09076405861553302,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "T": 10,
+      "tau": 0.09337594348697996,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    },
+    {
+      "T": 10,
+      "tau": 0.09602833824479486,
+      "reasons": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ]
+    }
+  ],
+  "multiple_root_nodes": 0,
+  "baseline": {
+    "k": [
+      1.2405757282617416,
+      1.5310222869296415
+    ],
+    "tau": 0.09076405861553302,
+    "T": 5,
+    "H": 10,
+    "Omega": 0.1383963119314466,
+    "M_F_pp": 0.552817848535105,
+    "M_P_pp": 0.2227984757708382,
+    "pi_bar_pr": 0.10206126073370039,
+    "cutoff_scale": 2.595657022652631e-11,
+    "payoff_scale": 0.0
+  },
+  "seconds": 135.63737950008363,
+  "all_pass": false
+}

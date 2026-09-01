@@ -1,0 +1,72 @@
+% !TEX program = xelatex
+%==============================================================================
+%  sections_v3/standalone_v3.tex -- standalone build driver for the v4 theory
+%  sections (ticket 08). Plumbing only; no economics content lives here.
+%
+%  COMPILE FROM THE REPO ROOT (not from inside sections_v3/):
+%    xelatex -interaction=nonstopmode sections_v3/standalone_v3.tex
+%    biber standalone_v3
+%    xelatex -interaction=nonstopmode sections_v3/standalone_v3.tex
+%    xelatex -interaction=nonstopmode sections_v3/standalone_v3.tex
+%  The jobname is the basename of the .tex argument ("standalone_v3"); all
+%  aux/log/bcf/bbl/pdf output is written relative to the CWD (the repo
+%  root), not next to this source file, so it lands at the repo root as
+%  standalone_v3.{aux,log,bcf,bbl,blg,pdf,run.xml}. That is expected.
+%
+%  Why compile from the root at all: every \input path inside every
+%  sections_v3/*.tex file is written sections_v3/-prefixed (e.g.
+%  \input{sections_v3/model_section.tex}) so that the SAME files resolve
+%  identically here and later when draft_v3.tex (a draft_v2.tex copy, also
+%  compiled from the repo root) \input's them. Do not "simplify" any path
+%  inside sections_v3/ to a bare filename -- that would break one consumer
+%  or the other.
+%
+%  Preamble below is copied from draft_v2.tex's preamble (lines 1-71): same
+%  documentclass/options, the packages the sections plausibly need (with
+%  draft_v2's exact options), and the 7 preamble-level \newtheorem
+%  environments, verbatim, so content \input here compiles identically
+%  inside draft_v3.tex later. See ticket 08 report for the packages
+%  deliberately left out and why.
+%==============================================================================
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=authoryear,natbib=true,maxcitenames=2,maxbibnames=99]{biblatex}
+\addbibresource{bibliography.bib}
+\addbibresource{sections_v3/sections_v3.bib}
+
+% Theorem environments -- verbatim from draft_v2.tex lines 33-48 (the 7
+% preamble-level environments; each its own independent, globally-numbered
+% counter, not reset per section). draft_v2.tex also carries a further,
+% guarded set (hypothesis, numreg, condition, namedclaim) defined inline in
+% its BODY via \@ifundefined{...}{\newtheorem{...}}{} for specific splices;
+% those are not preamble-level and are not replicated here -- see the
+% ticket 08 report.
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+
+\input{sections_v3/v3_macros.tex}
+
+\title{v4 theory sections --- standalone build (ticket 08)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\input{sections_v3/model_section.tex}
+\input{sections_v3/theorem_section.tex}
+\input{sections_v3/proofs_section.tex}
+
+\printbibliography
+
+\end{document}

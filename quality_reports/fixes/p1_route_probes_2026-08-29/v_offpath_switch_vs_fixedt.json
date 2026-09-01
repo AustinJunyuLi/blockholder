@@ -1,0 +1,451 @@
+{
+ "what": "verifier probe 4 -- shipped switch vs genuine fixed-t game",
+ "date": "2026-08-29",
+ "card_sentence_under_test": "MODEL_CARD.md:308-310 -- \"The implementation's OFF_PATH_EPS = 10^-14 **is** the fixed-t constrained game -- the standard repair already shipped, with the switch relocated by ~10^-9 rather than removed.\"",
+ "gates": [
+  {
+   "gate": "R1a_harness_control_switch_replica_equals_shipped",
+   "pass_": true,
+   "shipped_step": 0.006333777630539883,
+   "replica_step": 0.006333777630539883,
+   "restructured": "(T1) split out of run 1's R1."
+  },
+  {
+   "gate": "R1b_at_OFF_PATH_EPS_the_switch_and_the_genuine_blend_agree",
+   "pass_": true,
+   "restructured": "(T1) run 1 asked for eps-invariance of the switch step over eight decades and was refuted at 1e-9 / 1e-6 (finding F-mixed).  The gate is now the discriminating comparison: at t = OFF_PATH_EPS the genuine fixed-t game and the shipped switch give the same T_2 and the same step.",
+   "shipped_T2_below": 1.5497289513665118,
+   "blend_T2_below": 1.5497289489973969,
+   "T2_abs_diff": 2.369114904254843e-09,
+   "shipped_step": 0.006333777630539883,
+   "blend_step": 0.006333775261386343,
+   "reproduces_exploration_probe_C": true,
+   "exploration_filed_shipped_step": 0.006334,
+   "reading": "the shipped constant is far too small to buy the fixed-t game's continuity: at t = 1e-14 the blend jumps exactly as the switch does.  Whatever the shipped construction is, it is not a fixed-t game doing any fixed-t work."
+  },
+  {
+   "gate": "R2_blend_step_falls_with_eps_but_not_at_OFF_PATH_EPS",
+   "pass_": true,
+   "blend_uniform_steps": {
+    "1e-14": 0.006333775261386343,
+    "1e-12": 0.006327736426086972,
+    "1e-09": 0.0032920945563688075,
+    "1e-06": 6.777530941803889e-06
+   },
+   "blend_step9b_steps": {
+    "1e-14": 0.007054792332064963,
+    "1e-12": 0.007053496462569475,
+    "1e-09": 0.005905433888880873,
+    "1e-06": 0.00031506088411936695
+   },
+   "shipped_step": 0.006333777630539883,
+   "blend_at_OFF_PATH_EPS": 0.006333775261386343,
+   "exploration_filed_blend_1e6": 6.8e-06,
+   "reading": "a genuine fixed-t game smooths the step only once t is large enough to dominate the vanishing alive mass.  At t = OFF_PATH_EPS = 1e-14 the blend's step is indistinguishable from the shipped switch's, so the shipped constant buys none of the fixed-t game's continuity at this bracket."
+  },
+  {
+   "gate": "R3_crossover_width_at_OFF_PATH_EPS_is_below_the_merge_tolerance",
+   "pass_": true,
+   "half_width_at_OFF_PATH_EPS": 2.262069485511654e-16,
+   "breakpoint_merge_tol": 1e-09,
+   "ulp": 2.220446049250313e-16,
+   "reading": "at t = 1e-14 the window in which the fixed-t game differs from its own t = 0 limit is narrower than menu.breakpoints' 1e-9 merge tolerance, so the type is already dead by construction before the window is entered.  The shipped switch therefore realises the t = 0 limit, not the fixed-t game."
+  },
+  {
+   "gate": "R4_multi_dead_type_histories_exist_and_the_two_beliefs_differ",
+   "pass_": true,
+   "total_dead_only_multi_type_histories": 236196,
+   "max_abs_vhat_gap": 0.31055086668318777,
+   "reading": "on these histories the shipped uniform floor and Step 9(b)'s Lambda_u give different v_hat, and BOTH are free of the floor size, so the gap is not a fixed-t-versus-limit question: the shipped construction's t -> 0 limit is not Step 9(b)'s t -> 0 limit."
+  }
+ ],
+ "node": {
+  "kappa": 0.5,
+  "tau": 0.09076405861553302,
+  "T": 5,
+  "k1_held": 1.2405757282617416,
+  "edge6": 1.7492686492653553,
+  "edge8": 1.583333333333333,
+  "grid": 4001,
+  "bracket": 1e-08,
+  "OFF_PATH_EPS": 1e-14,
+  "params_hash": "8ef7c5c2d3896bf8"
+ },
+ "A_local_step": [
+  {
+   "family": "shipped",
+   "eps": null,
+   "T2_below": 1.5497289513665118,
+   "T2_above": 1.543395173735972,
+   "local_step": 0.006333777630539883
+  },
+  {
+   "family": "switch_uniform",
+   "eps": 1e-14,
+   "T2_below": 1.5497289513665118,
+   "T2_above": 1.543395173735972,
+   "local_step": 0.006333777630539883
+  },
+  {
+   "family": "switch_uniform",
+   "eps": 1e-12,
+   "T2_below": 1.5497231454178684,
+   "T2_above": 1.5433951737279443,
+   "local_step": 0.00632797168992405
+  },
+  {
+   "family": "switch_uniform",
+   "eps": 1e-09,
+   "T2_below": 1.5463875629832977,
+   "T2_above": 1.543395165626751,
+   "local_step": 0.002992397356546661
+  },
+  {
+   "family": "switch_uniform",
+   "eps": 1e-06,
+   "T2_below": 1.5419532976287813,
+   "T2_above": 1.5433870651549682,
+   "local_step": 0.0014337675261868466
+  },
+  {
+   "family": "blend_uniform",
+   "eps": 1e-14,
+   "T2_below": 1.5497289489973969,
+   "T2_above": 1.5433951737360105,
+   "local_step": 0.006333775261386343
+  },
+  {
+   "family": "blend_uniform",
+   "eps": 1e-12,
+   "T2_below": 1.5497229101567396,
+   "T2_above": 1.5433951737306526,
+   "local_step": 0.006327736426086972
+  },
+  {
+   "family": "blend_uniform",
+   "eps": 1e-09,
+   "T2_below": 1.5466872628848667,
+   "T2_above": 1.5433951683284979,
+   "local_step": 0.0032920945563688075
+  },
+  {
+   "family": "blend_uniform",
+   "eps": 1e-06,
+   "T2_below": 1.5433965446168607,
+   "T2_above": 1.543389767085919,
+   "local_step": 6.777530941803889e-06
+  },
+  {
+   "family": "blend_step9b",
+   "eps": 1e-14,
+   "T2_below": 1.5497289969701593,
+   "T2_above": 1.5426742046380943,
+   "local_step": 0.007054792332064963
+  },
+  {
+   "family": "blend_step9b",
+   "eps": 1e-12,
+   "T2_below": 1.5497277010992165,
+   "T2_above": 1.542674204636647,
+   "local_step": 0.007053496462569475
+  },
+  {
+   "family": "blend_step9b",
+   "eps": 1e-09,
+   "T2_below": 1.5485796370404794,
+   "T2_above": 1.5426742031515985,
+   "local_step": 0.005905433888880873
+  },
+  {
+   "family": "blend_step9b",
+   "eps": 1e-06,
+   "T2_below": 1.5423576572575164,
+   "T2_above": 1.5426727181416358,
+   "local_step": 0.00031506088411936695
+  }
+ ],
+ "B_crossover_width": {
+  "phi_s_at_edge8": 0.4014618693052386,
+  "dying_type": 9,
+  "m_dying": 0.027244039324555436,
+  "half_widths": {
+   "1e-14": 2.262069485511654e-16,
+   "1e-12": 2.2620694855116538e-14,
+   "1e-09": 2.262069485511654e-11,
+   "1e-06": 2.2620694855116536e-08
+  },
+  "breakpoint_merge_tol": 1e-09,
+  "double_precision_ulp_at_edge8": 2.220446049250313e-16,
+  "formula": "half-width ~ eps * m[t] / (J * phi_s(edge)); below this offset the floor dominates the dying sliver's alive mass and the blend is smooth, above it the two constructions agree."
+ },
+ "C_multi_dead_histories": [
+  {
+   "date": 0,
+   "n_hist": 4,
+   "alive_types": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 0
+  },
+  {
+   "date": 1,
+   "n_hist": 16,
+   "alive_types": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 0
+  },
+  {
+   "date": 2,
+   "n_hist": 64,
+   "alive_types": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 0
+  },
+  {
+   "date": 3,
+   "n_hist": 256,
+   "alive_types": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 0
+  },
+  {
+   "date": 4,
+   "n_hist": 1024,
+   "alive_types": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 0
+  },
+  {
+   "date": 5,
+   "n_hist": 4096,
+   "alive_types": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 0
+  },
+  {
+   "date": 6,
+   "n_hist": 16384,
+   "alive_types": [
+    0,
+    3,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 729,
+   "max_abs_vhat_gap": 0.29959956300123836,
+   "mean_abs_vhat_gap": 0.2995995630012383,
+   "at_max": {
+    "vhat_shipped_uniform": 1.2055383616985875,
+    "vhat_step9b": 0.9059387986973492
+   },
+   "n_dead_types_hit_max": 5
+  },
+  {
+   "date": 7,
+   "n_hist": 65536,
+   "alive_types": [
+    0,
+    4,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 3645,
+   "max_abs_vhat_gap": 0.30835840995193686,
+   "mean_abs_vhat_gap": 0.2878948344570147,
+   "at_max": {
+    "vhat_shipped_uniform": 1.2298829005848244,
+    "vhat_step9b": 0.9215244906328875
+   },
+   "n_dead_types_hit_max": 5
+  },
+  {
+   "date": 8,
+   "n_hist": 262144,
+   "alive_types": [
+    0,
+    5,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 15309,
+   "max_abs_vhat_gap": 0.30551112847277795,
+   "mean_abs_vhat_gap": 0.242750281067656,
+   "at_max": {
+    "vhat_shipped_uniform": 1.2658678612784922,
+    "vhat_step9b": 0.9603567328057142
+   },
+   "n_dead_types_hit_max": 5
+  },
+  {
+   "date": 9,
+   "n_hist": 1048576,
+   "alive_types": [
+    0,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 59049,
+   "max_abs_vhat_gap": 0.30976510980115757,
+   "mean_abs_vhat_gap": 0.18603497047625137,
+   "at_max": {
+    "vhat_shipped_uniform": 1.2257704153742235,
+    "vhat_step9b": 0.9160053055730659
+   },
+   "n_dead_types_hit_max": 5
+  },
+  {
+   "date": 10,
+   "n_hist": 4194304,
+   "alive_types": [
+    0,
+    6
+   ],
+   "floored_types": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "n_dead_only_multi_type": 157464,
+   "max_abs_vhat_gap": 0.31055086668318777,
+   "mean_abs_vhat_gap": 0.13401771650051478,
+   "at_max": {
+    "vhat_shipped_uniform": 1.267131150187758,
+    "vhat_step9b": 0.9565802835045703
+   },
+   "n_dead_types_hit_max": 5
+  }
+ ],
+ "findings": [
+  {
+   "id": "F-mixed",
+   "gated": false,
+   "claim": "The shipped switch's T_2 step is NOT invariant to the floor size over eight decades: it falls 6.3338e-3 -> 2.9924e-3 -> 1.4338e-3 as eps rises 1e-14 -> 1e-9 -> 1e-6, driven entirely by T_2 BELOW the edge (1.5497290 -> 1.5419533) while T_2 ABOVE barely moves.",
+   "reading": "the floor cancels only at DEAD-ONLY histories.  At a MIXED history -- one a live type also reaches -- a uniform floor of 1e-6 is a real perturbation of the belief, since live type weights run 7e-4 to 0.86.  This is a floor-size effect on the belief level, not the fixed-t game's smoothing of the k-direction jump; the two are separated by the fact that the step falls to 6.8e-6 only in the BLEND form.",
+   "consequence": "raising OFF_PATH_EPS is not a way to buy continuity: it perturbs on-path beliefs before it smooths off-path ones."
+  },
+  {
+   "id": "F-shape",
+   "gated": true,
+   "gate": "R4",
+   "claim": "At locus (i)'s k there are dead-only pooled histories reachable by two or more dead types at every date from 6 to H -- 157,464 of them at d = H -- and on them the shipped uniform floor and Step 9(b)'s Lambda_u give v_hat differing by up to ~0.31.",
+   "reading": "both beliefs are free of the floor size, so this is not a fixed-t-versus-limit question.  The shipped construction's t -> 0 limit is a DIFFERENT limit from Step 9(b)'s, on a large set of histories."
+  }
+ ],
+ "summary": {
+  "n_gates": 5,
+  "n_failed": 0,
+  "wall_seconds": 71.7
+ },
+ "pass": true
+}
