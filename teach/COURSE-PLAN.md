@@ -57,9 +57,9 @@ delay.
 12. **The evidence ledger.** How to read PROVED, NUMERICAL, ESTIMATED, and OPEN;
     the A(tau) support failure, A6 jumps, unresolved grid nodes, and the frozen
     v4 record.
-13. **The empirical bridge.** The 2024 13D timing change, filing-delay descriptives,
-    run-up/jump timing split, bindingness dose, bounded null, and why the causal
-    headline is still pending.
+13. **The empirical bridge.** The 2024 13D timing change, the E1 filing-delay
+    descriptives, the three gates, and why a before-after comparison identifies
+    no effect.
 
 ## Part IV: become presentation-ready
 

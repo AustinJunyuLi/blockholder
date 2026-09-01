@@ -281,8 +281,8 @@ table.ledger th { font-variant: small-caps; letter-spacing: 0.04em; font-weight:
 
 <div class="status-band" aria-label="Current project status">
   <p><strong>Live paper</strong>Draft v3 is the reader-facing paper. The frozen v4 record supplies its proof provenance.</p>
-  <p><strong>Established in data</strong>A seeded filing sample shows a sharp compression in reporting delay after February 2024. It is descriptive, not causal.</p>
-  <p><strong>Still open</strong>The causal estimates have not run, the empirical headline is pending, and key theory results have stated conditions that fail at this calibration.</p>
+  <p><strong>Established in data</strong>A near-census of initial 13D filings shows a sharp compression in filing delay after February 2024. It is descriptive, not causal.</p>
+  <p><strong>Still open</strong>Key theory results have stated conditions that fail at this calibration, and the paper identifies no effect of the rule change on liquidity, returns, or control outcomes.</p>
 </div>
 
 <noscript><p>The figures below are interactive and need JavaScript. The printed text stands on its own.</p></noscript>
@@ -569,17 +569,13 @@ table.ledger th { font-variant: small-caps; letter-spacing: 0.04em; font-weight:
 
 <h2 id="s13">13. Meeting the data</h2>
 
-<p>The empirical side is anchored on 5 February 2024, when the initial 13D deadline moved from ten calendar days to five business days. This is a dated change to the window margin. The current draft separates what has been measured from what is still a written specification.</p>
+<p>The empirical side is anchored on 5 February 2024, when the initial 13D deadline moved from ten calendar days to five business days. This is a dated change to the window margin. The paper asks one question of the data, registered as E1 before the run: did the realised trigger-to-filing delay fall after the deadline moved?</p>
 
-<p><b>What has run.</b> The project drew <a href="../empirics/output/fact1_filings.csv">300 initial 13D filings</a>, 150 before and 150 after the acceleration. Trigger dates parsed for 198; after the stated 0-to-60-business-day screen, 188 remain. The committed <a href="../empirics/output/fact1_summary.csv">retained-sample summary</a> reports that median filing delay fell from 7 to 5 business days and the share filed within five business days rose from 35.7 to 75.6 percent. Those are descriptive statistics. No causal effect and no standard error is claimed.</p>
+<p><b>What has run.</b> E1 enumerates the near-census of initial Schedule 13D filings from 2023Q2 to Q3 and from 2024Q3 to Q4: 616 filings before the change and 521 after, 461 and 435 eligible campaigns, 450 and 432 resolved. The committed <a href="../empirics/output/e1_estimate.json">result record</a> reports that the median trigger-to-filing delay fell from six business days to five and that the share filed within five business days rose from 38.9 to 67.1 percent, a difference of 28.2 percentage points with a 95 percent cluster-bootstrap interval of 21.8 to 34.8. The <a href="../empirics/output/e1_cdf.pdf">empirical distribution</a> shows the whole mass moving toward the deadline. Those are descriptive statistics with no control group. No causal effect is claimed.</p>
 
-<p><b>What is specified but unrun.</b> The <dfn>timing split</dfn> separates the pre-filing run-up R from the filing-day jump J, with the exact accounting identity P<sup>F</sup> &minus; P<sub>c&minus;</sub> = R + J. A return study would ask whether liquidity relates differently to those two pieces and whether that relationship changes after February 2024. The full-universe parser validation, returns merge, stake test, bidder-entry test, and liquidity interactions have not run.</p>
+<p><b>What guards it.</b> Three gates bind, and all three passed. The worst-case bound that assigns every unresolved campaign to both extremes still clears zero, at 26.3 to 29.4 points. The unresolved share differs by 1.7 percentage points between the two periods, against a registered cap of ten. A blind hand audit of 60 filings found no material parser error, against a threshold of three. The <a href="../research/empirics_v4/e1_spec.md">specification</a> was committed before the run, and a fresh-clone rerun reproduces the result record.</p>
 
-<p>The proposed <dfn>bindingness dose</dfn> separates filers whose pre-rule timing already fit inside five business days from those whose habitual delay ran longer. The design would compare outcomes across that exposure measure rather than assign the same exposure to every filer. It has not run.</p>
-
-<p>The proposed <dfn>bounded null</dfn> uses the SEC's tables to cap the accumulation-channel contribution to bid probability at about three percentage points under an extreme assumption that every constrained campaign loses its bid. It is a ceiling, not an estimate, and it does not bound defence, selection, or other channels in the total reduced-form effect. The calculation and scope are recorded in the <a href="../draft_v3_trace.md">draft trace</a>.</p>
-
-<p>The empirical headline is also pending. Candidate A leads with the partition test, Candidate B with the post-acceleration change in the run-up's liquidity slope, and Candidate C with the bounded null. The draft records what each would need and what would kill it. It does not choose before the estimates exist.</p>
+<p><b>What it does not do.</b> The comparison identifies no effect on liquidity, returns, activism, bidder entry, or takeover premia, and it tests neither L2 nor T1. It establishes that the statutory clock moved realised filing timing, and nothing more.</p>
 
 <h2 id="s14">14. What the paper refuses to claim</h2>
 
