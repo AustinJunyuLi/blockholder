@@ -132,6 +132,17 @@ allocation is 20 cases per non-empty stratum, 60 in total. A material error is a
 between the hand-coded and the parsed trigger date; there is no de minimis tolerance. The error
 threshold and the blind are unchanged. This corrects an infeasible allocation, not the gate.
 
+**Fourth amendment, 2026-09-01, recording how the executed audit ran.** Two records, no rule
+changes. First, the 20 xml-route excerpts in the audit sample read LABEL NOT FOUND, because the
+excerpt window targets the cover-page label that xml submissions do not carry; those cases were
+hand-coded from the `dateOfEvent` element in the cached source document, the text a human coder
+would read. No parser output was consulted for any case, and the coding commit preceded the
+scoring run. Second, a post-audit scan found 10 of 521 post filings (0 of 616 pre) whose document
+body declares a non-zero amendment number although the index lists them as SC 13D originals. The
+population stays as registered: it is defined by the index form type, these rows can only depress
+the post-period share, and removing them after seeing results would help the claim. They are
+noted here as a data-quality item for the manuscript's missingness and data-quality discussion.
+
 ## Outputs
 
 `empirics/output/e1_delays.csv`, `e1_estimate.json`, `e1_cdf.pdf`. The JSON is the single result
