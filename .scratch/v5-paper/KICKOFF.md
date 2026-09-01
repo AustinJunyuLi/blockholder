@@ -23,6 +23,12 @@ of fifteen agents (Phase A alone spawns about fifteen).
 Start this session only after ~/.claude/agents/kimi.md and glm.md exist; agent types load at
 session start.
 
+Launch every phase with two args: `done`, the salvaged labels, and `run`, a fresh tag for that
+launch (for example `a2`). Each ally dispatch writes to
+`~/.claude/ally-runs/<run>/<phase>/<label>-<provider>-<n>/`; the worker runs detached there,
+so a dead dispatcher loses nothing, and a reader agent collects the answer from disk. A reused
+tag could hand a reader a stale answer, so never reuse one.
+
 What the orchestrator does between phases:
 
 1. After A: read the mark-2 T1 record under `numerical_v4/checks/` for the sign of the run-up

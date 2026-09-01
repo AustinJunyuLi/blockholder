@@ -13,9 +13,19 @@ const ROLE = {
   judge:    { model: "opus" },
 }
 const DONE = new Set(((args && args.done) || []).map(String))
+// Every ally dispatch writes into a fixed directory named by run tag, phase and label. The
+// worker runs detached there, so a dead dispatcher never loses an answer: a reader agent picks
+// it up from disk. Pass a fresh args.run on every launch so no stale answer can be read.
+const RUNS = `/Users/austinli/.claude/ally-runs/${(args && args.run) || "r0"}/c`
+const SEQ = {}
+function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") }
 function isRateLimit(o) {
   const s = o == null ? "" : (typeof o === "string" ? o : String(o.summary || o.reasons || ""))
   return /RATE_LIMIT/.test(s)
+}
+function hasProvenance(o, schema) {
+  if (schema) return !!(o && typeof o === "object" && o.dispatch && o.dispatch.model)
+  return /\[dispatch model=\S+ rc=0/.test(String(o == null ? "" : o))
 }
 function parseReply(txt, schema) {
   if (!schema) return txt
@@ -23,16 +33,24 @@ function parseReply(txt, schema) {
   try { const m = String(txt).match(/\{[\s\S]*\}/); return JSON.parse(m[0]) }
   catch (e) { return schema === VERDICT ? { verdict: "FAIL", reasons: "unparseable dispatcher reply: " + String(txt).slice(0, 500) } : { status: "FAIL", summary: "unparseable dispatcher reply: " + String(txt).slice(0, 500), files_changed: [], evidence: "" } }
 }
+const READER = (dir) => `You are a reader, not a worker. Do not think about any task and do not read any project file. A detached worker writes its answer into ${dir}. First run: test -f "${dir}/task.txt" && echo started || echo never-started . If it prints never-started, your final message is: DISPATCH FAIL: worker never started in ${dir}. Otherwise wait with one Bash call at a time, timeout parameter 600000: until [ -f "${dir}/done.txt" ]; do sleep 15; done; cat "${dir}/done.txt" . Run that call again each time it returns without a number, at most 30 times. When it prints 0, your final message is the entire contents of ${dir}/stdout.txt, verbatim, nothing added or removed. When it prints 3, return DISPATCH RATE_LIMIT followed by the contents of ${dir}/stderr.txt. Any other number: DISPATCH FAIL followed by the contents of ${dir}/stderr.txt. If done.txt never appears, return: DISPATCH FAIL: no done.txt in ${dir}.`
 async function run(role, prompt, o) {
   o = o || {}
   const r = ROLE[role]
   if (!r) throw new Error("unknown role " + role)
   const once = async (target) => {
     if (target === "opus") return agent(prompt, { model: "opus", effort: o.effort, schema: o.schema, label: o.label, phase: o.phase })
-    const head = `effort: ${o.effort || "high"}\n` + (target === "kimi" ? `context: ${o.ctx || "256k"}\n` : "")
+    const key = `${slug(o.label || role)}-${target}`
+    SEQ[key] = (SEQ[key] || 0) + 1
+    const dir = `${RUNS}/${key}-${SEQ[key]}`
+    const head = `effort: ${o.effort || "high"}\n` + (target === "kimi" ? `context: ${o.ctx || "256k"}\n` : "") + `artifact-dir: ${dir}\n`
     const tail = o.schema ? `\n\nReturn JSON matching this schema and nothing else:\n${JSON.stringify(o.schema)}` : ""
-    const txt = await agent(head + prompt + tail, { agentType: target, label: o.label, phase: o.phase })
-    return parseReply(txt, o.schema)
+    let out = parseReply(await agent(head + prompt + tail, { agentType: target, label: o.label, phase: o.phase }), o.schema)
+    if (!hasProvenance(out, o.schema) && !isRateLimit(out)) {
+      log(`${o.label || role}: no ${target} provenance in the dispatcher reply; a reader collects ${dir}`)
+      out = parseReply(await agent(READER(dir), { model: "sonnet", effort: "low", label: `${o.label || role} reader`, phase: o.phase }), o.schema)
+    }
+    return out
   }
   let out = await once(r.agentType || "opus")
   if (isRateLimit(out) && r.fallback) {
