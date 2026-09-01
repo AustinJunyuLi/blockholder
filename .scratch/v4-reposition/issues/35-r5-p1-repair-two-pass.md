@@ -13,6 +13,8 @@ general finite-menu theorem and state the hypotheses the proof actually needs. R
 ticket 32** (needs the A7-J name on the card). The pinned pro-rata single-Voice menu satisfies
 every strengthened clause, so the paper's instance is covered by the repaired theorem.
 
+**Status:** done (2026-08-25; re-gated 2026-08-30) — P1 CONJECTURE→PROVED with two fresh passes on file (commit 0cbdb37, hash fill 1870e27). The F5 route R40-A batch then amended the statement in place and re-gated it at the theory-record freeze (65b8db3); verdicts filed verbatim at `rederive/P1_gate_2026-08-30.md`. P1 remains PROVED on the amended statement; the four κ-extreme nodes stay UNCHECKED (ticket 34).
+
 **What to build:**
 
 - [ ] **Amend the card P1 row's statement** (label stays CONJECTURE until both passes land):

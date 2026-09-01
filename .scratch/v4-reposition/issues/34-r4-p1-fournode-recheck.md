@@ -18,6 +18,8 @@ nonexistence. The four nodes:
 | 0.85 | 0.05 | 5 |
 | 0.85 | 0.075 | 1 |
 
+**Status:** done (2026-08-25) — `t2_p1_fournode_recheck.py/.json` executed (commit c69c19d): 0/4 nodes RESOLVED-EXISTS; all four STILL UNRESOLVED after 30 seeds each (UNCHECKED, not nonexistence); A3/A6 proxies pass at every achieving seed. Folded into the P1 row's numerical sentence per ticket 35.
+
 **What to build:**
 
 - [ ] `quality_reports/fixes/t2_p1_fournode_recheck.py` → `.json`, house style. Exactly these

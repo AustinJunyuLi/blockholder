@@ -12,6 +12,8 @@ never block). Orchestrator commits.
 naming package (Q9). Ticket 31's ledger move is on file. No result's label changes here except
 the P1 row reflecting the demotion.
 
+**Status:** done (2026-08-25) — post-review wording-repair batch landed and verifier-accepted after one repair round (commit d2ccf62): A7′/A7-J split, "certified" → dominance-and-contraction, O-1 relabelled disclosure-regime, A(τ) left open, ledger supersessions, HANDOFF §7/§8.3 amendments, mirrors and PDF regenerated. The freeze-stamp card (65b8db3, 2026-08-30) carries the repairs forward.
+
 **What to build:**
 
 - [ ] **`research/model_v4/MODEL_CARD.md` — regenerate** with a fresh stamp

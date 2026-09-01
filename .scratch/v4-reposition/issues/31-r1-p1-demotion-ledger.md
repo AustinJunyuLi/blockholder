@@ -9,6 +9,8 @@ this is a mechanical append. Orchestrator commits.
 upheld by the audit (`threads/2026-08-23_gpt_end_review_audit.md` §Finding 1). Ledger standing
 note 2 sanctions demotion on review findings without new passes. Austin approved 2026-08-23 (Q1).
 
+**Status:** done (2026-08-23) — the move is on file in `research/model_v4/LABEL_LEDGER.md` (commits 43a45f8, 133ea83). Superseded in turn by ticket 35's restore (2026-08-25, 0cbdb37), recorded in the same ledger.
+
 **What to build:**
 
 - [ ] Append to `research/model_v4/LABEL_LEDGER.md`, after the 2026-08-22 C1 move section, a new

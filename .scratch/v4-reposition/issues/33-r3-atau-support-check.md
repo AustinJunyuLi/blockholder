@@ -15,6 +15,8 @@ applicability is OPEN. `numerical_v4/` enumerates the pooled law exactly. The ca
 ruling: $\bar\pi$ = the **upper support point** (never assume $\bar\pi = 2\times$ the pooled
 share — that level-symmetry assumption was the block-3 error).
 
+**Status:** done (2026-08-25) — `t2_atau_support_check.py/.json` executed (commit e3c38ca): verdict **FAILS at calibration** (0/180 non-degenerate nodes; support 23–767 atoms, never three points; derivative pattern fails independently). Evidence note on the card §5 A(τ) block; no label moves.
+
 **What to build:**
 
 - [ ] `quality_reports/fixes/t2_atau_support_check.py` → `t2_atau_support_check.json`, standard

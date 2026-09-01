@@ -6,6 +6,8 @@ lands there; **no agent touches `docs/adr/`** (standing rule). Austin pastes it 
 **Routing (lane v2, agentic):** Sonnet, effort low — text given verbatim; file creation only.
 Orchestrator commits.
 
+**Status:** done (2026-08-25) — draft landed at `quality_reports/handoffs/2026-08-23_adr0007_corrigendum.md` (commit d67dc5b), and Austin pasted the corrigendum into `docs/adr/0007-one-theorem-two-round-model-two-lanes.md` (visible at its line 11).
+
 **What to build:**
 
 - [ ] Create `quality_reports/handoffs/2026-08-23_adr0007_corrigendum.md` (theory worktree)
