@@ -33,7 +33,7 @@ rewritten); no statement was strengthened, weakened, or re-scoped.
 
 | Draft content | Source |
 |---|---|
-| Abstract: partition identity, two-round model, three results with conditionality, Feb-2024 anchor, descriptives, spec, headline pending | MODEL_CARD §1 (position/object); result rows P1/T1/C1; HANDOFF_sign.md §8.1; `empirics/output/fact1_summary.csv`; `research/empirics_v4/SPEC.md` one-page summary |
+| Abstract: partition identity, two-round model, three results with conditionality, Feb-2024 anchor, the E1 filing-delay descriptive (median 6→5 bd; share within 5bd 38.9→67.1%, +28.2pp, no control group, no causal effect claimed) | MODEL_CARD §1 (position/object); result rows P1/T1/C1; HANDOFF_sign.md §8.1; `empirics/output/e1_estimate.json` (per_period medians/shares, difference_complete_case, `causal_claim: false`); `research/empirics_v4/e1_spec.md` (claim boundary) |
 | 13D rule facts: 5% since 1968, 10 calendar days → 5 business days effective 2024-02-05 | `research/cards/_institutional_sec_33_11253.md`; `research/lit_institutional-facts.md` §1.1–1.3; \cite{SEC2023} |
 | Threshold vs window margins as separate policy coordinates; UK 3% contrast | CONTEXT.md (threshold margin, window margin); lit_institutional-facts §4 (UK DTR 5) |
 | "Existence" paragraph (conditional; A6/A3 measured to fail; 23/27 nodes converge) | Card P1 row (label + numerical status); §5 A6 note, §5 A3 note; §9 item 4 |
@@ -41,7 +41,7 @@ rewritten); no statement was strengthened, weakened, or re-scoped.
 | "From fixed policies to equilibrium" paragraph (region as named hypothesis; 18/80 nodes) | Card C1 row (PROVED + NUMERICAL node evidence) |
 | Window record numbers 18–77%; composition leg carries; weight leg 3–14% shave | HANDOFF_sign.md §8.1 (t2_t1_check block 4 + H=12 robustness) |
 | A(τ) failure numbers (23–767 values, 180 non-degenerate nodes) | Card §5 A(τ) evidence note (ticket 33; t2_atau_support_check) |
-| Delay-compression facts (7.0→5.0 bd; 35.7→75.6% within 5bd) | `empirics/output/fact1_summary.csv` (see §6 below) |
+| Delay-compression facts (median 6→5 bd; share within 5bd 38.9→67.1%; +28.2pp, 95% cluster-bootstrap interval 21.8–34.8; descriptive, no control group; the pre-specified design for the market/takeover implications executed August 2026, viewed, preserved exactly as viewed in the online appendix, not the headline) | `empirics/output/e1_estimate.json` (per_period, difference_complete_case, inference); `draft_v3_onlineappendix.tex` §app:honesty (the viewed record, quoted from 9b98089) — see §6 below |
 | "No paper combines the two margins, liquidity, and a control outcome" | competitor_map.md Part 3 (W1–W6) and Sweep summary ("none found") |
 | Classics one-parameter answers; Maug's disclosure remark | lit_classic-exit-voice.md §A (cross-strand synthesis), Maug card §"Institutional facts" (p. 73) |
 | Back-et-al isomorphism quote; CCKV pre-disclosure window; Kyle–Vila boundary | competitor_map Part 1 rows 5, 3; W3 refuter list (Kyle–Vila p. 54 n.1) |
@@ -50,16 +50,16 @@ rewritten); no statement was strengthened, weakened, or re-scoped.
 
 | Draft content | Source |
 |---|---|
-| §2.1 Williams Act, 13D/13G split, 2022-02-10 proposal / 2023-10-10 adoption / 2024-02-05 effective / 2024-09-30 13G / 13D/A 2bd; UK 3%+1% rungs 2 trading days; EU ladder 4 trading days | lit_institutional-facts.md §1, §4, §5.1; SPEC.md §2.6 (date confirmations); \cite{SEC2022,SEC2023} |
+| §2.1 Williams Act, 13D/13G split, 2022-02-10 proposal / 2023-10-10 adoption / 2024-02-05 effective / 2024-09-30 13G / 13D/A 2bd; UK 3%+1% rungs 2 trading days; EU ladder 4 trading days | lit_institutional-facts.md §1 (esp. §1.3 date confirmations), §4, §5.1; `research/cards/_institutional_sec_33_11253.md` (dates checked against the release text); \cite{SEC2022,SEC2023} |
 | Window as "legal deadline attached to a partition, not a random horizon" | competitor_map W5 (random-horizon hazard 4) |
 | Pooled state "pooled for the price-setting market"; Zeng leakiness; run-up begins on trigger date | competitor_map W3 sweep check; Zeng card (p. 1310 Q5, p. 1312 fn. 13) |
-| BBJJ bunching 45.3% in 8–10bd bucket, ~20% on day 10 | SPEC.md §4 (quoting BBJJ Table 2 / Fig. 1, pp. 10–11) |
+| BBJJ bunching 45.3% in 8–10bd bucket, ~20% on day 10 | `research/cards/bebchuk_brav_jackson_jiang_2013_jcl.md` R1–R2 (Table 2, p. 10); competitor_map Part 2 item 8 |
 | §2.2 classics paragraph (Maug reversal; KW sign; FG complements; AP exit threat; EFZ; Norli) | lit_classic-exit-voice.md §§1–4 + §A; lit_liquidity-premia-empirics.md |
 | "None of the four has a bidder, an offer, or a premium" | lit_classic-exit-voice.md §A ("Our paper's core objects … unclaimed") |
 | §2.3 positioning: Kyle–Vila (disclaim disclosure; mixing split un-keyed), CDF 2015/2016 (presence common knowledge), Back et al. (σ²T isomorphism p. 1453; no acquirer/premium; endogenous horizon out of scope), CCKV (game inside unmodelled window), Corum 2025 (threshold/window fused, no counterparty), Corum–Levit (threshold occupied but sterile; flagged state off path), OCB (threshold as cap; interaction asserted not proved), Burkart–Lee (hand over the toehold) | competitor_map Part 1 rows + Part 2 hazards 2/3/11/14 + W1/W3/W4/W5 refuter lists, page-cited |
 | §2.4 structural set (Gantchev; Johnson–Swem one-move filing; AFS liquidity-as-control, no control outcome; Celentano–Levine 5% calibration constant, window absent); BJPT/GS acquisition facts; Becht international returns | competitor_map Part 1 rows 1–3; lit_activism-empirics.md; lit_disclosure-structural-activism.md |
 | Polk et al. (pre-rule only, no SEs, calendar-day mismeasurement 48% at Delta=10) | competitor_map Part 1 row 9 + reading note 9 |
-| Trivedi (first stage +0.348 SE 0.130; nulls without MDE; frame never stated; not peer reviewed) | competitor_map Part 1 row 6 + reading note 6; SPEC.md §4 |
+| Trivedi (first stage +0.348 SE 0.130; nulls without MDE; frame never stated; not peer reviewed) | competitor_map Part 1 row 6 + reading note 6; `research/cards/trivedi_2026_ssrn.md` R2 (Table 2, p. 11) |
 
 ### §3 The model (`sec:model`)
 
@@ -124,28 +124,36 @@ repo paths and process metadata removed) and moved as noted.
 
 ### §6 Empirics (`sec:empirics`)
 
+Rebuilt 2026-09-01 (section rewrite commit 0e1e5e2). The section is now "Did the clock move?
+Filing-delay evidence": one registered exercise, E1, descriptive, every number drawn from the
+run's result record. The earlier map of this section — the seeded n=98/90 Fact-1 sample and the
+prospective seven-leg specification — cited artifacts deleted from the live tree on 2026-09-01
+(deletion commit 235de22); that design survives only as the viewed record quoted in
+`draft_v3_onlineappendix.tex` §app:honesty from history at 9b98089 (appendix section added in
+1243cd4). The registered specification is `research/empirics_v4/e1_spec.md` (four dated
+amendments, all 2026-09-01); the single result authority is `empirics/output/e1_estimate.json`.
+
 | Draft content | Source |
 |---|---|
-| Two-layer status split (executed descriptives vs unrun spec) | SPEC.md §0; CONTEXT.md (clean result, honesty labels) |
-| §6.1 Table 2 (tab:fact1): pre n=98 mean 9.63 median 7.0 p90 23.0, 35.7%/80.6%; post n=90 mean 6.40 median 5.0 p90 11.1, 75.6%/88.9%; parse rates 0.68/0.64; seeded ~150/window; 300 filings | `empirics/output/fact1_summary.csv`; `empirics/output/fact1_filings.csv` (300 rows); `empirics/README.md` (Fact 1 design) |
-| Figure 2 (fact1_delay.pdf) | `empirics/output/fact1_delay.pdf` (executed, on file) |
-| SEC cross-check: 59% expected earlier filing; 29% of 2022 filings already inside, against our measured 35.7% already inside pre-rule; "different samples, different windows, same direction" | SPEC.md §4 and §6 quoting Release 33-11253 pp. 178, 193 (via the card); \cite{SEC2023}; 35.7% = fact1_summary.csv |
-| BBJJ bimodality; Polk calendar-day mismeasurement (48% at day-ten marker) | SPEC.md §4; competitor_map reading note 9 |
-| §6.2 sample/split (trigger-date assignment; straddlers; pre ends at adoption 2023-10-10; FD* and the 10pm cut-off; re-parse precondition) | SPEC.md §2.2, §2.4, §2.5, §2.6 |
-| (a) timing split (market model window; run-up/jump; stacked regression with flagged interaction; two-way clustering + wild bootstrap; H1 sign-free; H2 both branches; the one check that kills the identity; RUNUP5; LIQ definition and orientation note; run-up path figure, benchmark shape +0.90%/+1.61%, Zeng +2.8%) | SPEC.md §3.1–3.7 (esp. 3.4, 3.5.2); benchmark table (Zeng pp. 1309–1310; Polk Table 1 p. 523) |
-| (b) bindingness dose (D_j pre-period share >5bd; binary split; filer clustering; mechanical first stage; Trivedi +0.348 SE 0.130, mean-lag null, frame never stated; dose×LIQ confound) | SPEC.md §4; competitor_map reading note 6 |
-| (c) stake at filing (STK; BBJJ −0.001*/0.6pp per ten days hazard; 0.12pp arithmetic vs MDE) | SPEC.md §5 (quoting BBJJ Table A2 p. 37); the stake at filing object = CONTEXT.md / card §4.2 B^F |
-| (d) bounded null (80/20/3/1 ladder; 20/3/1pp rungs; accumulation channel only; dollar figures disclaimed) | SPEC.md §6 (Release Table 3 p. 189, p. 188 prose; AUTHOR_BRIEF restrictions 1–3) |
-| (e) matched DiD (never-13D 3:1 Mahalanobis on size/illiquidity/exact SIC2/exact quarter; pseudo-trigger; BID12 coding + hand audit; GS base rates 18.1%/7.2%; MDE 4.4pp > 3pp ceiling; "that sentence … is the leg's honest deliverable") | SPEC.md §8.1–8.6 (incl. §8.6's "must be the headline sentence of the DiD leg") |
-| (f) referee checklist (control/bounded null both; ten confounds incl. EDGAR cut-off, calendar-day screens, defence channel; power arithmetic; 568 placebos; pseudo-trigger TD−63; 13G placebo; seven pre-quarters F-test p<0.10 blocking rule; parser validation with two stated gaps) | SPEC.md §12 (g) + §3.7, §8.7, §8.8; CONTEXT.md referee checklist |
-| §6.3 headline shell: "[headline choice pending]"; Candidates A (partition test), B (reform slope change, both branches live, A(τ) conditionality named), C (bounded null); what each needs / what kills each; "The choice … is mine" | Task instruction (choice not made — not picked); candidate content = SPEC.md §3.4/§3.5.2/§6/§8.6; A(τ) conditionality = card §5 A(τ) note |
+| §6 opening: one exercise, descriptive; E1's question (did the realised trigger-to-filing delay fall after the window moved from ten calendar days to five business days on 2024-02-05); no control group, no effect identified on liquidity/returns/activism/bidder entry/premia/control, tests neither the invariance result nor the attenuation theorem; registered before the run; every number from the run's result record | `research/empirics_v4/e1_spec.md` (Question; Claim boundary; registration note); `empirics/output/e1_estimate.json` (`label: "descriptive"`, `causal_claim: false`, `spec` path) |
+| §6.1 Protocol and population (sec:e1protocol): both EDGAR spellings taken, both amendment spellings excluded, enumeration collapses on accession; 616 pre (2023Q2–Q3) / 521 post (2024Q3–Q4), the near-census, not a sample; the campaign unit (subject firm, trigger date), earliest accession for simultaneous group filings; 461/435 eligible, 450/432 resolved, 14 unresolved (11 pre, 3 post) carried through the bounds; trigger = "Date of Event Which Requires Filing" (structured XML tag first, cover-page text second); filing = EDGAR acceptance timestamp, 17:30 ET roll to the next business day; federal business days; cluster bootstrap on the subject firm, 2,000 draws, seed 20260901, 95% percentile interval; complete-case with worst-case bounds; G1/G2/G3 registered as binding, all pass | e1_spec.md (Population with the first and second dated amendments; Unit; Measurement; Inference; Bounds; Gates); e1_estimate.json (enumerated, campaigns, per_period counts, inference block, gates block) |
+| §6.2 Table (tab:e1): enumerated 616/521; eligible 461/435; resolved 450/432; unresolved 11/3; median 6 [6, 7] → 5 [5, 5]; share within 5bd 38.9% → 67.1%, worst-case [38.0, 40.3] / [66.7, 67.4]; difference +28.2pp, 95% bootstrap [+21.8, +34.8], worst-case [+26.3, +29.4]; caption's "Descriptive; no control group; no causal claim" | `empirics/output/e1_estimate.json` — the single result authority (per_period, difference_complete_case, inference, G1_worst_case_bound); row-level record `empirics/output/e1_delays.csv` (1,137 rows, status + reason on every row) |
+| §6.2 Figure (fig:e1cdf): empirical CDF pre (450) vs post (432), dashed line at the five-business-day deadline; resolved campaigns only; no outcome screen, so the right tail stays visible | `empirics/output/e1_cdf.pdf` (on file), plotted from `empirics/output/e1_delays.csv` per e1_spec.md Outputs |
+| §6.2 two readings: the compression is real and large (median bounds [6, 7] vs [5, 5] do not overlap; G1's lower bound clears zero); agreement in kind with the Commission's arithmetic (≈29% of 2022's initial filings already inside the amended deadline vs 38.9% here; earlier filing expected for ≈59% of timely 13D reports; "different samples and windows, the same direction"); BBJJ deadline-bucket mass (45.3% at 8–10bd, 16.5% inside 3bd, 7.1% beyond 15bd); Polk calendar-day misclassification (48% at their day-ten marker) | e1_estimate.json (medians, shares, bounds, G1 verdict); Release 33-11253 pp. 178, 193 via `research/cards/_institutional_sec_33_11253.md` §4.1; \cite{SEC2023}; `research/cards/bebchuk_brav_jackson_jiang_2013_jcl.md` R1 (Table 2, p. 10); competitor_map Part 1 row 9 + reading note 9 (Polk) |
+| §6.3 The denominator and the audit (sec:e1audit): G2 differential coverage (unresolved 2.4% pre vs 0.7% post; gap 1.7pp against the registered 10pp cap); G3 blind hand-audit (60 filings, 20 per non-empty period-by-route stratum — pre-text, post-text, post-xml; the blind enforced by commit order; 0 of 60 disagreements against the registered threshold of 3; the 20 xml-route excerpts read LABEL NOT FOUND and were coded from the dateOfEvent element); three data-quality items stated rather than absorbed (14 unresolved, 3 of them Sageworth self-CIK rows; 10 of 521 post filings declaring a non-zero amendment number in the body, population stays as registered; no outcome screen) | e1_estimate.json gates block (G2 values, G3 verdict); e1_spec.md third and fourth dated amendments (stratum allocation; LABEL NOT FOUND; the amendment-number scan); e1_delays.csv (status/reason codes); audit sample `empirics/output/e1_audit_cases.csv` |
+| §6.4 The viewed pre-specified record (sec:e1record): the seven-leg pre-specification (run-up/jump timing split, bindingness dose, stake at filing, bounded null from the Commission's tables, matched DiD on the bid hazard, bidder entry by liquidity, referee checklist) executed in August 2026 and viewed; preserved exactly as viewed in the online appendix; not the headline; no estimate in it cited as evidence in the main text | `draft_v3_onlineappendix.tex` §app:honesty ("The August 2026 empirical record, exactly as viewed"), quoting the record deleted from the live tree on 2026-09-01 (deletion commit 235de22) and preserved in history at 9b98089 |
+| §6.5 The headline (sec:e1headline): the choice the earlier draft left pending is made — the filing-delay result of tab:e1; descriptive; establishes that the statutory clock moved in practice, nothing about returns/activism/bidder entry/premia; the candidates requiring return or takeover estimates retired with the viewed August record | e1_estimate.json (`headline_suppressed: false` — the registered gates passed, so the registered headline runs; the tab:e1 block); retired candidates preserved at §app:honesty (9b98089 provenance) |
+| Independent reproduction | `quality_reports/verification/2026-09-01_e1_reproduction_verify.md` (fresh-session clean-clone rerun at 1f23867: e1_delays.csv bit-identical; e1_estimate.json identical outside the G3 block, whose `NOT RUN` rerun state is the expected consequence of not re-scoring the hand audit; test_e1.py 13/13, test_parse_13d.py 11/11) |
 
 ### §7 Conclusion (`sec:conclusion`)
 
 No new claims. Restates: the identity (card §1); the three results and their conditionality
 (card rows); the window record + A(τ) failure "in the same section because they are both
-true" (HANDOFF §8 + ticket 33); the executed descriptives (fact1); the spec and pending
-headline (SPEC); three open questions (card §9 items 1–2 + A6 scoped remainder + the ω_a
+true" (HANDOFF §8 + ticket 33); the E1 filing-delay descriptive (median 6→5 bd; share
+38.9→67.1%; +28.2pp with its bootstrap interval; worst-case bounds and the registered gates;
+no control group, no causal claim — `empirics/output/e1_estimate.json`) and the preservation
+sentence for the viewed August record (`draft_v3_onlineappendix.tex` §app:honesty, quoted
+from 9b98089); three open questions (card §9 items 1–2 + A6 scoped remainder + the ω_a
 anchor absence from HANDOFF §6).
 
 ### Appendices
@@ -162,8 +170,9 @@ adaptation noted; Appendix C = T1 + C1).
 1. `numerical_output/fig_disclosure.pdf` (Figure 1) — the O-1 disclosure-regime
    comparison at baseline. Card row: §9 item 3 (O-1) with the four ratios and Ω*;
    HANDOFF §1–§3. Plots `numerical_output/data/disclosure_attenuation.csv`.
-2. `empirics/output/fact1_delay.pdf` (Figure 2) — the executed Fact-1 delay
-   descriptives. Source: executed pipeline output on file (`fact1_summary.csv`).
+2. `empirics/output/e1_cdf.pdf` (Figure 2, `fig:e1cdf` in §6.2) — the E1 empirical CDF of
+   the trigger-to-filing delay, pre vs post, resolved campaigns. Source: the row-level record
+   `empirics/output/e1_delays.csv`; the Outputs row of `research/empirics_v4/e1_spec.md`.
 
 **Dropped (14), each for lack of a card row.** The 15 files in `numerical_output/` are
 the one-round (draft_v2-era) numerical layer; the card's numerical records for the v4
@@ -221,24 +230,27 @@ removed material, enumerated:
 | C1 PROVED (region as hypothesis) + NUMERICAL nodes | Proposition 2 + Status + rem:C1record "verified on the numerical grid" | §5.5 |
 | A3/A6/A(τ) NUMERICAL applicability evidence | Remarks 2 (rem:A3record), 3 (rem:A6record), 5 (rem:AtauRecord) — labelled as numerical records; "no label moves" stated where the card says it | §3, §5 |
 | Window/threshold/L2 records NUMERICAL | rem:T1record "verified on the numerical grid" + Table 1 | §5.4 |
-| Fact-1 descriptives | Table 2 + Figure 2; "descriptive statistics; no standard errors are claimed"; seeded-sample and parse-rate caveats | §6.1 |
-| Trivedi ESTIMATED | "+0.348 with standard error 0.130" quoted as his estimate | §2.4, §6.2(b) |
+| E1 descriptives (JSON `label: "descriptive"`, `causal_claim: false`) | Table `tab:e1` + Figure `fig:e1cdf`; the caption's "Descriptive; no control group; no causal claim"; worst-case bounds reported beside the complete-case estimates, never instead | §6.1–§6.2 (sec:e1protocol, sec:e1result) |
+| Trivedi ESTIMATED | "+0.348 with standard error 0.130" quoted as his estimate | §2.4 (sec:lit-structural) |
 | CONJECTURE | none present; nothing promoted | — |
 
-## 5. Notes for Austin (in the shell)
+## 5. Notes for Austin
 
-1. **Headline shell (§6.3)**: verbatim marker in the draft is `\textbf{[headline choice
-   pending]}`. Candidates A (partition test), B (reform slope change; both branches
-   live), C (bounded null) each carry "what it needs / what kills it / scope". The
-   closing line reads "The choice among A, B, and C is mine, and the December draft's
-   headline subsection will be written into this shell once it is made."
-2. The spec's pre-registered power numbers (1.1–2.3pp timing split; 0.85pp stake; 4.4pp
-   DiD) are quoted on the post-re-parse projection basis stated in SPEC §3.6/§8.6; if
-   the re-parse lands different counts, the draft's §6.2 sentences carrying them need
-   the recomputed values.
-3. The two figures included are the only two with card rows; if a v4 figure set is ever
-   rendered from the t2_* checks, Table 1 and the three numerical remarks are the
-   natural targets.
+1. **Headline (§6.5, `sec:e1headline`)**: resolved on 2026-09-01. The `[headline choice
+   pending]` marker and Candidates A/B/C left the draft with the §6 rebuild; the headline is
+   the filing-delay result of Table `tab:e1`, stated descriptively, and the candidates that
+   needed return or takeover estimates were retired with the viewed August record preserved
+   at §app:honesty (9b98089 provenance). The result authority carries
+   `headline_suppressed: false` — the registered gates passed, so the registered headline
+   runs.
+2. The deleted spec's pre-registered power numbers (1.1–2.3pp timing split; 0.85pp stake;
+   4.4pp DiD) are quoted nowhere in the draft; the §6 sentences that carried them left with
+   the seven-leg design. Where the design's numbers survive, it is as viewed-record content
+   in §app:honesty quoted from 9b98089, never as live sourcing.
+3. The two included figures: `fig_disclosure.pdf` is the one with a card row; `e1_cdf.pdf`
+   enters under the registered spec's Outputs row (`research/empirics_v4/e1_spec.md`). If a
+   v4 figure set is ever rendered from the t2_* checks, Table 1 and the three numerical
+   remarks are the natural targets.
 4. Nothing in the draft states an empirical value for ω_a (card §9); the conclusion
    names its absence as an open input, per HANDOFF §6.
 
@@ -275,7 +287,9 @@ throughout.
 4. **Table 2 attrition arithmetic.** The caption now reports the full attrition: 300 sampled,
    198 parsed (102 pre and 96 post, reconciling 0.68 × 150 = 102 and 0.64 × 150 = 96), 10
    screened out by the 0–60 business-day band (4 pre and 6 post), 188 retained (98 pre and 90
-   post). The screen is reported as a count per SPEC §2.3.
+   post). The screen is reported as a count per SPEC §2.3. *(Superseded 2026-09-01: Table 2
+   (`tab:fact1`) and the seeded 300-filing sample left the draft with the §6 rebuild; the
+   current table is `tab:e1` — see the 2026-09-01 amendment below.)*
 5. **H=12 chord-route caveat.** rem:T1record now states that the enumerated pooled-support
    object is computationally unavailable at H = 12, so the column's composition ratio C_T is
    obtained from the chord closed form whose support condition A(τ) is measured to fail at this
@@ -505,3 +519,48 @@ in the entire cross-reference surface that differs from `adf97c6`.
 its PAR extraction cache under `$TMPDIR/par-*` was incomplete (`Unicode::UCD: failed to find
 unicore/version`). Deleting that cache directory fixed it. Nothing in the manuscript caused it and
 nothing in the manuscript was changed for it.
+
+---
+
+## Amendment, 2026-09-01 (empirical layer rebuilt: E1 replaces the seeded sample and the prospective spec)
+
+The manuscript's empirical layer was rebuilt on 2026-09-01: §6 of `draft_v3.tex` was rewritten
+(commit 0e1e5e2) around the single registered exercise E1, and the superseded August design was
+preserved, exactly as viewed, as `draft_v3_onlineappendix.tex` §app:honesty, "The August 2026
+empirical record, exactly as viewed" (commit 1243cd4). The August record was deleted from the
+live tree the same day (deletion commit 235de22) and lives in history at 9b98089; the appendix
+quotes it from there. What changed in this map:
+
+1. **New authorities.** Every empirical number in `draft_v3.tex` draws on
+   `empirics/output/e1_estimate.json` (the single result authority), registered against
+   `research/empirics_v4/e1_spec.md` (four dated amendments, all 2026-09-01); the row-level
+   record is `empirics/output/e1_delays.csv` (1,137 accessions, a status and reason on every
+   row) and the figure is `empirics/output/e1_cdf.pdf`. Independent clean-clone reproduction is
+   recorded at `quality_reports/verification/2026-09-01_e1_reproduction_verify.md`
+   (`e1_delays.csv` bit-identical; the JSON identical outside the G3 block, whose `NOT RUN`
+   rerun state is the expected consequence of not re-scoring the hand audit; test_e1.py 13/13,
+   test_parse_13d.py 11/11).
+2. **§6 re-mapped.** The old §6 rows (the two-layer split; the seeded n=98/90 Table 2
+   (`tab:fact1`) and Figure 2 (`fact1_delay.pdf`); the §6.2 seven-leg prospective map (a)–(f);
+   the §6.3 headline shell) were replaced by rows for the five new subsections:
+   `sec:e1protocol`, `sec:e1result` (Table `tab:e1`, Figure `fig:e1cdf`), `sec:e1audit`,
+   `sec:e1record`, `sec:e1headline`. Rows elsewhere that cited the deleted artifacts were
+   re-pointed: the abstract and intro empirical rows and the conclusion paragraph now draw on
+   `e1_estimate.json` and the appendix's preservation pointer; the included-figures list
+   carries `e1_cdf.pdf`; the honesty-label crosswalk carries the E1 descriptives row, and the
+   Trivedi ESTIMATED row's location lost the deleted §6.2(b) leg. The BBJJ bucket and Trivedi
+   first-stage rows, which had cited SPEC.md merely as the place a literature number was
+   recorded, now point at the live cards (`bebchuk_brav_jackson_jiang_2013_jcl.md` R1–R2;
+   `trivedi_2026_ssrn.md` R2), and the §2.1 date confirmations point at
+   `_institutional_sec_33_11253.md` and lit_institutional-facts §1.3. Content of the deleted
+   SPEC.md that survives only as viewed record is cited at §app:honesty with the 9b98089
+   provenance, never as a live source.
+3. **Headline shell resolved.** The "[headline choice pending]" state is gone: the headline is
+   the E1 filing-delay result (§6.5, `sec:e1headline`), with `headline_suppressed: false` in
+   the result authority. Notes-for-Austin items 1–2 were rewritten accordingly (the section
+   heading's "in the shell" went with them), and the 2026-08-30 fix-round amendment's item 4
+   (the old Table 2 attrition caption) is marked superseded in place.
+4. **What did not move.** Every theory row (model card, HANDOFF_sign, sections_v3), the
+   removed-claims enumeration, and the earlier rounds' compile-gate records are untouched. The
+   frozen record under `research/model_v4/` and `sections_v3/` was not opened for writing, and
+   this pass edited no file other than this one.
