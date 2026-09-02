@@ -171,8 +171,17 @@ class E1GateTest(unittest.TestCase):
                          else "NO-GO")
 
     def test_g2_is_left_for_the_independent_audit(self):
-        self.assertEqual(
-            self.result["gates"]["E1-G2_blind_audit"]["verdict"], "NOT RUN")
+        gate = self.result["gates"]["E1-G2_blind_audit"]
+        # Before the audit the verdict is NOT RUN; the audit may write PASS.
+        self.assertIn(gate["verdict"], ("NOT RUN", "PASS"))
+        if gate["verdict"] == "PASS":
+            # A PASS only the audit could have written: the runner's G2 block
+            # carries no provenance, so these keys cannot come from it.
+            for key in ("audit_file", "read_by", "n_audited", "seed"):
+                self.assertIn(key, gate)
+        # The runner itself leaves G2 to the audit, on any input it accepts.
+        probe = fp.e1_gates(pd.DataFrame({"stake": [1.0], "period": ["pre"]}))
+        self.assertEqual(probe["E1-G2_blind_audit"]["verdict"], "NOT RUN")
 
     def test_status_follows_the_gate_verdicts(self):
         verdicts = [g["verdict"] for g in self.result["gates"].values()]
@@ -235,6 +244,15 @@ class E2GateTest(unittest.TestCase):
         self.assertAlmostEqual(
             gate["absolute_gap"],
             abs(gate["link_share_pre"] - gate["link_share_post"]), places=12)
+
+    def test_g2_is_left_for_the_independent_audit(self):
+        gate = self.result["gates"]["E2-G2_link_audit"]
+        self.assertIn(gate["verdict"], ("NOT RUN", "PASS"))
+        if gate["verdict"] == "PASS":
+            for key in ("audit_file", "read_by", "n_audited", "seed"):
+                self.assertIn(key, gate)
+        probe = fp.e2_gates(0, 0, 0, 0, {}, float("nan"), float("nan"))
+        self.assertEqual(probe["E2-G2_link_audit"]["verdict"], "NOT RUN")
 
     def test_status_follows_the_gate_verdicts(self):
         verdicts = [g["verdict"] for g in self.result["gates"].values()]
