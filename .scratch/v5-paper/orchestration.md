@@ -153,7 +153,7 @@ that fails at any node makes the result ABSENT). Commit the batch, the records, 
 Write `grok/checkpoint-1.md` with every result's label at that moment; fill the placeholders in
 `grok/batch-2.md`.
 
-Checkpoint 2 (after batch 2). `11-check` (Opus, CHECK). On FAIL, a fix-only brief `batch-2-fix.md`
+Checkpoint 2 (after batch 2). The who-gets-caught rerun on the step-0 script, detached, so the committed record carries the added fields. `11-check` (Opus, CHECK). On FAIL, a fix-only brief `batch-2-fix.md`
 (11 fix), then `11-check-2`; a second FAIL is a STOP. On PASS, `12-referee` (Opus). Commit the
 paper. Write `grok/checkpoint-2.md`; fill the placeholders in `grok/batch-3.md` from the referee
 report.

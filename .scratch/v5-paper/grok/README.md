@@ -19,7 +19,7 @@ reading it.
 | Batch | Steps | Effort | Checkpoint after it |
 |---|---|---|---|
 | 1 | fixes from checkpoint 0 if any; 03 grid; 05 write, self-attack, fix; 08; 08 audit | high | CP1: Opus attack on 05; the 03 grid and 05 condition runs; 01 verify on the T1 and L4 reruns |
-| 2 | 10; 11 | xhigh | CP2: 11 check; 12 referee (Opus) |
+| 2 | step 0 from checkpoint 1; 10; 11 | xhigh | CP2: 11 check; 12 referee (Opus); the who-gets-caught rerun |
 | 3 | 13; 14 | high | CP3: page inspection, unslop gate, push |
 
 ## Launch

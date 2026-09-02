@@ -14,6 +14,6 @@ script under `numerical_v4/checks/figures.py` or `empirics/fingerprints.py`.
 - [ ] Each figure regenerates from a command listed in the report.
 - [ ] No figure shows a case the paper's theorems do not cover.
 
-**Status:** open
+**Status:** open; Grok batch 2. E2 is NO-GO (checkpoint 1), so the E2 figure is absent; the figures are Figure 1 (T1 record), Figure 2 (who-gets-caught record) and the E1 figure.
 
 ## Comments
