@@ -26,6 +26,6 @@ corollary's condition holds and whether C_T ≤ 1, using the point-derivative co
 - [ ] The record's C_T ≤ 1 verdicts agree with the T1 check's at the same nodes under the same
       convention (evidence: a comparison table in the report).
 
-**Status:** open
+**Status:** two-pass gate passed 2026-09-02 (Kimi write, Opus re-derive PASS on the first pass); grid check pending
 
 ## Comments

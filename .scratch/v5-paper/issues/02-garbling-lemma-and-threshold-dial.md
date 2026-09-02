@@ -28,6 +28,6 @@ and returns PASS or FAIL with reasons. On FAIL the writer fixes once; a second F
       every calibration node at `mark=2` and the record is cited.
 - [ ] No sentence refers to the inherited draft, prior assumptions, or what was replaced.
 
-**Status:** open
+**Status:** two-pass gate passed 2026-09-02 (Kimi write, Opus re-derive PASS on the first pass); grid check pending
 
 ## Comments

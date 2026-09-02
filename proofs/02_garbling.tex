@@ -1,0 +1,430 @@
+% =============================================================================
+% proofs/02_garbling.tex
+% The garbling lemma at order size two and the threshold dial.
+% Statements first, then the proofs.  Assembled into appendix.tex.
+% Needs amsmath, amssymb, amsthm and enumitem in the assembling preamble.
+% =============================================================================
+
+\providecommand{\Eop}{\mathbb{E}}
+\providecommand{\Prb}{\mathbb{P}}
+\providecommand{\ind}{\mathbf{1}}
+\providecommand{\Dact}{\Delta^{\mathrm{act}}}
+\providecommand{\Wrev}{\mathcal{W}}
+\providecommand{\Grev}{\mathcal{G}}
+
+\makeatletter
+\@ifundefined{c@theorem}{\newtheorem{theorem}{Theorem}}{}
+\@ifundefined{c@lemma}{\newtheorem{lemma}{Lemma}}{}
+\@ifundefined{c@condition}{\newtheorem{condition}{Condition}}{}
+\@ifundefined{c@remark}{\newtheorem{remark}{Remark}}{}
+\makeatother
+
+\section{Order size two: the pooled experiment and the threshold dial}
+\label{sec:pf-garbling}
+
+\subsection*{Setting and notation}
+\label{sec:pf-garbling-setup}
+
+Trading runs over rounds $d = 0,\ldots,H$. Noise takes the values $-\bar z$, $0$ and $+\bar z$
+with probabilities $\kappa/2$, $1-\kappa$ and $\kappa/2$. The blockholder's order while she is
+building the stake is two noise lumps, so the pooled order mark is $q_{jd}(s) \in \{0, 2\bar z\}$
+and pooled order flow is $X_d = q_{jd}(s) + z_d$. The support of $X_d$ is
+$\{-\bar z, 0, \bar z, 2\bar z, 3\bar z\}$: a round in which the blockholder buys, an
+\emph{active} round, produces $X_d \in \{\bar z, 2\bar z, 3\bar z\}$, and a round in which she
+does not, an \emph{idle} round, produces $X_d \in \{-\bar z, 0, \bar z\}$. The two supports meet
+at $\bar z$ and nowhere else. Write
+\begin{equation}
+\label{eq:g-eps}
+\varepsilon \;:=\; \kappa/2 \;\in\;(0,\tfrac12) \qquad\text{for }\kappa\in(0,1).
+\end{equation}
+
+Policies are fixed throughout: the plan menu, the cutoff vector and the execution paths are held
+at one setting while the disclosure rule $(\tau,T)$ moves. Let $\theta$ denote the blockholder's
+type, the pair of plan and signal, and let
+\[
+m_d(\theta) \;\in\; \{0,\,2\bar z\}, \qquad d = 0,\ldots,H,
+\]
+be its mark path, equal to $2\bar z$ on the rounds in which the plan buys and $0$ elsewhere. The
+mark path is a deterministic function of the type and takes finitely many values. The disclosure
+indicator $D(\theta) = \ind\{a(\theta) = 1,\ c(\theta;\tau) + T \le H\}$ is a function of the type
+alone, because the stake path does not respond to realised order flow and the crossing date reads
+off that path. Write $\rho$ for the prior law of $\theta$, $\Omega(\tau,T) = \Prb(D=1)$ for the
+flagged weight, and
+\[
+\rho_P^{\tau,T} \;:=\; \rho(\,\cdot \mid D = 0\,)
+\]
+for the pooled type law, which does not depend on $\kappa$.
+
+The kernel is $h(\mathcal I) = \pi(\mathcal I)\,p(\mathcal I)$, with $\pi$ the engagement
+posterior and $p$ the entry probability. The price and the entry probability at an information
+set are pinned by the posterior engagement share $\pi$ and the posterior mean $\hat v$ of the
+fundamental, so
+\begin{equation}
+\label{eq:g-kernel}
+h(\nu) \;=\; \mathsf h\bigl(\pi(\nu),\,\hat v(\nu)\bigr),
+\end{equation}
+where $\nu$ is the posterior over types and $\pi(\nu)$, $\hat v(\nu)$ are both linear in $\nu$. A
+curvature statement about $h$ is read as a statement about $\mathsf h$ on the convex hull of the
+pairs $(\pi,\hat v)$ the pooled cell generates. The premium objects are
+$\Dact = \Delta_m \Eop[h(\mathcal I_H)]$, $M_F = \Delta_m \Eop[h \mid D=1]$,
+$M_P = \Delta_m \Eop[h \mid D=0]$, and the sensitivities are
+$\mathcal S = |\partial_\kappa \Dact|$ and $\mathcal S_P = |\partial_\kappa M_P|$. For a
+threshold pair $\tau' < \tau$ at a common window,
+\[
+W_\tau \;=\; \frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)},
+\qquad
+C_\tau \;=\; \frac{\mathcal S_P(\tau',T)}{\mathcal S_P(\tau,T)} .
+\]
+
+For a set of rounds $S$, the \emph{$S$-record} is the pair
+$\bigl(S,\ (m_e(\theta))_{e \in S}\bigr)$; Lemma~\ref{lem:g1}(b) shows that the pooled history
+determines it. Finally, call an event $\mathcal A$ a \emph{cell event} when it is determined by
+the type alone, so that conditioning on it leaves the noise law untouched. The pooled cell
+$\{D = 0\}$ is a cell event, and so is the event that the filing has not landed by a date $d$.
+For a cell event $\mathcal A$ write $\rho_{\mathcal A} := \rho(\,\cdot \mid \mathcal A\,)$.
+
+\subsection*{Statements}
+\label{sec:pf-garbling-statements}
+
+\begin{lemma}[Erasure form of the pooled experiment]
+\label{lem:g1}
+Fix a policy $(\tau,T)$, a depth $d \le H$ and $\kappa \in (0,1)$, and let
+\[
+R_d \;:=\; \{\, e \le d \;:\; X_e \neq \bar z \,\}
+\]
+be the set of rounds whose flow differs from one lump. Then:
+\begin{enumerate}[label=(\alph*),leftmargin=2.4em,itemsep=3pt]
+\item $\Prb(X_e = \bar z \mid \theta) = \varepsilon$ for every type and every round, so the value
+  $\bar z$ carries likelihood ratio one across types and its probability rises with $\kappa$;
+  consequently $R_d$ is independent of $\theta$ and each round belongs to it independently with
+  probability $1-\varepsilon$;
+\item on $\{R_d = S\}$ the flow determines $m_e(\theta)$ for every $e \in S$, and conditional on
+  the $S$-record the law of $X_{0:d}$ does not depend on $\theta$;
+\item consequently the $S$-record is sufficient: for every cell event $\mathcal A$ the posterior
+  after observing $X_{0:d}$ on $\mathcal A$ is
+  \[
+  \nu_{0:d} \;=\; \rho_{\mathcal A}\bigl(\,\cdot \mid (m_e)_{e \in R_d}\,\bigr),
+  \]
+  and in particular the pooled posterior at the control node takes this form with
+  $\mathcal A = \{D=0\}$ and $d = H$.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[Liquidity garbles the pooled experiment]
+\label{lem:g2}
+Fix a policy and a depth $d \le H$, and let $0 < \kappa < \kappa' < 1$. There is a Markov kernel
+$\Lambda$ from histories to histories, not depending on the type, such that for every type
+$\theta$ the image under $\Lambda$ of the law of $X_{0:d}$ at $\kappa$ is its law at $\kappa'$.
+One such kernel deletes each element of $R_d$ independently with probability
+$(\kappa'-\kappa)/(2-\kappa)$, emits $\bar z$ on every deleted round and on every round outside
+$R_d$, and redraws the flow on the surviving rounds from the $\kappa'$ conditional law given the
+mark. The pooled experiment at $\kappa'$ is therefore a garbling of the pooled experiment at
+$\kappa$, and the law of the pooled posterior at $\kappa'$ is a mean preserving contraction of
+its law at $\kappa$.
+\end{lemma}
+
+\begin{lemma}[Exact liquidity representation of the pooled premium]
+\label{lem:g3}
+Fix a policy $(\tau,T)$, a cell event $\mathcal A$ of positive prior mass and a depth $d \le H$.
+For $S \subseteq \{0,\ldots,d\}$ define
+\begin{equation}
+\label{eq:g-G}
+\Grev^{\,\mathcal A, d}(S) \;:=\;
+\Eop_{\rho_{\mathcal A}}\Bigl[\, h\bigl(\rho_{\mathcal A}(\,\cdot \mid (m_e)_{e\in S})\bigr)
+\,\Bigr],
+\end{equation}
+a number that does not depend on $\kappa$. The three parts below are written for the pooled cell
+at the control node, $\mathcal A = \{D=0\}$ and $d = H$, where
+$\Grev_{\tau,T} := \Grev^{\,\{D=0\},H}$ and $\Omega(\tau,T) < 1$; each holds verbatim for any
+cell event and any depth $d \le H$, with $H$ replaced by $d$ throughout.
+\begin{enumerate}[label=(\alph*),leftmargin=2.4em,itemsep=3pt]
+\item \emph{Representation.} For every $\kappa \in (0,1)$,
+  \begin{equation}
+  \label{eq:g-rep}
+  M_P(\tau,T;\kappa) \;=\; \Delta_m \sum_{S \subseteq \{0,\ldots,H\}}
+  (1-\varepsilon)^{|S|}\,\varepsilon^{\,H+1-|S|}\; \Grev_{\tau,T}(S).
+  \end{equation}
+\item \emph{Derivative.} With the $\kappa$-free coefficients
+  \begin{equation}
+  \label{eq:g-ck}
+  c_k(\tau,T) \;:=\; \sum_{d=0}^{H}\ \
+  \sum_{\substack{S \subseteq \{0,\ldots,H\}\setminus\{d\} \\ |S| = k}}
+  \Bigl[\,\Grev_{\tau,T}(S \cup \{d\}) - \Grev_{\tau,T}(S)\,\Bigr],
+  \qquad k = 0,\ldots,H,
+  \end{equation}
+  the pooled premium is differentiable in $\kappa$ on $(0,1)$ and
+  \begin{equation}
+  \label{eq:g-deriv}
+  \partial_\kappa M_P(\tau,T;\kappa) \;=\; -\,\frac{\Delta_m}{2}\,\Wrev_{\tau,T}(\kappa),
+  \qquad
+  \Wrev_{\tau,T}(\kappa) \;:=\; \sum_{k=0}^{H}(1-\varepsilon)^k \varepsilon^{\,H-k}\,c_k(\tau,T).
+  \end{equation}
+\item \emph{Sign.} If $\mathsf h$ of \eqref{eq:g-kernel} is concave on the convex hull of the
+  pairs $(\pi,\hat v)$ the pooled cell generates, then every increment in \eqref{eq:g-ck} is at
+  most zero, hence $c_k(\tau,T)\le 0$ for every $k$ and $\partial_\kappa M_P \ge 0$ at every
+  $\kappa \in (0,1)$. If $\mathsf h$ is convex there, all three inequalities reverse. The pooled
+  expectation of the kernel is therefore monotone in $\kappa$, in the direction the sign of the
+  chord of $\mathsf h$ gives, and the same holds at every depth $d \le H$.
+\end{enumerate}
+\end{lemma}
+
+\begin{condition}[Revelation dominance at a threshold pair]
+\label{cond:D}
+Let $b_0 < \tau' < \tau$ at a common window $T$, and let $\Wrev$ be as in \eqref{eq:g-deriv}. The
+pair satisfies revelation dominance at $\kappa$ if
+\begin{equation}
+\label{eq:g-D}
+\bigl|\Wrev_{\tau',T}(\kappa)\bigr| \;\le\; \bigl|\Wrev_{\tau,T}(\kappa)\bigr| .
+\end{equation}
+\end{condition}
+
+\begin{theorem}[The threshold dial at fixed policies]
+\label{thm:g-threshold}
+Fix the plan and cutoff policies and a window $T$, and take $b_0 < \tau' < \tau$ with
+$0 < \Omega(\tau,T)$, $\Omega(\tau',T) < 1$ and $\mathcal S_P(\tau,T) > 0$; part~(B) then puts
+$\Omega(\tau,T) \le \Omega(\tau',T) < 1$, so both pooled cells carry positive mass. Assume the
+two cell decomposition $\Dact = \Omega M_F + (1-\Omega)M_P$ and the $\kappa$-invariance of the
+flagged average $M_F$, each with its own hypotheses. Then:
+\begin{enumerate}[label=(\Alph*),leftmargin=2.4em,itemsep=3pt]
+\item \emph{Factorisation.} $\mathcal S = (1-\Omega)\,\mathcal S_P$, exactly, at every
+  $\kappa \in (0,1)$.
+\item \emph{Weight leg.} $\mathcal C_F(\tau,T) \subseteq \mathcal C_F(\tau',T)$ and every newly
+  flagged history is generated by a Voice plan, so $\Omega(\tau',T)\ge\Omega(\tau,T)$ and
+  $W_\tau \in [0,1]$, with equality when no history is reclassified. This leg carries no
+  condition beyond the standing ones.
+\item \emph{Composition leg and the dial.} Under Condition~\ref{cond:D} at the pair and at
+  $\kappa$, $C_\tau \le 1$, and therefore
+  \begin{equation}
+  \label{eq:g-dial}
+  \frac{\mathcal S(\tau',T)}{\mathcal S(\tau,T)} \;=\; W_\tau\,C_\tau \;\le\; 1 .
+  \end{equation}
+  Equality holds when no history is reclassified, since the two rules then induce the same
+  partition and both factors are one.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[A $\kappa$-free sufficient form of Condition~\ref{cond:D}]
+\label{rem:g-Dstar}
+The coefficients $c_k(\tau,T)$ of \eqref{eq:g-ck} do not depend on $\kappa$, so
+Condition~\ref{cond:D} is a comparison of two vectors in $\mathbb R^{H+1}$. If the $H+1$ numbers
+$c_0(\tau,T),\ldots,c_H(\tau,T)$ share one sign and
+\begin{equation}
+\label{eq:g-Dstar}
+|c_k(\tau',T)| \;\le\; |c_k(\tau,T)| \qquad\text{for every } k = 0,\ldots,H,
+\end{equation}
+then Condition~\ref{cond:D} holds at every $\kappa \in (0,1)$ at once.
+\end{remark}
+
+\begin{remark}[What the coefficients are]
+\label{rem:g-cells}
+By Lemma~\ref{lem:g1} the $S$-record partitions the pooled type set into the level sets of the
+restricted mark path $\theta \mapsto (m_e(\theta))_{e \in S}$, so $\Grev_{\tau,T}(S)$ is a finite
+sum over those level sets of the cell mass times the kernel at the cell posterior. Each
+$c_k(\tau,T)$ is therefore a closed form expression in the pooled type weights, computable
+without reference to $\kappa$ and without enumerating order flow.
+\end{remark}
+
+\subsection*{Proofs}
+\label{sec:pf-garbling-proofs}
+
+\begin{proof}[Proof of Lemma~\ref{lem:g1}]
+Condition on a type $\theta$ and a round $e \le d$. If the round is active the mark is $2\bar z$
+and $X_e$ takes the values $\bar z$, $2\bar z$, $3\bar z$ with probabilities $\kappa/2$,
+$1-\kappa$, $\kappa/2$. If the round is idle the mark is zero and $X_e$ takes the values
+$-\bar z$, $0$, $\bar z$ with the same three probabilities in the same order. In both cases
+\[
+\Prb(X_e = \bar z \mid \theta) \;=\; \kappa/2 \;=\; \varepsilon ,
+\]
+which proves the first claim of part~(a); the noise draws are independent across rounds and
+independent of the type, so the indicators $\ind\{e \in R_d\}$, $e \le d$, are independent
+Bernoulli variables with success probability $1-\varepsilon$, independent of $\theta$. That is
+part~(a).
+
+For part~(b), the two supports meet only at $\bar z$: an active round produces
+$X_e \in \{2\bar z, 3\bar z\}$ and an idle round produces $X_e \in \{-\bar z, 0\}$ whenever
+$X_e \neq \bar z$. So on $\{e \in R_d\}$ the flow determines the mark. It remains to check that
+nothing else is carried. Conditional on the round being active and revealing,
+\[
+\Prb(X_e = 2\bar z \mid \text{active},\, e \in R_d) = \frac{1-\kappa}{1-\varepsilon},
+\qquad
+\Prb(X_e = 3\bar z \mid \text{active},\, e \in R_d) = \frac{\varepsilon}{1-\varepsilon},
+\]
+and conditional on the round being idle and revealing the values $0$ and $-\bar z$ carry those
+same two probabilities. The two conditional laws are the same pair of numbers, so once the mark
+is given, which of its two revealing values was realised is a draw whose law does not depend on
+the type. Rounds outside $R_d$ carry the single value $\bar z$ and no residual randomness at all.
+Combining across rounds by independence, the conditional law of $X_{0:d}$ given the $S$-record
+does not depend on $\theta$, which is part~(b).
+
+Part~(c) is the sufficiency conclusion. Write $\mathcal R$ for the $S$-record. Since the
+conditional law of $X_{0:d}$ given $(\mathcal R,\theta)$ does not depend on $\theta$,
+$\theta$ and $X_{0:d}$ are conditionally independent given $\mathcal R$, and Bayes' rule gives
+$\Prb(\theta \in \cdot \mid X_{0:d}, D=0) = \Prb(\theta \in \cdot \mid \mathcal R, D=0)$. The
+event $\{D=0\}$ is a type event, so conditioning on it is conditioning $\rho$ down to
+$\rho_P^{\tau,T}$, and the displayed posterior is the one stated.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:g2}]
+Let $\varepsilon = \kappa/2 < \varepsilon' = \kappa'/2$ and put
+\[
+\delta \;:=\; \frac{\varepsilon' - \varepsilon}{1-\varepsilon}
+\;=\; \frac{\kappa' - \kappa}{2 - \kappa} \;\in\;(0,1).
+\]
+Define $\Lambda$ on a $\kappa$-history as follows. First read off the record
+$(R_d, (m_e)_{e \in R_d})$, which Lemma~\ref{lem:g1}(b) allows without knowing the type. Second,
+delete each element of $R_d$ independently with probability $\delta$, obtaining $R'_d$. Third,
+emit the flow value $\bar z$ on every round outside $R'_d$, and on every round $e \in R'_d$ emit
+one of the two revealing values consistent with $m_e$, drawn with probabilities
+$(1-\kappa')/(1-\varepsilon')$ for the zero noise value and $\varepsilon'/(1-\varepsilon')$ for
+the other. The kernel reads only the history, never the type.
+
+Fix a type. Under the $\kappa$ law each round lies in $R_d$ independently with probability
+$1-\varepsilon$, so under $\Lambda$ each round lies in $R'_d$ independently with probability
+\[
+(1-\varepsilon)(1-\delta) \;=\; (1-\varepsilon) - (\varepsilon'-\varepsilon)
+\;=\; 1-\varepsilon' .
+\]
+On the rounds of $R'_d$ the emitted marks are the type's own marks, and the revealing value is
+drawn from the $\kappa'$ conditional law computed in the proof of Lemma~\ref{lem:g1}. By that
+lemma's factorisation across rounds, the emitted history has exactly the $\kappa'$ law given the
+type. So $\Lambda$ carries the $\kappa$ experiment to the $\kappa'$ experiment and the second is
+a garbling of the first.
+
+For the final claim, run $\Lambda$ on the $\kappa$ history to build a joint law of the type, the
+$\kappa$ history and the $\kappa'$ history. Because $\Lambda$ reads only the history, those three
+form a Markov chain in that order, so
+\[
+\Prb\bigl(\theta \in \cdot \bigm| X^{\kappa'}_{0:d}\bigr)
+\;=\; \Eop\Bigl[\,\Prb\bigl(\theta \in \cdot \bigm| X^{\kappa}_{0:d}\bigr)
+\Bigm| X^{\kappa'}_{0:d}\Bigr].
+\]
+The $\kappa'$ posterior is therefore a conditional expectation of the $\kappa$ posterior, so the
+law of the first is a mean preserving contraction of the law of the second, and both have mean
+$\rho_P^{\tau,T}$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:g3}]
+Part~(a). By Lemma~\ref{lem:g1}(a) the revealed set $R_H$ has the product Bernoulli law
+$\Prb(R_H = S) = (1-\varepsilon)^{|S|}\varepsilon^{\,H+1-|S|}$, and that law is the same under
+$\rho$ and under $\rho_P^{\tau,T}$, because $\{D=0\}$ is a type event and $R_H$ is independent of
+the type. By Lemma~\ref{lem:g1}(c) the pooled posterior on $\{R_H = S\}$ is
+$\rho_P^{\tau,T}(\cdot \mid (m_e)_{e \in S})$. Conditioning on $R_H$ and applying the tower
+property,
+\[
+\Eop\bigl[h(\nu_{0:H}) \mid D=0\bigr]
+\;=\; \sum_{S} \Prb(R_H = S)\;
+\Eop_{\rho_P^{\tau,T}}\Bigl[h\bigl(\rho_P^{\tau,T}(\cdot\mid (m_e)_{e\in S})\bigr)\Bigr]
+\;=\; \sum_S \Prb(R_H = S)\,\Grev_{\tau,T}(S),
+\]
+and multiplying by $\Delta_m$ gives \eqref{eq:g-rep}. Nothing in the argument used the depth or
+the particular cell event, so the same identity holds with $H$ replaced by any $d \le H$ and
+$\{D=0\}$ replaced by any cell event. The numbers $\Grev_{\tau,T}(S)$ are built from
+$\rho_P^{\tau,T}$ and the mark paths only, and neither depends on $\kappa$.
+
+Part~(b). Write $q := 1-\varepsilon$ and $F(q) := \sum_S q^{|S|}(1-q)^{H+1-|S|}\Grev(S)$, the
+expectation of $\Grev(R_H)$ under the product Bernoulli measure with success probability $q$ on
+each of the $H+1$ rounds. Read $F$ as a function of $H+1$ separate success probabilities, one
+per round. It is affine in each of them, because the rounds enter the product measure
+independently, and its partial derivative in the $d$-th is
+$\Eop[\Grev(R_{-d}\cup\{d\})] - \Eop[\Grev(R_{-d})]$, with $R_{-d}$ the random set on the other
+rounds. Setting every coordinate to $q$ and summing the $H+1$ partial derivatives,
+\[
+F'(q) \;=\; \sum_{d=0}^{H}
+\Eop_{q}\Bigl[\,\Grev\bigl(R_{-d}\cup\{d\}\bigr) - \Grev\bigl(R_{-d}\bigr)\Bigr],
+\]
+Expanding the expectation over $R_{-d}$ and collecting terms by $|S| = k$,
+\[
+F'(q) \;=\; \sum_{d=0}^{H}\ \sum_{S \subseteq \{0,\ldots,H\}\setminus\{d\}}
+q^{|S|}(1-q)^{H-|S|}\bigl[\Grev(S\cup\{d\})-\Grev(S)\bigr]
+\;=\; \sum_{k=0}^{H} q^{k}(1-q)^{H-k} c_k(\tau,T).
+\]
+Since $M_P = \Delta_m F(q)$ and $q = 1-\kappa/2$ gives $dq/d\kappa = -1/2$, the chain rule yields
+\eqref{eq:g-deriv} with $1-\varepsilon = q$ and $\varepsilon = 1-q$.
+
+Part~(c). Fix $S$ and $d \notin S$, and write $\nu_S$ and $\nu_{S\cup\{d\}}$ for the two
+posteriors. The record on $S$ is coarser than the record on $S\cup\{d\}$, so
+$\nu_S = \Eop[\nu_{S\cup\{d\}} \mid (m_e)_{e\in S}]$. Both $\pi$ and $\hat v$ are linear in the
+posterior, so the pair $(\pi,\hat v)$ evaluated at these two posteriors is an $\mathbb R^2$ valued
+martingale over the two records, and its values lie in the convex hull named in the statement. If
+$\mathsf h$ is concave there, the conditional Jensen inequality in $\mathbb R^2$ gives
+\[
+\Eop\bigl[\mathsf h(\pi_{S\cup\{d\}},\hat v_{S\cup\{d\}}) \bigm| (m_e)_{e\in S}\bigr]
+\;\le\; \mathsf h(\pi_S, \hat v_S)
+\quad\text{almost surely,}
+\]
+and taking expectations, $\Grev(S\cup\{d\}) \le \Grev(S)$. Every increment in \eqref{eq:g-ck} is
+then at most zero, so $c_k \le 0$ for every $k$. The weights $(1-\varepsilon)^k\varepsilon^{H-k}$
+are strictly positive on $\kappa \in (0,1)$ and $\Delta_m > 0$, so \eqref{eq:g-deriv} gives
+$\partial_\kappa M_P \ge 0$ there. Reversing the curvature reverses each of the three steps. The
+depth played no role, so the statement holds at every $d \le H$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:g-threshold}]
+Part~(A). At fixed policies the disclosure indicator is a function of the type alone: the plan
+fixes the stake path, the path fixes the crossing date, and the filing lands by the control date
+exactly when the crossing date is at most $H-T$. Liquidity enters only the noise law, which
+touches order flow and not the stake path, so $\Omega$ does not move with $\kappa$. The flagged
+average $M_F$ does not move with $\kappa$ by the flagged invariance assumed in the statement.
+Differentiating $\Dact = \Omega M_F + (1-\Omega)M_P$,
+\[
+\partial_\kappa \Dact
+= (\partial_\kappa \Omega)(M_F - M_P) + \Omega\,\partial_\kappa M_F
+  + (1-\Omega)\,\partial_\kappa M_P
+= (1-\Omega)\,\partial_\kappa M_P ,
+\]
+the first two terms vanishing term by term rather than by cancellation. Differentiability of
+$M_P$ in $\kappa$ is not a hypothesis here: Lemma~\ref{lem:g3}(a) exhibits $M_P$ as a polynomial
+in $\kappa$. Taking absolute values and using $1-\Omega \ge 0$ gives
+$\mathcal S = (1-\Omega)\mathcal S_P$.
+
+Part~(B). Let a history be flagged at $\tau$, so $a = 1$ and $c(\tau) + T \le H$, where
+$c(\tau) = \inf\{d : B(s,d) \ge \tau\}$. Since $\tau' < \tau$, every date at which the stake
+reaches $\tau$ is a date at which it reaches $\tau'$, so $c(\tau') \le c(\tau)$ and therefore
+$c(\tau') + T \le H$. The engagement flag is unchanged, so the history is flagged at $\tau'$ as
+well, and $\mathcal C_F(\tau,T)\subseteq\mathcal C_F(\tau',T)$. Disclosure implies engagement, so
+every history in the difference carries $a=1$ and is generated by a Voice plan. Taking masses,
+$\Omega(\tau',T)\ge\Omega(\tau,T)$, and with $\Omega(\tau',T) < 1$,
+\[
+W_\tau = \frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)} \in [0,1],
+\]
+with $W_\tau = 1$ exactly when the two flagged sets have the same mass, that is when no history
+is reclassified. The argument used $b_0 < \tau'$, so that no crossing predates round zero at
+either threshold, and it used no property of the kernel.
+
+Part~(C). Both thresholds are evaluated at the same $\kappa$ and at the same policies, so
+Lemma~\ref{lem:g3}(b) applies at each and gives
+\[
+\mathcal S_P(\tau,T) = \frac{\Delta_m}{2}\bigl|\Wrev_{\tau,T}(\kappa)\bigr|,
+\qquad
+\mathcal S_P(\tau',T) = \frac{\Delta_m}{2}\bigl|\Wrev_{\tau',T}(\kappa)\bigr| .
+\]
+Since $\mathcal S_P(\tau,T) > 0$ the ratio $C_\tau$ is defined, and
+Condition~\ref{cond:D} states exactly that its numerator is at most its denominator, so
+$C_\tau \le 1$. Part~(A) applied at each threshold gives
+$\mathcal S(\tau',T)/\mathcal S(\tau,T) = W_\tau C_\tau$, and part~(B) puts $W_\tau$ in $[0,1]$.
+The product of a number in $[0,1]$ with a number in $[0,1]$ is at most one, which is
+\eqref{eq:g-dial}, with equality exactly when both factors are one.
+\end{proof}
+
+\begin{proof}[Proof of Remark~\ref{rem:g-Dstar}]
+Write $w_k = (1-\varepsilon)^k\varepsilon^{H-k} > 0$. By the triangle inequality and
+\eqref{eq:g-Dstar},
+\[
+\bigl|\Wrev_{\tau',T}(\kappa)\bigr| \;\le\; \sum_{k} w_k\,|c_k(\tau',T)|
+\;\le\; \sum_{k} w_k\,|c_k(\tau,T)| .
+\]
+If the numbers $c_k(\tau,T)$ share one sign then the last sum equals
+$\bigl|\sum_k w_k c_k(\tau,T)\bigr| = |\Wrev_{\tau,T}(\kappa)|$. The bound holds at every
+$\kappa \in (0,1)$ because the hypothesis does not involve $\kappa$.
+\end{proof}
+
+\begin{remark}[Verification of Condition~\ref{cond:D}]
+\label{rem:g-grid}
+Condition~\ref{cond:D} is checked, and the coefficients $c_k$ of \eqref{eq:g-ck} are reported, at
+order size two on the calibration grid: the frozen baseline policy, the two windows
+$T \in \{5,10\}$, the five threshold quantiles $0.1$, $0.3$, $0.5$, $0.7$, $0.9$ of the
+equilibrium terminal stake distribution taken in adjacent pairs, and the $71$ node liquidity grid
+$\kappa = 0.15, 0.16, \ldots, 0.85$. The record is
+\texttt{numerical\_v4/checks/t2\_threshold\_revelation\_check.json}. Its status on that grid is
+NUMERICAL.
+\end{remark}

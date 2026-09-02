@@ -1,0 +1,344 @@
+% proofs/03_caught.tex
+% Who gets caught: signing the composition ratio of the window margin.
+% Fragment, to be \input by appendix.tex.
+%
+% appendix.tex must supply: amsmath, amssymb, amsthm (the proof environment), enumitem,
+%   \newtheorem{corollary}{Corollary}, and the macros \Eop, \Prb, \ind.
+% Cross-references to the partition result, the clock equivalence and the clock
+%   theorem are written in words here; ticket 11 owns the \ref targets.
+% Notation notes for ticket 11: (a) B below is the set of newly caught histories. It
+%   is unrelated to the stake symbols B_j(s,t) and B^F. (b) The caught share is
+%   written \varphi, not \beta, because \beta is the signal weight
+%   sigma_v^2/(sigma_v^2 + sigma_eps^2) in the model section. Rename either if the
+%   collision reads badly.
+% Label at write time: CONJECTURE. The two-pass gate and the grid check are separate items.
+
+\subsection{Who gets caught}
+\label{sec:caught}
+
+The clock theorem makes window attenuation equivalent to $W_T C_T \le 1$ and signs only the weight
+leg. This section signs the composition leg. It writes the longer clock's pooled sensitivity as a
+mass-weighted average of what the shorter clock leaves in the pool and what it takes out, and reads
+both $C_T \le 1$ and $W_T C_T \le 1$ off that average.
+
+\paragraph{Setup.}
+Fix the threshold margin $\tau$ and the plan and cutoff policies, and compare two window margins
+$T' < T$ at a common $\kappa$. Write
+\begin{equation}
+\label{eq:caught-sets}
+A \;=\; \mathcal{C}_P(\tau,T),
+\qquad
+B \;=\; \mathcal{C}_F(\tau,T')\setminus\mathcal{C}_F(\tau,T),
+\end{equation}
+so $A$ is the pooled cell under the longer clock and $B$ collects the histories the shorter clock
+newly flags. Write
+\begin{equation}
+\label{eq:caught-phi}
+\varphi \;=\; \frac{\Prb(B)}{\Prb(A)}
+\end{equation}
+for the share of the longer clock's pooled cell that the shorter clock catches.
+
+Each rule pins its own premium kernel. The control-node information set carries the coordinate
+``the filing has landed by date $d$'', so the pooled history at window margin $T$ and the pooled
+history at window margin $T'$ are different observables, and the engagement posterior
+$\pi = \Prb(a = 1 \mid \cdot)$ and the price are taken with respect to whichever of the two the
+rule supplies. Write $h^{(T)}$ and $h^{(T')}$ for the kernel $h = \pi p$ evaluated at the
+control-node information set of the rule $(\tau,T)$ and of the rule $(\tau,T')$. The two pooled
+averages of the clock theorem are then
+\begin{equation}
+\label{eq:caught-MP}
+M_P(\tau,T) \;=\; \Delta_m\,\Eop\bigl[h^{(T)} \bigm| A\bigr],
+\qquad
+M_P(\tau,T') \;=\; \Delta_m\,\Eop\bigl[h^{(T')} \bigm| A\setminus B\bigr],
+\end{equation}
+the second reading of the pooled cell at the shorter clock being part~(i) below. Set
+\begin{equation}
+\label{eq:caught-sens}
+s_A \;=\; \partial_\kappa\Eop\bigl[h^{(T)} \bigm| A\bigr],
+\qquad
+s_{A\setminus B} \;=\; \partial_\kappa\Eop\bigl[h^{(T')} \bigm| A\setminus B\bigr],
+\end{equation}
+so that, with $\Delta_m > 0$ finite,
+\begin{equation}
+\label{eq:caught-SP}
+\mathcal{S}_P(\tau,T) \;=\; \Delta_m\,|s_A|,
+\qquad
+\mathcal{S}_P(\tau,T') \;=\; \Delta_m\,|s_{A\setminus B}|,
+\qquad
+C_T \;=\; \frac{|s_{A\setminus B}|}{|s_A|} ,
+\end{equation}
+by the definitions of the two pooled sensitivities and no more.
+
+Two further quantities separate what the catch removes from how the surviving pool is re-read:
+\begin{equation}
+\label{eq:caught-raw}
+\tilde s_B \;=\; \partial_\kappa\Eop\bigl[h^{(T)} \bigm| B\bigr],
+\qquad
+\delta \;=\; \partial_\kappa\Eop\bigl[h^{(T')} - h^{(T)} \bigm| A\setminus B\bigr] .
+\end{equation}
+Here $\tilde s_B$ is the noise sensitivity of the newly caught histories, priced as the longer
+clock priced them, and $\delta$ is the \emph{re-pricing remainder}: the pooled posterior conditions
+on the pool the rule leaves behind, so the histories that stay pooled are read against a smaller
+pool once the clock shortens, and $\delta$ is the rate at which that re-reading moves their noise
+sensitivity. Define the \emph{caught leg} by
+\begin{equation}
+\label{eq:caught-sB}
+s_B \;:=\; \frac{1}{\Prb(B)}\,
+\partial_\kappa\Bigl(
+\Eop\bigl[h^{(T)}\ind_A\bigr] - \Eop\bigl[h^{(T')}\ind_{A\setminus B}\bigr]
+\Bigr) .
+\end{equation}
+The pooled cell contributes to the expected engagement premium an amount
+\[
+\begin{aligned}
+\Delta_m\,\Eop\bigl[h^{(T)}\ind_A\bigr]
+  \;&=\; \bigl(1-\Omega(\tau,T)\bigr)\,M_P(\tau,T)
+  &&\text{at the longer clock,} \\[3pt]
+\Delta_m\,\Eop\bigl[h^{(T')}\ind_{A\setminus B}\bigr]
+  \;&=\; \bigl(1-\Omega(\tau,T')\bigr)\,M_P(\tau,T')
+  &&\text{at the shorter one.}
+\end{aligned}
+\]
+So $s_B$ is the noise sensitivity of the premium mass the shorter clock removes from the pool, per
+unit of pooled mass removed. Under the extra clause of (C-2) it splits into the two parts just named,
+\begin{equation}
+\label{eq:caught-split}
+s_B \;=\; \tilde s_B \;-\; \frac{1-\varphi}{\varphi}\,\delta ,
+\end{equation}
+which part~(iii) proves.
+
+The hypotheses are:
+\begin{enumerate}[label=(C-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Fixed policies.} The plan menu, the execution policies and the cutoff vector are held
+  fixed in $\kappa$ and held fixed across the two window margins, the threshold margin $\tau$ is
+  common, the noise intensity $\kappa$ is common, and the timing carries no feedback from order
+  flow into the blockholder's executed order path.
+\item \emph{Differentiability.} The two conditional expectations in \eqref{eq:caught-sens} are
+  differentiable in $\kappa$ at the point compared. For the split \eqref{eq:caught-split} into
+  $\tilde s_B$ and $\delta$, also $\Eop[h^{(T)}\mid B]$.
+\item \emph{Non-degeneracy.} $\Prb(B) > 0$, $0 < \Omega(\tau,T)$, $\Omega(\tau,T') < 1$, and
+  $s_A \ne 0$, equivalently $\mathcal{S}_P(\tau,T) > 0$.
+\end{enumerate}
+
+\begin{corollary}[Who gets caught]
+\label{cor:caught}
+Under (C-1) to (C-3):
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
+\item \emph{The cut is nested.} $\mathcal{C}_F(\tau,T)\subseteq\mathcal{C}_F(\tau,T')$, hence
+  $B \subseteq A$ and $A\setminus B = \mathcal{C}_P(\tau,T')$, and the weight leg is
+  \begin{equation}
+  \label{eq:caught-WT}
+  W_T \;=\; 1-\varphi \;\le\; 1 ,
+  \qquad \varphi\in(0,1).
+  \end{equation}
+\item \emph{The cell masses are $\kappa$-free.}
+  $\partial_\kappa\Prb(A) = \partial_\kappa\Prb(B) = 0$, so $\varphi$ does not depend on $\kappa$.
+\item \emph{The cut identity.}
+  \begin{equation}
+  \label{eq:caught-identity}
+  s_{A\setminus B}
+  \;=\;
+  \frac{\Prb(A)\,s_A - \Prb(B)\,s_B}{\Prb(A)-\Prb(B)}
+  \;=\;
+  \frac{s_A - \varphi\,s_B}{1-\varphi}
+  \;=\;
+  \frac{s_A - \varphi\,\tilde s_B}{1-\varphi} \;+\; \delta ,
+  \end{equation}
+  the last expression under the extra differentiability of (C-2). Equivalently
+  $s_A = (1-\varphi)\,s_{A\setminus B} + \varphi\,s_B$: the longer clock's pooled sensitivity is
+  the mass-weighted average of the sensitivity of what the shorter clock leaves in the pool and the
+  sensitivity of what it takes out.
+\item \emph{The composition ratio.}
+  \begin{equation}
+  \label{eq:caught-CT}
+  \begin{aligned}
+  C_T \;&=\; \frac{|s_A-\varphi s_B|}{(1-\varphi)\,|s_A|}, \\[3pt]
+  C_T \le 1 \quad&\Longleftrightarrow\quad
+  (s_B-s_A)\bigl(\varphi s_B-(2-\varphi)s_A\bigr) \le 0 ,
+  \end{aligned}
+  \end{equation}
+  that is, if and only if $s_B$ lies weakly between $s_A$ and
+  $\bigl((2-\varphi)/\varphi\bigr)s_A$.
+\item \emph{The attenuation criterion.}
+  \begin{equation}
+  \label{eq:caught-WTCT}
+  \begin{aligned}
+  W_T C_T \;&=\; \frac{|s_A-\varphi s_B|}{|s_A|}, \\[3pt]
+  W_T C_T \le 1 \quad&\Longleftrightarrow\quad
+  s_B\bigl(2s_A-\varphi s_B\bigr) \ge 0 ,
+  \end{aligned}
+  \end{equation}
+  that is, if and only if $s_B$ lies weakly between $0$ and $(2/\varphi)s_A$.
+\item \emph{Readings.} Write $\rho = s_B/s_A$, which is well defined by (C-3).
+  \begin{enumerate}[label=(\alph*),leftmargin=2.2em,itemsep=2pt]
+  \item If $s_A s_B \le 0$, including $s_B = 0$, then $C_T > 1$ strictly.
+  \item If $s_A$ and $s_B$ share a sign, then
+    $C_T \le 1$ if and only if
+    $|s_A| \le |s_B| \le \bigl((2-\varphi)/\varphi\bigr)|s_A|$.
+  \item If the cut does not reverse the pooled sensitivity, $s_{A\setminus B}\,s_A \ge 0$, then
+    $C_T \le 1$ if and only if $\rho \ge 1$, which under a common sign reads $|s_B| \ge |s_A|$.
+    For a common sign the proviso is $|s_B| \le |s_A|/\varphi$.
+  \item $W_T C_T \le 1$ if and only if $s_B$ shares the sign of $s_A$ or is zero, and
+    $|s_B| \le (2/\varphi)|s_A|$.
+  \item The two upper limits $(2-\varphi)/\varphi$ and $2/\varphi$ are strictly decreasing in
+    $\varphi$ and diverge as $\varphi\downarrow0$. For every $M \ge 1$ and every cut with
+    $\varphi \le 2/(1+M)$ and $|s_B| \le M|s_A|$, the upper limits in (b) and (d) are slack, so
+    there $C_T \le 1$ reads: a common sign together with $|s_B| \ge |s_A|$; and $W_T C_T \le 1$
+    reads: a common sign or $s_B = 0$.
+  \end{enumerate}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\emph{Part (i).} The disclosure indicator at window margin $T$ is
+$D(\tau,T) = \ind\{a=1,\ c(\tau)+T\le H\}$, where $c(\tau)$ is the round in which the executed
+stake path crosses $\tau$. If $D(\tau,T)=1$ then $c(\tau)+T' \le c(\tau)+T \le H$ because
+$T'<T$, so $D(\tau,T')=1$. Hence $\mathcal{C}_F(\tau,T)\subseteq\mathcal{C}_F(\tau,T')$ and, taking
+complements, $\mathcal{C}_P(\tau,T')\subseteq\mathcal{C}_P(\tau,T)=A$. Therefore
+$B = \mathcal{C}_F(\tau,T')\cap A \subseteq A$ and
+$A\setminus B = A\cap\mathcal{C}_P(\tau,T') = \mathcal{C}_P(\tau,T')$. Taking probabilities,
+$\Omega(\tau,T) \le \Omega(\tau,T') < 1$, so both pooled cells carry positive mass; since
+$B\subseteq A$, $\Prb(A\setminus B) = \Prb(A)-\Prb(B)$, and
+\[
+W_T \;=\; \frac{1-\Omega(\tau,T')}{1-\Omega(\tau,T)}
+\;=\; \frac{\Prb(A\setminus B)}{\Prb(A)}
+\;=\; 1-\varphi .
+\]
+By (C-3), $\Prb(B)>0$ gives $\varphi>0$ and $\Omega(\tau,T')<1$ gives $\Prb(A\setminus B)>0$, hence
+$\varphi<1$.
+
+\emph{Part (ii).} Under fixed policies the selected plan and the executed order path are functions
+of the plan index and the signal alone, and by the no-feedback clause of (C-1) the order placed in
+a round does not read realised order flow. So the crossing round $c(\tau)$, and with it
+$D(\tau,T)$ and $D(\tau,T')$, are measurable with respect to the plan and signal. The intensity
+$\kappa$ parametrises the noise law only; the laws of the value, the signal noise and the bidder
+draw carry no $\kappa$, and (C-1) holds the cutoff vector fixed in $\kappa$, so the joint law of
+the plan and the signal is one and the same at every $\kappa$. Hence $\Prb(A)$ and $\Prb(B)$ do not
+vary with $\kappa$, and neither does their ratio $\varphi$. This is the same constancy the clock
+theorem uses for the flagged weight, applied at both window margins.
+
+\emph{Part (iii).} By part (i), $B$ and $A\setminus B$ partition $A$ and both have positive mass.
+Write the pooled contributions to the expected premium at the two clocks, in kernel units, as
+\[
+\begin{aligned}
+\Lambda_T \;&=\; \Eop\bigl[h^{(T)}\ind_A\bigr]
+  \;=\; \Prb(A)\,\Eop\bigl[h^{(T)}\mid A\bigr], \\[3pt]
+\Lambda_{T'} \;&=\; \Eop\bigl[h^{(T')}\ind_{A\setminus B}\bigr]
+  \;=\; \Prb(A\setminus B)\,\Eop\bigl[h^{(T')}\mid A\setminus B\bigr] .
+\end{aligned}
+\]
+By part (ii) the two masses are constants in $\kappa$, so the derivative that (C-2) supplies passes
+through them and leaves them alone:
+\[
+\partial_\kappa \Lambda_T \;=\; \Prb(A)\,s_A ,
+\qquad
+\partial_\kappa \Lambda_{T'} \;=\; \bigl(\Prb(A)-\Prb(B)\bigr)\,s_{A\setminus B} .
+\]
+Definition \eqref{eq:caught-sB} reads
+$s_B = \partial_\kappa(\Lambda_T - \Lambda_{T'})/\Prb(B)$, a division by a positive number, so
+\[
+\Prb(B)\,s_B \;=\; \Prb(A)\,s_A - \bigl(\Prb(A)-\Prb(B)\bigr)\,s_{A\setminus B} ,
+\]
+and solving for $s_{A\setminus B}$, which the positive mass $\Prb(A)-\Prb(B)$ permits, gives the
+first equality of \eqref{eq:caught-identity}. Dividing numerator and denominator by $\Prb(A)$ gives
+the second. Multiplying through by $1-\varphi$ and collecting terms gives
+$s_A = (1-\varphi)s_{A\setminus B}+\varphi s_B$.
+
+For the third expression, add and subtract $\Eop[h^{(T)}\ind_{A\setminus B}]$ inside
+$\Lambda_T-\Lambda_{T'}$. Since $\ind_A = \ind_{A\setminus B}+\ind_B$ by part (i),
+\[
+\begin{aligned}
+\Lambda_T - \Lambda_{T'}
+\;&=\; \Eop\bigl[h^{(T)}\ind_B\bigr]
+  \;-\; \Eop\bigl[\bigl(h^{(T')}-h^{(T)}\bigr)\ind_{A\setminus B}\bigr] \\[3pt]
+\;&=\; \Prb(B)\,\Eop\bigl[h^{(T)}\mid B\bigr]
+  \;-\; \Prb(A\setminus B)\,\Eop\bigl[h^{(T')}-h^{(T)}\mid A\setminus B\bigr] .
+\end{aligned}
+\]
+Both masses are $\kappa$-free by part (ii), and the extra clause of (C-2) makes the first term
+differentiable, hence so is the second. Differentiating and dividing by $\Prb(B)$ gives
+$s_B = \tilde s_B - \bigl((1-\varphi)/\varphi\bigr)\delta$, which is \eqref{eq:caught-split}.
+Substituting it into the second equality of \eqref{eq:caught-identity} gives
+the third.
+
+\emph{Part (iv).} By \eqref{eq:caught-SP} and part (i), $C_T = |s_{A\setminus B}|/|s_A|$, and by
+\eqref{eq:caught-identity} with $1-\varphi>0$,
+\[
+C_T \;=\; \frac{|s_A-\varphi s_B|}{(1-\varphi)|s_A|} .
+\]
+The denominator is non-zero because $s_A \ne 0$ in (C-3). Both sides of $C_T\le 1$ are
+non-negative, so $C_T\le 1$ if and only if $s_{A\setminus B}^2\le s_A^2$, and multiplying by
+$(1-\varphi)^2>0$, if and only if $u^2-w^2\le 0$, where $u=s_A-\varphi s_B$ and
+$w=(1-\varphi)s_A$. Since $u-w=\varphi(s_A-s_B)$ and $u+w=(2-\varphi)s_A-\varphi s_B$,
+\[
+u^2-w^2 \;=\; (u-w)(u+w) \;=\; \varphi\,(s_A-s_B)\bigl((2-\varphi)s_A-\varphi s_B\bigr).
+\]
+Since $\varphi>0$, the sign of the whole is the sign of
+$(s_A-s_B)\bigl((2-\varphi)s_A-\varphi s_B\bigr)$, and negating both factors leaves the product
+unchanged, which gives the stated form
+$(s_B-s_A)\bigl(\varphi s_B-(2-\varphi)s_A\bigr)\le 0$. Writing that product as
+$\varphi(s_B-s_A)\bigl(s_B-\bigl((2-\varphi)/\varphi\bigr)s_A\bigr)$ shows it is non-positive
+exactly when $s_B$ lies weakly between the two roots $s_A$ and
+$\bigl((2-\varphi)/\varphi\bigr)s_A$.
+
+\emph{Part (v).} By part (i) and part (iv),
+\[
+W_T C_T \;=\; (1-\varphi)\,\frac{|s_{A\setminus B}|}{|s_A|}
+\;=\; \frac{\bigl|(1-\varphi)s_{A\setminus B}\bigr|}{|s_A|}
+\;=\; \frac{|s_A-\varphi s_B|}{|s_A|} .
+\]
+As in part (iv), $W_T C_T\le 1$ if and only if $u^2-s_A^2\le 0$ for $u=s_A-\varphi s_B$, and since
+$u-s_A=-\varphi s_B$ and $u+s_A=2s_A-\varphi s_B$,
+\[
+u^2-s_A^2 \;=\; (u-s_A)(u+s_A) \;=\; -\varphi\,s_B\bigl(2s_A-\varphi s_B\bigr),
+\]
+so the criterion is $s_B(2s_A-\varphi s_B)\ge 0$. Writing it as
+$\varphi\,s_B\bigl((2/\varphi)s_A-s_B\bigr)\ge 0$ shows it holds exactly when $s_B$ lies weakly
+between $0$ and $(2/\varphi)s_A$.
+
+\emph{Part (vi).} Since $\varphi\in(0,1)$, the factor $(2-\varphi)/\varphi$ is strictly positive,
+so the two roots in part (iv) are non-zero and share the sign of $s_A$, and the closed interval
+they bound does not contain zero. If $s_As_B\le 0$ then $s_B$ is zero or lies on the far side of
+zero from both roots, so it is strictly outside that interval, the product in
+\eqref{eq:caught-CT} is strictly positive, and $C_T>1$. That is (a). For (b), divide the interval
+condition by $s_A$: with a common sign, $\rho>0$ and $s_B$ between $s_A$ and
+$\bigl((2-\varphi)/\varphi\bigr)s_A$ reads $1\le\rho\le(2-\varphi)/\varphi$, and multiplying by
+$|s_A|$ gives the stated magnitudes. For (c), set
+$\sigma = s_{A\setminus B}/s_A = (1-\varphi\rho)/(1-\varphi)$ by \eqref{eq:caught-identity}. The
+proviso $s_{A\setminus B}s_A\ge0$ is $\sigma\ge0$, so $C_T = |\sigma| = \sigma$, and $C_T\le1$ if
+and only if $1-\varphi\rho\le1-\varphi$, that is $\rho\ge1$; since $\varphi>0$, $\rho\ge1$ forces a
+common sign, under which $\rho\ge1$ is $|s_B|\ge|s_A|$. Under a common sign the proviso
+$\sigma\ge0$ is $\varphi\rho\le1$, that is $|s_B|\le|s_A|/\varphi$. For (d), divide the interval
+condition of part (v) by $s_A$: it reads $0\le\rho\le2/\varphi$, which is a common sign or
+$s_B=0$, together with $|s_B|\le(2/\varphi)|s_A|$. For (e), both $(2-\varphi)/\varphi$ and
+$2/\varphi$ are strictly decreasing on $(0,1)$ and tend to $+\infty$ as $\varphi\downarrow0$. Fix
+$M\ge1$ and $\varphi\le2/(1+M)$. Then $(2-\varphi)/\varphi\ge M$, because that inequality is
+$2-\varphi\ge M\varphi$, and $2/\varphi\ge(2-\varphi)/\varphi\ge M$. So $|s_B|\le M|s_A|$ makes
+the upper limits in (b) and (d) slack, leaving in (b) the common sign with $|s_B|\ge|s_A|$ and in
+(d) the common sign or $s_B=0$.
+\end{proof}
+
+\paragraph{Reading.}
+Part~(iii) is the whole content in one line: the longer clock's pooled sensitivity is an average
+over what the shorter clock leaves in the pool and what it takes out of the pool, with weights the
+two masses, and those weights do not move with liquidity. So shortening the clock pulls the pooled
+sensitivity down only if what it takes out sat above the average. Parts~(iv) and~(vi) put the
+bound on how far above. What the clock removes must move with the pool in $\kappa$ and be at least
+as noise-sensitive as the pool, and it must not be so much more sensitive that the remaining pool
+is driven through zero to a larger magnitude than the pool started with. A cut that takes a small
+share of the pool faces only the first two requirements. Part~(v) does the same for the criterion
+the clock theorem states, $W_T C_T\le1$, where the weight leg is already working in the same
+direction: there what the clock removes need only move with the pool and stay inside $2/\varphi$
+times its sensitivity.
+
+What the clock removes has two parts, and \eqref{eq:caught-split} separates them. The first is the
+noise sensitivity of the newly caught histories themselves, read at the prices the longer clock
+gave them. The second is the re-pricing remainder: the surviving pool is a smaller pool once the
+clock shortens, and the market reads it against that smaller pool, so its own sensitivity moves
+too. The criterion runs on the sum, which is the sensitivity of the premium mass that leaves the
+pool. When the re-pricing remainder is zero the sum is the first part alone, and the criterion is
+a statement about the caught histories and nothing else.
+
+The corollary turns the ratio $C_T$ into a question with an answer at every calibration node, and
+that question is who gets caught: the shorter clock lowers noise sensitivity when what it takes
+out of the pool is what the market was reading most from order flow.
