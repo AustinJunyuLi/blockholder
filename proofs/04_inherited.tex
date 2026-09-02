@@ -216,7 +216,8 @@ it. It is measurable as a composition of the monotone map $s\mapsto\Eop[v\mid s]
 solution and the normal distribution function, and it takes values in $(0,1)$.
 
 \emph{Step 13 (the flagged cell average).} The kernel of the premium is $h=\pi p$, so $h=p_F(s)$ on
-the flagged cell by Steps~9 and~12. Since $\Omega>0$, the elementary definition of conditioning on a positive-probability event gives
+the flagged cell by Steps~9 and~12. Since $\Omega>0$, the elementary definition of conditioning on
+a positive-probability event gives
 \begin{equation}
 \label{eq:flagged-MF}
 M_F \;=\; \Delta_m\,\Eop[h \mid D=1]
@@ -359,9 +360,10 @@ $c + T$ and only through the disclosure node, so the coordinate ``the filing has
 equals $\ind\{f \le H\}$; combining this with $D = \ind\{a = 1,\ c < \infty,\ f \le H\}$ and with the
 restriction that only Voice plans cross, that coordinate equals $D$. Hence $D$ is measurable with
 respect to the control-node history and the map from a history to its cell is single-valued.
-When both cells contain a history the map is onto $\{\mathcal C_F, \mathcal C_P\}$; when
-$\Omega \in \{0,1\}$ one cell is empty of histories and the map hits only the other, which is
-the case Step~7 records. The public flag coordinate is what carries this step: without it
+When both cells have positive probability, the map is onto
+$\{\mathcal C_F, \mathcal C_P\}$. When $\Omega \in \{0,1\}$, one cell is null and the map
+hits only the other almost surely, as Step~7 records. The public flag coordinate is what carries
+this step: without it
 $D$ would still be a measurable function of the state by Step~4, while the cell assignment would
 stop being a function of what is observed at the control node.
 
@@ -636,7 +638,8 @@ positive number by a strictly positive one gives $0 < W_\tau \le 1$. This is cla
 
 \emph{The ratio identity.} With $\Omega(\tau,T) > 0$ the weight-leg inequality puts
 both flagged weights strictly inside the unit interval, so Proposition~\ref{prop:factorisation}
-applies at each threshold and the noise sensitivity of the expected engagement premium is the pooled share times the pooled sensitivity,
+applies at each threshold and the noise sensitivity of the expected engagement premium is the
+pooled share times the pooled sensitivity,
 \[
 \mathcal S(\kappa,\tau,T) \;=\; \bigl(1-\Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
 \qquad
@@ -665,9 +668,8 @@ two window margins $T' < T$, so that $T'$ is the shorter clock. Assume $b_0 < \t
 stake paths are weakly increasing in the calendar date (standing condition \ref{p:paths}), and
 that only Voice plans cross (standing condition \ref{p:clock}), which is the configuration that
 puts the clock equivalence in force at both windows. Assume $0 < \Omega(\tau,T) < 1$ and
-$0 < \Omega(\tau,T') < 1$, and $\mathcal S_P(\kappa,\tau,T) > 0$. Assume the hypotheses of
-Proposition~\ref{prop:factorisation} hold at both clocks, and that
-$\kappa \mapsto M_P(\kappa,\tau,T')$ is differentiable. Write
+$0 < \Omega(\tau,T') < 1$, and $\mathcal S_P(\kappa,\tau,T) > 0$. Assume that the hypotheses of
+Proposition~\ref{prop:factorisation} hold at both clocks. Write
 \begin{equation}
 \label{eq:clock-legs}
 W_T \;=\; \frac{1-\Omega(\tau,T')}{1-\Omega(\tau,T)},
@@ -713,8 +715,9 @@ $0 < W_T \le 1$. This is clause~(i).
 
 \emph{The ratio identity.} By Proposition~\ref{prop:factorisation} at both clocks, which the
 statement assumes, the noise sensitivity of the expected engagement premium is the pooled share
-times the pooled sensitivity. Differentiability of $\kappa \mapsto M_P(\kappa,\tau,T')$ makes
-$\mathcal S_P(\kappa,\tau,T')$ exist, so $C_T$ in \eqref{eq:clock-legs} is defined. At each clock,
+times the pooled sensitivity. The factorisation hypotheses at the shorter clock, differentiability
+of $\kappa \mapsto M_P(\kappa,\tau,T')$ included, make $\mathcal S_P(\kappa,\tau,T')$ exist, so
+$C_T$ in \eqref{eq:clock-legs} is defined. At each clock,
 \[
 \mathcal S(\kappa,\tau,T) \;=\; \bigl(1-\Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
 \qquad
