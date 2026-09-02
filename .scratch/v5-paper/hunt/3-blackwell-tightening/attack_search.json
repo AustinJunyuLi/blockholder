@@ -1,0 +1,12 @@
+{
+ "searched": 34560,
+ "counterexamples": [],
+ "infeasible_cases": 0,
+ "cases_with_reclassification": 10148,
+ "alt_convention_tighter_garbles_to_looser": {
+  "0.0": true,
+  "0.3": true,
+  "0.6": true,
+  "1.0": true
+ }
+}

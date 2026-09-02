@@ -1,0 +1,2212 @@
+{
+  "status": "PASS",
+  "claim": "upper bounds on maximal interim regret",
+  "method": {
+    "name": "breakpoint pieces with a proved Lipschitz cover",
+    "breakpoints": "the full unmerged candidate set underlying numerical_v4.menu.breakpoints at the frozen benchmark cutoffs",
+    "target_mesh_width": 1e-05,
+    "float_allowance": 5e-12,
+    "cover": "sample maximum plus the payoff-gap Lipschitz bound times half the actual mesh width, plus float allowance",
+    "derivatives": "analytic on each piece; the flagged price uses implicit differentiation and 0 <= dP_F/ds <= beta",
+    "positive_piece_rule": "all pieces with a positive certified upper bound are reported; positive_sample_witness distinguishes a computed profitable type from a conservative endpoint allowance"
+  },
+  "provenance": {
+    "source_record": "numerical_v4/checks/t2_threshold_revelation_check.json",
+    "source_params_hash": "fbacc963f39422c3",
+    "frozen_k": [
+      0.9425017266871091,
+      1.8484512098302512
+    ],
+    "tau_ladder": [
+      0.09239820387429526,
+      0.09346755804663053,
+      0.09453534811956685,
+      0.09565657882778708,
+      0.09703177146201895
+    ],
+    "kappa": 0.5,
+    "mark": 2,
+    "H": 10,
+    "T_grid": [
+      5,
+      10
+    ]
+  },
+  "nodes": [
+    {
+      "node": 1,
+      "T": 5,
+      "tau": 0.09239820387429526,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "a4fcd9f9317c30ff",
+      "bound": 9.623219552034791e-05,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 1.8895347974857488,
+        "prior_mass": 0.007529634785611813,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 2,
+          "lo": 0.9425017266871091,
+          "hi": 1.4082482904638631,
+          "prior_mass": 0.2505527826173958,
+          "assigned_plan": "Hold",
+          "alternative_plan": "Exit",
+          "possible_profitable_alternatives": [
+            "Exit"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 6.341423359618181e-07,
+          "bound": 6.63421606990163e-07,
+          "mesh_segments": 46575,
+          "cover_radius": 4.999963110861557e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": 6.341423359618181e-07,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.005854897402093131,
+              "certified_upper": 6.63421606990163e-07
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.008959808703413338,
+              "sample_argmax": 1.4082482904638631,
+              "gap_lipschitz_bound": 0.06719631160713428,
+              "certified_upper": -0.008959472719334116
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6096735065271246,
+              "EpP": 0.6576004405875503
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.57831142437268,
+              "Ep_bid": 0.2696829699673051,
+              "EpP": 0.330511098576402
+            }
+          }
+        },
+        {
+          "piece": 8,
+          "lo": 1.7492686492653553,
+          "hi": 1.8484512098302512,
+          "prior_mass": 0.029566618750344845,
+          "assigned_plan": "Hold",
+          "alternative_plan": "Voice",
+          "possible_profitable_alternatives": [
+            "Voice"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 2.4839761695261142e-05,
+          "bound": 2.5145789209558322e-05,
+          "mesh_segments": 9919,
+          "cover_radius": 4.999624990669218e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": 2.4839761695261142e-05,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.06120909365568579,
+              "certified_upper": 2.5145789209558322e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.004722903416762077,
+              "sample_argmax": 1.7492686492653553,
+              "gap_lipschitz_bound": 0.005854897402093131,
+              "certified_upper": -0.004722874139470707
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6096735065271246,
+              "EpP": 0.6576004405875503
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275689418996505,
+              "Ep_bid": 0.04512815867208976,
+              "EpP": 0.07519578874116951
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 1.8895347974857488,
+          "prior_mass": 0.007529634785611813,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 9.593266274725981e-05,
+          "bound": 9.623219552034791e-05,
+          "mesh_segments": 2871,
+          "cover_radius": 4.999361801573005e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 9.593266274725981e-05,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05991320191986575,
+              "certified_upper": 9.623219552034791e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005280142011896527,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05405830451777262,
+              "certified_upper": -0.005279871749873863
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6096735065271246,
+              "EpP": 0.6576004405875503
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434085,
+              "Ep_bid": 0.04387383521367601,
+              "EpP": 0.07315458631290978
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.03293018205034966,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03293018205034966,
+            "Voice": 0.014538818781510327
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.038259263087327314,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03823442332563205,
+            "Voice": 0.038259263087327314
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 17,
+      "n_menu_breakpoint_pieces": 17,
+      "pooled_seconds": 6.59785004099831,
+      "certification_seconds": 0.13076304201968014,
+      "wall_seconds": 6.72861308301799,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.533780477098624e-16
+    },
+    {
+      "node": 2,
+      "T": 5,
+      "tau": 0.09346755804663053,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "409a5ebcbe36aaea",
+      "bound": 0.0001592462568311867,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 1.9886021324933716,
+        "prior_mass": 0.030684588859915936,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 2,
+          "lo": 0.9425017266871091,
+          "hi": 1.4082482904638631,
+          "prior_mass": 0.2505527826173958,
+          "assigned_plan": "Hold",
+          "alternative_plan": "Exit",
+          "possible_profitable_alternatives": [
+            "Exit"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 5.027899498064037e-07,
+          "bound": 5.320706143979782e-07,
+          "mesh_segments": 46575,
+          "cover_radius": 4.999963110861557e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": 5.027899498064037e-07,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.005855176116795383,
+              "certified_upper": 5.320706143979782e-07
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.008960232472342882,
+              "sample_argmax": 1.4082482904638631,
+              "gap_lipschitz_bound": 0.06719680419119312,
+              "certified_upper": -0.008959896485800757
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6096549255469744,
+              "EpP": 0.6575886303054246
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783138441561753,
+              "Ep_bid": 0.26968178744252036,
+              "EpP": 0.33050933223796336
+            }
+          }
+        },
+        {
+          "piece": 8,
+          "lo": 1.7492686492653553,
+          "hi": 1.8484512098302512,
+          "prior_mass": 0.029566618750344845,
+          "assigned_plan": "Hold",
+          "alternative_plan": "Voice",
+          "possible_profitable_alternatives": [
+            "Voice"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 8.380687615737459e-06,
+          "bound": 8.687038029654265e-06,
+          "mesh_segments": 9919,
+          "cover_radius": 4.999624990669218e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": 8.380687615737459e-06,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.06127367842358918,
+              "certified_upper": 8.687038029654265e-06
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.004723259626950853,
+              "sample_argmax": 1.7492686492653553,
+              "gap_lipschitz_bound": 0.005855176116795383,
+              "certified_upper": -0.004723230348266014
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6096549255469744,
+              "EpP": 0.6575886303054246
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275689418996498,
+              "Ep_bid": 0.0439172532925728,
+              "EpP": 0.0733870581800965
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 1.9886021324933716,
+          "prior_mass": 0.030684588859915936,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.00015894544933890004,
+          "bound": 0.0001592462568311867,
+          "mesh_segments": 12778,
+          "cover_radius": 4.999752327134723e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.00015894544933890004,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.060163478629561715,
+              "certified_upper": 0.0001592462568311867
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005217516528853647,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05430830251276633,
+              "certified_upper": -0.005217244995791776
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6096549255469744,
+              "EpP": 0.6575886303054246
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434078,
+              "Ep_bid": 0.03904611992929119,
+              "EpP": 0.06593065669494336
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.03293031340273581,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03293031340273581,
+            "Voice": 0.014538697034806997
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.03824318786707438,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03823480717945866,
+            "Voice": 0.03824318786707438
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 5.9177270830841735,
+      "certification_seconds": 0.12236508389469236,
+      "wall_seconds": 6.040092166978866,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.533780477098624e-16
+    },
+    {
+      "node": 3,
+      "T": 5,
+      "tau": 0.09453534811956685,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "fbacc963f39422c3",
+      "bound": 0.00018783235544278404,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 2.006230589874905,
+        "prior_mass": 0.03436246622463831,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": false,
+          "sample_max_regret": 0.0,
+          "bound": 2.928593554933592e-08,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": -4.351380367140223e-14,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.005856206427854554,
+              "certified_upper": 2.928593554933592e-08
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.01839222985949829,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.3246255270326156,
+              "certified_upper": -0.018390606729805282
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6095862381430297,
+              "EpP": 0.6575455460089801
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.578316747011497,
+              "Ep_bid": 0.26968133471465344,
+              "EpP": 0.33050864760063925
+            }
+          }
+        },
+        {
+          "piece": 2,
+          "lo": 0.9425017266871091,
+          "hi": 1.4082482904638631,
+          "prior_mass": 0.2505527826173958,
+          "assigned_plan": "Hold",
+          "alternative_plan": "Exit",
+          "possible_profitable_alternatives": [
+            "Exit"
+          ],
+          "positive_sample_witness": false,
+          "sample_max_regret": 4.351380367140223e-14,
+          "bound": 2.928585962266677e-08,
+          "mesh_segments": 46575,
+          "cover_radius": 4.999963110861557e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": 4.351380367140223e-14,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.005856206427854554,
+              "certified_upper": 2.928585962266677e-08
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.008961381835726045,
+              "sample_argmax": 1.4082482904638631,
+              "gap_lipschitz_bound": 0.06719801462648851,
+              "certified_upper": -0.00896104584313179
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6095862381430297,
+              "EpP": 0.6575455460089801
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.578316747011497,
+              "Ep_bid": 0.26968133471465344,
+              "EpP": 0.33050864760063925
+            }
+          }
+        },
+        {
+          "piece": 8,
+          "lo": 1.7492686492653553,
+          "hi": 1.8484512098302512,
+          "prior_mass": 0.029566618750344845,
+          "assigned_plan": "Hold",
+          "alternative_plan": "Voice",
+          "possible_profitable_alternatives": [
+            "Voice"
+          ],
+          "positive_sample_witness": false,
+          "sample_max_regret": 0.0,
+          "bound": 3.0647753055630473e-07,
+          "mesh_segments": 9919,
+          "cover_radius": 4.999624990669218e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -1.8106904864367834e-12,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.061299465823689406,
+              "certified_upper": 3.0647753055630473e-07
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.004724593637739652,
+              "sample_argmax": 1.7492686492653553,
+              "gap_lipschitz_bound": 0.005856206427854554,
+              "certified_upper": -0.004724564353903644
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6095862381430297,
+              "EpP": 0.6575455460089801
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275689418996505,
+              "Ep_bid": 0.043453659956781535,
+              "EpP": 0.07268598956022176
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": false,
+          "sample_max_regret": 1.8106904864367834e-12,
+          "bound": 2.996991516469454e-07,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 1.8106904864367834e-12,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.0599517748176634,
+              "certified_upper": 2.996991516469454e-07
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.00530542718464018,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05409556838980885,
+              "certified_upper": -0.005305156761832276
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6095862381430297,
+              "EpP": 0.6575455460089801
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275689418996505,
+              "Ep_bid": 0.043453659956781535,
+              "EpP": 0.07268598956022176
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 2.006230589874905,
+          "prior_mass": 0.03436246622463831,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.00018753106358604388,
+          "bound": 0.00018783235544278404,
+          "mesh_segments": 14541,
+          "cover_radius": 4.999729312075794e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.00018753106358604388,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.06026063371320015,
+              "certified_upper": 0.00018783235544278404
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005190379866704148,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.0544044272853456,
+              "certified_upper": -0.005190107854294342
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6095862381430297,
+              "EpP": 0.6575455460089801
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434085,
+              "Ep_bid": 0.03719826093095928,
+              "EpP": 0.06313122425378304
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.032930816192642105,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.032930816192642105,
+            "Voice": 0.014538586333187328
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.0382362433773258,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03823624337913649,
+            "Voice": 0.0382362433773258
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 5.598905625054613,
+      "certification_seconds": 0.11750504095107317,
+      "wall_seconds": 5.716410666005686,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.533780477098624e-16
+    },
+    {
+      "node": 4,
+      "T": 5,
+      "tau": 0.09565657882778708,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "1e2da3d566730d50",
+      "bound": 0.00020784219766716692,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 2.006230589874905,
+        "prior_mass": 0.03436246622463831,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 1.3120018799023248e-06,
+          "bound": 1.341300983087078e-06,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 1.3120018799023248e-06,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.005858831256935182,
+              "certified_upper": 1.341300983087078e-06
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.018392353290337168,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.32462574425976354,
+              "certified_upper": -0.018390730159558024
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6094112495376546,
+              "EpP": 0.6574368204329187
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783202923652497,
+              "Ep_bid": 0.2696810983727346,
+              "EpP": 0.33050828455789577
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 7.845463065508929e-06,
+          "bound": 8.145236954176118e-06,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 7.845463065508929e-06,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.0599670877586008,
+              "certified_upper": 8.145236954176118e-06
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.0053012716878577115,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05410825650166562,
+              "certified_upper": -0.00530100120162333
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6094112495376546,
+              "EpP": 0.6574368204329187
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275689418996498,
+              "Ep_bid": 0.04321164583192826,
+              "EpP": 0.07231423379090018
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 2.006230589874905,
+          "prior_mass": 0.03436246622463831,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.00020754064041064724,
+          "bound": 0.00020784219766716692,
+          "mesh_segments": 14541,
+          "cover_radius": 4.999729312075794e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.00020754064041064724,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.06031371654288082,
+              "certified_upper": 0.00020784219766716692
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005174092742523381,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05445488528594564,
+              "certified_upper": -0.005173820477837231
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6094112495376546,
+              "EpP": 0.6574368204329187
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434078,
+              "Ep_bid": 0.03623389689186969,
+              "EpP": 0.06164716497701652
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.03293212819456552,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03293212819456552,
+            "Voice": 0.014538462902348444
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.0382320878805433,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03823993334360884,
+            "Voice": 0.0382320878805433
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 5.8564800840104,
+      "certification_seconds": 0.1095332489348948,
+      "wall_seconds": 5.966013332945295,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.533780477098624e-16
+    },
+    {
+      "node": 5,
+      "T": 5,
+      "tau": 0.09703177146201895,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "7c0bba56748f3ec4",
+      "bound": 0.0002248763859580155,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 2.006230589874905,
+        "prior_mass": 0.03436246622463831,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 5.138580690067229e-06,
+          "bound": 5.167917106512624e-06,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 5.138580690067229e-06,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.005866293922590539,
+              "certified_upper": 5.167917106512624e-06
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.018392511405147857,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.32462599586981117,
+              "certified_upper": -0.018390888273110667
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.608913738493964,
+              "EpP": 0.6571309161335861
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783250989617883,
+              "Ep_bid": 0.26968101144286544,
+              "EpP": 0.3305081500445026
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 2.005361163378433e-05,
+          "bound": 2.0353446221882093e-05,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 2.005361163378433e-05,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.0599792303398286,
+              "certified_upper": 2.0353446221882093e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005299650916192944,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05411293641723806,
+              "certified_upper": -0.0052993804065641775
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.608913738493964,
+              "EpP": 0.6571309161335861
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275689418996498,
+              "Ep_bid": 0.04312262964591436,
+              "EpP": 0.07217649207635976
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 2.006230589874905,
+          "prior_mass": 0.03436246622463831,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.00022457469836019428,
+          "bound": 0.0002248763859580155,
+          "mesh_segments": 14541,
+          "cover_radius": 4.999729312075794e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.00022457469836019428,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.06033978621454181,
+              "certified_upper": 0.0002248763859580155
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005167738428772176,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05447349229195127,
+              "certified_upper": -0.005167466071056032
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.608913738493964,
+              "EpP": 0.6571309161335861
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434078,
+              "Ep_bid": 0.03587923362423941,
+              "EpP": 0.061097414817087616
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.032935954773375686,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.032935954773375686,
+            "Voice": 0.014538304787537756
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.03823046710887855,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03825052072051235,
+            "Voice": 0.03823046710887855
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 6.117166833020747,
+      "certification_seconds": 0.1020053339889273,
+      "wall_seconds": 6.219172167009674,
+      "pooled_max_price_residual": 1.5482407023093003e-16,
+      "certifier_max_flagged_root_residual": 2.522938455373769e-16
+    },
+    {
+      "node": 6,
+      "T": 10,
+      "tau": 0.09239820387429526,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "3a8d01b2f30fd0a4",
+      "bound": 0.00024250934252785308,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 1.8895347974857488,
+        "prior_mass": 0.007529634785611813,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 1.1375553796683091e-05,
+          "bound": 1.1404947263779043e-05,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 1.1375553796683091e-05,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.00587770407338464,
+              "certified_upper": 1.1404947263779043e-05
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.018392638149528347,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.3246261910691792,
+              "certified_upper": -0.01839101501651516
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783290202749611,
+              "Ep_bid": 0.26968099490308994,
+              "EpP": 0.33050812521741535
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 3.689303082744094e-05,
+          "bound": 3.719292688441148e-05,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 3.689303082744094e-05,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05999152684366049,
+              "certified_upper": 3.719292688441148e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005299385490320399,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05411382277027585,
+              "certified_upper": -0.005299114976260851
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.727569412793656,
+              "Ep_bid": 0.043105692915796724,
+              "EpP": 0.07215106913897827
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 1.8895347974857488,
+          "prior_mass": 0.007529634785611813,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.000242207602546049,
+          "bound": 0.00024250934252785308,
+          "mesh_segments": 2871,
+          "cover_radius": 4.999361801573005e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.000242207602546049,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.0603547000157347,
+              "certified_upper": 0.00024250934252785308
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.00516682074422134,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05447699594235006,
+              "certified_upper": -0.005166548389008761
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434085,
+              "Ep_bid": 0.03581168460833394,
+              "EpP": 0.060995888013407856
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.0329421917464823,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.0329421917464823,
+            "Voice": 0.014538178043157279
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.03823020168300603,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03826709471383346,
+            "Voice": 0.03823020168300603
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 17,
+      "n_menu_breakpoint_pieces": 17,
+      "pooled_seconds": 5.999171917093918,
+      "certification_seconds": 0.07972249994054437,
+      "wall_seconds": 6.078894417034462,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.5234805564600116e-16
+    },
+    {
+      "node": 7,
+      "T": 10,
+      "tau": 0.09346755804663053,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "c5e5da374a075d70",
+      "bound": 0.00024250936609786458,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 1.9886021324933716,
+        "prior_mass": 0.030684588859915936,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 1.1375553796683091e-05,
+          "bound": 1.1404947263779043e-05,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 1.1375553796683091e-05,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.00587770407338464,
+              "certified_upper": 1.1404947263779043e-05
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.018392638149528334,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.32462619106917917,
+              "certified_upper": -0.018391015016515147
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783290202749607,
+              "Ep_bid": 0.26968099490308994,
+              "EpP": 0.33050812521741535
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 3.689303082739931e-05,
+          "bound": 3.7192926884369847e-05,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 3.689303082739931e-05,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05999152684366048,
+              "certified_upper": 3.7192926884369847e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005299385490320441,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.054113822770275835,
+              "certified_upper": -0.005299114976260893
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275694127936554,
+              "Ep_bid": 0.04310569291579673,
+              "EpP": 0.07215106913897829
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 1.9886021324933716,
+          "prior_mass": 0.030684588859915936,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.00024220760254600737,
+          "bound": 0.00024250936609786458,
+          "mesh_segments": 12778,
+          "cover_radius": 4.999752327134723e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.00024220760254600737,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.0603547000157347,
+              "certified_upper": 0.00024250936609786458
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.0051668207442213815,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05447699594235006,
+              "certified_upper": -0.005166548367734143
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434078,
+              "Ep_bid": 0.03581168460833395,
+              "EpP": 0.06099588801340786
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.0329421917464823,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.0329421917464823,
+            "Voice": 0.014538178043157286
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.03823020168300606,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03826709471383346,
+            "Voice": 0.03823020168300606
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 5.932013333076611,
+      "certification_seconds": 0.08053237502463162,
+      "wall_seconds": 6.012545708101243,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.5087083018598966e-16
+    },
+    {
+      "node": 8,
+      "T": 10,
+      "tau": 0.09453534811956685,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "80a5d26b37758220",
+      "bound": 0.0002425093647088392,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 2.006230589874905,
+        "prior_mass": 0.03436246622463831,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 1.1375553796683091e-05,
+          "bound": 1.1404947263779043e-05,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 1.1375553796683091e-05,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.00587770407338464,
+              "certified_upper": 1.1404947263779043e-05
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.018392638149528347,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.3246261910691792,
+              "certified_upper": -0.01839101501651516
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783290202749611,
+              "Ep_bid": 0.26968099490308994,
+              "EpP": 0.33050812521741535
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 3.689303082744094e-05,
+          "bound": 3.719292688441148e-05,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 3.689303082744094e-05,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05999152684366049,
+              "certified_upper": 3.719292688441148e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005299385490320399,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05411382277027585,
+              "certified_upper": -0.005299114976260851
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.727569412793656,
+              "Ep_bid": 0.043105692915796724,
+              "EpP": 0.07215106913897827
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 2.006230589874905,
+          "prior_mass": 0.03436246622463831,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.000242207602546049,
+          "bound": 0.0002425093647088392,
+          "mesh_segments": 14541,
+          "cover_radius": 4.999729312075794e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.000242207602546049,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.0603547000157347,
+              "certified_upper": 0.0002425093647088392
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.00516682074422134,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05447699594235006,
+              "certified_upper": -0.005166548368987892
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434085,
+              "Ep_bid": 0.03581168460833394,
+              "EpP": 0.060995888013407856
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.0329421917464823,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.0329421917464823,
+            "Voice": 0.014538178043157279
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.03823020168300603,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03826709471383346,
+            "Voice": 0.03823020168300603
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 6.080214707995765,
+      "certification_seconds": 0.08323341701179743,
+      "wall_seconds": 6.163448125007562,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.5087083018598966e-16
+    },
+    {
+      "node": 9,
+      "T": 10,
+      "tau": 0.09565657882778708,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "c3f19162cbe4d037",
+      "bound": 0.00024250936470879758,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 2.006230589874905,
+        "prior_mass": 0.03436246622463831,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 1.1375553796683091e-05,
+          "bound": 1.1404947263779043e-05,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 1.1375553796683091e-05,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.00587770407338464,
+              "certified_upper": 1.1404947263779043e-05
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.018392638149528334,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.32462619106917917,
+              "certified_upper": -0.018391015016515147
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783290202749607,
+              "Ep_bid": 0.26968099490308994,
+              "EpP": 0.33050812521741535
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 3.689303082739931e-05,
+          "bound": 3.7192926884369847e-05,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 3.689303082739931e-05,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05999152684366048,
+              "certified_upper": 3.7192926884369847e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005299385490320441,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.054113822770275835,
+              "certified_upper": -0.005299114976260893
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275694127936554,
+              "Ep_bid": 0.04310569291579673,
+              "EpP": 0.07215106913897829
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 2.006230589874905,
+          "prior_mass": 0.03436246622463831,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.00024220760254600737,
+          "bound": 0.00024250936470879758,
+          "mesh_segments": 14541,
+          "cover_radius": 4.999729312075794e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.00024220760254600737,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.0603547000157347,
+              "certified_upper": 0.00024250936470879758
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.0051668207442213815,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05447699594235006,
+              "certified_upper": -0.005166548368987934
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434078,
+              "Ep_bid": 0.03581168460833395,
+              "EpP": 0.060995888013407856
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.0329421917464823,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.0329421917464823,
+            "Voice": 0.014538178043157279
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.038230201683006046,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03826709471383346,
+            "Voice": 0.038230201683006046
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 6.15192766697146,
+      "certification_seconds": 0.07824824994895607,
+      "wall_seconds": 6.230175916920416,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.5087083018598966e-16
+    },
+    {
+      "node": 10,
+      "T": 10,
+      "tau": 0.09703177146201895,
+      "kappa": 0.5,
+      "mark": 2,
+      "H": 10,
+      "node_params_hash": "e58c83235c1c073f",
+      "bound": 0.00024250936470879758,
+      "attaining_piece": {
+        "piece": 10,
+        "lo": 1.8608284620211166,
+        "hi": 2.006230589874905,
+        "prior_mass": 0.03436246622463831,
+        "assigned_plan": "Voice",
+        "alternative_plan": "Hold"
+      },
+      "positive_regret_pieces": [
+        {
+          "piece": 1,
+          "lo": -3.2426406871192857,
+          "hi": 0.9425017266871091,
+          "prior_mass": 0.46759578698766313,
+          "assigned_plan": "Exit",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 1.1375553796683091e-05,
+          "bound": 1.1404947263779043e-05,
+          "mesh_segments": 418515,
+          "cover_radius": 4.999990936772152e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 1.1375553796683091e-05,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.00587770407338464,
+              "certified_upper": 1.1404947263779043e-05
+            },
+            {
+              "alternative_plan": "Voice",
+              "sample_max_gap": -0.018392638149528334,
+              "sample_argmax": 0.9425017266871091,
+              "gap_lipschitz_bound": 0.32462619106917917,
+              "certified_upper": -0.018391015016515147
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 11,
+              "D": 0,
+              "execution_price_average": 1.5783290202749607,
+              "Ep_bid": 0.26968099490308994,
+              "EpP": 0.33050812521741535
+            }
+          }
+        },
+        {
+          "piece": 9,
+          "lo": 1.8484512098302512,
+          "hi": 1.8608284620211166,
+          "prior_mass": 0.0033638696061021687,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 3.689303082739931e-05,
+          "bound": 3.7192926884369847e-05,
+          "mesh_segments": 1238,
+          "cover_radius": 4.99889022248198e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 3.689303082739931e-05,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.05999152684366048,
+              "certified_upper": 3.7192926884369847e-05
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.005299385490320441,
+              "sample_argmax": 1.8484512098302512,
+              "gap_lipschitz_bound": 0.054113822770275835,
+              "certified_upper": -0.005299114976260893
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 6,
+              "D": 0,
+              "execution_price_average": 1.7275694127936554,
+              "Ep_bid": 0.04310569291579673,
+              "EpP": 0.07215106913897829
+            }
+          }
+        },
+        {
+          "piece": 10,
+          "lo": 1.8608284620211166,
+          "hi": 2.006230589874905,
+          "prior_mass": 0.03436246622463831,
+          "assigned_plan": "Voice",
+          "alternative_plan": "Hold",
+          "possible_profitable_alternatives": [
+            "Hold"
+          ],
+          "positive_sample_witness": true,
+          "sample_max_regret": 0.00024220760254600737,
+          "bound": 0.00024250936470879758,
+          "mesh_segments": 14541,
+          "cover_radius": 4.999729312075794e-06,
+          "alternatives": [
+            {
+              "alternative_plan": "Hold",
+              "sample_max_gap": 0.00024220760254600737,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.0603547000157347,
+              "certified_upper": 0.00024250936470879758
+            },
+            {
+              "alternative_plan": "Exit",
+              "sample_max_gap": -0.0051668207442213815,
+              "sample_argmax": 1.8608284620211166,
+              "gap_lipschitz_bound": 0.05447699594235006,
+              "certified_upper": -0.005166548368987934
+            }
+          ],
+          "branch_metadata": {
+            "Exit": {
+              "kind": "constant",
+              "theta": 0
+            },
+            "Hold": {
+              "kind": "linear",
+              "theta": 0,
+              "Ep_bid": 0.6081530617743574,
+              "EpP": 0.656676074988457
+            },
+            "Voice": {
+              "kind": "Voice pooled",
+              "theta": 5,
+              "D": 0,
+              "execution_price_average": 1.7375234366434078,
+              "Ep_bid": 0.03581168460833395,
+              "EpP": 0.06099588801340786
+            }
+          }
+        }
+      ],
+      "cutoff_payoff_levels": [
+        {
+          "cutoff": "Exit-Hold",
+          "s": 0.9425017266871091,
+          "assigned_plan": "Hold",
+          "assigned_payoff": 0.0329421917464823,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.0329421917464823,
+            "Voice": 0.014538178043157286
+          }
+        },
+        {
+          "cutoff": "Hold-Voice",
+          "s": 1.8484512098302512,
+          "assigned_plan": "Voice",
+          "assigned_payoff": 0.03823020168300606,
+          "all_payoffs": {
+            "Exit": 0.03293081619268562,
+            "Hold": 0.03826709471383346,
+            "Voice": 0.03823020168300606
+          }
+        }
+      ],
+      "n_breakpoint_pieces": 15,
+      "n_menu_breakpoint_pieces": 15,
+      "pooled_seconds": 6.225177750107832,
+      "certification_seconds": 0.08198941685259342,
+      "wall_seconds": 6.307167166960426,
+      "pooled_max_price_residual": 1.4864411784776266e-16,
+      "certifier_max_flagged_root_residual": 2.5087083018598966e-16
+    }
+  ],
+  "total_wall_seconds": 61.488806375069544
+}

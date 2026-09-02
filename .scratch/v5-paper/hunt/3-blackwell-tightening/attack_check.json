@@ -1,0 +1,227 @@
+{
+ "kernel_check": {
+  "cases": 13500,
+  "max_error": 0.0,
+  "failures": [],
+  "n_failures": 0
+ },
+ "lp_confirmation": {
+  "cases": 36,
+  "all_feasible": true
+ },
+ "posterior_variance": {
+  "violations": []
+ },
+ "necessity_example": {
+  "0.0": {
+   "marks_short": [
+    0,
+    1,
+    1
+   ],
+   "marks_long": [
+    0,
+    0,
+    1
+   ],
+   "crossing": [
+    1,
+    1
+   ],
+   "flagged_short": [
+    true,
+    true
+   ],
+   "flagged_long": [
+    false,
+    false
+   ],
+   "tuples_equal": true,
+   "tighter_garbles_to_looser": false,
+   "looser_rows_differ": 1.0
+  },
+  "0.3": {
+   "marks_short": [
+    0,
+    1,
+    1
+   ],
+   "marks_long": [
+    0,
+    0,
+    1
+   ],
+   "crossing": [
+    1,
+    1
+   ],
+   "flagged_short": [
+    true,
+    true
+   ],
+   "flagged_long": [
+    false,
+    false
+   ],
+   "tuples_equal": true,
+   "tighter_garbles_to_looser": false,
+   "looser_rows_differ": 0.3429999999999999
+  },
+  "0.5": {
+   "marks_short": [
+    0,
+    1,
+    1
+   ],
+   "marks_long": [
+    0,
+    0,
+    1
+   ],
+   "crossing": [
+    1,
+    1
+   ],
+   "flagged_short": [
+    true,
+    true
+   ],
+   "flagged_long": [
+    false,
+    false
+   ],
+   "tuples_equal": true,
+   "tighter_garbles_to_looser": false,
+   "looser_rows_differ": 0.125
+  },
+  "1.0": {
+   "marks_short": [
+    0,
+    1,
+    1
+   ],
+   "marks_long": [
+    0,
+    0,
+    1
+   ],
+   "crossing": [
+    1,
+    1
+   ],
+   "flagged_short": [
+    true,
+    true
+   ],
+   "flagged_long": [
+    false,
+    false
+   ],
+   "tuples_equal": true,
+   "tighter_garbles_to_looser": false,
+   "looser_rows_differ": 0.125
+  }
+ },
+ "cross_comparison": [
+  {
+   "kappa_lo": 0.0,
+   "kappa_hi": 1.0,
+   "tight_hi_garbles_to_loose_lo": false,
+   "loose_lo_garbles_to_tight_hi": false
+  },
+  {
+   "kappa_lo": 0.15,
+   "kappa_hi": 0.85,
+   "tight_hi_garbles_to_loose_lo": false,
+   "loose_lo_garbles_to_tight_hi": false
+  },
+  {
+   "kappa_lo": 0.3,
+   "kappa_hi": 0.7,
+   "tight_hi_garbles_to_loose_lo": false,
+   "loose_lo_garbles_to_tight_hi": false
+  },
+  {
+   "kappa_lo": 0.45,
+   "kappa_hi": 0.55,
+   "tight_hi_garbles_to_loose_lo": false,
+   "loose_lo_garbles_to_tight_hi": false
+  }
+ ],
+ "calibration": {
+  "T=5,tau=0.092398": {
+   "omega": 0.10419729234778186,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 7
+  },
+  "T=5,tau=0.093468": {
+   "omega": 0.08104233827347773,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 5
+  },
+  "T=5,tau=0.094535": {
+   "omega": 0.057887384199173164,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 4
+  },
+  "T=5,tau=0.095657": {
+   "omega": 0.03473243012486871,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 3
+  },
+  "T=5,tau=0.097032": {
+   "omega": 0.01157747605056436,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 2
+  },
+  "T=10,tau=0.092398": {
+   "omega": 0.0006812715261460647,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 3
+  },
+  "T=10,tau=0.093468": {
+   "omega": 0.0006812715261460647,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 1
+  },
+  "T=10,tau=0.094535": {
+   "omega": 0.0006812715261460647,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 1
+  },
+  "T=10,tau=0.095657": {
+   "omega": 0.0006812715261460647,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 1
+  },
+  "T=10,tau=0.097032": {
+   "omega": 0.0006812715261460647,
+   "min_slope": 0.00021992796519100947,
+   "collisions": 0,
+   "max_|BF+QF-bstar|": 0.0,
+   "n_flagged_atoms": 1
+  },
+  "nesting": {
+   "tighter_threshold_flags_more": true,
+   "shorter_clock_flags_more": true
+  }
+ }
+}

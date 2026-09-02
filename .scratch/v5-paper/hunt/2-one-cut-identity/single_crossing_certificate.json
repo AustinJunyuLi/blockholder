@@ -1,0 +1,456 @@
+{
+  "status": "PASS",
+  "source": "numerical_v4/checks/t2_threshold_revelation_check.json",
+  "provenance": {
+    "params_hash": "fbacc963f39422c3",
+    "mark": 2,
+    "H": 10,
+    "frozen_k": [
+      0.9425017266871091,
+      1.8484512098302512
+    ],
+    "tau_ladder": [
+      0.09239820387429526,
+      0.09346755804663053,
+      0.09453534811956685,
+      0.09565657882778708,
+      0.09703177146201895
+    ],
+    "kappa_grid": {
+      "lo": 0.15,
+      "hi": 0.85,
+      "n": 71,
+      "step": 0.01
+    }
+  },
+  "tolerances": {
+    "coefficient_zero": 1e-12,
+    "root_x": 1e-13,
+    "inequality": 1e-12,
+    "null_mass": 1e-12,
+    "null_coefficient": 1e-12,
+    "required_kappa_gap": 1e-08
+  },
+  "method": "For each non-null pair, c_A and c_R must change sign once from negative to positive and c_R-c_A once from positive to negative. Descartes' rule gives one positive root for each reversed polynomial. Above the largest root, W_A <= W_R <= 0, hence 0 <= s_R <= s_A and the cut identity puts s_B in the two-sided band.",
+  "checks": [
+    {
+      "name": "one_crossing_orientations",
+      "pass": true,
+      "tolerance": 1e-12
+    },
+    {
+      "name": "certificate_covers_continuous_grid_interval",
+      "pass": true,
+      "interval": [
+        0.15,
+        0.85
+      ],
+      "required_kappa_gap": 1e-08
+    },
+    {
+      "name": "certificate_implies_band_at_every_recorded_grid_node",
+      "pass": true,
+      "inequality_tolerance": 1e-12
+    },
+    {
+      "name": "failure_region_is_below_certificate_cutoff",
+      "pass": true,
+      "pair": {
+        "T": 5,
+        "tau_quantile": 0.5,
+        "tau_prime_quantile": 0.3
+      },
+      "reported_failure_interval": [
+        0.144,
+        0.1485
+      ],
+      "certificate_cutoff": 0.1490121732483226,
+      "grid_lower_endpoint": 0.15,
+      "required_gap": 1e-08
+    },
+    {
+      "name": "null_cuts_have_identical_coefficients_and_unit_ratio",
+      "pass": true,
+      "mass_tolerance": 1e-12,
+      "coefficient_tolerance": 1e-12,
+      "expected_null_pairs": 4,
+      "observed_null_pairs": 4
+    },
+    {
+      "name": "source_record_wiring",
+      "pass": true,
+      "max_residual": 3.885780586188048e-15,
+      "tolerance": 1e-12
+    }
+  ],
+  "pairs": [
+    {
+      "kind": "nonnull_cut",
+      "T": 5,
+      "tau_quantile": 0.9,
+      "tau_prime_quantile": 0.7,
+      "phi": 0.023426169996394044,
+      "reclassified_mass": 0.023154954074304346,
+      "signs_c_A": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "signs_c_R": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "signs_difference": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "orientations_hold": {
+        "c_A_negative_to_positive": true,
+        "c_R_negative_to_positive": true,
+        "difference_positive_to_negative": true
+      },
+      "root_x": {
+        "c_A": 0.024942258611218904,
+        "c_R": 0.057400584499447405,
+        "difference": 0.014589009278296317
+      },
+      "root_kappa": {
+        "c_A": 0.048670563442306074,
+        "c_R": 0.10856923164388019,
+        "difference": 0.028758461100764063
+      },
+      "kappa_star": 0.10856923164388019,
+      "gap_from_grid_lower_endpoint": 0.04143076835611981,
+      "certificate_covers_grid_interval": true,
+      "minimum_grid_lower_band_margin": 0.008067588040239371,
+      "minimum_grid_upper_band_margin": 0.010684366696416517,
+      "all_grid_orders_hold": true,
+      "all_grid_bands_hold": true,
+      "at_grid_lower_endpoint": {
+        "kappa": 0.15,
+        "s_A": 0.00022491206805324966,
+        "s_R": 3.138579990532568e-05,
+        "s_B": 0.008292500108292621,
+        "lower_band_margin": 0.008067588040239371,
+        "upper_band_margin": 0.010684366696416517,
+        "C_tau": 0.13954698019092,
+        "certificate_order": true,
+        "band_holds": true
+      },
+      "passes": true
+    },
+    {
+      "kind": "nonnull_cut",
+      "T": 5,
+      "tau_quantile": 0.7,
+      "tau_prime_quantile": 0.5,
+      "phi": 0.023988119767972542,
+      "reclassified_mass": 0.023154954074304457,
+      "signs_c_A": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ],
+      "signs_c_R": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "signs_difference": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1
+      ],
+      "orientations_hold": {
+        "c_A_negative_to_positive": true,
+        "c_R_negative_to_positive": true,
+        "difference_positive_to_negative": true
+      },
+      "root_x": {
+        "c_A": 0.057400584499447405,
+        "c_R": 0.0787269460222717,
+        "difference": 0.049569492390645564
+      },
+      "root_kappa": {
+        "c_A": 0.10856923164388019,
+        "c_R": 0.14596269484612706,
+        "difference": 0.09445680872019097
+      },
+      "kappa_star": 0.14596269484612706,
+      "gap_from_grid_lower_endpoint": 0.004037305153872933,
+      "certificate_covers_grid_interval": true,
+      "minimum_grid_lower_band_margin": 0.0012393916043439894,
+      "minimum_grid_upper_band_margin": 0.0013146154520224942,
+      "all_grid_orders_hold": true,
+      "all_grid_bands_hold": true,
+      "at_grid_lower_endpoint": {
+        "kappa": 0.15,
+        "s_A": 3.138579990532568e-05,
+        "s_R": 9.244142945732983e-07,
+        "s_B": 0.001270777404249315,
+        "lower_band_margin": 0.0012393916043439894,
+        "upper_band_margin": 0.0013146154520224942,
+        "C_tau": 0.02945326540543068,
+        "certificate_order": true,
+        "band_holds": true
+      },
+      "passes": true
+    },
+    {
+      "kind": "nonnull_cut",
+      "T": 5,
+      "tau_quantile": 0.5,
+      "tau_prime_quantile": 0.3,
+      "phi": 0.024577692396807668,
+      "reclassified_mass": 0.023154954074304568,
+      "signs_c_A": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "signs_c_R": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "signs_difference": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        -1
+      ],
+      "orientations_hold": {
+        "c_A_negative_to_positive": true,
+        "c_R_negative_to_positive": true,
+        "difference_positive_to_negative": true
+      },
+      "root_x": {
+        "c_A": 0.0787269460222717,
+        "c_R": 0.06725518409652409,
+        "difference": 0.08050413465431916
+      },
+      "root_kappa": {
+        "c_A": 0.14596269484612706,
+        "c_R": 0.12603393283764353,
+        "difference": 0.1490121732483226
+      },
+      "kappa_star": 0.1490121732483226,
+      "gap_from_grid_lower_endpoint": 0.0009878267516773842,
+      "certificate_covers_grid_interval": true,
+      "minimum_grid_lower_band_margin": 7.668612927717947e-06,
+      "minimum_grid_upper_band_margin": 6.57064061616399e-05,
+      "all_grid_orders_hold": true,
+      "all_grid_bands_hold": true,
+      "at_grid_lower_endpoint": {
+        "kappa": 0.15,
+        "s_A": 9.244142945732983e-07,
+        "s_R": 7.311884392914363e-07,
+        "s_B": 8.593027222291245e-06,
+        "lower_band_margin": 7.668612927717947e-06,
+        "upper_band_margin": 6.57064061616399e-05,
+        "C_tau": 0.7909748297747241,
+        "certificate_order": true,
+        "band_holds": true
+      },
+      "passes": true
+    },
+    {
+      "kind": "nonnull_cut",
+      "T": 5,
+      "tau_quantile": 0.3,
+      "tau_prime_quantile": 0.1,
+      "phi": 0.025196975920306255,
+      "reclassified_mass": 0.023154954074304124,
+      "signs_c_A": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "signs_c_R": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "signs_difference": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "orientations_hold": {
+        "c_A_negative_to_positive": true,
+        "c_R_negative_to_positive": true,
+        "difference_positive_to_negative": true
+      },
+      "root_x": {
+        "c_A": 0.06725518409652409,
+        "c_R": 0.04811109967445759,
+        "difference": 0.07153750121327107
+      },
+      "root_kappa": {
+        "c_A": 0.12603393283764353,
+        "c_R": 0.09180534332553268,
+        "difference": 0.13352309393235648
+      },
+      "kappa_star": 0.13352309393235648,
+      "gap_from_grid_lower_endpoint": 0.016476906067643515,
+      "certificate_covers_grid_interval": true,
+      "minimum_grid_lower_band_margin": 1.5378448110031467e-05,
+      "minimum_grid_upper_band_margin": 4.119696824530872e-05,
+      "all_grid_orders_hold": true,
+      "all_grid_bands_hold": true,
+      "at_grid_lower_endpoint": {
+        "kappa": 0.15,
+        "s_A": 7.311884392914363e-07,
+        "s_R": 3.3368209478048266e-07,
+        "s_B": 1.6109636549322904e-05,
+        "lower_band_margin": 1.5378448110031467e-05,
+        "upper_band_margin": 4.119696824530872e-05,
+        "C_tau": 0.45635581315240686,
+        "certificate_order": true,
+        "band_holds": true
+      },
+      "passes": true
+    },
+    {
+      "kind": "null_cut",
+      "T": 10,
+      "tau_quantile": 0.9,
+      "tau_prime_quantile": 0.7,
+      "reclassified_mass": 0.0,
+      "max_abs_coefficient_difference": 0.0,
+      "reported_C_tau_min": 1.0,
+      "reported_C_tau_max": 1.0,
+      "passes": true
+    },
+    {
+      "kind": "null_cut",
+      "T": 10,
+      "tau_quantile": 0.7,
+      "tau_prime_quantile": 0.5,
+      "reclassified_mass": 0.0,
+      "max_abs_coefficient_difference": 0.0,
+      "reported_C_tau_min": 1.0,
+      "reported_C_tau_max": 1.0,
+      "passes": true
+    },
+    {
+      "kind": "null_cut",
+      "T": 10,
+      "tau_quantile": 0.5,
+      "tau_prime_quantile": 0.3,
+      "reclassified_mass": 0.0,
+      "max_abs_coefficient_difference": 0.0,
+      "reported_C_tau_min": 1.0,
+      "reported_C_tau_max": 1.0,
+      "passes": true
+    },
+    {
+      "kind": "null_cut",
+      "T": 10,
+      "tau_quantile": 0.3,
+      "tau_prime_quantile": 0.1,
+      "reclassified_mass": 0.0,
+      "max_abs_coefficient_difference": 0.0,
+      "reported_C_tau_min": 1.0,
+      "reported_C_tau_max": 1.0,
+      "passes": true
+    }
+  ]
+}

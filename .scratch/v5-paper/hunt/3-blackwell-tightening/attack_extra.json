@@ -1,0 +1,19 @@
+{
+ "branch_coverage": {
+  "b1": 4817,
+  "b2": 495,
+  "b3": 688,
+  "cases_with_b3": 438,
+  "cases": 1200,
+  "cases_with_b2": 330
+ },
+ "alternative_convention": {
+  "cases": 72,
+  "feasible": 72,
+  "infeasible": []
+ },
+ "reverse_order": {
+  "cases": 10,
+  "reverse_feasible": 0
+ }
+}

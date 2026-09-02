@@ -1,0 +1,11 @@
+I am the author of an economics paper, "Who Gets Caught: Blockholder Disclosure Rules and Market Inference". The attached document is a self-contained handoff: the model, its standing conditions, the calibration with parameter values, the current proofs (verbatim LaTeX), the labels every result holds, and four candidate upgrades stated as conjectures. You cannot see my files; everything you need is in the document. This is a fresh consultation and assumes no earlier exchange.
+
+Objective. For each of the four candidates in section 4.2: a proof, a counterexample, or a sharpened true statement, with every hypothesis in the statement. The paper is a fixed-policy paper; its calibration policy is a benchmark, not an equilibrium, and no candidate needs one.
+
+Constraints. Primitives, functional forms and parameter values are fixed as stated (candidate 4.1 varies the order size on purpose). Every hypothesis appears in the statement, numbered in the standing-condition scheme of section 6 where it is one of them. The proofs use neither the order-size-one pooled law (except as the b = 1 case of 4.1) nor any support assumption on the pooled posterior. A Blackwell comparison of finite experiments is proved by an explicit kernel and refuted by an explicit decision problem or linear program. Anything quantified over a continuum is proved from the primitives or reduced to finitely many node computations with a tolerance. Anything not proved is labelled. Write in the document's notation; LaTeX is welcome.
+
+Return, in this order:
+A. For each candidate 4.1 to 4.4: statement with full hypothesis list; proof, counterexample or "open" with the blocker; "what a script computes at a node" with tolerances; the cost of carrying it into the paper.
+B. Holistic comments, independent of A: which of the four earns its space; whether the two-dial framing has a better statement given the four; what a referee says first about a fixed-policy paper calibrated at a benchmark that is not an equilibrium; anything in sections 5 to 8 that looks wrong.
+
+Take the time the problem needs. A smaller result fully proved beats a larger one with a gap.
