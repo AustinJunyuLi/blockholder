@@ -86,7 +86,8 @@ TOL_MASS = 1e-12            # bookkeeping: cell masses and E[h] vs M_P
 TOL_IDENT = 1e-12           # the cut identity, exact by linearity
 TOL_SLACK = 1e-12           # slack allowed in an inequality verdict
 BOUNDARY = 1e-9             # |C_T - 1| below this is a boundary node
-S_P_FLOOR = 1e-14           # a ratio on a vanishing denominator is undefined
+S_P_FLOOR = 1e-12           # a ratio on a vanishing denominator is undefined
+                             # (design risk 9.3, the value t2_t1_check.py holds)
 
 QUANTILES = (0.1, 0.3, 0.5, 0.7, 0.9)
 T_LONG, T_SHORT = 10, 5
@@ -183,8 +184,9 @@ def node_row(k, p_base, tau: float, qi: float) -> dict:
     P_surv = float(W_surv.sum())
     # Independent route: the flagged weights read the atoms' own D flags, not
     # the subset weights, so the bookkeeping check below is a real comparison.
-    Omega10 = float(cell_weights(al10).Omega)
-    Omega5 = float(cell_weights(al5).Omega)
+    cw10, cw5 = cell_weights(al10), cell_weights(al5)
+    Omega10, Omega5 = float(cw10.Omega), float(cw5.Omega)
+    deg10, deg5 = list(cw10.degenerate), list(cw5.degenerate)
     A_types = [int(t) for t in range(n_theta) if W_A[t] > 0.0]
     B_types = [int(t) for t in range(n_theta) if W_B[t] > 0.0]
 
@@ -279,6 +281,8 @@ def node_row(k, p_base, tau: float, qi: float) -> dict:
         "tau_quantile": float(qi), "tau": float(tau),
         "T_long": T_LONG, "T_short": T_SHORT,
         "Omega_T10": Omega10, "Omega_T5": Omega5,
+        "degenerate_T10": deg10, "degenerate_T5": deg5,
+        "corner_T10_equals_H": bool(T_LONG == H),
         "P_A": P_A, "P_B": P_B, "P_surv": P_surv, "phi": float(phi),
         "upper_limit_b": float(upper_b),
         "B_types": B_types, "A_types": A_types,
@@ -370,7 +374,16 @@ def main() -> int:
         "nodes_run": (len(nodes) if args.nodes is not None else "all"),
         "t1_comparison": "read by the orchestrator from "
                          "numerical_v4/checks/t2_t1_check.json, check "
-                         "t1_block4_window_margin, at the same tau nodes",
+                         "t1_block4_window_margin, at the same tau nodes; "
+                         "T1's C_T there is total variation, its block-4 "
+                         "S_P_TV_pp columns, and the point-derivative route "
+                         "through the same record runs over its kappa_profiles "
+                         "M_P_pp series, so the verdicts, not the values, are "
+                         "the comparison",
+        "B_reading": "B_types lists the theta atoms with positive caught "
+                     "mass, and an atom can be partly caught: type 5 is, at "
+                     "every node where it appears its mass splits between B "
+                     "and the surviving pool",
     }
 
     rows = []

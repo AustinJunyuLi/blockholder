@@ -307,7 +307,8 @@
     "measurement": "s_A is the 4th-order point derivative of E[h | A] under the T = 10 pricing map; s_B is d_kappa(Lambda_T - Lambda_T') / P(B), which carries survivors' re-pricing (not tilde s_B); C_T is S_P(5)/S_P(10) from each clock's own pooled pass (the point-derivative convention for S_P, stencil as numerical_v4.premium.d_dkappa)",
     "weights": "subset masses from the alive MEASURE weights and the likelihood table (the pooled pass keeps only their sum over types); beliefs from the pooled pass's own market weights",
     "nodes_run": "all",
-    "t1_comparison": "read by the orchestrator from numerical_v4/checks/t2_t1_check.json, check t1_block4_window_margin, at the same tau nodes"
+    "t1_comparison": "read by the orchestrator from numerical_v4/checks/t2_t1_check.json, check t1_block4_window_margin, at the same tau nodes; T1's C_T there is total variation, its block-4 S_P_TV_pp columns, and the point-derivative route through the same record runs over its kappa_profiles M_P_pp series, so the verdicts, not the values, are the comparison",
+    "B_reading": "B_types lists the theta atoms with positive caught mass, and an atom can be partly caught: type 5 is, at every node where it appears its mass splits between B and the surviving pool"
   },
   "nodes": [
     {
@@ -317,6 +318,11 @@
       "T_short": 5,
       "Omega_T10": 0.0006812715261460645,
       "Omega_T5": 0.10419729234778186,
+      "degenerate_T10": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ],
+      "degenerate_T5": [],
+      "corner_T10_equals_H": true,
       "P_A": 0.9993187284738541,
       "P_B": 0.10351602082163579,
       "P_surv": 0.8958027076522183,
@@ -421,6 +427,11 @@
       "T_short": 5,
       "Omega_T10": 0.0006812715261460647,
       "Omega_T5": 0.08104233827347772,
+      "degenerate_T10": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ],
+      "degenerate_T5": [],
+      "corner_T10_equals_H": true,
       "P_A": 0.9993187284738541,
       "P_B": 0.08036106674733166,
       "P_surv": 0.9189576617265224,
@@ -525,6 +536,11 @@
       "T_short": 5,
       "Omega_T10": 0.0006812715261460647,
       "Omega_T5": 0.057887384199173164,
+      "degenerate_T10": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ],
+      "degenerate_T5": [],
+      "corner_T10_equals_H": true,
       "P_A": 0.9993187284738541,
       "P_B": 0.057206112673027096,
       "P_surv": 0.942112615800827,
@@ -628,6 +644,11 @@
       "T_short": 5,
       "Omega_T10": 0.0006812715261460647,
       "Omega_T5": 0.0347324301248687,
+      "degenerate_T10": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ],
+      "degenerate_T5": [],
+      "corner_T10_equals_H": true,
       "P_A": 0.9993187284738541,
       "P_B": 0.03405115859872264,
       "P_surv": 0.9652675698751314,
@@ -730,6 +751,11 @@
       "T_short": 5,
       "Omega_T10": 0.0006812715261460647,
       "Omega_T5": 0.01157747605056436,
+      "degenerate_T10": [
+        "flagged cell mass 0.0006813 < 0.01"
+      ],
+      "degenerate_T5": [],
+      "corner_T10_equals_H": true,
       "P_A": 0.9993187284738541,
       "P_B": 0.010896204524418295,
       "P_surv": 0.9884225239494357,
@@ -825,7 +851,7 @@
       "kernel_residual_T5": 2.6020852139652106e-18
     }
   ],
-  "seconds": 857.4669038749998,
+  "seconds": 926.8225642080652,
   "all_pass": true,
   "n_nodes_run": 5
 }
