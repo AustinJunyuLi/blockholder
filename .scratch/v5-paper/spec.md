@@ -6,35 +6,44 @@ outside this worktree is consulted.
 
 ## 1. Deliverable
 
-A finished paper titled *Who Gets Caught: Blockholder Disclosure Rules and Market Inference*,
+A finished paper titled *Who Gets Caught: Disclosure Rules, Liquidity and the Undetected
+Blockholder* (retitled by ticket 16; the delivered checkpoint-3 paper carries the earlier title),
 compiled clean, referee-reviewed once, fixed once, unslop-gated, with every theorem passed
 through the attack gate on v5 and every number rendered from a result file. Slides are not
 part of this session.
 
 ## 2. Headline
 
-Amended 2026-09-02 for batch 4 (ticket 15). A disclosure rule has two dials. The stake threshold
-τ and the filing clock T split every blockholder history into a flagged cell (the filing landed;
-the market knows the blockholder is engaged and the filing tuple identifies her signal) and a
-pooled cell (no filing; the market reads order flow). At fixed policies and a common liquidity,
-tightening either dial makes the market's control-node experiment weakly more informative in
-Blackwell's order. That order does not settle what liquidity does to prices. At the control
-node, liquidity enters the engagement premium only through the pooled cell. For either dial, the
-tighter rule lowers the liquidity sensitivity of the engagement premium exactly when the premium
-mass it removes from the pool, the re-pricing of what stays pooled included, lies in a band set
-by the pool's own sensitivity and the share removed. On the calibration the band holds on the
-whole liquidity interval from 0.15 to 0.85, and for every pair of both dials it fails on an open
-interval below it, around the liquidity at which the looser pool's sensitivity changes sign,
-where the tighter rule is the more noise-sensitive one. The mechanism is inference from silence:
-the histories that stay pooled are re-priced because the absence of a filing now says more.
-Order size two is the unique integral order size whose order-mark channel is an exact,
-non-trivial erasure family in liquidity, and the benchmark policy's interim regret bound is
-reported at every node.
+Amended 2026-09-02 for batch 4 (ticket 16, superseding 15). A disclosure rule has two dials. The
+stake threshold τ and the filing clock T split every blockholder history into a flagged cell (the
+filing landed; the market knows the blockholder is engaged and the filing tuple identifies her
+signal) and a pooled cell (no filing; the market reads order flow). At fixed policies the
+engagement premium equals the premium wedge times the probability that a bidder enters against an
+engaged blockholder, and the Voice mass is free of liquidity and of the rule, so every effect in
+the paper runs through bidder entry conditional on engagement. Entry is higher when the market has
+not yet detected her. The filing and the trading tape are the market's two ways of detecting her:
+on the tape at order size two an engaged blockholder is either fully detected by one revealed
+building mark or silent, and a type with n building rounds is silent with probability (κ/2)^n; the
+rule catches the fast builders, who place the fewest orders, so the two technologies catch opposite
+blockholders. The pooled premium therefore rises with liquidity, strictly above a root below 0.15
+at every node on the calibration, and a disclosure rule's effect on the premium level grows with
+liquidity, from under one percent in thin markets to the record's share in liquid ones.
+
+The second half of the paper is ticket 15's contrast, kept in full: tightening either dial is a
+Blackwell improvement of the market's control-node experiment; that order does not settle what
+liquidity does to prices; for either dial the tighter rule lowers the liquidity sensitivity of the
+engagement premium exactly when the net cut leg lies in a band set by the pool's own sensitivity
+and the share removed; the band holds on the whole grid and fails on an open interval below it,
+reported as a remark with its magnitudes. The mechanism is inference from silence: the histories
+that stay pooled are re-priced because the absence of a filing now says more, and on the record the
+re-pricing term is 93 to 98 percent of the clock's net cut leg at every node. Order size two is
+the unique integral order size whose order-mark channel is an exact, non-trivial erasure family in
+liquidity, and the benchmark policy's interim regret bound is reported at every node.
 
 The headline this replaces (tightening lowers noise sensitivity through the weight effect by
 proof and the composition effect on the grid; the clock does so iff its composition ratio is at
-most one, characterised by who gets caught) stays true and stays in the paper as the second
-half of the contrast.
+most one, characterised by who gets caught) stays true and stays in the paper inside the second
+half.
 
 ## 3. The model, as the paper states it
 
@@ -60,6 +69,11 @@ Results the paper carries, each with a label at delivery:
 | Erasure regime (batch 4) | Order size two is the unique integral order size whose binary order-mark channel is an exact non-trivial erasure family in κ; at one the higher-κ experiment is never a garbling of the lower; three and above decode the mark | New proof from the hunt memo, attacked on v5 | 15 |
 | Cut identity, one-crossing lemma and reversal (batch 4) | The who-gets-caught corollary holds at the threshold margin with the clock sets replaced; the net cut leg splits into a caught-only leg and a re-pricing term; one sign change in each pool's coefficients decides the band above a computable cutoff; one crossing at both pools with distinct roots gives a strict reversal of total sensitivity on an open interval around the looser pool's root | Restatement plus three lemmas, attacked on v5; sign lists, intervals, magnitudes and the split NUMERICAL from the cut record | 15 |
 | Benchmark regret (batch 4) | Certified upper bound on the largest one-step deviation gain at benchmark prices and beliefs over the computational signal support, at every node | NUMERICAL from a regret record with the convention and a normaliser | 15 |
+| Entry identity (batch 4) | The engagement premium is Δm times the Voice mass times bidder entry conditional on engagement, per cell too; the Voice mass is κ-free and rule-free at fixed policies | New one-line proof, attacked on v5 | 16 |
+| Detection lemma (batch 4) | At order size two a revealed building mark sets the engagement posterior to one; an engaged type with n building rounds is silent with probability (κ/2)^n | New proof under the noise channel and the menu's mark form, attacked on v5 | 16 |
+| Upper set and silence (batch 4) | The flagged set is an upper set in the signal made of the types with the fewest building rounds; on every history that stays pooled the tighter rule lowers the engagement posterior and the fundamental posterior | New proofs under the menu's monotone form, attacked on v5; silence lemma absent if it fails | 16 |
+| Entry against the undetected (batch 4) | At the pricing root the price rises in the engagement and fundamental posteriors, so entry falls in both | New proof, attacked on v5; absent if it fails, the entry gap then NUMERICAL | 16 |
+| Monotone premium and levels (batch 4) | The pooled premium is strictly increasing in κ above a root below 0.15 at every node; entry by detection state, the silent mass, the level effects of both dials, the level cut split | NUMERICAL from the one-crossing lemma on the record's coefficients and from the detection record, T in {3, 5, 10} | 16 |
 
 The general-equilibrium dominance result is not in the paper. Nothing in the paper says so.
 
@@ -90,12 +104,14 @@ Registration is a commit and workers run no git, so the work runs as phases from
   guard and compile check (11). Orchestrator commits.
 - Phase D: one referee pass (12); one author fix pass (13); compile, visual inspection, PDFs to
   `deliverable/` (14). Orchestrator commits and pushes.
-- Phase E (batch 4, ticket 15, after the v5 delivery at checkpoint 3): the cut record and the
-  regret record; the Blackwell theorem, the trichotomy, the threshold-margin restatement, the
-  split identity, the one-crossing lemma and the reversal lemma in the appendix; the attack gate
-  per statement; the abstract, introduction, results placement and conclusion rewritten around
-  the two central sentences of section 2; label-and-compile check; one referee read; one author
-  fix; unslop; compile, inspect, deliver. Orchestrator commits and pushes.
+- Phase E (batch 4, ticket 16 superseding 15, after the v5 delivery at checkpoint 3): the
+  detection record (T in {3, 5, 10}), the cut record and the regret record; the entry identity,
+  the detection lemma, the upper-set lemma, the silence lemma, entry against the undetected, the
+  Blackwell theorem, the trichotomy, the threshold-margin restatement, the split identity, the
+  one-crossing lemma and the reversal lemma in the appendix; the attack gate per statement; the
+  title, abstract, introduction, results placement and conclusion rewritten around section 2;
+  label-and-compile check; one referee read; one author fix; unslop; compile, inspect, deliver.
+  Orchestrator commits and pushes.
 
 ## 6. Policies every worker follows
 

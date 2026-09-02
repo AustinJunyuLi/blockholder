@@ -1,7 +1,8 @@
 # 15 · Theory upgrade: information is monotone in the rule, noise robustness is not
 
 **Lane:** theory and paper. **Routing:** batch 4, on top of the delivered v5 paper (checkpoint 3).
-**Blocked by:** 14 (delivered). **Blocks:** nothing. **Triage:** ready-for-agent.
+**Blocked by:** 14 (delivered). **Blocks:** nothing. **Triage:** superseded by 16 on 2026-09-02.
+The batch runs from 16; the sections of this file that 16 lists as inherited bind as written here.
 
 Revised 2026-09-02 after GPT Pro's review of the first draft
 (`.scratch/v5-paper/hunt/pro_response.md`) and an independent Fable review of that review. Both

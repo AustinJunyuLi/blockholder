@@ -34,10 +34,27 @@ The blockholder's per-round order while building the stake, equal to two noise l
 ADR 0003.
 
 **Two dials**:
-The headline. Tightening the threshold lowers the noise sensitivity of prices at fixed
-policies: through the weight effect by proof, through the composition effect on the
-calibration grid. Shortening the clock does so if and only if the clock's composition ratio is
-at most one, which the who-gets-caught corollary characterises.
+The headline. At fixed policies the engagement premium is the premium wedge times bidder entry
+against an engaged blockholder, and entry is higher while she is undetected. The filing and the
+tape are the market's two detection technologies and catch opposite blockholders, so the premium
+rises with liquidity and a rule's effect on it grows with liquidity. Second half: tightening
+either dial is a Blackwell improvement; it lowers the noise sensitivity of the premium exactly when
+the net cut leg lies in the who-gets-caught band.
+
+**Detection**:
+The two ways the market learns that the blockholder is engaged: the filing (the rule) and a
+revealed building mark on the tape. The rule catches the fast builders; the tape catches the slow.
+_Avoid_: revelation, discovery
+
+**Silent history**:
+A pooled history on which no building mark has been revealed. An engaged type with n building
+rounds is silent with probability (κ/2)^n.
+_Avoid_: hidden, undisclosed
+
+**Net cut leg**:
+The noise sensitivity per unit mass of what a tighter dial removes from the pool, survivors'
+re-pricing included, written s_B. It splits into a caught-only leg and a re-pricing term.
+_Avoid_: caught leg (for the net quantity)
 
 **Weight effect / Composition effect**:
 The two halves of what a tighter dial does. The weight effect moves mass from the pooled cell to
