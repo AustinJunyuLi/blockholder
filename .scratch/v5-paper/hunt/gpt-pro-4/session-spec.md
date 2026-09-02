@@ -15,21 +15,17 @@ part of this session.
 
 Amended 2026-09-02 for batch 4 (ticket 15). A disclosure rule has two dials. The stake threshold
 τ and the filing clock T split every blockholder history into a flagged cell (the filing landed;
-the market knows the blockholder is engaged and the filing tuple identifies her signal) and a
-pooled cell (no filing; the market reads order flow). At fixed policies and a common liquidity,
-tightening either dial makes the market's control-node experiment weakly more informative in
-Blackwell's order. That order does not settle what liquidity does to prices. At the control
-node, liquidity enters the engagement premium only through the pooled cell. For either dial, the
-tighter rule lowers the liquidity sensitivity of the engagement premium exactly when the premium
-mass it removes from the pool, the re-pricing of what stays pooled included, lies in a band set
-by the pool's own sensitivity and the share removed. On the calibration the band holds on the
-whole liquidity interval from 0.15 to 0.85, and for every pair of both dials it fails on an open
-interval below it, around the liquidity at which the looser pool's sensitivity changes sign,
-where the tighter rule is the more noise-sensitive one. The mechanism is inference from silence:
-the histories that stay pooled are re-priced because the absence of a filing now says more.
-Order size two is the unique integral order size whose order-mark channel is an exact,
-non-trivial erasure family in liquidity, and the benchmark policy's interim regret bound is
-reported at every node.
+the market knows) and a pooled cell (no filing; the market reads order flow). Information is
+monotone in the rule: tightening either dial at a common liquidity and fixed policies is a
+Blackwell improvement of the market's experiment. Noise robustness is not. Liquidity enters
+prices only through the pooled cell, and a tighter rule lowers the noise sensitivity of prices
+if and only if the histories it removes from the pool carried more than their share of the
+noise; the same cut identity holds for both dials, a polynomial certificate decides it exactly
+on any liquidity interval, and at low liquidity a tighter threshold raises noise sensitivity.
+The mechanism is inference from silence: at the threshold margin the re-pricing of the histories
+that stay pooled dominates the direct contribution of the caught histories. Order size two is the
+unique integral order size at which more liquidity is an exact, non-trivial erasure of the pooled
+experiment, and the benchmark policy's maximal regret is reported at every node.
 
 The headline this replaces (tightening lowers noise sensitivity through the weight effect by
 proof and the composition effect on the grid; the clock does so iff its composition ratio is at
@@ -38,7 +34,7 @@ half of the contrast.
 
 ## 3. The model, as the paper states it
 
-The inherited multi-date structure, H = 10 trading dates, one change. The engaged blockholder's order
+Two rounds of the inherited two-round structure, one change. The engaged blockholder's order
 while building the stake is two noise lumps (ADR 0003). The noise trader trades one lump up or
 down with probability κ/2 each and sits out with probability 1 minus κ. Order flow takes five
 values; only the value plus one is ambiguous between "blockholder bought, noise sold" and
@@ -56,10 +52,11 @@ Results the paper carries, each with a label at delivery:
 | Threshold dial | At fixed policies a tighter threshold weakly lowers noise sensitivity | Factorisation and weight leg proved; the closed form of S_P in κ proved; the composition leg is Condition D, equivalent to the composition ratio being at most one, verified on the grid (NUMERICAL, κ in [0.15, 0.85]) | 02 |
 | Clock dial | At fixed policies a shorter clock lowers noise sensitivity iff W_T times C_T is at most one | Inherited proof, transcribed and attacked on v5 | 04 |
 | Who gets caught (new) | C_T is at most one iff the sensitivity of what the shorter clock removes lies weakly between the pool's and (2 minus φ)/φ times it; the paper gives the identity behind it | New proof plus a grid check | 03 |
-| Blackwell improvement (batch 4) | Tightening either dial at common κ and fixed policies is a Blackwell improvement of the control-node experiment, under the noise channel and the flagged-tuple decoder; strict on the threshold ladder at T = 5, equivalent at the null T = 10 threshold cuts | New proof from the hunt memo, attacked on v5 | 15 |
-| Erasure regime (batch 4) | Order size two is the unique integral order size whose binary order-mark channel is an exact non-trivial erasure family in κ; at one the higher-κ experiment is never a garbling of the lower; three and above decode the mark | New proof from the hunt memo, attacked on v5 | 15 |
-| Cut identity, one-crossing lemma and reversal (batch 4) | The who-gets-caught corollary holds at the threshold margin with the clock sets replaced; the net cut leg splits into a caught-only leg and a re-pricing term; one sign change in each pool's coefficients decides the band above a computable cutoff; one crossing at both pools with distinct roots gives a strict reversal of total sensitivity on an open interval around the looser pool's root | Restatement plus three lemmas, attacked on v5; sign lists, intervals, magnitudes and the split NUMERICAL from the cut record | 15 |
-| Benchmark regret (batch 4) | Certified upper bound on the largest one-step deviation gain at benchmark prices and beliefs over the computational signal support, at every node | NUMERICAL from a regret record with the convention and a normaliser | 15 |
+| Blackwell improvement (batch 4) | Tightening either dial at common κ and fixed policies is a Blackwell improvement of the control-node experiment; strict at T = 5, an equality at the T = 10 corner | New proof from the hunt memo, attacked on v5 | 15 |
+| Erasure regime (batch 4) | Order size two is the unique integral order size with exact non-trivial erasure in κ; one is not monotone, three and above decodes | New proof from the hunt memo, attacked on v5 | 15 |
+| Cut identity at the threshold margin and the certificate (batch 4) | The who-gets-caught corollary holds verbatim at the threshold margin under a nested cut; Condition D on a compact κ-interval is a polynomial inequality decided at the endpoints and critical points; the failure interval at low κ | Remark plus lemma, attacked on v5; the calibration application NUMERICAL from a certificate record | 15 |
+| Benchmark regret (batch 4) | Maximal regret of the benchmark policy at every node | NUMERICAL from a regret record | 15 |
+| Existence (conditional on cleanliness) | An equilibrium exists at the paper's calibration | Only if the proof is clean at the numbers used; otherwise absent | 05 |
 
 The general-equilibrium dominance result is not in the paper. Nothing in the paper says so.
 
@@ -90,11 +87,10 @@ Registration is a commit and workers run no git, so the work runs as phases from
   guard and compile check (11). Orchestrator commits.
 - Phase D: one referee pass (12); one author fix pass (13); compile, visual inspection, PDFs to
   `deliverable/` (14). Orchestrator commits and pushes.
-- Phase E (batch 4, ticket 15, after the v5 delivery at checkpoint 3): the cut record and the
-  regret record; the Blackwell theorem, the trichotomy, the threshold-margin restatement, the
-  split identity, the one-crossing lemma and the reversal lemma in the appendix; the attack gate
-  per statement; the abstract, introduction, results placement and conclusion rewritten around
-  the two central sentences of section 2; label-and-compile check; one referee read; one author
+- Phase E (batch 4, ticket 15, after the v5 delivery at checkpoint 3): the certificate and
+  regret records; the four new statements and proofs in the appendix; the attack gate per
+  statement; the abstract, introduction, results placement and conclusion rewritten around the
+  information-versus-robustness contrast; label-and-compile check; one referee read; one author
   fix; unslop; compile, inspect, deliver. Orchestrator commits and pushes.
 
 ## 6. Policies every worker follows
