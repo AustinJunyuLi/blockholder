@@ -5,8 +5,10 @@
 One paper: *Who Gets Caught: Blockholder Disclosure Rules and Market Inference*. A blockholder
 disclosure rule has two dials, a stake threshold and a filing clock. The rule splits every
 possible history of the blockholder into a flagged cell and a pooled cell. Tightening the
-threshold makes prices less noise-driven at fixed policies. Shortening the clock does so only when the
-histories it newly catches are the noise-sensitive ones, and the paper says exactly when.
+threshold makes prices less noise-driven at fixed policies: by proof through the weight effect,
+on the calibration grid through the composition effect. Shortening the clock does so exactly
+when its composition ratio is at most one, and the paper characterises that ratio by the noise
+sensitivity of what the shorter clock removes from the pool.
 
 Branch `v5`, worktree `/Users/austinli/Projects/blockholder_v5`. The live manuscript is
 `paper.tex` with `appendix.tex` and `paper.bib`; delivered PDFs live in `deliverable/`.

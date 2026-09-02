@@ -71,8 +71,9 @@ C_τ ≤ 1/W_τ.
   five quantiles, below the code's degenerate-cell floor), so the threshold content rests on the
   four T = 5 pairs; the numerical section states this. Lemma g3(c)'s curvature hypothesis fails at
   every node and Remark `rem:g-Dstar`'s κ-free form holds at no pair: the garbling machinery is a
-  proved result in its own right and contributes to neither leg on this grid. Conditional on the
-  04 attack 2 for the two imported results.
+  proved result in its own right and contributes to neither leg on this grid. The two results
+  the theorem imports (the factorisation and the flagged cell's κ-invariance) passed the 04
+  attack, so the PROVED legs are unconditional.
 - Who gets caught (03). PROVED: the cut identity and the two-sided characterisation of C_T ≤ 1
   in s_B (between s_A and (2 minus φ)/φ times s_A). The one-sided shorthand is not what is
   proved; the paper states the corollary. Any directional sentence about what the clock catches
