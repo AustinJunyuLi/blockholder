@@ -22,9 +22,10 @@ reading it.
 | 2 | step 0 from checkpoint 1; 10; 11 | xhigh | CP2: 11 check; 12 referee (Opus); the who-gets-caught rerun |
 | 3 | 13; 14 | xhigh | CP3: attack on the two batch-3 lemmas; final CHECK; page inspection, unslop gate, push |
 
-Batch 2 was finished by Sol workers after Grok stopped mid-step (checkpoint 2). From batch 3 on,
-the orchestrator spawns a Sol worker at xhigh as the builder, with the same brief, plan and
-result shapes; Opus stays the attacker and checker. The launch section below is then not used.
+Batch 2 was finished by Sol workers after Grok stopped mid-step (checkpoint 2). Batch 3 is run
+by Gemini 3.8 Flash in an interactive session Austin starts here, with the same brief, plan and
+result shapes and the same rules (no git, every file changed reported); Opus stays the attacker
+and checker. The launch section below gives the paste prompt; the command line is the tool's own.
 
 ## Launch
 
