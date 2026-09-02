@@ -318,14 +318,14 @@ Ticket 02, grid verification. Write numerical_v4/checks/t5_threshold_condition.p
 03 grid (attempt):
 
 ```text
-Ticket 03-who-gets-caught.md, grid check section. Write numerical_v4/checks/t5_who_gets_caught.py exactly as the ticket describes and report the comparison table against the T1 record.
+Ticket 03-who-gets-caught.md, grid check section. Write numerical_v4/checks/t5_who_gets_caught.py exactly as the ticket describes, with a --nodes argument that limits the run to the first n calibration nodes and a provenance block (mark, H, params hash) in its record. Run it at --nodes 1 only, to show it executes (one node at order size two takes about ten seconds and six gigabytes; run nothing longer). The orchestrator runs the full grid as a check run (ADR 0004) and the comparison against the T1 record is read from that record. Report every file changed.
 ```
 
 05, write prompt of the two-pass gate (re-derive prompt is REDERIVE with ticket 05 and "the
 existence proposition"):
 
 ```text
-Ticket 05-existence-if-clean.md. Attempt the existence proof at order size two under grid-checkable conditions; write a check script under numerical_v4/checks/ that verifies the conditions at every calibration node. Write the statement and proof into proofs/05_existence.tex. Return PASS only if the proof is complete and the conditions hold at every node; return ABSENT otherwise with the reason in the summary.
+Ticket 05-existence-if-clean.md. Attempt the existence proof at order size two under grid-checkable conditions; write a check script numerical_v4/checks/t5_existence_conditions.py that verifies the conditions at every calibration node, with a --nodes argument that limits the run to the first n nodes and a provenance block (mark, H, params hash) in its record. Run it at --nodes 1 only, to show it executes; run nothing longer. The orchestrator runs the full grid as a check run (ADR 0004), and the label is decided by that record. Write the statement and proof into proofs/05_existence.tex. Return PASS if the proof is complete under the stated conditions and the script is written; return ABSENT if no proof under grid-checkable conditions is available, with the reason in the summary.
 ```
 
 ## Phase B
