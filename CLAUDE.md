@@ -58,6 +58,9 @@ gate is absent, not mentioned.
 - Routing: the orchestrating session plans, arbitrates and owns git. Kimi (kimi-dispatch)
   authors, GLM (glm-dispatch) engineers and audits, Opus subagents judge; efforts are set per
   step in .scratch/v5-paper/orchestration.md. No Workflow tool.
+- A delegated step is bounded to minutes. Every check script is a check run: the orchestrator
+  starts it detached from the client, one at a time, and reads its record file. No model session
+  waits on a computation (ADR 0004).
 - `H` (the trading horizon) is a calibration parameter, not a speed knob. Do not lower it to make
   a run fit.
 - Never use bare `git stash`. Set work aside with a temporary commit.

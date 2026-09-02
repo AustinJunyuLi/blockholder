@@ -105,5 +105,9 @@ never ships.
 A proof written by one worker and re-derived from the statement alone by a second worker who did
 not see the proof. The only route from CONJECTURE to PROVED.
 
+**Check run**:
+One execution of a check script that writes a record file. The orchestrator starts it and reads
+the record. A delegated model never waits on one.
+
 **Brief**:
 The referee notes in `docs/` that inform the rewrite. Input, not authority.
