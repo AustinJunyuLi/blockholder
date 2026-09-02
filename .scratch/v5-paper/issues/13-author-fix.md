@@ -9,6 +9,6 @@ STOP for the orchestrator. Re-run the number guard.
 **Acceptance.**
 - [ ] Every item in the referee report marked fixed or STOP with the reason.
 
-**Status:** open
+**Status:** closed at checkpoint 3 (Gemini fix pass, orchestrator repairs, `runs/13-check-2` PASS, `runs/12-referee-3` PASS).
 
 ## Comments

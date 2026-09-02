@@ -12,6 +12,6 @@ the PDFs to `deliverable/`.
 - [ ] Page-by-page inspection note listing anything fixed.
 - [ ] `deliverable/paper.pdf` and `deliverable/appendix.pdf` present.
 
-**Status:** open
+**Status:** closed at checkpoint 3 (commit a16d942; page inspection by the orchestrator).
 
 ## Comments
