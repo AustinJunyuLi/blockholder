@@ -7,7 +7,7 @@ reach and the constraints that hold, and the method is yours.
 
 ## Shape
 
-Grok 4.6 implements the remaining tickets in three batches. Each batch is one interactive Grok
+Grok 4.6 implements the remaining tickets in four batches. Each batch is one interactive Grok
 Build session that Austin starts in this worktree. A batch ends when every step named in the
 brief has its result file and the batch result is written; the session then reports and stops.
 At the checkpoint that follows, the orchestrator (Fable, with Opus 5 as attacker and judge)
@@ -21,6 +21,7 @@ reading it.
 | 1 | fixes from checkpoint 0 if any; 03 grid; 05 write, self-attack, fix; 08; 08 audit | high | CP1: Opus attack on 05; the 03 grid and 05 condition runs; 01 verify on the T1 and L4 reruns |
 | 2 | step 0 from checkpoint 1; 10; 11 | xhigh | CP2: 11 check; 12 referee (Opus); the who-gets-caught rerun |
 | 3 | 13; 14 | xhigh | CP3: attack on the two batch-3 lemmas; final CHECK; page inspection, unslop gate, push |
+| 4 | 16 (superseding 15): records, proofs, self-attack, paper, check | xhigh | CP4: Opus attack per new statement; the full-grid record runs at T in {3, 5, 10}; the abstract's brackets chosen from the record; label-and-compile check; one referee read; one author fix; unslop; deliver, push |
 
 Batch 2 was finished by Sol workers after Grok stopped mid-step (checkpoint 2). Batch 3 is run
 by Gemini 3.8 Flash in an interactive session Austin starts here, with the same brief, plan and
