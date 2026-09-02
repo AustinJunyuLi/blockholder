@@ -63,9 +63,11 @@ fundamental, so
 \label{eq:g-kernel}
 h(\nu) \;=\; \mathsf h\bigl(\pi(\nu),\,\hat v(\nu)\bigr),
 \end{equation}
-where $\nu$ is the posterior over types and $\pi(\nu)$, $\hat v(\nu)$ are both linear in $\nu$. A
-curvature statement about $h$ is read as a statement about $\mathsf h$ on the convex hull of the
-pairs $(\pi,\hat v)$ the pooled cell generates. The premium objects are
+where $\nu$ is the posterior over types and $\pi(\nu)$, $\hat v(\nu)$ are both linear in $\nu$.
+The map $\mathsf h$ itself carries no $\kappa$: $\kappa$ enters $h(\nu)$ only through the
+posterior $\nu$. Lemma~\ref{lem:g3}(a) rests on that, treating each $\Grev(S)$ as a
+$\kappa$-free number. A curvature statement about $h$ is read as a statement about $\mathsf h$
+on the convex hull of the pairs $(\pi,\hat v)$ the pooled cell generates. The premium objects are
 $\Dact = \Delta_m \Eop[h(\mathcal I_H)]$, $M_F = \Delta_m \Eop[h \mid D=1]$,
 $M_P = \Delta_m \Eop[h \mid D=0]$, and the sensitivities are
 $\mathcal S = |\partial_\kappa \Dact|$ and $\mathcal S_P = |\partial_\kappa M_P|$. For a
@@ -388,8 +390,7 @@ $\Omega(\tau',T)\ge\Omega(\tau,T)$, and with $\Omega(\tau',T) < 1$,
 W_\tau = \frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)} \in [0,1],
 \]
 with $W_\tau = 1$ exactly when the two flagged sets have the same mass, that is when no history
-is reclassified. The argument used $b_0 < \tau'$, so that no crossing predates round zero at
-either threshold, and it used no property of the kernel.
+is reclassified. The argument used no property of the kernel.
 
 Part~(C). Both thresholds are evaluated at the same $\kappa$ and at the same policies, so
 Lemma~\ref{lem:g3}(b) applies at each and gives

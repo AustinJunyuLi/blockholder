@@ -216,7 +216,7 @@ it. It is measurable as a composition of the monotone map $s\mapsto\Eop[v\mid s]
 solution and the normal distribution function, and it takes values in $(0,1)$.
 
 \emph{Step 13 (the flagged cell average).} The kernel of the premium is $h=\pi p$, so $h=p_F(s)$ on
-the flagged cell by Steps~9 and~12. Since $\Omega>0$, the partition result gives
+the flagged cell by Steps~9 and~12. Since $\Omega>0$, the elementary definition of conditioning on a positive-probability event gives
 \begin{equation}
 \label{eq:flagged-MF}
 M_F \;=\; \Delta_m\,\Eop[h \mid D=1]
@@ -358,8 +358,10 @@ $\mathcal I_H$ contains that coordinate at $d = H$. By \ref{p:clock} the filing 
 $c + T$ and only through the disclosure node, so the coordinate ``the filing has landed by $H$''
 equals $\ind\{f \le H\}$; combining this with $D = \ind\{a = 1,\ c < \infty,\ f \le H\}$ and with the
 restriction that only Voice plans cross, that coordinate equals $D$. Hence $D$ is measurable with
-respect to the control-node history and the map from a history to its cell is single-valued and onto
-$\{\mathcal C_F, \mathcal C_P\}$. The public flag coordinate is what carries this step: without it
+respect to the control-node history and the map from a history to its cell is single-valued.
+When both cells contain a history the map is onto $\{\mathcal C_F, \mathcal C_P\}$; when
+$\Omega \in \{0,1\}$ one cell is empty of histories and the map hits only the other, which is
+the case Step~7 records. The public flag coordinate is what carries this step: without it
 $D$ would still be a measurable function of the state by Step~4, while the cell assignment would
 stop being a function of what is observed at the control node.
 
@@ -384,7 +386,9 @@ $0 < \Omega < 1$,
 \end{equation}
 At $\Omega = 1$ the identity reads $\Dact = M_F$ and at $\Omega = 0$ it reads $\Dact = M_P$; in each
 of those two cases the average over the null cell is undefined rather than zero, and it is not
-determined by the law.
+determined by the law. That $M_P$ is defined as a number, rather than an equivalence class, rests
+on \ref{p:kernel} pinning a version of the price: \ref{p:paths} states Borel regularity for Voice
+paths only.
 \end{lemma}
 
 \begin{proof}
@@ -521,7 +525,7 @@ $|1 - \Omega| = 1 - \Omega$. Taking absolute values in the conclusion of Step~4 
 rather than $(\kappa,\tau,T)$, and that convention is kept from here on. Two consequences are worth
 recording. First, $\mathcal S > 0$ exactly when $\mathcal S_P > 0$. Second, when $\mathcal S_P > 0$
 the map $x \mapsto |x|$ is differentiable at $\partial_\kappa M_P \ne 0$, so $\mathcal S_P$ inherits
-whatever differentiability $\partial_\kappa M_P$ has in a policy coordinate. That transfer creates
+whatever differentiability $\partial_\kappa M_P$ has. That transfer creates
 no differentiability; it moves it.
 
 \emph{Step 6 (the aggregate form, with no differentiability used).} Fix any grid
@@ -557,7 +561,8 @@ measuring the same functional.
 Fix the liquidity $\kappa$, the window margin $T$, and the plan and cutoff policies. Compare two
 threshold margins with $b_0 < \tau' < \tau$, so that $\tau'$ is the tighter threshold, and assume
 $\Omega(\tau',T) < 1$. The configuration $b_0 < \tau'$ is what puts the clock equivalence in force
-at both thresholds. Then
+at both thresholds, together with Voice date-monotonicity (standing condition \ref{p:paths}) and
+the restriction that only Voice plans cross (standing condition \ref{p:clock}). Then
 \begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
 \item the flagged cells are nested, $\mathcal C_F(\tau,T) \subseteq \mathcal C_F(\tau',T)$, and
 every history the tighter threshold newly flags carries the engagement flag $a=1$;
@@ -631,7 +636,7 @@ positive number by a strictly positive one gives $0 < W_\tau \le 1$. This is cla
 
 \emph{The ratio identity.} With $\Omega(\tau,T) > 0$ the weight-leg inequality puts
 both flagged weights strictly inside the unit interval, so Proposition~\ref{prop:factorisation}
-applies at each threshold and the noise sensitivity of the price is the pooled share times the pooled sensitivity,
+applies at each threshold and the noise sensitivity of the expected engagement premium is the pooled share times the pooled sensitivity,
 \[
 \mathcal S(\kappa,\tau,T) \;=\; \bigl(1-\Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
 \qquad
@@ -648,16 +653,21 @@ and the quotient of the two displays is defined. Dividing and grouping the two f
 The weight leg at this margin is signed outright, and it is signed by the geometry of the flagged
 set alone: no restriction on the pooled experiment and no restriction on the noise-trading intensity
 enters clauses~(i) and~(ii). What clause~(iii) then supplies is the exact form in which the
-composition leg has to be signed, since $W_\tau \le 1$ leaves $W_\tau C_\tau \le 1$ resting on
-$C_\tau$ alone whenever $C_\tau \le 1$.
+composition leg has to be signed: $W_\tau C_\tau \le 1$ if and only if $C_\tau \le 1/W_\tau$, and
+by clause~(ii) that ceiling is at least one.
 
 % Clock theorem: a shorter clock lowers noise sensitivity iff W_T C_T is at most one.
 
 \begin{theorem}[The clock dial]
 \label{thm:clock}
 Fix the liquidity $\kappa$, the threshold margin $\tau$, and the plan and cutoff policies. Compare
-two window margins $T' < T$, so that $T'$ is the shorter clock. Assume $0 < \Omega(\tau,T) < 1$ and
-$0 < \Omega(\tau,T') < 1$, and $\mathcal S_P(\kappa,\tau,T) > 0$. Write
+two window margins $T' < T$, so that $T'$ is the shorter clock. Assume $b_0 < \tau$, that Voice
+stake paths are weakly increasing in the calendar date (standing condition \ref{p:paths}), and
+that only Voice plans cross (standing condition \ref{p:clock}), which is the configuration that
+puts the clock equivalence in force at both windows. Assume $0 < \Omega(\tau,T) < 1$ and
+$0 < \Omega(\tau,T') < 1$, and $\mathcal S_P(\kappa,\tau,T) > 0$. Assume the hypotheses of
+Proposition~\ref{prop:factorisation} hold at both clocks, and that
+$\kappa \mapsto M_P(\kappa,\tau,T')$ is differentiable. Write
 \begin{equation}
 \label{eq:clock-legs}
 W_T \;=\; \frac{1-\Omega(\tau,T')}{1-\Omega(\tau,T)},
@@ -701,8 +711,10 @@ shorter clock. Taking probabilities under the common signal law, $\Omega(\tau,T'
 positive because $\Omega < 1$ at each clock, so the quotient in \eqref{eq:clock-legs} is defined and
 $0 < W_T \le 1$. This is clause~(i).
 
-\emph{The ratio identity.} By the factorisation, at each clock the noise sensitivity of the price is
-the pooled share times the pooled sensitivity,
+\emph{The ratio identity.} By Proposition~\ref{prop:factorisation} at both clocks, which the
+statement assumes, the noise sensitivity of the expected engagement premium is the pooled share
+times the pooled sensitivity. Differentiability of $\kappa \mapsto M_P(\kappa,\tau,T')$ makes
+$\mathcal S_P(\kappa,\tau,T')$ exist, so $C_T$ in \eqref{eq:clock-legs} is defined. At each clock,
 \[
 \mathcal S(\kappa,\tau,T) \;=\; \bigl(1-\Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T),
 \qquad

@@ -15,6 +15,6 @@ are transcribed into `proofs/04_inherited.tex` in the paper's notation.
 - [ ] Four PASS verdicts, or STOP.
 - [ ] Transcribed proofs carry no reference to the inherited draft or its labels.
 
-**Status:** attack at checkpoint 0 (runs/04-attack, 2026-09-02): three of four PASS; the clock theorem FAILs on a missing hypothesis (the factorisation's hypotheses at both clocks, differentiability of κ → M_P at T'). One fix by Grok in batch 1 step 0 (grok/checkpoint-0.md); attack 2 at checkpoint 1.
+**Status:** attack gate PASS on all four results (checkpoint 0 for the partition and factorisation, the flagged cell's κ-invariance and the weight leg, `runs/04-attack`; checkpoint 1 attack 2 for the clock theorem after the batch-1 hypothesis fix, `runs/04-attack-2`, 2026-09-02). Label PROVED for all four. Wording nits for batch 2 step 0 in grok/checkpoint-1.md.
 
 ## Comments
