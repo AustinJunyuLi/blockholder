@@ -20,7 +20,11 @@ reading it.
 |---|---|---|---|
 | 1 | fixes from checkpoint 0 if any; 03 grid; 05 write, self-attack, fix; 08; 08 audit | high | CP1: Opus attack on 05; the 03 grid and 05 condition runs; 01 verify on the T1 and L4 reruns |
 | 2 | step 0 from checkpoint 1; 10; 11 | xhigh | CP2: 11 check; 12 referee (Opus); the who-gets-caught rerun |
-| 3 | 13; 14 | high | CP3: page inspection, unslop gate, push |
+| 3 | 13; 14 | xhigh | CP3: attack on the two batch-3 lemmas; final CHECK; page inspection, unslop gate, push |
+
+Batch 2 was finished by Sol workers after Grok stopped mid-step (checkpoint 2). From batch 3 on,
+the orchestrator spawns a Sol worker at xhigh as the builder, with the same brief, plan and
+result shapes; Opus stays the attacker and checker. The launch section below is then not used.
 
 ## Launch
 

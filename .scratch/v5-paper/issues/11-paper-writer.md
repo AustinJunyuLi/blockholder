@@ -24,6 +24,6 @@ Unslop rules apply to the paper's prose.
       or 05, and carries that label.
 - [ ] No sentence refers to earlier versions, dropped results, or failed attempts.
 
-**Status:** open
+**Status:** closed at checkpoint 2 (commit ad0f1e1; `runs/11-check-2` PASS). Grok drafted, a Sol worker finished; the batch result says so.
 
 ## Comments

@@ -11,6 +11,6 @@ process.
 **Acceptance.**
 - [ ] Report at `.scratch/v5-paper/referee_report.md` with blocking and minor lists.
 
-**Status:** open
+**Status:** closed at checkpoint 2 (`referee_report.md`: 10 blocking, 10 minor; run by Sol at xhigh). Triage in `grok/checkpoint-2.md`.
 
 ## Comments
