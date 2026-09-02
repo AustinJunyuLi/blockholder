@@ -25,10 +25,12 @@
 \subsection*{Setting and notation}
 \label{sec:pf-garbling-setup}
 
-Trading runs over rounds $d = 0,\ldots,H$. Noise takes the values $-\bar z$, $0$ and $+\bar z$
-with probabilities $\kappa/2$, $1-\kappa$ and $\kappa/2$. The blockholder's order while she is
-building the stake is two noise lumps, so the pooled order mark is $q_{jd}(s) \in \{0, 2\bar z\}$
-and pooled order flow is $X_d = q_{jd}(s) + z_d$. The support of $X_d$ is
+Trading runs over rounds $d = 0,\ldots,H$. Noise marks $(z_d)_{d=0}^H$ are independent and
+identically distributed across rounds and independent of the blockholder's type $\theta$ (and thus
+of the signal $s$ and mark path $(m_d)_{d=0}^H$). In each round, noise takes the values $-\bar z$,
+$0$ and $+\bar z$ with probabilities $\kappa/2$, $1-\kappa$ and $\kappa/2$. The blockholder's order
+while she is building the stake is two noise lumps, so the pooled order mark is
+$q_{jd}(s) \in \{0, 2\bar z\}$ and pooled order flow is $X_d = q_{jd}(s) + z_d$. The support of $X_d$ is
 $\{-\bar z, 0, \bar z, 2\bar z, 3\bar z\}$: a round in which the blockholder buys, an
 \emph{active} round, produces $X_d \in \{\bar z, 2\bar z, 3\bar z\}$, and a round in which she
 does not, an \emph{idle} round, produces $X_d \in \{-\bar z, 0, \bar z\}$. The two supports meet
@@ -49,7 +51,7 @@ mark path is a deterministic function of the type and takes finitely many values
 indicator $D(\theta) = \ind\{a(\theta) = 1,\ c(\theta;\tau) + T \le H\}$ is a function of the type
 alone, because the stake path does not respond to realised order flow and the crossing date reads
 off that path. Write $\rho$ for the prior law of $\theta$, $\Omega(\tau,T) = \Prb(D=1)$ for the
-flagged weight, and
+flagged weight, and, when $\Omega(\tau,T) < 1$,
 \[
 \rho_P^{\tau,T} \;:=\; \rho(\,\cdot \mid D = 0\,)
 \]
@@ -83,14 +85,15 @@ $\bigl(S,\ (m_e(\theta))_{e \in S}\bigr)$; Lemma~\ref{lem:g1}(b) shows that the 
 determines it. Finally, call an event $\mathcal A$ a \emph{cell event} when it is determined by
 the type alone, so that conditioning on it leaves the noise law untouched. The pooled cell
 $\{D = 0\}$ is a cell event, and so is the event that the filing has not landed by a date $d$.
-For a cell event $\mathcal A$ write $\rho_{\mathcal A} := \rho(\,\cdot \mid \mathcal A\,)$.
+For a cell event $\mathcal A$ with $\Prb(\mathcal A) > 0$, write $\rho_{\mathcal A} := \rho(\,\cdot \mid \mathcal A\,)$.
 
 \subsection*{Statements}
 \label{sec:pf-garbling-statements}
 
 \begin{lemma}[Erasure form of the pooled experiment]
 \label{lem:g1}
-Fix a policy $(\tau,T)$, a depth $d \le H$ and $\kappa \in (0,1)$, and let
+Fix a policy $(\tau,T)$, a depth $d \le H$, and $\kappa \in (0,1)$. Assume the noise marks
+$(z_e)_{e \le d}$ are i.i.d.\ and independent of $\theta$. Let
 \[
 R_d \;:=\; \{\, e \le d \;:\; X_e \neq \bar z \,\}
 \]
@@ -102,19 +105,20 @@ be the set of rounds whose flow differs from one lump. Then:
   probability $1-\varepsilon$;
 \item on $\{R_d = S\}$ the flow determines $m_e(\theta)$ for every $e \in S$, and conditional on
   the $S$-record the law of $X_{0:d}$ does not depend on $\theta$;
-\item consequently the $S$-record is sufficient: for every cell event $\mathcal A$ the posterior
-  after observing $X_{0:d}$ on $\mathcal A$ is
+\item consequently the $S$-record is sufficient: for every cell event $\mathcal A$ with
+  $\Prb(\mathcal A) > 0$, the posterior after observing $X_{0:d}$ on $\mathcal A$ is
   \[
   \nu_{0:d} \;=\; \rho_{\mathcal A}\bigl(\,\cdot \mid (m_e)_{e \in R_d}\,\bigr),
   \]
-  and in particular the pooled posterior at the control node takes this form with
-  $\mathcal A = \{D=0\}$ and $d = H$.
+  and in particular, when $\Omega(\tau,T) < 1$, the pooled posterior at the control node takes
+  this form with $\mathcal A = \{D=0\}$ and $d = H$.
 \end{enumerate}
 \end{lemma}
 
 \begin{lemma}[Liquidity garbles the pooled experiment]
 \label{lem:g2}
-Fix a policy and a depth $d \le H$, and let $0 < \kappa < \kappa' < 1$. There is a Markov kernel
+Fix a policy and a depth $d \le H$, let $0 < \kappa < \kappa' < 1$, and assume the noise marks
+$(z_e)_{e \le d}$ are i.i.d.\ and independent of $\theta$. There is a Markov kernel
 $\Lambda$ from histories to histories, not depending on the type, such that for every type
 $\theta$ the image under $\Lambda$ of the law of $X_{0:d}$ at $\kappa$ is its law at $\kappa'$.
 One such kernel deletes each element of $R_d$ independently with probability
@@ -122,12 +126,13 @@ $(\kappa'-\kappa)/(2-\kappa)$, emits $\bar z$ on every deleted round and on ever
 $R_d$, and redraws the flow on the surviving rounds from the $\kappa'$ conditional law given the
 mark. The pooled experiment at $\kappa'$ is therefore a garbling of the pooled experiment at
 $\kappa$, and the law of the pooled posterior at $\kappa'$ is a mean preserving contraction of
-its law at $\kappa$.
+its law at $\kappa$, and when $\Omega(\tau,T) < 1$, both have mean $\rho_P^{\tau,T}$.
 \end{lemma}
 
 \begin{lemma}[Exact liquidity representation of the pooled premium]
 \label{lem:g3}
-Fix a policy $(\tau,T)$, a cell event $\mathcal A$ of positive prior mass and a depth $d \le H$.
+Fix a policy $(\tau,T)$, a cell event $\mathcal A$ of positive prior mass, a depth $d \le H$, and
+assume the noise marks $(z_e)_{e \le d}$ are i.i.d.\ and independent of $\theta$.
 For $S \subseteq \{0,\ldots,d\}$ define
 \begin{equation}
 \label{eq:g-G}
@@ -180,10 +185,14 @@ pair satisfies revelation dominance at $\kappa$ if
 \end{equation}
 \end{condition}
 
+\csname unlabelledtrue\endcsname
+\par\noindent\textsc{Labels: PROVED and NUMERICAL.} Parts~(A) and~(B) and the implication in
+part~(C) are PROVED; Condition~\ref{cond:D}, and with it the conclusion of part~(C), is NUMERICAL
+on the grid Remark~\ref{rem:g-grid} names.\par\nopagebreak
 \begin{theorem}[The threshold dial at fixed policies]
 \label{thm:g-threshold}
 Fix the plan and cutoff policies and a window $T$, and take $b_0 < \tau' < \tau$ with
-$0 < \Omega(\tau,T)$, $\Omega(\tau',T) < 1$ and $\mathcal S_P(\tau,T) > 0$; part~(B) then puts
+$\Omega(\tau,T) > 0$, $\Omega(\tau',T) < 1$ and $\mathcal S_P(\tau,T) > 0$; part~(B) then puts
 $\Omega(\tau,T) \le \Omega(\tau',T) < 1$, so both pooled cells carry positive mass. Assume the
 two cell decomposition $\Dact = \Omega M_F + (1-\Omega)M_P$ and the $\kappa$-invariance of the
 flagged average $M_F$, each with its own hypotheses. Then:
@@ -192,18 +201,19 @@ flagged average $M_F$, each with its own hypotheses. Then:
   $\kappa \in (0,1)$.
 \item \emph{Weight leg.} $\mathcal C_F(\tau,T) \subseteq \mathcal C_F(\tau',T)$ and every newly
   flagged history is generated by a Voice plan, so $\Omega(\tau',T)\ge\Omega(\tau,T)$ and
-  $W_\tau \in [0,1]$, with equality when no history is reclassified. This leg carries no
-  condition beyond the standing ones.
+  $W_\tau \in [0,1]$, with equality when no history is reclassified (that is, up to a null set
+  of histories). This leg carries no condition beyond the standing ones.
 \item \emph{Composition leg and the dial.} Under Condition~\ref{cond:D} at the pair and at
   $\kappa$, $C_\tau \le 1$, and therefore
   \begin{equation}
   \label{eq:g-dial}
   \frac{\mathcal S(\tau',T)}{\mathcal S(\tau,T)} \;=\; W_\tau\,C_\tau \;\le\; 1 .
   \end{equation}
-  Equality holds when no history is reclassified, since the two rules then induce the same
-  partition and both factors are one.
+  Equality holds when no history is reclassified (up to a null set of histories), since the two
+  rules then induce the same partition almost surely and both factors are one.
 \end{enumerate}
 \end{theorem}
+\csname unlabelledfalse\endcsname
 
 \begin{remark}[A $\kappa$-free sufficient form of Condition~\ref{cond:D}]
 \label{rem:g-Dstar}
@@ -301,8 +311,8 @@ form a Markov chain in that order, so
 \Bigm| X^{\kappa'}_{0:d}\Bigr].
 \]
 The $\kappa'$ posterior is therefore a conditional expectation of the $\kappa$ posterior, so the
-law of the first is a mean preserving contraction of the law of the second, and both have mean
-$\rho_P^{\tau,T}$.
+law of the first is a mean preserving contraction of the law of the second, and when
+$\Omega(\tau,T) < 1$, both have mean $\rho_P^{\tau,T}$.
 \end{proof}
 
 \begin{proof}[Proof of Lemma~\ref{lem:g3}]
@@ -390,7 +400,7 @@ $\Omega(\tau',T)\ge\Omega(\tau,T)$, and with $\Omega(\tau',T) < 1$,
 W_\tau = \frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)} \in [0,1],
 \]
 with $W_\tau = 1$ exactly when the two flagged sets have the same mass, that is when no history
-is reclassified. The argument used no property of the kernel.
+is reclassified (almost surely). The argument used no property of the kernel.
 
 Part~(C). Both thresholds are evaluated at the same $\kappa$ and at the same policies, so
 Lemma~\ref{lem:g3}(b) applies at each and gives
