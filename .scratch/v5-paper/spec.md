@@ -13,13 +13,24 @@ part of this session.
 
 ## 2. Headline
 
-A disclosure rule has two dials. The stake threshold τ and the filing clock T split every
-blockholder history into a flagged cell (the filing landed; the market knows) and a pooled cell
-(no filing; the market reads order flow). Noise sensitivity of the price factorises as the
-pooled share times the pooled sensitivity. Tightening the threshold lowers it at fixed policies:
-the weight effect by proof, the composition effect on the calibration grid. Shortening the clock
-lowers it if and only if its composition ratio is at most one, and the who-gets-caught corollary
-characterises that ratio by the noise sensitivity of what the shorter clock removes from the pool.
+Amended 2026-09-02 for batch 4 (ticket 15). A disclosure rule has two dials. The stake threshold
+τ and the filing clock T split every blockholder history into a flagged cell (the filing landed;
+the market knows) and a pooled cell (no filing; the market reads order flow). Information is
+monotone in the rule: tightening either dial at a common liquidity and fixed policies is a
+Blackwell improvement of the market's experiment. Noise robustness is not. Liquidity enters
+prices only through the pooled cell, and a tighter rule lowers the noise sensitivity of prices
+if and only if the histories it removes from the pool carried more than their share of the
+noise; the same cut identity holds for both dials, a polynomial certificate decides it exactly
+on any liquidity interval, and at low liquidity a tighter threshold raises noise sensitivity.
+The mechanism is inference from silence: at the threshold margin the re-pricing of the histories
+that stay pooled dominates the direct contribution of the caught histories. Order size two is the
+unique integral order size at which more liquidity is an exact, non-trivial erasure of the pooled
+experiment, and the benchmark policy's maximal regret is reported at every node.
+
+The headline this replaces (tightening lowers noise sensitivity through the weight effect by
+proof and the composition effect on the grid; the clock does so iff its composition ratio is at
+most one, characterised by who gets caught) stays true and stays in the paper as the second
+half of the contrast.
 
 ## 3. The model, as the paper states it
 
@@ -41,6 +52,10 @@ Results the paper carries, each with a label at delivery:
 | Threshold dial | At fixed policies a tighter threshold weakly lowers noise sensitivity | Factorisation and weight leg proved; the closed form of S_P in κ proved; the composition leg is Condition D, equivalent to the composition ratio being at most one, verified on the grid (NUMERICAL, κ in [0.15, 0.85]) | 02 |
 | Clock dial | At fixed policies a shorter clock lowers noise sensitivity iff W_T times C_T is at most one | Inherited proof, transcribed and attacked on v5 | 04 |
 | Who gets caught (new) | C_T is at most one iff the sensitivity of what the shorter clock removes lies weakly between the pool's and (2 minus φ)/φ times it; the paper gives the identity behind it | New proof plus a grid check | 03 |
+| Blackwell improvement (batch 4) | Tightening either dial at common κ and fixed policies is a Blackwell improvement of the control-node experiment; strict at T = 5, an equality at the T = 10 corner | New proof from the hunt memo, attacked on v5 | 15 |
+| Erasure regime (batch 4) | Order size two is the unique integral order size with exact non-trivial erasure in κ; one is not monotone, three and above decodes | New proof from the hunt memo, attacked on v5 | 15 |
+| Cut identity at the threshold margin and the certificate (batch 4) | The who-gets-caught corollary holds verbatim at the threshold margin under a nested cut; Condition D on a compact κ-interval is a polynomial inequality decided at the endpoints and critical points; the failure interval at low κ | Remark plus lemma, attacked on v5; the calibration application NUMERICAL from a certificate record | 15 |
+| Benchmark regret (batch 4) | Maximal regret of the benchmark policy at every node | NUMERICAL from a regret record | 15 |
 | Existence (conditional on cleanliness) | An equilibrium exists at the paper's calibration | Only if the proof is clean at the numbers used; otherwise absent | 05 |
 
 The general-equilibrium dominance result is not in the paper. Nothing in the paper says so.
@@ -72,6 +87,11 @@ Registration is a commit and workers run no git, so the work runs as phases from
   guard and compile check (11). Orchestrator commits.
 - Phase D: one referee pass (12); one author fix pass (13); compile, visual inspection, PDFs to
   `deliverable/` (14). Orchestrator commits and pushes.
+- Phase E (batch 4, ticket 15, after the v5 delivery at checkpoint 3): the certificate and
+  regret records; the four new statements and proofs in the appendix; the attack gate per
+  statement; the abstract, introduction, results placement and conclusion rewritten around the
+  information-versus-robustness contrast; label-and-compile check; one referee read; one author
+  fix; unslop; compile, inspect, deliver. Orchestrator commits and pushes.
 
 ## 6. Policies every worker follows
 
