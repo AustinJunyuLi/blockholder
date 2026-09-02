@@ -1,6 +1,6 @@
 # 02 · Garbling lemma at order size two, and the threshold dial proved from it
 
-**Lane:** theory. **Routing:** writer opus `high`; independent re-deriver opus `high`.
+**Lane:** theory. **Routing:** writer grok `high`; independent attacker opus `high`.
 **Blocked by:** none for the proofs; 01 for the grid verification of any named condition.
 **Blocks:** 11.
 
@@ -18,16 +18,16 @@ condition in the theorem's hypothesis and verified on the grid (NUMERICAL, grid 
 is written into `proofs/02_garbling.tex`, statement first, in the paper's notation. Ticket 11
 assembles `appendix.tex` from the `proofs/` files.
 
-**Two-pass gate.** The re-deriver receives the model section and the statement only, re-derives,
-and returns PASS or FAIL with reasons. On FAIL the writer fixes once; a second FAIL is STOP.
+**Attack gate.** The attacker reads the statement and the proof and tries to break it.
+PASS or FAIL with the hole. On FAIL the writer fixes once; a second FAIL is STOP.
 
 **Acceptance.**
 - [ ] Lemma statement, proof, and the threshold theorem with at most one named condition.
-- [ ] Re-deriver PASS on the statement alone.
+- [ ] Attacker PASS on the written proof.
 - [ ] If a named condition exists: a check script under `numerical_v4/checks/` verifies it at
       every calibration node at `mark=2` and the record is cited.
 - [ ] No sentence refers to the inherited draft, prior assumptions, or what was replaced.
 
-**Status:** two-pass gate passed 2026-09-02 (Kimi write, Opus re-derive PASS on the first pass); grid check pending
+**Status:** write exists (Kimi, 2026-09-02); old blind re-derive PASS does not count under the attack gate; attack still due; Condition D grid check satisfied by numerical_v4/checks/t2_threshold_revelation_check.json (rev_condition_D pass at every node, hash fbacc963f39422c3, mark 2, H 10); commit pending
 
 ## Comments

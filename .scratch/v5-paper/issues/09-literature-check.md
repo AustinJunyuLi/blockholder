@@ -12,6 +12,6 @@ run-up dating papers rather than repeating them? Output: `docs/lit_check_2026-09
 paragraph per question, full citations, and the sentence in the paper each hit would change.
 No entry for anything that changes no sentence.
 
-**Status:** open
+**Status:** done, committed 9b4df12 on v5 (2026-09-02)
 
 ## Comments

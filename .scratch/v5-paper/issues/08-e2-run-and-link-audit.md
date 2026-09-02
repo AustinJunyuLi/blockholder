@@ -13,6 +13,6 @@ gates E2-G1, E2-G3, E2-G4 evaluated in the run. The audit agent draws sixty matc
 - [ ] Result file with all four gates evaluated; a NO-GO suppresses every E2 number.
 - [ ] The direction note's date precedes the run (evidence: git log shown by the orchestrator).
 
-**Status:** open
+**Status:** open; Grok batch 1 (`.scratch/v5-paper/grok/batch-1.md`)
 
 ## Comments

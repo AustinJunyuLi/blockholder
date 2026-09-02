@@ -22,6 +22,6 @@ delay rules against three hand-dated cases. E2 is built but not run in this tick
 - [ ] Tests pass; the second agent reruns from the cache and matches the result file exactly.
 - [ ] The spec was not edited. Any measurement question is reported, not resolved by editing.
 
-**Status:** open
+**Status:** done, committed 29cb8e5 on v5 (2026-09-02)
 
 ## Comments

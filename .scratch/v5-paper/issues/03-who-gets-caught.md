@@ -1,6 +1,6 @@
 # 03 · Who gets caught: signing the clock's composition ratio
 
-**Lane:** theory. **Routing:** writer opus `high`; re-deriver opus `high`; grid check opus default.
+**Lane:** theory. **Routing:** writer grok `high`; attacker opus `high`; grid check glm.
 **Blocked by:** 01 for the grid check only. **Blocks:** 11.
 
 **What to prove.** Let A be the pooled cell at the longer clock T and B ⊂ A the histories the
@@ -21,11 +21,11 @@ of within-subset conditional expectations, and records at every calibration node
 corollary's condition holds and whether C_T ≤ 1, using the point-derivative convention for S_P.
 
 **Acceptance.**
-- [ ] Corollary statement and proof; re-deriver PASS.
+- [ ] Corollary statement and proof; attacker PASS.
 - [ ] Grid record at every node with both booleans and the two sensitivities.
 - [ ] The record's C_T ≤ 1 verdicts agree with the T1 check's at the same nodes under the same
       convention (evidence: a comparison table in the report).
 
-**Status:** two-pass gate passed 2026-09-02 (Kimi write, Opus re-derive PASS on the first pass); grid check pending
+**Status:** write exists (Kimi, 2026-09-02); old blind re-derive PASS does not count under the attack gate; attack still due; grid check pending
 
 ## Comments

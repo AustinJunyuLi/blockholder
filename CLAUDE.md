@@ -25,7 +25,7 @@ gate is absent, not mentioned.
 
 | Area | Authority | Rule |
 |---|---|---|
-| Theory | `paper.tex` statements, `appendix.tex` proofs | Every result carries a label. A result is PROVED only after the two-pass gate (writer, then an independent re-deriver who did not see the proof) passes on v5. This applies to inherited results too. |
+| Theory | `paper.tex` statements, `appendix.tex` proofs | Every result carries a label. A result is PROVED only after the attack gate (writer, then an independent attacker who reads the proof and tries to break it) passes on v5. This applies to inherited results too. |
 | Theory code | `numerical_v4/` (depends on `numerical/`), checks in `numerical_v4/checks/` | Keep the code consistent with the paper's model. `numerical_v4.smoke` is the minimum gate. |
 | Empirics | `empirics/spec.md`, `empirics/output/<exercise>_estimate.json` | The spec is registered by the commit that precedes the run. Correct it only by a dated amendment inside the file. One result file per exercise is the single source of every manuscript number. |
 | Paper | `paper.tex`, `appendix.tex`, `paper.bib`, `deliverable/` | Edit presentation freely. Trace every theory claim to a labelled statement and every number to a result file. |
@@ -55,9 +55,9 @@ gate is absent, not mentioned.
 - Change assumptions when a proof fails once, if a cleaner assumption is available, and record
   the change in the ticket. A changed assumption counts as the second attempt if it fails.
 - Empirics are descriptive. No causal claim, no control group, no identification language.
-- Routing: the orchestrating session plans, arbitrates and owns git. Kimi (kimi-dispatch)
-  authors, GLM (glm-dispatch) engineers and audits, Opus subagents judge; efforts are set per
-  step in .scratch/v5-paper/orchestration.md. No Workflow tool.
+- Routing: the orchestrating session (Fable) plans, arbitrates and owns git. Grok 4.6 implements
+  every ticket in batches; Opus 5 attacks proofs and judges records at the checkpoints between
+  batches (ADR 0006). Batch briefs and checkpoint notes live in .scratch/v5-paper/grok/.
 - A delegated step is bounded to minutes. Every check script is a check run: the orchestrator
   starts it detached from the client, one at a time, and reads its record file. No model session
   waits on a computation (ADR 0004).

@@ -8,7 +8,7 @@ outside this worktree is consulted.
 
 A finished paper titled *Who Gets Caught: Blockholder Disclosure Rules and Market Inference*,
 compiled clean, referee-reviewed once, fixed once, unslop-gated, with every theorem passed
-through the two-pass gate on v5 and every number rendered from a result file. Slides are not
+through the attack gate on v5 and every number rendered from a result file. Slides are not
 part of this session.
 
 ## 2. Headline
@@ -55,9 +55,9 @@ phases A and B. A failed gate makes the exercise absent from the paper with no s
 
 ## 5. Phases and the commit points
 
-Registration is a commit and workers run no git, so the work runs as four phases from
-`.scratch/v5-paper/orchestration.md`, the orchestrator committing between them. Kimi authors,
-GLM engineers and audits, Opus judges; every step, effort and dependency is in that file.
+Registration is a commit and workers run no git, so the work runs as phases from
+`.scratch/v5-paper/orchestration.md`, the orchestrator committing between them. Since
+2026-09-02 the remaining phases run as the three batches of section 7.
 
 - Phase A: mark parameter and timed smoke (01); garbling lemma and threshold dial (02); who gets
   caught (03); re-derivation of the inherited results (04); existence attempt (05); empirics
@@ -74,9 +74,9 @@ GLM engineers and audits, Opus judges; every step, effort and dependency is in t
 
 ## 6. Policies every worker follows
 
-- Two-pass gate: the writer of a proof and its re-deriver are different agents; the re-deriver
-  sees the statement, the model section, and nothing of the proof. The label becomes PROVED only
-  on the re-deriver's PASS. Grid claims are NUMERICAL with the grid named.
+- Attack gate: the writer of a proof and its attacker are different agents; the attacker
+  reads the statement, the model, and the proof, and tries to break it. The label becomes
+  PROVED only on the attacker's PASS. Grid claims are NUMERICAL with the grid named.
 - Fail twice, stop. Each ticket gets one retry. On a proof failure the retry may change an
   assumption to a cleaner one and must say so in its report. A second failure returns STOP; the
   script ends; the orchestrator writes a one-page judgment for Austin and waits.
@@ -92,9 +92,12 @@ GLM engineers and audits, Opus judges; every step, effort and dependency is in t
 
 ## 7. Routing and budget
 
-Kimi (kimi-dispatch) authors, GLM (glm-dispatch) engineers and audits, Opus subagents judge;
-the orchestrating session plans, arbitrates and owns git. Efforts are set per step in
-`.scratch/v5-paper/orchestration.md`. The orchestrator is Fable and never delegates git.
+Grok 4.6 implements the remaining tickets in three batches, each an interactive Grok Build
+session Austin starts; Fable orchestrates, owns git and reviews at the checkpoint after each
+batch, with Opus 5 as attacker and judge (ADR 0006). The batch contents, efforts and the
+step contract are in `.scratch/v5-paper/grok/README.md`. The prompt texts, schemas, procedures
+and check-run rules of `.scratch/v5-paper/orchestration.md` still bind; its dispatch mechanics
+are superseded.
 
 ## 8. Done
 

@@ -12,6 +12,6 @@ values. Write the count into `e1_estimate.json` under `gates.E1-G2` with PASS or
 - [ ] Sixty hand-coded rows with the excerpt that supports each reading.
 - [ ] Gate evaluated and written; a NO-GO suppresses every E1 number.
 
-**Status:** open
+**Status:** done, committed 16292f9 on v5 (2026-09-02)
 
 ## Comments

@@ -15,6 +15,6 @@ are transcribed into `proofs/04_inherited.tex` in the paper's notation.
 - [ ] Four PASS verdicts, or STOP.
 - [ ] Transcribed proofs carry no reference to the inherited draft or its labels.
 
-**Status:** open
+**Status:** done, committed c30ebc3 on v5 (2026-09-02)
 
 ## Comments

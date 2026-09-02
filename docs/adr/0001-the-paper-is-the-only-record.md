@@ -14,7 +14,7 @@ one referee brief, and to delete everything else from the tree. The deleted mate
 `v4` history and is never consulted.
 
 Under this doctrine the paper and its appendix are the theory record. Every result that appears
-in `paper.tex` passes the two-pass gate on `v5`, inherited or new. The paper states positive
+in `paper.tex` passes the attack gate on `v5`, inherited or new. The paper states positive
 results only. It never refers to earlier versions, attempts, dropped results, or fallbacks.
 An exercise or result that fails is absent. This trades provenance for freedom to change the
 model, and it makes the paper read as an academic paper rather than a development log.

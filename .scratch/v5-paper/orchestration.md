@@ -7,46 +7,130 @@ tickets live under `.scratch/v5-paper/issues/`.
 
 ## How to run
 
-Kimi and GLM steps run as background Bash jobs:
+Every dispatch is an eval `agent()` call from a JS cell in this session, through one helper:
 
-```bash
-printf '%s' "$TASK" | kimi-dispatch --effort <E> --context <C> --artifact-dir .scratch/v5-paper/runs/<label> --schema .scratch/v5-paper/schemas/<result|verdict>.json
+```js
+// One dispatch, one record file. A finished step (PASS or ABSENT) or a recorded verdict is never rerun.
+const { statSync } = await import("node:fs");
+const runDir = ".scratch/v5-paper/runs";
+const SESSIONS = `${process.env.HOME}/.omp/agent/sessions`;
+
+// Resolved model of a finished agent() child, read from the transcript that handle: true retains.
+async function resolvedModelOf(id) {
+  let best, bestMtime = -1;
+  for await (const p of new Bun.Glob(`**/${id}.jsonl`).scan({ cwd: SESSIONS, absolute: true })) {
+    const m = statSync(p).mtimeMs;
+    if (m > bestMtime) { best = p; bestMtime = m; }
+  }
+  if (!best) return undefined;
+  const txt = await Bun.file(best).text();
+  return txt.match(/"type":"model_change"[^\n]*?"model":"([^"]+)"/)?.[1];
+}
+
+async function dispatch(agentName, label, prompt, schema, expectedModel) {
+  const path = `${runDir}/${label.replaceAll(" ", "-")}/result.txt`;
+  try {
+    const done = JSON.parse(await read(path));
+    if (done.status === "PASS" || done.status === "ABSENT" || done.verdict !== undefined) return done;
+  } catch {}
+  const fail = (summary) => ({ status: "FAIL", summary, files_changed: [], evidence: "dispatch error" });
+  let result;
+  try {
+    const h = await agent(prompt, { agent: agentName, label, schema, schemaMode: "strict", handle: true });
+    const model = await resolvedModelOf(h.id);
+    result = model === expectedModel ? h.data : fail(`resolved model ${model}, expected ${expectedModel}`);
+  } catch (err) {
+    result = fail(String(err?.message ?? err));
+  }
+  await write(path, JSON.stringify(result, null, 2));
+  return result;
+}
 ```
 
-`glm-dispatch` for GLM, with no `--context`. `$TASK` is the full task text: PRE, a blank
-line, the step prompt (with whatever retry or fix wording the procedure prefixes), a blank
-line, then the line `Return JSON matching this schema and nothing else:` followed by the
-schema JSON. Exit 0 means success: read `runs/<label>/result.txt`, which holds the JSON
-alone. Exit 3 is a provider limit: re-dispatch the same task once to the fallback
-provider (kimi to opus, glm to kimi) and do not count it as a failure; the opus fallback of a
-kimi step runs as an Opus subagent at the same effort and schema. Exit 1 is a failure.
-Background the jobs so the concurrent chains really run at once.
-
-Opus steps run as an Opus subagent from the Agent tool with the stated effort and the prompt
-text below, with the instruction to reply with JSON matching the schema and nothing else; the
-orchestrator saves that JSON to `runs/<label>/result.txt` itself.
+`expectedModel` is the provider and id the agent's frontmatter pins:
+`xai-oauth/grok-4.6`, `zhipu-coding-plan/glm-5.3` or `anthropic/claude-opus-5`. `agent()`
+returns only the parsed data, so the helper cannot read the resolved model off the result;
+it takes `handle: true`, keeps the child's id, and reads the
+`model_change` entry of the transcript the retained session holds. A mismatch means the
+dispatch did not reach the intended provider. A throw or a mismatch becomes the same FAIL
+record, so `parallel` below returns every chain's outcome instead of losing them: eval's
+pool settles every item and then throws the lowest-index error, discarding the results
+array; it never cancels a sibling chain.
 
 Every table row below is a step with its own label. A dispatch's directory is
 `.scratch/v5-paper/runs/<label>`, with spaces in the label written as hyphens (`01 verify`
-runs in `runs/01-verify`). A composite step (an attempt with its retry, a two-pass gate)
-keeps its sub-dispatches under suffixed labels (`01 retry`, `02 write`, `02 re-derive`,
-`02 fix`, `02 re-derive 2`), and when the step ends the orchestrator writes the step's own
-outcome JSON to `runs/<label>/result.txt`; for single-dispatch steps the dispatch result is
-already that file.
+runs in `runs/01-verify`). A composite step (an attempt with its retry, an attack gate)
+keeps its sub-dispatches under suffixed labels (`01 retry`, `02 write`, `02 attack`,
+`02 fix`, `02 attack 2`), and when the step ends the cell writes the step's own outcome
+JSON to `runs/<label>/result.txt`; for single-dispatch steps the dispatch result is already
+that file. A step whose record holds PASS or ABSENT is finished and is never rerun; tickets
+already committed on the branch are finished too (check git log).
 
-A step whose `runs/<label>/result.txt` exists with status PASS or ABSENT is finished and is
-never rerun. Tickets that are already committed on the branch are finished too (check git
-log).
+Effort and context select the agent. `agent()` takes no effort argument, so effort lives in
+the agent files: `glm`, `opus` and `grok` run at high, and the variants are `glm-low`,
+`glm-max`, `grok-xhigh`, `opus-low`, `opus-medium` and `opus-xhigh`. The Roles section gives
+the translation from a table's Effort column to the agent name. Grok holds 500k tokens; a
+table cell that still says 256k or 1m is the old kimi window and runs on grok.
+
+A FAIL whose summary shows a rate limit or quota is a provider limit, not a failure: the
+orchestrator re-dispatches the same prompt once to the fallback role named in the Roles
+table, under the suffixed label `<label> fallback`, and only that second report counts.
+
+Phases run one cell each, with `timeout: 0`. Each chain of the phase is an async function
+and the cell awaits `parallel([chainA, chainB, ...])` over the chains: pass the functions
+themselves, not their calls, because `parallel` takes zero-argument callables and runs them.
+
+`.omp/config.yml` in this repo sets `eval.autoBackground.enabled: true` with a 60 s
+threshold, so a phase cell that outlives the threshold becomes a managed job and the turn
+returns; the orchestrator starts check runs and commits while the cell runs. Chain 1 of
+Phase A (01, then the check runs, then 01 verify) is not one cell: it is 01 as its own
+cell, the three check runs started detached by the orchestrator as ADR 0004 says, then 01
+verify as its own cell. The other chains of a phase share one cell.
+
+The attack gate is one function:
+
+```js
+async function twoPass(ticket, writePrompt, attackPrompt, author, judge, authorModel, judgeModel) {
+  const send = (p) => `${PRE}\n\n${p}`; // PRE from Shared prompt texts, verbatim, read once with await read(...) before the cell's chains start
+  const w = await dispatch(author, `${ticket} write`, send(writePrompt), RESULT, authorModel);
+  if (w.status === "ABSENT") return { status: "ABSENT", write: w };
+  if (w.status !== "PASS") return { status: "STOP", stage: "write", write: w };
+  const at1 = await dispatch(judge, `${ticket} attack`, attackPrompt, VERDICT, judgeModel);
+  if (at1.verdict === "PASS") return { status: "PASS", write: w, attack: at1 };
+  const fixPrompt = `An independent attacker returned FAIL with these reasons: ${at1.reasons || "no report"}. Fix the proof once. You may replace one assumption with a cleaner one; say so in your summary.\n\n${writePrompt}`;
+  const f = await dispatch(author, `${ticket} fix`, send(fixPrompt), RESULT, authorModel);
+  if (f.status !== "PASS") return { status: "STOP", stage: "fix", write: w, attack: at1, fix: f };
+  const at2 = await dispatch(judge, `${ticket} attack 2`, attackPrompt, VERDICT, judgeModel);
+  if (at2.verdict === "PASS") return { status: "PASS", write: w, attack: at1, fix: f, attack2: at2 };
+  return { status: "STOP", stage: "attack", write: w, attack: at1, fix: f, attack2: at2 };
+}
+```
+
+RESULT and VERDICT are the Schemas below as parsed objects. The write and fix prompts are
+built as the Procedures section says: PRE, a blank line, then the step prompt; the fix
+prompt is the fix wording with the attacker's reasons, a blank line, then the write
+prompt. Never name a local `write`: it shadows the eval helper.
+
+Check runs stay exactly as ADR 0004 and the Check runs section say: the orchestrator starts
+each detached (`hub` op `start` with `detached: true`, or the python launcher there), one at
+a time, never inside a cell, and reads its record file.
 
 ## Roles
 
-| Role | Provider | Fallback on exit 3 |
-|---|---|---|
-| author | kimi-dispatch | opus subagent |
-| writer | kimi-dispatch | opus subagent |
-| engineer | glm-dispatch | kimi-dispatch |
-| auditor | glm-dispatch | kimi-dispatch |
-| judge | opus subagent | none |
+| Role | Agent | Effort default | Fallback on a provider limit |
+|---|---|---|---|
+| author | grok | high | opus |
+| writer | grok | high | opus |
+| engineer | glm | high | grok |
+| auditor | glm | high | grok |
+| judge | opus | high | none |
+| mapping | grok | high | none |
+
+Grok 4.6 supports thinking levels through xhigh and has no max; GLM 5.3 supports low, high
+and max; Opus 5 supports all five. A step whose Effort column names medium on grok or glm
+runs at high (agent `grok` or `glm`); a step naming xhigh or max on grok runs as `grok-xhigh`,
+on glm as `glm-max`; an opus step uses the exact level (`opus-low`, `opus-medium`,
+`opus-xhigh`).
 
 Routing note, 2026-09-02 02:05 (Austin): the remaining work is divided evenly between Kimi
 and Opus, with the writer and the checker on different models. GLM gets one trial task,
@@ -60,6 +144,25 @@ Routing note, 2026-09-02 07:50 (Austin, ADR 0004): ticket 01 is rewritten as a t
 (Kimi, medium) and every check script is a check run the orchestrator starts, see Check runs
 below. 01 verify is an Opus judge reading records. The P1, L3 and A(τ) scripts are out of the
 suite. The E2 direction note is already in `empirics/spec.md`.
+
+Routing note, 2026-09-02 09:05 (Austin): the first-version ticket 01 was the failure, not GLM;
+the Kimi runs on it fumbled the same way. If 03 grid passes, a decent share of the engineer and
+auditor rows goes back to GLM (08 audit, 10, 11 check, 11 check 2, 14, and blind audits), with
+the writer and the checker still on different models and Opus on the judge rows. If it does not,
+the 02:05 probation routing stands.
+
+Routing note, 2026-09-02 (Austin: Kimi coding plan expired; routing by the orchestrator):
+author and writer rows run on grok; engineer and auditor stay on glm with grok as the
+provider-limit fallback; judge stays on opus. The `kimi-code` provider is disabled. Dated
+notes above are history.
+
+Routing note, 2026-09-02 12:30 (Austin, ADR 0006): the omp dispatch of this file is
+superseded. Grok 4.6 implements the remaining steps in three batches under
+`.scratch/v5-paper/grok/`; the orchestrator and Opus review at the checkpoints. The prompt
+texts, schemas, the attempt and attack-gate procedures, the check-run rules and the phase
+contents of this file still bind; the JS cells and the Roles table do not. The ATTACK prompt
+gains one sentence: where an inequality is doubted, recompute it at one node with a short
+script.
 
 ## Schemas
 
@@ -86,11 +189,11 @@ PRE:
 Work in /Users/austinli/Projects/blockholder_v5. Read CLAUDE.md, CONTEXT.md and .scratch/v5-paper/spec.md first, then the ticket named below under .scratch/v5-paper/issues/. Run no git command. Edit only the paths the ticket names and report every file you changed. The paper states positive results only: never write a sentence that refers to the inherited draft, earlier versions, dropped results, or attempts. Prose never promotes an honesty label. If a step fails, report FAIL with the output; do not work around a gate or a spec.
 ```
 
-REDERIVE, the re-deriver prompt of the two-pass gate; `<ticket>` is the ticket number and
-`<what>` the statement named in the phase table:
+ATTACK, the attacker prompt of the attack gate; `<ticket>` is the ticket number, `<what>` the
+statement named in the phase table, and `<proof>` the proof file the writer just wrote:
 
 ```text
-Ticket <ticket>. You are the independent re-deriver. Read only the model section of inherited/draft_v3/draft_v3.tex (that section and nothing else of that file), with the blockholder order set to two noise lumps as .scratch/v5-paper/spec.md section 3 says, and the statement of <what> as written at the top of the ticket's file under proofs/. Do not read the proof. Re-derive the statement from the model. Return PASS if your derivation reaches the statement as written, FAIL with precise reasons otherwise (a missing hypothesis, a step you cannot justify, a counterexample).
+Ticket <ticket>. You are the independent attacker. You did not write this proof. Read the statement of <what> at the top of <proof>, the proof that follows, CONTEXT.md, and the model as the paper uses it (order size two). Try to break the proof: a missing hypothesis, a step that does not follow, a counterexample, a hidden use of a dropped assumption. Return PASS only if you cannot; FAIL with the precise hole otherwise. Do not rewrite the proof.
 ```
 
 CHECK, the phase C checker prompt:
@@ -106,11 +209,11 @@ as JSON:
 This is the single retry of <label>. The first attempt reported: <first report>. You may change one assumption or one design choice to a cleaner one; say exactly what you changed and why in your summary.
 ```
 
-The two-pass fix wording; `<reasons>` is the re-deriver's reasons, or the words `no report`
+The attack-gate fix wording; `<reasons>` is the attacker's reasons, or the words `no report`
 when there is none:
 
 ```text
-An independent re-deriver returned FAIL with these reasons: <reasons>. Fix the proof once. You may replace one assumption with a cleaner one; say so in your summary.
+An independent attacker returned FAIL with these reasons: <reasons>. Fix the proof once. You may replace one assumption with a cleaner one; say so in your summary.
 ```
 
 ## Procedures
@@ -123,19 +226,19 @@ names, or the same effort when it names none. PASS or ABSENT ends the step. A se
 that is neither is a STOP: the step outcome in `runs/<label>/result.txt` is STOP carrying
 both reports.
 
-Two-pass gate. A step whose table row says twoPass runs at most four dispatches, at the
-stage efforts the table names, or the defaults write xhigh, re-derive high, fix xhigh,
-re-derive 2 high:
+Attack gate. A step whose table row says twoPass runs at most four dispatches, at the
+stage efforts the table names, or the defaults write xhigh, attack high, fix xhigh,
+attack 2 high:
 
 1. Write: the author, label `<label> write`, RESULT schema. ABSENT ends the step cleanly. A
    report that is not PASS is a STOP, stage write.
-2. Re-derive: the judge, label `<label> re-derive`, VERDICT schema, REDERIVE filled for this
-   ticket. A PASS verdict ends the step PASS.
+2. Attack: the judge, label `<label> attack`, VERDICT schema, ATTACK filled for this ticket
+   and proof file. A PASS verdict ends the step PASS.
 3. Fix: the author, label `<label> fix`, RESULT schema; the prompt is the fix wording with
-   the re-deriver's reasons, a blank line, then the write prompt. A report that is not PASS
+   the attacker's reasons, a blank line, then the write prompt. A report that is not PASS
    is a STOP, stage fix.
-4. Re-derive 2: the judge, label `<label> re-derive 2`, VERDICT schema, the same REDERIVE
-   text. PASS ends the step PASS; FAIL is a STOP, stage re-derive.
+4. Attack 2: the judge, label `<label> attack 2`, VERDICT schema, the same ATTACK text.
+   PASS ends the step PASS; FAIL is a STOP, stage attack.
 
 STOP. A STOP at any step ends its phase. Let the dispatches already running finish and keep
 their reports, start nothing new in the phase, and do not open the next phase. The
@@ -188,8 +291,8 @@ real: the orchestrator commits all of Phase A.
 
 - Chain 1: 01 (a task of minutes), then the check runs smoke 2, T1, L4 in sequence, then 01
   verify on their records.
-- Chain 2: 02, a two-pass gate.
-- Chain 3: 03, a two-pass gate.
+- Chain 2: 02, an attack gate.
+- Chain 3: 03, an attack gate.
 - Chain 4: 04, the pipeline below.
 - Chain 5: 06, then 06 rerun, then 07.
 - Chain 6: 09.
@@ -209,20 +312,24 @@ is 1 to 4 in the order of the statement list:
 4. A statement that passed, at the first or second re-derive, gets `04 transcribe <n>`: the
    engineer transcribes it, RESULT schema.
 
-| Label | Role | Provider | Effort | Context | Schema | Depends on |
+| Label | Role | Agent | Effort | Context | Schema | Depends on |
 |---|---|---|---|---|---|---|
-| 01 | engineer | kimi-dispatch | medium, retry high | 256k | RESULT | nothing |
-| 01 verify | judge | opus subagent | low | none | VERDICT | the smoke 2, T1 and L4 check runs landed |
-| 02 | author, judge | kimi-dispatch, opus subagent | write max, re-derive xhigh, fix max, re-derive 2 xhigh | 256k | RESULT and VERDICT | nothing |
-| 03 | author, judge | kimi-dispatch, opus subagent | write xhigh, re-derive xhigh, fix xhigh, re-derive 2 xhigh | 256k | RESULT and VERDICT | nothing |
-| 04 | judge, author, engineer | opus, kimi-dispatch, glm-dispatch | re-derive high, repair xhigh, re-derive 2 high, transcribe medium | 256k for the author | VERDICT and RESULT | nothing |
-| 06 | engineer | glm-dispatch | high, retry xhigh | none | RESULT | nothing |
-| 06 rerun | auditor | glm-dispatch | low | none | VERDICT | 06 PASS in this session; skipped when 06 was already committed |
-| 07 | auditor | glm-dispatch | medium, retry medium | none | RESULT | 06 PASS |
-| 09 | author | kimi-dispatch | medium, retry medium | 256k | RESULT | nothing |
-| 02 grid | engineer | glm-dispatch | medium, retry high | none | RESULT | 01 PASS, 02 PASS with a named condition |
-| 03 grid | engineer | glm-dispatch | medium, retry high | none | RESULT | 01 PASS, 03 PASS |
-| 05 | author, judge | kimi-dispatch, opus subagent | write xhigh, re-derive high, fix xhigh, re-derive 2 high | 256k | RESULT and VERDICT | 01 PASS |
+| 01 | engineer | glm | medium, retry high | 256k | RESULT | nothing |
+| 01 verify | judge | opus | low | none | VERDICT | the smoke 2, T1 and L4 check runs landed |
+| 02 | author, judge | grok, opus | write max, attack xhigh, fix max, attack 2 xhigh | 256k | RESULT and VERDICT | nothing |
+| 03 | author, judge | grok, opus | write xhigh, attack xhigh, fix xhigh, attack 2 xhigh | 256k | RESULT and VERDICT | nothing |
+| 04 | judge, author, engineer | opus, grok, glm | re-derive high, repair xhigh, re-derive 2 high, transcribe medium | 256k for the author | VERDICT and RESULT | nothing |
+| 06 | engineer | glm | high, retry xhigh | none | RESULT | nothing |
+| 06 rerun | auditor | glm | low | none | VERDICT | 06 PASS in this session; skipped when 06 was already committed |
+| 07 | auditor | glm | medium, retry medium | none | RESULT | 06 PASS |
+| 09 | author | grok | medium, retry medium | 256k | RESULT | nothing |
+| 02 grid | engineer | glm | medium, retry high | none | RESULT | 01 PASS, 02 PASS with a named condition |
+| 03 grid | engineer | glm | medium, retry high | none | RESULT | 01 PASS, 03 PASS |
+| 05 | author, judge | grok, opus | write xhigh, attack high, fix xhigh, attack 2 high | 256k | RESULT and VERDICT | 01 PASS |
+
+Step 01 runs under the label `01 rewrite`: its record is `runs/01-rewrite/result.txt`, and
+every dependency written as "01 PASS" reads that file. The STOP judgment of the first-version
+ticket is `runs/01-v1-stop/result.txt` and is history, never a reason to rerun.
 
 01 (attempt):
 
@@ -236,15 +343,15 @@ Ticket 01-mark-parameter-and-timed-smoke.md, as rewritten on 2026-09-02. The cod
 Ticket 01, judge. You did not write the change. Read numerical_v4/smoke_output_mark2.txt, numerical_v4/checks/t2_t1_check.json and numerical_v4/checks/t2_l4_check.json. Confirm each record's provenance says mark = 2 and H = 10 and that the not-applicable blocks are so labelled and excluded from n_fail. Then recompute one node at mark = 2 with a short PYTHONPATH=. .venv/bin/python -c script that solves the baseline policy at the frozen tau, evaluates at kappa = 0.5, and compares M_F and M_P with the T1 record's baseline node to 1e-10 (a cold solve plus one evaluation; run nothing longer). Return PASS or FAIL with reasons. The 01 report for reference: <01 report>.
 ```
 
-02, write prompt of the two-pass gate (re-derive prompt is REDERIVE with ticket 02 and "the
-garbling lemma and the threshold theorem"):
+02, write prompt of the attack gate (attack prompt is ATTACK with ticket 02, "the
+garbling lemma and the threshold theorem", proof `proofs/02_garbling.tex`):
 
 ```text
 Ticket 02-garbling-lemma-and-threshold-dial.md. Write the garbling lemma and the threshold theorem with their proofs into proofs/02_garbling.tex, statement first. If any bridge clause does not follow from the order-size-two structure, state it as one named condition in the theorem and put its exact mathematical form in the named_condition field of your report; otherwise leave that field empty.
 ```
 
-03, write prompt of the two-pass gate (re-derive prompt is REDERIVE with ticket 03 and "the
-who-gets-caught corollary"):
+03, write prompt of the attack gate (attack prompt is ATTACK with ticket 03, "the
+who-gets-caught corollary", proof `proofs/03_caught.tex`):
 
 ```text
 Ticket 03-who-gets-caught.md. Write the corollary and its proof into proofs/03_caught.tex, statement first. The grid check is a separate agent; do not write it.
@@ -321,8 +428,8 @@ Ticket 02, grid verification. Write numerical_v4/checks/t5_threshold_condition.p
 Ticket 03-who-gets-caught.md, grid check section. Write numerical_v4/checks/t5_who_gets_caught.py exactly as the ticket describes, with a --nodes argument that limits the run to the first n calibration nodes and a provenance block (mark, H, params hash) in its record. Run it at --nodes 1 only, to show it executes (one node at order size two takes about ten seconds and six gigabytes; run nothing longer). The orchestrator runs the full grid as a check run (ADR 0004) and the comparison against the T1 record is read from that record. Report every file changed.
 ```
 
-05, write prompt of the two-pass gate (re-derive prompt is REDERIVE with ticket 05 and "the
-existence proposition"):
+05, write prompt of the attack gate (attack prompt is ATTACK with ticket 05, "the
+existence proposition", proof `proofs/05_existence.tex`):
 
 ```text
 Ticket 05-existence-if-clean.md. Attempt the existence proof at order size two under grid-checkable conditions; write a check script numerical_v4/checks/t5_existence_conditions.py that verifies the conditions at every calibration node, with a --nodes argument that limits the run to the first n nodes and a provenance block (mark, H, params hash) in its record. Run it at --nodes 1 only, to show it executes; run nothing longer. The orchestrator runs the full grid as a check run (ADR 0004), and the label is decided by that record. Write the statement and proof into proofs/05_existence.tex. Return PASS if the proof is complete under the stated conditions and the script is written; return ABSENT if no proof under grid-checkable conditions is available, with the reason in the summary.
@@ -332,11 +439,11 @@ Ticket 05-existence-if-clean.md. Attempt the existence proof at order size two u
 
 One sequence: 08, then 08 audit when 08 PASSed, then 10, unless the phase has stopped.
 
-| Label | Role | Provider | Effort | Context | Schema | Depends on |
+| Label | Role | Agent | Effort | Context | Schema | Depends on |
 |---|---|---|---|---|---|---|
-| 08 | engineer | glm-dispatch | medium, retry high | none | RESULT | nothing |
-| 08 audit | auditor | glm-dispatch | medium, retry high | none | RESULT | 08 PASS |
-| 10 | engineer | glm-dispatch | medium, retry high | none | RESULT | after 08 and 08 audit, unless the phase stopped |
+| 08 | engineer | glm | medium, retry high | none | RESULT | nothing |
+| 08 audit | auditor | glm | medium, retry high | none | RESULT | 08 PASS |
+| 10 | engineer | glm | medium, retry high | none | RESULT | after 08 and 08 audit, unless the phase stopped |
 
 08 (attempt):
 
@@ -363,12 +470,12 @@ one fix: 11 fix (a single run, not an attempt), then 11 check 2 whatever the fix
 with the same CHECK prompt. The phase is clean only when the last write report (11, or 11
 fix when there was one) is PASS and the last check verdict is PASS; anything else is a STOP.
 
-| Label | Role | Provider | Effort | Context | Schema | Depends on |
+| Label | Role | Agent | Effort | Context | Schema | Depends on |
 |---|---|---|---|---|---|---|
-| 11 | writer | kimi-dispatch | xhigh, retry max | 1m | RESULT | nothing |
-| 11 check | engineer | glm-dispatch | low | none | VERDICT | 11 PASS |
-| 11 fix | writer | kimi-dispatch | high | 1m | RESULT | 11 check not PASS |
-| 11 check 2 | engineer | glm-dispatch | low | none | VERDICT | 11 fix |
+| 11 | writer | grok | xhigh, retry max | 1m | RESULT | nothing |
+| 11 check | engineer | glm | low | none | VERDICT | 11 PASS |
+| 11 fix | writer | grok | high | 1m | RESULT | 11 check not PASS |
+| 11 check 2 | engineer | glm | low | none | VERDICT | 11 fix |
 
 11 (attempt):
 
@@ -389,11 +496,11 @@ Ticket 11, fix pass. The checker reported: <reasons>. Fix exactly those items in
 One sequence: 12 referee, then 13 fix whatever 12 returned, then 14 when 13 fix PASSed. The
 phase stops unless 13 fix PASSed and 14 PASSed.
 
-| Label | Role | Provider | Effort | Context | Schema | Depends on |
+| Label | Role | Agent | Effort | Context | Schema | Depends on |
 |---|---|---|---|---|---|---|
-| 12 referee | judge | opus subagent | high | none | RESULT | nothing |
-| 13 fix | judge | opus subagent | high | none | RESULT | 12 referee, whatever it returned |
-| 14 | engineer | glm-dispatch | medium, retry high | none | RESULT | 13 fix PASS |
+| 12 referee | judge | opus | high | none | RESULT | nothing |
+| 13 fix | judge | opus | high | none | RESULT | 12 referee, whatever it returned |
+| 14 | engineer | glm | medium, retry high | none | RESULT | 13 fix PASS |
 
 12 referee:
 

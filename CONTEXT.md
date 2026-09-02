@@ -101,9 +101,19 @@ The tag every result carries: PROVED, NUMERICAL (verified on the stated grid), E
 empirical estimate with a stated design and a standard error). CONJECTURE is a working label that
 never ships.
 
-**Two-pass gate**:
-A proof written by one worker and re-derived from the statement alone by a second worker who did
-not see the proof. The only route from CONJECTURE to PROVED.
+**Attack gate**:
+A proof written by one worker and read by a second worker who did not write it and tries to
+break it: a missing hypothesis, a step that does not follow, a counterexample. The only route
+from CONJECTURE to PROVED. A blind re-derivation from the statement is not this gate.
+_Avoid_: two-pass gate, re-derive
+
+**Batch**:
+A group of tickets one implementing session runs to completion before anyone reviews it. It
+ends when every step has its result file.
+
+**Checkpoint**:
+The review between two batches: the gates only the reviewers may run, the check runs, the
+commit, and the note the next batch reads.
 
 **Check run**:
 One execution of a check script that writes a record file. The orchestrator starts it and reads
