@@ -1,0 +1,310 @@
+{
+  "causal_claim": false,
+  "cells": {
+    "illiquid|post": {
+      "J": {
+        "mean": 0.023405648437476084,
+        "median": 0.0008588951864134256,
+        "n": 451,
+        "p25": -0.03739233693022428,
+        "p75": 0.04165334978134136
+      },
+      "J_ci": {
+        "ci_high": 0.037755600524215,
+        "ci_low": 0.010039109128233714,
+        "n_boot": 2000,
+        "point": 0.023405648437476084,
+        "seed": 5
+      },
+      "R": {
+        "mean": 0.09304758632151011,
+        "median": 0.0034008417272684,
+        "n": 451,
+        "p25": -0.1064099325122087,
+        "p75": 0.13303927500155088
+      },
+      "R_ci": {
+        "ci_high": 0.16053384543347202,
+        "ci_low": 0.034596147642017114,
+        "n_boot": 2000,
+        "point": 0.09304758632151011,
+        "seed": 5
+      },
+      "n": 451,
+      "runup_share_ci": {
+        "ci_high": 0.9169543455803207,
+        "ci_low": 0.5647049376360702,
+        "n_boot": 2000,
+        "point": 0.7990124663697247,
+        "seed": 5
+      },
+      "runup_share_of_cell_means": 0.7990124663697247
+    },
+    "illiquid|pre": {
+      "J": {
+        "mean": 0.025923433678006827,
+        "median": 0.0021941332271624664,
+        "n": 518,
+        "p25": -0.026391710063037203,
+        "p75": 0.03508691329289171
+      },
+      "J_ci": {
+        "ci_high": 0.06004385607489763,
+        "ci_low": 0.00369579868441899,
+        "n_boot": 2000,
+        "point": 0.025923433678006827,
+        "seed": 5
+      },
+      "R": {
+        "mean": -0.013376057908399226,
+        "median": -0.013153772742719672,
+        "n": 518,
+        "p25": -0.1557054255087814,
+        "p75": 0.07349769044374393
+      },
+      "R_ci": {
+        "ci_high": 0.030163101827162545,
+        "ci_low": -0.05479853607176656,
+        "n_boot": 2000,
+        "point": -0.013376057908399226,
+        "seed": 5
+      },
+      "n": 518,
+      "runup_share_ci": {
+        "ci_high": 12.798738784828608,
+        "ci_low": -10.448147684929053,
+        "n_boot": 2000,
+        "point": -1.0660442592943513,
+        "seed": 5
+      },
+      "runup_share_of_cell_means": -1.0660442592943513
+    },
+    "liquid|post": {
+      "J": {
+        "mean": 0.013678094597692864,
+        "median": 0.0038328138305652707,
+        "n": 348,
+        "p25": -0.006165583339690568,
+        "p75": 0.023214856789550587
+      },
+      "J_ci": {
+        "ci_high": 0.0194824658991137,
+        "ci_low": 0.008154613433062665,
+        "n_boot": 2000,
+        "point": 0.013678094597692864,
+        "seed": 5
+      },
+      "R": {
+        "mean": 0.029731956527578984,
+        "median": 0.004852363556762662,
+        "n": 348,
+        "p25": -0.025810103526534428,
+        "p75": 0.052664640402246166
+      },
+      "R_ci": {
+        "ci_high": 0.05819190487995279,
+        "ci_low": 0.00924897043652248,
+        "n_boot": 2000,
+        "point": 0.029731956527578984,
+        "seed": 5
+      },
+      "n": 348,
+      "runup_share_ci": {
+        "ci_high": 0.8546275989070558,
+        "ci_low": 0.37129765830917716,
+        "n_boot": 2000,
+        "point": 0.6849095026812824,
+        "seed": 5
+      },
+      "runup_share_of_cell_means": 0.6849095026812824
+    },
+    "liquid|pre": {
+      "J": {
+        "mean": 0.01313015310610829,
+        "median": 0.004608502828476892,
+        "n": 621,
+        "p25": -0.012078728068303096,
+        "p75": 0.023139388964888284
+      },
+      "J_ci": {
+        "ci_high": 0.017974161536190195,
+        "ci_low": 0.008541304727132297,
+        "n_boot": 2000,
+        "point": 0.01313015310610829,
+        "seed": 5
+      },
+      "R": {
+        "mean": 0.006340617094385078,
+        "median": 8.416361211849299e-05,
+        "n": 621,
+        "p25": -0.04965664437555306,
+        "p75": 0.04979981603384487
+      },
+      "R_ci": {
+        "ci_high": 0.024862750679140896,
+        "ci_low": -0.010787002560662015,
+        "n_boot": 2000,
+        "point": 0.006340617094385078,
+        "seed": 5
+      },
+      "n": 621,
+      "runup_share_ci": {
+        "ci_high": 0.7069335388797836,
+        "ci_low": -2.205037086089647,
+        "n_boot": 2000,
+        "point": 0.3256479856263936,
+        "seed": 5
+      },
+      "runup_share_of_cell_means": 0.3256479856263936
+    },
+    "middle|post": {
+      "J": {
+        "mean": 0.01913193177665974,
+        "median": 0.004360312611035156,
+        "n": 310,
+        "p25": -0.017823277466588128,
+        "p75": 0.0363056984783338
+      },
+      "J_ci": {
+        "ci_high": 0.03479520684546364,
+        "ci_low": 0.006597337507536644,
+        "n_boot": 2000,
+        "point": 0.01913193177665974,
+        "seed": 5
+      },
+      "R": {
+        "mean": 0.006935458667335902,
+        "median": -0.004651990376132564,
+        "n": 310,
+        "p25": -0.059008615577036655,
+        "p75": 0.0486169361126193
+      },
+      "R_ci": {
+        "ci_high": 0.039002636909939374,
+        "ci_low": -0.02214931545365327,
+        "n_boot": 2000,
+        "point": 0.006935458667335902,
+        "seed": 5
+      },
+      "n": 310,
+      "runup_share_ci": {
+        "ci_high": 3.7567689571379344,
+        "ci_low": -3.2880834150790164,
+        "n_boot": 2000,
+        "point": 0.2660588017905496,
+        "seed": 5
+      },
+      "runup_share_of_cell_means": 0.2660588017905496
+    },
+    "middle|pre": {
+      "J": {
+        "mean": 0.01754377886778732,
+        "median": 0.003580799278973597,
+        "n": 659,
+        "p25": -0.015959100323811475,
+        "p75": 0.03170018463505918
+      },
+      "J_ci": {
+        "ci_high": 0.028275658719161833,
+        "ci_low": 0.009325503848248819,
+        "n_boot": 2000,
+        "point": 0.01754377886778732,
+        "seed": 5
+      },
+      "R": {
+        "mean": 0.019628130897953188,
+        "median": 0.003542082442887562,
+        "n": 659,
+        "p25": -0.06968403173379689,
+        "p75": 0.06572568892807451
+      },
+      "R_ci": {
+        "ci_high": 0.04977078195201843,
+        "ci_low": -0.007001293103659682,
+        "n_boot": 2000,
+        "point": 0.019628130897953188,
+        "seed": 5
+      },
+      "n": 659,
+      "runup_share_ci": {
+        "ci_high": 0.7946749648925328,
+        "ci_low": -0.596511994588245,
+        "n_boot": 2000,
+        "point": 0.5280366551423047,
+        "seed": 5
+      },
+      "runup_share_of_cell_means": 0.5280366551423047
+    }
+  },
+  "coverage": {
+    "campaigns": 4914,
+    "campaigns_multi_filing": 713,
+    "cusip_multi_candidate": 151,
+    "cusip_readable": 4736,
+    "index_accessions": 6196,
+    "linked": 3337,
+    "listed_share": 0.6428571428571429,
+    "missing_text": 0,
+    "negative_delay": 2,
+    "no_acceptance": 0,
+    "no_link": 753,
+    "no_liquidity": 1014,
+    "no_prices": 686,
+    "no_subject_cik": 0,
+    "no_trigger": 81,
+    "no_window": 138,
+    "resolved_filings": 6115,
+    "stake_only_elsewhere": 60,
+    "stake_readable": 4502,
+    "stake_share": 0.9161579161579162,
+    "truncated_source": 415
+  },
+  "design": "descriptive",
+  "exercise": "e2",
+  "gates": {
+    "E2-G1_link_coverage": {
+      "listed_campaigns": 3159,
+      "listed_linked": 2327,
+      "share": 0.7366255144032922,
+      "threshold": 0.8,
+      "verdict": "NO-GO"
+    },
+    "E2-G2_link_audit": {
+      "audit_file": "empirics/output/e2_audit.csv",
+      "error_count": 0,
+      "n_audited": 60,
+      "note": "sixty matched campaigns checked by an independent worker",
+      "read_by": "an independent worker who did not write the link",
+      "sampling": "sixty matched campaigns (CRSP PERMNO and valid R and J) from e2_campaigns.csv, sorted by accession within calendar year of date_filed, drawn with random.Random(5).sample; twelve campaigns from each of the five non-empty year strata (2021-2025); leftover would have gone to earlier years in sorted order",
+      "seed": 5,
+      "threshold": 3,
+      "verdict": "PASS",
+      "wrong_matches": 0
+    },
+    "E2-G3_cell_size": {
+      "cells": {
+        "illiquid|post": 451,
+        "illiquid|pre": 518,
+        "liquid|post": 348,
+        "liquid|pre": 621,
+        "middle|post": 310,
+        "middle|pre": 659
+      },
+      "smallest": 310,
+      "threshold": 100,
+      "verdict": "PASS"
+    },
+    "E2-G4_differential_coverage": {
+      "absolute_gap": 0.037406408410054715,
+      "link_share_post": 0.7586738627602159,
+      "link_share_pre": 0.7212674543501612,
+      "threshold": 0.1,
+      "verdict": "PASS"
+    }
+  },
+  "headline_suppressed": true,
+  "label": "ESTIMATED",
+  "object": "run-up R and jump J by pre-trigger liquidity",
+  "spec": "empirics/spec.md",
+  "status": "NO-GO"
+}

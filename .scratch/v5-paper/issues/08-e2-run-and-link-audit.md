@@ -13,6 +13,6 @@ gates E2-G1, E2-G3, E2-G4 evaluated in the run. The audit agent draws sixty matc
 - [ ] Result file with all four gates evaluated; a NO-GO suppresses every E2 number.
 - [ ] The direction note's date precedes the run (evidence: git log shown by the orchestrator).
 
-**Status:** open; Grok batch 1 (`.scratch/v5-paper/grok/batch-1.md`)
+**Status:** run and audit done in batch 1 (`runs/08`, `runs/08-audit`); judged at checkpoint 1 (`runs/08-judge`, 2026-09-02): the link rule and the gates are implemented as registered. E2-G1 is NO-GO (0.737 against 0.8); E2-G2 PASS (0 errors of 60), E2-G3 PASS, E2-G4 PASS. The exercise is NO-GO and absent from the paper. Direction note committed 2a2d3bf before the run.
 
 ## Comments
