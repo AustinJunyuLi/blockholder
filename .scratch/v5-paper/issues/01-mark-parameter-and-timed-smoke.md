@@ -43,7 +43,7 @@ not-applicable rules, and the suite list.
 - [ ] Judge, after the check runs: reads the records, recomputes one node at `mark=2` at the T1
       baseline and matches its `M_F` and `M_P`; confirms every record carries `mark = 2`.
 
-**Status:** open, rewritten 2026-09-02
+**Status:** code PASS (runs/01-rewrite, 2026-09-02), committed; judge verify pending on the T1 and L4 reruns the orchestrator started 2026-09-02 12:22 (checkpoint 1)
 
 ## Comments
 
@@ -61,3 +61,16 @@ states cites it. The T1 record's run-up sweep (share falling in κ from 0.740 to
 change) is the E2 direction and entered `empirics/spec.md` by a dated note today. The record was
 made without a `mark` stamp; its parameter hash `fbacc963f39422c3` equals the revelation record's,
 whose provenance says `mark = 2`. The attempt count restarts at this rewrite (ADR 0004).
+
+2026-09-02 08:46, L4 record. The L4 run the fourth worker launched at 06:28 (before the rewrite
+edited the script at 08:31) finished ALL PASS in 8311 s and wrote `t2_l4_check.json`; its log is
+kept as `runs/checks/t2_l4_check.worker-run-0628.log`. The record predates the provenance stamp,
+like the T1 record: its `grid.order_size_mark = 2`, `grid.H = 10`, and its parameter hash
+`fbacc963f39422c3` equals the revelation record's, whose provenance says `mark = 2`. Ruling, as
+for T1: the record is accepted on that evidence and is not rerun, since the rewrite changed the
+record's presentation only. Its `l4_pred4_quadratic_corollary` and `l4_pred5_A_prime_kappa_channel`
+blocks show PASS and REPORTED; both are ruled not applicable at order size two and are not
+evidence for anything the paper states. The weight leg (`l4_sign_Omega_up`, 16 steps, 0
+violations) is the block the threshold theorem cites. The rewritten script labels these blocks
+not applicable on any future run. The 30-minute cost estimate in the Check runs table was wrong:
+the run alone took 2 h 18 min.

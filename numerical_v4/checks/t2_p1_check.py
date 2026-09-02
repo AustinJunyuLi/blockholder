@@ -622,6 +622,7 @@ def main() -> int:
         "T_excluded": {"2": "dropped for runtime; T=1 already exercises the "
                             "short-window end"},
         "H": p.H, "M": 2,
+        "order_size_mark": p.mark, "n_flow": p.n_flow,
         "tau_frozen_from": "median of the seed-equilibrium (tau=0.05) Voice "
                            "b*(s) distribution, design section 6.2",
         "n_seeds": N_SEEDS,

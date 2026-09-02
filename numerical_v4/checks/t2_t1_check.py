@@ -16,6 +16,9 @@ Checks:
   t1_block6_O1_benchmark           substantive  the four committed ratios and Omega*
   t1_block6_composition_factors    substantive  C_O1 = 1.1051 / 1.3590 / 1.5910 / 0.7560
   t1_H12_window_robustness         substantive  MANDATORY per design ruling 2
+  t1_runup_share_kappa_sweep       reported     R/(R+J) per kappa node and its
+                                                direction of change (the model
+                                                direction the E2 exercise needs)
 
 MEASUREMENT.  kappa-sensitivity is TOTAL VARIATION over the kappa grid (Step 7
 licenses this: the factorisation is exact for the TV aggregate), with mean
@@ -78,6 +81,9 @@ PCT_CHORD = 0.05
 S_P_FLOOR = 1e-12          # design risk 9.3
 A_PRIME_KAPPA = 0.25       # |A'_kappa| from Example A (card section 4.4)
 PP = 100.0
+BP = 10000.0               # basis points, the run-up and jump unit
+TOL_SHARE_DEN = 1e-12      # R + J below this leaves the share undefined
+TOL_SHARE_FLAT = 1e-12     # a share difference below this counts as no change
 
 KAPPAS = np.round(np.arange(0.15, 0.8501, 0.01), 2)     # 71 nodes
 QUANTILES = (0.1, 0.3, 0.5, 0.7, 0.9)
@@ -91,7 +97,7 @@ O1_COMMITTED_C = (1.1051, 1.3590, 1.5910, 0.7560)
 O1_KD_STAR, O1_OMEGA_STAR = 1.28618, 0.3428
 O1_KMIN, O1_KMAX, O1_N = 0.15, 0.85, 41
 
-results: dict = {"checks": [], "n_fail": 0, "n_vacuous": 0}
+results: dict = {"checks": [], "n_fail": 0, "n_vacuous": 0, "n_not_applicable": 0}
 
 
 def record(name: str, ok: bool, kind: str, detail: dict,
@@ -105,6 +111,20 @@ def record(name: str, ok: bool, kind: str, detail: dict,
     if vacuous:
         results["n_vacuous"] += 1
     print(f"[{'PASS' if ok else 'FAIL'}] {name} ({kind})", flush=True)
+    print("        " + json.dumps(detail, default=float)[:1400], flush=True)
+
+
+def record_not_applicable(name: str, kind: str, detail: dict) -> None:
+    """A block whose premise holds at order size one only.
+
+    Counted in neither n_fail nor the pass count; the record says why.
+    """
+    results["checks"].append(
+        {"name": name, "kind": kind, "pass": None, "vacuous": False,
+         "not_applicable": True, **detail}
+    )
+    results["n_not_applicable"] += 1
+    print(f"[N/A] {name} ({kind})", flush=True)
     print("        " + json.dumps(detail, default=float)[:1400], flush=True)
 
 
@@ -153,6 +173,34 @@ def sweep(pol, p_base, tau: float, T: int) -> dict:
         "multiple_root_nodes": n_multi,
         "degenerate": list(degen),
     }
+
+
+def runup_share_sweep(pol, p_base, tau: float, T: int) -> list[dict]:
+    """Frozen-policy kappa sweep of the run-up share R/(R+J) at one node.
+
+    R is the cumulative pooled run-up from the trigger to the day before the
+    filing lands and J is the filing-day jump, both mass-weighted means over
+    the flagged atoms.  Their ratio is the split of the total revaluation
+    between the pooled window and the reaction day, which is the model object
+    the E2 exercise measures against pre-trigger liquidity.  ``with_runup=True``
+    prices every date d = 0..H, so this sweep costs roughly three pooled passes
+    a node.
+    """
+    rows = []
+    for kap in KAPPAS:
+        o = evaluate(pol, p_base.replace(kappa=float(kap), tau=float(tau),
+                                         T=int(T)), with_runup=True)
+        R, J = float(o.R_mean), float(o.J_mean)
+        tot = R + J
+        defined = bool(np.isfinite(tot)) and abs(tot) > TOL_SHARE_DEN
+        rows.append({
+            "kappa": float(kap),
+            "R_bp": R * BP, "J_bp": J * BP, "R_plus_J_bp": tot * BP,
+            "runup_share": float(R / tot) if defined else "undefined",
+            "multiple_root_nodes": int(o.multiple_root_nodes),
+            "max_price_residual": float(o.max_price_residual),
+        })
+    return rows
 
 
 # ---------------------------------------------------------------------------
@@ -300,6 +348,7 @@ def main() -> int:
         "commit": "0c9185b -- MODEL_CARD stamp as recorded in "
                   "numerical_v4/smoke.py; this script does not shell out to git",
         "params_hash": p_base.hash_str(),
+        "mark": int(p_base.mark), "H": int(p_base.H),
         "design": "research/model_v4/impl_design.md section 13 APPROVED",
         "request": "research/model_v4/proofs/T1_proof.md, NUMERICAL CHECK "
                    "REQUEST (six blocks); O-1 record in HANDOFF_sign.md",
@@ -312,6 +361,7 @@ def main() -> int:
         "kappa": [float(x) for x in KAPPAS], "tau": list(taus),
         "tau_quantiles": list(QUANTILES), "T": list(TS),
         "H": p_base.H, "H_robustness": 12, "M": 2,
+        "order_size_mark": p_base.mark, "n_flow": p_base.n_flow,
         "tau_frozen_from": "percentiles of the seed-equilibrium (tau=0.05) Voice "
                            "b*(s) terminal-stake distribution, design 6.2",
         "policy": "frozen at the baseline equilibrium cutoffs at every node (H5)",
@@ -432,90 +482,106 @@ def main() -> int:
     )
 
     # -- block 3 ------------------------------------------------------------
-    b3, worst3 = [], 0.0
-    for T in TS:
-        for qi in QUANTILES:
-            r = S[(T, qi)]
-            pib = r["pi_bar_level_symmetric"]
-            ch = chord(pib, p_base.mu_v, p_base)
-            pred = p_base.Delta_m * A_PRIME_KAPPA * abs(ch.C_h)
-            res = abs(r["S_P_meanslope"] - pred)
-            worst3 = max(worst3, res)
-            b3.append({"T": T, "tau_quantile": qi,
-                       "pi_bar_level_symmetric": pib,
-                       "pi_bar_pr": r["pi_bar_pr"],
-                       "abs_A_prime_kappa": A_PRIME_KAPPA,
-                       "abs_C_h": abs(ch.C_h),
-                       "abs_C_h_over_pi_bar2": ch.quadratic_ratio,
-                       "S_P_meanslope_pp": r["S_P_meanslope"] * PP,
-                       "S_P_TV_pp": r["S_P_TV_pp"],
-                       "chord_formula_pp": pred * PP,
-                       "residual": res, "residual_pp": res * PP,
-                       "relative_residual": res / pred if pred > 0 else None,
-                       "implied_abs_A_prime_kappa": (
-                           r["S_P_meanslope"] / (p_base.Delta_m * abs(ch.C_h))
-                           if abs(ch.C_h) > 0 else None)})
-    # Distinct pi_bar values only: the terminal-stake ladder repeats pi_bar at
-    # the null-reclassification deciles, and comparing a node with itself would
-    # make the 5% rate claim vacuous.
-    seen, uniq = set(), []
-    for r in sorted(b3, key=lambda x: x["pi_bar_level_symmetric"]):
-        key = round(r["pi_bar_level_symmetric"], 14)
-        if key not in seen:
-            seen.add(key)
-            uniq.append(r)
-    two = uniq[:2]
-    chord_spread = abs(two[0]["abs_C_h_over_pi_bar2"]
-                       - two[1]["abs_C_h_over_pi_bar2"]) \
-        / abs(two[0]["abs_C_h_over_pi_bar2"])
-    record(
-        "t1_block3_chord_magnitude", worst3 < TOL_IDENT, "substantive",
-        {"request": "Block 3: residual |S_P - Delta_m |A'_kappa| |C_h(pi_bar)||, "
-                    "predicted below 1e-10; and |C_h(pi_bar)|/pi_bar^2 constant "
-                    "to within 5% between the two smallest pi_bar nodes",
-         "tol": TOL_IDENT, "max_residual": worst3,
-         "max_residual_pp": worst3 * PP,
-         "chord_ratio_spread_two_smallest": chord_spread,
-         "chord_ratio_within_5pct": bool(chord_spread < PCT_CHORD),
-         "pi_bar_two_smallest_distinct": [r["pi_bar_level_symmetric"]
-                                          for r in two],
-         "n_distinct_pi_bar": len(uniq),
-         "implied_abs_A_prime_kappa_range": [
-             min(r["implied_abs_A_prime_kappa"] for r in b3
-                 if r["implied_abs_A_prime_kappa"] is not None),
-             max(r["implied_abs_A_prime_kappa"] for r in b3
-                 if r["implied_abs_A_prime_kappa"] is not None)],
-         "implied_A_prime_note": "S_P/(Delta_m |C_h(pi_bar)|) is the value "
-                                 "|A'_kappa| would have to take for the chord "
-                                 "formula to reproduce the enumerated "
-                                 "sensitivity. Example A gives 1/4; the gap "
-                                 "between the two IS the A'_kappa channel that "
-                                 "L4 prediction 5 and T1's C_tau inherit",
-         "pi_bar_vs_pi_bar_pr": "reported in separate columns per H11's ruling: "
-                                "pi_bar is the upper support point of the "
-                                "pooled engagement posterior (here the "
-                                "level-symmetric 2 pi_bar_pr), pi_bar_pr is the "
-                                "share Pr(a=1|D=0); conflating them is the most "
-                                "likely implementation error in this block",
-         "max_relative_residual": max(r["relative_residual"] for r in b3
-                                      if r["relative_residual"] is not None),
-         "finding": (
-             f"FAILED HYPOTHESIS, reported and not smoothed. The residual is "
-             f"{worst3 * PP:.6f} premium pp, far above 1e-10. It is the gap "
-             "between the ENUMERATED two-round pooled sensitivity and A(tau)'s "
-             "three-atom closed form -- exactly the object design section 0 "
-             "says the build must measure ('the enumeration never imposes "
-             "A(tau)'). It is a failed hypothesis about A(tau)'s applicability "
-             "to this pooled law, not a wiring error: L3's Example B shows the "
-             "manuscript's four-atom structure lies outside A(tau), and "
-             "t2_l3_check.py's block 5b measures the same gap analytically."
-         ) if worst3 >= TOL_IDENT else (
-             "The residual clears 1e-10: on this calibration the enumerated "
-             "pooled sensitivity coincides with A(tau)'s closed form to "
-             "machine precision."
-         ),
-         "rows": b3},
-    )
+    if p_base.mark >= 2:
+        record_not_applicable(
+            "t1_block3_chord_magnitude", "substantive",
+            {"request": "Block 3: residual |S_P - Delta_m |A'_kappa| "
+                        "|C_h(pi_bar)||, predicted below 1e-10; and "
+                        "|C_h(pi_bar)|/pi_bar^2 constant to within 5% between "
+                        "the two smallest pi_bar nodes",
+             "order_size_mark": p_base.mark,
+             "reason": "the chord identity rests on the ternary pooled law of "
+                       "order size one: at order size two (ADR 0003) the "
+                       "pooled order flow takes mark + 3 values and the pooled "
+                       "posterior support is not the three-point family "
+                       "{0, pi_bar/2, pi_bar}, so the premise of this block "
+                       "holds at mark = 1 only and no residual is computed"},
+        )
+    else:
+        b3, worst3 = [], 0.0
+        for T in TS:
+            for qi in QUANTILES:
+                r = S[(T, qi)]
+                pib = r["pi_bar_level_symmetric"]
+                ch = chord(pib, p_base.mu_v, p_base)
+                pred = p_base.Delta_m * A_PRIME_KAPPA * abs(ch.C_h)
+                res = abs(r["S_P_meanslope"] - pred)
+                worst3 = max(worst3, res)
+                b3.append({"T": T, "tau_quantile": qi,
+                           "pi_bar_level_symmetric": pib,
+                           "pi_bar_pr": r["pi_bar_pr"],
+                           "abs_A_prime_kappa": A_PRIME_KAPPA,
+                           "abs_C_h": abs(ch.C_h),
+                           "abs_C_h_over_pi_bar2": ch.quadratic_ratio,
+                           "S_P_meanslope_pp": r["S_P_meanslope"] * PP,
+                           "S_P_TV_pp": r["S_P_TV_pp"],
+                           "chord_formula_pp": pred * PP,
+                           "residual": res, "residual_pp": res * PP,
+                           "relative_residual": res / pred if pred > 0 else None,
+                           "implied_abs_A_prime_kappa": (
+                               r["S_P_meanslope"] / (p_base.Delta_m * abs(ch.C_h))
+                               if abs(ch.C_h) > 0 else None)})
+        # Distinct pi_bar values only: the terminal-stake ladder repeats pi_bar
+        # at the null-reclassification deciles, and comparing a node with itself
+        # would make the 5% rate claim vacuous.
+        seen, uniq = set(), []
+        for r in sorted(b3, key=lambda x: x["pi_bar_level_symmetric"]):
+            key = round(r["pi_bar_level_symmetric"], 14)
+            if key not in seen:
+                seen.add(key)
+                uniq.append(r)
+        two = uniq[:2]
+        chord_spread = abs(two[0]["abs_C_h_over_pi_bar2"]
+                           - two[1]["abs_C_h_over_pi_bar2"]) \
+            / abs(two[0]["abs_C_h_over_pi_bar2"])
+        record(
+            "t1_block3_chord_magnitude", worst3 < TOL_IDENT, "substantive",
+            {"request": "Block 3: residual |S_P - Delta_m |A'_kappa| |C_h(pi_bar)||, "
+                        "predicted below 1e-10; and |C_h(pi_bar)|/pi_bar^2 constant "
+                        "to within 5% between the two smallest pi_bar nodes",
+             "tol": TOL_IDENT, "max_residual": worst3,
+             "max_residual_pp": worst3 * PP,
+             "chord_ratio_spread_two_smallest": chord_spread,
+             "chord_ratio_within_5pct": bool(chord_spread < PCT_CHORD),
+             "pi_bar_two_smallest_distinct": [r["pi_bar_level_symmetric"]
+                                              for r in two],
+             "n_distinct_pi_bar": len(uniq),
+             "implied_abs_A_prime_kappa_range": [
+                 min(r["implied_abs_A_prime_kappa"] for r in b3
+                     if r["implied_abs_A_prime_kappa"] is not None),
+                 max(r["implied_abs_A_prime_kappa"] for r in b3
+                     if r["implied_abs_A_prime_kappa"] is not None)],
+             "implied_A_prime_note": "S_P/(Delta_m |C_h(pi_bar)|) is the value "
+                                     "|A'_kappa| would have to take for the chord "
+                                     "formula to reproduce the enumerated "
+                                     "sensitivity. Example A gives 1/4; the gap "
+                                     "between the two IS the A'_kappa channel that "
+                                     "L4 prediction 5 and T1's C_tau inherit",
+             "pi_bar_vs_pi_bar_pr": "reported in separate columns per H11's ruling: "
+                                    "pi_bar is the upper support point of the "
+                                    "pooled engagement posterior (here the "
+                                    "level-symmetric 2 pi_bar_pr), pi_bar_pr is the "
+                                    "share Pr(a=1|D=0); conflating them is the most "
+                                    "likely implementation error in this block",
+             "max_relative_residual": max(r["relative_residual"] for r in b3
+                                          if r["relative_residual"] is not None),
+             "finding": (
+                 f"FAILED HYPOTHESIS, reported and not smoothed. The residual is "
+                 f"{worst3 * PP:.6f} premium pp, far above 1e-10. It is the gap "
+                 "between the ENUMERATED two-round pooled sensitivity and A(tau)'s "
+                 "three-atom closed form -- exactly the object design section 0 "
+                 "says the build must measure ('the enumeration never imposes "
+                 "A(tau)'). It is a failed hypothesis about A(tau)'s applicability "
+                 "to this pooled law, not a wiring error: L3's Example B shows the "
+                 "manuscript's four-atom structure lies outside A(tau), and "
+                 "t2_l3_check.py's block 5b measures the same gap analytically."
+             ) if worst3 >= TOL_IDENT else (
+                 "The residual clears 1e-10: on this calibration the enumerated "
+                 "pooled sensitivity coincides with A(tau)'s closed form to "
+                 "machine precision."
+             ),
+             "rows": b3},
+        )
 
     # -- block 4 ------------------------------------------------------------
     b4, n_above = [], 0
@@ -645,18 +711,83 @@ def main() -> int:
                   "pooled enumeration. At H = 12, T = 10 is strictly interior "
                   "(T < H), so this column is exactly the corner audit block 4 "
                   "asks for.",
-         "not_evaluable_at_H12": "the enumerated S_P (and hence the enumerated "
-                                 "C_T and the direct ratio) run through the "
-                                 "pooled enumeration; at H = 12 the feasible "
-                                 "history count is 8,503,056 and 8,503,056 x "
-                                 "N_theta 14 = 1.19e8 exceeds the design "
-                                 "build-step-4 gate of 1e8 (~2.5 GB working "
-                                 "set). The gate is respected, not overridden.",
+         "not_evaluable_at_H12": (
+             "the enumerated S_P (and hence the enumerated C_T and the direct "
+             f"ratio) run through the pooled enumeration; at H = 12 and order "
+             f"size {p_base.mark} the order-flow support has {p_base.n_flow} "
+             f"values, so n_hist = {p12.n_hist:,} and n_hist x N_theta "
+             f"{p12.n_theta} = {float(p12.n_hist) * p12.n_theta:.2e} exceeds "
+             "the design build-step-4 gate of 1e8. The gate is respected, not "
+             "overridden."),
          "policy": "cutoffs frozen at the H = 10 baseline equilibrium; H = 12 "
                    "cannot be re-solved for the same reason",
          "n_W_T_above_one": len(viol12),
          "n_nodes_with_W_T_C_T_above_one": n_above12,
          "rows": r12},
+    )
+
+    # -- run-up share across kappa (the E2 direction) ------------------------
+    print("  run-up share sweep (with_runup=True, one node per kappa) ...",
+          flush=True)
+    ru_rows = runup_share_sweep(pol, p_base, tau_med, p_base.T)
+    shares = [r["runup_share"] for r in ru_rows]
+    defined = all(isinstance(x, float) for x in shares)
+    signs, diffs = [], []
+    if defined:
+        for a, b in zip(shares[:-1], shares[1:]):
+            d = b - a
+            diffs.append(d)
+            signs.append(0 if abs(d) < TOL_SHARE_FLAT else int(np.sign(d)))
+    nz = [x for x in signs if x != 0]
+    if not defined:
+        direction = "undefined"
+        turning = None
+    elif nz and all(x > 0 for x in nz):
+        direction = "increasing in kappa"
+        turning = None
+    elif nz and all(x < 0 for x in nz):
+        direction = "decreasing in kappa"
+        turning = None
+    elif not nz:
+        direction = "flat in kappa"
+        turning = None
+    else:
+        direction = "non-monotone in kappa"
+        # the turning point is the kappa at the first change of nonzero sign,
+        # which locates a trough as correctly as a peak
+        turning = None
+        last = 0
+        for i, sg in enumerate(signs):
+            if sg == 0:
+                continue
+            if last != 0 and sg != last:
+                turning = float(KAPPAS[i])
+                break
+            last = sg
+    record(
+        "t1_runup_share_kappa_sweep", defined, "reported",
+        {"request": "the frozen-policy kappa sweep of the run-up share "
+                    "R/(R+J) per node, with its sign of change across the "
+                    "kappa grid -- the model direction the E2 exercise is "
+                    "measured against",
+         "node": {"tau": tau_med, "tau_quantile": 0.5, "T": p_base.T,
+                  "H": p_base.H, "policy": "frozen at the baseline cutoffs"},
+         "measurement": "R and J are the mass-weighted mean cumulative pooled "
+                        "run-up and filing-day jump over the flagged atoms, "
+                        "both from evaluate(with_runup=True); the share is "
+                        "R/(R+J)",
+         "n_kappa_nodes": int(KAPPAS.size),
+         "direction": direction,
+         "turning_kappa": turning,
+         "n_sign_changes": int(sum(1 for a, b in zip(nz[:-1], nz[1:])
+                                   if a != b)),
+         "share_at_kappa_min": shares[0],
+         "share_at_kappa_max": shares[-1],
+         "sign_of_change": signs,
+         "rows": ru_rows,
+         "reading": "this is a NUMERICAL direction on the stated kappa grid at "
+                    "one calibration node. It is a measurement, not a verdict, "
+                    "and carries no label of its own"},
     )
 
     results["degenerate_nodes"] = degenerate

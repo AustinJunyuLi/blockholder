@@ -77,7 +77,7 @@ KAPPAS = tuple(round(0.15 + 0.01 * i, 2) for i in range(71))   # 0.15 .. 0.85
 KAPPA_REF = 0.50
 KAPPAS_MODEL = (0.25, 0.50, 0.75)      # where the expensive model route runs
 
-results: dict = {"checks": [], "n_fail": 0, "n_vacuous": 0}
+results: dict = {"checks": [], "n_fail": 0, "n_vacuous": 0, "n_not_applicable": 0}
 
 
 def record(name: str, ok: bool, kind: str, detail: dict,
@@ -91,6 +91,20 @@ def record(name: str, ok: bool, kind: str, detail: dict,
     if vacuous:
         results["n_vacuous"] += 1
     print(f"[{'PASS' if ok else 'FAIL'}] {name} ({kind})", flush=True)
+    print("        " + json.dumps(detail, default=float)[:1300], flush=True)
+
+
+def record_not_applicable(name: str, kind: str, detail: dict) -> None:
+    """A block whose premise holds at order size one only.
+
+    Counted in neither n_fail nor the pass count; the record says why.
+    """
+    results["checks"].append(
+        {"name": name, "kind": kind, "pass": None, "vacuous": False,
+         "not_applicable": True, **detail}
+    )
+    results["n_not_applicable"] += 1
+    print(f"[N/A] {name} ({kind})", flush=True)
     print("        " + json.dumps(detail, default=float)[:1300], flush=True)
 
 
@@ -145,6 +159,7 @@ def main() -> int:
         "commit": "0c9185b -- MODEL_CARD stamp as recorded in "
                   "numerical_v4/smoke.py; this script does not shell out to git",
         "params_hash": p_base.hash_str(),
+        "mark": int(p_base.mark), "H": int(p_base.H),
         "design": "research/model_v4/impl_design.md section 13 APPROVED",
         "request": "research/model_v4/proofs/L4_proof.md, NUMERICAL CHECK "
                    "REQUEST; L4_rederivation.md",
@@ -159,6 +174,7 @@ def main() -> int:
         "tau_definition": "deciles of B_{j(s)}(s, H-T) over Voice signals -- "
                           "L4's own object, T-dependent",
         "T": list(TS), "H": p_base.H, "H_robustness": 12, "M": 2,
+        "order_size_mark": p_base.mark, "n_flow": p_base.n_flow,
         "tau_frozen_from": "the baseline equilibrium at tau_50 = "
                            f"{tau_med:.8f}; policy frozen there",
         "A_prime_kappa": A_PRIME_KAPPA,
@@ -347,64 +363,96 @@ def main() -> int:
     )
 
     # -- prediction 4: the quadratic corollary -------------------------------
-    quad = {}
-    ok4 = True
-    for T in TS:
-        srt = sorted((table[(T, q)] for q in DECILES),
-                     key=lambda r: r["pi_bar_level_symmetric"])
-        two = srt[:2]
-        vals = [r["S_P_chord"] / r["pi_bar_level_symmetric"] ** 2
-                if r["pi_bar_level_symmetric"] > 0 else float("nan")
-                for r in two]
-        rel = abs(vals[0] - vals[1]) / abs(vals[0])
-        quad[f"T={T}"] = {
-            "pi_bar_two_smallest": [r["pi_bar_level_symmetric"] for r in two],
-            "S_P_over_pi_bar2": vals, "relative_gap": rel}
-        ok4 = ok4 and rel < PCT_QUAD
-    record(
-        "l4_pred4_quadratic_corollary", ok4, "substantive",
-        {"request": "prediction 4 (L3's quadratic corollary): at the two "
-                    "smallest pi_bar points, S_P/pi_bar^2 should agree within "
-                    "5%. If this fails while 1-3 pass, the failure is in h's "
-                    "regularity, not in L4",
-         "tol": PCT_QUAD, "by_T": quad},
-    )
+    if p_base.mark >= 2:
+        record_not_applicable(
+            "l4_pred4_quadratic_corollary", "substantive",
+            {"request": "prediction 4 (L3's quadratic corollary): at the two "
+                        "smallest pi_bar points, S_P/pi_bar^2 should agree "
+                        "within 5%. If this fails while 1-3 pass, the failure "
+                        "is in h's regularity, not in L4",
+             "order_size_mark": p_base.mark,
+             "reason": "the prediction is stated on the chord route S_P = "
+                       "Delta_m |A'_kappa| |C_h(pi_bar)|, which rests on the "
+                       "ternary pooled law of order size one; at order size "
+                       "two (ADR 0003) the pooled support is not ternary, so "
+                       "the premise holds at mark = 1 only and no ratio is "
+                       "computed"},
+        )
+    else:
+        quad = {}
+        ok4 = True
+        for T in TS:
+            srt = sorted((table[(T, q)] for q in DECILES),
+                         key=lambda r: r["pi_bar_level_symmetric"])
+            two = srt[:2]
+            vals = [r["S_P_chord"] / r["pi_bar_level_symmetric"] ** 2
+                    if r["pi_bar_level_symmetric"] > 0 else float("nan")
+                    for r in two]
+            rel = abs(vals[0] - vals[1]) / abs(vals[0])
+            quad[f"T={T}"] = {
+                "pi_bar_two_smallest": [r["pi_bar_level_symmetric"] for r in two],
+                "S_P_over_pi_bar2": vals, "relative_gap": rel}
+            ok4 = ok4 and rel < PCT_QUAD
+        record(
+            "l4_pred4_quadratic_corollary", ok4, "substantive",
+            {"request": "prediction 4 (L3's quadratic corollary): at the two "
+                        "smallest pi_bar points, S_P/pi_bar^2 should agree within "
+                        "5%. If this fails while 1-3 pass, the failure is in h's "
+                        "regularity, not in L4",
+             "tol": PCT_QUAD, "by_T": quad},
+        )
 
     # -- prediction 5: the A'_kappa channel, reported as a number ------------
-    ch_rows = []
-    for st in steps:
-        T, qi, qip = st["T"], st["tau_quantile"], st["tau_prime_quantile"]
-        hi, lo = table[(T, qi)], table[(T, qip)]
-        sp_hi = hi["S_P_model_abs_dM_P_dkappa"]["kappa=0.5"]
-        sp_lo = lo["S_P_model_abs_dM_P_dkappa"]["kappa=0.5"]
-        C_tau_model = sp_lo / sp_hi if sp_hi > 1e-12 else float("nan")
-        chord_ratio = (lo["abs_C_h"] / hi["abs_C_h"]) if hi["abs_C_h"] > 1e-300 \
-            else float("nan")
-        ch_rows.append({
-            "T": T, "tau_quantile": qi, "tau_prime_quantile": qip,
-            "C_tau_model": C_tau_model, "chord_ratio": chord_ratio,
-            "residual": abs(C_tau_model - chord_ratio),
-            "S_P_model_undefined": bool(sp_hi <= 1e-12),
-        })
-    finite = [r["residual"] for r in ch_rows if np.isfinite(r["residual"])]
-    record(
-        "l4_pred5_A_prime_kappa_channel", True, "substantive",
-        {"request": "prediction 5: under the equality version of (br-iii), "
-                    "C_tau = S_P(tau')/S_P(tau) should equal "
-                    "|C_h(pi_bar(tau'))|/|C_h(pi_bar(tau))|. REPORT THE "
-                    "RESIDUAL AS A NUMBER, NOT PASS/FAIL: it IS the size of the "
-                    "A'_kappa channel -- how much of the composition effect "
-                    "comes from the pooled weights reshaping rather than from "
-                    "the chord shortening, and it is what T1's C_tau inherits",
-         "verdict": "REPORTED, not gated -- the request forbids a pass/fail here",
-         "C_tau_uses": "the MODEL route S_P = |d_kappa M_P| at kappa = 0.5; the "
-                       "chord ratio is the request's closed form. On the chord "
-                       "route the two coincide by construction, so the model "
-                       "route is the only one that can measure the channel",
-         "median_abs_residual": float(np.median(finite)) if finite else None,
-         "max_abs_residual": float(np.max(finite)) if finite else None,
-         "rows": ch_rows},
-    )
+    if p_base.mark >= 2:
+        record_not_applicable(
+            "l4_pred5_A_prime_kappa_channel", "substantive",
+            {"request": "prediction 5: under the equality version of (br-iii), "
+                        "C_tau = S_P(tau')/S_P(tau) should equal "
+                        "|C_h(pi_bar(tau'))|/|C_h(pi_bar(tau))|. REPORT THE "
+                        "RESIDUAL AS A NUMBER, NOT PASS/FAIL",
+             "order_size_mark": p_base.mark,
+             "reason": "the comparison is between the model route and the "
+                       "chord route's closed form; the chord route rests on "
+                       "the ternary pooled law of order size one and does not "
+                       "describe the pooled law at order size two (ADR 0003), "
+                       "so the residual it defines has no premise at "
+                       "mark = 2 and none is reported"},
+        )
+    else:
+        ch_rows = []
+        for st in steps:
+            T, qi, qip = st["T"], st["tau_quantile"], st["tau_prime_quantile"]
+            hi, lo = table[(T, qi)], table[(T, qip)]
+            sp_hi = hi["S_P_model_abs_dM_P_dkappa"]["kappa=0.5"]
+            sp_lo = lo["S_P_model_abs_dM_P_dkappa"]["kappa=0.5"]
+            C_tau_model = sp_lo / sp_hi if sp_hi > 1e-12 else float("nan")
+            chord_ratio = (lo["abs_C_h"] / hi["abs_C_h"]) if hi["abs_C_h"] > 1e-300 \
+                else float("nan")
+            ch_rows.append({
+                "T": T, "tau_quantile": qi, "tau_prime_quantile": qip,
+                "C_tau_model": C_tau_model, "chord_ratio": chord_ratio,
+                "residual": abs(C_tau_model - chord_ratio),
+                "S_P_model_undefined": bool(sp_hi <= 1e-12),
+            })
+        finite = [r["residual"] for r in ch_rows if np.isfinite(r["residual"])]
+        record(
+            "l4_pred5_A_prime_kappa_channel", True, "substantive",
+            {"request": "prediction 5: under the equality version of (br-iii), "
+                        "C_tau = S_P(tau')/S_P(tau) should equal "
+                        "|C_h(pi_bar(tau'))|/|C_h(pi_bar(tau))|. REPORT THE "
+                        "RESIDUAL AS A NUMBER, NOT PASS/FAIL: it IS the size of the "
+                        "A'_kappa channel -- how much of the composition effect "
+                        "comes from the pooled weights reshaping rather than from "
+                        "the chord shortening, and it is what T1's C_tau inherits",
+             "verdict": "REPORTED, not gated -- the request forbids a pass/fail here",
+             "C_tau_uses": "the MODEL route S_P = |d_kappa M_P| at kappa = 0.5; the "
+                           "chord ratio is the request's closed form. On the chord "
+                           "route the two coincide by construction, so the model "
+                           "route is the only one that can measure the channel",
+             "median_abs_residual": float(np.median(finite)) if finite else None,
+             "max_abs_residual": float(np.max(finite)) if finite else None,
+             "rows": ch_rows},
+        )
 
     record(
         "l4_model_route_S_P", True, "substantive",
@@ -453,12 +501,13 @@ def main() -> int:
         {"request": "design section 13, ruling 2: H = 12 robustness, cheap for L4",
          "scope": "Omega, omega_a, pi_bar_pr and the chord-route S_P -- none of "
                   "which touch the pooled enumeration",
-         "not_evaluable_at_H12": "the model route S_P = |d_kappa M_P| runs "
-                                 "through the enumeration; at H = 12 the "
-                                 "feasible history count is 8,503,056 and "
-                                 "8,503,056 x N_theta 14 = 1.19e8 exceeds the "
-                                 "design build-step-4 gate of 1e8 (~2.5 GB "
-                                 "working set). The gate is respected.",
+         "not_evaluable_at_H12": (
+             "the model route S_P = |d_kappa M_P| runs through the "
+             f"enumeration; at H = 12 and order size {p_base.mark} the "
+             f"order-flow support has {p_base.n_flow} values, so n_hist = "
+             f"{p12.n_hist:,} and n_hist x N_theta {p12.n_theta} = "
+             f"{float(p12.n_hist) * p12.n_theta:.2e} exceeds the design "
+             "build-step-4 gate of 1e8. The gate is respected."),
          "policy": "cutoffs frozen at the H = 10 baseline equilibrium; H = 12 "
                    "cannot be re-solved for the same reason",
          "n_sign_violations": len(viol12), "violations": viol12,

@@ -25,8 +25,9 @@ THE ENUMERATED OBJECT.  The law of the pooled engagement posterior
 
     Pi = pi(X_{0:H}) = Pr(a = 1 | X_{0:H}, D = 0)
 
-under the pooled measure ``mass[H]``, over the 4^(H+1) = 4,194,304 order-flow
-paths of ``numerical_v4.pooled``.  That is exactly the law ``pooled_premium``
+under the pooled measure ``mass[H]``, over the (mark+3)^(H+1) order-flow paths
+of ``numerical_v4.pooled`` at the calibration order size (ADR 0003), reported
+as ``counts.n_hist`` in the record.  That is exactly the law ``pooled_premium``
 integrates to form M_P = Delta_m E[h | D = 0], so the object under test is the
 one A(tau) is a hypothesis about, not a proxy for it.  Two independent guards
 that the object is right:
@@ -167,7 +168,7 @@ def own_posterior(al, p: ParamsV4, with_floor: bool
     needed where the wiring gate runs (the base nodes, not the FD stencil).
     """
     H, nt = p.H, p.n_theta
-    ms = mark_stats(H)
+    ms = mark_stats(H, p.mark)
     n0, feas = ms.n0[H], ms.feas[H]
     e = np.arange(H + 2, dtype=float)
     lut = (1.0 - p.kappa) ** e * (p.kappa / 2.0) ** (H + 1.0 - e)
@@ -393,9 +394,31 @@ def fd4(f_p1, f_m1, f_p2, f_m2, h: float) -> float:
 
 def main() -> int:
     t0 = time.perf_counter()
+    p_seed = ParamsV4.baseline()
+    if p_seed.mark >= 2:
+        # A(tau) is the symmetric ternary pooled law of order size one; at
+        # order size two (ADR 0003) the pooled order flow takes mark + 3
+        # values and the support is not ternary, so no clause is evaluable.
+        results["provenance"] = {
+            "params_hash": p_seed.hash_str(),
+            "mark": int(p_seed.mark), "H": int(p_seed.H),
+        }
+        results["verdict"] = "NOT APPLICABLE"
+        results["not_applicable_reason"] = (
+            "A(tau) states the pooled cell's posterior law as the ternary "
+            "family {0, pi_bar/2, pi_bar} of order size one; at mark >= 2 "
+            "(ADR 0003) the pooled order flow takes mark + 3 values and the "
+            "support is not ternary, so no clause is evaluable at this order "
+            "size and nothing is computed")
+        results["seconds"] = time.perf_counter() - t0
+        with open(OUT, "w") as fh:
+            json.dump(results, fh, indent=2, default=float)
+        print(f"[N/A] t2_atau_support_check: not applicable at "
+              f"mark={p_seed.mark} (ternary pooled law is order size one) "
+              f"-> {OUT}", flush=True)
+        return 0
     print("t2_atau_support_check -- frozen baseline (2 cold solves) ...",
           flush=True)
-    p_seed = ParamsV4.baseline()
     pol_seed, _ = solve_policy(p_seed)
     taus = tuple(float(x) for x in frozen_tau_grid(pol_seed, p_seed, QUANTILES))
     tau_med = float(frozen_tau_grid(pol_seed, p_seed, (0.5,))[0])
@@ -433,6 +456,8 @@ def main() -> int:
     results["grid"] = {
         "kappa": list(KAPPAS), "tau": list(taus), "tau_quantiles": list(QUANTILES),
         "T": list(TS), "H": p_base.H, "M": 2,
+        "order_size_mark": p_base.mark, "n_flow": p_base.n_flow,
+        "n_hist": p_base.n_hist,
         "n_nodes": len(KAPPAS) * len(TS) * len(QUANTILES),
         "policy": "frozen at the baseline equilibrium cutoffs at every node",
         "tau_frozen_from": "percentiles of the seed-equilibrium (tau = 0.05) "

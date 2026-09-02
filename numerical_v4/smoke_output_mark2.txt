@@ -1,0 +1,134 @@
+
+==============================================================================
+PROVENANCE
+==============================================================================
+  model card stamp     2026-08-20 (commit 0c9185b)
+  design               research/model_v4/impl_design.md, section 13 APPROVED
+  params hash          a5705efe39ed0a0c
+  H = 10   T = 5   M = 2 marks   J = 3 plans
+  order size           2 noise lumps   supp X = {-1, ..., 3}  (5 values)
+  seed tau             0.050000  (statutory 13D 5%)
+  b0 = 0.03  b_bar = 0.1  n_scale = 4.0  C0 = 0.014
+
+==============================================================================
+BUILD STEP 4 -- ENUMERATION PROBE (GO/NO-GO GATE)
+==============================================================================
+  n_hist (5^(H+1))        48,828,125
+  n_hist feasible         1,476,225
+  N_theta                 12   (populated at seed k: 1)
+  feasible n_hist x N_th  1.771e+07   gate limit 1e+08
+  int8 array (n0 + feas)  1117.6 MB
+  one evaluation          3.479 s
+  GATE                    PASS
+
+==============================================================================
+TAU FREEZING (design section 6.2)
+==============================================================================
+  seed equilibrium k      (0.94239752, 1.84596617)   |k-T(k)| = 4.937e-11
+  median Voice b*(s)      0.09453535
+  tau frozen at           0.09453535   (reused at every node)
+
+==============================================================================
+SMOKE 1 -- ONE BASELINE EQUILIBRIUM  (kappa = 0.5, T = 5, H = 10)
+==============================================================================
+  solve + evaluate        405.4 s
+
+  k                       (0.9425017267, 1.8484512098)
+  outer residual  |k-T(k)|_inf   4.242e-11   (P1 diagnostic scale, target 1e-10)
+  outer residual  payoff scale   0.000e+00   (P1 BINDING criterion, target 1e-9)
+  local gap slopes d(U_j-U_j')/ds (-5.8562e-03, -4.2689e-02)
+
+  Omega   Pr(D=1)         5.788738 %
+  Pr(a=1)                 11.509080 %
+  omega_a Pr(D=1|a=1)     50.297144 %
+  pi_bar  Pr(a=1|D=0)     6.071823 %
+
+  M_F                     0.2307128001 premium pp
+  M_P                     0.0429209349 premium pp
+  Delta^act               0.0537917147 premium pp
+  L1 residual |D - (Om M_F + (1-Om) M_P)|   0.000e+00   [WIRING, not evidence for L1]
+
+  R  (mean run-up)        1345.630935 bp
+  J  (mean filing jump)   832.576942 bp
+  D1 identity residual    0.000e+00   (TOL_IDENTITY = 1e-12)   [WIRING]
+  identity verdict        PASS
+
+  a7_certificate
+    min |db*/ds| flagged  2.199280e-04   (gate 1e-8)
+    flat sub-intervals    0
+    (B^F,Q^F) collisions  0
+    cross-plan collisions 0
+    flagged atoms         4
+    PASSES                True
+
+  atoms                   15 (4 flagged)
+  N_theta populated here  4 of 12   (the seed tau flagged every Voice type; the frozen tau does not)
+  feasible histories      1,476,225
+  pooled mass error       0.000e+00
+  max inner price residual 1.486e-16
+  max b* inversion error  3.997e-14
+  GL-20 vs GL-40 on M_F   4.337e-19   (raise the order if > 1e-13)
+  max Q^F                 0.000000 pp of shares
+  T == H corner           False
+  degenerate_nodes        []
+  multiple_root_nodes     0
+
+==============================================================================
+COST OF ONE NODE  (order size 2, H = 10, kappa = 0.5)
+==============================================================================
+  one node, control only  5.85 s   (the pooled pass at d = H, which M_P and S_P need)
+  one node, with run-up   7.60 s   (every date d = 0..H, which R and J need)
+  peak resident memory    7.07 GiB   (process peak to this point)
+  histories enumerated    48,828,125   (5^(H+1) at order size 2)
+
+==============================================================================
+SMOKE 2 -- FROZEN-POLICY KAPPA SWEEP  (policy held fixed)
+==============================================================================
+  10 nodes in 58.0 s
+
+  range_kappa M_F         0.000000e+00   (TOL_INVARIANCE = 1e-10)
+  L2 verdict              PASS   [SUBSTANTIVE -- the flagged path must never touch kappa]
+
+   kappa      M_F (pp)        M_P (pp)      Delta^act (pp)     dM_P/dkappa      S_P = |dM_P/dkappa|
+   0.050   0.2307128001   0.0417290976   0.0526688698   -1.982098e-04   1.982098e-04
+   0.150   0.2307128001   0.0417165675   0.0526570650    1.848829e-05   1.848829e-05
+   0.250   0.2307128001   0.0417559160   0.0526941357    9.336782e-04   9.336782e-04
+   0.350   0.2307128001   0.0419477409   0.0528748564    3.186997e-03   3.186997e-03
+   0.450   0.2307128001   0.0424640669   0.0533612937    7.567987e-03   7.567987e-03
+   0.550   0.2307128001   0.0435635286   0.0543971104    1.501994e-02   1.501994e-02
+   0.650   0.2307128001   0.0456069378   0.0563222319    2.664376e-02   2.664376e-02
+   0.750   0.2307128001   0.0490732362   0.0595878754    4.370177e-02   4.370177e-02
+   0.850   0.2307128001   0.0545758328   0.0647719411    6.762164e-02   6.762164e-02
+   0.950   0.2307128001   0.0628793253   0.0725947662    1.000001e-01   1.000001e-01
+
+  S_P profile shape       non-monotone: M_P is hump-shaped in kappa (peak near kappa = 0.95, 1 sign change(s) in dM_P/dkappa), so S_P = |dM_P/dkappa| is V-shaped about that peak
+  S_P min / max           1.848829e-05 / 1.000001e-01  premium pp per unit kappa
+  S = (1-Omega) S_P       1.415048e-02  at kappa = 0.55
+
+  INNER FIXED POINT, PER KAPPA NODE
+   kappa     max |g(P)|      multiple_root_nodes   converged
+   0.050   1.318390e-16                     0   yes
+   0.150   1.318390e-16                     0   yes
+   0.250   1.318390e-16                     0   yes
+   0.350   1.318390e-16                     0   yes
+   0.450   1.318390e-16                     0   yes
+   0.550   1.318390e-16                     0   yes
+   0.650   1.318390e-16                     0   yes
+   0.750   1.318390e-16                     0   yes
+   0.850   1.318390e-16                     0   yes
+   0.950   1.318390e-16                     0   yes
+  convergence verdict     PASS   (10 of 10 nodes below 1e-10 with a certified bracket)
+
+==============================================================================
+CHORD MODULE (design section 8, standalone route)
+==============================================================================
+   pi_bar        C_h              |C_h|/pi_bar^2     headroom
+  1e-01   -2.131930266007e-03   2.1319302660e-01   1.15e-17
+  1e-02   -2.209674483169e-05   2.2096744832e-01   1.24e-18
+  1e-03   -2.217916734934e-07   2.2179167349e-01   1.25e-19
+  1e-04   -2.218746346921e-09   2.2187463469e-01   1.25e-20
+  (C_h <= 0 is the card's maintained orientation; the ratio should settle as pi_bar falls)
+
+==============================================================================
+SMOKE COMPLETE in 993.0 s
+==============================================================================

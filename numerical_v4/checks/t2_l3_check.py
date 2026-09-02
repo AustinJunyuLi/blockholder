@@ -579,12 +579,15 @@ def main() -> int:
         "tau": "not applicable -- L3 is a within-pooled-cell statement at fixed "
                "(tau, T); the pooled law is supplied by Examples A / A' / B",
         "T": "not applicable", "H": p.H, "M": 2,
+        "order_size_mark": p.mark, "n_flow": p.n_flow,
         "tau_frozen_from": "not applicable",
         "central_difference_step": DK,
         "split_at_pi_bar": SPLIT,
     }
     results["counts"] = {
-        "n_hist": p.n_hist, "n_hist_feasible": 826686, "n_theta": p.n_theta,
+        "n_hist": p.n_hist,
+        "n_hist_feasible": "not enumerated by this check",
+        "n_theta": p.n_theta,
         "discarded_mass": 0.0,
         "note": "L3 runs on the three- and four-atom analytic laws and on the "
                 "standalone chord module; it does not enumerate histories, so "

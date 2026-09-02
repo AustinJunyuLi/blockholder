@@ -4,7 +4,12 @@ Design sections 4 (enumeration), 5 (inner fixed points), build steps 4 and 5.
 
 A pooled public history is the order-flow path X_{0:H}, X_d = q_{jd}(s) + z_d
 with z_d in {-z_bar, 0, +z_bar} at probabilities (kappa/2, 1-kappa, kappa/2).
-With z_bar set to one mark unit, supp X = {-1, 0, 1, 2} and n_hist = 4^(H+1).
+The blockholder's order while building is ``mark`` noise lumps (ADR 0003), so
+q_{jd}(s) is ``mark`` on a buying date and 0 otherwise, z_bar is one lump,
+supp X = {-1, 0, ..., mark + 1} and n_hist = (mark + 3)^(H+1).  A buying date
+cannot produce flow below mark - 1 and an idle date cannot produce flow above
+1, so the two sets overlap in {mark - 1, ..., 1}: at mark = 1 that is the two
+values {0, 1} and at mark = 2 it is the single value {1}.
 
 FACTORISED LIKELIHOOD (design section 4).  Marks are deterministic given the
 type and noise is i.i.d. across dates, so
@@ -23,7 +28,8 @@ DEVIATION FROM THE DESIGN (named, section 4 bullet 3).  The design chunks over
 histories in blocks of 1e6 to cap the float64 working set.  This build never
 materialises L as an (n_hist x N_theta) array at all: it accumulates the three
 weighted sums one type at a time, so the peak temporary is a single
-(n_hist,) float64 vector (33 MB at H = 10).  Same goal, less code.
+(n_hist,) float64 vector (33 MB at H = 10, mark = 1; 391 MB at H = 10,
+mark = 2).  Same goal, less code.
 """
 
 from __future__ import annotations
@@ -140,31 +146,40 @@ def prior_price(atom_list: list[Atom], p: ParamsV4) -> float:
 class MarkStats(NamedTuple):
     """Per date d: n0 and feasibility over (prefixes of length d+1) x types."""
 
-    n0: tuple[np.ndarray, ...]     # int8, shape (4**(d+1), H+2)
+    n0: tuple[np.ndarray, ...]     # int8, shape ((mark+3)**(d+1), H+2)
     feas: tuple[np.ndarray, ...]   # bool, same shape
 
 
 @lru_cache(maxsize=2)
-def mark_stats(H: int) -> MarkStats:
+def mark_stats(H: int, mark: int) -> MarkStats:
     """Build n0 and feasibility incrementally over dates (design section 4).
 
-    Child index of prefix i with appended digit x is 4*i + x, which is exactly
-    ``np.repeat(parent, 4)`` aligned against ``np.tile(digit_table, n_parent)``.
+    ``base = mark + 3`` is the size of supp X = {-1, 0, ..., mark + 1}.  Child
+    index of prefix i with appended digit x is base*i + x, which is exactly
+    ``np.repeat(parent, base)`` aligned against ``np.tile(digit_table,
+    n_parent)``.
+
+    A buying date (mark path 1) executes ``mark`` lumps, so its zero-noise
+    outcome is X = mark and its support is {mark - 1, mark, mark + 1}; an idle
+    date's zero-noise outcome is X = 0 and its support is {-1, 0, 1}.
     """
+    if mark < 1:
+        raise ValueError(f"order size must be at least one lump, got {mark}")
+    base = mark + 3
     n_theta = H + 2
     n_arr = np.arange(n_theta)
-    digits = np.arange(4, dtype=np.int8) - 1      # X in {-1, 0, 1, 2}
+    digits = np.arange(base, dtype=np.int8) - 1   # X in {-1, 0, ..., mark+1}
 
     n0 = np.zeros((1, n_theta), dtype=np.int8)
     feas = np.ones((1, n_theta), dtype=bool)
     n0_list, feas_list = [], []
     for d in range(H + 1):
         mark1 = (d < n_arr)[None, :]                      # (1, n_theta)
-        inc = np.where(mark1, digits[:, None] == 1,
+        inc = np.where(mark1, digits[:, None] == mark,
                        digits[:, None] == 0).astype(np.int8)
-        ok = np.where(mark1, digits[:, None] != -1, digits[:, None] != 2)
-        n0 = np.repeat(n0, 4, axis=0) + np.tile(inc, (n0.shape[0], 1))
-        feas = np.repeat(feas, 4, axis=0) & np.tile(ok, (feas.shape[0], 1))
+        ok = np.where(mark1, digits[:, None] >= mark - 1, digits[:, None] <= 1)
+        n0 = np.repeat(n0, base, axis=0) + np.tile(inc, (n0.shape[0], 1))
+        feas = np.repeat(feas, base, axis=0) & np.tile(ok, (feas.shape[0], 1))
         n0_list.append(n0)
         feas_list.append(feas)
     return MarkStats(tuple(n0_list), tuple(feas_list))
@@ -243,7 +258,7 @@ def pooled_pass(atom_list: list[Atom], p: ParamsV4,
     all that M_P, Delta^act and S_P need; the run-up path R_d and the jump J
     need the earlier dates and cost roughly three times as much.
     """
-    ms = mark_stats(p.H)
+    ms = mark_stats(p.H, p.mark)
     ref = type_reference(p)
     n_theta = p.n_theta
     dates = tuple(range(p.H + 1)) if with_runup else (p.H,)
@@ -352,11 +367,12 @@ def run_up(res: PooledResult, atom: Atom, P_F: float,
 
     ``P_ND`` is the pooled price at the same realised order flow with no flag,
     which the card fixes as ``P_{f-}^P`` by construction.  Prefix indices at
-    date f-1 map to their ancestors at date c-1 by integer division by 4**T.
+    date f-1 map to their ancestors at date c-1 by integer division by
+    (mark+3)**T.
     """
     assert atom.D == 1, "run_up is defined on flagged atoms only"
     c, f = int(atom.c), int(atom.f)
-    ms = mark_stats(p.H)
+    ms = mark_stats(p.H, p.mark)
 
     P_fm = res.price[f - 1] if f >= 1 else None
     if P_fm is None:
@@ -364,7 +380,7 @@ def run_up(res: PooledResult, atom: Atom, P_F: float,
     if c == 0:
         P_cm = np.full(P_fm.shape, res.P_prior)
     else:
-        anc = np.arange(P_fm.size) // (4 ** (f - c))
+        anc = np.arange(P_fm.size) // (p.n_flow ** (f - c))
         P_cm = res.price[c - 1][anc]
 
     lut = _likelihood_lut(f - 1, p.kappa)
@@ -407,7 +423,7 @@ def probe(p: ParamsV4, k: tuple[float, ...]) -> Probe:
     any pricing code.
     """
     al = atoms(k, p)
-    ms = mark_stats(p.H)
+    ms = mark_stats(p.H, p.mark)
     feas_H = ms.feas[p.H]
     n_feasible = int(np.count_nonzero(feas_H.any(axis=1)))
     W, _, _, _ = _alive_weights(al, p.H, p.n_theta)

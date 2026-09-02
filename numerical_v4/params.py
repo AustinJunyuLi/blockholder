@@ -68,7 +68,15 @@ class ParamsV4:
 
     # -- Liquidity ----------------------------------------------------------
     kappa: float = 0.5       # ModelParams.kappa
-    z_bar: float = 1.0       # one mark unit (design section 4)
+    z_bar: float = 1.0       # one noise lump (design section 4)
+
+    # -- Order size (ADR 0003) ----------------------------------------------
+    mark: int = 2            # the blockholder's per-round order, in noise
+    #                          lumps, while building the stake.  Order flow is
+    #                          X = mark * 1{buying} + z with z in {-1, 0, +1},
+    #                          so supp X = {-1, 0, ..., mark + 1} and only the
+    #                          overlap of the two sets is ambiguous.  At
+    #                          mark = 2 that overlap is the single value +1.
 
     # -- Stake primitives (no draft_v2 analogue; statutory 13D geometry) -----
     b0: float = 0.03         # initial stake, 3% of shares; maintained b0 < tau
@@ -124,9 +132,14 @@ class ParamsV4:
         return self.H + 2
 
     @property
+    def n_flow(self) -> int:
+        """Size of supp X = {-1, 0, ..., mark + 1}: mark + 3 values."""
+        return self.mark + 3
+
+    @property
     def n_hist(self) -> int:
-        """Order-flow paths: |supp X|^(H+1) with supp X = {-1,0,1,2}."""
-        return 4 ** (self.H + 1)
+        """Order-flow paths: |supp X|^(H+1) = (mark + 3)^(H+1)."""
+        return self.n_flow ** (self.H + 1)
 
     @property
     def s_lo(self) -> float:

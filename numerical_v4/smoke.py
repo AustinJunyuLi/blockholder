@@ -14,7 +14,15 @@ Two items:
   2. ONE FROZEN-POLICY KAPPA-SWEEP -- that policy held fixed, kappa in
      {0.05,...,0.95}.  Prints range_kappa M_F (must be < 1e-10 -- this is L2,
      and it is the assertion that fails loudest if kappa has leaked into the
-     flagged path) and the S_P profile.
+     flagged path), the S_P profile, and the inner fixed point's convergence
+     flags at every node.
+
+Order size (ADR 0003) is ``ParamsV4.mark``, the blockholder's per-round order in
+noise lumps; ``--mark`` overrides it.  supp X = {-1, 0, ..., mark + 1}, so the
+enumeration is (mark + 3)^(H+1) paths.  H is a calibration parameter and is
+never lowered to make a run fit, so the cost of a larger order size is reported,
+not absorbed: the COST block times one node and prints the process peak
+resident set.
 
 Preceded by the build step 4 go/no-go gate, and by the design section 13
 ruling 3 stop condition on ``multiple_root_nodes``.
@@ -26,6 +34,8 @@ premium percentage points, R and J in basis points.
 
 from __future__ import annotations
 
+import argparse
+import resource
 import sys
 import time
 
@@ -45,6 +55,19 @@ from numerical_v4.solver import solve_policy
 PP = 100.0        # premium percentage points / percent
 BP = 10000.0      # basis points
 
+# The inner pricing fixed point is a 30-step bisection on a certified bracket
+# followed by three Newton steps; it converges when the residual |g(P)| is at
+# machine scale AND the bracket certificate held at every history.
+TOL_INNER: float = 1e-10
+
+# ru_maxrss is bytes on darwin and kilobytes on linux (getrusage(2)).
+_RSS_SCALE = 2 ** 30 if sys.platform == "darwin" else 2 ** 20
+
+
+def peak_rss_gib() -> float:
+    """Peak resident set of this process so far, in GiB."""
+    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / _RSS_SCALE
+
 
 def rule(title: str) -> None:
     print("\n" + "=" * 78)
@@ -52,15 +75,25 @@ def rule(title: str) -> None:
     print("=" * 78, flush=True)
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--mark", type=int, default=None,
+                    help="blockholder order size in noise lumps "
+                         "(default: the calibration value)")
+    args = ap.parse_args(argv)
+
     t_start = time.perf_counter()
     p_seed = ParamsV4.baseline()
+    if args.mark is not None:
+        p_seed = p_seed.replace(mark=args.mark)
 
     rule("PROVENANCE")
     print(f"  model card stamp     2026-08-20 (commit 0c9185b)")
     print(f"  design               research/model_v4/impl_design.md, section 13 APPROVED")
     print(f"  params hash          {p_seed.hash_str()}")
     print(f"  H = {p_seed.H}   T = {p_seed.T}   M = 2 marks   J = 3 plans")
+    print(f"  order size           {p_seed.mark} noise lumps   supp X = "
+          f"{{-1, ..., {p_seed.mark + 1}}}  ({p_seed.n_flow} values)")
     print(f"  seed tau             {p_seed.tau:.6f}  (statutory 13D 5%)")
     print(f"  b0 = {p_seed.b0}  b_bar = {p_seed.b_bar}  n_scale = {p_seed.n_scale}"
           f"  C0 = {p_seed.C0}")
@@ -70,7 +103,7 @@ def main() -> int:
     k_seed = (p_seed.mu_v - 0.5 * p_seed.sigma_s,
               p_seed.mu_v + 0.5 * p_seed.sigma_s)
     pr = probe(p_seed, k_seed)
-    print(f"  n_hist (4^(H+1))        {pr.n_hist:,}")
+    print(f"  n_hist ({p_seed.n_flow}^(H+1))        {pr.n_hist:,}")
     print(f"  n_hist feasible         {pr.n_hist_feasible:,}")
     print(f"  N_theta                 {pr.n_theta}   (populated at seed k: "
           f"{pr.n_theta_populated})")
@@ -154,6 +187,24 @@ def main() -> int:
     print(f"  degenerate_nodes        {list(out.degenerate_nodes)}")
     print(f"  multiple_root_nodes     {out.multiple_root_nodes}")
 
+    # -- cost of one node at this order size ---------------------------------
+    rule("COST OF ONE NODE  (order size "
+         f"{p.mark}, H = {p.H}, kappa = {p.kappa})")
+    t0 = time.perf_counter()
+    evaluate(policy, p, with_runup=False)
+    t_control = time.perf_counter() - t0
+    t0 = time.perf_counter()
+    evaluate(policy, p, with_runup=True)
+    t_runup = time.perf_counter() - t0
+    print(f"  one node, control only  {t_control:.2f} s"
+          f"   (the pooled pass at d = H, which M_P and S_P need)")
+    print(f"  one node, with run-up   {t_runup:.2f} s"
+          f"   (every date d = 0..H, which R and J need)")
+    print(f"  peak resident memory    {peak_rss_gib():.2f} GiB"
+          f"   (process peak to this point)")
+    print(f"  histories enumerated    {p.n_hist:,}"
+          f"   ({p.n_flow}^(H+1) at order size {p.mark})")
+
     if out.multiple_root_nodes:
         rule("STOP -- design section 13, ruling 3")
         print(f"  multiple_root_nodes is NONEMPTY ({out.multiple_root_nodes} "
@@ -206,6 +257,23 @@ def main() -> int:
           f"  premium pp per unit kappa")
     print(f"  S = (1-Omega) S_P       {(1 - out.Omega) * Sp[len(Sp)//2] * PP:.6e}"
           f"  at kappa = {kaps[len(kaps)//2]:.2f}")
+
+    # -- inner fixed point, node by node ------------------------------------
+    print()
+    print("  INNER FIXED POINT, PER KAPPA NODE")
+    print("   kappa     max |g(P)|      multiple_root_nodes   converged")
+    n_bad_nodes = 0
+    for kap, o in zip(kaps, sweep):
+        ok = (o.max_price_residual < TOL_INNER
+              and o.multiple_root_nodes == 0)
+        if not ok:
+            n_bad_nodes += 1
+        print(f"  {kap:6.3f}   {o.max_price_residual:.6e}   "
+              f"{o.multiple_root_nodes:19d}   {'yes' if ok else 'NO'}")
+    print(f"  convergence verdict     "
+          f"{'PASS' if n_bad_nodes == 0 else 'FAIL'}"
+          f"   ({len(kaps) - n_bad_nodes} of {len(kaps)} nodes below "
+          f"{TOL_INNER:.0e} with a certified bracket)")
 
     # -- the standalone chord (design section 8) ----------------------------
     rule("CHORD MODULE (design section 8, standalone route)")
