@@ -35,8 +35,9 @@ ADR 0003.
 
 **Two dials**:
 The headline. Tightening the threshold lowers the noise sensitivity of prices at fixed
-policies, under the condition the theorem states. Shortening the clock does so if and only if the newly caught histories are at least as
-noise-sensitive as the pool.
+policies: through the weight effect by proof, through the composition effect on the
+calibration grid. Shortening the clock does so if and only if the clock's composition ratio is
+at most one, which the who-gets-caught corollary characterises.
 
 **Weight effect / Composition effect**:
 The two halves of what a tighter dial does. The weight effect moves mass from the pooled cell to
@@ -44,9 +45,12 @@ the flagged cell and always attenuates. The composition effect changes who is le
 and its sign depends on the dial.
 
 **Who gets caught**:
-The corollary that signs the composition effect of the clock: the composition ratio is at most
-one exactly when the histories the shorter clock newly catches are at least as noise-sensitive
-as the pooled cell.
+The corollary that characterises the composition effect of the clock. Write φ for the share of
+the pool the shorter clock removes and s_B for the noise sensitivity of the premium mass it
+removes, survivors' re-pricing included. The composition ratio is at most one exactly when s_B
+lies weakly between the pool's own sensitivity and (2 minus φ)/φ times it. Under a common sign:
+what is removed is at least as noise-sensitive as the pool, and not more than that multiple.
+_Avoid_: the one-sided shorthand "at least as noise-sensitive as the pool"
 
 **Stake at filing**:
 The blockholder's holding on the day the filing lands, written B^F. An object the model produces

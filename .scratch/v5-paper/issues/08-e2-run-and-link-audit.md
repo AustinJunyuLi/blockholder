@@ -1,6 +1,6 @@
 # 08 · Run E2 and audit the price link (E2-G2)
 
-**Lane:** empirics. **Routing:** opus default for the run; a different opus agent for the audit.
+**Lane:** empirics. **Routing:** Grok in batch 1; the audit by a fresh Grok subagent that did not run E2.
 **Blocked by:** 06, and the orchestrator's dated E2 direction note in `empirics/spec.md`.
 **Blocks:** 10, 11.
 

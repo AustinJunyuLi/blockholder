@@ -1,6 +1,6 @@
 # 02 · Garbling lemma at order size two, and the threshold dial proved from it
 
-**Lane:** theory. **Routing:** writer grok `high`; independent attacker opus `high`.
+**Lane:** theory. **Routing:** proof committed; Opus attacker at checkpoint 0; any fix by Grok in batch 1.
 **Blocked by:** none for the proofs; 01 for the grid verification of any named condition.
 **Blocks:** 11.
 
@@ -28,6 +28,6 @@ PASS or FAIL with the hole. On FAIL the writer fixes once; a second FAIL is STOP
       every calibration node at `mark=2` and the record is cited.
 - [ ] No sentence refers to the inherited draft, prior assumptions, or what was replaced.
 
-**Status:** write exists (Kimi, 2026-09-02); old blind re-derive PASS does not count under the attack gate; attack still due; Condition D grid check satisfied by numerical_v4/checks/t2_threshold_revelation_check.json (rev_condition_D pass at every node, hash fbacc963f39422c3, mark 2, H 10); commit pending
+**Status:** attack gate PASS at checkpoint 0 (runs/02-attack, 2026-09-02); proof and Condition D record committed (6b28eef, ac9ac72). Label scope: PROVED for the factorisation, the weight leg, the closed form of S_P in κ and the garbling lemma; the composition leg is Condition D, equivalent to C_τ at most one, NUMERICAL on the grid κ in [0.15, 0.85]. Wording nits for Grok in batch 1 step 0 (grok/checkpoint-0.md).
 
 ## Comments

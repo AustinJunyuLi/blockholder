@@ -16,9 +16,10 @@ part of this session.
 A disclosure rule has two dials. The stake threshold τ and the filing clock T split every
 blockholder history into a flagged cell (the filing landed; the market knows) and a pooled cell
 (no filing; the market reads order flow). Noise sensitivity of the price factorises as the
-pooled share times the pooled sensitivity. Tightening the threshold lowers it at fixed policies.
-Shortening the clock lowers it if and only if the newly caught histories are at least as
-noise-sensitive as the pooled cell, and the paper states that condition as a corollary.
+pooled share times the pooled sensitivity. Tightening the threshold lowers it at fixed policies:
+the weight effect by proof, the composition effect on the calibration grid. Shortening the clock
+lowers it if and only if its composition ratio is at most one, and the who-gets-caught corollary
+characterises that ratio by the noise sensitivity of what the shorter clock removes from the pool.
 
 ## 3. The model, as the paper states it
 
@@ -34,12 +35,12 @@ Results the paper carries, each with a label at delivery:
 
 | Tag | Statement | Route | Ticket |
 |---|---|---|---|
-| Partition and factorisation | The rule partitions histories; S = (1 minus Ω) times S_P | Inherited proof re-derived on v5 | 04 |
-| Flagged cell is κ-free | The flagged endpoint does not depend on κ | Inherited proof re-derived on v5 | 04 |
+| Partition and factorisation | The rule partitions histories; S = (1 minus Ω) times S_P | Inherited proof, transcribed and attacked on v5 | 04 |
+| Flagged cell is κ-free | The flagged endpoint does not depend on κ | Inherited proof, transcribed and attacked on v5 | 04 |
 | Garbling lemma (new) | At order size two, the pooled experiment at higher κ is a garbling of that at lower κ; the pooled expectation of any convex (concave) kernel is monotone in κ | New proof | 02 |
-| Threshold dial | At fixed policies a tighter threshold weakly lowers noise sensitivity | Garbling lemma plus the weight and composition legs; any residual bridge clause becomes one named condition verified on the grid | 02 |
-| Clock dial | At fixed policies a shorter clock lowers noise sensitivity iff W_T times C_T is at most one | Inherited proof re-derived on v5 | 04 |
-| Who gets caught (new) | C_T is at most one iff the newly caught histories are at least as noise-sensitive as the pooled cell; the paper gives the identity behind it | New proof plus a grid check | 03 |
+| Threshold dial | At fixed policies a tighter threshold weakly lowers noise sensitivity | Factorisation and weight leg proved; the closed form of S_P in κ proved; the composition leg is Condition D, equivalent to the composition ratio being at most one, verified on the grid (NUMERICAL, κ in [0.15, 0.85]) | 02 |
+| Clock dial | At fixed policies a shorter clock lowers noise sensitivity iff W_T times C_T is at most one | Inherited proof, transcribed and attacked on v5 | 04 |
+| Who gets caught (new) | C_T is at most one iff the sensitivity of what the shorter clock removes lies weakly between the pool's and (2 minus φ)/φ times it; the paper gives the identity behind it | New proof plus a grid check | 03 |
 | Existence (conditional on cleanliness) | An equilibrium exists at the paper's calibration | Only if the proof is clean at the numbers used; otherwise absent | 05 |
 
 The general-equilibrium dominance result is not in the paper. Nothing in the paper says so.
@@ -60,7 +61,7 @@ Registration is a commit and workers run no git, so the work runs as phases from
 2026-09-02 the remaining phases run as the three batches of section 7.
 
 - Phase A: mark parameter and timed smoke (01); garbling lemma and threshold dial (02); who gets
-  caught (03); re-derivation of the inherited results (04); existence attempt (05); empirics
+  caught (03); the inherited results (04); existence attempt (05); empirics
   build and the E1 run (06); E1 blind audit (07); literature check (09). Orchestrator then:
   reads the mark-2 grid record for the run-up share direction in κ, appends the dated E2
   direction note to `empirics/spec.md`, commits all Phase A files, one concern per commit.

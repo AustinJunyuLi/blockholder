@@ -1,7 +1,7 @@
 # 11 · Write the paper
 
-**Lane:** paper. **Routing:** one opus writer at `high`; one opus checker for the number guard
-and compile. **Blocked by:** 02, 03, 04, 05, 06, 07, 08, 09, 10. **Blocks:** 12.
+**Lane:** paper. **Routing:** Grok writer in batch 2 (effort xhigh); Opus checker for the number
+guard and compile at checkpoint 2. **Blocked by:** 02, 03, 04, 05, 06, 07, 08, 09, 10. **Blocks:** 12.
 
 **What to write.** `paper.tex`, `appendix.tex`, `paper.bib` (copy the inherited bib and prune
 to what is cited). `appendix.tex` assembles the `proofs/` files by `\input` and adds the

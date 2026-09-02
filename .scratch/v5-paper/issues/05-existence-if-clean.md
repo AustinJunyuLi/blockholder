@@ -1,6 +1,6 @@
 # 05 · Equilibrium existence at the paper's calibration, only if clean
 
-**Lane:** theory. **Routing:** writer grok `high`; attacker opus `high`.
+**Lane:** theory. **Routing:** writer Grok in batch 1 with a separate Grok subagent as self-attacker; Opus attacker at checkpoint 1; the condition run and its judge at checkpoint 1.
 **Blocked by:** 01. **Blocks:** 11 (the writer needs to know whether it exists).
 
 **What to attempt.** State and prove existence of an equilibrium of the two-round model at order

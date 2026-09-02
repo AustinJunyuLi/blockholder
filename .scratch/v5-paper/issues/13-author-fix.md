@@ -1,6 +1,6 @@
 # 13 · One author fix pass
 
-**Lane:** paper. **Routing:** opus `high`. **Blocked by:** 12. **Blocks:** 14.
+**Lane:** paper. **Routing:** Grok in batch 3. **Blocked by:** 12. **Blocks:** 14.
 
 **What to do.** Fix every blocking item and every minor item that can be fixed without a new
 result. A blocking item that needs a new theorem or a new run is not fixed; it is reported as

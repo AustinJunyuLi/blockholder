@@ -7,8 +7,10 @@ date: 2026-09-01
 The paper's object is the partition of blockholder histories into a flagged cell and a pooled
 cell. Its margins are the two dials of a disclosure rule, the stake threshold and the filing
 clock. Its claim is an asymmetry: tightening the threshold lowers the noise sensitivity of prices
-at fixed policies under the condition the theorem states, while shortening the clock does so if and only if the histories it
-newly catches are at least as noise-sensitive as the pooled cell. The paper does not lead with
+at fixed policies, through the weight effect by proof and through the composition effect on
+the calibration grid, while shortening the clock does so if and only if its composition ratio
+is at most one, a ratio the who-gets-caught corollary characterises by the noise sensitivity
+of what the shorter clock removes from the pool. The paper does not lead with
 equilibrium existence and does not carry a general-equilibrium dominance result.
 
 The empirics are two descriptive exercises on all initial Schedule 13D filings from 2021 to

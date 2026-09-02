@@ -1,6 +1,6 @@
 # 03 · Who gets caught: signing the clock's composition ratio
 
-**Lane:** theory. **Routing:** writer grok `high`; attacker opus `high`; grid check glm.
+**Lane:** theory. **Routing:** proof committed; Opus attacker at checkpoint 0; the grid script by Grok in batch 1; the grid run and its judge at checkpoint 1.
 **Blocked by:** 01 for the grid check only. **Blocks:** 11.
 
 **What to prove.** Let A be the pooled cell at the longer clock T and B ⊂ A the histories the
@@ -26,6 +26,6 @@ corollary's condition holds and whether C_T ≤ 1, using the point-derivative co
 - [ ] The record's C_T ≤ 1 verdicts agree with the T1 check's at the same nodes under the same
       convention (evidence: a comparison table in the report).
 
-**Status:** write exists (Kimi, 2026-09-02); old blind re-derive PASS does not count under the attack gate; attack still due; grid check pending
+**Status:** attack gate PASS at checkpoint 0 (runs/03-attack, 2026-09-02); proof committed 6b28eef. Label scope: PROVED for the cut identity and the two-sided characterisation of C_T at most one in s_B; any directional sentence is NUMERICAL off the grid record. Grid script in batch 1; wording nits for Grok in batch 1 step 0 (grok/checkpoint-0.md).
 
 ## Comments

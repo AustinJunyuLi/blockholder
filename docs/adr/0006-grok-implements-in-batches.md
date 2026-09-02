@@ -4,8 +4,8 @@ date: 2026-09-02
 ---
 # Grok 4.6 implements in batches; the orchestrator and Opus review at checkpoints
 
-The omp route of ADR 0005 put three providers behind one dispatcher, and the session went to
-the dispatcher instead of the paper. From this date Grok 4.6, under a subscription with no
+ADR 0005 put three providers behind one dispatcher, and the session went to the dispatcher
+instead of the paper. From this date Grok 4.6, under a subscription with no
 usage ceiling, implements every remaining ticket in three batches, each an interactive Grok
 Build session that Austin starts in the worktree. The orchestrator (Fable) and Opus 5 implement
 nothing: at the checkpoint after each batch they attack the proofs, judge the records, start

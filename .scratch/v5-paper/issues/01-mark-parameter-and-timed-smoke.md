@@ -1,7 +1,7 @@
 # 01 · Order size as a model parameter, timed smoke at the calibration horizon
 
-**Lane:** theory code. **Routing:** kimi, effort medium, a task of minutes; an opus judge verifies
-from the records after the check runs. **Blocked by:** none. **Blocks:** the check runs listed in
+**Lane:** theory code. **Routing:** code done; an Opus judge verifies from the records at
+checkpoint 1. **Blocked by:** none. **Blocks:** the check runs listed in
 `orchestration.md` (Check runs), and through their records 03 grid, 05, 10.
 
 **What to build.** `numerical_v4/params.py` carries `mark: int = 2`, the blockholder's per-round

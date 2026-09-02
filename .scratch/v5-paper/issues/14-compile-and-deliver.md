@@ -1,6 +1,6 @@
 # 14 · Compile, inspect, deliver
 
-**Lane:** paper. **Routing:** opus default. **Blocked by:** 13.
+**Lane:** paper. **Routing:** Grok in batch 3; the orchestrator's own page inspection at checkpoint 3. **Blocked by:** 13.
 
 **What to do.** Compile in the order in `CLAUDE.md`; zero errors, undefined references, or
 citations. Render every page of both PDFs to images and inspect for overfull boxes, missing

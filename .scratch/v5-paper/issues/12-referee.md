@@ -1,6 +1,6 @@
 # 12 · One referee pass
 
-**Lane:** paper. **Routing:** opus `medium`, an agent that wrote nothing in this session.
+**Lane:** paper. **Routing:** Opus at checkpoint 2, an agent that wrote nothing in this session.
 **Blocked by:** 11. **Blocks:** 13.
 
 **What to do.** Read `paper.pdf` and `appendix.pdf` as a referee for a top finance journal.

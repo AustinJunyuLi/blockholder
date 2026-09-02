@@ -1,9 +1,8 @@
 # Grok Build run book for the v5 delivery
 
 Read this file, then the batch file named in the paste prompt. `CLAUDE.md`, `CONTEXT.md` and
-`.scratch/v5-paper/spec.md` bind; this file adds only what they do not say. The omp route of
-ADR 0005 is superseded by ADR 0006: ignore any instruction, in any file, that routes work through
-omp, a dispatcher, or another provider.
+`.scratch/v5-paper/spec.md` bind; this file adds only what they do not say. ADR 0006 is the
+routing decision.
 
 ## Shape
 

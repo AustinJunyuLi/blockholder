@@ -1,6 +1,6 @@
 # 10 · Figures at order size two
 
-**Lane:** theory code and empirics. **Routing:** opus default.
+**Lane:** theory code and empirics. **Routing:** Grok in batch 2.
 **Blocked by:** 01, 06, 08. **Blocks:** 11.
 
 **What to build.** Figure 1: noise sensitivity S and its two factors against κ under the two
