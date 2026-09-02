@@ -1,0 +1,495 @@
+{
+  "checks": [
+    {
+      "name": "ex_standing_primitives",
+      "kind": "wiring",
+      "pass": true,
+      "request": "the parameter signs the inner-price lemma needs, together with 0 < b0 < tau < b_bar and mark = 2",
+      "m0": 0.1,
+      "Delta_m": 0.19999999999999998,
+      "sigma_xi": 0.4,
+      "sigma_v": 0.5,
+      "sigma_eps": 0.5,
+      "kappa": 0.5,
+      "b0": 0.03,
+      "tau": 0.05,
+      "b_bar": 0.1,
+      "mark": 2,
+      "kappa_in_unit_interval": true,
+      "b0_lt_tau_lt_bbar": true
+    },
+    {
+      "name": "ex_candidate",
+      "kind": "wiring",
+      "pass": true,
+      "request": "solver candidate payoff residual below the P1 binding scale 1e-9 at every run node",
+      "nodes_run": 1
+    },
+    {
+      "name": "ex_B1",
+      "kind": "substantive",
+      "pass": true,
+      "request": "(B1) interior ordered box at every run node",
+      "nodes_run": 1
+    },
+    {
+      "name": "ex_B2",
+      "kind": "substantive",
+      "pass": true,
+      "request": "(B2) Voice coordinate disjoint from the k-free breakpoint set at every run node",
+      "nodes_run": 1
+    },
+    {
+      "name": "ex_B3",
+      "kind": "substantive",
+      "pass": false,
+      "request": "(B3) unique ordered down-crossings at all nine probes; the probe grid is not a proof of (B3) at every point of B",
+      "nodes_run": 1
+    },
+    {
+      "name": "ex_B4",
+      "kind": "substantive",
+      "pass": false,
+      "request": "(B4) Miranda face signs strictly positive at every run node",
+      "nodes_run": 1
+    },
+    {
+      "name": "ex_inner_certificate",
+      "kind": "substantive",
+      "pass": true,
+      "request": "inner pricing fixed point unique and residual below 1e-10 at every probe",
+      "nodes_run": 1
+    },
+    {
+      "name": "ex_a7",
+      "kind": "substantive",
+      "pass": true,
+      "request": "flagged-injectivity certificate at every probe",
+      "nodes_run": 1
+    },
+    {
+      "name": "ex_nodes",
+      "kind": "substantive",
+      "pass": false,
+      "request": "every run node carries a certified box: candidate residual below the P1 binding scale, (B1)-(B2) box admissible, (B3) single ordered down-crossings at all nine probes, (B4) Miranda face signs strictly positive, inner certificate and flagged injectivity at every probe",
+      "nodes_run": 1,
+      "nodes_not_ok": 1,
+      "per_node": [
+        {
+          "node_index": 1,
+          "T": 5,
+          "tau_quantile": 0.1,
+          "node_ok": false,
+          "conditions": {
+            "B1": true,
+            "B2": true,
+            "B3": false,
+            "B4": false,
+            "inner_certificate": true,
+            "a7": true,
+            "candidate": true,
+            "b0_lt_tau": true
+          },
+          "fail_reason": null,
+          "k_hat": [
+            0.9425042192682623,
+            1.847264072562332
+          ],
+          "payoff_scale": 0.0,
+          "miranda_margins": {
+            "left": 0.0018216325703236391,
+            "right": 0.0018217516302607706,
+            "lower": NaN,
+            "upper": NaN
+          }
+        }
+      ]
+    }
+  ],
+  "n_fail": 3,
+  "provenance": {
+    "script": "numerical_v4/checks/t5_existence_conditions.py",
+    "ticket": "05-existence-if-clean",
+    "params_hash": "a5705efe39ed0a0c",
+    "mark": 2,
+    "H": 10,
+    "kappa": 0.5,
+    "tau_ladder": [
+      0.09239820387429526,
+      0.09346755804663053,
+      0.09453534811956685,
+      0.09565657882778708,
+      0.09703177146201895
+    ],
+    "tau_quantiles": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "T_grid": [
+      5,
+      10
+    ],
+    "node_order": [
+      {
+        "T": 5,
+        "tau_quantile": 0.1
+      },
+      {
+        "T": 5,
+        "tau_quantile": 0.3
+      },
+      {
+        "T": 5,
+        "tau_quantile": 0.5
+      },
+      {
+        "T": 5,
+        "tau_quantile": 0.7
+      },
+      {
+        "T": 5,
+        "tau_quantile": 0.9
+      },
+      {
+        "T": 10,
+        "tau_quantile": 0.1
+      },
+      {
+        "T": 10,
+        "tau_quantile": 0.3
+      },
+      {
+        "T": 10,
+        "tau_quantile": 0.5
+      },
+      {
+        "T": 10,
+        "tau_quantile": 0.7
+      },
+      {
+        "T": 10,
+        "tau_quantile": 0.9
+      }
+    ],
+    "nodes_requested": 1,
+    "nodes_run": 1,
+    "seed_k": [
+      0.9423975185482463,
+      1.8459661669270298
+    ],
+    "seed_cutoff_scale": 4.936984154824131e-11,
+    "seed_payoff_scale": 0.0,
+    "signal_grid_points": 2001,
+    "probe_grid": "3 x 3 on the box B = k_hat +/- delta in each coordinate",
+    "box_half_width_rule": "delta = min(0.002, 0.25 x clearance from k2 to the k-free breakpoint set), floor 1e-05",
+    "tolerances": {
+      "payoff_scale": 1e-09,
+      "cutoff_scale": 1e-10,
+      "inner_residual": 1e-10
+    },
+    "measurement": "gaps by pointwise plan_payoff on a 2001-point signal grid at a fresh pooled pass per probe; crossings by linear interpolation inside the sign-change bracket; no code shared with the solver's outer map",
+    "statement": "proofs/05_existence.tex; the theorem is conditional on (B1)-(B4), which this record verifies node by node on the 3 x 3 probe grid (not a proof of (B3) at every point of B)",
+    "named_conditions": [
+      "B1",
+      "B2",
+      "B3",
+      "B4"
+    ],
+    "B1": "interior ordered box, strictly inside Theta",
+    "B2": "Voice coordinate [k2-, k2+] disjoint from the k-free breakpoint set",
+    "B3": "unique ordered down-crossings of both adjacent-plan gaps at every k in B; the probe grid checks the nine listed points",
+    "B4": "Miranda face signs of F(k) = T(k) - k on the four faces of B"
+  },
+  "nodes": [
+    {
+      "tau": 0.09239820387429526,
+      "T": 5,
+      "kappa": 0.5,
+      "params_hash": "a4fcd9f9317c30ff",
+      "k_hat": [
+        0.9425042192682623,
+        1.847264072562332
+      ],
+      "solve_seconds": 263.5190604579402,
+      "cutoff_scale": 3.392908176635956e-11,
+      "payoff_scale": 0.0,
+      "candidate_ok": true,
+      "b0_lt_tau": true,
+      "box": {
+        "delta": 0.002,
+        "edge_clearance": 0.013564389458784687,
+        "k1_minus": 0.9405042192682623,
+        "k1_plus": 0.9445042192682623,
+        "k2_minus": 1.845264072562332,
+        "k2_plus": 1.849264072562332,
+        "n_free_breakpoints": 14,
+        "B1": true,
+        "B2": true,
+        "ok": true
+      },
+      "probes": [
+        {
+          "k": [
+            0.9405042192682623,
+            1.845264072562332
+          ],
+          "faces": [
+            "left",
+            "lower"
+          ],
+          "z_EH": 0.942325851838586,
+          "z_HV": null,
+          "T1": 0.942325851838586,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024484184137997852,
+          "g_EH_hi": -0.02515903037652375,
+          "g_HV_lo": 0.2978013290367235,
+          "g_HV_hi": -0.15897201508802697,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9405042192682623,
+            1.847264072562332
+          ],
+          "faces": [
+            "left"
+          ],
+          "z_EH": 0.9425042192742208,
+          "z_HV": null,
+          "T1": 0.9425042192742208,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024496760478881142,
+          "g_EH_hi": -0.025169836513516897,
+          "g_HV_lo": 0.29779233107442543,
+          "g_HV_hi": -0.15891846204645638,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9405042192682623,
+            1.849264072562332
+          ],
+          "faces": [
+            "left",
+            "upper"
+          ],
+          "z_EH": 0.9426824676380016,
+          "z_HV": null,
+          "T1": 0.9426824676380016,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024509311838313987,
+          "g_EH_hi": -0.02518061640549709,
+          "g_HV_lo": 0.2977833505900547,
+          "g_HV_hi": -0.15886491617966503,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9425042192682623,
+            1.845264072562332
+          ],
+          "faces": [
+            "lower"
+          ],
+          "z_EH": 0.942325851838586,
+          "z_HV": null,
+          "T1": 0.942325851838586,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024484184137997852,
+          "g_EH_hi": -0.02515903037652375,
+          "g_HV_lo": 0.2978013290367235,
+          "g_HV_hi": -0.15897201508802694,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9425042192682623,
+            1.847264072562332
+          ],
+          "faces": [
+            "centre"
+          ],
+          "z_EH": 0.9425042192742208,
+          "z_HV": null,
+          "T1": 0.9425042192742208,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024496760478881142,
+          "g_EH_hi": -0.025169836513516897,
+          "g_HV_lo": 0.29779233107442543,
+          "g_HV_hi": -0.15891846204645638,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9425042192682623,
+            1.849264072562332
+          ],
+          "faces": [
+            "upper"
+          ],
+          "z_EH": 0.9426824676380016,
+          "z_HV": null,
+          "T1": 0.9426824676380016,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024509311838313987,
+          "g_EH_hi": -0.02518061640549709,
+          "g_HV_lo": 0.2977833505900547,
+          "g_HV_hi": -0.15886491617966503,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9445042192682623,
+            1.845264072562332
+          ],
+          "faces": [
+            "right",
+            "lower"
+          ],
+          "z_EH": 0.942325851838586,
+          "z_HV": null,
+          "T1": 0.942325851838586,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024484184137997852,
+          "g_EH_hi": -0.02515903037652375,
+          "g_HV_lo": 0.2978013290367235,
+          "g_HV_hi": -0.15897201508802694,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9445042192682623,
+            1.847264072562332
+          ],
+          "faces": [
+            "right"
+          ],
+          "z_EH": 0.9425042192742208,
+          "z_HV": null,
+          "T1": 0.9425042192742208,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024496760478881142,
+          "g_EH_hi": -0.025169836513516897,
+          "g_HV_lo": 0.29779233107442543,
+          "g_HV_hi": -0.15891846204645638,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        },
+        {
+          "k": [
+            0.9445042192682623,
+            1.849264072562332
+          ],
+          "faces": [
+            "right",
+            "upper"
+          ],
+          "z_EH": 0.9426824676380016,
+          "z_HV": null,
+          "T1": 0.9426824676380016,
+          "T2": null,
+          "n_changes_EH": 1,
+          "n_changes_HV": 3,
+          "g_EH_lo": 0.024509311838313987,
+          "g_EH_hi": -0.02518061640549709,
+          "g_HV_lo": 0.2977833505900547,
+          "g_HV_hi": -0.15886491617966503,
+          "zeros_ordered": false,
+          "inner_residual": 1.4864411784776266e-16,
+          "multiple_root_nodes": 0,
+          "inner_ok": true,
+          "a7_passes": true,
+          "a7_min_slope": 0.00021992796519100947
+        }
+      ],
+      "miranda_margins": {
+        "left": 0.0018216325703236391,
+        "right": 0.0018217516302607706,
+        "lower": NaN,
+        "upper": NaN
+      },
+      "probe_T_at_centre": [
+        0.9425042192742208,
+        null
+      ],
+      "probe_T_minus_khat": [
+        5.958455950860753e-12,
+        null
+      ],
+      "conditions": {
+        "B1": true,
+        "B2": true,
+        "B3": false,
+        "B4": false,
+        "inner_certificate": true,
+        "a7": true,
+        "candidate": true,
+        "b0_lt_tau": true
+      },
+      "node_ok": false,
+      "node_index": 1,
+      "tau_quantile": 0.1
+    }
+  ],
+  "seconds": 577.0384147500154,
+  "all_pass": false
+}

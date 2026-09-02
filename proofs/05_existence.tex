@@ -1,0 +1,318 @@
+% =============================================================================
+% proofs/05_existence.tex
+% Cutoff equilibrium at order size two, conditional on a certified box.
+% Statements first, then the proofs.  Assembled into appendix.tex.
+% Needs amsmath, amssymb, amsthm and enumitem in the assembling preamble.
+% =============================================================================
+
+\providecommand{\Eop}{\mathbb{E}}
+\providecommand{\Prb}{\mathbb{P}}
+\providecommand{\ind}{\mathbf{1}}
+\providecommand{\Tmap}{\mathsf{T}}
+
+\makeatletter
+\@ifundefined{c@theorem}{\newtheorem{theorem}{Theorem}}{}
+\@ifundefined{c@lemma}{\newtheorem{lemma}{Lemma}}{}
+\@ifundefined{c@remark}{\newtheorem{remark}{Remark}}{}
+\makeatother
+
+\section{Cutoff equilibrium at order size two}
+\label{sec:pf-existence}
+
+\subsection*{Setting and notation}
+\label{sec:pf-existence-setup}
+
+Trading occupies dates $d=0,\ldots,H$. After date $H$ a bidder observes the public information set
+and enters with probability $p(\mathcal I_H)$. That is the two-round game: a trading round, then a
+control round. Noise takes the values $-\bar z$, $0$ and $+\bar z$ with probabilities $\kappa/2$,
+$1-\kappa$ and $\kappa/2$. On a building date the engaged blockholder's order is two noise lumps, so
+pooled order flow takes five values. The plan menu is Exit, Hold and one Voice family. Exit sells
+the initial stake $b_0$ at date $0$ and is idle thereafter; Hold is idle at $b_0$ throughout; Voice
+accumulates from $b_0$ to a strictly increasing terminal target $b^*(s)$ in $n(s)$ building dates,
+with $n$ a weakly decreasing step function of the signal. Only Voice ever crosses the threshold
+$\tau$, and the legal clock reads the crossing off the stake path. There is no feedback from
+realised order flow into the executed path.
+
+A cutoff policy is a pair $k=(k_1,k_2)$ in the ordered polytope
+\begin{equation}
+\label{eq:ex-theta}
+\Theta \;:=\; \bigl\{\, (k_1,k_2):\ s_{\mathrm{lo}}\le k_1\le k_2\le s_{\mathrm{hi}} \,\bigr\},
+\end{equation}
+with Exit on $[s_{\mathrm{lo}},k_1)$, Hold on $[k_1,k_2)$ and Voice on $[k_2,s_{\mathrm{hi}}]$. The
+signal is taken on the compact interval $[s_{\mathrm{lo}},s_{\mathrm{hi}}]$ used at the calibration,
+with the Gaussian density truncated and renormalised. Write $U_j(s;k)$ for the expected payoff of
+plan $j$ at signal $s$ under the price system that $k$ induces, and write the adjacent-plan gaps
+\begin{equation}
+\label{eq:ex-gaps}
+g^{\mathrm{EH}}(s;k) \;:=\; U_{\mathrm{Exit}}(s;k)-U_{\mathrm{Hold}}(s;k),
+\qquad
+g^{\mathrm{HV}}(s;k) \;:=\; U_{\mathrm{Hold}}(s;k)-U_{\mathrm{Voice}}(s;k).
+\end{equation}
+Write $\mathcal S_{\mathrm{free}}$ for the finite set of $k$-free breakpoints in
+$(s_{\mathrm{lo}},s_{\mathrm{hi}})$: the jump points of $n(s)$, together with the signals at which
+the Voice stake path first reaches $\tau$ on some date. Equivalently, $\mathcal S_{\mathrm{free}}$
+is the breakpoint set of the menu computed with both cutoffs placed outside the support. These
+points do not move with $k$. A \emph{down-crossing} of a gap $g(\cdot;k)$ is a point
+$z\in[s_{\mathrm{lo}},s_{\mathrm{hi}}]$ at which $g(s_{\mathrm{lo}};k)\ge 0\ge g(s_{\mathrm{hi}};k)$,
+$g(s;k)\ge 0$ for every $s<z$ off $\mathcal S_{\mathrm{free}}$, and $g(s;k)\le 0$ for every $s>z$
+off $\mathcal S_{\mathrm{free}}$. The down-crossing is unique when no other point of the interval
+satisfies those three properties. The $k$-free set is finite, so this is uniqueness of the sign
+change of a function that is continuous in $s$ on the complementary open intervals.
+
+The inner price at a public history solves $P=\Eop[Y\mid\mathcal I]$, equivalently
+\begin{equation}
+\label{eq:ex-inner}
+P \;=\; \bigl(1-p(P)\bigr)\hat V \;+\; p(P)\bigl(P+\tilde m\bigr),
+\qquad
+p(P) \;=\; 1-\Phi\!\left(\frac{P+K+\tilde m-\bar S}{\sigma_\xi}\right),
+\end{equation}
+with $\hat V=\hat v+\pi\Delta_V$ and $\tilde m=m_0+\pi\Delta_m$ the belief summaries at that
+history. Off-path pooled histories, those that no type selected by $k$ can produce, are priced from
+a $k$-independent reference: each empty mark path is assigned the mean fundamental of the $n(s)$
+cell that would produce it. Flagged histories are priced from the filing $(B^F,Q^F,a{=}1)$ alone.
+The Voice target is
+\begin{equation}
+\label{eq:ex-bstar}
+b^*(s) \;=\; b_0+(\bar b-b_0)\cdot\tfrac12\Bigl(1+\frac{x}{\sqrt{1+x^2}}\Bigr),
+\qquad x=(s-\mu_v)/\sigma_s,
+\end{equation}
+so $b^{*\prime}(s)=\tfrac12(\bar b-b_0)(1+x^2)^{-3/2}/\sigma_s>0$ on the whole line whenever
+$\bar b>b_0$ and $\sigma_s>0$. On the flagged cell $B^F+Q^F=b^*(s)$, and the strictly increasing
+target therefore pins the signal from the filing. The flagged price at a signal is consequently
+well-defined independently of $k$.
+
+Given $k\in\Theta$ at which each gap in \eqref{eq:ex-gaps} has a unique down-crossing, write
+$z_{\mathrm{EH}}(k)$ and $z_{\mathrm{HV}}(k)$ for those two points and set
+\begin{equation}
+\label{eq:ex-T}
+\Tmap(k) \;:=\; \bigl(z_{\mathrm{EH}}(k),\, z_{\mathrm{HV}}(k)\bigr)
+\end{equation}
+when the zeros are ordered $z_{\mathrm{EH}}(k)\le z_{\mathrm{HV}}(k)$. That is the outer map. An
+\emph{equilibrium} of the two-round game is a cutoff $k^\star\in\Theta$ at which, under the unique
+inner price system induced by $k^\star$ and the on-path Bayes and off-path reference beliefs just
+named, the plan that $k^\star$ selects maximises $U_j(s;k^\star)$ at every signal $s$. Equivalently,
+$k^\star=\Tmap(k^\star)$, once the ordered unique down-crossings make adjacent indifference global
+(Lemma~\ref{lem:ex-global} below).
+
+\subsection*{Conditions}
+\label{sec:pf-existence-conditions}
+
+Let $B=[k_1^-,k_1^+]\times[k_2^-,k_2^+]$ be a compact axis-aligned box in the cutoff plane. The four
+conditions below are named, and the theorem is conditional on all four.
+
+\begin{enumerate}[label=(B\arabic*),leftmargin=2.6em,itemsep=4pt]
+\item \label{cond:B1} \emph{Interior ordered box.} The box sits in the interior of $\Theta$ and is
+  strictly ordered:
+  \[
+  s_{\mathrm{lo}} \;<\; k_1^- \;\le\; k_1^+ \;<\; k_2^- \;\le\; k_2^+ \;<\; s_{\mathrm{hi}}.
+  \]
+\item \label{cond:B2} \emph{Breakpoint-free Voice coordinate.} The Voice interval of the box is
+  disjoint from the $k$-free set: $[k_2^-,k_2^+]\cap\mathcal S_{\mathrm{free}}=\emptyset$.
+\item \label{cond:B3} \emph{Unique ordered down-crossings.} At every $k\in B$, each of
+  $g^{\mathrm{EH}}(\cdot;k)$ and $g^{\mathrm{HV}}(\cdot;k)$ has a unique down-crossing on
+  $[s_{\mathrm{lo}},s_{\mathrm{hi}}]$, and the zeros are ordered
+  $z_{\mathrm{EH}}(k)\le z_{\mathrm{HV}}(k)$.
+\item \label{cond:B4} \emph{Miranda face signs.} Writing $\Tmap=(\Tmap_1,\Tmap_2)$, the displacement
+  $F(k):=\Tmap(k)-k$ points inward on each face of $B$:
+  \begin{align}
+  \label{eq:ex-miranda}
+  \Tmap_1(k_1^-,k_2) &\ge k_1^-
+    &&\text{for all }k_2\in[k_2^-,k_2^+],
+  \nonumber\\
+  \Tmap_1(k_1^+,k_2) &\le k_1^+
+    &&\text{for all }k_2\in[k_2^-,k_2^+],
+  \\
+  \Tmap_2(k_1,k_2^-) &\ge k_2^-
+    &&\text{for all }k_1\in[k_1^-,k_1^+],
+  \nonumber\\
+  \Tmap_2(k_1,k_2^+) &\le k_2^+
+    &&\text{for all }k_1\in[k_1^-,k_1^+].
+  \nonumber
+  \end{align}
+\end{enumerate}
+
+\subsection*{Statements}
+\label{sec:pf-existence-statements}
+
+\begin{lemma}[Unique inner price]
+\label{lem:ex-inner}
+Assume $m_0>0$, $\Delta_m>0$ and $\sigma_\xi>0$. Then for every belief pair
+$(\hat v,\pi)\in\mathbb R\times[0,1]$ the inner equation \eqref{eq:ex-inner} has a unique real root
+$P$, and that root is continuous in $(\hat v,\pi)$.
+\end{lemma}
+
+\begin{lemma}[The Exit--Hold gap decreases in the signal]
+\label{lem:ex-eh}
+Assume $b_0>0$, $\sigma_v>0$, $\sigma_\varepsilon>0$ and the hypotheses of
+Lemma~\ref{lem:ex-inner}. At every $k\in\Theta$, the gap $g^{\mathrm{EH}}(\cdot;k)$ is affine and
+strictly decreasing on $[s_{\mathrm{lo}},s_{\mathrm{hi}}]$. A unique down-crossing of this gap is
+therefore equivalent to the endpoint sign pattern
+$g^{\mathrm{EH}}(s_{\mathrm{lo}};k)\ge 0\ge g^{\mathrm{EH}}(s_{\mathrm{hi}};k)$.
+\end{lemma}
+
+\begin{lemma}[Ordered adjacent indifference is global]
+\label{lem:ex-global}
+Fix $k\in\Theta$ at which both gaps have unique down-crossings $z_{\mathrm{EH}}\le z_{\mathrm{HV}}$.
+Then, off the finite set $\mathcal S_{\mathrm{free}}$, Exit maximises $U_j(s;k)$ on
+$[s_{\mathrm{lo}},z_{\mathrm{EH}}]$, Hold maximises it on $[z_{\mathrm{EH}},z_{\mathrm{HV}}]$, and
+Voice maximises it on $[z_{\mathrm{HV}},s_{\mathrm{hi}}]$. The $k$-free set is null for the signal
+law. In particular, if $k=\Tmap(k)$, the cutoff policy $k$ is an equilibrium.
+\end{lemma}
+
+\begin{theorem}[Cutoff equilibrium on a certified box]
+\label{thm:existence}
+Fix a disclosure rule $(\tau,T)$ and a liquidity $\kappa\in(0,1)$. Assume $m_0>0$, $\Delta_m>0$,
+$\sigma_\xi>0$, $\sigma_v>0$, $\sigma_\varepsilon>0$, and $0<b_0<\tau<\bar b$. Let
+$B=[k_1^-,k_1^+]\times[k_2^-,k_2^+]$ be a compact box, and assume (B1)--(B4). Then the outer map
+$\Tmap$ is well-defined and continuous on $B$, and there exists $k^\star\in B$ with
+$\Tmap(k^\star)=k^\star$. The cutoff $k^\star$, together with the unique inner price system it
+induces, is an equilibrium of the two-round game at order size two.
+\end{theorem}
+
+\begin{remark}[What a probe grid does and does not show]
+\label{rem:ex-probe}
+The numerical record in \texttt{numerical\_v4/checks/t5\_existence\_conditions.json} builds, at each
+calibration node, a box $B$ about the solver's candidate. It checks (B1) and (B2) on that box, and
+it evaluates (B3) and (B4) on the stated $3\times 3$ probe grid on $B$ (the four vertices, the four
+face midpoints, and the centre), together with the inner-root certificate of
+Lemma~\ref{lem:ex-inner} and the flagged-target slope at those nine points. A calibration node is a
+pair $(T,\tau_q)$ with $T\in\{5,10\}$ and $\tau_q$ one of the five frozen quantiles
+$(0.1,0.3,0.5,0.7,0.9)$ of the seed equilibrium's Voice $b^*(s)$ distribution, at baseline
+$\kappa=0.5$. At each probe the gaps are evaluated on a $2001$-point signal grid. The probe grid is
+not a proof of (B3) at every point of $B$, nor of (B4) at every point of each face.
+Theorem~\ref{thm:existence} is conditional on (B1)--(B4).
+\end{remark}
+
+\subsection*{Proofs}
+\label{sec:pf-existence-proofs}
+
+\begin{proof}[Proof of Lemma~\ref{lem:ex-inner}]
+Write $\tilde m=m_0+\pi\Delta_m$. The standing signs give $\tilde m\ge m_0>0$ for every
+$\pi\in[0,1]$. The entry map $p$ is $C^\infty$ and strictly decreasing, with values in $(0,1)$ at
+every finite $P$, because $\sigma_\xi>0$ and $\Phi$ does not attain $0$ or $1$ at a finite argument.
+Rearrange \eqref{eq:ex-inner} as $P=\psi(P)$ with
+\[
+\psi(P) \;:=\; \hat V \;+\; \tilde m\,\frac{p(P)}{1-p(P)}.
+\]
+The ratio $p/(1-p)$ is strictly increasing in $p\in(0,1)$, hence strictly decreasing in $P$, and
+$\tilde m>0$, so $\psi$ is strictly decreasing. The identity map is strictly increasing, so they
+cross at most once. For existence: as $P\to-\infty$, $p(P)\to 1$ and $\psi(P)\to+\infty$, so
+$\psi(P)>P$; as $P\to+\infty$, $p(P)\to 0$ and $\psi(P)\to\hat V$, so $\psi(P)<P$. Continuity of
+$\psi$ on $\mathbb R$ and the two endpoint inequalities give a root, which is unique by the opposite
+monotonicities. The unique root of a continuous function that is strictly increasing in $P$ (namely
+$P-\psi(P)$) and jointly continuous in $(P,\hat v,\pi)$ varies continuously with $(\hat v,\pi)$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:ex-eh}]
+Exit and Hold share the idle mark path, so both are priced off the same pooled histories. Exit has
+terminal stake $0$ and sells $b_0$ at date $0$, hence
+$U_{\mathrm{Exit}}(s;k)=b_0\,\Eop[P_0^P\mid \text{idle}]$, a number that does not depend on $s$.
+Hold has terminal stake $b_0$, makes no trade, and carries $a=0$, so
+\[
+U_{\mathrm{Hold}}(s;k)
+ \;=\; b_0\Bigl(
+   \bigl(1-\Eop[p_H]\bigr)\bigl(\mu_v+\beta(s-\mu_v)\bigr)
+   +\Eop[p_H P_H]
+   +\Eop[p_H]\,m_0
+ \Bigr),
+\]
+with $\beta=\sigma_v^2/(\sigma_v^2+\sigma_\varepsilon^2)\in(0,1)$ and with $(p_H,P_H)$ the
+control-node entry probability and price along the idle path, both independent of $s$. Lemma~\ref{lem:ex-inner}
+puts every inner price at a finite value, so $p_H\in(0,1)$ and $\Eop[p_H]\in(0,1)$. Therefore
+\[
+g^{\mathrm{EH}}(s;k)
+ \;=\; C(k) \;-\; b_0\bigl(1-\Eop[p_H]\bigr)\beta\, s
+\]
+for a constant $C(k)$ in $s$. The coefficient of $s$ is strictly negative, so the gap is affine and
+strictly decreasing. A strictly decreasing continuous function of one variable has a unique
+down-crossing on a compact interval if and only if it is nonnegative at the left endpoint and
+nonpositive at the right endpoint.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:ex-global}]
+Write $z_1=z_{\mathrm{EH}}$ and $z_2=z_{\mathrm{HV}}$, with $z_1\le z_2$ by hypothesis, and suppress
+$k$. Unique down-crossing of $g^{\mathrm{EH}}$ gives $U_{\mathrm{Exit}}\ge U_{\mathrm{Hold}}$ on
+$[s_{\mathrm{lo}},z_1]$ and $U_{\mathrm{Hold}}\ge U_{\mathrm{Exit}}$ on $[z_1,s_{\mathrm{hi}}]$.
+Unique down-crossing of $g^{\mathrm{HV}}$ gives $U_{\mathrm{Hold}}\ge U_{\mathrm{Voice}}$ on
+$[s_{\mathrm{lo}},z_2]$ and $U_{\mathrm{Voice}}\ge U_{\mathrm{Hold}}$ on $[z_2,s_{\mathrm{hi}}]$.
+
+On $[s_{\mathrm{lo}},z_1]$ one has $s\le z_1\le z_2$, so $U_{\mathrm{Exit}}\ge U_{\mathrm{Hold}}\ge
+U_{\mathrm{Voice}}$. On $[z_1,z_2]$ one has $s\ge z_1$ and $s\le z_2$, so
+$U_{\mathrm{Hold}}\ge U_{\mathrm{Exit}}$ and $U_{\mathrm{Hold}}\ge U_{\mathrm{Voice}}$. On
+$[z_2,s_{\mathrm{hi}}]$ one has $s\ge z_2\ge z_1$, so $U_{\mathrm{Voice}}\ge U_{\mathrm{Hold}}\ge
+U_{\mathrm{Exit}}$. The three comparisons are on the complement of $\mathcal S_{\mathrm{free}}$,
+where the gaps are continuous in $s$. At each such signal a maximiser is the plan the ordered
+cutoffs $(z_1,z_2)$ select, with indifference between adjacent plans at the two cutoffs themselves.
+If $k=\Tmap(k)$, then $(k_1,k_2)=(z_1,z_2)$ and the cutoff policy is an equilibrium.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:existence}]
+\emph{Step 1 (inner prices).} Lemma~\ref{lem:ex-inner} supplies a unique inner price at every public
+history, flagged or pooled, continuously in the belief summaries. The standing signs $m_0>0$ and
+$\Delta_m>0$ make $\tilde m>0$ at every posterior engagement share, and $\sigma_\xi>0$ makes the
+entry map strictly monotone, so uniqueness is not a property of $B$: it holds at every $k\in\Theta$.
+
+\emph{Step 2 ($\Tmap$ is well-defined on $B$).} Condition (B3) gives, at every $k\in B$, unique
+down-crossings of both gaps with $z_{\mathrm{EH}}(k)\le z_{\mathrm{HV}}(k)$. The right-hand side of
+\eqref{eq:ex-T} is therefore a single point of $\Theta$, and $\Tmap:B\to\Theta$ is well-defined.
+Lemma~\ref{lem:ex-eh} records that the Exit--Hold half of (B3) is the endpoint sign pattern of an
+affine gap; the Hold--Voice half is the content of (B3) that is not supplied by the menu.
+
+\emph{Step 3 (type masses are continuous on $B$, and the populated type set is constant).} The
+$k$-free set $\mathcal S_{\mathrm{free}}$ is finite, hence closed. Condition (B2) says that the
+compact interval $[k_2^-,k_2^+]$ is disjoint from it, so the two are a positive distance apart.
+Condition (B1) puts $k_1^+<k_2^-$, so as $k$ ranges over $B$ the Voice region $[k_2,s_{\mathrm{hi}}]$
+gains or loses only signals in $[k_2^-,k_2^+]$, none of which is an $n$-jump or a $\tau$-crossing
+pull-back. The Voice types that carry positive mass are therefore the same at every $k\in B$: the
+lowest Voice atom is $[k_2,s_{\mathrm{next}})$, where $s_{\mathrm{next}}$ is the next point of
+$\mathcal S_{\mathrm{free}}\cup\{s_{\mathrm{hi}}\}$ above $k_2^+$, and every $n$-plateau lying
+entirely above $s_{\mathrm{next}}$ is included in full. Type $0$, the idle path shared by Exit and
+Hold, occupies $[s_{\mathrm{lo}},k_2)$ and has mass at least the Gaussian mass of
+$[s_{\mathrm{lo}},k_2^-)$, which is positive by (B1). Types whose $n$-plateau lies entirely below
+$k_2^-$ are empty throughout $B$, and their beliefs are the constant reference. Each populated
+type's mass and truncated mean fundamental are Gaussian cdf and truncated-mean evaluations at
+endpoints that are either fixed ($k$-free breakpoints, $s_{\mathrm{lo}}$, $s_{\mathrm{hi}}$) or
+equal to $k_1$ or $k_2$. Those evaluations are continuous in $k$ on $B$, and the masses of
+populated types are bounded away from zero on the compact box.
+
+\emph{Step 4 (prices and payoffs are continuous in $k$).} At a pooled history the posterior
+summaries $(\hat v,\pi)$ are ratios of linear forms in the type masses, with likelihoods that do not
+depend on $k$. On histories feasible for a populated type the denominator is bounded away from zero
+on $B$ by Step~3. On histories feasible only for types empty throughout $B$ the summaries equal the
+$k$-independent reference. In both cases $(\hat v,\pi)$ is continuous in $k$ on $B$. Step~1 upgrades
+that to continuity of every inner price. Expected execution prices along each mark path are finite
+sums of those inner prices against $k$-free likelihoods, hence continuous in $k$. For each plan $j$
+and each signal $s\notin\mathcal S_{\mathrm{free}}$, the stake path, the mark path, the clock and the
+engagement cost are locally constant in $s$ and independent of $k$, so $U_j(s;k)$ is continuous in
+$k$ on $B$. (The flagged price at a given $s$ is itself $k$-free, by injectivity of $b^*$,
+and the remaining $k$-dependence is a continuous pre-filing trade cost.) Consequently both gaps in
+\eqref{eq:ex-gaps} are continuous in $k$ at every $s\notin\mathcal S_{\mathrm{free}}$.
+
+\emph{Step 5 ($\Tmap$ is continuous on $B$).} Let $k^n\to k$ in $B$ and write
+$z^n=z_{\mathrm{EH}}(k^n)$. The sequence $z^n$ lives in the compact interval
+$[s_{\mathrm{lo}},s_{\mathrm{hi}}]$, so a subsequence $z^{n_j}$ converges to some
+$z_\infty$ in that interval. For any $s<z_\infty$ with $s\notin\mathcal S_{\mathrm{free}}$, one has
+$s<z^{n_j}$ for large $j$, hence $g^{\mathrm{EH}}(s;k^{n_j})\ge 0$, and Step~4 passes to the limit
+$g^{\mathrm{EH}}(s;k)\ge 0$. For any $s>z_\infty$ off $\mathcal S_{\mathrm{free}}$, the same
+argument gives $g^{\mathrm{EH}}(s;k)\le 0$. The finite set $\mathcal S_{\mathrm{free}}$ is excluded from the down-crossing definition, so
+$z_\infty$ is a down-crossing of $g^{\mathrm{EH}}(\cdot;k)$. Condition (B3) says that
+down-crossing is unique, hence $z_\infty=z_{\mathrm{EH}}(k)$. Every convergent subsequence of $z^n$ has this same limit, so
+$z_{\mathrm{EH}}(k^n)\to z_{\mathrm{EH}}(k)$. The identical argument with $g^{\mathrm{HV}}$ gives
+continuity of $z_{\mathrm{HV}}$. Thus $\Tmap$ is continuous on $B$.
+
+\emph{Step 6 (Miranda's theorem).} The box $B$ is a product of two compact intervals of positive
+length, by (B1). Define $G(k):=k-\Tmap(k)$, continuous on $B$ by Step~5. Condition (B4) is exactly
+the classical face-sign pattern for $G$: $G_1\le 0$ on the face $k_1=k_1^-$, $G_1\ge 0$ on the face
+$k_1=k_1^+$, $G_2\le 0$ on the face $k_2=k_2^-$, and $G_2\ge 0$ on the face $k_2=k_2^+$. Miranda's
+theorem (the intermediate-value theorem on a product of compact intervals) therefore supplies a
+point $k^\star\in B$ with $G(k^\star)=0$, that is $\Tmap(k^\star)=k^\star$. The argument uses that
+$\Tmap$ is a well-defined continuous map on the compact rectangle $B$. It does not require
+$\Tmap(B)\subseteq B$.
+
+\emph{Step 7 (the fixed point is an equilibrium).} The point $k^\star$ lies in $B\subset\Theta$. At
+$k^\star$ the two unique down-crossings are the coordinates of $k^\star$ itself, and they are
+ordered by (B3). Lemma~\ref{lem:ex-global} upgrades adjacent indifference to global optimality of
+the selected plan at every signal off the null $k$-free set. The inner price system is unique by Step~1, on-path beliefs are
+Bayes from the type masses of $k^\star$, and off-path beliefs are the model's $k$-independent
+reference. This is an equilibrium of the two-round game at order size two.
+\end{proof}
