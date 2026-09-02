@@ -51,6 +51,12 @@ E1_TABLE = os.path.join(REPO, "empirics", "output", "e1_campaigns.csv")
 COLOUR_SHORT, COLOUR_LONG = "#4477aa", "#ee6677"
 COLOUR_NEUTRAL = "#666666"
 
+import matplotlib
+matplotlib.use("Agg")
+matplotlib.rcParams["pdf.fonttype"] = 42
+matplotlib.rcParams["ps.fonttype"] = 42
+import matplotlib.pyplot as plt
+
 
 def _finish(fig, path: str) -> None:
     # Matplotlib otherwise writes the current time into the PDF. Omitting both
@@ -63,10 +69,6 @@ def _finish(fig, path: str) -> None:
 
 def fig1() -> None:
     """S and its two factors against kappa, both clocks, calibration node."""
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-
     with open(T1) as fh:
         rec = json.load(fh)
     assert rec["provenance"]["mark"] == 2
@@ -110,14 +112,14 @@ def fig1() -> None:
             label="$T = 10$ (corner $T = H$;\n"
                   "degenerate flagged cell)")
     ax.set_yscale("log")
-    ax.set_ylabel(r"$S$ (premium pp per unit $\kappa$)")
+    ax.set_ylabel(r"$|\Delta \Delta^{\mathrm{act}} / \Delta\kappa|$ (premium pp per unit $\kappa$)")
     ax.set_title("Noise sensitivity", fontsize=10)
     ax.legend(fontsize=8, frameon=False)
 
-    axr.plot(mid, sens[5]["S_P"], color=COLOUR_SHORT, label=r"$S_P$, $T = 5$")
-    axr.plot(mid, sens[10]["S_P"], color=COLOUR_LONG, label=r"$S_P$, $T = 10$")
+    axr.plot(mid, sens[5]["S_P"], color=COLOUR_SHORT, label=r"$|\Delta M_P/\Delta\kappa|$, $T = 5$")
+    axr.plot(mid, sens[10]["S_P"], color=COLOUR_LONG, label=r"$|\Delta M_P/\Delta\kappa|$, $T = 10$")
     axr.set_yscale("log")
-    axr.set_ylabel(r"$S_P$ (premium pp per unit $\kappa$)")
+    axr.set_ylabel(r"$|\Delta M_P / \Delta\kappa|$ (premium pp per unit $\kappa$)")
     axr.set_title("The two factors", fontsize=10)
     axr.legend(fontsize=8, frameon=False, loc="lower right")
     share = axr.twinx()
@@ -142,10 +144,6 @@ def fig1() -> None:
 
 def fig2() -> None:
     """The who-gets-caught record across its five threshold nodes."""
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-
     with open(T5) as fh:
         rec = json.load(fh)
     assert rec["provenance"]["mark"] == 2
@@ -167,35 +165,36 @@ def fig2() -> None:
     upper = np.array([n["upper_limit_b"] for n in nodes]) * s_A
     C_T = np.array([n["C_T"] for n in nodes])
 
-    fig, (ax, axr) = plt.subplots(1, 2, figsize=(8.6, 3.4))
+    fig, (ax, axr) = plt.subplots(1, 2, figsize=(8.8, 3.5))
     for axis in (ax, axr):
         axis.spines[["top", "right"]].set_visible(False)
-        axis.set_xlabel(r"Threshold quantile of the $\tau$ ladder")
+        axis.set_xlabel(r"Threshold quantile of the $\tau$ ladder", fontsize=9)
         axis.set_xticks(q)
+        axis.tick_params(labelsize=8.5)
 
-    ax.plot(q, s_A, "o-", color=COLOUR_NEUTRAL, label=r"$s_A$")
+    ax.plot(q, s_A, "o-", color=COLOUR_NEUTRAL, label=r"$s_A$ (pool)")
     ax.plot(q, upper, "^--", color=COLOUR_NEUTRAL, mfc="none",
-            label=r"$((2-\varphi)/\varphi)\,s_A$")
-    ax.plot(q, s_B, "s-", color=COLOUR_SHORT, label=r"$s_B$")
+            label=r"$((2-\varphi)/\varphi)\,s_A$ (band)")
+    ax.plot(q, s_B, "s-", color=COLOUR_SHORT, label=r"$s_B$ (caught)")
     ax.set_yscale("log")
-    ax.set_ylabel(r"$\kappa$-derivative of the kernel expectation")
+    ax.set_ylabel(r"$\kappa$-derivative of kernel expectation", fontsize=9)
     ax.set_title("The caught sensitivity inside its band", fontsize=10)
-    ax.legend(fontsize=8, frameon=False, loc="center left")
+    ax.legend(fontsize=8, frameon=False, loc="upper left")
 
     axr.plot(q, C_T, "s-", color=COLOUR_SHORT, label=r"$C_T$")
     axr.axhline(1.0, color=COLOUR_NEUTRAL, linestyle=":", lw=1.2)
     axr.annotate("one", (q[-1], 1.0), xytext=(-6, 5),
                  textcoords="offset points", ha="right",
-                 fontsize=8, color=COLOUR_NEUTRAL)
-    axr.set_ylabel(r"Composition ratio $C_T$")
+                 fontsize=8.5, color=COLOUR_NEUTRAL)
+    axr.set_ylabel(r"Composition ratio $C_T$", fontsize=9)
     axr.set_ylim(0.0, 1.15)
     axr.set_title("The composition ratio", fontsize=10)
-    axr.legend(fontsize=8, frameon=False, loc="lower right")
+    axr.legend(fontsize=8.5, frameon=False, loc="lower right")
 
     fig.suptitle("Who gets caught at five threshold nodes", fontsize=11)
     fig.text(0.5, 0.01,
              r"$T = 10 = H$: the flagged cell is degenerate at every node.",
-             ha="center", fontsize=8, color=COLOUR_NEUTRAL)
+             ha="center", fontsize=8.5, color=COLOUR_NEUTRAL)
     fig.tight_layout(rect=(0.0, 0.06, 1.0, 0.95))
     _finish(fig, os.path.join(FIGURES, "fig2_who_gets_caught.pdf"))
     plt.close(fig)
@@ -203,10 +202,6 @@ def fig2() -> None:
 
 def fig_e1() -> None:
     """The E1 figure: distribution of B^F by period, fingerprints style."""
-    import matplotlib
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-
     with open(E1_RESULT) as fh:
         rec = json.load(fh)
     assert rec["exercise"] == "e1" and rec["status"] == "GO"
