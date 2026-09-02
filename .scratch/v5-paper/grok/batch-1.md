@@ -3,13 +3,12 @@
 Effort `high`. Read `README.md` in this directory first. Labels are result directories under
 `.scratch/v5-paper/runs/`. Steps run in this order.
 
-## Step 0: fixes from checkpoint 0
+## Step 0: fixes and nits from checkpoint 0 (labels `04-fix`, `02-nits`, `03-nits`)
 
-Read `checkpoint-0.md` in this directory. It lists the attack verdicts on `proofs/02_garbling.tex`
-and `proofs/03_caught.tex`. If a verdict is FAIL, fix that proof once as the ticket's attack gate
-says (label `02-fix` or `03-fix`, RESULT): the attacker's reasons are in the note; you may replace
-one assumption with a cleaner one and must say so in the summary. If both verdicts are PASS,
-there is nothing to do here.
+Read `checkpoint-0.md` in this directory and do exactly its "Step 0 of batch 1" section: the
+one fix to the clock theorem's hypothesis list in `proofs/04_inherited.tex` with the 04
+wording nits, then the wording nits in `proofs/02_garbling.tex` and `proofs/03_caught.tex`.
+Three RESULT files. Edit nothing in these files beyond what the note names.
 
 ## Step 1: who-gets-caught grid script (label `03-grid`)
 

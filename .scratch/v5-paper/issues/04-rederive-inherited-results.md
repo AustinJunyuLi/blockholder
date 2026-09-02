@@ -15,6 +15,6 @@ are transcribed into `proofs/04_inherited.tex` in the paper's notation.
 - [ ] Four PASS verdicts, or STOP.
 - [ ] Transcribed proofs carry no reference to the inherited draft or its labels.
 
-**Status:** transcribed, committed c30ebc3 on v5 (2026-09-02); attack gate on `proofs/04_inherited.tex` at checkpoint 0
+**Status:** attack at checkpoint 0 (runs/04-attack, 2026-09-02): three of four PASS; the clock theorem FAILs on a missing hypothesis (the factorisation's hypotheses at both clocks, differentiability of κ → M_P at T'). One fix by Grok in batch 1 step 0 (grok/checkpoint-0.md); attack 2 at checkpoint 1.
 
 ## Comments
