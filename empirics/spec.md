@@ -113,6 +113,16 @@ valid prices on every needed day, and the share of all campaigns with such a tic
 as `coverage.listed_share`. Third, campaigns with fewer than 60 valid pre-trigger days are
 excluded from the liquidity split and counted in `coverage.no_liquidity`.
 
+**Model direction note, 2026-09-02, before the E2 run.** On the v5 calibration grid at order
+size two (record `numerical_v4/checks/t2_t1_check.json`, parameter hash `fbacc963f39422c3`, the
+frozen-policy sweep at the median threshold and T = 5, κ from 0.15 to 0.85 in steps of 0.01), the
+run-up share R/(R+J) falls as κ rises, from 0.740 at κ = 0.15 to 0.459 at κ = 0.85, with no sign
+change across the grid. Higher κ is higher liquidity and higher Amihud is lower liquidity, so the
+direction E2 is measured against is: the ratio of cell means, mean R over (mean R plus mean J), is
+higher in the high-Amihud tercile than in the low-Amihud tercile. This is a NUMERICAL direction
+on the stated grid at one calibration node. It is a measurement, not a verdict, and E2 draws no
+causal conclusion from it.
+
 ## Runner and tests
 
 `empirics/fingerprints.py` builds the campaign table once and runs `e1` and `e2` from it.
