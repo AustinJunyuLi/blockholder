@@ -26,6 +26,6 @@ corollary's condition holds and whether C_T ≤ 1, using the point-derivative co
 - [ ] The record's C_T ≤ 1 verdicts agree with the T1 check's at the same nodes under the same
       convention (evidence: a comparison table in the report).
 
-**Status:** attack gate PASS at checkpoint 0 (runs/03-attack, 2026-09-02); proof committed 6b28eef. Label scope: PROVED for the cut identity and the two-sided characterisation of C_T at most one in s_B; any directional sentence is NUMERICAL off the grid record. Grid script in batch 1; wording nits for Grok in batch 1 step 0 (grok/checkpoint-0.md).
+**Status:** attack gate PASS at checkpoint 0 (`runs/03-attack`); proof committed 6b28eef; wording nits applied in batch 1. Grid record `numerical_v4/checks/t5_who_gets_caught.json` (mark 2, H 10, hash fbacc963f39422c3, five nodes, T = 5 against T = 10) judged at checkpoint 1 (`runs/03-grid-review`, `runs/03-grid-judge`, 2026-09-02): the corollary's condition holds and C_T is at most one at every node, in agreement with the T1 record. Label scope: PROVED for the cut identity and the two-sided characterisation; any directional sentence is NUMERICAL off the grid record and names that the T = 10 flagged cell is degenerate (Omega = 6.8e-4, below the 0.01 floor) at every node.
 
 ## Comments
