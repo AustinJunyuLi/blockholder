@@ -2,21 +2,25 @@
 
 The orchestrator's run book. Grok 4.6 implements in batches from the briefs under `grok/`; this
 file holds what the orchestrator does at each checkpoint, the gates only the reviewers run, the
-check runs, and the prompt texts and procedures every step follows (ADR 0006). Phase contents
-are in `spec.md` section 5; tickets are under `issues/`.
+check runs, and the orchestrator's own prompt texts and procedures (ADR 0006). A brief states
+the objective the batch must reach and the constraints that hold, and leaves the method to Grok
+(ADR 0007). Phase contents are in `spec.md` section 5; tickets are under `issues/`.
 
 ## Sessions and records
 
 - The implementing session is Grok Build, one per batch, started by Austin with the launch line
-  in `grok/README.md`. Its briefs are `grok/batch-N.md`; its step contract is the README.
+  in `grok/README.md`. Its briefs are `grok/batch-N.md`; its step contract is the README. A
+  brief carries the objective, the inputs, the constraints that bind the batch, and what must
+  exist when it ends. Grok organises the work.
 - The orchestrating session is Fable in Claude Code (`KICKOFF.md`). At a checkpoint it reads
-  the batch result and the diff, runs the Opus subagents listed below, starts the check runs,
-  commits one concern per commit, writes `grok/checkpoint-N.md`, and finalises the next brief.
+  the batch plan, the batch result and the diff, runs the Opus subagents listed below, starts
+  the check runs, commits one concern per commit, writes `grok/checkpoint-N.md` with feedback on
+  the approach, and writes the next brief.
 - Every step has a label and writes `runs/<label>/result.txt` in the RESULT or VERDICT schema
   (`schemas/result.json`, `schemas/verdict.json`). A step whose record holds PASS or ABSENT is
   finished and never rerun; a recorded verdict is never rerun; a ticket committed on the branch
   is finished. Directories under `runs/` without a `result.txt` are debris from killed runs.
-- The orchestrator reads result files and diffs, never transcripts.
+- The orchestrator reads the batch plan, the result files and diffs, never transcripts.
 - Opus subagents run from the orchestrating session through the Agent tool at model `opus`.
   The tool sets no effort tier, so each prompt states the depth it wants: a judge that reads
   records and recomputes one node is told to do exactly that; an attacker is told to try to
@@ -51,14 +55,25 @@ CHECK, the paper checker prompt (11 check, 11 check 2):
 Ticket 11, checker. Run PYTHONPATH=. .venv/bin/python -m empirics.test_fingerprints and the compile sequence in CLAUDE.md. Then grep paper.tex and appendix.tex for any reference to earlier versions, dropped results, attempts, or the inherited draft, and for any label stronger than the one the result holds (the labels are listed in grok/checkpoint-1.md). Return PASS only if the number guard is green, both files compile with zero errors, undefined references, or citations, and the grep finds nothing. Otherwise FAIL with the exact lines. Run no git command; edit nothing; write the VERDICT JSON to .scratch/v5-paper/runs/11-check/result.txt.
 ```
 
-The fix wording, prepended by the orchestrator to a fix step in a brief; `<reasons>` is the
-attacker's or checker's reasons:
+The fix wording, which the orchestrator carries into a fix brief as its input; `<reasons>` is
+the attacker's or the checker's reasons:
 
 ```text
 An independent attacker returned FAIL with these reasons: <reasons>. Fix the proof once. You may replace one assumption with a cleaner one; say so in your summary.
 ```
 
 ## Procedures
+
+Writing a brief. `grok/batch-N.md` has four parts and nothing else (ADR 0007). The objective:
+what must be true when the batch ends, in terms the orchestrator can check. The inputs: pointers
+to the tickets, records and checkpoint notes the batch reads, with no restatement of what they
+hold. The constraints that bind this batch: the effort, the paths, the labels the results carry,
+the dependencies between steps. Done: the result files that must exist and what each must show.
+The README carries every standing gate once, so a brief points at it and states no gate of its
+own. How the work is organised, what Grok delegates, and the order of steps that no dependency
+fixes, stay with Grok. Facts a checkpoint supplies sit in angle brackets while the brief is a
+skeleton, and the brief is final when none is left. A fix brief (`grok/batch-N-fix.md`) has the
+same four parts, with the attacker's or the checker's reasons among its inputs.
 
 Attempt. One attempt, one retry, as the README says. A second failure is a STOP record
 carrying both reports.
@@ -113,6 +128,13 @@ The T1 then L4 chain was started 2026-09-02 12:22 (`runs/checks/t1_l4_chain.pid`
 
 ## Checkpoints
 
+At a checkpoint the orchestrator reads `runs/batch-N/plan.md`, where the batch wrote one, and
+the `approach` block of `runs/batch-N/result.txt`, then writes a section "Feedback on the
+approach" in `grok/checkpoint-N.md`: what the plan got right, where another order, another
+split of the work or another check before calling a step done would have cost less, and what to
+carry into the next batch. That section is about how the batch was organised; the gates below
+decide the results. Batch 1 ran before this rule, so its plan is `.grok/workflows/v5-batch-1.rhai`.
+
 Checkpoint 0 (before batch 1). Opus attacks on the committed proofs: `02-attack` (the garbling
 lemma and the threshold theorem, `proofs/02_garbling.tex`), `03-attack` (the who-gets-caught
 corollary, `proofs/03_caught.tex`), `04-attack` (the four inherited results,
@@ -128,20 +150,22 @@ When their records land: `03-grid-judge` (Opus) reads the who-gets-caught record
 C_T verdicts with the T1 record's at the same nodes under the point-derivative convention, and
 recomputes one node; `05-grid-judge` likewise decides 05's label from its record (a condition
 that fails at any node makes the result ABSENT). Commit the batch, the records, the results.
-Write `grok/checkpoint-1.md` with every result's label at that moment; finalise `grok/batch-2.md`.
+Write `grok/checkpoint-1.md` with every result's label at that moment; fill the placeholders in
+`grok/batch-2.md`.
 
 Checkpoint 2 (after batch 2). `11-check` (Opus, CHECK). On FAIL, a fix-only brief `batch-2-fix.md`
 (11 fix), then `11-check-2`; a second FAIL is a STOP. On PASS, `12-referee` (Opus). Commit the
-paper. Write `grok/checkpoint-2.md`; finalise `grok/batch-3.md` around the referee report.
+paper. Write `grok/checkpoint-2.md`; fill the placeholders in `grok/batch-3.md` from the referee
+report.
 
 Checkpoint 3 (after batch 3). The orchestrator renders every page of both PDFs and inspects
 them, runs the unslop gate over the prose, confirms `deliverable/` holds both PDFs, commits,
 pushes `v5`, and writes `session_note.md` (what shipped, every label, any STOP).
 
-## Step prompts
+## Checkpoint prompts
 
-The prompts of steps Grok runs are in the batch briefs. The prompts below are the
-orchestrator's, sent to Opus subagents, and the reference the skeleton briefs point at.
+These prompts are the orchestrator's own, sent to Opus subagents at a checkpoint. What Grok does
+in a batch is in the brief, as an objective and the constraints that bind it.
 
 01 verify; `<01 report>` is `runs/01-rewrite/result.txt`:
 
@@ -161,40 +185,10 @@ Ticket 03, judge of the grid record. Read numerical_v4/checks/t5_who_gets_caught
 Ticket 05, judge of the condition record. Read proofs/05_existence.tex (the conditions the statement names) and numerical_v4/checks/t5_existence_conditions.json. Confirm the provenance block and that every condition the statement names is checked at every calibration node. PASS if every condition holds at every node; FAIL with the failing nodes and conditions otherwise (FAIL makes the result ABSENT from the paper). Recompute one condition at one node with a short script. Write the VERDICT JSON to .scratch/v5-paper/runs/05-grid-judge/result.txt. Run no git command; edit nothing else.
 ```
 
-10 (Grok, batch 2):
-
-```text
-Ticket 10-figures.md. Regenerate every figure from the records checkpoint 1 names and report the commands.
-```
-
-11 (Grok, batch 2):
-
-```text
-Ticket 11-paper-writer.md. Write paper.tex, appendix.tex and paper.bib as the ticket says, with every result carrying the label grok/checkpoint-1.md gives it and every number rendered from a result file. Run the number guard and the compile sequence in CLAUDE.md before reporting. Apply the unslop rules to the prose.
-```
-
-11 fix (Grok, a fix-only brief); `<reasons>` is the checker's reasons:
-
-```text
-Ticket 11, fix pass. The checker reported: <reasons>. Fix exactly those items in paper.tex, appendix.tex, paper.bib.
-```
-
 12 referee (Opus):
 
 ```text
 Ticket 12-referee.md. You wrote nothing in this session. Referee at deliverable quality: read paper.pdf and appendix.pdf (render pages to images if needed) and write .scratch/v5-paper/referee_report.md with blocking and minor lists, each item with a location. Do not edit the paper. Run no git command. Write the RESULT JSON to .scratch/v5-paper/runs/12-referee/result.txt.
-```
-
-13 fix (Grok, batch 3):
-
-```text
-Ticket 13-author-fix.md. Fix every blocking item and every minor item in .scratch/v5-paper/referee_report.md that needs no new result. Mark each item fixed or STOP with the reason, in the report file. Rerun the number guard and the compile sequence. Return STOP if any blocking item needs a new theorem or a new run.
-```
-
-14 (Grok, batch 3):
-
-```text
-Ticket 14-compile-and-deliver.md. Compile in the order in CLAUDE.md, render every page of both PDFs to images and inspect them, apply the unslop gate, copy the PDFs to deliverable/, and report the compile log excerpt and the inspection note.
 ```
 
 ## Commit points

@@ -59,7 +59,9 @@ gate is absent, not mentioned.
 - Empirics are descriptive. No causal claim, no control group, no identification language.
 - Routing: the orchestrating session (Fable) plans, arbitrates and owns git. Grok 4.6 implements
   every ticket in batches; Opus 5 attacks proofs and judges records at the checkpoints between
-  batches (ADR 0006). Batch briefs and checkpoint notes live in .scratch/v5-paper/grok/.
+  batches (ADR 0006). A brief states the objective and the constraints; Grok chooses the method
+  and records its plan and approach (ADR 0007). Batch briefs and checkpoint notes live in
+  .scratch/v5-paper/grok/.
 - A delegated step is bounded to minutes. Every check script is a check run: the orchestrator
   starts it detached from the client, one at a time, and reads its record file. No model session
   waits on a computation (ADR 0004).
