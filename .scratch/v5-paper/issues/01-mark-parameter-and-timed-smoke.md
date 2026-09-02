@@ -43,7 +43,7 @@ not-applicable rules, and the suite list.
 - [ ] Judge, after the check runs: reads the records, recomputes one node at `mark=2` at the T1
       baseline and matches its `M_F` and `M_P`; confirms every record carries `mark = 2`.
 
-**Status:** code PASS (runs/01-rewrite, 2026-09-02), committed; judge verify pending on the T1 and L4 reruns the orchestrator started 2026-09-02 12:22 (checkpoint 1)
+**Status:** done. Code PASS (`runs/01-rewrite`), committed 317e212. T1 and L4 reruns at mark 2, H 10 landed 2026-09-02 (ALL PASS, records `numerical_v4/checks/t2_t1_check.json`, `t2_l4_check.json`); judge verify PASS at checkpoint 1 (`runs/01-verify`): provenance stamped, the three not-applicable blocks counted in neither tally, one-node recompute equal to the baseline to 0.0.
 
 ## Comments
 
