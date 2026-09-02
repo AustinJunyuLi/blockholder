@@ -1,0 +1,85 @@
+% proofs/06_lemmas.tex
+% Two lemmas supporting the pricing root and timing claims.
+% Fragment, to be \input by appendix.tex.
+
+\section{Pricing root and timing lemmas}
+\label{sec:pricing-timing-lemmas}
+
+This section states and proves two lemmas the main text uses: the competitive pricing root is
+unique and continuous, and at fixed policies a shorter window weakly lowers the stake at filing
+on every path flagged under both windows.
+
+\begin{lemma}[Uniqueness and continuity of the competitive pricing root]
+\label{lem:pricing-root}
+Assume the standing conditions \ref{p:space} and \ref{p:kernel}; the latter gives an entry
+probability in $(0,1)$ that is continuous in the posterior and the price, and this lemma adds its
+normal form and its monotonicity in the price. Let $m_0 \ge 0$, $\Delta_m > 0$, $\sigma_\xi > 0$,
+$\Delta_V \ge 0$, and let the potential bidder's entry probability be
+\begin{equation}
+\label{eq:bidder-entry-prob}
+p(P, \pi) \;=\; 1 - \Phi\!\left(\frac{P + K + m_0 + \pi\Delta_m - \bar S}{\sigma_\xi}\right),
+\end{equation}
+where $\Phi$ is the standard normal cumulative distribution function and $K, \bar S$ are finite constants. Then, for every $(\hat v, \pi) \in \mathbb{R} \times [0, 1]$, the competitive control-node pricing equation
+\begin{equation}
+\label{eq:pricing-fixed-point}
+P \;=\; \bigl(1 - p(P, \pi)\bigr)\bigl(\hat v + \pi\Delta_V\bigr) \;+\; p(P, \pi)\bigl(P + m_0 + \pi\Delta_m\bigr)
+\end{equation}
+has a unique finite solution $P = \Pi(\hat v, \pi)$. The solution map $\Pi: \mathbb{R} \times [0, 1] \to \mathbb{R}$ is continuous, strictly increasing in $\hat v$, and satisfies the linear-growth bound
+\begin{equation}
+\label{eq:pricing-growth-bound}
+|\Pi(\hat v, \pi)| \;\le\; |\hat v| + C_\Pi
+\end{equation}
+for the finite constant $C_\Pi := \max_{\pi \in [0, 1]} |\Pi(0, \pi)|$.
+\end{lemma}
+
+\begin{proof}
+Set $\hat V = \hat v + \pi\Delta_V$ and $\widetilde m = m_0 + \pi\Delta_m$. Since $m_0 \ge 0$, $\Delta_m > 0$, and $\pi \in [0, 1]$, we have $\widetilde m \ge m_0 \ge 0$. Because $\Phi$ is strictly between $0$ and $1$ everywhere on the real line, $p(P, \pi) \in (0, 1)$ for every finite $P$. Rearranging \eqref{eq:pricing-fixed-point} by collecting terms in $P$ gives
+\[
+\bigl(1 - p(P, \pi)\bigr) P \;=\; \bigl(1 - p(P, \pi)\bigr)\hat V \;+\; p(P, \pi)\,\widetilde m,
+\]
+or equivalently, dividing by $1 - p(P, \pi) > 0$,
+\begin{equation}
+\label{eq:pricing-root-residual}
+R(P; \hat V, \pi) \;:=\; P \;-\; \hat V \;-\; \widetilde m\,\frac{p(P, \pi)}{1 - p(P, \pi)} \;=\; 0.
+\end{equation}
+The entry probability $p(P, \pi)$ in \eqref{eq:bidder-entry-prob} is strictly decreasing and continuously differentiable in $P$, with $\lim_{P \to -\infty} p(P, \pi) = 1$ and $\lim_{P \to +\infty} p(P, \pi) = 0$. The odds ratio $q \mapsto q / (1 - q)$ is strictly increasing on $(0, 1)$. Therefore, $P \mapsto p(P, \pi) / (1 - p(P, \pi))$ is strictly decreasing in $P$. Since $\widetilde m \ge 0$, the function
+\[
+P \;\longmapsto\; -\,\widetilde m\,\frac{p(P, \pi)}{1 - p(P, \pi)}
+\]
+is weakly increasing in $P$. Consequently, $R(\cdot; \hat V, \pi)$ is strictly increasing on $\mathbb{R}$.
+
+Moreover, as $P \to -\infty$, $p(P, \pi) \to 1$ and $p/(1-p) \to +\infty$, so $R(P; \hat V, \pi) \to -\infty$. As $P \to +\infty$, $p(P, \pi) \to 0$ and $p/(1-p) \to 0$, so $R(P; \hat V, \pi) \to +\infty$. By the intermediate value theorem, a solution to $R(P; \hat V, \pi) = 0$ exists. By strict monotonicity of $R$ in $P$, the solution is unique.
+
+To establish continuity, differentiate $R$ with respect to $P$:
+\[
+\frac{\partial R}{\partial P} \;=\; 1 \;-\; \widetilde m\,\frac{\partial}{\partial P}\left(\frac{p}{1-p}\right) \;\ge\; 1 \;>\; 0,
+\]
+since $\widetilde m \ge 0$ and $\partial_P (p/(1-p)) < 0$. By the implicit function theorem, the unique root $\Pi(\hat v, \pi)$ is continuously differentiable in $(\hat V, \pi)$, and therefore continuous in $(\hat v, \pi)$ on $\mathbb{R} \times [0, 1]$. Furthermore,
+\[
+\frac{\partial \Pi}{\partial \hat V} \;=\; \frac{1}{\partial R / \partial P} \;\in\; (0, 1],
+\]
+so $\Pi$ is strictly increasing in $\hat v$. Write $\Pi^\ast(\hat V, \pi)$ for the root as a function of $\hat V$, so that $\Pi(\hat v, \pi) = \Pi^\ast(\hat v + \pi\Delta_V, \pi)$. For fixed $\pi$, the derivative bound above makes $\Pi^\ast$ $1$-Lipschitz in $\hat V$, and the two arguments $\hat v + \pi\Delta_V$ and $\pi\Delta_V$ differ by $\hat v$, so $|\Pi(\hat v, \pi) - \Pi(0, \pi)| \le |\hat v|$. Since $[0, 1]$ is compact and $\pi \mapsto \Pi(0, \pi)$ is continuous, $C_\Pi := \max_{\pi \in [0, 1]} |\Pi(0, \pi)| < \infty$. The bound \eqref{eq:pricing-growth-bound} follows.
+\end{proof}
+
+\begin{lemma}[Window monotonicity of the stake at filing under fixed policies]
+\label{lem:bf-monotone}
+Assume the standing conditions \ref{p:menu}, \ref{p:paths}, \ref{p:clock}, \ref{p:nofeedback}, and \ref{p:fixed}. Let the plan menu, the cutoff vector, and the execution paths $(B_j(s, \cdot))_{j \in \mathcal J}$ be fixed. Compare two window margins $T' < T$ at a common threshold $\tau$. Write $c(s;\tau)$ for the crossing date of a Voice type, $f(s;T_0) = c(s;\tau) + T_0$ for the filing date under window $T_0$, and $B^F(s;T_0) = B_{\mathrm{Voice}}(s, f(s;T_0))$ for the stake at filing, defined on the flagged cell $\{f(s;T_0) \le H\}$ and nowhere else. Then, for every signal realization $s$:
+\begin{enumerate}[label=(\alph*),leftmargin=2.4em,itemsep=3pt]
+\item On Exit and Hold plans no filing lands under either window margin, and the stake path is the same under both.
+\item On Voice plans, the crossing date $c(s;\tau)$ is the same under both window margins, and the flagged cells are nested: $\{f(s;T) \le H\} \subseteq \{f(s;T') \le H\}$. On the difference $\{c(s;\tau) + T' \le H < c(s;\tau) + T\}$ the filing lands under $T'$ and does not land under $T$, so $B^F(s;T')$ is defined and $B^F(s;T)$ is not.
+\item On Voice plans with $c(s;\tau) + T \le H$, the paths flagged under both windows, the filing lands weakly earlier under $T'$, $f(s;T') < f(s;T) \le H$, and
+\begin{equation}
+\label{eq:bf-monotone}
+B^F(s; T') \;\le\; B^F(s; T).
+\end{equation}
+\end{enumerate}
+In particular, shortening the window weakly lowers the stake at filing on every path flagged under both windows, and weakly enlarges the set of paths on which a filing lands.
+\end{lemma}
+
+\begin{proof}
+Under fixed policies (\ref{p:fixed}) the plan selection and the stake paths are identical under $T$ and $T'$. By \ref{p:clock} only Voice plans cross $\tau$, so on Exit and Hold plans no filing lands under either window and the stake path is common; this is part~(a).
+
+For a Voice type, \ref{p:clock} and \ref{p:nofeedback} make the crossing date $c(s;\tau) = \min\{d \le H : B_{\mathrm{Voice}}(s,d) \ge \tau\}$ (or $+\infty$) a function of the signal and $\tau$ alone, so it is the same under both windows. By \ref{p:clock} the filing lands exactly at $f(s;T_0) = c(s;\tau) + T_0$, and the flagged cell is the event $f(s;T_0) \le H$. Since $T' < T$, $f(s;T') < f(s;T)$ whenever $c(s;\tau) < \infty$, so $f(s;T) \le H$ implies $f(s;T') \le H$: the flagged cells are nested. On $\{c + T' \le H < c + T\}$ the filing lands under $T'$ and not under $T$, which is the last clause of part~(b).
+
+For part~(c), let $c(s;\tau) + T \le H$. Then both filing dates lie in the calendar, $f(s;T') < f(s;T) \le H$, and both stakes at filing are defined. By \ref{p:paths} the Voice stake path $d \mapsto B_{\mathrm{Voice}}(s,d)$ is weakly increasing in the calendar date, so $B^F(s;T') = B_{\mathrm{Voice}}(s, f(s;T')) \le B_{\mathrm{Voice}}(s, f(s;T)) = B^F(s;T)$, which is \eqref{eq:bf-monotone}.
+\end{proof}

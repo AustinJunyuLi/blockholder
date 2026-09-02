@@ -19,6 +19,7 @@
 \usepackage{setspace}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
+\usepackage{etoolbox}
 
 \setstretch{1.1}
 
@@ -28,6 +29,14 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{condition}{Condition}
 \newtheorem{remark}{Remark}
+
+\newif\ifunlabelled
+\unlabelledfalse
+
+\AtBeginEnvironment{theorem}{\ifunlabelled\else\par\noindent\textsc{Label: PROVED.}\par\nopagebreak\fi}
+\AtBeginEnvironment{proposition}{\ifunlabelled\else\par\noindent\textsc{Label: PROVED.}\par\nopagebreak\fi}
+\AtBeginEnvironment{corollary}{\ifunlabelled\else\par\noindent\textsc{Label: PROVED.}\par\nopagebreak\fi}
+\AtBeginEnvironment{lemma}{\ifunlabelled\else\par\noindent\textsc{Label: PROVED.}\par\nopagebreak\fi}
 
 \newcommand{\Eop}{\mathbb{E}}
 \newcommand{\Prb}{\mathbb{P}}
@@ -42,7 +51,8 @@
 \maketitle
 
 \noindent This appendix carries every proof behind the paper's labelled
-statements. It starts with the disclosure partition and the fixed-policy results,
+statements, and closes with two lemmas on the pricing root and the filing timing.
+It starts with the disclosure partition and the fixed-policy results,
 then gives the order-size-two pooled experiment, the threshold dial, and the
 who-gets-caught corollary. The standing conditions (S1) to (S11) apply to
 every statement that uses them. The corollary's hypotheses (C-1) to (C-3) cite
@@ -59,5 +69,7 @@ them by number.
 \label{sec:app-caught}
 
 \input{proofs/03_caught.tex}
+
+\input{proofs/06_lemmas.tex}
 
 \end{document}
