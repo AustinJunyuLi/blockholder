@@ -7,6 +7,7 @@ Usage:
 from __future__ import annotations
 
 import datetime as dt
+import importlib.util
 import json
 import os
 import unittest
@@ -293,6 +294,43 @@ class NumberGuardTest(unittest.TestCase):
 
     def test_e2_numbers_are_in_the_paper(self):
         self._guard("e2")
+
+
+class GridRecordGuardTest(unittest.TestCase):
+    """Every rendered grid-record string appears in paper.tex."""
+
+    def setUp(self):
+        if not os.path.exists(PAPER):
+            self.skipTest("paper.tex does not exist yet")
+        with open(PAPER, encoding="utf-8") as fh:
+            self.paper = fh.read()
+
+    def _guard_grid(self, stem: str) -> None:
+        script = os.path.join(REPO, "numerical_v4", "checks", f"{stem}.py")
+        record_path = os.path.join(REPO, "numerical_v4", "checks", f"{stem}.json")
+        if not os.path.exists(script) or not os.path.exists(record_path):
+            self.skipTest(f"{stem} script or record does not exist yet")
+        spec = importlib.util.spec_from_file_location(stem, script)
+        if spec is None or spec.loader is None:
+            self.skipTest(f"{stem} could not be loaded")
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        with open(record_path, encoding="utf-8") as fh:
+            record = json.load(fh)
+        rendered = mod.render(record)
+        missing = sorted(k for k, v in rendered.items()
+                         if v and v not in self.paper)
+        self.assertEqual(missing, [],
+                         f"{stem} numbers absent from paper.tex: {missing}")
+
+    def test_t6_detection_check_numbers_are_in_the_paper(self):
+        self._guard_grid("t6_detection_check")
+
+    def test_t6_cut_check_numbers_are_in_the_paper(self):
+        self._guard_grid("t6_cut_check")
+
+    def test_t6_regret_check_numbers_are_in_the_paper(self):
+        self._guard_grid("t6_regret_check")
 
 
 if __name__ == "__main__":
