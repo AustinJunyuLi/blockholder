@@ -266,22 +266,23 @@ The following are in force throughout the subsection.
   $\{-\bar z,0,+\bar z\}$. The signal is $s = v + \varepsilon$.
 \item \label{p:menu} \emph{A finite menu and a finite calendar.} The plan menu $\mathcal J$ is
   finite, the horizon $H$ is finite, and the window margin satisfies $T \in \{1,\dots,H\}$.
-\item \label{p:cutoff} \emph{A cutoff selection map.} The signal is carried into a plan by a step
+\item \label{p:cutoff} \emph{A cutoff selection map.} The signal is carried into a plan by a Borel step
   function $j(\cdot)$ with breakpoints $k_1 \le \dots \le k_{J-1}$.
-\item \label{p:paths} \emph{Monotone Voice paths and a clean start.} Each plan $j$ carries a stake
+\item \label{p:paths} \emph{Monotone Voice paths and a clean start.} Each plan $j$ carries a Borel stake
   path $B_j(s,\cdot)$ with $B_j(s,-1) = b_0 < \tau$; for a Voice plan the path is weakly increasing
   in the signal and weakly increasing in the calendar date.
 \item \label{p:clock} \emph{Legal-clock discipline.} Only Voice plans cross the threshold; the
   crossing date $c_j(s)$ is the first date at which the path reaches $\tau$, or $+\infty$ if the
   path never reaches it; the filing lands exactly at $f_j = c_j + T$ and only through the disclosure
   node; the filing reports the stake truthfully.
-\item \label{p:public} \emph{The flag is public.} Each pooled history carries the coordinate ``the
-  filing has landed by date $d$'', and the control-node information set $\mathcal I_H$ contains the
-  pooled history up to the control node.
+\item \label{p:public} \emph{The flag is public.} Every control-node history carries the public
+  coordinate ``the filing has landed by date $d$'', so the control-node information set
+  $\mathcal I_H$ contains that coordinate at $d = H$ on both cells. On the pooled cell
+  $\mathcal I_H$ also contains the pooled history up to the control node.
 \item \label{p:nofeedback} \emph{No-feedback timing.} The executed path, the order marks, the
   terminal target, the crossing date, the filing date, the filing stake and the flagged order are
-  functions of the plan and the signal alone. Neither realised order flow nor a realised price
-  enters any of them.
+  Borel functions of the plan and the signal alone, with the filing stake and flagged order defined
+  on the flagged cell. Neither realised order flow nor a realised price enters any of them.
 \item \label{p:kernel} \emph{A bounded, pinned kernel.} The engagement-premium kernel is
   $h(\mathcal I) = \pi(\mathcal I)\,p(\mathcal I)$, where the engagement posterior
   $\pi(\mathcal I) = \Prb(a = 1 \mid \mathcal I)$ takes values in $[0,1]$ and the bidder-entry
@@ -295,13 +296,31 @@ The following are in force throughout the subsection.
   and the remaining constants carry no $\kappa$.
 \item \label{p:fixed} \emph{Fixed policies.} The plan menu, the execution policies and the cutoff
   vector $k$ are held fixed in $\kappa$ and held fixed across any two rules compared.
+For the remaining conditions, let $\theta=(j(s),s)$ denote the blockholder's type,
+$m_d(\theta)=q_{j(s)d}(s)$ its order mark at date $d$, and $r$ an arbitrary disclosure rule under
+comparison. Write $\mathsf S_{F,r}=(B_r^F,Q_r^F,a{=}1)$ for that rule's flagged tuple.
+\item \label{p:noise} \emph{A common noise channel.} The vector $z_{0:H}$ is independent of
+  $(v,\varepsilon,\xi)$ and has the common rule-invariant law $Q_\kappa$. Pooled flow is
+  $X_d=m_d(\theta)+z_d$. In the order-size-two model,
+  $m_d(\theta)\in\{0,2\bar z\}$, and the noise marks are independent across dates and have
+  probabilities $(\kappa/2,1-\kappa,\kappa/2)$ on
+  $\{-\bar z,0,+\bar z\}$.
+\item \label{p:control} \emph{The control-node convention.} On the flagged cell the information set
+  is exactly $\sigma(\mathsf S_{F,r})$, up to pinned price coordinates. On the pooled cell it is
+  exactly the displayed public pooled history, again up to pinned prices. At each depth $d$, the
+  same convention applies to the cells $\mathcal C_{F,r}^d$ and $\mathcal C_{P,r}^d$ defined by
+  whether the filing has landed by $d$.
+\item \label{p:decoder} \emph{Identified flagged types.} On rule $r$'s flagged signal region, the
+  composed terminal target $g(s)=b^*_{j(s)}(s)$ is strictly increasing and
+  $B^F_r+Q^F_r=g(s)$. Pointwise strict increase is imposed for pointwise experiment comparisons;
+  for posterior conclusions, strict increase outside a prior-null set is enough.
 \end{enumerate}
 
 \subsubsection*{The partition}
 
 \begin{lemma}[Disclosure partition]
 \label{lem:partition}
-Under \ref{p:space}--\ref{p:public}, the disclosure indicator
+Under \ref{p:space}--\ref{p:public} and \ref{p:control}, the disclosure indicator
 $D = \ind\{a = 1,\ c(\tau) + T \le H\}$ is a measurable function of the control-node history, and
 the flagged cell $\mathcal C_F = \{D = 1\}$ and the pooled cell $\mathcal C_P = \{D = 0\}$ are
 disjoint and cover the space. Consequently the flagged weight $\Omega = \Prb(D = 1)$ is defined and
@@ -310,9 +329,9 @@ $\Prb(D = 0) = 1 - \Omega$. No restriction on the mass of either cell is used.
 
 \begin{proof}
 \emph{Step 1 (the selection map is Borel).} By \ref{p:space} the signal $s = v + \varepsilon$ is a
-sum of two coordinates of a Borel vector and is therefore Borel. By \ref{p:cutoff} the map
-$j(\cdot)$ is a step function whose breakpoints are finite in number, by \ref{p:menu}, so it is a
-finite sum of indicators of half-lines and hence Borel. The set $\{s : j(s) = j\}$ is Borel for each
+sum of two coordinates of a Borel vector and is therefore Borel. Condition \ref{p:cutoff} makes
+$j(\cdot)$ Borel. Its step form has finitely many breakpoints by \ref{p:menu}. The set
+$\{s : j(s) = j\}$ is Borel for each
 $j \in \mathcal J$.
 
 \emph{Step 2 (the engagement flag is measurable).} The realised flag is $a = a_{j(s)}$, the
@@ -353,9 +372,10 @@ $\mathcal C_F \cap \mathcal C_P = \varnothing$ and $\mathcal C_F \cup \mathcal C
 space.
 
 \emph{Step 6 (the cell is a function of the observed history).} Step~5 partitions the space of
-states; the claim is about control-node histories. By \ref{p:public} each pooled history carries the
-coordinate ``the filing has landed by date $d$'', so the flag is public by construction, and
-$\mathcal I_H$ contains that coordinate at $d = H$. By \ref{p:clock} the filing lands exactly at
+states; the claim is about control-node histories. By \ref{p:public} every control-node history carries the
+public coordinate ``the filing has landed by date $d$'', and
+$\mathcal I_H$ contains that coordinate at $d = H$ on both cells. Under \ref{p:control}, flagged
+tuples and pooled histories occupy disjoint tagged output spaces. By \ref{p:clock} the filing lands exactly at
 $c + T$ and only through the disclosure node, so the coordinate ``the filing has landed by $H$''
 equals $\ind\{f \le H\}$; combining this with $D = \ind\{a = 1,\ c < \infty,\ f \le H\}$ and with the
 restriction that only Voice plans cross, that coordinate equals $D$. Hence $D$ is measurable with
@@ -389,8 +409,8 @@ $0 < \Omega < 1$,
 At $\Omega = 1$ the identity reads $\Dact = M_F$ and at $\Omega = 0$ it reads $\Dact = M_P$; in each
 of those two cases the average over the null cell is undefined rather than zero, and it is not
 determined by the law. That $M_P$ is defined as a number, rather than an equivalence class, rests
-on \ref{p:kernel} pinning a version of the price: \ref{p:paths} states Borel regularity for Voice
-paths only.
+on \ref{p:kernel} pinning a version of the price; Borel regularity of the stake paths in
+\ref{p:paths} does not by itself select a version of a conditional expectation.
 \end{lemma}
 
 \begin{proof}

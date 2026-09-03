@@ -1,0 +1,216 @@
+% proofs/09_regret.tex
+% The benchmark-policy one-step deviation bound.
+% Fragment, to be \input by appendix.tex.
+
+\section{The benchmark policy: the interim regret bound}
+\label{sec:regret}
+
+At each calibration node, a one-step deviation changes the blockholder's plan at one signal while
+the benchmark price system and beliefs stay fixed. The result below bounds the largest gain from
+that deviation on the stated signal support.
+
+\csname unlabelledtrue\endcsname
+\begin{proposition}[Benchmark-policy interim regret]
+\label{prop:regret}
+Assume standing conditions (S1) to (S11). The fixed pass in (R-3) also satisfies the common noise
+channel, control-node convention, and identified flagged types in (S12) to (S14). The following
+additional conditions are in force.
+\begin{enumerate}[label=(R-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Calibration.} The benchmark cutoffs are
+  \[
+  k^b=(0.9425017266871091, 1.8484512098302512),
+  \]
+  liquidity is $\kappa=0.5$, order size is two noise lumps, and $H=10$. The nodes pair
+  $T\in\{3,5,10\}$ with
+  \[
+  \tau\in\left\{
+  \begin{aligned}
+  &0.09239820387429526, 0.09346755804663053, 0.09453534811956685,\\
+  &0.09565657882778708, 0.09703177146201895
+  \end{aligned}
+  \right\},
+  \]
+  and the remaining primitives take their benchmark calibration values. In particular,
+  $m_1>0$, $\bar b>b_0$, $\sigma_s>0$, $\sigma_\xi>0$, $\beta>0$, and $\chi>0$.
+\item \emph{Signal support.} The signal has its calibrated Gaussian law restricted to
+  $I_s=[s_{\mathrm{lo}},s_{\mathrm{hi}}]$, where
+  $s_{\mathrm{lo}}=\mu_v-6\sigma_s$ and $s_{\mathrm{hi}}=\mu_v+6\sigma_s$. Its density is divided by the
+  truncation constant
+  \[
+  Z_s=\Prb(s\in I_s)
+  =\Phi\!\left(\frac{s_{\mathrm{hi}}-\mu_v}{\sigma_s}\right)
+  -\Phi\!\left(\frac{s_{\mathrm{lo}}-\mu_v}{\sigma_s}\right)>0.
+  \]
+  The density is continuous, so every finite breakpoint set is null.
+\item \emph{Fixed pooled pass and deviation convention.} At each node, the pooled pricing pass is
+  computed once at the benchmark cutoffs with the run-up path present and is then held fixed. A
+  deviation changes only the deviating signal's plan. Benchmark prices and beliefs do not react.
+  Every off-path pooled history uses the fixed reference belief of the mark-path type that can
+  produce it. At a cutoff the benchmark assigns Hold at the Exit-Hold cutoff and Voice at the
+  Hold-Voice cutoff, so Exit is assigned for $s<k_1^b$, Hold for
+  $k_1^b\le s<k_2^b$, and Voice for $s\ge k_2^b$.
+\end{enumerate}
+
+For calibration node $n$, let $U_{j,n}(s)$ be the payoff from plan
+$j\in\{\mathsf{E},\mathsf{H},\mathsf{V}\}$ under (R-3), and let $j^b(s)$ be the benchmark plan. Define
+\begin{equation}
+\label{eq:regret-definition}
+R_n(s)=\max_{j\in\{\mathsf{E},\mathsf{H},\mathsf{V}\}}U_{j,n}(s)-U_{j^b(s),n}(s).
+\end{equation}
+Use the benchmark payoff at the Hold-Voice cutoff as the payoff normaliser,
+\begin{equation}
+\label{eq:regret-normaliser}
+N_n:=U_{\mathsf{V},n}(k_2^b)>0.
+\end{equation}
+The reported certificate value $\overline R_n$ satisfies
+\begin{equation}
+\label{eq:regret-bound}
+\operatorname*{ess\,sup}_{s\in I_s}R_n(s)\le\overline R_n,
+\qquad
+\operatorname*{ess\,sup}_{s\in I_s}\frac{R_n(s)}{N_n}
+\le\frac{\overline R_n}{N_n}.
+\end{equation}
+The record reports the bound at every node.
+\end{proposition}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Fix a node and suppress its subscript. Form a partition of $I_s$ from the two benchmark cutoffs,
+every jump of the Voice accumulation length $n(s)$ in $I_s$, every signal in $I_s$ at which a
+threshold-crossing date changes, and the two support endpoints. Remove exact duplicates and sort the
+points. On each open
+piece $I=(l,r)$, the assigned plan, the Voice type, the crossing date, the filing date, and the
+filing status are constant. Each payoff formula on that piece extends continuously to its closure
+from the relevant side. The partition is finite, and its endpoints are null by (R-2). It therefore
+suffices to bound every branch closure.
+
+Write
+\[
+b=b^*(s),
+\qquad
+v_h=\mu_v+\beta(s-\mu_v),
+\qquad
+C=C_0\exp\!\left[-\frac{\chi(s-\mu_v)}{\sigma_s}\right].
+\]
+For Voice type $m$, let $e_m$ be the fixed pass's expected control-node entry probability,
+$q_m$ its expected product of entry and control-node price, and $P_{dm}$ its expected pooled
+execution price at date $d$. Set
+\[
+A_m=\frac1m\sum_{d=0}^{m-1}P_{dm}.
+\]
+Direct substitution into the blockholder's payoff gives the three branch formulas
+\begin{align}
+\label{eq:regret-branches-pooled}
+U_{\mathsf{E}}&=b_0P_{00},
+\nonumber\\
+U_{\mathsf{H}}&=b_0\bigl((1-e_0)v_h+q_0+e_0m_0\bigr),
+\\
+Y_m&=(1-e_m)(v_h+\Delta_V)+q_m+e_m m_1,
+\nonumber\\
+U_{\mathsf{V}}&=bY_m-A_m(b-b_0)-C
+\quad\text{on a pooled Voice branch}.
+\nonumber
+\end{align}
+The Exit payoff is constant and the Hold payoff is affine. On a flagged Voice branch with filing
+date $f$, put
+\[
+r_f=\min\{1,(f+1)/m\},
+\qquad
+B^F=b_0+r_f(b-b_0),
+\qquad
+A_{mf}=\frac1m\sum_{d=0}^{\min\{f,m-1\}}P_{dm}.
+\]
+At engagement posterior one, the flagged price satisfies
+\[
+P_F=(1-p_F)(v_h+\Delta_V)+p_F(P_F+m_1).
+\]
+This fixed point makes expected terminal value equal to $P_F$. The flagged Voice payoff therefore
+reduces to
+\begin{equation}
+\label{eq:regret-branch-flagged}
+U_{\mathsf{V}}=B^FP_F-A_{mf}(b-b_0)-C.
+\end{equation}
+Thus every payoff is given by a closed form on each branch, apart from the unique scalar price root
+in \eqref{eq:regret-branch-flagged}, whose uniqueness follows from Lemma~\ref{lem:pricing-root}.
+
+It remains to cover the space between mesh points. The target and engagement cost satisfy
+\[
+b'(s)=\frac{\bar b-b_0}{2\sigma_s}
+\left(1+\left(\frac{s-\mu_v}{\sigma_s}\right)^2\right)^{-3/2},
+\qquad
+C'(s)=-\frac{\chi}{\sigma_s}C(s).
+\]
+Let $b'_{\max,I}$ be the maximum of $b'$ on the closed piece, attained at the point nearest
+$\mu_v$. Differentiating the pooled Voice branch gives
+\[
+U_{\mathsf{V}}'=b'(Y_m-A_m)+b(1-e_m)\beta+\frac{\chi}{\sigma_s}C.
+\]
+Since $Y_m-A_m$ is affine, a valid Lipschitz constant on $I$ is
+\begin{equation}
+\label{eq:regret-LP}
+L_{\mathsf{V}}^{P}
+=b'_{\max,I}\max_{s\in\{l,r\}}|Y_m(s)-A_m|
++\bar b(1-e_m)\beta+\frac{\chi}{\sigma_s}C(l).
+\end{equation}
+The other two constants are $L_{\mathsf{E}}=0$ and
+$L_{\mathsf{H}}=b_0(1-e_0)\beta$.
+
+For the flagged branch, put $V=v_h+\Delta_V$ and
+\[
+a(P)=1-p(P)=\Phi\!\left(\frac{P+K+m_1-\bar S}{\sigma_\xi}\right),
+\qquad a=a(P_F).
+\]
+Implicit differentiation of the price equation gives
+\begin{equation}
+\label{eq:regret-price-derivative}
+\frac{dP_F}{ds}
+=\beta\frac{a^2}{a^2+(m_1/\sigma_\xi)\phi_{\!N}(u)},
+\qquad
+0<\frac{dP_F}{ds}\le\beta,
+\end{equation}
+where $u=(P_F+K+m_1-\bar S)/\sigma_\xi$ and $\phi_{\!N}$ is the standard normal density. The root
+also satisfies
+\[
+V\le P_F\le V+m_1\frac{1-a(V)}{a(V)}.
+\]
+Since $V$ rises in $s$ while $(1-a(V))/a(V)$ falls, the endpoint mixture
+\[
+P_{\mathrm{abs},I}
+=\max\left\{|V(l)|,
+\left|V(r)+m_1\frac{1-a(V(l))}{a(V(l))}\right|\right\}
+\]
+bounds $|P_F|$ on $I$. Differentiating \eqref{eq:regret-branch-flagged} then gives the valid constant
+\begin{equation}
+\label{eq:regret-LF}
+L_{\mathsf{V}}^{F}
+=b'_{\max,I}\bigl(r_fP_{\mathrm{abs},I}+|A_{mf}|\bigr)
++\bar b\beta+\frac{\chi}{\sigma_s}C(l).
+\end{equation}
+
+On each piece take $L_{\mathsf{V}}=L_{\mathsf{V}}^P$ or
+$L_{\mathsf{V}}=L_{\mathsf{V}}^F$ according to its filing status.
+Let $a_I$ be the benchmark plan on a piece and let
+$G_{j,a_I}=U_j-U_{a_I}$ for either alternative $j$. The preceding bounds make
+$G_{j,a_I}$ Lipschitz on the branch closure with constant
+$L_{j,a_I}=L_j+L_{a_I}$. Divide $[l,r]$ into
+\[
+n_I=\left\lceil\frac{r-l}{10^{-5}}\right\rceil
+\]
+equal segments, and call the endpoint mesh $\mathcal G_I$. Every point of the piece lies within
+$\delta_I=(r-l)/(2n_I)$ of a mesh point. Hence
+\begin{equation}
+\label{eq:regret-cover}
+\sup_{s\in I}G_{j,a_I}(s)
+\le \max_{s\in\mathcal G_I}G_{j,a_I}(s)+L_{j,a_I}\delta_I.
+\end{equation}
+The certificate is rigorous in exact arithmetic. It adds $5\times10^{-12}$ to the right side for
+floating-point evaluation and the reported price-root residual. Define $\overline R$ as the maximum
+of zero and these adjusted bounds over every piece and
+both alternative plans. Equation~\eqref{eq:regret-cover} then bounds $R(s)$ on every open piece.
+The omitted endpoints form a null set, so it also bounds the essential supremum on $I_s$. This is
+the first inequality in \eqref{eq:regret-bound}. Dividing by the positive normaliser $N$ proves the
+second.
+\end{proof}
+
+The bound establishes nothing about equilibrium existence, order size, speed, or a reacting
+blockholder.

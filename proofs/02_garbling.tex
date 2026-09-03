@@ -90,6 +90,93 @@ For a cell event $\mathcal A$ with $\Prb(\mathcal A) > 0$, write $\rho_{\mathcal
 \subsection*{Statements}
 \label{sec:pf-garbling-statements}
 
+\csname unlabelledtrue\endcsname
+\begin{proposition}[The binary order-mark trichotomy]
+\label{prop:trichotomy}
+Fix a depth $d\leq H$, a positive integer $b$, and a set of mark paths
+$\mathcal M\subseteq\{0,b\bar z\}^{d+1}$. For $m\in\mathcal M$, let
+$E^b_\kappa$ be the channel from $m$ to the flow history $X_{0:d}$. Assume:
+\begin{enumerate}[label=(E\arabic*),leftmargin=3.0em,itemsep=3pt]
+\item \emph{Exact independent ternary noise.} For a fixed $\bar z>0$, the noise marks are
+  independent across rounds and independent of the mark path, with probabilities
+  $(\kappa/2,1-\kappa,\kappa/2)$ on $\{-\bar z,0,+\bar z\}$.
+\item \emph{Integral order size.} The active mark is $b$ times one noise lump, so
+  $m_e\in\{0,b\bar z\}$ and $X_e=m_e+z_e$ in every round.
+\item \emph{Nondegenerate mark paths.} The set $\mathcal M$ contains at least two distinct paths.
+  For a pooled experiment, $\mathcal M$ is the set of paths with positive conditional probability,
+  and the pooled-cell event is a positive-mass type event, so conditioning leaves the noise law
+  unchanged.
+\end{enumerate}
+Then $b = 2$ is the unique positive integer for which the binary order-mark channel has the exact,
+non-trivial erasure form of Lemma~\ref{lem:g1} over the whole interior liquidity range. More precisely:
+\begin{enumerate}[label=(\alph*),leftmargin=2.4em,itemsep=3pt]
+\item If $b = 2$, then $E^2_{\kappa'}$ is a garbling of $E^2_\kappa$ whenever
+  $0\leq\kappa<\kappa'\leq1$. No $E^2_\kappa$ with $\kappa\in(0,1]$ fully reveals a
+  nondegenerate mark path, while $E^2_0$ does.
+\item If $b = 1$, then for every $0<\kappa<\kappa'<1$ the higher-liquidity experiment
+  $E^1_{\kappa'}$ is not a garbling of $E^1_\kappa$ on any nondegenerate mark-path set.
+  The channel is not fully revealing at either interior node.
+\item If $b \geq 3$, every binary order mark, and hence the whole mark path, is decoded at every
+  $\kappa\in[0,1]$. All liquidity nodes are therefore Blackwell-equivalent.
+\end{enumerate}
+The garbling in (a) and the equivalence in (c) transfer to any positive-mass pooled type event.
+The non-revelation claim in (a) and the conclusion in (b) also use the nondegeneracy clause of (E3).
+\end{proposition}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Scale flow by $\bar z$. Under $b = 2$, the idle and active supports are
+$\{-1,0,1\}$ and $\{1,2,3\}$, and they meet only at $1$. The deletion and redraw kernel of
+Lemma~\ref{lem:g2} deletes a revealed coordinate with probability
+$(\kappa'-\kappa)/(2-\kappa)$ and has the $\kappa'$ row law as its image. Its construction is
+row-wise and depends on a state only through its mark path, so it applies to every
+$m\in\mathcal M$, whether or not another type shares that path. The same formula is valid at
+$\kappa=0$ and $\kappa'=1$.
+
+Take two distinct paths under $b = 2$. At every coordinate where they differ, flow $1$ has positive
+probability under both when $\kappa>0$. At a coordinate where they agree, choose flow $-1$ for a
+common idle mark and flow $3$ for a common active mark. The resulting history has positive
+probability under both paths, so their row supports overlap and no decoder exists. At $\kappa=0$,
+flow equals the mark in every coordinate.
+
+Now let $b = 1$, fix two distinct paths $m,m'\in\mathcal M$, and let $q\geq1$ be the number of
+coordinates on which they differ. Give these two states equal prior probability. Consider the two
+actions ``abstain'' and ``claim $m$''. Abstention pays zero; a correct claim pays one and a false
+claim pays $-C$. Because the output space is finite, choose $C$ larger than every finite likelihood
+ratio at both $\kappa$ and $\kappa'$. A claim then pays only on histories possible under $m$ and
+impossible under $m'$. At each differing coordinate such an exclusive flow occurs under $m$ with
+probability $\kappa/2$, independently across coordinates. The value of the decision problem is
+therefore
+\[
+\frac12\left[1-\left(1-\frac{\kappa}{2}\right)^q\right],
+\]
+which is strictly increasing in $\kappa$. A garbling cannot raise the value of a decision problem,
+so $E^1_{\kappa'}$ cannot be a garbling of $E^1_\kappa$. Any kernel on all of $\mathcal M$ would
+also work on this two-path restriction, which proves the claim for every nondegenerate
+$\mathcal M$. At an interior node the one-coordinate row supports overlap, and products of common
+support values give a common history for any two paths, so the channel is not fully revealing.
+
+For one coordinate only, the value of the symmetric correct-guess problem is
+\[
+V(t)=
+\begin{cases}
+1-t/2,&0\leq t\leq2/3,\\
+t,&2/3\leq t\leq1.
+\end{cases}
+\]
+Its exact turn is at $t=2/3$. Together with the claim-or-abstain problem above, this shows that, for
+this one-coordinate problem, the two experiments are incomparable when
+$0<\kappa<\kappa'<2/3$. This last conclusion is not a claim about a
+multi-round history.
+
+Finally, if $b \geq 3$, the idle support $\{-1,0,1\}$ and active support
+$\{b-1,b,b+1\}$ are disjoint. The decoder assigns mark zero to a flow at most $1$ and mark
+$b$ to a flow at least $2$, coordinate by coordinate; assignments between the two supports are
+null. After decoding, a kernel can draw fresh
+ternary noise at any target liquidity and add it to the decoded mark. This gives a kernel in both
+directions between every pair of liquidity nodes. The three cases prove the trichotomy.
+\end{proof}
+
 \begin{lemma}[Erasure form of the pooled experiment]
 \label{lem:g1}
 Fix a policy $(\tau,T)$, a depth $d \le H$, and $\kappa \in (0,1)$. Assume the noise marks

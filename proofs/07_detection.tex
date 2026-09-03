@@ -1,0 +1,421 @@
+% =============================================================================
+% proofs/07_detection.tex
+% Detection, silence, and bidder entry at fixed policies.
+% Fragment, to be \input by appendix.tex.
+% =============================================================================
+
+\section{Detection: the entry identity, the tape, who gets caught and silence}
+\label{sec:detection}
+
+This section connects the engagement premium to bidder entry and separates the two ways public
+information identifies a Voice type. The filing acts through the disclosure cell. The tape acts
+through flow values that reveal a building purchase.
+At any date $d$, write $D^d$ for the indicator that the filing has landed by $d$, and write
+$\mathcal C_F^d=\{D^d=1\}$ and $\mathcal C_P^d=\{D^d=0\}$.
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[Entry identity]
+\label{lem:entry-identity}
+Let $\mathcal I_H$ be the public information set at the control node, let
+$\pi(\mathcal I_H)=\Prb(a=1\mid\mathcal I_H)$, and let
+$p(\mathcal I_H)$ be the bidder-entry probability. The premium kernel is
+$h(\mathcal I_H)=\pi(\mathcal I_H)p(\mathcal I_H)$. Assume:
+\begin{enumerate}[label=(E-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Public measurability.} The price and the entry probability are functions of the public
+  information set, and the engagement indicator is a function of the type. Thus
+  $P=P(\mathcal I_H)$ and $p=p(\mathcal I_H)$ are $\mathcal I_H$-measurable, while
+  $a=a(\theta)$. The first assertion is the pinned-kernel content of (S8); the last follows from
+  the finite menu and cutoff selection map in (S2) and (S3).
+\item \emph{The Voice event and the public cells.} The menu assigns $a=1$ exactly to Voice, and
+  $a=0$ to Exit and Hold. The cell indicator $D$ is public by (S5) and (S6), so
+  $\mathcal C_F=\{D=1\}$ and $\mathcal C_P=\{D=0\}$ belong to $\mathcal I_H$.
+\item \emph{Finite premium and fixed policies.} The premium satisfies (S9), liquidity enters only
+  through the noise law as in (S10), and the menu, cutoff vector, and execution policies are fixed
+  as in (S11).
+\end{enumerate}
+Write $\omega_V=\Prb(a=1)$ for the Voice mass. If $\omega_V>0$, define
+$e_V=\Eop[p(\mathcal I_H)\mid a=1]$. Then
+\begin{equation}
+\label{eq:entry-identity}
+  \Dact=\Delta_m\,\omega_V e_V .
+\end{equation}
+For either cell $\mathcal C\in\{\mathcal C_F,\mathcal C_P\}$ with
+$\Prb(\mathcal C)>0$ and $\Prb(a=1,\mathcal C)>0$, put
+\[
+  \omega_{V\mid\mathcal C}=\Prb(a=1\mid\mathcal C),
+  \qquad
+  e_{V\mid\mathcal C}=\Eop[p(\mathcal I_H)\mid a=1,\mathcal C].
+\]
+Its cell average obeys the same identity,
+\begin{equation}
+\label{eq:entry-identity-cell}
+  M_{\mathcal C}
+  :=\Delta_m\Eop[\pi(\mathcal I_H)p(\mathcal I_H)\mid\mathcal C]
+  =\Delta_m\,\omega_{V\mid\mathcal C}e_{V\mid\mathcal C}.
+\end{equation}
+If the Voice mass is zero, the corresponding premium is zero and the conditional entry
+probability is left undefined. At fixed policies, $\omega_V$ is independent of both $\kappa$ and
+the disclosure rule.
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+By (E-1), $p(\mathcal I_H)$ is $\mathcal I_H$-measurable, and (S8) makes it bounded. The defining
+property of conditional expectation therefore gives
+\[
+  \Eop[\pi(\mathcal I_H)p(\mathcal I_H)]
+  =\Eop\!\left[\Eop[a\mid\mathcal I_H]p(\mathcal I_H)\right]
+  =\Eop[a\,p(\mathcal I_H)].
+\]
+When $\omega_V>0$, conditioning the last expectation on the event $\{a=1\}$ gives
+$\Eop[a p]=\omega_V\Eop[p\mid a=1]=\omega_Ve_V$. Multiplication by $\Delta_m$ and (S9) yield
+\eqref{eq:entry-identity}. If $\omega_V=0$, then $a=0$ almost surely, so both
+$\Eop[a p]$ and the engagement premium vanish.
+
+Now fix a cell $\mathcal C$ of positive mass. Its indicator is $\mathcal I_H$-measurable by
+(E-2). Applying the same calculation after multiplication by $\ind_{\mathcal C}$ gives
+\[
+  \Eop[\pi p\,\ind_{\mathcal C}]
+  =\Eop[a p\,\ind_{\mathcal C}].
+\]
+Divide by $\Prb(\mathcal C)$. If $\Prb(a=1,\mathcal C)>0$, conditioning the right side first on
+$\{a=1\}\cap\mathcal C$ gives \eqref{eq:entry-identity-cell}. If that joint mass is zero, the
+right side is zero, hence so is the cell premium.
+
+It remains to check the invariance of the unconditional Voice mass. By (S3) and (S7),
+$a=a_{j(s)}$. Condition (S11) holds the menu and the cutoff map $j(\cdot)$ fixed across rules and
+in $\kappa$, so neither the threshold margin nor the window margin enters this indicator.
+Condition (S10) puts $\kappa$ only in the law of the noise marks, while the law of the signal is
+unchanged by (S1). The law of $a_{j(s)}$, and hence $\omega_V$, is therefore common to every rule
+and every $\kappa$ in a fixed-policy comparison.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[Detection]
+\label{lem:detection}
+Fix a date $d\in\{0,\ldots,H\}$ and a pooled history of positive probability. Assume:
+\begin{enumerate}[label=(D-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Voice marks.} The order mark is $g_e(\theta)\in\{0,1\}$ and strategic order flow is
+  $q_e(\theta)=2\bar z\,g_e(\theta)$. Only Voice plans carry positive marks. Exit and Hold have
+  $g_e=0$ at every date, and a Voice building round has $g_e=1$.
+\item \emph{Common noise channel.} Condition (S12) holds. In particular,
+  $X_e=q_e+z_e$, the noise marks are independent across dates and independent of the type, and
+  $z_e$ equals $-\bar z$, $0$, or $+\bar z$ with probabilities
+  $\kappa/2$, $1-\kappa$, and $\kappa/2$, where $\kappa\in[0,1]$.
+\item \emph{Public observation.} Conditions (S6), (S7), (S8), and (S13) hold, so the pooled flow
+  history is public, its posterior is the pinned conditional probability, and the date-$d$ pooled
+  cell is a type event.
+\end{enumerate}
+The flow values $2\bar z$ and $3\bar z$ reveal a building mark. On any positive-probability
+pooled history containing either value, the engagement posterior is one. The values $-\bar z$
+and $0$ reveal a zero mark whenever those values have positive probability. The value $+\bar z$
+is the only ambiguous value: in the round-level channel support at $\kappa>0$, it can arise from a
+building purchase with a noise sale or from a zero mark with a noise purchase. At $\kappa=0$ the
+ambiguous value is not observed.
+
+For a Voice type, let
+\[
+  N_d(\theta)=\sum_{e=0}^{d}g_e(\theta)
+\]
+be the number of building rounds through that date. The probability that no building mark has
+been revealed on the tape is
+\begin{equation}
+\label{eq:detection-silence}
+  \Prb(\text{no building mark revealed through }d\mid\theta)
+  =\left(\frac{\kappa}{2}\right)^{N_d(\theta)}.
+\end{equation}
+The right side is the product over building rounds, with an empty product equal to one.
+If the type remains pooled at date $d$, this event is a silent history and the same formula is its
+silent probability.
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+If $g_e=0$, then $q_e=0$, so the three possible flow values are
+$-\bar z$, $0$, and $+\bar z$. If $g_e=1$, then $q_e=2\bar z$, so the three possible values are
+$+\bar z$, $2\bar z$, and $3\bar z$. The two supports meet only at $+\bar z$. This proves the
+stated classification.
+
+The event $\{X_e\in\{2\bar z,3\bar z\}\}$ implies $g_e=1$. By (D-1), it therefore implies that
+the selected plan is Voice and $a=1$. On a pooled history of positive probability that contains
+such a value, Bayes' rule assigns probability one to $a=1$. Thus
+$\pi(\mathcal I_d)=1$ on that history.
+
+Fix a Voice type. On each of its $N_d(\theta)$ building rounds, the only flow value
+that does not reveal the positive mark is $+\bar z$. That value occurs on a building round
+exactly when $z_e=-\bar z$, an event of probability $\kappa/2$. Zero-mark rounds cannot produce
+$2\bar z$ or $3\bar z$ and hence cannot reveal a building mark. Independence across dates in
+(S12) now gives the product in \eqref{eq:detection-silence}. The event $D^d=0$ is a function of
+the type under (S7), so restricting the formula to pooled types does not change the noise product
+law.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[Upper set]
+\label{lem:upper-set}
+Fix a threshold margin $\tau$, a window margin $T$, and a date
+$d\in\{0,\ldots,H\}$. Assume:
+\begin{enumerate}[label=(U-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Monotone target.} The Voice target $b^*(s)\ge b_0$ is weakly increasing in the
+  signal.
+\item \emph{Monotone accumulation length.} The accumulation length
+  $n(s)\in\{1,\ldots,H+1\}$ is weakly decreasing in the signal.
+\item \emph{Ordered menu form.} Voice is selected on an upper interval of the signal line, and
+  its stake and mark paths are
+  \[
+    B_V(s,e)=b_0+\bigl(b^*(s)-b_0\bigr)
+      \min\!\left\{1,\frac{e+1}{n(s)}\right\},
+    \qquad
+    g_e(s)=\ind\{e<n(s)\}.
+  \]
+\item \emph{Timing and tape.} Conditions (S4), (S5), and (S7) hold, together with (D-1) and the
+  common noise channel (S12).
+\end{enumerate}
+Then the date-$d$ flagged signal set
+\begin{equation}
+\label{eq:upper-flagged-set}
+  \mathcal F_d
+  =\{s:j(s)=\mathrm{Voice},\ c(s;\tau)+T\le d\}
+\end{equation}
+is an upper set. If $s_2\ge s_1$ are Voice signals, then
+\[
+  c(s_2;\tau)\le c(s_1;\tau),
+  \qquad
+  N_d(s_2)\le N_d(s_1),
+  \qquad
+  N_d(s)=\min\{n(s),d+1\}.
+\]
+Consequently, for prior-almost every pair of Voice types $\theta_F$ and $\theta_P$ with
+$s(\theta_F)\in\mathcal F_d$ and
+$s(\theta_P)\notin\mathcal F_d$,
+\begin{equation}
+\label{eq:upper-silence-order}
+  \Prb(\text{no building mark revealed through }d\mid\theta_F)
+  \ge
+  \Prb(\text{no building mark revealed through }d\mid\theta_P).
+\end{equation}
+The inequality is strict when $\kappa>0$ and $N_d(\theta_F)<N_d(\theta_P)$. Thus the rule flags from
+the Voice types with weakly fewer building rounds, which occupy the weakly highest-probability end
+among Voice types for escaping tape identification.
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Take Voice signals $s_2\ge s_1$. By (U-1),
+$b^*(s_2)-b_0\ge b^*(s_1)-b_0\ge0$. By (U-2),
+$n(s_2)\le n(s_1)$, and therefore, at every date $e$,
+\[
+  \min\!\left\{1,\frac{e+1}{n(s_2)}\right\}
+  \ge
+  \min\!\left\{1,\frac{e+1}{n(s_1)}\right\}.
+\]
+Both factors in the product defining the increment above $b_0$ are nonnegative and weakly
+larger at $s_2$. The path formula in (U-3) gives
+$B_V(s_2,e)\ge B_V(s_1,e)$ for every $e$.
+
+Under (S5), $c(s;\tau)$ is the first date at which this path reaches $\tau$. If the lower signal
+has crossed by a date, the higher signal has crossed by that date as well. Hence
+$c(s_2;\tau)\le c(s_1;\tau)$. If $s_1\in\mathcal F_d$, then (U-3) keeps every higher signal in
+Voice and the crossing inequality gives
+$c(s_2;\tau)+T\le c(s_1;\tau)+T\le d$. Thus $s_2\in\mathcal F_d$, proving that
+$\mathcal F_d$ is an upper set. The path is fixed before flow is observed by (S7), so this
+ordering is not altered by realised noise or prices.
+
+The mark formula in (U-3) makes the mark equal to one at each date
+$e<\min\{n(s),d+1\}$ and none after it, so
+$N_d(s)=\min\{n(s),d+1\}$. This count is weakly decreasing in $s$ by (U-2). Since
+$\mathcal F_d$ is upper, a flagged signal cannot lie below an unflagged Voice signal. Thus, for the
+types in the statement, $N_d(\theta_F)\le N_d(\theta_P)$. Lemma~\ref{lem:detection} gives the two
+no-revelation probabilities as $(\kappa/2)^{N_d(\theta_F)}$ and
+$(\kappa/2)^{N_d(\theta_P)}$. The base lies in $[0,1/2]$, so the smaller
+exponent gives the weakly larger probability. It gives a strict inequality when the base is
+positive and the exponents differ.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[Silence]
+\label{lem:silence}
+Fix a date $d\in\{0,\ldots,H\}$ and compare rules at common fixed policies and common $\kappa$.
+Either $r_+=(\tau',T)$ and $r_-=(\tau,T)$ with $b_0<\tau'<\tau$, or
+$r_+=(\tau,T')$ and $r_-=(\tau,T)$ with $T'<T$. Let
+\[
+  A=\mathcal C_{P,r_+}^{d},
+  \qquad
+  R=\mathcal C_{P,r_-}^{d}\setminus\mathcal C_{P,r_+}^{d}.
+\]
+Assume:
+\begin{enumerate}[label=(L-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Nested upper removal.} Conditions (S4), (S5), (S7), and (S11), together with
+  (U-1) to (U-3), imply
+  $\mathcal C_{P,r_+}^{d}\subseteq\mathcal C_{P,r_-}^{d}$. The set $R$ has positive prior mass,
+  and $A$ and $R$ are $\sigma(s)$-measurable at fixed policies by Step~4 of
+  Lemma~\ref{lem:partition}. The set $R$ lies in $\{a=1\}$ and is upper relative to $A$: for
+  prior-almost every
+  $\theta_R\in R$ and $\theta_A\in A$, $s(\theta_R)\ge s(\theta_A)$.
+\item \emph{Common pooled likelihood.} Conditions (S12) and (S13) hold. On $A$, the two rules
+  have the same type-conditional law of the displayed pooled flow history.
+\item \emph{Monotone signal information.} The conditional mean
+  $\mu_v(s)=\Eop[v\mid s]$ exists and is weakly increasing in $s$, and
+  $v$ is conditionally independent of pooled flow given $s$. In the Gaussian signal model,
+  $\mu_v(s)=\mu_v+\beta(s-\mu_v)$ with $\beta>0$, so this ordering is strict.
+\item \emph{Common positive-probability history.} The displayed pooled flow history
+  $x=(x_0,\ldots,x_d)$, with all public filing coordinates equal to zero, has positive
+  probability under both rules.
+\end{enumerate}
+Let
+\[
+  \pi_r(x)=\Prb(a=1\mid X_{0:d}=x,D_r^d=0),
+  \qquad
+  \widehat v_r(x)=\Eop[v\mid X_{0:d}=x,D_r^d=0].
+\]
+Then
+\begin{equation}
+\label{eq:silence-posterior-order}
+  \pi_{r_+}(x)\le\pi_{r_-}(x),
+  \qquad
+  \widehat v_{r_+}(x)\le\widehat v_{r_-}(x).
+\end{equation}
+The first inequality is strict exactly when the looser posterior assigns positive probability to
+$R$ and $\pi_{r_+}(x)<1$. The second is strict when the looser posterior assigns positive
+probability to $R$ and the posterior mean of $\mu_v(s)$ on $R$ is strictly larger than its
+posterior mean on $A$. In particular, strict monotone signal information and strictly separated
+posterior signal supports give strictness when the looser posterior assigns positive probability
+to $R$. The conclusions apply to every silent history that satisfies (L-4), as well as to every
+other common pooled history of positive probability.
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Nestedness partitions the looser pooled type set into $A$ and $R$. Condition (S11) gives both rules
+the same prior over types. By (L-2), the likelihood of
+the common flow vector $x$ given a type is the same under both rules. Conditioning the looser
+posterior further on $A$ therefore gives the tighter posterior. Put
+\[
+  \lambda_x=\Prb(R\mid X_{0:d}=x,D_{r_-}^d=0).
+\]
+Assumption (L-4) gives positive posterior mass to $A$, so $0\le\lambda_x<1$. If
+$\lambda_x=0$, the two posteriors coincide and both inequalities in
+\eqref{eq:silence-posterior-order} are equalities. Suppose now that $\lambda_x>0$.
+
+Every type in $R$ is engaged by (L-1). The looser engagement posterior is therefore the mixture
+\[
+  \pi_{r_-}(x)
+  =(1-\lambda_x)\pi_{r_+}(x)+\lambda_x.
+\]
+Since $\pi_{r_+}(x)\le1$, this proves the first inequality. The displayed mixture also shows that
+it is strict exactly under the conditions stated.
+
+Let
+\[
+  \widehat v_R(x)=\Eop[v\mid X_{0:d}=x,\theta\in R].
+\]
+The same posterior decomposition gives
+\begin{equation}
+\label{eq:silence-v-mixture}
+  \widehat v_{r_-}(x)
+  =(1-\lambda_x)\widehat v_{r_+}(x)+\lambda_x\widehat v_R(x).
+\end{equation}
+By (L-3), conditioning on the flow adds no information about $v$ after conditioning on $s$.
+Thus the two component means in \eqref{eq:silence-v-mixture} are averages of $\mu_v(s)$ under
+their respective posterior signal laws. Assumption (L-1) puts every signal in $R$ weakly above
+every signal in $A$, and (L-3) makes $\mu_v$ weakly increasing. Hence
+$\widehat v_R(x)\ge\widehat v_{r_+}(x)$. Substitution into
+\eqref{eq:silence-v-mixture} proves the second inequality. It is strict exactly when
+$\lambda_x>0$ and the component means differ, with the stated signal conditions sufficient for
+that difference.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[Entry against the undetected]
+\label{lem:entry-undetected}
+Let $\Pi(\widehat v,\pi)$ be the unique pricing root of
+Lemma~\ref{lem:pricing-root}, and define the entry probability at that root by
+$e(\widehat v,\pi)=p(\Pi(\widehat v,\pi),\pi)$. Fix an interval
+$\mathcal V\subset\mathbb R$ of fundamental posterior means. Assume:
+\begin{enumerate}[label=(I-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Unique pinned root.} The hypotheses of Lemma~\ref{lem:pricing-root} hold, including
+  $m_0\ge0$, $\Delta_m>0$, $\Delta_V\ge0$, $\sigma_\xi>0$, and uniqueness of the finite fixed
+  point. The pinned pricing rule is the one in (S8).
+\item \emph{Entry derivatives.} For every finite $P$ and $\pi\in[0,1]$, entry has the normal form
+  \[
+    p(P,\pi)=1-\Phi\!\left(
+      \frac{P+K+m_0+\pi\Delta_m-\bar S}{\sigma_\xi}\right),
+  \]
+  so it is continuously differentiable with
+  $\partial_Pp<0$ and $\partial_\pi p<0$.
+\item \emph{Added engagement-price condition.} At every root
+  $P=\Pi(\widehat v,\pi)$ with $(\widehat v,\pi)\in\mathcal V\times[0,1]$, write
+  $m(\pi)=m_0+\pi\Delta_m$ and $o(P,\pi)=p(P,\pi)/(1-p(P,\pi))$. Assume
+  \begin{equation}
+  \label{eq:entry-price-condition}
+    \Delta_V+\Delta_m o(P,\pi)+m(\pi)\,\partial_\pi o(P,\pi)>0.
+  \end{equation}
+  Equivalently, with
+  $t=(P+K+m(\pi)-\bar S)/\sigma_\xi$ and standard normal density $\phi$,
+  \[
+    \Delta_V+\Delta_m o(P,\pi)
+    >
+    \frac{m(\pi)\Delta_m\phi(t)}{\sigma_\xi\Phi(t)^2}.
+  \]
+\item \emph{Added history-comparison condition.} For the history comparison, the silent pooled
+  history has engagement posterior $\pi_U\le1$. A tape-detected pooled history with the same fundamental
+  posterior mean has engagement posterior one. The comparison is nondegenerate when $\pi_U<1$.
+\end{enumerate}
+Then $\Pi(\widehat v,\pi)$ is strictly increasing in both $\widehat v$ and $\pi$ on the stated
+domain, while $e(\widehat v,\pi)$ is strictly decreasing in both. Hence, holding the fundamental
+posterior mean fixed,
+\begin{equation}
+\label{eq:entry-undetected-gap}
+  e(\widehat v,\pi_U)\ge e(\widehat v,1),
+  \qquad \widehat v\in\mathcal V.
+\end{equation}
+The inequality is strict when $\pi_U<1$ and is an equality when $\pi_U=1$.
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+The pricing fixed point can be written as the root of
+\begin{equation}
+\label{eq:entry-root-residual}
+  \mathcal R(P;\widehat v,\pi)
+  =P-\widehat v-\pi\Delta_V-m(\pi)o(P,\pi)=0.
+\end{equation}
+By (I-2), $p\in(0,1)$, $\partial_Pp<0$, and the odds map is strictly increasing in $p$.
+Therefore $\partial_Po<0$. Since $m(\pi)\ge0$,
+\begin{equation}
+\label{eq:entry-root-slope}
+  \partial_P\mathcal R=1-m(\pi)\partial_Po>0.
+\end{equation}
+Lemma~\ref{lem:pricing-root} supplies the unique root. Equation
+\eqref{eq:entry-root-slope} lets the implicit function theorem differentiate that root.
+Because $\partial_{\widehat v}\mathcal R=-1$,
+\[
+  \partial_{\widehat v}\Pi
+  =-\frac{\partial_{\widehat v}\mathcal R}{\partial_P\mathcal R}
+  =\frac{1}{\partial_P\mathcal R}>0.
+\]
+For the engagement posterior,
+\[
+  \partial_\pi \mathcal R
+  =-\Delta_V-\Delta_mo-m(\pi)\partial_\pi o.
+\]
+Condition \eqref{eq:entry-price-condition} says exactly that this derivative is negative. Hence
+\[
+  \partial_\pi\Pi
+  =-\frac{\partial_\pi \mathcal R}{\partial_P\mathcal R}>0.
+\]
+Continuity of the unique root, supplied by Lemma~\ref{lem:pricing-root}, extends these monotone
+comparisons to the endpoints of the posterior interval.
+
+Apply the chain rule to entry at the root:
+\[
+  \partial_{\widehat v}e
+  =(\partial_Pp)(\partial_{\widehat v}\Pi)<0,
+  \qquad
+  \partial_\pi e
+  =(\partial_Pp)(\partial_\pi\Pi)+\partial_\pi p<0.
+\]
+Both signs use all the derivative restrictions in (I-2); the second also uses (I-3). Under (I-4),
+decrease in $\pi$ at fixed $\widehat v$ gives \eqref{eq:entry-undetected-gap}, strictly when
+$\pi_U<1$. When $\pi_U=1$, both arguments of $e$ are the same.
+\end{proof}

@@ -1,14 +1,13 @@
 % =============================================================================
 % appendix.tex -- proofs and hypothesis lists
-% Who Gets Caught: Blockholder Disclosure Rules and Market Inference
+% Who Gets Caught: Disclosure Rules, Liquidity and the Undetected Blockholder
 %
 % Compile (from the repo root, after paper.tex and biber):
 %   xelatex -interaction=nonstopmode appendix.tex
 %
-% Assembles proofs/04_inherited.tex, proofs/02_garbling.tex and
-% proofs/03_caught.tex by \input, in that order: the partition subsection's
-% standing conditions (S1) to (S11) come first, the corollary's hypotheses
-% (C-1) to (C-3) cite them, and each fragment's cross-references stay inside
+% Assembles the proof fragments under proofs/ by \input, in the order below:
+% the partition subsection's standing conditions come first and every later
+% fragment cites them by number; each fragment's cross-references stay inside
 % the file that carries them.
 % =============================================================================
 
@@ -42,7 +41,7 @@
 \newcommand{\Prb}{\mathbb{P}}
 \newcommand{\ind}{\mathbf{1}}
 
-\title{\textbf{Who Gets Caught: Blockholder Disclosure Rules and Market Inference}\\[0.3em]
+\title{\textbf{Who Gets Caught: Disclosure Rules, Liquidity and the Undetected Blockholder}\\[0.3em]
 \large Appendix: statements, hypothesis lists, and proofs}
 \author{Austin Li\\[0.25em]}
 \date{This draft: 2 September 2026}
@@ -54,7 +53,7 @@
 statements, and closes with two lemmas on the pricing root and the filing timing.
 It starts with the disclosure partition and the fixed-policy results,
 then gives the order-size-two pooled experiment, the threshold dial, and the
-who-gets-caught corollary. The standing conditions (S1) to (S11) apply to
+who-gets-caught corollary. The standing conditions (S1) to (S14) apply to
 every statement that uses them. The corollary's hypotheses (C-1) to (C-3) cite
 them by number.
 
@@ -63,12 +62,18 @@ them by number.
 
 \input{proofs/04_inherited.tex}
 
+\input{proofs/08_blackwell.tex}
+
 \input{proofs/02_garbling.tex}
 
-\section{The who-gets-caught corollary of the clock dial}
+\input{proofs/07_detection.tex}
+
+\section{Who gets caught: nested cuts under both dials}
 \label{sec:app-caught}
 
 \input{proofs/03_caught.tex}
+
+\input{proofs/09_regret.tex}
 
 \input{proofs/06_lemmas.tex}
 

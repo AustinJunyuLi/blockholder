@@ -5,8 +5,8 @@
 % appendix.tex must supply: amsmath, amssymb, amsthm (the proof environment), enumitem,
 %   \newtheorem{corollary}{Corollary}, and the macros \Eop, \Prb, \ind.
 % Cross-references to the partition result, the clock equivalence and the clock
-%   theorem are written in words here; ticket 11 owns the \ref targets.
-% Notation notes for ticket 11: (a) B below is the set of newly caught histories. It
+%   theorem are written in words here.
+% Notation notes: (a) B below is the set of newly caught histories. It
 %   is unrelated to the stake symbols B_j(s,t) and B^F. (b) The caught share is
 %   written \varphi, not \beta, because \beta is the signal weight
 %   sigma_v^2/(sigma_v^2 + sigma_eps^2) in the model section. Rename either if the
@@ -75,11 +75,11 @@ Two further quantities separate what the catch removes from how the surviving po
 \qquad
 \delta \;=\; \partial_\kappa\Eop\bigl[h^{(T')} - h^{(T)} \bigm| A\setminus B\bigr] .
 \end{equation}
-Here $\tilde s_B$ is the noise sensitivity of the newly caught histories, priced as the longer
-clock priced them, and $\delta$ is the \emph{re-pricing remainder}: the pooled posterior conditions
+Here $\tilde s_B$ is the \emph{caught-only leg}, the noise sensitivity of the newly caught
+histories priced as the longer clock priced them, and $\delta$ is the \emph{re-pricing term}: the pooled posterior conditions
 on the pool the rule leaves behind, so the histories that stay pooled are read against a smaller
 pool once the clock shortens, and $\delta$ is the rate at which that re-reading moves their noise
-sensitivity. Define the \emph{caught leg} by
+sensitivity. Define the \emph{net cut leg} by
 \begin{equation}
 \label{eq:caught-sB}
 s_B \;:=\; \frac{1}{\Prb(B)}\,
@@ -98,9 +98,9 @@ The pooled cell contributes to the expected engagement premium an amount
   &&\text{at the shorter one.}
 \end{aligned}
 \]
-So $s_B$ is the derivative of $\Lambda_T - \Lambda_{T'}$ per unit of pooled mass removed: it is
+So the net cut leg $s_B$ is the derivative of $\Lambda_T - \Lambda_{T'}$ per unit of pooled mass removed: it is
 the noise sensitivity of the premium mass the shorter clock removes from the pool, and it
-carries the survivors' re-pricing. It is not $\tilde s_B$. Under the extra clause of (C-2) it
+carries the survivors' re-pricing. It is not the caught-only leg $\tilde s_B$. Under the extra clause of (C-2) it
 splits into the two parts just named,
 \begin{equation}
 \label{eq:caught-split}
@@ -114,8 +114,9 @@ The hypotheses are:
   fixed in $\kappa$ and held fixed across the two window margins, the threshold margin $\tau$ is
   common, the noise intensity $\kappa$ is common, and the timing carries no feedback from order
   flow into the blockholder's executed order path. Liquidity enters the primitives in one place
-  only, the law of the ternary noise mark, which is standing condition (S11) of the partition
-  subsection; part~(ii) consumes that.
+  only, the law of the ternary noise mark, which is standing condition (S10) of the partition
+  subsection; fixed policies are standing condition (S11), cited separately here. Part~(ii)
+  consumes both conditions.
 \item \emph{Differentiability.} The two conditional expectations in \eqref{eq:caught-sens} are
   differentiable in $\kappa$ at the point compared. For the split \eqref{eq:caught-split} into
   $\tilde s_B$ and $\delta$, $\Eop[h^{(T)}\mid B]$ is also differentiable. The kernel is the
@@ -157,7 +158,7 @@ Under (C-1) to (C-3):
   the last expression under the extra differentiability of (C-2). Equivalently
   $s_A = (1-\varphi)\,s_{A\setminus B} + \varphi\,s_B$: the longer clock's pooled sensitivity is
   the mass-weighted average of the sensitivity of what the shorter clock leaves in the pool and
-  $s_B$, the derivative of $\Lambda_T-\Lambda_{T'}$ per unit of pooled mass removed, which
+  the net cut leg $s_B$, the derivative of $\Lambda_T-\Lambda_{T'}$ per unit of pooled mass removed, which
   carries the survivors' re-pricing.
 \item \emph{The composition ratio.}
   \begin{equation}
@@ -345,18 +346,459 @@ direction: there what the clock removes need only move with the pool and stay in
 times its sensitivity.
 
 What the clock removes has two parts, and \eqref{eq:caught-split} separates them. The first is the
-noise sensitivity of the newly caught histories themselves, read at the prices the longer clock
-gave them. The second is the re-pricing remainder: the surviving pool is a smaller pool once the
+caught-only leg, the noise sensitivity of the newly caught histories read at the prices the longer
+clock gave them. The second is the re-pricing term: the surviving pool is a smaller pool once the
 clock shortens, and the market reads it against that smaller pool, so its own sensitivity moves
 too. The criterion runs on the sum, which is the sensitivity of the premium mass that leaves the
-pool. When the re-pricing remainder is zero the sum is the first part alone, and the criterion is
+pool. When the re-pricing term is zero the sum is the first part alone, and the criterion is
 a statement about the caught histories and nothing else.
 
 The corollary turns the ratio $C_T$ into a question with an answer at every calibration node, and
 that question is who gets caught. Under a common sign, $s_A s_B > 0$, the composition ratio
-satisfies $C_T \le 1$ if and only if the caught sensitivity $s_B$ lies weakly between $s_A$ and
+satisfies $C_T \le 1$ if and only if the net cut leg $s_B$ lies weakly between $s_A$ and
 $\bigl((2-\varphi)/\varphi\bigr)\,s_A$, which is part~(iv); and the shorter clock lowers noise
 sensitivity overall, $W_T C_T \le 1$, if and only if $s_B$ lies weakly between $0$ and
 $(2/\varphi)\,s_A$, which is part~(v). The two bands differ: the weight leg lets the overall
-criterion accept a caught leg less sensitive than the pool, which the composition criterion alone
+criterion accept a net cut leg less sensitive than the pool, which the composition criterion alone
 does not.
+
+% =============================================================================
+% The same accounting law at the threshold margin.
+% =============================================================================
+
+\csname unlabelledtrue\endcsname
+\begin{corollary}[Who gets caught at the threshold margin]
+\label{cor:caught-threshold}
+Fix a common window margin $T$ and liquidity $\kappa$, and compare $b_0<\tau'<\tau$, with
+$(\tau',T)$ the tighter rule. Write
+\begin{equation}
+\label{eq:caught-tau-sets}
+A_\tau=\mathcal C_P(\tau,T),
+\qquad
+B_\tau=\mathcal C_F(\tau',T)\setminus\mathcal C_F(\tau,T),
+\qquad
+R_\tau=A_\tau\setminus B_\tau,
+\end{equation}
+and let $h^{(\tau)}$ and $h^{(\tau')}$ be the kernels supplied by the two rules. Set
+\begin{align}
+\label{eq:caught-tau-definitions}
+\varphi_\tau&=\frac{\Prb(B_\tau)}{\Prb(A_\tau)},
+&s_{A,\tau}&=\partial_\kappa\Eop[h^{(\tau)}\mid A_\tau],
+&s_{R,\tau}&=\partial_\kappa\Eop[h^{(\tau')}\mid R_\tau],
+\nonumber\\
+\widetilde s_{B,\tau}&=\partial_\kappa\Eop[h^{(\tau)}\mid B_\tau],
+&\delta_\tau&=\partial_\kappa\Eop[h^{(\tau')}-h^{(\tau)}\mid R_\tau],
+\end{align}
+and define the net cut leg by
+\begin{equation}
+\label{eq:caught-tau-sB}
+s_{B,\tau}:=\frac{1}{\Prb(B_\tau)}\partial_\kappa\left(
+\Eop[h^{(\tau)}\ind_{A_\tau}]
+-\Eop[h^{(\tau')}\ind_{R_\tau}]
+\right).
+\end{equation}
+Assume standing conditions (S1) to (S11) and the following conditions.
+\begin{enumerate}[label=(C$\tau$-\arabic*),leftmargin=3.8em,itemsep=3pt]
+\item \emph{A fixed threshold cut.} The window margin and liquidity are common, and
+  $b_0<\tau'<\tau$. Conditions (S4), (S5), and (S7) apply at both thresholds, so both disclosure
+  indicators are functions of the same plan and signal. Liquidity enters only through the noise law
+  by (S10), and the policies are common by (S11).
+\item \emph{Differentiability and pinned kernels.} The maps
+  $\kappa\mapsto\Eop[h^{(\tau)}\mid A_\tau]$ and
+  $\kappa\mapsto\Eop[h^{(\tau')}\mid R_\tau]$ are differentiable at the compared liquidity.
+  Condition (S8) pins both kernels. For the split into the caught-only leg and the re-pricing term,
+  $\Eop[h^{(\tau)}\mid B_\tau]$ is also differentiable.
+\item \emph{Non-degeneracy and factorisation.}
+  $0<\Prb(B_\tau)<\Prb(A_\tau)$, $0<\Omega(\tau,T)$,
+  $\Omega(\tau',T)<1$, and $s_{A,\tau}\ne0$. Whenever the aggregate criterion is invoked, the
+  hypotheses of Proposition~\ref{prop:factorisation}, including flagged-endpoint invariance, hold
+  at both thresholds.
+\item \emph{Erasure representation.} Only the identification with
+  Condition~\ref{cond:D} requires standing conditions (S12) and (S13), order size two, and
+  $\kappa\in(0,1)$, so that Lemmas~\ref{lem:g1} to~\ref{lem:g3} apply. The cut algebra below does
+  not use this clause.
+\end{enumerate}
+Under (C$\tau$-1) to (C$\tau$-3):
+\begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=3pt]
+\item \emph{The cut is nested.}
+  $\mathcal C_F(\tau,T)\subseteq\mathcal C_F(\tau',T)$, hence
+  $B_\tau\subseteq A_\tau$ and $R_\tau=\mathcal C_P(\tau',T)$, and
+  \begin{equation}
+  \label{eq:caught-tau-W}
+  W_\tau=\frac{1-\Omega(\tau',T)}{1-\Omega(\tau,T)}
+  =1-\varphi_\tau\le1,
+  \qquad \varphi_\tau\in(0,1).
+  \end{equation}
+\item \emph{The cell masses are $\kappa$-free.}
+  $\partial_\kappa\Prb(A_\tau)=\partial_\kappa\Prb(B_\tau)=0$, so
+  $\varphi_\tau$ does not depend on $\kappa$.
+\item \emph{The cut identity.}
+  \begin{equation}
+  \label{eq:caught-tau-identity}
+  s_{R,\tau}
+  =\frac{\Prb(A_\tau)s_{A,\tau}-\Prb(B_\tau)s_{B,\tau}}
+  {\Prb(A_\tau)-\Prb(B_\tau)}
+  =\frac{s_{A,\tau}-\varphi_\tau s_{B,\tau}}{1-\varphi_\tau}
+  =\frac{s_{A,\tau}-\varphi_\tau\widetilde s_{B,\tau}}{1-\varphi_\tau}
+  +\delta_\tau,
+  \end{equation}
+  where the last expression uses the extra differentiability in (C$\tau$-2). Equivalently,
+  \begin{equation}
+  \label{eq:caught-tau-average}
+  s_{A,\tau}=(1-\varphi_\tau)s_{R,\tau}+\varphi_\tau s_{B,\tau},
+  \qquad
+  s_{B,\tau}=\widetilde s_{B,\tau}
+  -\frac{1-\varphi_\tau}{\varphi_\tau}\delta_\tau.
+  \end{equation}
+\item \emph{The composition ratio.}
+  \begin{equation}
+  \label{eq:caught-tau-C}
+  \begin{aligned}
+  C_\tau&=\frac{|s_{A,\tau}-\varphi_\tau s_{B,\tau}|}
+  {(1-\varphi_\tau)|s_{A,\tau}|},\\
+  C_\tau\le1
+  &\quad\Longleftrightarrow\quad
+  (s_{B,\tau}-s_{A,\tau})
+  \bigl(\varphi_\tau s_{B,\tau}-(2-\varphi_\tau)s_{A,\tau}\bigr)\le0.
+  \end{aligned}
+  \end{equation}
+  Thus $C_\tau\le1$ exactly when the net cut leg lies weakly between $s_{A,\tau}$ and
+  $((2-\varphi_\tau)/\varphi_\tau)s_{A,\tau}$. Under (C$\tau$-4), this is equivalent to
+  Condition~\ref{cond:D}.
+\item \emph{The attenuation criterion.}
+  \begin{equation}
+  \label{eq:caught-tau-WC}
+  \begin{aligned}
+  W_\tau C_\tau
+  &=\frac{|s_{A,\tau}-\varphi_\tau s_{B,\tau}|}{|s_{A,\tau}|},\\
+  W_\tau C_\tau\le1
+  &\quad\Longleftrightarrow\quad
+  s_{B,\tau}(2s_{A,\tau}-\varphi_\tau s_{B,\tau})\ge0.
+  \end{aligned}
+  \end{equation}
+  Thus attenuation holds exactly when the net cut leg lies weakly between $0$ and
+  $(2/\varphi_\tau)s_{A,\tau}$. Under (C$\tau$-3), this is equivalent to the tighter threshold
+  weakly lowering aggregate liquidity sensitivity.
+\item \emph{Readings.} Write $\rho_\tau=s_{B,\tau}/s_{A,\tau}$, which is well defined by
+  (C$\tau$-3).
+  \begin{enumerate}[label=(\alph*),leftmargin=2.2em,itemsep=2pt]
+  \item If $s_{A,\tau}s_{B,\tau}\le0$, including $s_{B,\tau}=0$, then $C_\tau>1$.
+  \item If $s_{A,\tau}s_{B,\tau}>0$, then $C_\tau\le1$ if and only if
+    $|s_{A,\tau}|\le|s_{B,\tau}|\le
+    ((2-\varphi_\tau)/\varphi_\tau)|s_{A,\tau}|$.
+  \item If $s_{R,\tau}s_{A,\tau}\ge0$, then $C_\tau\le1$ if and only if
+    $\rho_\tau\ge1$. That inequality forces $s_{B,\tau}$ and $s_{A,\tau}$ to have a common sign and
+    says $|s_{B,\tau}|\ge|s_{A,\tau}|$. Under that common sign, the proviso
+    $s_{R,\tau}s_{A,\tau}\ge0$ is
+    $|s_{B,\tau}|\le|s_{A,\tau}|/\varphi_\tau$.
+  \item $W_\tau C_\tau\le1$ if and only if $s_{B,\tau}$ has the sign of
+    $s_{A,\tau}$ or is zero, and
+    $|s_{B,\tau}|\le(2/\varphi_\tau)|s_{A,\tau}|$.
+  \item The upper limits $(2-\varphi_\tau)/\varphi_\tau$ and $2/\varphi_\tau$ fall as
+    $\varphi_\tau$ rises and diverge as $\varphi_\tau\downarrow0$. If $M\ge1$,
+    $\varphi_\tau\le2/(1+M)$, and $|s_{B,\tau}|\le M|s_{A,\tau}|$, the upper limits are slack.
+    The composition condition then asks for a common sign and
+    $|s_{B,\tau}|\ge|s_{A,\tau}|$. The aggregate condition asks only for a common sign or
+    $s_{B,\tau}=0$.
+  \end{enumerate}
+\end{enumerate}
+\end{corollary}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+By (C$\tau$-1) and Lemma~\ref{lem:threshold-weight}, at either threshold the disclosure indicator
+has the product form
+\[
+D(\tau_0,T)=\ind\{a=1\}\ind\{B(s,H-T)\ge\tau_0\},
+\qquad \tau_0\in\{\tau',\tau\}.
+\]
+If a history is flagged at $\tau$, then its common stake path satisfies
+$B(s,H-T)\ge\tau>\tau'$, so it is flagged at $\tau'$. This proves the flagged-set inclusion.
+Taking complements gives $R_\tau=\mathcal C_P(\tau',T)$. The mass identity then gives
+\eqref{eq:caught-tau-W}, and (C$\tau$-3) gives $0<\varphi_\tau<1$.
+
+Conditions (S3), (S7), (S10), and (S11) make $A_\tau$ and $B_\tau$ events determined by the common plan
+and signal, whose law does not move with $\kappa$. Their masses and their ratio are therefore
+$\kappa$-free. This proves part~(ii).
+
+For part~(iii), put
+\[
+\Lambda_\tau=\Eop[h^{(\tau)}\ind_{A_\tau}],
+\qquad
+\Lambda_{\tau'}=\Eop[h^{(\tau')}\ind_{R_\tau}].
+\]
+Part~(ii) and (C$\tau$-2) give
+\[
+\partial_\kappa\Lambda_\tau=\Prb(A_\tau)s_{A,\tau},
+\qquad
+\partial_\kappa\Lambda_{\tau'}=\Prb(R_\tau)s_{R,\tau}.
+\]
+Definition~\eqref{eq:caught-tau-sB} and
+$\Prb(R_\tau)=\Prb(A_\tau)-\Prb(B_\tau)$ now give the first two equalities in
+\eqref{eq:caught-tau-identity} and the average identity in
+\eqref{eq:caught-tau-average}. For the split, use
+$\ind_{A_\tau}=\ind_{B_\tau}+\ind_{R_\tau}$ to write
+\[
+\Lambda_\tau-\Lambda_{\tau'}
+=\Prb(B_\tau)\Eop[h^{(\tau)}\mid B_\tau]
+-\Prb(R_\tau)\Eop[h^{(\tau')}-h^{(\tau)}\mid R_\tau].
+\]
+Differentiate and divide by $\Prb(B_\tau)$. This proves the second identity in
+\eqref{eq:caught-tau-average}; substituting it into the average identity proves the last equality in
+\eqref{eq:caught-tau-identity}.
+
+By (S9) and Lemma~\ref{lem:two-cell},
+\[
+\mathcal S_P(\kappa,\tau,T)=\Delta_m|s_{A,\tau}|,
+\qquad
+\mathcal S_P(\kappa,\tau',T)=\Delta_m|s_{R,\tau}|.
+\]
+Use \eqref{eq:caught-tau-identity} and $1-\varphi_\tau>0$ to obtain the first line of
+\eqref{eq:caught-tau-C}. To test $C_\tau\le1$, set
+$u=s_{A,\tau}-\varphi_\tau s_{B,\tau}$ and
+$w=(1-\varphi_\tau)s_{A,\tau}$. Then
+\[
+u^2-w^2
+=\varphi_\tau(s_{A,\tau}-s_{B,\tau})
+\bigl((2-\varphi_\tau)s_{A,\tau}-\varphi_\tau s_{B,\tau}\bigr).
+\]
+The denominator in $C_\tau$ is positive. Squaring therefore preserves the comparison, and the
+display is nonpositive exactly when $s_{B,\tau}$ lies between the two roots in part~(iv). Under
+(C$\tau$-4), Lemma~\ref{lem:g3} identifies the two pooled sensitivities with the absolute revelation
+values, so this is Condition~\ref{cond:D}.
+
+Multiplying the first line of \eqref{eq:caught-tau-C} by
+$W_\tau=1-\varphi_\tau$ proves the first line of \eqref{eq:caught-tau-WC}. The second follows from
+\[
+(s_{A,\tau}-\varphi_\tau s_{B,\tau})^2-s_{A,\tau}^2
+=-\varphi_\tau s_{B,\tau}(2s_{A,\tau}-\varphi_\tau s_{B,\tau}).
+\]
+The two roots are $0$ and $(2/\varphi_\tau)s_{A,\tau}$. The factorisation assumed in
+(C$\tau$-3) turns $W_\tau C_\tau$ into the ratio of aggregate sensitivities, proving part~(v).
+
+For part~(vi), the two roots in part~(iv) are nonzero and have the sign of $s_{A,\tau}$, so zero
+lies strictly outside the closed interval between them. This proves (a). Under a common sign,
+division by $s_{A,\tau}$ turns their interval into
+$1\le\rho_\tau\le(2-\varphi_\tau)/\varphi_\tau$, proving (b). The average identity gives
+\[
+\frac{s_{R,\tau}}{s_{A,\tau}}
+=\frac{1-\varphi_\tau\rho_\tau}{1-\varphi_\tau}.
+\]
+Under the proviso in (c), the left side is nonnegative, so its absolute value is at most one exactly
+when $\rho_\tau\ge1$; the same display gives the stated upper limit. Dividing the interval in
+part~(v) by $s_{A,\tau}$ proves (d). Finally, both upper limits fall in $\varphi_\tau$ and diverge at
+zero. The inequality $\varphi_\tau\le2/(1+M)$ implies
+$(2-\varphi_\tau)/\varphi_\tau\ge M$ and $2/\varphi_\tau\ge M$, which proves (e).
+\end{proof}
+
+% =============================================================================
+% The split and the polynomial implications for either dial.
+% =============================================================================
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[The cut split at both margins]
+\label{lem:cut-split}
+Assume standing conditions (S1) to (S11). Compare either a shorter clock $T'<T$ at common
+$(\tau,\kappa)$ or a tighter threshold $b_0<\tau'<\tau$ at common $(T,\kappa)$. Call the looser rule
+$r_-$ and the tighter rule $r_+$, and write
+\[
+A=\mathcal C_{P,r_-},
+\qquad
+B=\mathcal C_{F,r_+}\setminus\mathcal C_{F,r_-},
+\qquad
+R=A\setminus B,
+\qquad
+\varphi=\frac{\Prb(B)}{\Prb(A)}.
+\]
+Here $R$ is the surviving tighter pool; Lemma~\ref{lem:silence} uses $A$ for that role.
+Let $h^-$ and $h^+$ be the kernels supplied by $r_-$ and $r_+$. The following conditions are in
+force.
+\begin{enumerate}[label=(K-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{A non-null nested cut.} Conditions (S4), (S5), (S7), and (S11), with
+  Corollary~\ref{cor:caught}(i) for the clock or Corollary~\ref{cor:caught-threshold}(i) for the
+  threshold, give $R=\mathcal C_{P,r_+}$ and the displayed nesting at the chosen margin, and
+  $0<\Prb(B)<\Prb(A)$.
+\item \emph{Pinned differentiable terms.} Condition (S8) pins $h^-$ and $h^+$. The maps
+  $\kappa\mapsto\Eop[h^-\mid B]$ and
+  $\kappa\mapsto\Eop[h^- -h^+\mid R]$ are differentiable. Conditions (S1) to (S3), (S7),
+  (S10), and (S11) make the masses of $A$, $B$, and $R$ independent of $\kappa$.
+\end{enumerate}
+Define the caught-only leg, the re-pricing term oriented with the net cut, and the net cut leg by
+\begin{align}
+\label{eq:cut-split-definitions}
+\widetilde s_B&=\partial_\kappa\Eop[h^-\mid B],
+&\delta_{\mathrm{cut}}&=\partial_\kappa\Eop[h^- -h^+\mid R],
+\nonumber\\
+s_B&=\frac{1}{\Prb(B)}\partial_\kappa
+\left(\Eop[h^-\ind_A]-\Eop[h^+\ind_R]\right).
+\end{align}
+Thus $\delta_{\mathrm{cut}}=-\delta$ for the clock notation above and
+$\delta_{\mathrm{cut}}=-\delta_\tau$ for the threshold notation above. This orientation makes both
+contributions enter the net cut with positive coefficients.
+Then, at either margin,
+\begin{equation}
+\label{eq:cut-split-both}
+s_B=\widetilde s_B+\frac{1-\varphi}{\varphi}\,\delta_{\mathrm{cut}}.
+\end{equation}
+The caught-only leg prices the newly flagged histories under the looser rule. The re-pricing term
+prices the survivors under both rules.
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+The sets $B$ and $R$ partition $A$, so
+\[
+\begin{aligned}
+\Eop[h^-\ind_A]-\Eop[h^+\ind_R]
+&=\Eop[h^-\ind_B]+\Eop[(h^- -h^+)\ind_R]\\
+&=\Prb(B)\Eop[h^-\mid B]
+  +\Prb(R)\Eop[h^- -h^+\mid R].
+\end{aligned}
+\]
+The three masses are $\kappa$-free under (K-2). Differentiate, divide by $\Prb(B)>0$, and use
+$\Prb(R)/\Prb(B)=(1-\varphi)/\varphi$. This gives
+\eqref{eq:cut-split-both}.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[One crossing decides the composition band]
+\label{lem:one-crossing}
+Take a non-null nested clock or threshold cut at fixed policies and an interior liquidity
+$\kappa\in(0,1)$ in the order-size-two model. Let $r_-$ be the looser rule and
+$r_+$ the tighter rule, and write
+\[
+A=\mathcal C_{P,r_-},
+\qquad
+B=\mathcal C_{F,r_+}\setminus\mathcal C_{F,r_-},
+\qquad
+R=A\setminus B=\mathcal C_{P,r_+},
+\qquad
+\varphi=\frac{\Prb(B)}{\Prb(A)}\in(0,1).
+\]
+Assume standing conditions (S1) to (S13), so
+Lemma~\ref{lem:g3} represents each pooled premium as a polynomial in $\kappa$ with coefficients that
+do not depend on $\kappa$. In kernel units write
+\begin{equation}
+\label{eq:one-crossing-slopes}
+s^q(\kappa)=-\frac12\sum_{k=0}^{H}(1-\varepsilon)^k\varepsilon^{H-k}c_k^q,
+\qquad \varepsilon=\kappa/2,
+\qquad q\in\{-,+\},
+\end{equation}
+where
+$s^-=\partial_\kappa\Eop[h^-\mid A]$ and
+$s^+=\partial_\kappa\Eop[h^+\mid R]$ are the signed pooled slopes under $r_-$ and $r_+$. Set
+$d_k=c_k^+-c_k^-$ and, for $v=(v_0,\ldots,v_H)$, define the reversed polynomial
+\begin{equation}
+\label{eq:one-crossing-polynomial}
+P_v(x)=\sum_{k=0}^{H}v_kx^{H-k},
+\qquad x=x(\kappa)=\frac{\kappa}{2-\kappa}.
+\end{equation}
+Assume:
+\begin{enumerate}[label=(R\arabic*),leftmargin=3.0em,itemsep=3pt]
+\item \emph{One crossing for each pooled cell.} After zero coefficients are deleted, each of
+  $(c_0^-,\ldots,c_H^-)$ and $(c_0^+,\ldots,c_H^+)$ changes sign exactly once, from negative to
+  positive. The actual endpoint coefficients satisfy $c_0^-<0<c_H^-$ and $c_0^+<0<c_H^+$.
+\item \emph{One crossing for the survivor difference.} After zero coefficients are deleted,
+  $(d_0,\ldots,d_H)$ changes sign exactly once, from positive to negative, and
+  $d_0>0>d_H$.
+\item \emph{Liquidity is above the three revelation roots.} Let $r_A$, $r_R$, and $r_D$ be the
+  positive roots of $P_{c^-}$, $P_{c^+}$, and $P_d$, which (R1), (R2), and Descartes' rule make
+  unique. At the liquidity compared,
+  \[
+  x(\kappa)>r_*:=\max\{r_A,r_R,r_D\}.
+  \]
+\end{enumerate}
+Then
+\begin{equation}
+\label{eq:one-crossing-order}
+0<s^+(\kappa)<s^-(\kappa),
+\end{equation}
+and the net cut leg defined by
+$s^-=(1-\varphi)s^++\varphi s_B$ satisfies
+\begin{equation}
+\label{eq:one-crossing-band}
+s^-<s_B<\frac{s^-}{\varphi}
+<\frac{2-\varphi}{\varphi}s^-.
+\end{equation}
+Thus the net cut leg lies in the composition band and the tighter pool has strictly lower liquidity
+sensitivity. The composition ratio at the chosen margin, as defined in
+Corollary~\ref{cor:caught} or Corollary~\ref{cor:caught-threshold}, is
+$C_{\mathrm{cut}}=|s^+|/|s^-|<1$.
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+The coefficient list of each $P_{c^q}$ has exactly one sign change. Descartes' rule of signs gives
+exactly one positive root, counted with multiplicity. The strict endpoint coefficients give
+$P_{c^q}(0)=c_H^q>0$ and a negative leading coefficient, so
+$P_{c^q}(x)<0$ above its positive root. The same argument applied to $P_d$ gives one positive root,
+with $P_d(0)=d_H<0$ and a positive leading coefficient, so $P_d(x)>0$ above that root.
+
+\begin{equation}
+\label{eq:one-crossing-factor}
+\sum_{k=0}^{H}(1-\varepsilon)^k\varepsilon^{H-k}v_k
+=(1-\varepsilon)^H P_v(x(\kappa)).
+\end{equation}
+The factor on the right is positive. Since $P_d=P_{c^+}-P_{c^-}$ by linearity of $v\mapsto P_v$,
+condition (R3) therefore gives
+\[
+\Wrev^-<\Wrev^+<0,
+\qquad
+\Wrev^q:=\sum_{k=0}^{H}(1-\varepsilon)^k\varepsilon^{H-k}c_k^q.
+\]
+Equation~\eqref{eq:one-crossing-slopes} proves
+\eqref{eq:one-crossing-order}. Solving the cut identity for the net cut leg gives
+\[
+s_B=\frac{s^--(1-\varphi)s^+}{\varphi}.
+\]
+Hence
+\[
+s_B-s^-=\frac{1-\varphi}{\varphi}(s^--s^+)>0,
+\qquad
+\frac{s^-}{\varphi}-s_B=\frac{1-\varphi}{\varphi}s^+>0.
+\]
+Since $0<\varphi<1$ and $s^->0$,
+$s^-/\varphi<((2-\varphi)/\varphi)s^-$. This proves the band and the composition conclusion.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{lemma}[Distinct crossings reverse total sensitivity]
+\label{lem:reversal}
+Compare a non-null nested pair at fixed policies, with $r_-$ the looser rule and $r_+$ the tighter
+rule. Let $s^-$ be the signed pooled slope under $r_-$ and let $s^+$ be the slope under $r_+$,
+using its own kernel on $\mathcal C_{P,r_+}$. Write
+$\Omega_q=\Prb(\mathcal C_{F,r_q})$ for $q\in\{-,+\}$. Assume:
+\begin{enumerate}[label=(V-\arabic*),leftmargin=3.2em,itemsep=3pt]
+\item \emph{Standing conditions and factorisation.} Conditions (S1) to (S13) hold,
+  $0<\Omega_-<1$ and $0<\Omega_+<1$, and the hypotheses of
+  Proposition~\ref{prop:factorisation} hold under both rules on an open set in $(0,1)$ containing
+  every zero of the two signed pooled slopes.
+\item \emph{Distinct one-crossing roots.} The functions $s^-$ and $s^+$ are continuous on $(0,1)$.
+  Each has exactly one zero there and changes sign at it. Write the roots as $\kappa_-$ and
+  $\kappa_+$ respectively, and assume $\kappa_-\ne\kappa_+$.
+\end{enumerate}
+Then there is an open interval $I$ containing the looser pool's root $\kappa_-$ on which the tighter
+rule is strictly more sensitive in total:
+\begin{equation}
+\label{eq:reversal}
+\mathcal S(\kappa,r_+)>\mathcal S(\kappa,r_-)
+\qquad\text{for every }\kappa\in I.
+\end{equation}
+\end{lemma}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Factorisation, (S9), and Step~3 of Proposition~\ref{prop:factorisation}, which makes $\Omega_q$
+constant in $\kappa$, give, for $q\in\{-,+\}$,
+\[
+\mathcal S(\kappa,r_q)=(1-\Omega_q)\Delta_m|s^q(\kappa)|.
+\]
+At the looser pool's root, $s^-(\kappa_-)=0$. The roots are distinct and $s^+$ has no other zero,
+so $s^+(\kappa_-)\ne0$. Since $1-\Omega_+>0$ and $\Delta_m>0$,
+\[
+\mathcal S(\kappa_-,r_+)>0=\mathcal S(\kappa_-,r_-).
+\]
+Both sides are continuous in $\kappa$. Their strict difference at $\kappa_-$ therefore remains
+positive on some open interval containing $\kappa_-$ and contained in the neighbourhood from
+(V-1). This proves \eqref{eq:reversal}.
+\end{proof}

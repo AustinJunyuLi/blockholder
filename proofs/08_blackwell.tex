@@ -1,0 +1,217 @@
+% proofs/08_blackwell.tex
+% The tagged experiment under a tighter disclosure rule.
+% Fragment, to be \input by appendix.tex.
+
+\section{Information is monotone in the rule}
+\label{sec:blackwell}
+
+Let $\theta=(j(s),s)$ and fix a rule $r=(\tau,T)$. At date $d$, set
+$D_r^d=\ind\{a=1,\ c(\theta;\tau)+T\leq d\}$ and $L_{r,e}=D_r^e$. At the control date the market
+observes the tagged output
+\[
+Y_r=
+\begin{cases}
+(F,\mathsf S_{F,r}),&D_r^H=1,\\
+(P,\mathcal H^P_r),&D_r^H=0,
+\end{cases}
+\qquad
+\mathsf S_{F,r}=(B_r^F,Q_r^F,a{=}1),
+\]
+where
+\[
+\mathcal H^P_r=(X_0,\ldots,X_H;L_{r,0},\ldots,L_{r,H}).
+\]
+Write $\mathcal C_{F,r}=\{D_r^H=1\}$, $\mathcal C_{P,r}=\{D_r^H=0\}$, and
+$\Omega_r=\Prb(D_r^H=1)$, used below in the strictness criterion.
+Every flag coordinate in a pooled history is zero. Prices may be appended to either branch. They
+are pinned measurable functions of the displayed information and do not enlarge the experiment.
+Write $\mathcal E_r(\kappa)$ for the conditional channel from $\theta$ to $Y_r$ at liquidity
+$\kappa$.
+
+\csname unlabelledtrue\endcsname
+\begin{theorem}[Tightening either disclosure dial]
+\label{thm:blackwell}
+Fix a common $\kappa\in[0,1]$ and fixed policies. Assume:
+\begin{enumerate}[label=(B\arabic*),leftmargin=3.0em,itemsep=3pt]
+\item \emph{Standing conditions.} Conditions \ref{p:space}--\ref{p:decoder} hold. Condition (S14),
+  identified flagged types, is load-bearing: on the tighter rule's
+  flagged region the tuple recovers the signal, and hence the type.
+\item \emph{A tighter rule.} Either $b_0<\tau'<\tau$ at a common $T$, with
+  $r_+=(\tau',T)$ and $r_-=(\tau,T)$, or $T'<T$ at a common $\tau$, with
+  $r_+=(\tau,T')$ and $r_-=(\tau,T)$.
+\end{enumerate}
+Then the tighter tagged experiment is weakly more informative in Blackwell's order about
+$\theta$ and about the price-relevant state $(v,a)$. Specifically, there is a Markov kernel $K_H$,
+independent of the true type, such that
+\begin{equation}
+\label{eq:blackwell-kernel}
+\mathcal L(Y_{r_-}\mid\theta)
+=\int K_H(y,\mathord\cdot)\,\mathcal L(Y_{r_+}\in\mathrm dy\mid\theta).
+\end{equation}
+Thus $\mathcal E_{r_+}(\kappa)\succeq_B\mathcal E_{r_-}(\kappa)$ pointwise under the pointwise
+form of (S14), or modulo a prior-null set under its almost-sure form. No positive-mass
+condition on either cell is needed. The endpoint values of $\kappa$ refer to the primitive noise
+law in (S12).
+\end{theorem}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+First, the cells are nested. At the threshold margin, a path that crosses $\tau$ crosses
+$\tau'<\tau$ no later. At the clock margin, $c+T\leq H$ implies $c+T'\leq H$. Conditions (S4),
+(S5), (S7), and (S11) therefore give
+\begin{equation}
+\label{eq:blackwell-nesting}
+\mathcal C_{F,r_-}\subseteq\mathcal C_{F,r_+},
+\qquad
+\mathcal C_{P,r_+}\subseteq\mathcal C_{P,r_-}.
+\end{equation}
+
+On $\mathcal C_{F,r_+}$, condition (S14) gives
+$B^F_{r_+}+Q^F_{r_+}=g(s)$ with $g$ strictly increasing. Its inverse on its image is measurable,
+and the Lusin--Suslin theorem makes the image Borel, so $\mathsf S_{F,r_+}$ recovers $s$, then
+$j(s)$, and hence $\theta$. Denote this decoder by
+$\iota_+$.
+
+Define $K_H$ on the three branches of the tighter output. If $y=(P,\mathfrak h)$, emit
+$(P,\mathfrak h)$. If $y=(F,\mathsf s_F)$, recover
+$\widehat\theta=\iota_+(\mathsf s_F)$. When $D_{r_-}^H(\widehat\theta)=1$, emit the deterministic
+looser tuple $(F,\mathsf S_{F,r_-}(\widehat\theta))$. When
+$D_{r_-}^H(\widehat\theta)=0$, draw $z'_{0:H}\sim Q_\kappa$ and emit
+\[
+\left(P,
+\bigl(m_{r_-,0}(\widehat\theta)+z'_0,\ldots,m_{r_-,H}(\widehat\theta)+z'_H;
+0,\ldots,0\bigr)\right).
+\]
+Here $m_{r_-,d}$ denotes the looser rule's mark path.
+Define the kernel arbitrarily on flagged tuples outside the image of the tighter flagged channel.
+The decoder, disclosure test, tuples, and marks are measurable by (S1) to (S7) and (S14), and the
+last branch uses the fixed law in (S12), so this is a Markov kernel that reads only $y$.
+
+Fix a type. If it is pooled under the tighter rule, nesting makes it pooled under the looser rule.
+The first branch is exact because (S7), (S11), and (S12) give the same mark path, noise draw, and
+all-zero flag coordinates under both rules. If the type is flagged under both, the second branch
+emits its looser tuple. If it is newly flagged, the third branch redraws the common noise channel
+and adds it to the looser mark path, which is exactly its looser pooled law. These cases prove
+\eqref{eq:blackwell-kernel}. If prices are recorded, the kernel discards the input prices and
+appends the pinned prices belonging to its emitted output.
+
+Finally, $a$ is a function of $\theta$, the conditional law of $v$ given $\theta$ is
+rule-invariant, and the output is conditionally independent of $v$ given $\theta$ by (S7) and
+(S12). Integrating \eqref{eq:blackwell-kernel} against the common conditional law of $\theta$
+given $(v,a)$ proves the same order about $(v,a)$.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{corollary}[Posterior engagement risk]
+\label{cor:blackwell-posterior}
+Assume:
+\begin{enumerate}[label=(P\arabic*),leftmargin=3.0em,itemsep=3pt]
+\item \emph{Standing conditions.} Conditions (S1) to (S14) hold.
+\item \emph{Rule comparison.} The two rules satisfy (B2) at a common $\kappa$, so
+  Theorem~\ref{thm:blackwell} applies.
+\end{enumerate}
+Then the expected posterior risk of engagement, measured by posterior variance, falls weakly under
+the tighter rule:
+\begin{equation}
+\label{eq:blackwell-posterior}
+\Eop\!\left[\operatorname{Var}(a\mid Y_{r_+})\right]
+\leq
+\Eop\!\left[\operatorname{Var}(a\mid Y_{r_-})\right].
+\end{equation}
+The same inequality holds with $a$ replaced by any square-integrable function of $\theta$.
+\end{corollary}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Use $K_H$ to couple the outputs so that $\theta$, $Y_{r_+}$, and $Y_{r_-}$ form a Markov chain in
+that order. Put $M_+=\Eop[a\mid Y_{r_+}]$ and $M_-=\Eop[a\mid Y_{r_-}]$. Then
+$M_-=\Eop[M_+\mid Y_{r_-}]$. Conditional variance decomposition gives
+\[
+\Eop\!\left[\operatorname{Var}(a\mid Y_{r_-})\right]
+-\Eop\!\left[\operatorname{Var}(a\mid Y_{r_+})\right]
+=\Eop\!\left[\operatorname{Var}(M_+\mid Y_{r_-})\right]\geq0.
+\]
+The same argument applies to every square-integrable function of the type.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{corollary}[The two-parameter Blackwell chain]
+\label{cor:blackwell-chain}
+Assume:
+\begin{enumerate}[label=(K\arabic*),leftmargin=3.0em,itemsep=3pt]
+\item \emph{Standing conditions.} Conditions (S1) to (S14) hold at both rules.
+\item \emph{Rule comparison.} The pair $r_+,r_-$ satisfies (B2).
+\item \emph{Liquidity comparison.} The active order is two noise lumps and
+  $0<\kappa_L<\kappa_H<1$, so Lemma~\ref{lem:g2} applies on each pooled cell.
+\end{enumerate}
+Then
+\begin{equation}
+\label{eq:blackwell-chain}
+\mathcal E_{r_+}(\kappa_L)
+\succeq_B\mathcal E_{r_+}(\kappa_H)
+\succeq_B\mathcal E_{r_-}(\kappa_H),
+\end{equation}
+and also
+\[
+\mathcal E_{r_+}(\kappa_L)
+\succeq_B\mathcal E_{r_-}(\kappa_L)
+\succeq_B\mathcal E_{r_-}(\kappa_H).
+\]
+In particular, a tighter rule at lower liquidity dominates a looser rule at higher liquidity.
+\end{corollary}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Fix one rule. Its cell event and flagged tuple do not move with $\kappa$ under (S7), (S10),
+(S11), and (S12). Apply the kernel of Lemma~\ref{lem:g2} on the pooled branch and leave the flagged
+tuple unchanged. This garbles the tagged experiment at $\kappa_L$ into the one at
+$\kappa_H$. If prices are appended, the pooled price is recomputed from the emitted history and
+the flagged price is recomputed from the emitted tuple. Theorem~\ref{thm:blackwell}
+gives the rule order at either fixed liquidity. Transitivity gives both displayed chains.
+\end{proof}
+
+\csname unlabelledtrue\endcsname
+\begin{corollary}[When the Blackwell order is strict]
+\label{cor:blackwell-strict}
+Assume:
+\begin{enumerate}[label=(R\arabic*),leftmargin=3.0em,itemsep=3pt]
+\item \emph{Standing conditions.} Conditions (S1) to (S14) and the comparison in (B2) hold at a
+  common $\kappa\in[0,1]$.
+\item \emph{Positive new flagged mass.} The set
+  $N=\mathcal C_{F,r_+}\setminus\mathcal C_{F,r_-}$ has positive mass. By the nesting in
+  Theorem~\ref{thm:blackwell}, $\Prb(N)=\Omega_{r_+}-\Omega_{r_-}$.
+\item \emph{A nonatomic signal on the cut.} The conditional law of $s$ given $N$ is nonatomic.
+\item \emph{A finite pooled range.} The looser pooled history takes values in a finite set.
+\end{enumerate}
+Then the order about $\theta$ in Theorem~\ref{thm:blackwell} is strict: the looser experiment cannot
+garble the tighter one. \textsc{Numerical.} On the calibration's threshold ladder, these conditions
+hold for each positive-mass cut at $T=5$, so every such threshold comparison is strict. The
+threshold cuts at $T=10$ are null, and the corresponding rule experiments are
+Blackwell-equivalent. These calibration facts come from
+\texttt{numerical\_v4/checks/t2\_threshold\_revelation\_check.json}.
+\end{corollary}
+\csname unlabelledfalse\endcsname
+
+\begin{proof}
+Theorem~\ref{thm:blackwell} gives the weak order. Suppose a reverse kernel existed. By (S7) and
+(S13), for every type in $N$, the tighter output is the point mass at its flagged tuple, while the
+looser output lies in
+the finite pooled range. A mixture of rows of the reverse kernel can equal that point mass only if
+every row receiving positive weight is the same point mass. The tighter flagged tuple would
+therefore take only finitely many values on $N$ outside the type-null exceptional set on which the
+reverse-kernel identity need not hold. Deleting that set preserves $\Prb(N)>0$ and the nonatomic
+conditional signal law. Condition (S14) makes that tuple
+injective in $s$, while (R3) makes its conditional distribution on $N$ nonatomic. This is a
+contradiction, so no reverse kernel exists. The final calibration sentences apply this criterion to
+the positive cuts at $T=5$. At the reported null cuts, $T=10=H$ makes every flagged type cross at
+date zero, and nesting plus nullity makes the flagged sets coincide up to a prior-null set. On that
+set $B^F=b^*(s)$ and $Q^F=0$ under both thresholds, so identity kernels on the flagged and pooled
+branches give the stated equivalence.
+\end{proof}
+
+\begin{remark}[What the order does not sign]
+A Blackwell order at fixed liquidity does not sign the liquidity sensitivity of the engagement
+premium $\Delta_m\Eop[h(\mathcal I_H)]$, where $h=\pi p$. It compares level experiments at one
+$\kappa$, while changing the rule also changes the type composition and weight of the pooled cell
+whose derivative defines that sensitivity.
+\end{remark}
