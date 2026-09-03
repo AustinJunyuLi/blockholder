@@ -1,4 +1,4 @@
-"""The three figures the paper carries, from the committed records.
+"""The four figures the paper carries, from the committed records.
 
 Figure 1 (figures/fig1_sensitivity_factors.pdf): the noise sensitivity
 S = |d_kappa Delta^act| and its two factors, the pooled share 1 - Omega and
@@ -11,14 +11,24 @@ curves carry no gap.
 
 Figure 2 (figures/fig2_who_gets_caught.pdf): the who-gets-caught record
 numerical_v4/checks/t5_who_gets_caught.json across its five threshold nodes:
-the caught sensitivity s_B against the pool sensitivity s_A and the upper
+the net cut leg s_B against the pool sensitivity s_A and the upper
 limit ((2 - phi)/phi) s_A, and the composition ratio C_T with its ceiling of
-one.  The note below the panels marks the degenerate T = 10 flagged cell.
+one.  The tilde leg s_B_tilde is the caught-only leg.  The note below the
+panels marks the degenerate T = 10 flagged cell.
 
 Figure 3 (figures/e1_stake.pdf): the distribution of the stake at filing by
 period, from empirics/output/e1_campaigns.csv.  The script checks its counts
 and summary statistics against empirics/output/e1_estimate.json and uses the
 style of empirics/fingerprints.py.
+
+Figure 4 (figures/fig4_level_effects.pdf): the detection record
+numerical_v4/checks/t6_detection_check.json at the median threshold node
+(quantile 0.5).  Left: the level effect of the shorter clock on the total
+engagement premium against kappa, both clock pairs (T = 3 against T = 5, and
+T = 5 against T = 10), in premium percentage points (per_kappa d_pp).  Right:
+the level effect of the tighter threshold, each adjacent pair on the ladder
+at T = 5, against kappa, with a horizontal line at zero.  The right column
+splits the mixed region (near zero) from the full scale, two orders apart.
 
 Deterministic: no RNG, no model evaluation, no network; file inputs only.
 
@@ -26,6 +36,7 @@ Run:    .venv/bin/python numerical_v4/checks/figures.py
 Output: figures/fig1_sensitivity_factors.pdf
         figures/fig2_who_gets_caught.pdf
         figures/e1_stake.pdf
+        figures/fig4_level_effects.pdf
 """
 
 from __future__ import annotations
@@ -44,12 +55,14 @@ FIGURES = os.path.join(REPO, "figures")
 
 T1 = os.path.join(CHECKS, "t2_t1_check.json")
 T5 = os.path.join(CHECKS, "t5_who_gets_caught.json")
+T6 = os.path.join(CHECKS, "t6_detection_check.json")
 E1_RESULT = os.path.join(REPO, "empirics", "output", "e1_estimate.json")
 E1_TABLE = os.path.join(REPO, "empirics", "output", "e1_campaigns.csv")
 
 # The palette and the spine discipline are empirics/fingerprints.py's.
 COLOUR_SHORT, COLOUR_LONG = "#4477aa", "#ee6677"
 COLOUR_NEUTRAL = "#666666"
+COLOUR_THR = ("#4477aa", "#ee6677", "#228833", "#aa3377")
 
 import matplotlib
 matplotlib.use("Agg")
@@ -162,6 +175,7 @@ def fig2() -> None:
     q = np.array([n["tau_quantile"] for n in nodes])
     s_A = np.array([n["s_A"] for n in nodes])
     s_B = np.array([n["s_B"] for n in nodes])
+    s_B_tilde = np.array([n["s_B_tilde"] for n in nodes])
     upper = np.array([n["upper_limit_b"] for n in nodes]) * s_A
     C_T = np.array([n["C_T"] for n in nodes])
 
@@ -175,10 +189,12 @@ def fig2() -> None:
     ax.plot(q, s_A, "o-", color=COLOUR_NEUTRAL, label=r"$s_A$ (pool)")
     ax.plot(q, upper, "^--", color=COLOUR_NEUTRAL, mfc="none",
             label=r"$((2-\varphi)/\varphi)\,s_A$ (band)")
-    ax.plot(q, s_B, "s-", color=COLOUR_SHORT, label=r"$s_B$ (caught)")
+    ax.plot(q, s_B, "s-", color=COLOUR_SHORT, label=r"$s_B$ (net cut leg)")
+    ax.plot(q, s_B_tilde, "d--", color=COLOUR_LONG,
+            label=r"$\tilde s_B$ (caught-only leg)")
     ax.set_yscale("log")
     ax.set_ylabel(r"$\kappa$-derivative of kernel expectation", fontsize=9)
-    ax.set_title("The caught sensitivity inside its band", fontsize=10)
+    ax.set_title("The net cut leg inside its band", fontsize=10)
     ax.legend(fontsize=8, frameon=False, loc="upper left")
 
     axr.plot(q, C_T, "s-", color=COLOUR_SHORT, label=r"$C_T$")
@@ -231,11 +247,113 @@ def fig_e1() -> None:
     plt.close(fig)
 
 
+def fig4() -> None:
+    """Level effects of both dials at the median threshold node."""
+    with open(T6) as fh:
+        rec = json.load(fh)
+    prov = rec["provenance"]
+    assert rec["all_pass"] is True and rec["n_fail"] == 0
+    assert prov["mark"] == 2
+    assert prov["H"] == 10
+    assert prov["T_grid"] == [3, 5, 10]
+    assert prov["tau_quantiles"] == [0.1, 0.3, 0.5, 0.7, 0.9]
+    grid = prov["kappa_grid"]
+    assert grid["lo"] == 0.15 and grid["hi"] == 0.85 and grid["n"] == 71
+    kappa_grid = np.arange(0.15, 0.851, 0.01)
+
+    q_med = 0.5
+    clock = [p for p in rec["clock_pairs"] if p["tau_quantile"] == q_med]
+    assert len(clock) == 2, "both clock pairs at the median node"
+    clock_by = {(p["T_tight"], p["T_loose"]): p for p in clock}
+    assert (3, 5) in clock_by and (5, 10) in clock_by
+    pair_35 = clock_by[(3, 5)]
+    pair_510 = clock_by[(5, 10)]
+    assert pair_510["one_pool_loose"] is True
+    med10 = [n for n in rec["nodes"]
+             if n["T"] == 10 and n["tau_quantile"] == q_med]
+    assert len(med10) == 1 and med10[0]["one_pool"] is True
+    assert any("flagged cell mass" in item for item in med10[0]["degenerate"])
+
+    thr = [p for p in rec["threshold_pairs"] if p["T"] == 5]
+    assert len(thr) == 4, "four adjacent threshold pairs at T = 5"
+    expected_thr = {(0.7, 0.9), (0.5, 0.7), (0.3, 0.5), (0.1, 0.3)}
+    got_thr = {(p["tau_quantile_tight"], p["tau_quantile_loose"]) for p in thr}
+    assert got_thr == expected_thr
+    thr.sort(key=lambda p: (-float(p["tau_quantile_tight"]),
+                            -float(p["tau_quantile_loose"])))
+
+    def series(pair):
+        kap = np.array([r["kappa"] for r in pair["per_kappa"]], dtype=float)
+        d_pp = np.array([r["d_pp"] for r in pair["per_kappa"]], dtype=float)
+        d_act = np.array([r["d_act"] for r in pair["per_kappa"]], dtype=float)
+        np.testing.assert_allclose(kap, kappa_grid, rtol=0.0, atol=1e-12)
+        np.testing.assert_allclose(d_pp, d_act * 100.0, rtol=0.0, atol=1e-12)
+        assert len(kap) == 71
+        return kap, d_pp
+
+    kap35, d35 = series(pair_35)
+    kap510, d510 = series(pair_510)
+    np.testing.assert_allclose(kap35, kap510, rtol=0.0, atol=1e-12)
+    kappa = kap35
+
+    fig = plt.figure(figsize=(8.6, 3.7), layout="constrained")
+    gs = fig.add_gridspec(2, 2, width_ratios=[1, 1], height_ratios=[1.15, 2.05])
+    ax = fig.add_subplot(gs[:, 0])
+    axz = fig.add_subplot(gs[0, 1])
+    axr = fig.add_subplot(gs[1, 1], sharex=axz)
+    plt.setp(axz.get_xticklabels(), visible=False)
+
+    for axis in (ax, axz, axr):
+        axis.spines[["top", "right"]].set_visible(False)
+        axis.set_xlim(kappa[0], kappa[-1])
+        axis.set_xticks(np.arange(0.2, 0.9, 0.1))
+
+    ax.axhline(0.0, color=COLOUR_NEUTRAL, linestyle=":", lw=1.2)
+    ax.plot(kappa, d35, color=COLOUR_SHORT, label=r"$T = 3$ against $T = 5$")
+    ax.plot(kappa, d510, color=COLOUR_LONG,
+            label="$T = 5$ against $T = 10$ (corner $T = H$;\n"
+                  "degenerate flagged cell)")
+    ax.set_xlabel(r"Liquidity $\kappa$")
+    ax.set_ylabel(r"Level effect on $\Delta^{\mathrm{act}}$ (premium pp)")
+    ax.set_title("Shorter clock", fontsize=10)
+    ax.legend(fontsize=8, frameon=False)
+
+    drawn = []
+    for pair, colour in zip(thr, COLOUR_THR):
+        kap, d_pp = series(pair)
+        np.testing.assert_allclose(kap, kappa, rtol=0.0, atol=1e-12)
+        qt = pair["tau_quantile_tight"]
+        ql = pair["tau_quantile_loose"]
+        label = rf"$q = {qt:.1f}$ against ${ql:.1f}$"
+        axz.plot(kap, d_pp, color=colour)
+        axr.plot(kap, d_pp, color=colour, label=label)
+        drawn.append(d_pp)
+    axz.axhline(0.0, color=COLOUR_NEUTRAL, linestyle=":", lw=1.2)
+    axr.axhline(0.0, color=COLOUR_NEUTRAL, linestyle=":", lw=1.2)
+    pos = max(float(np.max(d)) for d in drawn)
+    ymax = 1.4 * pos if pos > 0.0 else 2.0e-4
+    axz.set_ylim(-1.2 * ymax, ymax)
+    axz.annotate("zero", (kappa[-1], 0.0), xytext=(-6, 4),
+                 textcoords="offset points", ha="right",
+                 fontsize=8, color=COLOUR_NEUTRAL)
+    axz.set_ylabel(r"$\Delta^{\mathrm{act}}$ (pp)", fontsize=8)
+    axz.set_title("Tighter threshold, $T = 5$", fontsize=10)
+    axz.tick_params(labelsize=8)
+    axr.set_xlabel(r"Liquidity $\kappa$")
+    axr.set_ylabel(r"Level effect on $\Delta^{\mathrm{act}}$ (premium pp)")
+    axr.legend(fontsize=8, frameon=False, loc="lower left")
+
+    fig.suptitle("Level effects at the median threshold node", fontsize=11)
+    _finish(fig, os.path.join(FIGURES, "fig4_level_effects.pdf"))
+    plt.close(fig)
+
+
 def main() -> int:
     os.makedirs(FIGURES, exist_ok=True)
     fig1()
     fig2()
     fig_e1()
+    fig4()
     return 0
 
 
