@@ -1,5 +1,5 @@
 % =============================================================================
-% paper.tex -- Who Gets Caught: Blockholder Disclosure Rules and Market Inference
+% paper.tex -- Who Gets Caught: Disclosure Rules, Liquidity and the Undetected Blockholder
 %
 % Compile (from the repo root, in this order):
 %   xelatex -interaction=nonstopmode paper.tex
@@ -43,34 +43,34 @@
 \newcommand{\Wrev}{\mathcal{W}}
 \newcommand{\Grev}{\mathcal{G}}
 
-\title{\textbf{Who Gets Caught: Blockholder Disclosure Rules and Market Inference}\\[0.3em]}
+\title{\textbf{Who Gets Caught: Disclosure Rules, Liquidity and the Undetected Blockholder}\\[0.3em]}
 \author{Austin Li\\[0.25em]}
-\date{This draft: 2 September 2026}
+\date{This draft: 3 September 2026}
 
 \begin{document}
+\pagestyle{myheadings}
+\markboth{Who Gets Caught}{Liquidity and the Undetected Blockholder}
 \maketitle
 
 %==============================================================================
 \begin{abstract}
-\noindent A blockholder disclosure rule has two dials, a stake threshold and a filing clock.
-Together they split every possible history into a flagged cell, in which the filing has landed, and
-a pooled cell, in which the market reads order flow alone. Disclosure regulation changes what the
-market learns from silence. Non-disclosure itself alters the market's inference. At fixed trading
-policies, the liquidity sensitivity of the expected engagement premium factorises as the pooled
-share times the pooled cell's own sensitivity. The factorisation and the liquidity invariance of the
-flagged endpoint are PROVED. Tightening the threshold lowers sensitivity through a PROVED weight
-effect. Its composition effect is NUMERICAL on the order-size-two, $H=10$, $T=5$ grid at frozen
-benchmark policy, for four adjacent threshold pairs and $\kappa$ from $0.15$ to $0.85$ in steps of
-$0.01$. Shortening the clock lowers sensitivity exactly when the clock's weight and composition
-ratios have product at most one, a PROVED equivalence. A PROVED corollary characterises the
-composition ratio by the noise sensitivity of the premium mass the shorter clock removes from the
-pool, including the re-pricing of survivors. Under a common nonzero sign, $C_T\leq1$ exactly when
-the caught leg is at least as noise-sensitive as the pool and no more than
-$\bigl((2-\varphi)/\varphi\bigr)$ times as sensitive, where $\varphi$ is the share caught. The
-empirical measurement is descriptive, with the post-minus-pre differences labelled ESTIMATED. Among
-initial Schedule 13D campaigns with readable stakes from 2021 to 2025, the median stake at filing is
-$13.1$ percent of class before the February 2024 clock change and $12.8$ percent after. The share
-filed within five business days rises from $32.7$ to $75.9$ percent.
+\noindent At fixed trading policies the engagement premium equals the premium wedge times the
+probability that a bidder enters against an engaged blockholder. At the median five-round
+calibration node and $\kappa=0.5$, bidder entry on silent pooled histories is several times as high
+as entry on tape-detected pooled histories. The entry identity and the ordering at a fixed
+fundamental posterior mean are PROVED; the calibrated multiple is NUMERICAL. The filing and the
+trading tape detect opposite blockholders: the rule catches the fast builders who place the fewest orders,
+while the tape is more likely to detect the slow builders who place many. On the calibration,
+cutting the clock from ten rounds to five lowers the engagement premium by under one percent in
+thin markets and by 17.5 to 54.3 percent in liquid ones, a NUMERICAL result. At fixed policies and
+liquidity, tightening either dial is a Blackwell improvement of the market's experiment, a PROVED
+result. At the paper's order size the tape is an exact erasure channel, and more liquidity is a
+garbling of that channel, also PROVED. At $\kappa=0.5$, the re-pricing of histories that remain pooled is 93.2 to
+98.0 percent of a shorter clock's net cut leg at every non-null clock node, a NUMERICAL result. The
+empirical measurement is descriptive, with the post-minus-pre differences labelled
+ESTIMATED. Among initial Schedule 13D campaigns with readable stakes from 2021 to 2025, the median
+stake at filing is $13.1$ percent of class before the February 2024 clock change and $12.8$ percent
+after. The share filed within five business days rises from $32.7$ to $75.9$ percent.
 \end{abstract}
 
 \newpage
@@ -82,74 +82,87 @@ filed within five business days rises from $32.7$ to $75.9$ percent.
 
 A blockholder who learns that a company is worth more than the market price can sell, wait, or try
 to change the company. If she builds a large enough position while she waits, the law makes her
-disclose it. In the United States, Section 13(d) of the Williams Act requires beneficial owners of
-more than 5 percent of a registered equity class who do not qualify for or elect Schedule 13G to
-file a Schedule 13D. Until February 2024 the initial deadline was ten calendar days; it is now five
-business days \citep{SEC2023}. That rule gives two policy variables: the threshold determines which
-positions become public, and the clock determines how much trading can take place before the filing.
-The central thesis of this paper is that disclosure regulation changes what the market learns from
-silence. A disclosure rule releases information on filed histories and selects which informed
-histories leave the unfiled pool. The resulting pool changes the market's inference when no filing
-lands.
+disclose it. In the United States, Section 13(d) requires a Schedule 13D from a beneficial owner of
+more than 5 percent of a registered equity class who does not qualify for or elect Schedule 13G.
+Until February 2024 the initial filing period was ten calendar days; it is now five business days
+\citep{SEC2023}. The stake threshold and the filing clock split histories into a flagged cell, where
+the filing has landed, and a pooled cell, where the market reads order flow. The filing and the tape
+are two detection technologies. The rule catches fast builders with weakly fewer building rounds,
+while the tape is more likely to identify slow builders with more building rounds
+(Lemmas~\ref{app:lem:detection} and~\ref{app:lem:upper-set}).
 
-The disclosure rule divides all histories into a flagged cell and a pooled cell. After a filing,
-Item 4 disclosures make public the blockholder's accumulated stake, intended plans, and engagement
-intent, represented in the model by public disclosure of the stake, residual target order, and
-engagement indicator. Before a filing lands, the market observes order flow alone and must infer
-whether an informed holder is trading in secret. The formal outcome is the liquidity sensitivity of
-the engagement-related component of the expected takeover premium, $\Dact = \Delta_m \Eop[\pi p]$,
-which governs a potential bidder's takeover decision and omits the baseline entry term $m_0
-\Eop[p]$. Liquidity changes inference in the pooled cell but not what the market learns from a
-completed filing. At fixed trading policies, the flagged posterior, the flagged price, the bidder's
-entry probability, and the flagged cell's average premium do not depend on the noise-trading
-intensity $\kappa$.
+The first result is an entry identity. If the price and bidder entry are measurable functions of
+public information, then the engagement premium equals the premium wedge times the probability that
+the bidder enters against a blockholder who is in fact engaged. Equivalently,
+$\Dact=\Delta_m\Prb(\mathsf B=1,a=1)=\Delta_m\omega_V e_V$, where $\omega_V$ is the Voice mass and
+$e_V$ is bidder entry conditional on Voice. The same identity holds within each public cell, and
+$\omega_V$ is free of liquidity and the disclosure rule at fixed policies
+(Lemma~\ref{app:lem:entry-identity}). On a silent pooled history, bidder entry is weakly higher than
+on a tape-detected pooled history with the same fundamental posterior mean, and strictly higher when
+the silent history's engagement posterior is below one (Lemma~\ref{app:lem:entry-undetected}). At the
+median five-round node and $\kappa=0.5$, entry on silent pooled histories is 16.9 times entry on
+tape-detected pooled histories (NUMERICAL).
 
-The first result is the factorisation $\mathcal S = (1 - \Omega)\mathcal S_P$, where $\Omega$ is the
-flagged probability and $\mathcal S_P$ is the pooled cell's own noise sensitivity. The factorisation
-and the $\kappa$-invariance of the flagged cell are PROVED. All theoretical results hold trading
-policies fixed at the benchmark profile. This isolates changes in market information from the
-blockholder's endogenous policy response. The two dials then operate through distinct mechanisms.
-Tightening the threshold weakly raises $\Omega$, so its weight effect attenuates noise sensitivity
-by proof. Its composition effect is NUMERICAL on a five-node ladder of the stake-at-filing
-distribution, $\tau \in [0.0924, 0.0970]$, under order size two, $H=10$, $T=5$, at frozen benchmark
-policy, with $\kappa$ from $0.15$ to $0.85$ in steps of $0.01$. On that grid the composition ratio
-$C_\tau$ is at most one at all four adjacent threshold pairs, and $W_\tau C_\tau$ is at most
-$0.772$. For the clock, the model measures the window margin $T$ in discrete trading rounds. A
-PROVED theorem establishes that a shorter window lowers noise sensitivity if and only if $W_T C_T
-\le 1$. A PROVED corollary then characterises who gets caught. Write $\varphi$ for the share of the
-long-clock pool removed by the shorter clock and $s_B$ for the sensitivity of the premium mass
-removed, including the re-pricing of survivors. Under a common sign ($s_A s_B > 0$), the composition
-ratio satisfies $C_T \le 1$ if and only if $s_B$ lies weakly between $s_A$ and
-$((2-\varphi)/\varphi)s_A$, and the shorter clock lowers sensitivity overall, $W_T C_T \le 1$, if
-and only if $s_B$ lies weakly between $0$ and $(2/\varphi)s_A$.
+At the fixed policies used in the calibration, liquidity raises the engagement premium. At the
+paper's order size, one more unit of liquidity erases more building marks. A Voice type with $n$
+building rounds has probability
+$(\kappa/2)^n$ of remaining silent in the pooled cell (Lemma~\ref{app:lem:detection}). The exact
+liquidity representation writes the derivative of the pooled premium as minus one half of the
+premium wedge times the total marginal value of one more revealed round
+(Lemma~\ref{app:lem:g3}). The one-crossing lemma applied to the record's coefficients shows that the
+pooled premium is strictly increasing above a root below $0.15$ at every calibration node
+(Lemma~\ref{app:lem:one-crossing}, NUMERICAL). At the median five-round node, the engagement premium
+at $\kappa=0.85$ is 1.23 times its level at $\kappa=0.15$. Cutting the clock from ten rounds to five
+lowers the engagement premium by 0.58 percent at the thin endpoint and by 45.4 percent at the liquid
+endpoint at that node; at the liquid endpoint the effect runs from 17.5 to 54.3 percent across the
+threshold ladder.
 
-At order size two, a building purchase has the size of two noise lumps. Flow then has five values.
-Only $+\bar z$ is ambiguous, arising either from a building purchase with negative noise or from no
-building purchase with positive noise. The pooled experiment at higher $\kappa$ is a garbling of the
-experiment at lower $\kappa$ in the sense of \citet{Blackwell1953}. The result is PROVED. It gives a
-Markov kernel and an exact polynomial form for the pooled premium. The convexity-signed ordering
-does not require normality. Section~\ref{sec:model} gives the rationale for the order-size choice.
+Tightening either disclosure dial weakly improves the market's control-date experiment in
+Blackwell's order at a fixed liquidity (Theorem~\ref{app:thm:blackwell}). The flagged-tuple decoder
+is required to recover each newly flagged type and reproduce the looser experiment. The strictness
+criterion is PROVED (Corollary~\ref{app:cor:blackwell-strict}). On the calibration, the five-round
+positive-mass threshold cuts are strict, the null ten-round threshold cuts are
+Blackwell-equivalent, and the clock comparison is non-null (NUMERICAL). A Blackwell order at fixed
+liquidity does not sign the liquidity sensitivity of the engagement premium. It orders level
+experiments at one $\kappa$, while a rule change also changes the weight and composition of the
+pooled cell.
 
-The registered empirical analysis gives institutional context for the stake and clock parameters. It
-does not measure market inference directly. The population is initial Schedule 13D campaigns from
-2021 to 2025, taking the campaign (one subject firm and trigger date) as the unit, without screening
-by Item 4 text, and reading the maximum percentage across reporting persons. Stakes are readable for
-$91.6$ percent of campaigns. In that sample, the post-minus-pre differences in the stake at filing
-$B^F$ are labelled ESTIMATED. The share of campaigns filed within five business days rises from
-$32.7$ percent before the February 2024 clock change to $75.9$ percent after, and the median
-trigger-to-filing delay falls from $7.0$ to $5.0$ business days. The comparison has no control group
-and identifies no causal effect.
+The two dials change that sensitivity through the pooled share and the pool's composition. The
+factorisation $\mathcal S=(1-\Omega)\mathcal S_P$ separates the pooled share from the pool's own
+sensitivity (Proposition~\ref{app:prop:factorisation}). For either dial, the tighter rule lowers total
+sensitivity exactly when its weight and composition ratios have product at most one
+(Theorem~\ref{app:thm:clock} and Corollary~\ref{app:cor:caught-threshold}). The composition ratio is
+governed by the net cut leg, which includes both the newly flagged histories and the re-pricing of
+the histories that remain pooled (Corollaries~\ref{app:cor:caught}
+and~\ref{app:cor:caught-threshold}). At $\kappa=0.5$, re-pricing accounts for 93.2 to 98.0 percent of
+the net cut leg across the five non-null clock nodes.
 
-Standard discrete-order trading models with exogenous disclosure typically fix the composition of
-the unfiled pool, so the question of its sign does not arise. This paper analyses the clock dial
-result and the who-gets-caught characterisation. The exit-and-liquidity literature studies whether
-liquidity finances monitoring, and the disclosure literature studies the level of the threshold;
-neither separates the statutory rule into two distinct margins acting on a partition of histories.
-Section~\ref{sec:lit} sets out both literatures and the institutional facts. Section~\ref{sec:model}
-states the model. Section~\ref{sec:results} states the results, each with its label.
-Section~\ref{sec:calibration} reads them against the calibration. Section~\ref{sec:empirics}
-presents the empirics, and Section~\ref{sec:conclusion} closes. The proofs and the hypothesis lists
-are in the appendix.
+The calibration uses order size two, $H=10$, the five threshold nodes, and $\kappa$ from $0.15$ to
+$0.85$ in steps of $0.01$. The three-round clock is a grid extension. It flags exactly the same
+histories as the five-round clock at every threshold node. The ten-round nodes are one pool and
+serve as boundary checks. The benchmark one-step deviation bound is NUMERICAL at all fifteen nodes.
+
+The registered empirical analysis gives institutional magnitudes for the stake and clock. It does
+not measure market inference directly. The population is initial Schedule 13D campaigns from 2021
+to 2025, taking one subject firm and trigger date as the campaign, without screening by Item 4 text,
+and reading the maximum percentage across reporting persons. Stakes are readable for $91.6$ percent
+of campaigns. The post-minus-pre differences in the stake at filing $B^F$ are labelled ESTIMATED.
+The share filed within five business days rises from $32.7$ percent before the February 2024 clock
+change to $75.9$ percent after, and the median trigger-to-filing delay falls from $7.0$ to $5.0$
+business days. The comparison has no control group and identifies no causal effect.
+
+The contribution is to join three literatures that usually hold different pieces fixed. Trading
+models in the Kyle tradition study what order flow reveals \citep{Kyle1985,GlostenMilgrom1985}.
+Work on blockholder liquidity studies exit, voice, and monitoring \citep{Maug1998,KahnWinton1998}.
+Disclosure models study thresholds or fixed filing horizons \citep{BackEtAl2018,CorumLevit2019}.
+Here the threshold and clock jointly choose which informed histories leave the pool, while the tape
+separately identifies building marks. This makes entry against an engaged blockholder, inference
+from silence, and the liquidity effect of the rule part of one accounting system.
+Section~\ref{sec:lit} gives the institutional setting and related literature.
+Section~\ref{sec:model} states the model. Section~\ref{sec:results} states each result with its
+label. Section~\ref{sec:calibration} gives the numerical results. Section~\ref{sec:empirics}
+presents the descriptive evidence, and Section~\ref{sec:conclusion} closes. The proofs and full
+hypothesis lists are in the appendix.
 
 %==============================================================================
 \section{Institutional setting and related literature}
@@ -381,9 +394,15 @@ The trading cost sums each position change times the price specified by the with
 The engagement cost is positive for Voice and zero for Exit and Hold. A weakly ordered cutoff
 vector maps the signal into Exit, Hold, or Voice. The calibration uses the resulting cutoff
 vector as its baseline policy and freezes it across the comparative statics. The blockholder
-executes the selected path without responding to realised prices or flow. The finite menu,
-bounded premium kernel, legal-clock rules, and single probability space are listed as (S1) to
-(S11) in the appendix and apply to the results below.
+executes the selected path without responding to realised prices or flow. The single probability
+space, finite menu, Borel policy objects, legal-clock rules, bounded pinned kernel, and fixed-policy
+comparison are conditions (S1) to (S11) in the appendix. The independent ternary noise law stated
+above is the common noise channel in (S12). The control-node convention in (S13) makes public
+information exactly the flagged tuple on the flagged cell and the displayed pooled history on the
+pooled cell, up to pinned prices. The flagged-tuple decoder in (S14) uses the strictly increasing
+terminal target to recover the signal; the filing-tuple paragraph in Section~\ref{sec:primitives}
+states the public content that supports this assumption. Conditions (S1) to (S14) apply whenever a
+result cites the full standing-condition range.
 
 \subsection{The order-size choice}
 \label{sec:ordersize}
@@ -400,6 +419,14 @@ $\{\bar z,2\bar z,3\bar z\}$ and an idle date produces
 $\{-\bar z,0,\bar z\}$. The supports meet only at $\bar z$. This single overlap makes higher
 liquidity a garbling of lower liquidity and gives the pooled premium a polynomial form in
 $\kappa$.
+
+Proposition~\ref{app:prop:trichotomy} gives the full channel comparison (PROVED). With one noise
+lump, $b=1$, higher liquidity is not a garbling of lower liquidity at interior nodes on any
+nondegenerate mark-path set. With two noise lumps the channel is an exact, non-trivial erasure
+family in liquidity. With three or more noise lumps every order mark is decoded, so all liquidity
+nodes are Blackwell-equivalent. Two noise lumps are therefore the unique positive integral choice
+that keeps camouflage while ordering liquidity by erasure. The normalisation is a transparency
+choice: it isolates one ambiguous flow value without making every building mark public.
 
 \subsection{Fixed policies and the two dials}
 \label{sec:fixed-policies}
@@ -441,10 +468,10 @@ pathwise monotonicity next to the measured stakes and draws nothing causal from 
 
 Each statement reports its status as PROVED, NUMERICAL, or ESTIMATED. PROVED marks an analytic
 result. NUMERICAL marks a result on the grid named at the point of claim. ESTIMATED marks a
-descriptive estimate with its design and uncertainty. The full hypothesis lists (S1) to (S11)
-and (C-1) to (C-3) are in the appendix.
+descriptive estimate with its design and uncertainty. The appendix states the full hypothesis
+lists cited below.
 
-\subsection{The partition and the factorisation}
+\subsection{The partition and the two-cell decomposition}
 \label{sec:partition}
 
 \noindent\textsc{Label: PROVED.}\par
@@ -471,21 +498,83 @@ in each of those cases the average over the null cell is undefined rather than z
 not determined by the law.
 \end{lemma}
 
+The partition is a measurable split of the history space. The decomposition integrates the bounded
+premium kernel over its two public cells. These identities precede any comparison of liquidity or
+of disclosure rules.
+
+\subsection{The entry identity}
+\label{sec:entry-identity}
+
 \noindent\textsc{Label: PROVED.}\par
-\begin{proposition}[Factorisation of the liquidity sensitivity; Appendix Section~\ref{app:sec:partition-factorisation}, Proposition~\ref{app:prop:factorisation}]
-\label{prop:factorisation}
-Assume the standing conditions, an interior partition $0 < \Omega < 1$ at the policy under
-consideration, the invariance of the flagged endpoint in $\kappa$ at fixed policies
-(Lemma~\ref{lem:flagged}), and differentiability of $\kappa \mapsto M_P$. Then
+\begin{lemma}[Entry identity; Appendix Section~\ref{app:sec:detection}, Lemma~\ref{app:lem:entry-identity}]
+\label{lem:entry-identity}
+Let the price $P(\mathcal I_H)$ and bidder-entry probability $p(\mathcal I_H)$ be measurable
+functions of the public information set, let $a$ be the type's engagement indicator, and let the
+public disclosure cells belong to $\mathcal I_H$. Assume the finite-premium and fixed-policy
+conditions (S9) to (S11). Write $\omega_V=\Prb(a=1)$ and, when $\omega_V>0$,
+$e_V=\Eop[p(\mathcal I_H)\mid a=1]$. Then
 \begin{equation}
-\label{eq:factorisation}
-  \mathcal S(\kappa,\tau,T) \;=\; \bigl(1 - \Omega(\tau,T)\bigr)\,\mathcal S_P(\kappa,\tau,T)
+\label{eq:entry-identity-main}
+\Dact=\Delta_m\omega_Ve_V=\Delta_m\Prb(\mathsf B=1,a=1).
 \end{equation}
-exactly, and the same factor scales the total variation of $\Dact$ over any grid in $\kappa$,
-where no differentiability is used. At order size two the differentiability hypothesis is
-automatic: the closed form of Lemma~\ref{lem:garbling} exhibits $M_P$ as a polynomial in
-$\kappa$.
-\end{proposition}
+For either positive-mass public cell $\mathcal C$ with positive Voice mass,
+\begin{equation}
+\label{eq:entry-identity-cell-main}
+M_{\mathcal C}=\Delta_m\omega_{V\mid\mathcal C}e_{V\mid\mathcal C}.
+\end{equation}
+If the relevant Voice mass is zero, the premium is zero and the conditional entry probability is
+undefined. At fixed policies, $\omega_V$ is independent of both $\kappa$ and the disclosure rule.
+\end{lemma}
+
+The identity follows from the tower property because $p(\mathcal I_H)$ is publicly measurable. It
+turns the engagement premium into a probability of bidder entry against a blockholder who is in
+fact engaged. Liquidity and the rule can move that probability, but not the Voice mass, when
+policies are fixed.
+
+\subsection{Information is monotone in the rule}
+\label{sec:blackwell}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{theorem}[Tightening either disclosure dial; Appendix Section~\ref{app:sec:blackwell}, Theorem~\ref{app:thm:blackwell}]
+\label{thm:blackwell}
+Fix a common $\kappa\in[0,1]$ and fixed policies, and assume conditions (S1) to (S14). Compare either
+$b_0<\tau'<\tau$ at a common clock or $T'<T$ at a common threshold. At the control date, tag each
+output by its public cell and show the flagged tuple on the flagged branch and the pooled history on
+the pooled branch. The tighter experiment is weakly more informative in Blackwell's order about the
+type and about $(v,a)$. A type-independent Markov kernel reproduces the looser output from the
+tighter output, up to prior-null outputs. The flagged-tuple decoder in (S14) is required because it
+recovers the type on the tighter rule's flagged region. No positive-mass condition on either cell
+is needed.
+\end{theorem}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{corollary}[Posterior engagement risk; Appendix Corollary~\ref{app:cor:blackwell-posterior}]
+Under (S1) to (S14) and the comparison in Theorem~\ref{thm:blackwell}, the tighter rule weakly lowers
+expected posterior variance of engagement. The same holds for any square-integrable function of the
+type.
+\end{corollary}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{corollary}[The two-parameter Blackwell chain; Appendix Corollary~\ref{app:cor:blackwell-chain}]
+If the active order is two noise lumps and $0<\kappa_L<\kappa_H<1$, the tighter rule at
+$\kappa_L$ Blackwell-dominates either rule at $\kappa_H$. This combines the rule comparison with the
+pooled garbling in Lemma~\ref{lem:garbling}.
+\end{corollary}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{corollary}[Strictness criterion; Appendix Corollary~\ref{app:cor:blackwell-strict}]
+Positive newly flagged mass, a nonatomic signal on that cut, and a finite looser pooled range make
+the Blackwell order about the type strict.
+\end{corollary}
+
+\noindent\textsc{Label: NUMERICAL.}\par
+On the calibration's five-round threshold ladder, every positive-mass cut is strict. The ten-round
+threshold cuts are null and their experiments are Blackwell-equivalent. The clock comparison is a
+separate non-null comparison under Theorem~\ref{thm:blackwell}.
+
+A Blackwell order at fixed liquidity does not sign the liquidity sensitivity of the engagement
+premium. It compares level experiments at one $\kappa$, while the rule also changes the composition
+and weight of the pooled cell whose derivative defines that sensitivity.
 
 \noindent\textsc{Label: PROVED.}\par
 \begin{lemma}[The flagged cell does not move with liquidity; Appendix Section~\ref{app:sec:partition-factorisation}, Lemma~\ref{app:lem:flagged-kappa-free}]
@@ -500,17 +589,14 @@ posterior, the flagged price, the entry probability and $M_F$ do not depend on $
 addition $\Omega$ does not depend on $\kappa$ at fixed policies.
 \end{lemma}
 
-The appendix gives all four proofs. The partition is a measurable split of the history space.
-The decomposition integrates a bounded kernel over its two cells. The factorisation then uses
-the fact that the flagged endpoint and the flagged weight are constant in $\kappa$. The
-invariance proof uses the flagged tuple to recover the signal and its posterior. The pre-filing
-pooled price can still move with $\kappa$, and all four statements hold at fixed policies.
+The flagged tuple recovers the signal and pins the flagged posterior. The pre-filing pooled price
+can still move with $\kappa$; the lemma concerns the flagged endpoint and weight.
 
-\subsection{The pooled experiment ordered by liquidity}
+\subsection{The tape}
 \label{sec:garbling}
 
 \noindent\textsc{Label: PROVED.}\par
-\begin{lemma}[Liquidity garbles the pooled experiment, and a closed form; Appendix Section~\ref{app:sec:pf-garbling}, Lemmas~\ref{app:lem:g1}--\ref{app:lem:g3}]
+\begin{lemma}[Erasure and garbling on the tape; Appendix Section~\ref{app:sec:pf-garbling}, Lemmas~\ref{app:lem:g1} and~\ref{app:lem:g2}]
 \label{lem:garbling}
 Fix a policy with $\Omega(\tau,T)<1$ and $\kappa\in(0,1)$ at order size two. Write $R$ for
 the set of rounds whose flow differs from one lump $\bar z$.
@@ -523,35 +609,143 @@ the set of rounds whose flow differs from one lump $\bar z$.
   carries the law of every pooled history at $\kappa$ into its law at $\kappa'$: the pooled
   experiment at $\kappa'$ is a garbling of the pooled experiment at $\kappa$, in the sense of
   \citet{Blackwell1953}.
-\item The pooled premium is exactly
-  $M_P = \Delta_m\sum_S (1-\varepsilon)^{|S|}\varepsilon^{H+1-|S|}\Grev(S)$ with
-  $\varepsilon = \kappa/2$ and $\Grev(S)$ a number that does not depend on $\kappa$; it is a
-  polynomial in $\kappa$, differentiable on $(0,1)$, with
-  $\partial_\kappa M_P = -(\Delta_m/2)\sum_k (1-\varepsilon)^k\varepsilon^{H-k}c_k$ and
-  coefficients $c_k$ that are closed forms in the pooled type weights. If the kernel's reduced
-  form is concave on the pairs the pooled cell generates, every $c_k \le 0$ and
-  $\partial_\kappa M_P \ge 0$; if convex, all inequalities reverse.
 \end{enumerate}
 \end{lemma}
 
-The appendix constructs the kernel in part~(b) by deleting revealed rounds and redrawing the
-rest. The pooled expectation of a convex or concave kernel is monotone in $\kappa$ in the
+The appendix constructs the kernel by deleting revealed rounds and redrawing the surviving
+coordinates. The pooled expectation of a convex or concave kernel is monotone in $\kappa$ in the
 direction set by its curvature. This argument needs no normality assumption. \citet{BackEtAl2018}
-obtain a related ordering from a Gaussian mean-preserving spread of the market maker's posterior
-mean, while \citet{Ganuzapenalva2010} uses dispersion orderings of signal structures. The
-threshold composition result uses the closed form in part~(c).
+obtains a related ordering from a Gaussian mean-preserving spread of the market maker's posterior
+mean, while \citet{Ganuzapenalva2010} uses dispersion orderings of signal structures.
 
-\begin{condition}[Revelation dominance at a threshold pair]
-\label{cond:D}
-Let $b_0 < \tau' < \tau$ at a common window $T$. The pair satisfies revelation dominance at
-$\kappa$ if $\bigl|\Wrev_{\tau',T}(\kappa)\bigr| \le \bigl|\Wrev_{\tau,T}(\kappa)\bigr|$, where
-$\Wrev$ is the coefficient sum of Lemma~\ref{lem:garbling}(c). The condition states exactly
-that the composition ratio is at most one, $C_\tau \le 1$: it is the theorem's conclusion
-restated on the closed form, not a restriction on primitives.
-\end{condition}
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[Detection; Appendix Section~\ref{app:sec:detection}, Lemma~\ref{app:lem:detection}]
+\label{lem:detection}
+Fix a date $d$ and a positive-probability pooled history. Assume that only Voice plans carry
+positive order marks, each Voice building round carries mark one and strategic order
+$2\bar z$, the common noise channel (S12) holds, and the pooled history and its pinned posterior are
+public under (S6), (S8), and (S13). Flows $2\bar z$ and $3\bar z$ reveal a building mark, so the
+engagement posterior is one on every pooled history containing either value. Flows $-\bar z$ and
+zero reveal a zero mark, while $+\bar z$ is the only ambiguous value. For a Voice type with
+$N_d$ building rounds through date $d$,
+\begin{equation}
+\label{eq:detection-silence-main}
+\Prb(\text{no building mark revealed through }d\mid\theta)
+=\left(\frac{\kappa}{2}\right)^{N_d}.
+\end{equation}
+If that type remains pooled, this event is a silent history.
+\end{lemma}
+
+One revealed building mark identifies engagement on a pooled history. On a pooled history without
+such a mark, Voice remains observationally pooled with Exit and Hold. For a fixed Voice type, the
+probability of no revealed mark weakly rises with liquidity.
+
+\subsection{Who gets caught}
+\label{sec:detection-caught}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[Upper set; Appendix Section~\ref{app:sec:detection}, Lemma~\ref{app:lem:upper-set}]
+\label{lem:upper-set}
+Suppose the Voice target is weakly increasing in the signal, its accumulation length is weakly
+decreasing, Voice occupies an upper interval of signals, and its stake and mark paths have the menu
+form in Section~\ref{sec:primitives}. Under the timing and noise conditions (S4), (S5), (S7), and
+(S12), the date-$d$ flagged signal set is an upper set. A higher Voice signal crosses weakly earlier
+and has weakly fewer building rounds through any date. The probability that the tape reveals no
+building mark is therefore weakly highest among the Voice types the rule flags, and is strictly
+higher when the building-round counts differ and $\kappa>0$.
+\end{lemma}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[Silence; Appendix Section~\ref{app:sec:detection}, Lemma~\ref{app:lem:silence}]
+\label{lem:silence}
+Compare nested rules under a common prior, common fixed policies, and common liquidity. Assume the
+tighter rule removes a positive-mass upper set of engaged types from the looser pool; the surviving
+pooled types have the same type-conditional likelihood under both rules; $\Eop[v\mid s]$ is weakly
+increasing and pooled flow is conditionally independent of $v$ given $s$; and the displayed pooled
+history has positive probability under both rules. On every such common pooled history, including
+every silent history with that positive probability, the tighter rule weakly lowers both the
+engagement posterior and the posterior mean of the fundamental. The appendix gives the exact
+strictness conditions.
+\end{lemma}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[Entry against the undetected]
+\label{lem:entry-undetected}
+Appendix Section~\ref{app:sec:detection}, Lemma~\ref{app:lem:entry-undetected}. Assume the unique
+pinned pricing root. Assume the normal bidder-entry rule in equation~\eqref{eq:entry} and the
+appendix's added engagement-price condition. The pricing root is
+strictly increasing in both the fundamental posterior mean and the engagement posterior, while
+bidder entry at that root is strictly decreasing in both. Holding the fundamental posterior mean
+fixed, entry on a silent pooled history is therefore weakly higher than on a tape-detected pooled
+history, and is strictly higher when the silent history's engagement posterior is below one.
+\end{lemma}
+
+The filing rule and the tape sort Voice types in opposite directions. The filing flags an upper set
+with fewer building rounds. More building rounds give the tape more chances to reveal Voice. A
+tighter rule also changes the inference drawn from the pooled histories that remain.
+
+\subsection{The exact liquidity representation}
+\label{sec:liquidity-representation}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[Exact liquidity representation; Appendix Section~\ref{app:sec:pf-garbling}, Lemma~\ref{app:lem:g3}]
+\label{lem:liquidity-representation}
+For a positive-mass pooled cell at order size two, let $\Grev(S)$ be the expected premium kernel
+after the order marks on rounds in $S$ are revealed. With $\varepsilon=\kappa/2$,
+\begin{equation}
+\label{eq:liquidity-representation-main}
+M_P=\Delta_m\sum_S(1-\varepsilon)^{|S|}\varepsilon^{H+1-|S|}\Grev(S),
+\end{equation}
+where each $\Grev(S)$ is free of $\kappa$. The pooled premium is a polynomial and
+\begin{equation}
+\label{eq:liquidity-derivative-main}
+\partial_\kappa M_P=-\frac{\Delta_m}{2}
+\sum_{k=0}^{H}(1-\varepsilon)^k\varepsilon^{H-k}c_k.
+\end{equation}
+Each coefficient $c_k$ sums the changes $\Grev(S\cup\{d\})-\Grev(S)$ over one more revealed round.
+Thus the derivative of the pooled premium in $\kappa$ is minus half the premium wedge times the
+total marginal value of one more revealed round. Concavity of the reduced-form kernel makes the
+derivative weakly positive; convexity reverses the sign.
+\end{lemma}
+
+\noindent\textsc{Label: NUMERICAL.}\par
+\begin{corollary}[The engagement premium rises with liquidity on the calibration]
+\label{cor:monotone-premium}
+On the order-size-two, $H=10$ calibration with $T\in\{3,5,10\}$, the five threshold nodes and
+$\kappa\in[0.15,0.85]$, the one-crossing lemma applied to the record's coefficients gives one root
+below $0.15$ at every node. The pooled premium, and hence the engagement premium, is strictly
+increasing in $\kappa$ throughout the stated grid. This application of
+Lemma~\ref{app:lem:one-crossing} is NUMERICAL.
+\end{corollary}
 
 \subsection{The two dials}
 \label{sec:dials}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{proposition}[Factorisation of liquidity sensitivity; Appendix Section~\ref{app:sec:partition-factorisation}, Proposition~\ref{app:prop:factorisation}]
+\label{prop:factorisation}
+Assume conditions (S1) to (S11), an interior partition at the policy under consideration, the
+flagged-endpoint invariance in Lemma~\ref{lem:flagged}, and differentiability of
+$\kappa\mapsto M_P$. Then
+\begin{equation}
+\label{eq:factorisation}
+\mathcal S(\kappa,\tau,T)=\bigl(1-\Omega(\tau,T)\bigr)\mathcal S_P(\kappa,\tau,T)
+\end{equation}
+exactly. The same factor scales total variation over any liquidity grid without a differentiability
+assumption. At order size two, Lemma~\ref{lem:liquidity-representation} makes $M_P$ a polynomial, so
+the point derivative exists on the interior.
+\end{proposition}
+
+The disclosure rule first chooses the share that remains pooled. It then chooses the type
+composition of that pool. The factorisation separates these weight and composition effects.
+
+\begin{condition}[Composition at a threshold pair]
+\label{cond:D}
+Let $b_0<\tau'<\tau$ at a common clock. The pair satisfies Condition~\ref{cond:D} at $\kappa$ if
+$|\Wrev_{\tau',T}(\kappa)|\leq|\Wrev_{\tau,T}(\kappa)|$, using the coefficient sum in
+Lemma~\ref{lem:liquidity-representation}. This is equivalent to $C_\tau\leq1$ under the erasure
+representation.
+\end{condition}
 
 \noindent\textsc{Labels: PROVED and NUMERICAL.} Factorisation, the weight leg, and the closed-form
 implication below are PROVED. The composition conclusion $C_\tau\leq1$ and the dial inequality
@@ -608,7 +802,7 @@ exact equivalence. The model does not sign $C_T$, so the effect of a shorter clo
 histories leave the pooled cell. Because $W_T>0$, the attenuation criterion is equivalent to
 $C_T\leq1/W_T$, and the right-hand side is at least one.
 
-\subsection{Who gets caught}
+\subsubsection*{The composition bands}
 \label{sec:caught}
 
 Fix the threshold margin $\tau$ and the policies, and compare $T' < T$ at a common $\kappa$.
@@ -616,16 +810,17 @@ Write $A = \mathcal C_P(\tau,T)$ for the pooled cell under the longer clock and
 $B = \mathcal C_F(\tau,T')\setminus\mathcal C_F(\tau,T)$ for the histories the shorter clock
 newly flags, with $\varphi = \Prb(B)/\Prb(A)$ the share of the pool that is caught. Write
 $s_A = \partial_\kappa\Eop[h^{(T)} \mid A]$ for the pool's own noise sensitivity in kernel
-units and $s_B$ for the \emph{caught leg}: the derivative with respect to $\kappa$ of the
+units and $s_B$ for the \emph{net cut leg}: the derivative with respect to $\kappa$ of the
 premium mass the shorter clock removes from the pool, per unit of caught mass, with the
-survivors' re-pricing included. It is not the sensitivity of the caught histories at the old
-prices; the difference is the re-pricing remainder $\delta$, and $s_B = \tilde s_B -
-\bigl((1-\varphi)/\varphi\bigr)\delta$ with $\tilde s_B$ that old-price sensitivity.
+survivors' re-pricing included. The caught-only leg $\widetilde s_B$ instead reads newly flagged
+histories under the looser rule's kernel.
 
 \noindent\textsc{Label: PROVED.}\par
 \begin{corollary}[Who gets caught; Appendix Section~\ref{app:sec:caught}, Corollary~\ref{app:cor:caught}]
 \label{cor:caught}
-Under (C-1) to (C-3) of the appendix, with the clock theorem's hypotheses also applying:
+Under (C-1) to (C-3) of the appendix, with the clock theorem's hypotheses also applying, (C-1)
+uses (S10) for liquidity entering only through the noise law and cites fixed policies separately as
+(S11). Then:
 \begin{enumerate}[label=(\roman*),leftmargin=2.4em,itemsep=2pt]
 \item the cut is nested, $B \subseteq A$, $A\setminus B = \mathcal C_P(\tau,T')$, and the
   weight leg is $W_T = 1-\varphi$;
@@ -646,18 +841,73 @@ Under (C-1) to (C-3) of the appendix, with the clock theorem's hypotheses also a
   $((2-\varphi)/\varphi)s_A$. The attenuation criterion $W_TC_T\leq1$ holds exactly when
   $s_B$ lies weakly between $0$ and $(2/\varphi)s_A$;
 \item under a common nonzero sign, $C_T\leq1$ is equivalent to
-  $|s_A|\leq|s_B|\leq((2-\varphi)/\varphi)|s_A|$. The caught leg must be at least as
+  $|s_A|\leq|s_B|\leq((2-\varphi)/\varphi)|s_A|$. The net cut leg must be at least as
   noise-sensitive as the pool and no more than that multiple.
 \end{enumerate}
 \end{corollary}
 
-The caught leg turns $C_T$ into a statement about the premium mass removed from the pool. It has two
-parts: the old-price sensitivity of the newly flagged histories and the re-pricing of the surviving
-pool. Only when the re-pricing remainder is zero does $s_B$ measure the sensitivity of the caught
-histories alone.
+\noindent\textsc{Label: PROVED.}\par
+\begin{corollary}[Who gets caught at the threshold margin; Appendix Section~\ref{app:sec:caught}, Corollary~\ref{app:cor:caught-threshold}]
+\label{cor:caught-threshold}
+At a common clock, replace the clock-indexed sets and kernels above by
+$A_\tau=\mathcal C_P(\tau,T)$,
+$B_\tau=\mathcal C_F(\tau',T)\setminus\mathcal C_F(\tau,T)$ and
+$R_\tau=A_\tau\setminus B_\tau$, where $b_0<\tau'<\tau$. Under (C$\tau$-1) to (C$\tau$-3), the
+cut is nested, its masses are free of $\kappa$, and the same accounting law holds:
+\[
+s_{A,\tau}=(1-\varphi_\tau)s_{R,\tau}+\varphi_\tau s_{B,\tau}.
+\]
+The composition condition $C_\tau\leq1$ holds exactly when the net cut leg lies weakly between
+$s_{A,\tau}$ and $((2-\varphi_\tau)/\varphi_\tau)s_{A,\tau}$. Aggregate attenuation holds exactly
+when it lies weakly between zero and $(2/\varphi_\tau)s_{A,\tau}$. Under (C$\tau$-4), which adds
+(S12), (S13), order size two and interior liquidity, the composition condition is equivalent to
+Condition~\ref{cond:D}.
+\end{corollary}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[The cut split at both margins; Appendix Section~\ref{app:sec:caught}, Lemma~\ref{app:lem:cut-split}]
+\label{lem:cut-split}
+For either non-null nested cut, let $h^-$ and $h^+$ be the looser and tighter kernels, let
+$R=A\setminus B$, and orient the re-pricing term as
+$\delta_{\rm cut}=\partial_\kappa\Eop[h^- -h^+\mid R]$. Under (S1) to (S11), the nesting and
+differentiability hypotheses in the appendix give
+\begin{equation}
+\label{eq:cut-split-main}
+s_B=\widetilde s_B+\frac{1-\varphi}{\varphi}\delta_{\rm cut}.
+\end{equation}
+The first term is the caught-only leg. The second is the re-pricing of histories that remain pooled
+under both rules.
+\end{lemma}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[One crossing decides the composition band; Appendix Section~\ref{app:sec:caught}, Lemma~\ref{app:lem:one-crossing}]
+\label{lem:one-crossing}
+Under (S1) to (S13), take a non-null nested cut at order size two. Suppose each pool's coefficient
+list changes sign once from negative to positive, their difference changes sign once from positive
+to negative, and liquidity lies above the three positive roots of the reversed coefficient
+polynomials. Then the two signed pooled slopes satisfy $0<s^+<s^-$ and
+\[
+s^-<s_B<\frac{s^-}{\varphi}<\frac{2-\varphi}{\varphi}s^-.
+\]
+The net cut leg lies strictly inside the composition band, so the tighter pool has strictly lower
+liquidity sensitivity.
+\end{lemma}
+
+\noindent\textsc{Label: PROVED.}\par
+\begin{lemma}[Distinct crossings reverse total sensitivity; Appendix Section~\ref{app:sec:caught}, Lemma~\ref{app:lem:reversal}]
+\label{lem:reversal}
+Under (S1) to (S13) and the factorisation hypotheses at both rules, suppose the two continuous
+pooled slopes each cross zero once at distinct roots. There is then an open interval containing the
+looser pool's root on which the tighter rule has strictly greater total liquidity sensitivity.
+\end{lemma}
+
+The two bands answer different questions. The composition band compares the two pooled
+sensitivities. The wider aggregate band also credits the reduction in pooled mass. Both run on the
+net cut leg, so survivors' re-pricing is part of the comparison rather than a residual left outside
+it.
 
 %==============================================================================
-\section{The calibration and the figures}
+\section{The calibration}
 \label{sec:calibration}
 %==============================================================================
 
@@ -666,10 +916,69 @@ $\kappa=0.5$ supplies the Voice region. The threshold ladder uses the full-line 
 $0.1$, $0.3$, $0.5$, $0.7$, and $0.9$ of the stake-at-filing distribution under that seed policy.
 The calculation clips signals only if a quantile crosses the computational support. The resulting
 $\tau$ values run from $0.0924$ to $0.0970$. A second policy calculation at the median threshold,
-$T=5$, $\kappa=0.5$, and $H=10$ gives the benchmark cutoff vector $k=(0.9425,1.8485)$. Every
-comparative static freezes this benchmark policy. Expectation calculations use the renormalised
-computational signal law stated in Section~\ref{sec:primitives}. The liquidity grid has seventy-one
-nodes, $\kappa=0.15$ to $0.85$ in steps of $0.01$.
+$T=5$, $\kappa=0.5$, and $H=10$ gives the benchmark cutoff vector $k=(0.9425,1.8485)$. Expectation
+calculations use the renormalised computational signal law stated in Section~\ref{sec:primitives}.
+The clock grid is $T\in\{3,5,10\}$, and the liquidity grid has seventy-one nodes,
+$\kappa=0.15$ to $0.85$ in steps of $0.01$. Every comparison in this section freezes the benchmark
+plan menu, cutoff vector and stake paths.
+
+\subsection{Premium levels and detection}
+
+\noindent\textsc{Label: NUMERICAL.}\par
+The engagement premium rises across the liquidity grid at every rule node. At the median threshold
+and $T=5$, its value at $\kappa=0.85$ is 1.23 times its value at $\kappa=0.15$. This is the level
+counterpart to Corollary~\ref{cor:monotone-premium}; the one-crossing lemma applied to the record's
+coefficients places every relevant root below the grid.
+
+Table~\ref{tab:detection-entry} separates bidder entry by public detection state at the median
+five-round node. At $\kappa=0.5$, entry on silent pooled histories is 16.9 times entry on
+tape-detected pooled histories. Silent pooled histories carry little mass, but their conditional
+entry rate is high.
+
+\begin{table}[H]
+\centering
+\caption{Bidder entry by detection state at the median threshold node and $T=5$ (NUMERICAL). Entry
+is conditional on Voice within each state. The last column is the mass of pooled Voice histories
+that are silent.}
+\label{tab:detection-entry}
+\small
+\begin{tabular}{ccccc}
+\toprule
+$\kappa$ & Flagged & Pooled, tape-detected & Pooled, silent & Silent Voice mass \\
+\midrule
+0.15 & 1.2 percent & 3.4 percent & 58.8 percent & below 0.0001 percent \\
+0.50 & 1.2 percent & 3.4 percent & 57.9 percent & 0.01 percent \\
+0.85 & 1.2 percent & 3.4 percent & 57.3 percent & 0.11 percent \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig4_level_effects.pdf}
+\caption{The level effect of the shorter clock and of the tighter threshold on the engagement
+premium against liquidity $\kappa$ at the median node, with both clock pairs (NUMERICAL). The
+three-round clock is a grid extension. The ten-round clock equals the horizon and is a one-pool
+boundary.}
+\label{fig:level-effects}
+\end{figure}
+
+At the median node, shortening the clock from $T=10$ to $T=5$ lowers the engagement premium by
+0.58 percent at $\kappa=0.15$ and 45.4 percent at $\kappa=0.85$. At $\kappa=0.85$ the effect runs
+from 17.5 to 54.3 percent across the five threshold nodes. The three-round and five-round clocks
+flag exactly the same histories at every threshold node. For this grid extension, the median effect
+is 0.00 percent at $\kappa=0.15$ and 0.00 percent at $\kappa=0.85$, and the cross-node range at
+$\kappa=0.85$ is 0.00 to 0.00 percent.
+
+For the four adjacent threshold cuts at $T=5$, the sign of the level effect is mixed over the
+$\kappa$ region 0.15 to 0.40. Its largest magnitude below $\kappa=0.45$ is 5.99 percent. At the median
+node and $\kappa=0.5$, the clock's negative level effect consists of a negative contribution from
+newly caught histories and a larger negative re-pricing of survivors. The tighter threshold has a
+negative contribution from newly caught histories that is partly offset by positive re-pricing of
+survivors. These two level splits are NUMERICAL and sum to the corresponding engagement-premium
+changes at every grid point.
+
+\subsection{Liquidity sensitivity, the split and the bands}
 
 \paragraph{The factorisation on the grid.} The largest pointwise residual
 $|\mathcal S-(1-\Omega)\mathcal S_P|$ over the order-size-two, $H=10$ grid at frozen baseline
@@ -695,8 +1004,8 @@ node. At $H = 10$ the clock $T = 10$ is the corner $T = H$. Its flagged cell car
 \paragraph{The threshold dial on the grid.} The composition ratio is at most one at every adjacent
 threshold pair in Table~\ref{tab:threshold}. This conclusion and the resulting dial inequality are
 NUMERICAL on the order-size-two, $H=10$, $T=5$ grid at frozen benchmark policy, with
-$\kappa\in[0.15,0.85]$ in steps of $0.01$. At $T=10$ the ladder reclassifies no mass, so both legs
-equal one. The weight leg at $T=5$ lies between $0.975$ and $0.977$, with reclassified mass $0.0232$
+$\kappa\in[0.15,0.85]$ in steps of $0.01$. At $T=10$ every node is one pool, so the threshold cuts
+are null boundary checks and both legs equal one. The weight leg at $T=5$ lies between $0.975$ and $0.977$, with reclassified mass $0.0232$
 at each pair. The composition leg reaches $0.791$. The largest value of $W_\tau C_\tau$ is $0.772$,
 for the change from the $0.5$-quantile threshold to the $0.3$-quantile threshold. The claim covers
 only the named grid.
@@ -726,9 +1035,8 @@ Tighter $\tau$ quantile & From & Window $T$ & $W_\tau$ & $C_\tau$ range & $\max_
 $H=10$ grid at frozen benchmark policy, with $\kappa\in[0.15,0.85]$ in steps of $0.01$, five
 threshold nodes, and compares window margins $T=5$ against $T=10=H$ in discrete trading rounds.
 This is a model comparison across trading-round horizons rather than a calibrated replica of the
-statutory reform. The $T=10$ flagged cell is degenerate at every node, with
-$\Omega=6.8\times10^{-4}$ below the code's $0.01$ floor, so this is a corner-to-interior
-comparison. Table~\ref{tab:window} shows that the shorter clock reduces total-variation
+statutory reform. The $T=10$ nodes are one-pool boundary checks, with flagged mass
+$\Omega=6.8\times10^{-4}$ below the code's $0.01$ floor. Table~\ref{tab:window} shows that the shorter clock reduces total-variation
 sensitivity to between $2$ and $69$ percent of its long-clock value. The composition ratio runs
 from $0.024$ to $0.699$, while the weight leg reduces the pooled share by between $1.1$ and
 $10.4$ percent.
@@ -738,9 +1046,9 @@ $10.4$ percent.
 \caption{The window record at fixed policies (NUMERICAL, $\kappa\in[0.15,0.85]$ in steps of
 $0.01$, order size two, $H=10$, frozen benchmark policy): cutting the clock from $T = 10$ to $T = 5$ at
 each threshold node. Sensitivities are total variations of $\Dact$ and $M_P$ over the $\kappa$
-grid. At $H = 10$ the clock $T = 10$ is the corner $T = H$ and its flagged cell is degenerate
-($\Omega = 6.8\times10^{-4}$, below the code's floor of $0.01$), so the comparison is a
-corner-versus-interior comparison.}
+grid. At $H = 10$ the clock $T = 10$ equals the horizon and its flagged cell is degenerate
+($\Omega = 6.8\times10^{-4}$, below the code's floor of $0.01$), so those nodes are one-pool
+boundary checks.}
 \label{tab:window}
 \begin{tabular}{ccccc}
 \toprule
@@ -756,7 +1064,7 @@ $\tau$ quantile & $\Omega(\tau,5)$ & $W_T$ & $C_T$ & $W_T C_T$ \\
 \end{table}
 
 \paragraph{Who gets caught on the record.} On the five-node
-clock-composition grid, the caught leg lies strictly inside the corollary's
+clock-composition grid, the net cut leg lies strictly inside the corollary's
 band and $C_T<1$ at every node (NUMERICAL, frozen benchmark policy, point derivatives at
 $\kappa=0.5$, order size two, $H=10$, $T'=5$ against $T=10=H$, with the $T=10$ flagged cell
 degenerate at every node because $\Omega=6.8\times10^{-4}<0.01$). The pool sensitivity is
@@ -766,13 +1074,72 @@ from $18$ to $182$, and $C_T$ ranges from $0.013$ to $0.643$.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig2_who_gets_caught.pdf}
-\caption{The who-gets-caught record at five threshold nodes. The left panel places $s_B$
+\caption{The who-gets-caught record at five threshold nodes. The left panel places the net cut leg $s_B$
 strictly between $s_A$ and $((2-\varphi)/\varphi)s_A$, and the right panel has $C_T<1$, at
 every node (NUMERICAL, frozen benchmark policy, point derivatives at $\kappa=0.5$, order size
 two, $H=10$, $T'=5$ against $T=10=H$, with the $T=10$ flagged cell degenerate at every node
 because $\Omega=6.8\times10^{-4}<0.01$). The right panel marks $1$ as the ceiling.}
 \label{fig:caught}
 \end{figure}
+
+\noindent\textsc{Label: NUMERICAL.}\par
+The one-crossing lemma applied to the record's coefficients places the median clock cutoff at
+$\kappa=0.146$ and the median five-round threshold cutoff at $\kappa=0.149$. Their printed
+composition intervals therefore start at 0.15 and cover the full grid. Table~\ref{tab:cut-split}
+reports the net cut split across every non-null node at $\kappa=0.5$.
+
+\begin{table}[H]
+\centering
+\caption{The net cut split and composition intervals (NUMERICAL). Re-pricing share is the
+survivors' re-pricing term divided by the net cut leg at $\kappa=0.5$ and is reported across every
+non-null node of the stated margin.}
+\label{tab:cut-split}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Margin & Pairs & Max flagged mass & Re-pricing share & Cutoff & Starts \\
+\midrule
+Clock, $T=5$ against $T=10$ & 5 & 0.104 & 93.2 to 98.0 percent & 0.146 & 0.15 \\
+Threshold, $T=5$ & 4 & 0.023 & 84.2 to 97.2 percent & 0.149 & 0.15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Inside a threshold pair's reversal interval the net cut leg crosses zero, so its re-pricing share
+is undefined and is not reported there.
+
+\noindent\textsc{Label: NUMERICAL.}\par
+\paragraph{Remark.} At the median node the clock reversal interval is 0.02 to 0.02, where the
+looser and tighter pooled sensitivities are \texttt{6.6e-09} and \texttt{2.0e-06}, compared with
+\texttt{8.1e-04} and \texttt{1.1e-04} at $\kappa=0.5$; the median five-round threshold reversal
+interval is 0.144 to 0.148.
+
+\subsection{The benchmark policy and the numerical reconciliation}
+
+\noindent\textsc{Label: NUMERICAL.}\par
+At benchmark prices and beliefs, a one-step deviation changes only the plan at one signal on the
+truncated support. Across the full design of 15 nodes and a mesh width of 1e-5, the largest bound is
+\texttt{2.4e-04}; the largest bound among the five-round and ten-round nodes is also
+\texttt{2.4e-04}. This is 0.63 percent of the payoff normaliser 0.038. The calculation implements
+Proposition~\ref{app:prop:regret} under its stated deviation convention.
+
+\begin{table}[H]
+\centering
+\caption{Benchmark one-step deviation bound (NUMERICAL). The benchmark pass, prices and beliefs are
+fixed; the signal support is truncated; a cutoff takes the plan on its right.}
+\label{tab:regret}
+\begin{tabular}{cccccc}
+\toprule
+Design nodes & Mesh width & Largest bound & Largest, $T=5,10$ & Normaliser & Share \\
+\midrule
+15 & 1e-5 & \texttt{2.4e-04} & \texttt{2.4e-04} & 0.038 & 0.63 percent \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The reference belief on empty mark-path histories perturbs the coefficient calculations by at most
+\texttt{2.7e-09}, below the smallest sign margin \texttt{1.1e-07}. The signs used by the exact
+liquidity representation and the numerical record therefore agree.
 
 %==============================================================================
 \section{The empirics: the stake at filing and the clock}
@@ -910,19 +1277,35 @@ Post (from 2024-02-05)   & 1677 & 75.9 $[73.8,\ 77.9]$ & 5.0 \\
 \section{Conclusion}
 \label{sec:conclusion}
 
-A disclosure rule partitions the histories that reach a control decision. At fixed plan,
-cutoff, and execution policies, the expected engagement premium's liquidity sensitivity equals
-the pooled share times the pooled cell's sensitivity. This factorisation and the liquidity
-invariance of the flagged endpoint are PROVED.
+A disclosure rule partitions histories before it changes market inference. At fixed trading
+policies, the engagement premium is the premium wedge times the probability of bidder entry against
+an engaged blockholder (Lemma~\ref{app:lem:entry-identity}, PROVED). Within pooled histories, entry
+on a silent history is weakly higher than on a tape-detected history at a fixed fundamental
+posterior mean. The filing and the tape detect opposite Voice types. The rule catches fast builders
+with few orders, while the tape is more likely to identify slow builders with many orders
+(Lemmas~\ref{app:lem:detection},
+\ref{app:lem:upper-set}, and~\ref{app:lem:entry-undetected}, PROVED).
 
-The two legal dials act differently on that partition. The threshold's weight effect is PROVED.
-Its composition effect is NUMERICAL on the order-size-two, $H=10$, $T=5$ grid at frozen benchmark
-policy, across four adjacent threshold pairs and $\kappa\in[0.15,0.85]$ in steps of $0.01$. For the clock, the
-condition $W_TC_T\leq1$ is a PROVED necessary and sufficient condition for attenuation at fixed
-policies. The who-gets-caught corollary is also PROVED. It characterises $C_T$ through the
-sensitivity of the premium mass removed from the pool, including the re-pricing of the
-survivors. The pooled experiment's garbling order and polynomial form are PROVED at order size
-two.
+More liquidity erases more building marks. The pooled engagement premium is strictly increasing
+above a root below the calibration grid at every node, and the shorter clock's effect on the
+engagement premium grows sharply with liquidity (Lemma~\ref{app:lem:one-crossing}, NUMERICAL). At
+the same time, tightening either policy dial weakly improves the market's control-date experiment
+in Blackwell's order (Theorem~\ref{app:thm:blackwell}, PROVED). That order does not sign the
+liquidity sensitivity of the premium.
+
+The sensitivity results give the accounting behind the level result. Total liquidity sensitivity
+is the pooled share times the pool's own sensitivity (Proposition~\ref{app:prop:factorisation},
+PROVED). For either dial, the net cut leg determines whether the tighter rule lowers that
+sensitivity. The net cut leg includes the histories newly caught by the rule and the re-pricing of
+the histories left in the pool (Corollaries~\ref{app:cor:caught}
+and~\ref{app:cor:caught-threshold}, PROVED). On the calibration, survivors' re-pricing supplies most
+of that leg.
+
+These comparisons hold the menu, cutoff vector and stake paths fixed. At benchmark prices and
+beliefs, the largest one-step deviation bound across the fifteen design nodes is
+\texttt{2.4e-04}, or 0.63 percent of the payoff normaliser (Proposition~\ref{app:prop:regret},
+NUMERICAL). This is the quantitative check on the fixed benchmark policy under the stated
+deviation convention.
 
 The empirical measurement is descriptive, with the post-minus-pre differences labelled ESTIMATED.
 Among initial Schedule 13D campaigns with readable stakes from 2021 to 2025, the median stake at
